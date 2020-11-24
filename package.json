@@ -1,0 +1,56 @@
+{
+  "name": "sunny-guides",
+  "version": "1.0.0",
+  "description": "This is the repository for the SY website",
+  "scripts": {
+    "clean": "lerna run clean",
+    "deploy": "lerna run deploy",
+    "graphql-deploy": "lerna run graphql-deploy",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --write .",
+    "postinstall": "lerna bootstrap",
+    "sanity-deploy": "lerna run sanity-deploy",
+    "start": "lerna run clean && lerna run start --parallel",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "precommit": "lint-staged"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SearchEngineUnity/seu.git"
+  },
+  "keywords": [
+    "SY Website",
+    "landing",
+    "gatsby",
+    "sanity.io"
+  ],
+  "author": "SEU",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SearchEngineUnity/seu/issues"
+  },
+  "homepage": "https://github.com/SearchEngineUnity/seu#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "husky": "^4.2.5",
+    "lerna": "^3.22.1",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,42 @@
+{
+  "name": "sy-studio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "package.json",
+  "author": "SEU Developer <dev@searchengineunity.com>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "sanity start",
+    "test": "sanity check",
+    "deploy": "npm run graphql-deploy && npm run sanity-deploy",
+    "graphql-deploy": "sanity graphql deploy --generation gen2",
+    "sanity-deploy": "sanity deploy",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "dependencies": {
+    "@sanity/base": "^1.149.18",
+    "@sanity/color-input": "^1.149.16",
+    "@sanity/components": "^1.149.18",
+    "@sanity/core": "^1.149.18",
+    "@sanity/default-layout": "^1.149.18",
+    "@sanity/default-login": "^1.149.18",
+    "@sanity/desk-tool": "^1.149.18",
+    "@sanity/vision": "^1.149.16",
+    "prop-types": "^15.6",
+    "react": "^16.2",
+    "react-dom": "^16.2",
+    "react-icons": "^3.11.0",
+    "sanity-plugin-media": "^0.2.13"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:SearchEngineUnity/seu.git"
+  }
+}

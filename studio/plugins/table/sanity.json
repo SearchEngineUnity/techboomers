@@ -1,0 +1,12 @@
+{
+  "parts": [
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "./table.js"
+    },
+    {
+      "implements": "part:@sanity/base/schema-type",
+      "path": "./row.js"
+    }
+  ]
+}
