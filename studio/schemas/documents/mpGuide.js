@@ -1,10 +1,10 @@
-import { RiPagesLine } from 'react-icons/ri';
+import { FaBook } from 'react-icons/fa';
 
 export default {
-  name: 'guide',
+  name: 'mpGuide',
   type: 'document',
-  title: 'Guide',
-  icon: RiPagesLine,
+  title: 'MP Guide',
+  icon: FaBook,
   fieldsets: [
     {
       name: 'general',
@@ -33,6 +33,14 @@ export default {
     {
       name: 'mainContent',
       title: 'Main Content',
+      options: {
+        collapsible: true,
+        collapsed: false,
+      },
+    },
+    {
+      name: 'chapters',
+      title: 'Chapters',
       options: {
         collapsible: true,
         collapsed: false,
@@ -133,19 +141,6 @@ export default {
       fieldset: 'general',
     },
     {
-      name: 'isChapter',
-      title: 'Is this an MP guide chapter?',
-      type: 'boolean',
-      fieldset: 'general',
-    },
-    {
-      name: 'parentGuide',
-      title: 'Please link to the MP Guide parent if this is a chapter',
-      type: 'reference',
-      to: [{ type: 'mpGuide' }],
-      fieldset: 'general',
-    },
-    {
       name: 'heroImage',
       title: 'Hero Image',
       type: 'imageSet',
@@ -170,19 +165,19 @@ export default {
       fieldset: 'social',
     },
     {
-      name: 'toc',
-      title: 'Table of Content',
-      type: 'array',
-      of: [{ type: 'tocLink' }],
-      fieldset: 'mainContent',
-      validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
       name: 'body',
       type: 'fullBlockContent',
       title: 'Body',
       fieldset: 'mainContent',
       validation: (Rule) => [Rule.required().error('Field is required')],
+    },
+    {
+      name: 'chapters',
+      title: 'List',
+      fieldset: 'chapters',
+      type: 'array',
+      of: [{ type: 'chapter' }],
+      validation: (Rule) => [Rule.required().error('List must contain at least 1 item')],
     },
     {
       name: 'slug',
@@ -225,15 +220,13 @@ export default {
   ],
   preview: {
     select: {
-      shortName: 'shortName',
+      title: 'shortName',
       slug: 'slug.current',
       media: 'heroImage.mainImage.image',
-      isChapter: 'isChapter',
     },
-    prepare({ shortName, slug, media, isChapter }) {
-      const mp = isChapter ? 'MP - ' : '';
+    prepare({ title, slug, media }) {
       return {
-        title: `${mp}${shortName}`,
+        title,
         subtitle: `/${slug}`,
         media,
       };
