@@ -1,20 +1,80 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+
 import Layout from '../containers/layout';
 import SEO from '../components/Seo';
-import Grid from '../components/Grid';
-import Hero from '../components/Hero';
-import Form from '../components/CtaForm';
-import {
-  mapSeoToProps,
-  mapGuideSegmentToProps,
-  mapHeroToProps,
-  mapCtaFormToProps,
-} from '../lib/mapToProps';
+// import Grid from '../components/Grid';
+// import Hero from '../components/Hero';
+
+import { mapSeoToProps } from '../lib/mapToProps';
+import SampleCardSegment from '../components/SampleCardSegment';
+
 // eslint-disable-next-line import/prefer-default-export
 export const query = graphql`
   query PageTemplate($slug: String) {
     page: sanityPage(slug: { current: { eq: $slug } }) {
+      slug {
+        current
+      }
+      segments {
+        ... on SanityGrid {
+          _key
+          _type
+          col
+          design
+          title
+          subTitle
+          cards {
+            _key
+            cardImage {
+              alt
+              image {
+                asset {
+                  fluid {
+                    src
+                  }
+                }
+              }
+            }
+            description
+            title
+            btnText
+            cardLink {
+              externalLink {
+                href
+              }
+              internalLink {
+                reference {
+                  ... on SanityGuide {
+                    _type
+                    slug {
+                      current
+                    }
+                  }
+                  ... on SanityMpGuide {
+                    _type
+                    slug {
+                      current
+                    }
+                  }
+                  ... on SanityPage {
+                    _type
+                    slug {
+                      current
+                    }
+                  }
+                }
+              }
+            }
+          }
+          _rawFooter(resolveReferences: { maxDepth: 10 })
+        }
+        ... on SanityHero {
+          _key
+          _type
+          title
+        }
+      }
       slug {
         current
       }
@@ -35,109 +95,6 @@ export const query = graphql`
         }
         title
       }
-      segments {
-        ... on SanityBlockSegment {
-          _key
-          _type
-          idTag
-          _rawContent(resolveReferences: { maxDepth: 10 })
-        }
-        ... on SanityCtaForm {
-          _key
-          _type
-          idTag
-          subtitle
-          title
-          _rawDisclaimer(resolveReferences: { maxDepth: 10 })
-          form {
-            _key
-            formFields {
-              ... on SanityInput {
-                _key
-                _type
-                inputType
-                label
-                name
-                placeholder
-                required
-              }
-              ... on SanityTextarea {
-                _key
-                _type
-                label
-                name
-                placeholder
-                required
-                rows
-              }
-            }
-            name
-            submit
-          }
-        }
-        ... on SanityGuideSegment {
-          _key
-          _type
-          cards {
-            _id
-            pdf {
-              asset {
-                url
-                title
-              }
-            }
-            platform {
-              name
-              logo {
-                asset {
-                  url
-                }
-              }
-              device
-            }
-            title
-            software {
-              name
-              logo {
-                asset {
-                  url
-                }
-              }
-            }
-          }
-          idTag
-          col
-          title
-          subtitle
-        }
-        ... on SanityHero {
-          _key
-          _type
-          idTag
-          mediaIsBg
-          heroBg {
-            hex
-          }
-          heroMedia {
-            ... on SanityIllustration {
-              _key
-              _type
-              asset {
-                url
-              }
-              alt
-            }
-            ... on SanityVideo {
-              _key
-              _type
-              url
-              title
-            }
-          }
-          title
-          _rawSubtitle(resolveReferences: { maxDepth: 10 })
-        }
-      }
     }
     site {
       siteMetadata {
@@ -146,8 +103,10 @@ export const query = graphql`
     }
   }
 `;
+
 export default ({ data }) => {
   const type = 'page';
+
   return (
     <Layout>
       <SEO {...mapSeoToProps(data.page, data.site.siteMetadata.siteUrl, type)} />
@@ -155,16 +114,21 @@ export default ({ data }) => {
         {data.page.segments.map((segment) => {
           const { _type } = segment;
           switch (_type) {
-            case 'blockSegment':
-              return <div>This is a block segment</div>;
-            case 'guideSegment':
-              return <Grid key={segment._key} {...mapGuideSegmentToProps(segment)} />;
-            case 'ctaForm':
-              return <Form key={segment._key} {...mapCtaFormToProps(segment)} />;
+            case 'grid':
+              return (
+                // <div>This is the Grid section</div>
+                // <Article id={section._key} {...mapArticleToProps(section)} />
+                <SampleCardSegment />
+              );
+
             case 'hero':
-              return <Hero key={segment._key} {...mapHeroToProps(segment)} />;
+              return (
+                <div key={segment._key}>This is the Hero section</div>
+                // <Hero id={section._key} {...mapHeroToProps(section)} />
+              );
+
             default:
-              return <div key="default"> Still under development</div>;
+              return <div>Still under development</div>;
           }
         })}
       </main>

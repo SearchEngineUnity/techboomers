@@ -5,7 +5,7 @@ import { AiOutlineGlobal } from 'react-icons/ai';
 
 export default () =>
   S.list()
-    .title('SY')
+    .title('Learning Centre')
     .items([
       S.listItem()
         .title('Site Settings')
@@ -35,11 +35,14 @@ export default () =>
             .items([
               S.documentTypeListItem('navMenu').title('Navigation Menus'),
               S.documentTypeListItem('page').title('Structured Pages'),
+              S.divider(),
+              S.documentTypeListItem('guide').title('Guides'),
+              S.documentTypeListItem('mpGuide').title('MP Guides'),
+              S.documentTypeListItem('category').title('Guide Categories'),
+              S.divider(),
               S.documentTypeListItem('redirect').title('Redirects'),
             ]),
         ),
       S.divider(),
-      S.documentTypeListItem('guide').title('Guides'),
-      S.documentTypeListItem('app').title('Apps'),
-      S.documentTypeListItem('os').title('OS'),
+      S.documentTypeListItem('person').title('People'),
     ]);

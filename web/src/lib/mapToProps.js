@@ -241,13 +241,3 @@ export function mapGuideCardToProps({ h1, slug, excerpt, cardImage, displayDate 
     url: `/${slug.current}`,
   };
 }
-
-
-export function mapGuideHeroToProps({ h1, author, displayDate, heroImage }) {
-  return {
-    h1,
-    author,
-    displayDate,
-    image: heroImage?.mainImage?.image?.asset?.url,
-  };
-}
