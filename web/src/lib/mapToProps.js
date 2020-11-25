@@ -229,3 +229,25 @@ export function mapGuideSegmentToProps({ idTag, title, subtitle, col, cards }) {
     cards,
   };
 }
+
+export function mapGuideCardToProps({ h1, slug, excerpt, cardImage, displayDate }) {
+  return {
+    title: h1,
+    date: displayDate,
+    excerpt,
+    image: cardImage?.mainImage?.image?.asset?.fluid,
+    imageAlt: cardImage?.mainImage?.alt,
+    imageFilename: cardImage?.mainImage?.image?.asset?.originalFilename,
+    url: `/${slug.current}`,
+  };
+}
+
+
+export function mapGuideHeroToProps({ h1, author, displayDate, heroImage }) {
+  return {
+    h1,
+    author,
+    displayDate,
+    image: heroImage?.mainImage?.image?.asset?.url,
+  };
+}

@@ -1,11 +1,15 @@
 import BaseBlockContent from '@sanity/block-content-to-react';
 import React from 'react';
 import { Link } from 'gatsby';
+import Illustration from './Illustration';
 
 const serializers = {
   types: {
     block({ children }) {
-      return <p>{children}</p>;
+      return <div>{children}</div>;
+    },
+    illustration({ node }) {
+      return <Illustration illustration={node} />;
     },
   },
   marks: {
