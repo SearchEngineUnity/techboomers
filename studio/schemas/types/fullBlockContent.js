@@ -4,6 +4,7 @@ import ExternalLinkRenderer from '../components/ExternalLinkRenderer';
 import InternalLinkRenderer from '../components/InternalLinkRenderer';
 import JumpLinkRenderer from '../components/JumpLinkRenderer';
 import InlineImageRenderer from '../components/InlineImageRenderer';
+import InlineIconRenderer from '../components/InlineIconRenderer';
 
 export default {
   title: 'Block Content',
@@ -89,6 +90,15 @@ export default {
             },
             validation: (Rule) => [Rule.required().error('Missing Image')],
           },
+          {
+            title: 'Inline Icon',
+            name: 'inlineIcon',
+            type: 'image',
+            blockEditor: {
+              render: InlineIconRenderer,
+            },
+            validation: (Rule) => [Rule.required().error('Missing Image')],
+          },
         ],
       },
     },
@@ -107,5 +117,7 @@ export default {
     {
       type: 'highlightBox',
     },
+    { type: 'instagram' },
+    { type: 'videoEmbed' },
   ],
 };
