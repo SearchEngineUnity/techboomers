@@ -5,7 +5,7 @@ import BasicTable from './BasicTable';
 import CtaBtn from './CtaBtn';
 import Illustration from './Illustration';
 import InlineImage from './InlineImage';
-import HighlightBox from '../HighlightBox';
+import HighlightBox from '../HightlightBox/HighlightBox';
 import SmartTable from './SmartTable';
 
 const serializers = {

@@ -2,7 +2,7 @@ import React from 'react';
 // import './highlightImportant.css';
 import { AiFillExclamationCircle } from 'react-icons/ai';
 import { Alert } from 'react-bootstrap';
-import ArticleContent from './block-contents/ArticleSerializer';
+import ArticleContent from '../block-contents/ArticleSerializer';
 
 function HighlightImportant({ blockContent, id }) {
   return (

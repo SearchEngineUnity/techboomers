@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FaBook } from 'react-icons/fa';
 import { Alert } from 'react-bootstrap';
-import ArticleContent from './block-contents/ArticleSerializer';
+import ArticleContent from '../block-contents/ArticleSerializer';
 
 function HighlightDefinition({ blockContent, id }) {
   return (

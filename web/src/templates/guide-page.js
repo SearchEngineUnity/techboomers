@@ -29,11 +29,9 @@ export const query = graphql`
         cardImage {
           mainImage {
             alt
-            image {
-              asset {
-                fluid {
-                  ...GatsbySanityImageFluid
-                }
+            asset {
+              fluid {
+                ...GatsbySanityImageFluid
               }
             }
           }
@@ -54,11 +52,10 @@ export const query = graphql`
         cardImage {
           mainImage {
             alt
-            image {
-              asset {
-                fluid {
-                  ...GatsbySanityImageFluid
-                }
+
+            asset {
+              fluid {
+                ...GatsbySanityImageFluid
               }
             }
           }

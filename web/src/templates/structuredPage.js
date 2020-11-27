@@ -28,11 +28,9 @@ export const query = graphql`
             _key
             cardImage {
               alt
-              image {
-                asset {
-                  fluid {
-                    src
-                  }
+              asset {
+                fluid {
+                  src
                 }
               }
             }
