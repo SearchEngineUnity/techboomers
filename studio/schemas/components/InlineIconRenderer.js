@@ -11,7 +11,7 @@ const InlineImageRenderer = ({ asset, children }) => {
 
     return (
       <span>
-        <img src={`${imageCdn}${image}`} alt={children} width="100%" height="auto" />
+        <img src={`${imageCdn}${image}`} alt={children} width="auto" height="16" />
       </span>
     );
   }
