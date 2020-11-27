@@ -5,13 +5,18 @@ import Layout from '../containers/layout';
 import GuideHero from '../components/GuideHero';
 import GuideBody from '../components/block-contents/GuideSerializer';
 import ToC from '../components/TableOfContent';
-import SocialSharing from '../components/SocialSharing';
+// import SocialSharing from '../components/SocialSharing';
 import SEO from '../components/Seo';
 
 import { mapGuideHeroToProps, mapSeoToProps } from '../lib/mapToProps';
 
 export const query = graphql`
   query guideTemplate($slug: String) {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
     guide: sanityGuide(slug: { current: { eq: $slug } }) {
       slug {
         current
@@ -25,19 +30,6 @@ export const query = graphql`
       nofollow
       canonical
       id
-      heroImage {
-        mainImage {
-          alt
-          image {
-            asset {
-              url
-              fluid {
-                ...GatsbySanityImageFluid
-              }
-            }
-          }
-        }
-      }
       h1
       facebook {
         title
@@ -60,10 +52,15 @@ export const query = graphql`
       }
       description
       displayDate
-    }
-    site {
-      siteMetadata {
-        siteUrl
+      heroImage {
+        mainImage {
+          alt
+          asset {
+            fluid {
+              src
+            }
+          }
+        }
       }
     }
   }
@@ -71,11 +68,10 @@ export const query = graphql`
 
 export default ({ data }) => {
   const type = 'guide';
-  const url = `${data.site.siteMetadata.siteUrl}/${data.guide.slug.current}`;
+  // const url = `${data.site.siteMetadata.siteUrl}/${data.guide.slug.current}`;
 
   return (
     // Need code here for if banner return banner
-
     <Layout>
       <SEO {...mapSeoToProps(data.guide, data.site.siteMetadata.siteUrl, type)} />
       <GuideHero {...mapGuideHeroToProps(data.guide)} />
@@ -87,9 +83,7 @@ export default ({ data }) => {
           <article className="col-md-8 col-12">
             <GuideBody blocks={data.guide._rawBody} />
           </article>
-          <div className="col-md-2">
-            <SocialSharing url={url} />
-          </div>
+          {/* <div className="col-md-2"><SocialSharing url={url} /></div> */}
         </div>
       </Container>
     </Layout>

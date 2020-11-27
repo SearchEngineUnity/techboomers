@@ -2,7 +2,7 @@ import React from 'react';
 // import './highlightWarning.css';
 import { FaExclamationTriangle } from 'react-icons/fa';
 import { Alert } from 'react-bootstrap';
-import ArticleContent from './block-contents/ArticleSerializer';
+import ArticleContent from '../block-contents/ArticleSerializer';
 
 function HighlightWarning({ blockContent, id }) {
   return (

@@ -2,7 +2,7 @@ import React from 'react';
 // import './highlightProTip.css';
 import { FaRegThumbsUp } from 'react-icons/fa';
 import { Alert } from 'react-bootstrap';
-import ArticleContent from './block-contents/ArticleSerializer';
+import ArticleContent from '../block-contents/ArticleSerializer';
 
 function HighlightProTip({ blockContent, id }) {
   console.log(JSON.stringify(blockContent, null, 2));
