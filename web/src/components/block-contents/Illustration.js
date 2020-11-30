@@ -4,10 +4,9 @@ import { getFluidGatsbyImage } from 'gatsby-source-sanity';
 import sanityConfig from '../../../sanityConfig';
 
 function Illustration({ illustration }) {
-  const imageFluid =
-    illustration?.image?.asset?.id || 'image-ba93a9e77b70952257bc194613928b6374960f11-220x124-png';
+  const imageFluid = illustration?.asset?.id;
   const fluidProps = getFluidGatsbyImage(imageFluid, {}, sanityConfig);
-  const imageFilename = illustration?.image?.asset?.originalFilename || 'image';
+  const imageFilename = illustration?.asset?.originalFilename || 'image';
 
   return (
     <div style={{ marginBottom: '16px' }}>

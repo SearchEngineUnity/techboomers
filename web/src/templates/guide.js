@@ -56,8 +56,9 @@ export const query = graphql`
         mainImage {
           alt
           asset {
+            url
             fluid {
-              src
+              ...GatsbySanityImageFluid
             }
           }
         }
@@ -72,7 +73,8 @@ export default ({ data }) => {
 
   return (
     // Need code here for if banner return banner
-    <Layout>
+    // <Layout>
+    <>
       <SEO {...mapSeoToProps(data.guide, data.site.siteMetadata.siteUrl, type)} />
       <GuideHero {...mapGuideHeroToProps(data.guide)} />
       <Container>
@@ -80,12 +82,13 @@ export default ({ data }) => {
           <div className="col-md-2">
             <ToC toc={data.guide.toc} />
           </div>
-          <article className="col-md-8 col-12">
+          <article className="col-md-10 col-12">
             <GuideBody blocks={data.guide._rawBody} />
           </article>
           {/* <div className="col-md-2"><SocialSharing url={url} /></div> */}
         </div>
       </Container>
-    </Layout>
+    </>
+    // </Layout>
   );
 };

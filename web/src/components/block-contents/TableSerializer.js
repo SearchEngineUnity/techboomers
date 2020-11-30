@@ -1,7 +1,34 @@
 import BaseBlockContent from '@sanity/block-content-to-react';
 import React from 'react';
 import { Link } from 'gatsby';
+import styled from 'styled-components';
 import Illustration from './Illustration';
+
+const NoIndentUl = styled.ul`
+  list-style-type: circle;
+  margin-left: 1.4rem;
+  padding-left: 0;
+  margin-bottom: 0;
+
+  & > li {
+    position: relative;
+  }
+`;
+
+const NoIndentOl = styled.ol`
+  list-style-type: decimal;
+  margin-left: 1.4rem;
+  padding-left: 0;
+  margin-bottom: 0;
+
+  & > li {
+    position: relative;
+  }
+`;
+
+const PaddedLi = styled.li`
+  margin-bottom: 1rem;
+`;
 
 const serializers = {
   types: {
@@ -32,6 +59,17 @@ const serializers = {
         </a>
       );
     },
+  },
+  list: ({ children }) => {
+    switch (children[0].props.node.listItem) {
+      case 'bullet':
+        return <NoIndentUl>{children}</NoIndentUl>;
+      default:
+        return <NoIndentOl>{children}</NoIndentOl>;
+    }
+  },
+  listItem: ({ children }) => {
+    return <PaddedLi>{children}</PaddedLi>;
   },
 };
 

@@ -6,7 +6,7 @@ export default {
     {
       name: 'nav',
       type: 'reference',
-      to: [{ type: 'page' }],
+      to: [{ type: 'page' }, { type: 'mpGuide' }, { type: 'guide' }],
     },
     {
       name: 'isButton',
