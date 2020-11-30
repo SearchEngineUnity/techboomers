@@ -114,18 +114,7 @@ export function mapHeroToProps({ idTag, title, heroMedia, _rawSubtitle }) {
 //     id: idTag,
 //   };
 // }
-export function mapCardToProps({ title, _key, pdf, platform, software }) {
-  return {
-    title,
-    idTag: _key,
-    pdfURL: pdf?.asset?.url,
-    appName: software.name,
-    appIcon: software.logo.asset.url,
-    osName: platform.name,
-    osIcon: platform.logo.asset.url,
-    osDevice: platform.device,
-  };
-}
+
 // export function mapGuideCardToProps({ h1, slug, excerpt, cardImage, displayDate }) {
 //   return {
 //     title: h1,
@@ -163,7 +152,7 @@ export function mapGuideHeroToProps({ h1, author, displayDate, heroImage }) {
     h1,
     author,
     displayDate,
-    image: heroImage?.mainImage?.image?.asset?.url,
+    image: heroImage?.mainImage?.asset?.url,
   };
 }
 export function mapCtaFormToProps({ idTag, title, subtitle, form, _rawDisclaimer }) {
@@ -235,9 +224,9 @@ export function mapGuideCardToProps({ h1, slug, excerpt, cardImage, displayDate 
     title: h1,
     date: displayDate,
     excerpt,
-    image: cardImage?.mainImage?.image?.asset?.fluid,
+    image: cardImage?.mainImage?.asset?.fluid,
     imageAlt: cardImage?.mainImage?.alt,
-    imageFilename: cardImage?.mainImage?.image?.asset?.originalFilename,
+    imageFilename: cardImage?.mainImage?.asset?.originalFilename,
     url: `/${slug.current}`,
   };
 }

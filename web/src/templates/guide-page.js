@@ -52,7 +52,6 @@ export const query = graphql`
         cardImage {
           mainImage {
             alt
-
             asset {
               fluid {
                 ...GatsbySanityImageFluid

@@ -1,12 +1,45 @@
 import BaseBlockContent from '@sanity/block-content-to-react';
 import React from 'react';
 import { Link, graphql } from 'gatsby';
+import ReactPlayer from 'react-player';
+import styled from 'styled-components';
 import BasicTable from './BasicTable';
 import CtaBtn from './CtaBtn';
 import Illustration from './Illustration';
 import InlineImage from './InlineImage';
+import InlineIcon from './InlineIcon';
 import HighlightBox from '../HightlightBox/HighlightBox';
 import SmartTable from './SmartTable';
+
+const StyledReactPlayer = styled(ReactPlayer)`
+  margin-bottom: 1rem;
+`;
+
+const NoIndentUl = styled.ul`
+  list-style-type: circle;
+  margin-left: 1.4rem;
+  padding-left: 0;
+  margin-bottom: 0;
+
+  & > li {
+    position: relative;
+  }
+`;
+
+const NoIndentOl = styled.ol`
+  list-style-type: decimal;
+  margin-left: 1.4rem;
+  padding-left: 0;
+  margin-bottom: 0;
+
+  & > li {
+    position: relative;
+  }
+`;
+
+const PaddedLi = styled.li`
+  margin-bottom: 1rem;
+`;
 
 const serializers = {
   types: {
@@ -58,7 +91,7 @@ const serializers = {
           return <blockquote>{props.children}</blockquote>;
 
         default:
-          return <p>{props.children}</p>;
+          return props.children[0] ? <p>{props.children}</p> : <br />;
       }
     },
     ctaButton({ node }) {
@@ -75,6 +108,12 @@ const serializers = {
     },
     smartTable({ node }) {
       return <SmartTable smartTable={node} />;
+    },
+    instagram({ node }) {
+      return <p>Work in progress</p>;
+    },
+    videoEmbed({ node }) {
+      return <StyledReactPlayer url={node.url} controls />;
     },
   },
   marks: {
@@ -113,6 +152,29 @@ const serializers = {
           return <p>doesn't work</p>; // eslint-disable-line
       }
     },
+    inlineIcon: ({ mark, children }) => {
+      switch (mark._type) {
+        case 'inlineIcon':
+          if (mark.asset) {
+            return <InlineIcon image={mark.asset} alt={children[0]} />;
+          }
+          return null;
+
+        default:
+          return <p>doesn't work</p>; // eslint-disable-line
+      }
+    },
+  },
+  list: ({ children }) => {
+    switch (children[0].props.node.listItem) {
+      case 'bullet':
+        return <NoIndentUl>{children}</NoIndentUl>;
+      default:
+        return <NoIndentOl>{children}</NoIndentOl>;
+    }
+  },
+  listItem: ({ children }) => {
+    return <PaddedLi>{children}</PaddedLi>;
   },
 };
 

@@ -28,12 +28,10 @@ export const query = graphql`
       heroImage {
         mainImage {
           alt
-          image {
-            asset {
-              url
-              fluid {
-                ...GatsbySanityImageFluid
-              }
+          asset {
+            url
+            fluid {
+              ...GatsbySanityImageFluid
             }
           }
         }
