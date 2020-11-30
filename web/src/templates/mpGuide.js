@@ -67,7 +67,8 @@ export default ({ data, pageContext }) => {
   const { slug, chaptersArray } = pageContext;
 
   return (
-    <Layout>
+    // <Layout>
+    <>
       <SEO {...mapSeoToProps(data.guide, data.site.siteMetadata.siteUrl, type)} />
       <GuideHero {...mapGuideHeroToProps(data.guide)} />
       <MpGuideToc
@@ -84,6 +85,7 @@ export default ({ data, pageContext }) => {
           </Col>
         </Row>
       </Container>
-    </Layout>
+    </>
+    // </Layout>
   );
 };

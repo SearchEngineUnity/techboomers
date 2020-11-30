@@ -41,7 +41,9 @@
     "styled-components": "^5.2.0"
   },
   "devDependencies": {
-    "prettier": "2.0.5"
+    "prettier": "2.0.5",
+    "gatsby": "^2.23.12",
+    "gatsby-cli": "^2.14.1"
   },
   "keywords": [
     "gatsby"

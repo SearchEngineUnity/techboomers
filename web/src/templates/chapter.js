@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { Container, Row, Button } from 'react-bootstrap';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import { LinkedinIcon } from 'react-share';
+// import { LinkedinIcon } from 'react-share';
 import Layout from '../containers/layout';
 import GuideBody from '../components/block-contents/GuideSerializer';
 import ToC from '../components/TableOfContent';
@@ -97,7 +97,8 @@ export default ({ data, pageContext }) => {
   });
 
   return (
-    <Layout>
+    // <Layout>
+    <>
       <SEO {...mapSeoToProps(data.guide, data.site.siteMetadata.siteUrl, type, mpUrl)} />
       <Container>
         <div className="row">
@@ -149,6 +150,7 @@ export default ({ data, pageContext }) => {
           <div className="col-lg-2 col-md-12" />
         </div>
       </Container>
-    </Layout>
+    </>
+    // </Layout>
   );
 };
