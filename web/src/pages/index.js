@@ -6,17 +6,17 @@ import { navigate } from '@reach/router';
 import Layout from '../containers/layout';
 import SEO from '../components/Seo';
 
-const PageNotFound = () => {
+const Home = () => {
   return (
     // <Layout>
     <>
-      <SEO title="404 - Page not found" nofollow noindex />
+      <SEO title="home page" nofollow noindex />
       <Container>
-        <div>404</div>
+        <div>Home page</div>
       </Container>
     </>
     // </Layout>
   );
 };
 
-export default PageNotFound;
+export default Home;
