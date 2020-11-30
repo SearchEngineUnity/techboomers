@@ -1,1 +1,1 @@
-web: cd web && npm start -p $PORT -H 0.0.0.0
+web: cd web && npm run develop -p $PORT -H 0.0.0.0
