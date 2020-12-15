@@ -32,7 +32,7 @@ const path = require('path');
 async function createGuidesPage(actions, graphql) {
   const { data } = await graphql(`
     {
-      allSanityPage(filter: { slug: { current: { eq: "guide" } } }) {
+      allSanityPage(filter: { slug: { current: { eq: "learn" } } }) {
         edges {
           node {
             slug {
@@ -48,7 +48,7 @@ async function createGuidesPage(actions, graphql) {
   pages.forEach((page) => {
     actions.createPage({
       path: `/${page.node.slug.current}`,
-      component: path.resolve(`./src/templates/guide-page.js`),
+      component: path.resolve(`./src/templates/learn.js`),
       context: {
         slug: page.node.slug.current,
       },
@@ -84,7 +84,7 @@ async function createGuide(actions, graphql) {
   });
 }
 
-// create MP guides
+// create MP guide homes
 async function createMpGuide(actions, graphql) {
   const { data } = await graphql(`
     {

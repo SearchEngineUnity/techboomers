@@ -5,6 +5,8 @@ import { Link } from 'gatsby';
 import { navigate } from '@reach/router';
 import Layout from '../containers/layout';
 import SEO from '../components/Seo';
+import InfogramEmbed from '../components/InfogramEmbed';
+import VismeEmbed from '../components/VismeEmbed';
 
 const Home = () => {
   return (
@@ -13,6 +15,8 @@ const Home = () => {
       <SEO title="home page" nofollow noindex />
       <Container>
         <div>Home page</div>
+        <InfogramEmbed />
+        <VismeEmbed />
       </Container>
     </>
     // </Layout>

@@ -113,7 +113,7 @@ const serializers = {
       return <p>Work in progress</p>;
     },
     videoEmbed({ node }) {
-      return <StyledReactPlayer url={node.url} controls />;
+      return <StyledReactPlayer url={node.url} width="100%" controls />;
     },
   },
   marks: {
