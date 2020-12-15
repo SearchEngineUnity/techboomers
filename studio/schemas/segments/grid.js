@@ -1,7 +1,7 @@
 export default {
   name: 'grid',
   title: 'Grid',
-  type: 'document',
+  type: 'object',
   fields: [
     {
       name: 'title',

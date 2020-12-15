@@ -1,4 +1,5 @@
 import { RiPagesLine } from 'react-icons/ri';
+import sanityClient from 'part:@sanity/base/client';
 
 export default {
   name: 'guide',
@@ -240,3 +241,28 @@ export default {
     },
   },
 };
+
+// import sanityClient from 'part:@sanity/base/client'
+// import slugify from 'some-off-the-shelf-slugifier'
+
+// function myAsyncSlugifier(input, type) {
+//   const slug = slugify(input)
+//   const query = 'count(*[_type=="movie" && slug.current == $slug]{_id})'
+//   const params = {slug: slug}
+//   return sanityClient.fetch(query, params).then(count => {
+//     console.log('Movies with identical slug', count)
+//     return `${slug}-${count + 1}`
+//   })
+// }
+
+// //…
+// // schema field
+// {
+//   title: 'Slug',
+//   name: 'slug',
+//   type: 'slug',
+//   options: {
+//     source: 'title',
+//     slugify: myAsyncSlugifier
+//   }
+// }
