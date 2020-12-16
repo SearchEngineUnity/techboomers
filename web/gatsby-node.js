@@ -4,7 +4,7 @@ const path = require('path');
 async function createStructuredPages(actions, graphql) {
   const { data } = await graphql(`
     {
-      allSanityPage() {
+      allSanityPage {
         edges {
           node {
             slug {
@@ -47,7 +47,7 @@ async function createGuide(actions, graphql) {
   const guides = data.allSanityGuide.edges;
   guides.forEach((guide) => {
     actions.createPage({
-      path: `/learn/${guide.node.slug.current}`,
+      path: `/${guide.node.slug.current}`,
       component: path.resolve(`./src/templates/guide.js`),
       context: {
         slug: guide.node.slug.current,
@@ -87,18 +87,18 @@ async function createMpGuide(actions, graphql) {
     const chaptersArray = [
       {
         title: 'Introduction',
-        link: `/learn/${guide.node.slug.current}`,
+        link: `/${guide.node.slug.current}`,
       },
     ];
     guide.node.chapters.forEach((chapter) => {
       chaptersArray.push({
         title: chapter.title,
-        link: `/learn/${guide.node.slug.current}/${chapter.chapterGuide.slug.current}`,
+        link: `/${guide.node.slug.current}/${chapter.chapterGuide.slug.current}`,
       });
     });
 
     actions.createPage({
-      path: `/learn/${guide.node.slug.current}`,
+      path: `/${guide.node.slug.current}`,
       component: path.resolve(`./src/templates/mpGuide.js`),
       context: {
         slug: guide.node.slug.current,
@@ -109,7 +109,7 @@ async function createMpGuide(actions, graphql) {
 
     guide.node.chapters.forEach((chapter) => {
       actions.createPage({
-        path: `/learn/${guide.node.slug.current}/${chapter.chapterGuide.slug.current}`,
+        path: `/${guide.node.slug.current}/${chapter.chapterGuide.slug.current}`,
         component: path.resolve(`./src/templates/chapter.js`),
         context: {
           slug: chapter.chapterGuide.slug.current,
