@@ -5,9 +5,11 @@ import Layout from '../containers/layout';
 import SEO from '../components/Seo';
 // import Grid from '../components/Grid';
 // import Hero from '../components/Hero';
+import ListingHero from '../components/ListingHero';
+import LearnListSegment from '../components/LearnListSegment';
+// import SampleCardSegment from '../components/SampleCardSegment';
 
-import { mapSeoToProps } from '../lib/mapToProps';
-import SampleCardSegment from '../components/SampleCardSegment';
+import { mapHeroToProps, mapSeoToProps } from '../lib/mapToProps';
 
 // eslint-disable-next-line import/prefer-default-export
 export const query = graphql`
@@ -30,7 +32,7 @@ export const query = graphql`
               alt
               asset {
                 fluid {
-                  src
+                  ...GatsbySanityImageFluid
                 }
               }
             }
@@ -71,6 +73,74 @@ export const query = graphql`
           _key
           _type
           title
+          heroBg {
+            hex
+          }
+          heroMedia {
+            ... on SanityIllustration {
+              _key
+              _type
+              alt
+              caption
+              asset {
+                url
+                fluid {
+                  ...GatsbySanityImageFluid
+                }
+              }
+            }
+            ... on SanityVideo {
+              _key
+              _type
+              url
+              title
+            }
+          }
+          idTag
+          mediaIsBg
+          _rawSubtitle(resolveReferences: { maxDepth: 14 })
+        }
+        ... on SanityLearningSegment {
+          _key
+          _type
+          idTag
+        }
+        ... on SanityBlockSegment {
+          _key
+          _type
+          idTag
+          _rawContent(resolveReferences: { maxDepth: 14 })
+        }
+        ... on SanityLrHero {
+          _key
+          _type
+          blocks {
+            ... on SanityIllustration {
+              _key
+              _type
+              alt
+              asset {
+                fluid {
+                  ...GatsbySanityImageFluid
+                }
+              }
+            }
+            ... on SanityTextBlock {
+              _key
+              _type
+              _rawText(resolveReferences: { maxDepth: 14 })
+              subtitle
+              title
+            }
+            ... on SanityVideo {
+              _key
+              _type
+              title
+              url
+            }
+          }
+          idTag
+          layout
         }
       }
       slug {
@@ -116,15 +186,32 @@ export default ({ data }) => {
               return (
                 // <div>This is the Grid section</div>
                 // <Article id={section._key} {...mapArticleToProps(section)} />
-                <SampleCardSegment />
+                // <SampleCardSegment />
+                <div key={segment._key}>This is the Grid segment</div>
               );
 
             case 'hero':
               return (
-                <div key={segment._key}>This is the Hero section</div>
+                <ListingHero key={segment._key} {...mapHeroToProps(segment)} />
                 // <Hero id={section._key} {...mapHeroToProps(section)} />
               );
 
+            case 'learningSegment':
+              return (
+                <LearnListSegment key={segment._key} id={segment.idTag} />
+                // <Hero id={section._key} {...mapHeroToProps(section)} />
+              );
+
+            case 'lrHero':
+              return (
+                <div key={segment._key}>This is the LR Hero segment</div>
+                // <Hero id={section._key} {...mapHeroToProps(section)} />
+              );
+            case 'blockSegment':
+              return (
+                <div key={segment._key}>This is the block segment</div>
+                // <Hero id={section._key} {...mapHeroToProps(section)} />
+              );
             default:
               return <div>Still under development</div>;
           }

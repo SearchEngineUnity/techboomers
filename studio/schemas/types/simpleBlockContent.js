@@ -3,7 +3,7 @@ import { MdLink, MdImage } from 'react-icons/md';
 import ExternalLinkRenderer from '../components/ExternalLinkRenderer';
 import InternalLinkRenderer from '../components/InternalLinkRenderer';
 import JumpLinkRenderer from '../components/JumpLinkRenderer';
-import InlineImageRenderer from '../components/InlineImageRenderer';
+import InlineIconRenderer from '../components/InlineIconRenderer';
 
 export default {
   name: 'simpleBlockContent',
@@ -74,12 +74,11 @@ export default {
             ],
           },
           {
-            title: 'Inline Image',
-            name: 'inlineImage',
+            title: 'Inline Icon',
+            name: 'inlineIcon',
             type: 'image',
             blockEditor: {
-              icon: MdImage,
-              render: InlineImageRenderer,
+              render: InlineIconRenderer,
             },
             validation: (Rule) => [Rule.required().error('Missing Image')],
           },

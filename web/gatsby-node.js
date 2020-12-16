@@ -1,38 +1,10 @@
 const path = require('path');
 
-// create all structured pages except for /guides
-// async function createStructuredPages(actions, graphql) {
-//   const { data } = await graphql(`
-//     {
-//       allSanityPage(filter: { slug: { current: { ne: "guide" } } }) {
-//         edges {
-//           node {
-//             slug {
-//               current
-//             }
-//           }
-//         }
-//       }
-//     }
-//   `);
-
-//   const pages = data.allSanityPage.edges;
-//   pages.forEach((page) => {
-//     actions.createPage({
-//       path: page.node.slug.current === '/' ? '/' : `/${page.node.slug.current}`,
-//       component: path.resolve(`./src/templates/structuredPage.js`),
-//       context: {
-//         slug: page.node.slug.current,
-//       },
-//     });
-//   });
-// }
-
-// creat guides listing page (aka /guide)
-async function createGuidesPage(actions, graphql) {
+// create all structured pages
+async function createStructuredPages(actions, graphql) {
   const { data } = await graphql(`
     {
-      allSanityPage(filter: { slug: { current: { eq: "learn" } } }) {
+      allSanityPage {
         edges {
           node {
             slug {
@@ -47,8 +19,8 @@ async function createGuidesPage(actions, graphql) {
   const pages = data.allSanityPage.edges;
   pages.forEach((page) => {
     actions.createPage({
-      path: `/${page.node.slug.current}`,
-      component: path.resolve(`./src/templates/learn.js`),
+      path: page.node.slug.current === '/' ? '/' : `/${page.node.slug.current}`,
+      component: path.resolve(`./src/templates/structuredPage.js`),
       context: {
         slug: page.node.slug.current,
       },
@@ -181,8 +153,7 @@ async function createPageRedirects(actions, graphql) {
 }
 
 exports.createPages = async ({ actions, graphql }) => {
-  // await createStructuredPages(actions, graphql);
-  await createGuidesPage(actions, graphql);
+  await createStructuredPages(actions, graphql);
   await createGuide(actions, graphql);
   await createMpGuide(actions, graphql);
   await createPageRedirects(actions, graphql);

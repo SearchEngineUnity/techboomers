@@ -6,7 +6,7 @@ import Img from 'gatsby-image';
 
 function GuideCard({ title, date, image, imageFilename, imageAlt, url }) {
   return (
-    <div className="col-lg-4 col-md-6 col-sm-12" style={{ marginBottom: '32px' }}>
+    <div className="col-lg-4 col-md-6 col-sm-12" style={{ marginBottom: '30px' }}>
       <Link to={url}>
         <Card className="h-100">
           <Img fluid={image} alt={imageAlt} title={imageFilename} />

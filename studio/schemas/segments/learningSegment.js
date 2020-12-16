@@ -5,10 +5,11 @@ export default {
   type: 'object',
   fields: [
     {
-      title: 'Filters',
-      name: 'filters',
-      type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'category' }] }],
+      name: 'idTag',
+      title: 'ID',
+      type: 'string',
+      description: 'Please use "-" in place of space',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],
   preview: {
