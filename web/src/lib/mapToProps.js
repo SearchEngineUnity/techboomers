@@ -56,12 +56,18 @@
 //     })),
 //   };
 // }
-export function mapHeroToProps({ idTag, title, heroMedia, _rawSubtitle }) {
+export function mapHeroToProps({ idTag, title, _rawSubtitle, heroMedia, heroBg, mediaIsBg }) {
   return {
     id: idTag,
     title,
-    media: heroMedia[0],
-    subtitle: _rawSubtitle,
+    heroText: _rawSubtitle,
+    mediaType: heroMedia[0]?._type,
+    video: heroMedia[0]?.url,
+    image: heroMedia[0]?.asset?.fluid,
+    imageAlt: heroMedia[0]?.asset.alt,
+    imageURL: heroMedia[0]?.asset.url,
+    backgroundColor: heroBg?.hex,
+    mediaIsBg,
   };
 }
 // export function mapPartnerCollectionToProps({ partners, title, width }) {

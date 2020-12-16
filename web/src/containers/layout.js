@@ -99,18 +99,18 @@ const Layout = ({ children }) => {
         />
       </Helmet>
       <GlobalStyle />
-      <NavWrapper>
+      {/* <NavWrapper>
         <MainNav {...mapMainNavToProps(data.sanityNavMenu)} />
-      </NavWrapper>
+      </NavWrapper> */}
       <>{children}</>
 
-      <MainFooter
+      {/* <MainFooter
         {...mapMainFooterToProps(
           data.sanityCompanyInfo,
           data.sanityCompanyLogo,
           data.allSanitySocialInfo,
         )}
-      />
+      /> */}
     </>
   );
 };

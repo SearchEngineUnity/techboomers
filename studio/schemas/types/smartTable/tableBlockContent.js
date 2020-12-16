@@ -45,7 +45,7 @@ export default {
                 name: 'reference',
                 type: 'reference',
                 title: 'Reference',
-                to: [{ type: 'guide' }, { type: 'page' }],
+                to: [{ type: 'guide' }, { type: 'page' }, { type: 'mpguide' }],
               },
             ],
           },

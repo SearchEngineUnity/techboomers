@@ -14,12 +14,13 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "@sanity/color-input",
-    "table"
+    "@sanity/vision",
+    "table",
+    "media"
   ],
   "env": {
     "development": {
       "plugins": [
-        "@sanity/vision"
       ]
     }
   },
@@ -35,6 +36,10 @@
     {
       "implements": "part:@sanity/base/document-actions/resolver",
       "path": "resolveDocumentActions.js"
+    },
+    {
+      "implements": "part:@sanity/form-builder/input/image/asset-sources",
+      "path": "./parts/assetSources.js"
     }
   ]
 }
