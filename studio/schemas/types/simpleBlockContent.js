@@ -77,6 +77,9 @@ export default {
             title: 'Inline Icon',
             name: 'inlineIcon',
             type: 'image',
+            options: {
+              storeOriginalFilename: true,
+            },
             blockEditor: {
               render: InlineIconRenderer,
             },
