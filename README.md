@@ -1,2 +1,2 @@
-# learning-centre
-This is the learning centre demo
+# demo-centre
+This is the demo centre

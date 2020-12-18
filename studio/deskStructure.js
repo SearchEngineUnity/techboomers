@@ -5,7 +5,7 @@ import { AiOutlineGlobal } from 'react-icons/ai';
 
 export default () =>
   S.list()
-    .title('Learning Centre')
+    .title('Demo Centre')
     .items([
       S.listItem()
         .title('Site Settings')
