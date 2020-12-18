@@ -25,6 +25,10 @@ export default {
       name: 'photo',
       title: 'Photo',
       type: 'image',
+      options: {
+        hotspot: true, // <-- Defaults to false
+        storeOriginalFilename: true,
+      },
     },
     {
       name: 'biography',

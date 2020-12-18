@@ -2,6 +2,10 @@ export default {
   name: 'illustration',
   title: 'Illustration',
   type: 'image',
+  options: {
+    hotspot: true, // <-- Defaults to false
+    storeOriginalFilename: true,
+  },
   fields: [
     {
       name: 'alt',

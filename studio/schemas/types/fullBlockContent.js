@@ -84,6 +84,10 @@ export default {
             title: 'Inline Image',
             name: 'inlineImage',
             type: 'image',
+            options: {
+              hotspot: true, // <-- Defaults to false
+              storeOriginalFilename: true,
+            },
             blockEditor: {
               icon: MdImage,
               render: InlineImageRenderer,
@@ -94,6 +98,9 @@ export default {
             title: 'Inline Icon',
             name: 'inlineIcon',
             type: 'image',
+            options: {
+              storeOriginalFilename: true,
+            },
             blockEditor: {
               render: InlineIconRenderer,
             },
