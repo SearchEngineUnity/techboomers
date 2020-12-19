@@ -51,7 +51,7 @@ function ListingHero({
 
 ListingHero.defaultProps = {
   imageURL: '',
-  backgroundColour: '#00ff00',
+  backgroundColor: '#00ff00',
 };
 
 ListingHero.propsTypes = {
