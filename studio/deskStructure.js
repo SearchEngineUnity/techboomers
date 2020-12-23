@@ -5,7 +5,7 @@ import { AiOutlineGlobal } from 'react-icons/ai';
 
 export default () =>
   S.list()
-    .title('Learning Centre')
+    .title('Demo Centre')
     .items([
       S.listItem()
         .title('Site Settings')
@@ -45,4 +45,5 @@ export default () =>
         ),
       S.divider(),
       S.documentTypeListItem('person').title('People'),
+      S.documentTypeListItem('testImage').title('Test Images'),
     ]);

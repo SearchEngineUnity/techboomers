@@ -23,6 +23,7 @@
     "gatsby-plugin-react-helmet": "^3.3.6",
     "gatsby-plugin-remove-serviceworker": "^1.0.0",
     "gatsby-plugin-robots-txt": "^1.5.1",
+    "gatsby-plugin-sanity-image": "^0.2.0",
     "gatsby-plugin-sharp": "^2.6.14",
     "gatsby-plugin-sitemap": "^2.4.11",
     "gatsby-plugin-styled-components": "^3.3.10",
