@@ -115,5 +115,13 @@ module.exports = {
         publicId: process.env.ADDTHIS_PUBID,
       },
     },
+    {
+      resolve: 'gatsby-plugin-sanity-image',
+      options: {
+        // Sanity project info (required)
+        projectId: '2zf5znss',
+        dataset: 'production',
+      },
+    },
   ],
 };

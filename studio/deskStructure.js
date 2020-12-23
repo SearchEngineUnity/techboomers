@@ -45,4 +45,5 @@ export default () =>
         ),
       S.divider(),
       S.documentTypeListItem('person').title('People'),
+      S.documentTypeListItem('testImage').title('Test Images'),
     ]);
