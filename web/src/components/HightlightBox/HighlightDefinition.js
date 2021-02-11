@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FaBook } from 'react-icons/fa';
-import { Alert } from 'react-bootstrap';
-import ArticleContent from '../block-contents/ArticleSerializer';
+import { Paper, Typography } from '@material-ui/core';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
+// import ArticleContent from '../block-contents/';
 
 function HighlightDefinition({ blockContent, id }) {
   return (
-    <Alert variant="dark" key={id} className="text-dark">
-      <Alert.Heading>
-        <FaBook /> Definition
-      </Alert.Heading>
-      <ArticleContent blocks={blockContent} />
-    </Alert>
+    <Paper key={id}>
+      <Typography component="p" variant="h3">
+        <MenuBookIcon /> Definition
+      </Typography>
+      <Typography component="p" variant="body1">
+        This is a definition.
+      </Typography>
+    </Paper>
   );
 }
 

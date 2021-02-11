@@ -18,9 +18,7 @@ function Toc({ toc }) {
   return (
     <div className="sticky-top">
       <h3>Table of Content</h3>
-      {toc.map((link) => {
-        return componentTypeSwitch(link);
-      })}
+      {toc.map((link) => componentTypeSwitch(link))}
     </div>
   );
 }

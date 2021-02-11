@@ -1,17 +1,19 @@
 import React from 'react';
-// import './highlightImportant.css';
-import { AiFillExclamationCircle } from 'react-icons/ai';
-import { Alert } from 'react-bootstrap';
-import ArticleContent from '../block-contents/ArticleSerializer';
+import PropTypes from 'prop-types';
+import { Paper, Typography } from '@material-ui/core';
+import ErrorIcon from '@material-ui/icons/Error';
+// import ArticleContent from '../block-contents/';
 
 function HighlightImportant({ blockContent, id }) {
   return (
-    <Alert variant="warning" key={id} className="text-dark">
-      <Alert.Heading>
-        <AiFillExclamationCircle /> Important
-      </Alert.Heading>
-      <ArticleContent blocks={blockContent} />
-    </Alert>
+    <Paper key={id}>
+      <Typography component="p" variant="h3">
+        <ErrorIcon /> Definition
+      </Typography>
+      <Typography component="p" variant="body1">
+        This is a definition.
+      </Typography>
+    </Paper>
   );
 }
 

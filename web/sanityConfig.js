@@ -1,4 +1,4 @@
 export default {
-  projectId: '2zf5znss',
+  projectId: '2xtgdu8l',
   dataset: 'production',
 };

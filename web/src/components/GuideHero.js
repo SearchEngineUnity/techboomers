@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Jumbotron, Container, Row, Col } from 'react-bootstrap';
+import { Container, Paper, Typography } from '@material-ui/core';
 
 function GuideHero({ h1, author, displayDate, image }) {
   const style = {
@@ -9,22 +9,11 @@ function GuideHero({ h1, author, displayDate, image }) {
   };
 
   return (
-    <Jumbotron fluid style={style}>
-      <Container>
-        <Row>
-          <Col className="text-white mx-auto col-md-8 col-12">
-            <h1>{h1}</h1>
-            <br />
-            <p style={{ marginBottom: '8px' }}>
-              By <span style={{ fontWeight: 'bold' }}>{author.name}</span> {author.job}
-            </p>
-            <p style={{ paddingBottom: '91px' }}>
-              Last updated: {displayDate.slice(0, 10).replace(/-/g, '/')}
-            </p>
-          </Col>
-        </Row>
+    <Paper component="section" square>
+      <Container maxWidth="lg">
+        <Typography component="h1">This is the H1</Typography>
       </Container>
-    </Jumbotron>
+    </Paper>
   );
 }
 

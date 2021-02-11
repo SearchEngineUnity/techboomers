@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Container } from 'react-bootstrap';
+import { Container, Grid } from '@material-ui/core';
 import Layout from '../containers/layout';
 import GuideHero from '../components/GuideHero';
 import GuideBody from '../components/block-contents/GuideSerializer';
@@ -77,16 +77,15 @@ export default ({ data }) => {
     <>
       <SEO {...mapSeoToProps(data.guide, data.site.siteMetadata.siteUrl, type)} />
       <GuideHero {...mapGuideHeroToProps(data.guide)} />
-      <Container>
-        <div className="row">
-          <div className="col-md-2">
+      <Container maxWidth="lg">
+        <Grid container>
+          <Grid item>
             <ToC toc={data.guide.toc} />
-          </div>
-          <article className="col-md-10 col-12">
+          </Grid>
+          <Grid item>
             <GuideBody blocks={data.guide._rawBody} />
-          </article>
-          {/* <div className="col-md-2"><SocialSharing url={url} /></div> */}
-        </div>
+          </Grid>
+        </Grid>
       </Container>
     </>
     // </Layout>

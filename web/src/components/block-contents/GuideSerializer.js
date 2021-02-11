@@ -1,6 +1,7 @@
 import BaseBlockContent from '@sanity/block-content-to-react';
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { Typography } from '@material-ui/core';
+import { Link } from 'gatsby-theme-material-ui';
 import ReactPlayer from 'react-player';
 import styled from 'styled-components';
 import BasicTable from './BasicTable';
@@ -47,51 +48,73 @@ const serializers = {
       switch (props.node.style) {
         case 'h1':
           return (
-            <h1 id={`${props.children.toString().toLowerCase().trim().replace(/ /g, '-')}`}>
+            <Typography
+              component="h1"
+              id={`${props.children.toString().toLowerCase().trim().replace(/ /g, '-')}`}
+            >
               {props.children}
-            </h1>
+            </Typography>
           );
 
         case 'h2':
           return (
-            <h2 id={`${props.children.toString().toLowerCase().trim().replace(/ /g, '-')}`}>
+            <Typography
+              component="h2"
+              id={`${props.children.toString().toLowerCase().trim().replace(/ /g, '-')}`}
+            >
               {props.children}
-            </h2>
+            </Typography>
           );
 
         case 'h3':
           return (
-            <h3 id={`${props.children.toString().toLowerCase().trim().replace(/ /g, '-')}`}>
+            <Typography
+              component="h3"
+              id={`${props.children.toString().toLowerCase().trim().replace(/ /g, '-')}`}
+            >
               {props.children}
-            </h3>
+            </Typography>
           );
 
         case 'h4':
           return (
-            <h4 id={`${props.children.toString().toLowerCase().trim().replace(/ /g, '-')}`}>
+            <Typography
+              component="h4"
+              id={`${props.children.toString().toLowerCase().trim().replace(/ /g, '-')}`}
+            >
               {props.children}
-            </h4>
+            </Typography>
           );
 
         case 'h5':
           return (
-            <h5 id={`${props.children.toString().toLowerCase().trim().replace(/ /g, '-')}`}>
+            <Typography
+              component="h5"
+              id={`${props.children.toString().toLowerCase().trim().replace(/ /g, '-')}`}
+            >
               {props.children}
-            </h5>
+            </Typography>
           );
 
         case 'h6':
           return (
-            <h6 id={`${props.children.toString().toLowerCase().trim().replace(/ /g, '-')}`}>
+            <Typography
+              component="h6"
+              id={`${props.children.toString().toLowerCase().trim().replace(/ /g, '-')}`}
+            >
               {props.children}
-            </h6>
+            </Typography>
           );
 
         case 'blockquote':
           return <blockquote>{props.children}</blockquote>;
 
         default:
-          return props.children[0] ? <p>{props.children}</p> : <br />;
+          return props.children[0] ? (
+            <Typography component="p">{props.children}</Typography>
+          ) : (
+            <br />
+          );
       }
     },
     ctaButton({ node }) {
@@ -118,14 +141,8 @@ const serializers = {
   },
   marks: {
     internalLink: ({ mark, children }) => {
-      const { slug = {}, _type, isChapter, parentGuide } = mark.reference;
-      let href = slug.current === '/' ? `/` : `/${slug.current}`;
-      let mpSlug = '';
-
-      if (_type === 'guide' && isChapter) {
-        mpSlug = parentGuide.slug.current;
-        href = `/${mpSlug}/${slug.current}`;
-      }
+      const { slug = {} } = mark.reference;
+      const href = slug.current === '/' ? `/` : `/${slug.current}`;
       return <Link to={href}>{children}</Link>;
     },
     externalLink: ({ mark, children }) => {
@@ -173,9 +190,7 @@ const serializers = {
         return <NoIndentOl>{children}</NoIndentOl>;
     }
   },
-  listItem: ({ children }) => {
-    return <PaddedLi>{children}</PaddedLi>;
-  },
+  listItem: ({ children }) => <PaddedLi>{children}</PaddedLi>,
 };
 
 const BlockContent = ({ blocks }) => <BaseBlockContent blocks={blocks} serializers={serializers} />;

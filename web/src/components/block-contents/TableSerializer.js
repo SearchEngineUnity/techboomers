@@ -1,6 +1,6 @@
 import BaseBlockContent from '@sanity/block-content-to-react';
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link } from 'gatsby-theme-material-ui';
 import styled from 'styled-components';
 import Illustration from './Illustration';
 
@@ -68,9 +68,7 @@ const serializers = {
         return <NoIndentOl>{children}</NoIndentOl>;
     }
   },
-  listItem: ({ children }) => {
-    return <PaddedLi>{children}</PaddedLi>;
-  },
+  listItem: ({ children }) => <PaddedLi>{children}</PaddedLi>,
 };
 
 const BlockContent = ({ blocks }) => <BaseBlockContent blocks={blocks} serializers={serializers} />;

@@ -1,55 +1,12 @@
 {
-  "name": "sy-gatsby",
+  "name": "web",
+  "version": "1.0.0",
   "private": true,
-  "description": "",
-  "version": "0.1.0",
-  "author": "SEU",
-  "dependencies": {
-    "@awolf81/gatsby-theme-addthis": "0.0.4",
-    "@reach/router": "^1.3.4",
-    "@sanity/block-content-to-react": "^2.0.7",
-    "@sanity/client": "^2.0.9",
-    "@sanity/image-url": "^0.140.19",
-    "babel-plugin-styled-components": "^1.11.1",
-    "bootstrap": "^4.5.0",
-    "dotenv": "^8.2.0",
-    "gatsby": "^2.23.12",
-    "gatsby-cli": "^2.14.1",
-    "gatsby-image": "^2.4.9",
-    "gatsby-plugin-google-tagmanager": "^2.3.11",
-    "gatsby-plugin-html-attributes": "^1.0.5",
-    "gatsby-plugin-manifest": "^2.4.14",
-    "gatsby-plugin-netlify": "^2.3.11",
-    "gatsby-plugin-react-helmet": "^3.3.6",
-    "gatsby-plugin-remove-serviceworker": "^1.0.0",
-    "gatsby-plugin-robots-txt": "^1.5.1",
-    "gatsby-plugin-sanity-image": "^0.2.0",
-    "gatsby-plugin-sharp": "^2.6.14",
-    "gatsby-plugin-sitemap": "^2.4.11",
-    "gatsby-plugin-styled-components": "^3.3.10",
-    "gatsby-source-filesystem": "^2.3.14",
-    "gatsby-source-sanity": "^6.0.3",
-    "gatsby-transformer-sharp": "^2.5.7",
-    "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-bootstrap": "^1.2.2",
-    "react-dom": "^16.12.0",
-    "react-google-recaptcha": "^2.1.0",
-    "react-helmet": "^6.1.0",
-    "react-icons": "^3.10.0",
-    "react-loads": "^9.2.4",
-    "react-player": "^2.7.0",
-    "scroll-to-element": "^2.0.3",
-    "styled": "^1.0.0",
-    "styled-components": "^5.2.0"
-  },
-  "devDependencies": {
-    "prettier": "2.0.5"
-  },
+  "description": "web",
+  "author": "SEU Dev",
   "keywords": [
     "gatsby"
   ],
-  "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -61,14 +18,32 @@
     "lint:fix": "eslint --fix .",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
-  "resolutions": {
-    "styled-components": "^5"
+  "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
+    "@sanity/block-content-to-react": "^2.0.7",
+    "@sanity/client": "^2.2.6",
+    "@sanity/image-url": "^0.140.22",
+    "babel-plugin-styled-components": "^1.12.0",
+    "dotenv": "^8.2.0",
+    "gatsby": "^2.32.3",
+    "gatsby-image": "^2.11.0",
+    "gatsby-plugin-google-tagmanager": "^2.11.0",
+    "gatsby-plugin-manifest": "^2.12.0",
+    "gatsby-plugin-react-helmet": "^3.10.0",
+    "gatsby-plugin-robots-txt": "^1.5.5",
+    "gatsby-plugin-sanity-image": "^0.4.0",
+    "gatsby-plugin-sharp": "^2.14.1",
+    "gatsby-plugin-sitemap": "^2.12.0",
+    "gatsby-plugin-styled-components": "^3.10.0",
+    "gatsby-source-filesystem": "^2.11.0",
+    "gatsby-source-sanity": "^6.0.5",
+    "gatsby-theme-material-ui": "^1.0.13",
+    "gatsby-transformer-sharp": "^2.12.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
+    "styled-components": "^5.2.1"
   }
 }

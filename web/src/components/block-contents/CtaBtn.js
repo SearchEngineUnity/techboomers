@@ -1,24 +1,26 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
-import { Link } from 'gatsby';
+import { Button } from 'gatsby-theme-material-ui';
+import { Button as ExternalButton } from '@material-ui/core';
 
 function CtaBtn({ btn }) {
   if (btn.internalLink) {
     return (
-      <Link to={btn.to}>
-        <Button key={btn.id} className={`${btn.size} ${btn.borderRadius}btn`}>
-          {btn.title}
-        </Button>
-      </Link>
+      <Button key={btn.id} className={`${btn.size} ${btn.borderRadius}btn`} to={btn.to}>
+        {btn.title}
+      </Button>
     );
   }
   if (btn.externalLink) {
     return (
-      <a href={btn.href} target="_blank" rel="noopener noreferrer">
-        <Button key={btn.id} className={`${btn.size} ${btn.borderRadius}btn`}>
-          {btn.title}
-        </Button>
-      </a>
+      <ExternalButton
+        key={btn.id}
+        className={`${btn.size} ${btn.borderRadius}btn`}
+        href={btn.href}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {btn.title}
+      </ExternalButton>
     );
   }
 

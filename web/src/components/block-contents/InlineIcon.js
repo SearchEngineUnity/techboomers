@@ -13,7 +13,7 @@ function InlineIcon({ image, alt }) {
     //   <Img fluid={fluidProps} alt={alt} />
     // </div>
     <span>
-      <img src={image.url} height="16" width="auto" alt={alt} />
+      <img src={image.url} height="1rem" width="auto" alt={alt} />
     </span>
   );
 }

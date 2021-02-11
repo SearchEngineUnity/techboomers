@@ -10,7 +10,20 @@ export default () =>
       S.listItem()
         .title('Site Settings')
         .icon(MdSettings)
-        .child(S.document().schemaType('siteSettings').documentId('siteSettings')),
+        .child(
+          S.list()
+            .title('Site Settings')
+            .items([
+              S.listItem()
+                .title('Site Settings')
+                .icon(MdSettings)
+                .child(S.document().schemaType('generalSettings').documentId('generalSettings')),
+              S.listItem()
+                .title('Palette')
+                .icon(MdSettings)
+                .child(S.document().schemaType('palette').documentId('palette')),
+            ]),
+        ),
       S.listItem()
         .title('Company Info')
         .icon(HiOutlineOfficeBuilding)

@@ -1,18 +1,18 @@
 import React from 'react';
 import Img from 'gatsby-image';
+import { Box, Paper, Typography } from '@material-ui/core';
 import { getFluidGatsbyImage } from 'gatsby-source-sanity';
 import sanityConfig from '../../../sanityConfig';
 
 function InlineImage({ image, alt }) {
   const imageFluid = image?.id;
   const fluidProps = getFluidGatsbyImage(imageFluid, {}, sanityConfig);
+  const imageFilename = image?.asset?.originalFilename || 'image';
 
   return (
-    <div style={{ marginBottom: '16px' }}>
-      <picture className="text-center">
-        <Img fluid={fluidProps} alt={alt} />
-      </picture>
-    </div>
+    <Paper component="figure" mb={2} mx="auto">
+      <Img fluid={fluidProps} alt={alt} title={imageFilename} />
+    </Paper>
   );
 }
 

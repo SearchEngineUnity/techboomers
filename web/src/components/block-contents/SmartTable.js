@@ -4,7 +4,15 @@
 // not a true unique ID. Once we start to dynamically change the array. This will fail.
 
 import React from 'react';
-import { Table } from 'react-bootstrap';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from '@material-ui/core';
 import TableContent from './TableSerializer';
 import Illustration from './Illustration';
 
@@ -20,77 +28,79 @@ function SmartTable({ smartTable }) {
   }
 
   return (
-    <Table responsive hover style={{ marginTop: '2rem' }}>
-      {colHeading && (
-        <thead>
-          <tr key={thead._key}>
-            {thead.cells.map((cell, index) => {
-              if (cell._type === 'tableBlock') {
-                return (
-                  // eslint-disable-next-line
-                  <th key={`${thead._key}-${index}`}>
-                    <TableContent blocks={cell.copy} />
-                  </th>
-                );
-              }
-              if (cell._type === 'illustration') {
-                return (
-                  // eslint-disable-next-line
-                  <th key={`${thead._key}-${index}`}>
-                    <Illustration illustration={cell} />
-                  </th>
-                );
-              }
-              return <th>Uh oh something went wrong.</th>;
-            })}
-          </tr>
-        </thead>
-      )}
-      <tbody>
-        {tbody.map((row) => (
-          <tr key={row._key}>
-            {row.cells.map((cell, index) => {
-              if (rowHeading && index === 0) {
+    <TableContainer component={Paper}>
+      <Table>
+        {colHeading && (
+          <TableHead>
+            <TableRow key={thead._key}>
+              {thead.cells.map((cell, index) => {
                 if (cell._type === 'tableBlock') {
                   return (
                     // eslint-disable-next-line
-                    <th key={`${row._key}-${index}`}>
+                  <TableCell key={`${thead._key}-${index}`}>
                       <TableContent blocks={cell.copy} />
-                    </th>
+                    </TableCell>
                   );
                 }
                 if (cell._type === 'illustration') {
                   return (
                     // eslint-disable-next-line
-                    <th key={`${row._key}-${index}`}>
+                  <TableCell key={`${thead._key}-${index}`}>
                       <Illustration illustration={cell} />
-                    </th>
+                    </TableCell>
                   );
                 }
-                return <th>oh oh something is wrong</th>;
-              }
-              if (cell._type === 'tableBlock') {
-                return (
-                  // eslint-disable-next-line
-                  <td key={`${row._key}-${index}`}>
-                    <TableContent blocks={cell.copy} />
-                  </td>
-                );
-              }
-              if (cell._type === 'illustration') {
-                return (
-                  // eslint-disable-next-line
-                  <td key={`${row._key}-${index}`}>
-                    <Illustration illustration={cell} />
-                  </td>
-                );
-              }
-              return <td>oh oh something is wrong</td>;
-            })}
-          </tr>
-        ))}
-      </tbody>
-    </Table>
+                return <TableCell>Uh oh something went wrong.</TableCell>;
+              })}
+            </TableRow>
+          </TableHead>
+        )}
+        <TableBody>
+          {tbody.map((row) => (
+            <TableRow key={row._key}>
+              {row.cells.map((cell, index) => {
+                if (rowHeading && index === 0) {
+                  if (cell._type === 'tableBlock') {
+                    return (
+                      // eslint-disable-next-line
+                      <TableCell component="th" key={`${row._key}-${index}`}>
+                        <TableContent blocks={cell.copy} />
+                      </TableCell>
+                    );
+                  }
+                  if (cell._type === 'illustration') {
+                    return (
+                      // eslint-disable-next-line
+                      <TableCell component="th" key={`${row._key}-${index}`}>
+                        <Illustration illustration={cell} />
+                      </TableCell>
+                    );
+                  }
+                  return <TableCell component="th">oh oh something is wrong</TableCell>;
+                }
+                if (cell._type === 'tableBlock') {
+                  return (
+                    // eslint-disable-next-line
+                    <TableCell key={`${row._key}-${index}`}>
+                      <TableContent blocks={cell.copy} />
+                    </TableCell>
+                  );
+                }
+                if (cell._type === 'illustration') {
+                  return (
+                    // eslint-disable-next-line
+                    <TableCell key={`${row._key}-${index}`}>
+                      <Illustration illustration={cell} />
+                    </TableCell>
+                  );
+                }
+                return <TableCell>oh oh something is wrong</TableCell>;
+              })}
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 }
 

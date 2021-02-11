@@ -1,17 +1,19 @@
 import React from 'react';
-// import './highlightDidYouKnow.css';
-import { FaRegLightbulb } from 'react-icons/fa';
-import { Alert } from 'react-bootstrap';
-import ArticleContent from '../block-contents/ArticleSerializer';
+import PropTypes from 'prop-types';
+import { Paper, Typography } from '@material-ui/core';
+import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
+// import ArticleContent from '../block-contents/';
 
 function HighlightDidYouKnow({ blockContent, id }) {
   return (
-    <Alert variant="success" key={id} className="text-dark">
-      <Alert.Heading>
-        <FaRegLightbulb /> Did You Know
-      </Alert.Heading>
-      <ArticleContent blocks={blockContent} />
-    </Alert>
+    <Paper key={id}>
+      <Typography component="p" variant="h3">
+        <EmojiObjectsIcon /> Definition
+      </Typography>
+      <Typography component="p" variant="body1">
+        This is a definition.
+      </Typography>
+    </Paper>
   );
 }
 

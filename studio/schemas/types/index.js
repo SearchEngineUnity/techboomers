@@ -3,6 +3,7 @@ export { default as basicTable } from './basicTable';
 export { default as bio } from './bio';
 export { default as card } from './card';
 export { default as chapter } from './chapter';
+export { default as colorObj } from './colorObj';
 export { default as excerpt } from './excerpt';
 export { default as externalLink } from './externalLink';
 export { default as fullBlockContent } from './fullBlockContent';

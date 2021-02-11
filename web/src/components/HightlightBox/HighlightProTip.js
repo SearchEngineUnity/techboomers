@@ -1,17 +1,19 @@
 import React from 'react';
-// import './highlightProTip.css';
-import { FaRegThumbsUp } from 'react-icons/fa';
-import { Alert } from 'react-bootstrap';
-import ArticleContent from '../block-contents/ArticleSerializer';
+import PropTypes from 'prop-types';
+import { Paper, Typography } from '@material-ui/core';
+import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+// import ArticleContent from '../block-contents/';
 
 function HighlightProTip({ blockContent, id }) {
   return (
-    <Alert variant="primary" key={id} className="text-dark">
-      <Alert.Heading>
-        <FaRegThumbsUp /> Pro Tip
-      </Alert.Heading>
-      <ArticleContent blocks={blockContent} />
-    </Alert>
+    <Paper key={id} color>
+      <Typography component="p" variant="h3">
+        <ThumbUpIcon /> Definition
+      </Typography>
+      <Typography component="p" variant="body1">
+        This is a definition.
+      </Typography>
+    </Paper>
   );
 }
 
