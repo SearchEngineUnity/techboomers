@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Paper, Typography } from '@material-ui/core';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
-// import ArticleContent from '../block-contents/';
+import TextContent from '../block-contents/TextSerializer';
 
 function HighlightDefinition({ blockContent, id }) {
   return (
@@ -10,9 +10,7 @@ function HighlightDefinition({ blockContent, id }) {
       <Typography component="p" variant="h3">
         <MenuBookIcon /> Definition
       </Typography>
-      <Typography component="p" variant="body1">
-        This is a definition.
-      </Typography>
+      <TextContent blocks={blockContent} />
     </Paper>
   );
 }

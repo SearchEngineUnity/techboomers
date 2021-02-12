@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Paper, Typography } from '@material-ui/core';
 import ErrorIcon from '@material-ui/icons/Error';
-// import ArticleContent from '../block-contents/';
+import TextContent from '../block-contents/TextSerializer';
 
 function HighlightImportant({ blockContent, id }) {
   return (
@@ -10,9 +10,7 @@ function HighlightImportant({ blockContent, id }) {
       <Typography component="p" variant="h3">
         <ErrorIcon /> Definition
       </Typography>
-      <Typography component="p" variant="body1">
-        This is a definition.
-      </Typography>
+      <TextContent blocks={blockContent} />
     </Paper>
   );
 }
