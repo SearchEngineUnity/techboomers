@@ -1,6 +1,6 @@
 import BaseBlockContent from '@sanity/block-content-to-react';
 import React from 'react';
-import { Link } from 'gatsby-theme-material-ui'        ;
+import { Link } from 'gatsby-theme-material-ui'            ;
 import CtaBtn from './CtaBtn';
 import Illustration from './Illustration';
 
