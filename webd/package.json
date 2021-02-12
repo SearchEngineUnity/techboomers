@@ -1,0 +1,24 @@
+{
+  "name": "webd",
+  "version": "1.0.0",
+  "description": "Gatsby front end of demo centre with MUI.",
+  "main": "gatsby-browser.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SearchEngineUnity/demo-centre-mui.git"
+  },
+  "keywords": [
+    "Gatsby",
+    "MUI",
+    "demo"
+  ],
+  "author": "SEU Dev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SearchEngineUnity/demo-centre-mui/issues"
+  },
+  "homepage": "https://github.com/SearchEngineUnity/demo-centre-mui#readme"
+}
