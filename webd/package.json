@@ -1,24 +1,64 @@
 {
   "name": "webd",
+  "private": true,
+  "description": "",
   "version": "1.0.0",
-  "description": "Gatsby front end of demo centre with MUI.",
-  "main": "gatsby-browser.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SearchEngineUnity/demo-centre-mui.git"
+  "author": "SEU",
+  "dependencies": {
+    "@awolf81/gatsby-theme-addthis": "0.0.4",
+    "@reach/router": "^1.3.4",
+    "@sanity/block-content-to-react": "^2.0.7",
+    "@sanity/client": "^2.0.9",
+    "@sanity/image-url": "^0.140.19",
+    "babel-plugin-styled-components": "^1.11.1",
+    "bootstrap": "^4.5.0",
+    "dotenv": "^8.2.0",
+    "gatsby": "^2.23.12",
+    "gatsby-cli": "^2.14.1",
+    "gatsby-image": "^2.4.9",
+    "gatsby-plugin-google-tagmanager": "^2.3.11",
+    "gatsby-plugin-html-attributes": "^1.0.5",
+    "gatsby-plugin-manifest": "^2.4.14",
+    "gatsby-plugin-netlify": "^2.3.11",
+    "gatsby-plugin-react-helmet": "^3.3.6",
+    "gatsby-plugin-remove-serviceworker": "^1.0.0",
+    "gatsby-plugin-robots-txt": "^1.5.1",
+    "gatsby-plugin-sanity-image": "^0.2.0",
+    "gatsby-plugin-sharp": "^2.6.14",
+    "gatsby-plugin-sitemap": "^2.4.11",
+    "gatsby-plugin-styled-components": "^3.3.10",
+    "gatsby-source-filesystem": "^2.3.14",
+    "gatsby-source-sanity": "^6.0.3",
+    "gatsby-transformer-sharp": "^2.5.7",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-bootstrap": "^1.2.2",
+    "react-dom": "^16.12.0",
+    "react-google-recaptcha": "^2.1.0",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^3.10.0",
+    "react-loads": "^9.2.4",
+    "react-player": "^2.7.0",
+    "scroll-to-element": "^2.0.3",
+    "styled": "^1.0.0",
+    "styled-components": "^5.2.0"
   },
   "keywords": [
-    "Gatsby",
-    "MUI",
-    "demo"
+    "gatsby"
   ],
-  "author": "SEU Dev",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/SearchEngineUnity/demo-centre-mui/issues"
+  "license": "0BSD",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
-  "homepage": "https://github.com/SearchEngineUnity/demo-centre-mui#readme"
+  "resolutions": {
+    "styled-components": "^5"
+  }
 }
