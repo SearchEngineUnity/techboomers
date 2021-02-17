@@ -1,6 +1,6 @@
 export default {
-  name: 'colorObj',
-  title: 'Color Object',
+  name: 'muiColorSet',
+  title: 'Mui Color Set',
   type: 'object',
   fields: [
     {
