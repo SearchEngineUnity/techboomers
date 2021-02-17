@@ -38,6 +38,9 @@ module.exports = {
       options: {
         projectId: '2xtgdu8l',
         dataset: 'production',
+        token: process.env.SANITY_TOKEN,
+        watchMode: process.env.SANITY_WATCH_MODE || !isProd,
+        overlayDrafts: process.env.SANITY_OVERLAY_DRAFTS || !isProd,
       },
     },
     'gatsby-plugin-styled-components',

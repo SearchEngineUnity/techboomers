@@ -3,6 +3,9 @@ import { Container, Typography, Paper, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 // import { Link } from "gatsby"
 import { Link } from 'gatsby-theme-material-ui';
+import styled from 'styled-components';
+
+const StyledDiv = styled.div``;
 
 const useStyles = makeStyles((theme) => {
   console.log(theme);
@@ -11,7 +14,7 @@ const useStyles = makeStyles((theme) => {
     paper: {
       padding: theme.spacing(0.5),
       margin: theme.spacing(4),
-      backgroundColor: theme.palette.tertiary.main,
+      backgroundColor: theme.palette.primary.main,
     },
   };
 });
@@ -30,6 +33,7 @@ const Page = () => {
             </Link>
           </Typography>
         </Box>
+        <StyledDiv>this should be red</StyledDiv>
       </Paper>
     </Container>
   );
