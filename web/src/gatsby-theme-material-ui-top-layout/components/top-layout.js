@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import ThemeTopLayout from 'gatsby-theme-material-ui-top-layout/src/components/top-layout';
 import { StaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import createStore from '../../state/createStore';
 
 const ThemeProvider = ({ children, data }) => {
@@ -14,7 +14,7 @@ const ThemeProvider = ({ children, data }) => {
   const { sanityPalette: palette } = data;
   console.log(palette);
 
-  const theme = createMuiTheme({
+  let theme = createMuiTheme({
     palette: {
       primary: {
         light: palette?.primary?.light?.hex || '#7986cb',
@@ -48,6 +48,8 @@ const ThemeProvider = ({ children, data }) => {
       ].join(','),
     },
   });
+
+  theme = responsiveFontSizes(theme);
 
   return (
     <Provider store={store}>
