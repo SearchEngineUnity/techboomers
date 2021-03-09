@@ -1,16 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { Provider } from 'react-redux';
 import ThemeTopLayout from 'gatsby-theme-material-ui-top-layout/src/components/top-layout';
 import { StaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
-import createStore from '../../state/createStore';
 
 const ThemeProvider = ({ children, data }) => {
-  const store = createStore();
-  console.log('redux mode is running');
-
   const { sanityPalette: palette, sanityTypography: typography } = data;
   let defaultTheme = createMuiTheme();
   defaultTheme = responsiveFontSizes(defaultTheme);
@@ -168,11 +163,7 @@ const ThemeProvider = ({ children, data }) => {
   console.log(`our theme`);
   console.log(theme);
 
-  return (
-    <Provider store={store}>
-      <ThemeTopLayout theme={theme}>{children}</ThemeTopLayout>
-    </Provider>
-  );
+  return <ThemeTopLayout theme={theme}>{children}</ThemeTopLayout>;
 };
 
 export default function TopLayout({ children }) {
