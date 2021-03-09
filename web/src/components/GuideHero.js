@@ -22,7 +22,7 @@ function GuideHero({ h1, subtitle, date, image }) {
   return (
     <Paper component="section" square elevation={0} className={style.hero}>
       <Container maxWidth="lg">
-        <Grid container justify="center">
+        <Grid container direction="row" justify="center" alignItems="center">
           <Grid item lg={6} sm={12}>
             <Typography variant="h1">{h1}</Typography>
             <Subtitle blocks={subtitle} />
