@@ -98,6 +98,12 @@ export default {
       fieldset: 'variants',
     },
     {
+      name: 'h6',
+      title: 'H6',
+      type: 'muiTypeStyleSet',
+      fieldset: 'variants',
+    },
+    {
       name: 'subtitle1',
       title: 'Subtitle 1',
       type: 'muiTypeStyleSet',
@@ -121,15 +127,10 @@ export default {
       type: 'muiTypeStyleSet',
       fieldset: 'variants',
     },
-    {
-      name: 'button',
-      title: 'Button',
-      type: 'muiTypeStyleSet',
-      fieldset: 'variants',
-    },
+
     {
       name: 'caption',
-      title: 'caption',
+      title: 'Caption',
       type: 'muiTypeStyleSet',
       fieldset: 'variants',
     },
@@ -139,5 +140,19 @@ export default {
       type: 'muiTypeStyleSet',
       fieldset: 'variants',
     },
+    {
+      name: 'button',
+      title: 'Button',
+      type: 'muiTypeStyleSetBtn',
+      fieldset: 'variants',
+    },
   ],
+  preview: {
+    select: {},
+    prepare() {
+      return {
+        title: `Typography`,
+      };
+    },
+  },
 };

@@ -6,7 +6,7 @@ export default {
     {
       name: 'nav',
       type: 'reference',
-      to: [{ type: 'page' }, { type: 'mpGuide' }, { type: 'guide' }],
+      to: [{ type: 'page' }, { type: 'spGuide' }],
     },
     {
       title: 'Group',

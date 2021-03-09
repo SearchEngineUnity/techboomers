@@ -7,17 +7,13 @@ import styled from 'styled-components';
 
 const StyledDiv = styled.div``;
 
-const useStyles = makeStyles((theme) => {
-  console.log(theme);
-
-  return {
-    paper: {
-      padding: theme.spacing(0.5),
-      margin: theme.spacing(4),
-      backgroundColor: theme.palette.primary.main,
-    },
-  };
-});
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    padding: theme.spacing(0.5),
+    margin: theme.spacing(4),
+    backgroundColor: theme.palette.primary.main,
+  },
+}));
 
 const Page = () => {
   const classes = useStyles();
