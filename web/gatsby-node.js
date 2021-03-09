@@ -4,7 +4,7 @@ const path = require('path');
 async function createGuide(actions, graphql) {
   const { data } = await graphql(`
     {
-      allSanitySpGuide(filter: { isChapter: { ne: true } }) {
+      allSanitySpGuide {
         edges {
           node {
             slug {
