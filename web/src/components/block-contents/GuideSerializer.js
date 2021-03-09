@@ -9,7 +9,7 @@ import CtaBtn from './CtaBtn';
 import Illustration from './Illustration';
 import InlineImage from './InlineImage';
 import InlineIcon from './InlineIcon';
-import HighlightBox from '../HightlightBox/HighlightBox';
+import HighlightBox from './HightlightBox/HighlightBox';
 import SmartTable from './SmartTable';
 
 const StyledReactPlayer = styled(ReactPlayer)`

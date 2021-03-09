@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Paper, Typography } from '@material-ui/core';
-import ThumbUpIcon from '@material-ui/icons/ThumbUp';
-import TextContent from '../block-contents/TextSerializer';
+import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
+import TextContent from '../TextSerializer';
 
-function HighlightProTip({ blockContent, id }) {
+function HighlightDidYouKnow({ blockContent, id }) {
   return (
-    <Paper key={id} color>
+    <Paper key={id}>
       <Typography component="p" variant="h3">
-        <ThumbUpIcon /> Definition
+        <EmojiObjectsIcon /> Definition
       </Typography>
       <TextContent blocks={blockContent} />
     </Paper>
   );
 }
 
-export default HighlightProTip;
+export default HighlightDidYouKnow;

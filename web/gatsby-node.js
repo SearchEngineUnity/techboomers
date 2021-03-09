@@ -20,7 +20,7 @@ async function createGuide(actions, graphql) {
   guides.forEach((guide) => {
     actions.createPage({
       path: `/${guide.node.slug.current}`,
-      component: path.resolve(`./src/templates/guide.js`),
+      component: path.resolve(`./src/templates/spGuide.js`),
       context: {
         slug: guide.node.slug.current,
       },
