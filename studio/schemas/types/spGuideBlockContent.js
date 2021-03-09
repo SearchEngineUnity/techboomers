@@ -8,7 +8,7 @@ import InlineIconRenderer from '../components/InlineIconRenderer';
 
 export default {
   title: 'Block Content',
-  name: 'fullBlockContent',
+  name: 'spGuideBlockContent',
   type: 'array',
   of: [
     {
@@ -59,7 +59,7 @@ export default {
                 name: 'reference',
                 type: 'reference',
                 title: 'Reference',
-                to: [{ type: 'guide' }, { type: 'page' }],
+                to: [{ type: 'spGuide' }, { type: 'page' }],
               },
             ],
           },
@@ -120,6 +120,9 @@ export default {
     },
     {
       type: 'smartTable',
+    },
+    {
+      type: 'highlightBox',
     },
     { type: 'videoEmbed' },
   ],

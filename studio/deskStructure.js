@@ -22,6 +22,10 @@ export default () =>
                 .title('Palette')
                 .icon(MdSettings)
                 .child(S.document().schemaType('palette').documentId('palette')),
+              S.listItem()
+                .title('Typography')
+                .icon(MdSettings)
+                .child(S.document().schemaType('typography').documentId('typography')),
             ]),
         ),
       S.listItem()
@@ -47,16 +51,13 @@ export default () =>
             .title('Website')
             .items([
               S.documentTypeListItem('navMenu').title('Navigation Menus'),
-              S.documentTypeListItem('page').title('Structured Pages'),
               S.divider(),
-              S.documentTypeListItem('guide').title('Guides'),
-              S.documentTypeListItem('mpGuide').title('MP Guides'),
-              S.documentTypeListItem('category').title('Guide Categories'),
+              S.documentTypeListItem('page').title('Structured Pages'),
+              S.documentTypeListItem('spGuide').title('SP Guides'),
               S.divider(),
               S.documentTypeListItem('redirect').title('Redirects'),
             ]),
         ),
       S.divider(),
-      S.documentTypeListItem('person').title('People'),
       S.documentTypeListItem('testImage').title('Test Images'),
     ]);

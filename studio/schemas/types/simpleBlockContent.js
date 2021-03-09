@@ -1,8 +1,6 @@
 import { FaExternalLinkAlt, FaLink } from 'react-icons/fa';
-import { MdLink, MdImage } from 'react-icons/md';
 import ExternalLinkRenderer from '../components/ExternalLinkRenderer';
 import InternalLinkRenderer from '../components/InternalLinkRenderer';
-import JumpLinkRenderer from '../components/JumpLinkRenderer';
 import InlineIconRenderer from '../components/InlineIconRenderer';
 
 export default {
@@ -11,7 +9,6 @@ export default {
   of: [
     {
       type: 'block',
-      styles: [],
       marks: {
         decorators: [
           { title: 'Strong', value: 'strong' },
@@ -52,24 +49,7 @@ export default {
                 name: 'reference',
                 type: 'reference',
                 title: 'Reference',
-                to: [{ type: 'guide' }, { type: 'page' }],
-              },
-            ],
-          },
-          {
-            name: 'jumpLink',
-            type: 'object',
-            title: 'Page Jump',
-            blockEditor: {
-              icon: MdLink,
-              render: JumpLinkRenderer,
-            },
-            fields: [
-              {
-                name: 'heading',
-                type: 'string',
-                title: 'Heading',
-                description: 'The exact full heading of jump destination.',
+                to: [{ type: 'spGuide' }, { type: 'page' }],
               },
             ],
           },

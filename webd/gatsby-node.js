@@ -29,10 +29,10 @@ async function createStructuredPages(actions, graphql) {
 }
 
 // create individual guides
-async function createGuide(actions, graphql) {
+async function createSpGuide(actions, graphql) {
   const { data } = await graphql(`
     {
-      allSanityGuide(filter: { isChapter: { ne: true } }) {
+      allSanitySpGuide(filter: { isChapter: { ne: true } }) {
         edges {
           node {
             slug {
@@ -154,7 +154,7 @@ async function createPageRedirects(actions, graphql) {
 
 exports.createPages = async ({ actions, graphql }) => {
   await createStructuredPages(actions, graphql);
-  await createGuide(actions, graphql);
+  await createSpGuide(actions, graphql);
   await createMpGuide(actions, graphql);
   await createPageRedirects(actions, graphql);
 };

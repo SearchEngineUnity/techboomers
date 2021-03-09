@@ -1,6 +1,6 @@
 export default {
-  name: 'muiTypeStyleSet',
-  title: 'Mui Typography',
+  name: 'muiTypeStyleSetBtn',
+  title: 'Mui Typography - Btn',
   type: 'object',
   fieldsets: [
     {
@@ -38,6 +38,12 @@ export default {
       name: 'lineHeight',
       title: 'Line Height',
       type: 'number',
+      fieldset: 'set',
+    },
+    {
+      name: 'letterSpacing',
+      title: 'Letter Spacing',
+      type: 'string',
       fieldset: 'set',
     },
   ],

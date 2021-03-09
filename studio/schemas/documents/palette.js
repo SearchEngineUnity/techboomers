@@ -8,8 +8,24 @@ export default {
   icon: FaBullseye,
   fieldsets: [
     {
+      name: 'common',
+      title: 'Common',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+    },
+    {
+      name: 'background',
+      title: 'Background',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+    },
+    {
       name: 'brand',
-      title: 'Brand Palette',
+      title: 'Brand',
       options: {
         collapsible: true,
         collapsed: true,
@@ -17,7 +33,7 @@ export default {
     },
     {
       name: 'highlightbox',
-      title: 'HighlightBox Palette',
+      title: 'Highlight Box',
       options: {
         collapsible: true,
         collapsed: true,
@@ -25,6 +41,30 @@ export default {
     },
   ],
   fields: [
+    {
+      name: 'black',
+      title: 'Black',
+      type: 'color',
+      fieldset: 'common',
+    },
+    {
+      name: 'white',
+      title: 'White',
+      type: 'color',
+      fieldset: 'common',
+    },
+    {
+      name: 'paper',
+      title: 'Paper',
+      type: 'color',
+      fieldset: 'background',
+    },
+    {
+      name: 'default',
+      title: 'Default',
+      type: 'color',
+      fieldset: 'background',
+    },
     {
       name: 'primary',
       title: 'Primary brand color',
@@ -41,31 +81,31 @@ export default {
     },
     {
       name: 'definition',
-      title: 'HLB Definition',
+      title: 'Definition',
       type: 'hlbColorSet',
       fieldset: 'highlightbox',
     },
     {
       name: 'dyk',
-      title: 'HLB Did You Know',
+      title: 'Did You Know',
       type: 'hlbColorSet',
       fieldset: 'highlightbox',
     },
     {
       name: 'important',
-      title: 'HLB Impotant',
+      title: 'Impotant',
       type: 'hlbColorSet',
       fieldset: 'highlightbox',
     },
     {
       name: 'protip',
-      title: 'HLB Pro Tip',
+      title: 'Pro Tip',
       type: 'hlbColorSet',
       fieldset: 'highlightbox',
     },
     {
       name: 'warning',
-      title: 'HLB Warning',
+      title: 'Warning',
       type: 'hlbColorSet',
       fieldset: 'highlightbox',
     },

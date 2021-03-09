@@ -1,46 +1,38 @@
-import { FaBook } from 'react-icons/fa';
+import { RiPagesLine } from 'react-icons/ri';
 
 export default {
-  name: 'mpGuide',
+  name: 'spGuide',
   type: 'document',
-  title: 'MP Guide',
-  icon: FaBook,
+  title: 'Single Page Guide',
+  icon: RiPagesLine,
   fieldsets: [
     {
-      name: 'general',
-      title: 'SEO and General Fields',
+      name: 'meta',
+      title: 'SEO and Social',
       options: {
         collapsible: true,
         collapsed: true,
       },
     },
     {
-      name: 'featuredImages',
-      title: 'Featured Images',
-      options: {
-        collapsible: true,
-        collapsed: true,
-      },
-    },
-    {
-      name: 'social',
-      title: 'Social Sharing',
-      options: {
-        collapsible: true,
-        collapsed: true,
-      },
-    },
-    {
-      name: 'mainContent',
-      title: 'Main Content',
+      name: 'card',
+      title: 'Listing Card Fields',
       options: {
         collapsible: true,
         collapsed: false,
       },
     },
     {
-      name: 'chapters',
-      title: 'Chapters',
+      name: 'hero',
+      title: 'Hero',
+      options: {
+        collapsible: true,
+        collapsed: false,
+      },
+    },
+    {
+      name: 'mainContent',
+      title: 'Main Content',
       options: {
         collapsible: true,
         collapsed: false,
@@ -60,7 +52,6 @@ export default {
       name: 'shortName',
       title: 'Short Name',
       type: 'string',
-      fieldset: 'general',
       validation: (Rule) => [
         Rule.required().error('Field is required'),
         // add a custom rule for isUnique
@@ -71,113 +62,80 @@ export default {
       type: 'string',
       title: 'Page Title',
       description: 'Optimal length under 60 characters for Google SERP',
-      fieldset: 'general',
+      fieldset: 'meta',
       validation: (Rule) => [
         Rule.required().error('Field is required'),
         Rule.max(60).warning('Length over optimal'),
       ],
     },
     {
-      name: 'h1',
-      title: 'H1 Text',
-      type: 'string',
-      fieldset: 'general',
-      validation: (Rule) => [Rule.required().error('H1 Text is required')],
-    },
-    {
-      name: 'subtitle',
-      title: 'Subtitle Text',
-      type: 'string',
-      fieldset: 'general',
-    },
-    {
-      name: 'breadcrumb',
-      title: 'Breadcrumb Text',
-      type: 'string',
-      fieldset: 'general',
-    },
-    {
       name: 'description',
       title: 'Meta Description',
       type: 'text',
       description: 'Optimal length is under 160 characters for Google SERP',
-      fieldset: 'general',
+      fieldset: 'meta',
       validation: (Rule) => [
         Rule.required().error('Field is require.'),
         Rule.max(160).warning('Length over optimal'),
       ],
     },
     {
-      name: 'excerpt',
-      title: 'Excerpt',
-      type: 'excerpt',
-      fieldset: 'general',
-    },
-    {
-      name: 'author',
-      type: 'reference',
-      title: 'Author',
-      to: [{ type: 'person' }],
-      fieldset: 'general',
-      validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
-      name: 'displayDate',
-      title: 'Display date',
-      type: 'datetime',
-      fieldset: 'general',
-      validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
-      name: 'category',
-      title: 'Category',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [{ type: 'category' }],
-        },
-      ],
-      fieldset: 'general',
-    },
-    {
-      name: 'heroImage',
-      title: 'Hero Image',
-      type: 'imageSet',
-      fieldset: 'featuredImages',
-    },
-    {
-      name: 'cardImage',
-      title: 'Card Image',
-      type: 'imageSet',
-      fieldset: 'featuredImages',
-    },
-    {
       name: 'facebook',
       title: 'Facebook Share',
       type: 'openGraph',
-      fieldset: 'social',
+      fieldset: 'meta',
     },
     {
       name: 'twitter',
       title: 'Twitter Share',
       type: 'twitterTag',
-      fieldset: 'social',
+      fieldset: 'meta',
     },
     {
-      name: 'body',
-      type: 'fullBlockContent',
-      title: 'Body',
+      name: 'cardTitle',
+      title: 'Card Title',
+      type: 'string',
+      fieldset: 'card',
+    },
+    {
+      name: 'cardImage',
+      title: 'Card Image',
+      type: 'illustration',
+      fieldset: 'card',
+    },
+    {
+      name: 'h1',
+      title: 'H1 Text',
+      type: 'string',
+      fieldset: 'hero',
+      validation: (Rule) => [Rule.required().error('H1 Text is required')],
+    },
+    {
+      name: 'subtitle',
+      title: 'Subtitle Text',
+      type: 'simpleBlockContent',
+      fieldset: 'hero',
+    },
+    {
+      name: 'heroImage',
+      title: 'Hero Image',
+      type: 'illustration',
+      fieldset: 'hero',
+    },
+    {
+      name: 'toc',
+      title: 'Table of Content',
+      type: 'array',
+      of: [{ type: 'tocLink' }],
       fieldset: 'mainContent',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
-      name: 'chapters',
-      title: 'List',
-      fieldset: 'chapters',
-      type: 'array',
-      of: [{ type: 'chapter' }],
-      validation: (Rule) => [Rule.required().error('List must contain at least 1 item')],
+      name: 'body',
+      type: 'spGuideBlockContent',
+      title: 'Body',
+      fieldset: 'mainContent',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'slug',
@@ -210,23 +168,25 @@ export default {
       title: 'Remove from Robots.txt',
       type: 'boolean',
       fieldset: 'indexing',
+      descritpion: 'currently not functional',
     },
     {
       name: 'noSitemap',
       title: 'Remove from Sitemap',
       type: 'boolean',
       fieldset: 'indexing',
+      descritpion: 'currently not functional',
     },
   ],
   preview: {
     select: {
-      title: 'shortName',
+      shortName: 'shortName',
       slug: 'slug.current',
-      media: 'heroImage.mainImage.image',
+      media: 'cardImage',
     },
-    prepare({ title, slug, media }) {
+    prepare({ shortName, slug, media }) {
       return {
-        title,
+        title: shortName,
         subtitle: `/${slug}`,
         media,
       };
