@@ -4,6 +4,7 @@ export { default as card } from './card';
 export { default as excerpt } from './excerpt';
 export { default as externalLink } from './externalLink';
 export { default as fullBlockContent } from './fullBlockContent';
+export { default as heroBlockContent } from './heroBlockContent';
 export { default as highlightBox } from './highlightBox';
 export { default as hlbColorSet } from './hlbColorSet';
 export { default as illustration } from './illustration';

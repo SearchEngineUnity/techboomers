@@ -9,8 +9,6 @@ const ThemeProvider = ({ children, data }) => {
   const { sanityPalette: palette, sanityTypography: typography } = data;
   let defaultTheme = createMuiTheme();
   defaultTheme = responsiveFontSizes(defaultTheme);
-  console.log(`default theme`);
-  console.log(defaultTheme);
 
   let theme = createMuiTheme({
     palette: {
@@ -160,8 +158,6 @@ const ThemeProvider = ({ children, data }) => {
   });
 
   theme = responsiveFontSizes(theme);
-  console.log(`our theme`);
-  console.log(theme);
 
   return <ThemeTopLayout theme={theme}>{children}</ThemeTopLayout>;
 };

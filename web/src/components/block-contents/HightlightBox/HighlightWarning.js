@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Paper, Typography } from '@material-ui/core';
-import ErrorIcon from '@material-ui/icons/Error';
-import TextContent from '../block-contents/TextSerializer';
+import WarningIcon from '@material-ui/icons/Warning';
+import TextContent from '../TextSerializer';
 
-function HighlightImportant({ blockContent, id }) {
+function HighlightWarning({ blockContent, id }) {
   return (
     <Paper key={id}>
       <Typography component="p" variant="h3">
-        <ErrorIcon /> Definition
+        <WarningIcon /> Definition
       </Typography>
       <TextContent blocks={blockContent} />
     </Paper>
   );
 }
 
-export default HighlightImportant;
+export default HighlightWarning;

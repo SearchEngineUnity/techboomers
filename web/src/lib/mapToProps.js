@@ -35,15 +35,6 @@ export function mapSeoToProps(
   };
 }
 
-export function mapGuideHeroToProps({ h1, author, displayDate, heroImage }) {
-  return {
-    h1,
-    author,
-    displayDate,
-    image: heroImage?.mainImage?.asset?.url,
-  };
-}
-
 export function mapCtaFormToProps({ idTag, title, subtitle, form, _rawDisclaimer }) {
   return {
     id: idTag,
@@ -88,5 +79,24 @@ export function mapGuideCardToProps({ h1, slug, excerpt, cardImage, displayDate 
     imageAlt: cardImage?.mainImage?.alt,
     imageFilename: cardImage?.mainImage?.asset?.originalFilename,
     url: `/${slug.current}`,
+  };
+}
+
+export function mapFluidImgBlockToProps({ asset, alt }) {
+  return {
+    image: asset?.fluid,
+    alt,
+    title: asset?.originalFilename,
+    width: asset?.metadata?.dimensions?.width,
+    height: asset?.metadata?.dimensions?.height,
+  };
+}
+
+export function mapGuideHeroToProps({ h1, _rawSubtitle, _createdAt, _updatedAt, heroImage }) {
+  return {
+    h1,
+    subtitle: _rawSubtitle,
+    date: _updatedAt || _createdAt,
+    image: heroImage,
   };
 }

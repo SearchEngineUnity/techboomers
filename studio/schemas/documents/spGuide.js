@@ -113,7 +113,7 @@ export default {
     {
       name: 'subtitle',
       title: 'Subtitle Text',
-      type: 'simpleBlockContent',
+      type: 'heroBlockContent',
       fieldset: 'hero',
     },
     {

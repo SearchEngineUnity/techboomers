@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Paper, Typography } from '@material-ui/core';
-import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
-import TextContent from '../block-contents/TextSerializer';
+import ErrorIcon from '@material-ui/icons/Error';
+import TextContent from '../TextSerializer';
 
-function HighlightDidYouKnow({ blockContent, id }) {
+function HighlightImportant({ blockContent, id }) {
   return (
     <Paper key={id}>
       <Typography component="p" variant="h3">
-        <EmojiObjectsIcon /> Definition
+        <ErrorIcon /> Definition
       </Typography>
       <TextContent blocks={blockContent} />
     </Paper>
   );
 }
 
-export default HighlightDidYouKnow;
+export default HighlightImportant;

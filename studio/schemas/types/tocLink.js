@@ -15,29 +15,16 @@ export default {
       type: 'string',
       description: 'This is the heading text in the post. (Needs to be exact)',
     },
-    {
-      name: 'type',
-      title: 'Heading Type',
-      description: ' Type of heading of text in the post',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'H2', value: 'h2' },
-          { title: 'H3', value: 'h3' },
-        ],
-      },
-    },
   ],
   preview: {
     select: {
       title: 'title',
       header: 'header',
-      type: 'type',
     },
-    prepare({ title, header, type }) {
+    prepare({ title, header }) {
       return {
         title,
-        subtitle: `${type} - ${header}`,
+        subtitle: header,
       };
     },
   },

@@ -8,7 +8,7 @@ const StyledDiv = styled.div``;
 // eslint-disable-next-line no-unused-vars
 const useStyles = makeStyles((theme) => ({
   hero: {
-    backgroundColor: '#d3d3d3',
+    backgroundColor: theme.palette.primary.main,
   },
 }));
 
