@@ -1,25 +1,30 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { Paper, Typography } from '@material-ui/core';
+import { Link } from 'gatsby-theme-material-ui';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      display: 'block',
+    },
+  },
+}));
 
 function Toc({ toc }) {
-  const componentTypeSwitch = (link) => {
-    switch (link.type) {
-      case 'h2':
-        return (
-          <a href={`#${link.header.toLowerCase().trim().replace(/ /g, '-')}`} key={link._key}>
-            <p>{link.title}</p>
-          </a>
-        );
+  const style = useStyles();
 
-      default:
-        return <p>Need to define link in menu</p>;
-    }
-  };
+  const componentTypeSwitch = (link) => (
+    <Link to={`#${link.header.toLowerCase().trim().replace(/ /g, '-')}`} key={link._key}>
+      {link.title}
+    </Link>
+  );
 
   return (
-    <div className="sticky-top">
-      <h3>Table of Content</h3>
-      {toc.map((link) => componentTypeSwitch(link))}
-    </div>
+    <Paper elevation={0} square>
+      <Typography variant="body1">Table of Content</Typography>
+      <Typography className={style.root}>{toc.map((link) => componentTypeSwitch(link))}</Typography>
+    </Paper>
   );
 }
 
