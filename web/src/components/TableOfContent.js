@@ -4,7 +4,7 @@ import { Paper, Typography } from '@material-ui/core';
 import { Link } from 'gatsby-theme-material-ui';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  list: {
     '& > *': {
       display: 'block',
     },
@@ -23,7 +23,7 @@ function Toc({ toc }) {
   return (
     <Paper elevation={0} square>
       <Typography variant="body1">Table of Content</Typography>
-      <Typography className={style.root}>{toc.map((link) => componentTypeSwitch(link))}</Typography>
+      <Typography className={style.list}>{toc.map((link) => componentTypeSwitch(link))}</Typography>
     </Paper>
   );
 }
