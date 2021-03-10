@@ -49,7 +49,7 @@ const serializers = {
         case 'h1':
           return (
             <Typography
-              component="h1"
+              variant="h1"
               id={`${props.children.toString().toLowerCase().trim().replace(/ /g, '-')}`}
             >
               {props.children}
@@ -59,7 +59,7 @@ const serializers = {
         case 'h2':
           return (
             <Typography
-              component="h2"
+              variant="h2"
               id={`${props.children.toString().toLowerCase().trim().replace(/ /g, '-')}`}
             >
               {props.children}
@@ -69,7 +69,7 @@ const serializers = {
         case 'h3':
           return (
             <Typography
-              component="h3"
+              variant="h3"
               id={`${props.children.toString().toLowerCase().trim().replace(/ /g, '-')}`}
             >
               {props.children}
@@ -79,7 +79,7 @@ const serializers = {
         case 'h4':
           return (
             <Typography
-              component="h4"
+              variant="h4"
               id={`${props.children.toString().toLowerCase().trim().replace(/ /g, '-')}`}
             >
               {props.children}
@@ -89,7 +89,7 @@ const serializers = {
         case 'h5':
           return (
             <Typography
-              component="h5"
+              variant="h5"
               id={`${props.children.toString().toLowerCase().trim().replace(/ /g, '-')}`}
             >
               {props.children}
@@ -99,7 +99,7 @@ const serializers = {
         case 'h6':
           return (
             <Typography
-              component="h6"
+              variant="h6"
               id={`${props.children.toString().toLowerCase().trim().replace(/ /g, '-')}`}
             >
               {props.children}
@@ -111,7 +111,7 @@ const serializers = {
 
         default:
           return props.children[0] ? (
-            <Typography component="p">{props.children}</Typography>
+            <Typography variant="body1">{props.children}</Typography>
           ) : (
             <br />
           );
@@ -148,14 +148,14 @@ const serializers = {
     externalLink: ({ mark, children }) => {
       const { href } = mark;
       return (
-        <a href={href} target="_blank" rel="noopener noreferrer">
+        <Link to={href} target="_blank" rel="noopener noreferrer">
           {children}
-        </a>
+        </Link>
       );
     },
     jumpLink: ({ mark, children }) => {
       const { heading } = mark;
-      return <a href={`#${heading.toLowerCase().trim().replace(/ /g, '-')}`}>{children}</a>;
+      return <Link to={`#${heading.toLowerCase().trim().replace(/ /g, '-')}`}>{children}</Link>;
     },
     inlineImage: ({ mark, children }) => {
       switch (mark._type) {
