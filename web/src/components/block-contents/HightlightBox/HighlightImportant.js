@@ -1,14 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Paper, Typography } from '@material-ui/core';
-import ErrorIcon from '@material-ui/icons/Error';
+import { makeStyles } from '@material-ui/core/styles';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
 import TextContent from '../TextSerializer';
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    backgroundColor: theme.palette.hlBox.important.bgColor,
+    borderColor: theme.palette.hlBox.important.borderColor,
+  },
+  icon: {
+    color: theme.palette.hlBox.important.iconColor,
+  },
+  text: {
+    color: theme.palette.hlBox.important.textColor,
+  },
+}));
+
 function HighlightImportant({ blockContent, id }) {
+  const style = useStyles();
   return (
-    <Paper key={id}>
-      <Typography component="p" variant="h3">
-        <ErrorIcon /> Definition
+    <Paper variant="outlined" key={id} className={style.root}>
+      <Typography component="p" variant="h4" className={style.text}>
+        <MenuBookIcon className={style.icon} /> Important
       </Typography>
       <TextContent blocks={blockContent} />
     </Paper>

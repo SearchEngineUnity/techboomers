@@ -1,14 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Paper, Typography } from '@material-ui/core';
-import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
+import { makeStyles } from '@material-ui/core/styles';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
 import TextContent from '../TextSerializer';
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    backgroundColor: theme.palette.hlBox.dyk.bgColor,
+    borderColor: theme.palette.hlBox.dyk.borderColor,
+  },
+  icon: {
+    color: theme.palette.hlBox.dyk.iconColor,
+  },
+  text: {
+    color: theme.palette.hlBox.dyk.textColor,
+  },
+}));
+
 function HighlightDidYouKnow({ blockContent, id }) {
+  const style = useStyles();
   return (
-    <Paper key={id}>
-      <Typography component="p" variant="h3">
-        <EmojiObjectsIcon /> Definition
+    <Paper variant="outlined" key={id} className={style.root}>
+      <Typography component="p" variant="h4" className={style.text}>
+        <MenuBookIcon className={style.icon} /> Did You Know
       </Typography>
       <TextContent blocks={blockContent} />
     </Paper>
