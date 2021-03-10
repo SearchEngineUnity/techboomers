@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 // import { Link } from "gatsby"
 import { Link } from 'gatsby-theme-material-ui';
 import styled from 'styled-components';
+import Subtitle from '../components/block-contents/HeroSubtitle';
 
 const StyledDiv = styled.div``;
 
@@ -11,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(0.5),
     margin: theme.spacing(4),
-    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.main,
   },
 }));
 
@@ -23,11 +24,9 @@ const Page = () => {
       <Paper className={classes.paper} elevation={5}>
         <Box p={0.5}>
           <Typography variant="h1">
-            Check out my{' '}
-            <Link to="/blog" color="secondary">
-              blog
-            </Link>
-          </Typography>
+            Check out my <Link to="/blog">blog</Link>
+          </Typography>{' '}
+          <Subtitle>This is the subtitle</Subtitle>
           <Typography variant="h2">variant h2</Typography>
           <Typography variant="h3">variant h3</Typography>
           <Typography variant="h4">variant h4</Typography>

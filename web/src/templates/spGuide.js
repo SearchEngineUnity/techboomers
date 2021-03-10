@@ -80,11 +80,11 @@ export default ({ data }) => {
       <GuideHero {...mapGuideHeroToProps(data.guide)} />
       <Container maxWidth="lg">
         <Grid container>
-          <Grid item>
-            <ToC toc={data.guide.toc} />
-          </Grid>
-          <Grid item>
+          <Grid item xl={9} md={8} xs={12}>
             <GuideBody blocks={data.guide._rawBody} />
+          </Grid>
+          <Grid item xl={3} md={4} xs={0}>
+            <ToC toc={data.guide.toc} />
           </Grid>
         </Grid>
       </Container>

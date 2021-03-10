@@ -9,10 +9,6 @@ import { mapFluidImgBlockToProps } from '../lib/mapToProps';
 const useStyles = makeStyles((theme) => ({
   hero: {
     backgroundColor: theme.palette.primary.main,
-    color: theme.palette.common.black,
-  },
-  date: {
-    color: theme.palette.common.black,
   },
 }));
 
@@ -23,7 +19,7 @@ function GuideHero({ h1, subtitle, date, image }) {
     <Paper component="section" square elevation={0} className={style.hero}>
       <Container maxWidth="lg">
         <Grid container direction="row" justify="center" alignItems="center">
-          <Grid item lg={6} sm={12}>
+          <Grid item md={6} sm={12}>
             <Typography variant="h1">{h1}</Typography>
             <Subtitle blocks={subtitle} />
             <br />
@@ -31,7 +27,7 @@ function GuideHero({ h1, subtitle, date, image }) {
               Last updated at: {date}
             </Typography>
           </Grid>
-          <Grid item lg={6} sm={12}>
+          <Grid item md={6} sm={12}>
             <ImgBlock {...mapFluidImgBlockToProps(image)} />
           </Grid>
         </Grid>
