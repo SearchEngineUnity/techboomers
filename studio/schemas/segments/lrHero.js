@@ -15,7 +15,7 @@ export default {
       type: 'array',
       title: 'Blocks',
       description: 'Please pick a maximum of two. The first item will appear left in layout.',
-      of: [{ type: 'textBlock' }, { type: 'illustration' }, { type: 'video' }],
+      of: [{ type: 'heroBlock' }, { type: 'illustration' }, { type: 'video' }],
       validation: (Rule) => Rule.length(2).error('Must contain two items'),
     },
     {
@@ -23,14 +23,34 @@ export default {
       type: 'string',
       title: 'Layout',
       options: {
-        list: ['7:5', '3:1', '2:1', '1:1', '1:2', '1:3'],
+        list: [
+          { title: '5:1', value: '10:2' },
+          { title: '7:5', value: '7:5' },
+          { title: '3:1', value: '9:3' },
+          { title: '2:1', value: '8:4' },
+          { title: '1:1', value: '6:6' },
+          { title: '1:2', value: '4:8' },
+          { title: '1:3', value: '3:9' },
+          { title: '5:7', value: '5:7' },
+          { title: '1:5', value: '2:10' },
+        ],
       },
     },
   ],
   preview: {
     select: {
-      title: 'title',
+      blocks: 'blocks',
       subtitle: '_type',
+    },
+    prepare({ blocks, subtitle }) {
+      const { title } = blocks.filter((el) => el._type === 'heroBlock')[0];
+      const media = blocks.filter((el) => el._type === 'illustration')[0] || '';
+
+      return {
+        title,
+        subtitle,
+        media,
+      };
     },
   },
 };

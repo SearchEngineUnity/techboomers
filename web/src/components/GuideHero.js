@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Paper, Typography, Grid } from '@material-ui/core';
+import { Container, Paper, Typography, Grid, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import ImgBlock from './FluidImgBlock';
 import Subtitle from './block-contents/HeroSubtitleSerializer';
 import { mapFluidImgBlockToProps } from '../lib/mapToProps';
 
 const useStyles = makeStyles((theme) => ({
-  hero: {
+  root: {
     backgroundColor: theme.palette.primary.main,
   },
 }));
@@ -16,9 +16,9 @@ function GuideHero({ h1, subtitle, date, image }) {
   const style = useStyles();
 
   return (
-    <Paper component="section" square elevation={0} className={style.hero}>
+    <Box className={style.root} id="hero" component="section" py={3}>
       <Container maxWidth="lg">
-        <Grid container direction="row" justify="center" alignItems="center">
+        <Grid container direction="row" justify="center" alignItems="center" spacing={3}>
           <Grid item md={6} sm={12}>
             <Typography variant="h1">{h1}</Typography>
             <Subtitle blocks={subtitle} />
@@ -28,11 +28,11 @@ function GuideHero({ h1, subtitle, date, image }) {
             </Typography>
           </Grid>
           <Grid item md={6} sm={12}>
-            <ImgBlock {...mapFluidImgBlockToProps(image)} />
+            <ImgBlock {...mapFluidImgBlockToProps(image)} loading="eager" />
           </Grid>
         </Grid>
       </Container>
-    </Paper>
+    </Box>
   );
 }
 
