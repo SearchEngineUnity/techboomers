@@ -100,3 +100,20 @@ export function mapGuideHeroToProps({ h1, _rawSubtitle, _createdAt, _updatedAt, 
     image: heroImage,
   };
 }
+
+export function mapLrHeroToProps({ idTag, layout, blocks }) {
+  return { idTag, layout, blocks };
+}
+
+export function mapHeroBlockToProps({ title, _rawSubtitle }) {
+  return {
+    h1: title,
+    subtitle: _rawSubtitle,
+  };
+}
+
+export function mapLearningSegmentToProps({ idTag }) {
+  return {
+    idTag,
+  };
+}

@@ -1,5 +1,5 @@
 export default {
-  name: 'textBlock',
+  name: 'heroBlock',
   title: 'Text Block',
   type: 'object',
   fields: [
@@ -11,12 +11,7 @@ export default {
     {
       name: 'subtitle',
       title: 'Subtitle',
-      type: 'text',
-    },
-    {
-      name: 'text',
-      title: 'Text',
-      type: 'simpleBlockContent',
+      type: 'heroBlockContent',
     },
   ],
   preview: {

@@ -1,13 +1,29 @@
 import React from 'react';
-import { Container, Typography } from '@material-ui/core';
+import { Typography, Card, CardContent } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-// import styled from 'styled-components';
+import ImgBlock from './FluidImgBlock';
+import { mapFluidImgBlockToProps } from '../lib/mapToProps';
 
-function Card1({ idTag, pdfURL, appName, appIcon, osName, osIcon, osDevice }) {
+const useStyles = makeStyles((theme) => ({
+  card: {
+    borderTopLeftRadius: theme.shape.borderRadius,
+    borderTopRightRadius: theme.shape.borderRadius,
+  },
+}));
+
+function Card1({ title, image, date }) {
+  const style = useStyles();
+
   return (
-    <Container>
-      <Typography>This is a card</Typography>
-    </Container>
+    <Card>
+      <ImgBlock {...mapFluidImgBlockToProps(image)} />
+      <CardContent>
+        <Typography component="p" variant="h5">
+          {title}
+        </Typography>
+        <Typography>{date}</Typography>
+      </CardContent>
+    </Card>
   );
 }
 export default Card1;

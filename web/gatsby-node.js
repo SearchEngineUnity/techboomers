@@ -1,5 +1,33 @@
 const path = require('path');
 
+// create all structured pages
+async function createStructuredPages(actions, graphql) {
+  const { data } = await graphql(`
+    {
+      allSanityPage {
+        edges {
+          node {
+            slug {
+              current
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const pages = data.allSanityPage.edges;
+  pages.forEach((page) => {
+    actions.createPage({
+      path: page.node.slug.current === '/' ? '/' : `/${page.node.slug.current}`,
+      component: path.resolve(`./src/templates/structuredPage.js`),
+      context: {
+        slug: page.node.slug.current,
+      },
+    });
+  });
+}
+
 // create individual guides
 async function createGuide(actions, graphql) {
   const { data } = await graphql(`
@@ -60,6 +88,7 @@ async function createPageRedirects(actions, graphql) {
 }
 
 exports.createPages = async ({ actions, graphql }) => {
+  await createStructuredPages(actions, graphql);
   await createGuide(actions, graphql);
   await createPageRedirects(actions, graphql);
 };

@@ -9,7 +9,6 @@ function Illustration({ illustration }) {
   const fluidProps = getFluidGatsbyImage(imageFluid, {}, sanityConfig);
   const { width, height } = illustration.asset.metadata.dimensions;
   const imageFilename = illustration?.asset?.originalFilename || 'image';
-  console.log(illustration);
 
   return (
     <Paper component="figure" mb={2} mx="auto">

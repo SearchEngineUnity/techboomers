@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Container, Grid } from '@material-ui/core';
+import { Container, Grid, Box } from '@material-ui/core';
 import Layout from '../containers/layout';
 import GuideHero from '../components/GuideHero';
 import GuideBody from '../components/block-contents/GuideSerializer';
@@ -78,16 +78,18 @@ export default ({ data }) => {
     <Layout>
       <SEO {...mapSeoToProps(data.guide, data.site.siteMetadata.siteUrl, type)} />
       <GuideHero {...mapGuideHeroToProps(data.guide)} />
-      <Container maxWidth="lg">
-        <Grid container>
-          <Grid item xl={9} md={8} xs={12}>
-            <GuideBody blocks={data.guide._rawBody} />
+      <Box py={3}>
+        <Container maxWidth="lg">
+          <Grid container spacing={3}>
+            <Grid item xl={9} md={8} xs={12}>
+              <GuideBody blocks={data.guide._rawBody} />
+            </Grid>
+            <Grid item xl={3} md={4} xs={0}>
+              <ToC toc={data.guide.toc} />
+            </Grid>
           </Grid>
-          <Grid item xl={3} md={4} xs={0}>
-            <ToC toc={data.guide.toc} />
-          </Grid>
-        </Grid>
-      </Container>
+        </Container>
+      </Box>
     </Layout>
   );
 };
