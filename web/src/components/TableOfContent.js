@@ -106,7 +106,8 @@ function Toc({ toc }) {
             underline="none"
             key={title}
             onClick={(event) => {
-              event.preventDefault();
+              const e = event || window.event;
+              e.preventDefault();
               headings.nodes[index].scrollIntoView({
                 behavior: `smooth`,
                 block: `start`,
