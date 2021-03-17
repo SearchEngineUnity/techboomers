@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Typography } from '@material-ui/core';
 import { Link } from 'gatsby-theme-material-ui';
+import { useActiveHash } from '../hooks/useActiveHash';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,18 +20,6 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.primary.dark,
     fontWeight: 'bold',
   },
-  link: {
-    textDecoration: 'none',
-    '&:active': {
-      textDecoration: 'none',
-    },
-    '&:hover': {
-      textDecoration: 'none',
-    },
-    '&:focus': {
-      textDecoration: 'none',
-    },
-  },
 }));
 
 // Used to calculate each heading's offset from the top of the page.
@@ -41,6 +30,7 @@ const accumulateOffsetTop = (el, totalOffset = 0) => {
     totalOffset += el.offsetTop - el.scrollTop + el.clientTop;
     el = el.offsetParent;
   }
+  console.log(`totalOffset ${totalOffset}`);
   return totalOffset;
 };
 
@@ -53,7 +43,7 @@ function Toc({ toc }) {
   });
 
   // Controls which heading is currently highlighted as active.
-  const [active, setActive] = useState();
+  const [active, setActive] = useState(null);
 
   // Read heading titles, depths and nodes from the DOM.
   useEffect(() => {
@@ -76,23 +66,29 @@ function Toc({ toc }) {
     console.log(titles, nodes);
 
     setHeadings({ titles, nodes });
-  }, []);
+  }, [toc]);
+
+  const ids = headings.titles.map((x) => x.id);
+  console.log(ids);
+  const activeHash = useActiveHash(ids);
+
+  console.log(activeHash);
 
   // Add scroll event listener to update currently active heading.
-  useEffect(() => {
-    const scrollHandler = () => {
-      const { titles, nodes } = headings;
-      // Offsets need to be recomputed inside scrollHandler because
-      // lazily-loaded content increases offsets as user scrolls down.
-      const offsets = nodes.map((el) => accumulateOffsetTop(el));
-      const activeIndex = offsets.findIndex(
-        (offset) => offset > window.scrollY + 0.8 * window.innerHeight,
-      );
-      setActive(activeIndex === -1 ? titles.length - 1 : activeIndex - 1);
-    };
-    window.addEventListener(`scroll`, scrollHandler);
-    return () => window.removeEventListener(`scroll`, scrollHandler);
-  }, [headings]);
+  // useEffect(() => {
+  //   const scrollHandler = () => {
+  //     const { titles, nodes } = headings;
+  //     // Offsets need to be recomputed inside scrollHandler because
+  //     // lazily-loaded content increases offsets as user scrolls down.
+  //     const offsets = nodes.map((el) => accumulateOffsetTop(el));
+  //     const activeIndex = offsets.findIndex(
+  //       (offset) => offset > window.scrollY + 0.5 * window.innerHeight,
+  //     );
+  //     setActive(activeIndex === -1 ? titles.length - 1 : activeIndex - 1);
+  //   };
+  //   window.addEventListener(`scroll`, scrollHandler);
+  //   return () => window.removeEventListener(`scroll`, scrollHandler);
+  // }, [headings]);
 
   console.log(active);
   return (
@@ -106,13 +102,14 @@ function Toc({ toc }) {
         {headings.titles.map(({ title, id }, index) => (
           <Link
             to={`#${id}`}
-            className={`${active === index ? style.activeLink : null} ${style.link}`}
+            className={`${activeHash === id ? style.activeLink : null} ${style.link}`}
+            underline="none"
             key={title}
             onClick={(event) => {
               event.preventDefault();
               headings.nodes[index].scrollIntoView({
                 behavior: `smooth`,
-                block: `center`,
+                block: `start`,
               });
             }}
           >
