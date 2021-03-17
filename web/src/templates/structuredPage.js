@@ -127,6 +127,12 @@ export const query = graphql`
 export default ({ data }) => {
   const type = 'page';
 
+  let spGuides;
+
+  if (data.page.segments.filter((el) => el._type === 'learningSegment')) {
+    spGuides = useSpGuides();
+  }
+
   return (
     <Layout>
       <SEO {...mapSeoToProps(data.page, data.site.siteMetadata.siteUrl, type)} />
@@ -138,7 +144,6 @@ export default ({ data }) => {
               return <div key={segment._key}>This is the Hero segment</div>;
 
             case 'learningSegment': {
-              const spGuides = useSpGuides();
               return (
                 <GridSegment
                   key={segment._key}

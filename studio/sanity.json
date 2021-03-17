@@ -14,15 +14,17 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "@sanity/color-input",
-    "@sanity/vision",
     "table",
     "media",
     "@sanity/dashboard",
-    "dashboard-widget-netlify"
+    "dashboard-widget-netlify",
+    "graph-view"
   ],
   "env": {
     "development": {
-      "plugins": []
+      "plugins": [
+        "@sanity/vision"
+      ]
     }
   },
   "parts": [

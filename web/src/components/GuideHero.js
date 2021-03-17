@@ -4,6 +4,7 @@ import { Container, Paper, Typography, Grid, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import ImgBlock from './FluidImgBlock';
 import Subtitle from './block-contents/HeroSubtitleSerializer';
+import ProgressBar from './ScrollProgressBar';
 import { mapFluidImgBlockToProps } from '../lib/mapToProps';
 
 const useStyles = makeStyles((theme) => ({
@@ -15,24 +16,30 @@ const useStyles = makeStyles((theme) => ({
 function GuideHero({ h1, subtitle, date, image }) {
   const style = useStyles();
 
+  const lastUpdatedDate = new Date(date.replace(/-/g, '/'));
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+
   return (
-    <Box className={style.root} id="hero" component="section" py={3}>
-      <Container maxWidth="lg">
-        <Grid container direction="row" justify="center" alignItems="center" spacing={3}>
-          <Grid item md={6} sm={12}>
-            <Typography variant="h1">{h1}</Typography>
-            <Subtitle blocks={subtitle} />
-            <br />
-            <Typography component="p" variant="caption" className={style.date}>
-              Last updated at: {date}
-            </Typography>
+    <>
+      <Box className={style.root} id="hero" component="section" py={3}>
+        <Container maxWidth="lg">
+          <Grid container direction="row" justify="center" alignItems="center" spacing={3}>
+            <Grid item md={6} xs={12}>
+              <Typography variant="h1">{h1}</Typography>
+              <Subtitle blocks={subtitle} />
+              <br />
+              <Typography component="p" variant="caption" className={style.date}>
+                Last updated: {lastUpdatedDate.toLocaleDateString('en-US', options)}
+              </Typography>
+            </Grid>
+            <Grid item md={6} xs={12}>
+              <ImgBlock {...mapFluidImgBlockToProps(image)} loading="eager" />
+            </Grid>
           </Grid>
-          <Grid item md={6} sm={12}>
-            <ImgBlock {...mapFluidImgBlockToProps(image)} loading="eager" />
-          </Grid>
-        </Grid>
-      </Container>
-    </Box>
+        </Container>
+      </Box>
+      <ProgressBar />
+    </>
   );
 }
 

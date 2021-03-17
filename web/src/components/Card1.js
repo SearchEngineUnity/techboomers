@@ -1,4 +1,5 @@
 import React from 'react';
+import { CardActionArea, Link } from 'gatsby-theme-material-ui';
 import { Typography, Card, CardContent } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import ImgBlock from './FluidImgBlock';
@@ -11,18 +12,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Card1({ title, image, date }) {
+function Card1({ title, image, url }) {
   const style = useStyles();
 
   return (
     <Card>
-      <ImgBlock {...mapFluidImgBlockToProps(image)} />
-      <CardContent>
-        <Typography component="p" variant="h5">
-          {title}
-        </Typography>
-        <Typography>{date}</Typography>
-      </CardContent>
+      <CardActionArea to={url}>
+        <ImgBlock {...mapFluidImgBlockToProps(image)} />
+        <CardContent>
+          <Typography component="p" variant="h5">
+            {title}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
     </Card>
   );
 }

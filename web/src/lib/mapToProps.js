@@ -92,11 +92,11 @@ export function mapFluidImgBlockToProps({ asset, alt }) {
   };
 }
 
-export function mapGuideHeroToProps({ h1, _rawSubtitle, _createdAt, _updatedAt, heroImage }) {
+export function mapGuideHeroToProps({ h1, _rawSubtitle, displayDate, heroImage }) {
   return {
     h1,
     subtitle: _rawSubtitle,
-    date: _updatedAt || _createdAt,
+    date: displayDate,
     image: heroImage,
   };
 }
