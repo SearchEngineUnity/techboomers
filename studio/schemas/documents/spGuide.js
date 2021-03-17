@@ -7,6 +7,14 @@ export default {
   icon: RiPagesLine,
   fieldsets: [
     {
+      name: 'general',
+      title: 'General Fields',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+    },
+    {
       name: 'meta',
       title: 'SEO and Social',
       options: {
@@ -52,10 +60,18 @@ export default {
       name: 'shortName',
       title: 'Short Name',
       type: 'string',
+      fieldset: 'general',
       validation: (Rule) => [
         Rule.required().error('Field is required'),
         // add a custom rule for isUnique
       ],
+    },
+    {
+      name: 'displayDate',
+      title: 'Display date',
+      type: 'date',
+      fieldset: 'general',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'title',

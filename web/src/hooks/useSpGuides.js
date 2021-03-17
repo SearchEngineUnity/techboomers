@@ -8,8 +8,10 @@ export const useSpGuides = () => {
         guides: allSanitySpGuide {
           nodes {
             _id
-            _createdAt
-            _updatedAt
+            slug {
+              current
+            }
+            displayDate
             cardTitle
             cardImage {
               alt
@@ -31,14 +33,13 @@ export const useSpGuides = () => {
     `,
   );
 
-  const guidesAsCards = guides.nodes.map(
-    ({ _id, cardTitle, cardImage, _createdAt, _updatedAt }) => ({
-      _key: _id,
-      title: cardTitle,
-      image: cardImage,
-      date: _updatedAt || _createdAt,
-    }),
-  );
+  const guidesAsCards = guides.nodes.map(({ _id, cardTitle, cardImage, displayDate, slug }) => ({
+    _key: _id,
+    title: cardTitle,
+    image: cardImage,
+    date: displayDate,
+    url: slug.current,
+  }));
 
   const dateSortedCards = guidesAsCards.sort((a, b) => {
     const dateA = a.date;

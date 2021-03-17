@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Container, Grid, Box } from '@material-ui/core';
+import { Container, Grid, Box, Hidden } from '@material-ui/core';
 import Layout from '../containers/layout';
 import GuideHero from '../components/GuideHero';
 import GuideBody from '../components/block-contents/GuideSerializer';
@@ -21,6 +21,7 @@ export const query = graphql`
       slug {
         current
       }
+      displayDate
       title
       twitter {
         description
@@ -63,8 +64,6 @@ export const query = graphql`
         }
       }
       _rawSubtitle(resolveReferences: { maxDepth: 10 })
-      _createdAt
-      _updatedAt
     }
   }
 `;
@@ -81,12 +80,14 @@ export default ({ data }) => {
       <Box py={3}>
         <Container maxWidth="lg">
           <Grid container spacing={3}>
-            <Grid item xl={9} md={8} xs={12}>
+            <Grid item xl={9} md={8} sm={12}>
               <GuideBody blocks={data.guide._rawBody} />
             </Grid>
-            <Grid item xl={3} md={4} xs={0}>
-              <ToC toc={data.guide.toc} />
-            </Grid>
+            <Hidden smDown>
+              <Grid item xl={3} md={4}>
+                <ToC toc={data.guide.toc} />
+              </Grid>
+            </Hidden>
           </Grid>
         </Container>
       </Box>

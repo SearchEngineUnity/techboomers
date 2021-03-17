@@ -36,6 +36,7 @@
     "react-instagram-embed": "^2.0.0",
     "react-player": "^2.7.0",
     "sanity-plugin-dashboard-widget-netlify": "^1.0.1",
+    "sanity-plugin-graph-view": "^1.0.4",
     "sanity-plugin-media": "^1.1.2"
   },
   "devDependencies": {},
