@@ -105,8 +105,7 @@ function Toc({ toc }) {
             className={`${activeHash === id ? style.activeLink : null} ${style.link}`}
             underline="none"
             key={title}
-            onClick={(event) => {
-              const e = event || window.event;
+            onClick={(e) => {
               e.preventDefault();
               headings.nodes[index].scrollIntoView({
                 behavior: `smooth`,
