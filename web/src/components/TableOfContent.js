@@ -79,9 +79,7 @@ function Toc({ toc }) {
       // Offsets need to be recomputed inside scrollHandler because
       // lazily-loaded content increases offsets as user scrolls down.
       const offsets = nodes.map((el) => accumulateOffsetTop(el));
-      const activeIndex = offsets.findIndex(
-        (offset) => offset > window.scrollY + 0.5 * window.innerHeight,
-      );
+      const activeIndex = offsets.findIndex((offset) => offset > window.scrollY);
       setActive(activeIndex === -1 ? titles.length - 1 : activeIndex - 1);
     };
     window.addEventListener(`scroll`, scrollHandler);
@@ -95,7 +93,11 @@ function Toc({ toc }) {
       window.history.replaceState(null, null, ' ');
     } else {
       console.log(headings.titles[active].id);
-      window.location.hash = headings.titles[active].id;
+      window.history.replaceState(
+        null,
+        null,
+        `${window.location.origin + window.location.pathname}#${headings.titles[active].id}`,
+      );
     }
   }, [active, headings]);
 
@@ -115,7 +117,11 @@ function Toc({ toc }) {
             key={title}
             onClick={(e) => {
               e.preventDefault();
-              window.location.hash = id;
+              window.history.replaceState(
+                null,
+                null,
+                `${window.location.origin + window.location.pathname}#${id}`,
+              );
               headings.nodes[index].scrollIntoView({
                 behavior: `smooth`,
                 block: `start`,
