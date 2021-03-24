@@ -1,6 +1,6 @@
 import React from 'react';
 import Img from 'gatsby-image';
-import { Paper, Typography } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 import { getFluidGatsbyImage } from 'gatsby-source-sanity';
 import sanityConfig from '../../../sanityConfig';
 
@@ -11,7 +11,7 @@ function Illustration({ illustration }) {
   const imageFilename = illustration?.asset?.originalFilename || 'image';
 
   return (
-    <Paper component="figure" mb={2} mx="auto">
+    <Box component="figure" mb={2} mx="auto">
       <Img
         fluid={fluidProps}
         objectFit="contain"
@@ -24,7 +24,7 @@ function Illustration({ illustration }) {
           {illustration.caption}
         </Typography>
       )}
-    </Paper>
+    </Box>
   );
 }
 

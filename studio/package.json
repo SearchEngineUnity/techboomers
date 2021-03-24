@@ -20,14 +20,14 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/base": "^2.6.0",
+    "@sanity/base": "^2.6.4",
     "@sanity/color-input": "^2.1.0",
     "@sanity/components": "^2.1.0",
-    "@sanity/core": "^2.6.1",
+    "@sanity/core": "^2.6.2",
     "@sanity/dashboard": "^2.1.0",
-    "@sanity/default-layout": "^2.6.0",
+    "@sanity/default-layout": "^2.6.4",
     "@sanity/default-login": "^2.1.0",
-    "@sanity/desk-tool": "^2.6.1",
+    "@sanity/desk-tool": "^2.6.4",
     "@sanity/vision": "^2.1.0",
     "prop-types": "^15.6",
     "react": "^16.2",
@@ -37,7 +37,8 @@
     "react-player": "^2.7.0",
     "sanity-plugin-dashboard-widget-netlify": "^1.0.1",
     "sanity-plugin-graph-view": "^1.0.4",
-    "sanity-plugin-media": "^1.1.2"
+    "sanity-plugin-media": "^1.1.2",
+    "sanity-plugin-table": "^2.2.0"
   },
   "devDependencies": {},
   "repository": {

@@ -52,5 +52,8 @@ export default {
         ],
       },
     },
+    {
+      type: 'illustration',
+    },
   ],
 };

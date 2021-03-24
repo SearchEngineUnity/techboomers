@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 
 function BasicTable({ basicTable }) {
-  const { colHeading, rowHeading } = basicTable;
+  const { colHeading, rowHeading, title } = basicTable;
 
   let thead = [];
   let tbody = basicTable.table.rows;
@@ -22,7 +22,7 @@ function BasicTable({ basicTable }) {
 
   return (
     <TableContainer component={Paper}>
-      <Table>
+      <Table size="small" aria-label={title}>
         {colHeading && (
           <TableHead>
             <TableRow key={thead._key}>
@@ -37,7 +37,7 @@ function BasicTable({ basicTable }) {
             <TableRow key={row._key}>
               {row.cells.map((cell, index) => {
                 if (rowHeading && index === 0) {
-                return <TableCell component="th" key={`${row.row_key}-${index}`}>{cell}</TableCell>; // eslint-disable-line
+                return <TableCell className="MuiTableCell-head" component="th" key={`${row.row_key}-${index}`}>{cell}</TableCell>; // eslint-disable-line
                 }
               return <TableCell key={`${row._key}-${index}`}>{cell}</TableCell>; // eslint-disable-line
               })}

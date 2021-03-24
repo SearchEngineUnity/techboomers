@@ -8,6 +8,22 @@ export default {
   icon: FaBullseye,
   fieldsets: [
     {
+      name: 'brand',
+      title: 'Brand',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+    },
+    {
+      name: 'highlightbox',
+      title: 'Highlight Box',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+    },
+    {
       name: 'common',
       title: 'Common',
       options: {
@@ -24,16 +40,8 @@ export default {
       },
     },
     {
-      name: 'brand',
-      title: 'Brand',
-      options: {
-        collapsible: true,
-        collapsed: true,
-      },
-    },
-    {
-      name: 'highlightbox',
-      title: 'Highlight Box',
+      name: 'text',
+      title: 'Text',
       options: {
         collapsible: true,
         collapsed: true,
@@ -41,30 +49,6 @@ export default {
     },
   ],
   fields: [
-    {
-      name: 'black',
-      title: 'Black',
-      type: 'color',
-      fieldset: 'common',
-    },
-    {
-      name: 'white',
-      title: 'White',
-      type: 'color',
-      fieldset: 'common',
-    },
-    {
-      name: 'paper',
-      title: 'Paper',
-      type: 'color',
-      fieldset: 'background',
-    },
-    {
-      name: 'default',
-      title: 'Default',
-      type: 'color',
-      fieldset: 'background',
-    },
     {
       name: 'primary',
       title: 'Primary brand color',
@@ -108,6 +92,59 @@ export default {
       title: 'Warning',
       type: 'hlbColorSet',
       fieldset: 'highlightbox',
+    },
+    {
+      name: 'black',
+      title: 'Black',
+      type: 'color',
+      fieldset: 'common',
+    },
+    {
+      name: 'white',
+      title: 'White',
+      type: 'color',
+      fieldset: 'common',
+    },
+    {
+      name: 'paper',
+      title: 'Paper',
+      type: 'color',
+      fieldset: 'background',
+    },
+    {
+      name: 'default',
+      title: 'Default',
+      type: 'color',
+      fieldset: 'background',
+    },
+    {
+      name: 'primaryText',
+      title: 'Primary',
+      type: 'color',
+      fieldset: 'text',
+    },
+    {
+      name: 'secondaryText',
+      title: 'Secondary',
+      type: 'color',
+      fieldset: 'text',
+    },
+    {
+      name: 'disabledText',
+      title: 'Disabled',
+      type: 'color',
+      fieldset: 'text',
+    },
+    {
+      name: 'hintText',
+      title: 'Hint',
+      type: 'color',
+      fieldset: 'text',
+    },
+    {
+      name: 'divider',
+      title: 'Divider',
+      type: 'color',
     },
   ],
   preview: {

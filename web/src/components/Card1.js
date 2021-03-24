@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardActionArea, Link } from 'gatsby-theme-material-ui';
+import { CardActionArea } from 'gatsby-theme-material-ui';
 import { Typography, Card, CardContent } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import ImgBlock from './FluidImgBlock';

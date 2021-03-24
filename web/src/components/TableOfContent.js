@@ -3,7 +3,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Typography } from '@material-ui/core';
 import { Link } from 'gatsby-theme-material-ui';
-import { useActiveHash } from '../hooks/useActiveHash';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,7 +29,6 @@ const accumulateOffsetTop = (el, totalOffset = 0) => {
     totalOffset += el.offsetTop - el.scrollTop + el.clientTop;
     el = el.offsetParent;
   }
-  console.log(`totalOffset ${totalOffset}`);
   return totalOffset;
 };
 
@@ -57,20 +55,15 @@ function Toc({ toc }) {
     // targets all the headings you want to appear in the ToC.
     const nodes = Array.from(document.querySelectorAll('h2'));
 
-    console.log(nodes);
     const titles = nodes.map((node, index) => ({
       title: toc[index].title,
       id: node.id,
     }));
 
-    console.log(titles, nodes);
-
     setHeadings({ titles, nodes });
   }, [toc]);
 
   const ids = headings.titles.map((x) => x.id);
-  console.log(ids);
-  const activeHash = useActiveHash(ids);
 
   // Add scroll event listener to update currently active heading.
   useEffect(() => {
@@ -88,11 +81,9 @@ function Toc({ toc }) {
 
   // add hash on scroll based on current active heading
   useEffect(() => {
-    console.log(active);
     if (active === -1 || active === null) {
       window.history.replaceState(null, null, ' ');
     } else {
-      console.log(headings.titles[active].id);
       window.history.replaceState(
         null,
         null,
