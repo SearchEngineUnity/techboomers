@@ -63,7 +63,7 @@ function SmartTable({ smartTable }) {
                   if (cell._type === 'tableBlock') {
                     return (
                       // eslint-disable-next-line
-                      <TableCell component="th" key={`${row._key}-${index}`}>
+                      <TableCell className="MuiTableCell-head" component="th" key={`${row._key}-${index}`}>
                         <TableContent blocks={cell.copy} />
                       </TableCell>
                     );

@@ -1,10 +1,12 @@
-import { FaExternalLinkAlt, FaLink } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaLink, FaHashtag } from 'react-icons/fa';
 import { MdLink, MdImage } from 'react-icons/md';
+import { AiOutlinePicCenter } from 'react-icons/ai';
 import ExternalLinkRenderer from '../components/ExternalLinkRenderer';
 import InternalLinkRenderer from '../components/InternalLinkRenderer';
 import JumpLinkRenderer from '../components/JumpLinkRenderer';
 import InlineImageRenderer from '../components/InlineImageRenderer';
 import InlineIconRenderer from '../components/InlineIconRenderer';
+import HashIdRenderer from '../components/hashIdRenderer';
 
 export default {
   title: 'Block Content',
@@ -25,6 +27,22 @@ export default {
       ],
       marks: {
         annotations: [
+          {
+            title: 'Hash Id',
+            name: 'hashId',
+            type: 'object',
+            blockEditor: {
+              icon: FaHashtag,
+              render: HashIdRenderer,
+            },
+            fields: [
+              {
+                title: 'ID',
+                name: 'idTag',
+                type: 'string',
+              },
+            ],
+          },
           {
             title: 'External Link',
             name: 'externalLink',
@@ -102,6 +120,7 @@ export default {
               storeOriginalFilename: true,
             },
             blockEditor: {
+              icon: AiOutlinePicCenter,
               render: InlineIconRenderer,
             },
             validation: (Rule) => [Rule.required().error('Missing Image')],

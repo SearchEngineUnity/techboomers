@@ -28,6 +28,13 @@ const ThemeProvider = ({ children, data }) => {
         dark: palette?.secondary?.dark?.hex || '#c51162',
         contrastText: palette?.secondary?.contrastText?.hex || '#fff',
       },
+      text: {
+        primary: palette?.primaryText?.hex || 'rgba(0, 0, 0, 0.87)',
+        secondary: palette?.secondaryText?.hex || 'rgba(0, 0, 0, 0.54)',
+        disabled: palette?.disabled?.hex || 'rgba(0, 0, 0, 0.38)',
+        hint: palette?.hint?.hex || 'rgba(0, 0, 0, 0.38)',
+      },
+      divider: palette?.divider?.hex || 'rgba(0, 0, 0, 0.12)',
       background: {
         paper: palette?.paper?.hex || '#fff',
         default: palette?.default?.hex || '#fafafa',
@@ -36,7 +43,7 @@ const ThemeProvider = ({ children, data }) => {
         definition: {
           bgColor: palette?.definition?.bgColor || '#d6d8d9',
           borderColor: palette?.definition?.borderColor || '#c6c8ca',
-          iconColor: palette?.definition?.iconColor || palette?.black?.hex || '#000',
+          iconColor: palette?.definition?.iconColor || palette?.white?.hex || '#000',
           textColor: palette?.definition?.bgColor || palette?.black?.hex || '#000',
         },
         dyk: {
@@ -166,7 +173,7 @@ export default function TopLayout({ children }) {
   return (
     <StaticQuery
       query={graphql`
-        query {
+        {
           sanityPalette {
             primary {
               dark {
@@ -276,6 +283,21 @@ export default function TopLayout({ children }) {
               hex
             }
             white {
+              hex
+            }
+            disabledText {
+              hex
+            }
+            divider {
+              hex
+            }
+            hintText {
+              hex
+            }
+            primaryText {
+              hex
+            }
+            secondaryText {
               hex
             }
           }

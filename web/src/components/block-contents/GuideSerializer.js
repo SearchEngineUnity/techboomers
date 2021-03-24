@@ -2,8 +2,8 @@ import BaseBlockContent from '@sanity/block-content-to-react';
 import React from 'react';
 import { Typography } from '@material-ui/core';
 import { Link } from 'gatsby-theme-material-ui';
-import ReactPlayer from 'react-player';
 import styled from 'styled-components';
+import VideoEmbed from './VideoEmbed';
 import BasicTable from './BasicTable';
 import CtaBtn from './CtaBtn';
 import Illustration from './Illustration';
@@ -11,16 +11,12 @@ import InlineImage from './InlineImage';
 import InlineIcon from './InlineIcon';
 import HighlightBox from './HightlightBox/HighlightBox';
 import SmartTable from './SmartTable';
-
-const StyledReactPlayer = styled(ReactPlayer)`
-  margin-bottom: 1rem;
-`;
+import CopyLink from './CopyLink';
 
 const NoIndentUl = styled.ul`
   list-style-type: circle;
   margin-left: 1.4rem;
   padding-left: 0;
-  margin-bottom: 0;
 
   & > li {
     position: relative;
@@ -31,15 +27,10 @@ const NoIndentOl = styled.ol`
   list-style-type: decimal;
   margin-left: 1.4rem;
   padding-left: 0;
-  margin-bottom: 0;
 
   & > li {
     position: relative;
   }
-`;
-
-const PaddedLi = styled.li`
-  margin-bottom: 1rem;
 `;
 
 const serializers = {
@@ -60,9 +51,20 @@ const serializers = {
           return (
             <Typography
               variant="h2"
-              id={`${props.children.toString().toLowerCase().trim().replace(/ /g, '-')}`}
+              id={
+                props.node.markDefs.length !== 0
+                  ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
+                  : props.children.toString().toLowerCase().trim().replace(/ /g, '-')
+              }
             >
               {props.children}
+              <CopyLink
+                id={
+                  props.node.markDefs.length !== 0
+                    ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
+                    : props.children.toString().toLowerCase().trim().replace(/ /g, '-')
+                }
+              />
             </Typography>
           );
 
@@ -136,7 +138,7 @@ const serializers = {
       return <p>Work in progress</p>;
     },
     videoEmbed({ node }) {
-      return <StyledReactPlayer url={node.url} width="100%" controls />;
+      return <VideoEmbed url={node.url} />;
     },
   },
   marks: {
@@ -190,7 +192,11 @@ const serializers = {
         return <NoIndentOl>{children}</NoIndentOl>;
     }
   },
-  listItem: ({ children }) => <PaddedLi>{children}</PaddedLi>,
+  listItem: ({ children }) => (
+    <Typography variant="body1" component="li">
+      {children}
+    </Typography>
+  ),
 };
 
 const BlockContent = ({ blocks }) => <BaseBlockContent blocks={blocks} serializers={serializers} />;
