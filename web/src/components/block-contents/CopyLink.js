@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { IconButton, Tooltip } from '@material-ui/core';
 import LinkIcon from '@material-ui/icons/Link';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -17,7 +17,11 @@ const useStyles = makeStyles((theme) => ({
 
 function CopyLink({ id }) {
   const style = useStyles();
-  const baseURL = window.location.href.split('#')[0];
+  const [baseURL, setBaseURL] = useState(null);
+
+  useEffect(() => {
+    setBaseURL(window.location.href.split('#')[0]);
+  }, [baseURL]);
 
   return (
     <CopyToClipboard text={`${baseURL}#${id}`}>
