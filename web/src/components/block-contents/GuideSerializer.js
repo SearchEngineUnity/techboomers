@@ -142,6 +142,7 @@ const serializers = {
     },
   },
   marks: {
+    hashId: ({ children }) => children,
     internalLink: ({ mark, children }) => {
       const { slug = {} } = mark.reference;
       const href = slug.current === '/' ? `/` : `/${slug.current}`;

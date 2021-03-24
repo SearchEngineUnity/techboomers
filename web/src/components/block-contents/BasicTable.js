@@ -37,9 +37,9 @@ function BasicTable({ basicTable }) {
             <TableRow key={row._key}>
               {row.cells.map((cell, index) => {
                 if (rowHeading && index === 0) {
-                return <TableCell className="MuiTableCell-head" component="th" key={`${row.row_key}-${index}`}>{cell}</TableCell>; // eslint-disable-line
+                return <TableCell className="MuiTableCell-head" style={{ verticalAlign: 'top' }} component="th" key={`${row.row_key}-${index}`}>{cell}</TableCell>; // eslint-disable-line
                 }
-              return <TableCell key={`${row._key}-${index}`}>{cell}</TableCell>; // eslint-disable-line
+              return <TableCell key={`${row._key}-${index}`} style={{ verticalAlign: 'top' }}>{cell}</TableCell>; // eslint-disable-line
               })}
             </TableRow>
           ))}

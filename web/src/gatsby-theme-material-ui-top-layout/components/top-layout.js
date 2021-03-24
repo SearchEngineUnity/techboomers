@@ -43,32 +43,42 @@ const ThemeProvider = ({ children, data }) => {
         definition: {
           bgColor: palette?.definition?.bgColor || '#d6d8d9',
           borderColor: palette?.definition?.borderColor || '#c6c8ca',
-          iconColor: palette?.definition?.iconColor || palette?.white?.hex || '#000',
-          textColor: palette?.definition?.bgColor || palette?.black?.hex || '#000',
+          iconColor:
+            palette?.definition?.iconColor || palette?.primaryText?.hex || 'rgba(0, 0, 0, 0.87)',
+          textColor:
+            palette?.definition?.bgColor || palette?.primaryText?.hex || 'rgba(0, 0, 0, 0.87)',
         },
         dyk: {
           bgColor: palette?.definition?.bgColor || '#d4edda',
           borderColor: palette?.definition?.borderColor || '#c3e6cb',
-          iconColor: palette?.definition?.iconColor || palette?.black?.hex || '#000',
-          textColor: palette?.definition?.bgColor || palette?.black?.hex || '#000',
+          iconColor:
+            palette?.definition?.iconColor || palette?.primaryText?.hex || 'rgba(0, 0, 0, 0.87)',
+          textColor:
+            palette?.definition?.bgColor || palette?.primaryText?.hex || 'rgba(0, 0, 0, 0.87)',
         },
         important: {
           bgColor: palette?.definition?.bgColor || '#fff3cd',
           borderColor: palette?.definition?.borderColor || '#ffeeba',
-          iconColor: palette?.definition?.iconColor || palette?.black?.hex || '#000',
-          textColor: palette?.definition?.bgColor || palette?.black?.hex || '#000',
+          iconColor:
+            palette?.definition?.iconColor || palette?.primaryText?.hex || 'rgba(0, 0, 0, 0.87)',
+          textColor:
+            palette?.definition?.bgColor || palette?.primaryText?.hex || 'rgba(0, 0, 0, 0.87)',
         },
         proTip: {
           bgColor: palette?.definition?.bgColor || '#cce5ff',
           borderColor: palette?.definition?.borderColor || '#b8daff',
-          iconColor: palette?.definition?.iconColor || palette?.black?.hex || '#000',
-          textColor: palette?.definition?.bgColor || palette?.black?.hex || '#000',
+          iconColor:
+            palette?.definition?.iconColor || palette?.primaryText?.hex || 'rgba(0, 0, 0, 0.87)',
+          textColor:
+            palette?.definition?.bgColor || palette?.primaryText?.hex || 'rgba(0, 0, 0, 0.87)',
         },
         warning: {
           bgColor: palette?.definition?.bgColor || '#f8d7da',
           borderColor: palette?.definition?.borderColor || '#f5c6cb',
-          iconColor: palette?.definition?.iconColor || palette?.black?.hex || '#000',
-          textColor: palette?.definition?.bgColor || palette?.black?.hex || '#000',
+          iconColor:
+            palette?.definition?.iconColor || palette?.primaryText?.hex || 'rgba(0, 0, 0, 0.87)',
+          textColor:
+            palette?.definition?.bgColor || palette?.primaryText?.hex || 'rgba(0, 0, 0, 0.87)',
         },
       },
     },

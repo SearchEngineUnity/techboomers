@@ -45,7 +45,7 @@ function SmartTable({ smartTable }) {
                 if (cell._type === 'illustration') {
                   return (
                     // eslint-disable-next-line
-                  <TableCell key={`${thead._key}-${index}`}>
+                  <TableCell key={`${thead._key}-${index}`} style={{ verticalAlign: 'top' }}>
                       <Illustration illustration={cell} />
                     </TableCell>
                   );
@@ -63,7 +63,7 @@ function SmartTable({ smartTable }) {
                   if (cell._type === 'tableBlock') {
                     return (
                       // eslint-disable-next-line
-                      <TableCell className="MuiTableCell-head" component="th" key={`${row._key}-${index}`}>
+                      <TableCell className="MuiTableCell-head" component="th" key={`${row._key}-${index}`} style={{ verticalAlign: 'top' }}>
                         <TableContent blocks={cell.copy} />
                       </TableCell>
                     );
@@ -71,7 +71,7 @@ function SmartTable({ smartTable }) {
                   if (cell._type === 'illustration') {
                     return (
                       // eslint-disable-next-line
-                      <TableCell component="th" key={`${row._key}-${index}`}>
+                      <TableCell component="th" key={`${row._key}-${index}`} style={{ verticalAlign: 'top' }}>
                         <Illustration illustration={cell} />
                       </TableCell>
                     );
@@ -81,7 +81,7 @@ function SmartTable({ smartTable }) {
                 if (cell._type === 'tableBlock') {
                   return (
                     // eslint-disable-next-line
-                    <TableCell key={`${row._key}-${index}`}>
+                    <TableCell key={`${row._key}-${index}`} style={{ verticalAlign: 'top' }}>
                       <TableContent blocks={cell.copy} />
                     </TableCell>
                   );
@@ -89,7 +89,7 @@ function SmartTable({ smartTable }) {
                 if (cell._type === 'illustration') {
                   return (
                     // eslint-disable-next-line
-                    <TableCell key={`${row._key}-${index}`}>
+                    <TableCell key={`${row._key}-${index}`} style={{ verticalAlign: 'top' }}>
                       <Illustration illustration={cell} />
                     </TableCell>
                   );
