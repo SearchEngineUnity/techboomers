@@ -2,7 +2,6 @@ import BaseBlockContent from '@sanity/block-content-to-react';
 import React from 'react';
 import { Typography } from '@material-ui/core';
 import { Link } from 'gatsby-theme-material-ui';
-import InlineIcon from './InlineIcon';
 
 const serializers = {
   types: {
@@ -40,17 +39,6 @@ const serializers = {
           {children}
         </a>
       );
-    },
-    inlineIcon: ({ mark, children }) => {
-      switch (mark._type) {
-        case 'inlineIcon':
-          if (mark.asset) {
-            return <InlineIcon image={mark.asset} alt={children[0]} />;
-          }
-          return null;
-        default:
-          return <p>doesn't work</p>; // eslint-disable-line
-      }
     },
   },
 };

@@ -44,7 +44,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-styled-components',
-    'gatsby-plugin-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
     {
@@ -53,7 +52,6 @@ module.exports = {
         icon: 'src/images/icon.png',
       },
     },
-    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -62,5 +60,8 @@ module.exports = {
       },
       __key: 'images',
     },
+    `gatsby-plugin-image`,
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
   ],
 };

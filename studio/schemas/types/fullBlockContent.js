@@ -4,7 +4,6 @@ import ExternalLinkRenderer from '../components/ExternalLinkRenderer';
 import InternalLinkRenderer from '../components/InternalLinkRenderer';
 import JumpLinkRenderer from '../components/JumpLinkRenderer';
 import InlineImageRenderer from '../components/InlineImageRenderer';
-import InlineIconRenderer from '../components/InlineIconRenderer';
 
 export default {
   title: 'Block Content',
@@ -91,18 +90,6 @@ export default {
             blockEditor: {
               icon: MdImage,
               render: InlineImageRenderer,
-            },
-            validation: (Rule) => [Rule.required().error('Missing Image')],
-          },
-          {
-            title: 'Inline Icon',
-            name: 'inlineIcon',
-            type: 'image',
-            options: {
-              storeOriginalFilename: true,
-            },
-            blockEditor: {
-              render: InlineIconRenderer,
             },
             validation: (Rule) => [Rule.required().error('Missing Image')],
           },

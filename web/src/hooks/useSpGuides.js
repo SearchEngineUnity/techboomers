@@ -15,17 +15,7 @@ export const useSpGuides = () => {
             cardTitle
             cardImage {
               alt
-              asset {
-                fluid {
-                  ...GatsbySanityImageFluid
-                }
-                metadata {
-                  dimensions {
-                    width
-                    height
-                  }
-                }
-              }
+              _rawAsset(resolveReferences: { maxDepth: 10 })
             }
           }
         }

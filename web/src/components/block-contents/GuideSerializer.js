@@ -8,7 +8,6 @@ import BasicTable from './BasicTable';
 import CtaBtn from './CtaBtn';
 import Illustration from './Illustration';
 import InlineImage from './InlineImage';
-import InlineIcon from './InlineIcon';
 import HighlightBox from './HightlightBox/HighlightBox';
 import SmartTable from './SmartTable';
 import CopyLink from './CopyLink';
@@ -165,18 +164,6 @@ const serializers = {
         case 'inlineImage':
           if (mark.asset) {
             return <InlineImage image={mark.asset} alt={children[0]} />;
-          }
-          return null;
-
-        default:
-          return <p>doesn't work</p>; // eslint-disable-line
-      }
-    },
-    inlineIcon: ({ mark, children }) => {
-      switch (mark._type) {
-        case 'inlineIcon':
-          if (mark.asset) {
-            return <InlineIcon image={mark.asset} alt={children[0]} />;
           }
           return null;
 
