@@ -28,6 +28,7 @@
     "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
     "gatsby": "^3.1.2",
+    "gatsby-cli": "^3.1.0",
     "gatsby-plugin-google-tagmanager": "^3.1.0",
     "gatsby-plugin-image": "^1.1.2",
     "gatsby-plugin-manifest": "^3.1.0",
