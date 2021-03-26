@@ -1,7 +1,6 @@
 import { FaExternalLinkAlt, FaLink } from 'react-icons/fa';
 import ExternalLinkRenderer from '../components/ExternalLinkRenderer';
 import InternalLinkRenderer from '../components/InternalLinkRenderer';
-import InlineIconRenderer from '../components/InlineIconRenderer';
 
 export default {
   name: 'heroBlockContent',
@@ -53,18 +52,6 @@ export default {
                 to: [{ type: 'spGuide' }, { type: 'page' }],
               },
             ],
-          },
-          {
-            title: 'Inline Icon',
-            name: 'inlineIcon',
-            type: 'image',
-            options: {
-              storeOriginalFilename: true,
-            },
-            blockEditor: {
-              render: InlineIconRenderer,
-            },
-            validation: (Rule) => [Rule.required().error('Missing Image')],
           },
         ],
       },

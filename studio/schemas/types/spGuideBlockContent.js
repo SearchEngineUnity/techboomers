@@ -5,7 +5,6 @@ import ExternalLinkRenderer from '../components/ExternalLinkRenderer';
 import InternalLinkRenderer from '../components/InternalLinkRenderer';
 import JumpLinkRenderer from '../components/JumpLinkRenderer';
 import InlineImageRenderer from '../components/InlineImageRenderer';
-import InlineIconRenderer from '../components/InlineIconRenderer';
 import HashIdRenderer from '../components/hashIdRenderer';
 
 export default {
@@ -109,19 +108,6 @@ export default {
             blockEditor: {
               icon: MdImage,
               render: InlineImageRenderer,
-            },
-            validation: (Rule) => [Rule.required().error('Missing Image')],
-          },
-          {
-            title: 'Inline Icon',
-            name: 'inlineIcon',
-            type: 'image',
-            options: {
-              storeOriginalFilename: true,
-            },
-            blockEditor: {
-              icon: AiOutlinePicCenter,
-              render: InlineIconRenderer,
             },
             validation: (Rule) => [Rule.required().error('Missing Image')],
           },

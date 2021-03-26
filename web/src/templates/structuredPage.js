@@ -29,18 +29,7 @@ export const query = graphql`
               _type
               alt
               caption
-              asset {
-                metadata {
-                  dimensions {
-                    width
-                    height
-                  }
-                }
-                url
-                fluid {
-                  ...GatsbySanityImageFluid_noBase64
-                }
-              }
+              _rawAsset(resolveReferences: { maxDepth: 10 })
             }
             ... on SanityVideo {
               _key
@@ -66,17 +55,7 @@ export const query = graphql`
               _key
               _type
               alt
-              asset {
-                metadata {
-                  dimensions {
-                    width
-                    height
-                  }
-                }
-                fluid {
-                  ...GatsbySanityImageFluid_noBase64
-                }
-              }
+              _rawAsset(resolveReferences: { maxDepth: 10 })
             }
             ... on SanityHeroBlock {
               _key
@@ -124,14 +103,10 @@ export const query = graphql`
   }
 `;
 
-export default ({ data }) => {
+const StructuredPage = ({ data }) => {
   const type = 'page';
 
-  let spGuides;
-
-  if (data.page.segments.filter((el) => el._type === 'learningSegment')) {
-    spGuides = useSpGuides();
-  }
+  const spGuides = useSpGuides();
 
   return (
     <Layout>
@@ -164,4 +139,4 @@ export default ({ data }) => {
   );
 };
 
-// export default () => <h1>structured page placeholder</h1>;
+export default StructuredPage;

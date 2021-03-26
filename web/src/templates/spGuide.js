@@ -50,25 +50,14 @@ export const query = graphql`
       description
       heroImage {
         alt
-        asset {
-          fluid {
-            ...GatsbySanityImageFluid_noBase64
-          }
-          metadata {
-            dimensions {
-              height
-              width
-            }
-          }
-          originalFilename
-        }
+        _rawAsset(resolveReferences: { maxDepth: 10 })
       }
       _rawSubtitle(resolveReferences: { maxDepth: 10 })
     }
   }
 `;
 
-export default ({ data }) => {
+const SPGuide = ({ data }) => {
   const type = 'guide';
   // const url = `${data.site.siteMetadata.siteUrl}/${data.guide.slug.current}`;
 
@@ -94,3 +83,5 @@ export default ({ data }) => {
     </Layout>
   );
 };
+
+export default SPGuide;

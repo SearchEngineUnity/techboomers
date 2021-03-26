@@ -1,7 +1,6 @@
 import BaseBlockContent from '@sanity/block-content-to-react';
 import React from 'react';
 import { Link } from 'gatsby-theme-material-ui';
-import InlineIcon from './InlineIcon';
 import HeroSubtitle from './HeroSubtitle';
 
 const serializers = {
@@ -27,18 +26,6 @@ const serializers = {
         </a>
       );
     },
-  },
-  inlineIcon: ({ mark, children }) => {
-    switch (mark._type) {
-      case 'inlineIcon':
-        if (mark.asset) {
-          return <InlineIcon image={mark.asset} alt={children[0]} />;
-        }
-        return null;
-
-      default:
-        return <p>doesn't work</p>; // eslint-disable-line
-    }
   },
 };
 

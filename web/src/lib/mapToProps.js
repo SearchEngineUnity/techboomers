@@ -1,18 +1,3 @@
-export function mapHeroToProps({ idTag, title, _rawSubtitle, heroMedia, heroBg, mediaIsBg }) {
-  return {
-    id: idTag,
-    title,
-    heroText: _rawSubtitle,
-    mediaType: heroMedia[0]?._type,
-    video: heroMedia[0]?.url,
-    image: heroMedia[0]?.asset?.fluid,
-    imageAlt: heroMedia[0]?.asset.alt,
-    imageURL: heroMedia[0]?.asset.url,
-    backgroundColor: heroBg?.hex,
-    mediaIsBg,
-  };
-}
-
 export function mapSeoToProps(
   { title, description, facebook, twitter, slug, noindex, nofollow, canonical, heroImage },
   siteUrl,
@@ -45,15 +30,6 @@ export function mapCtaFormToProps({ idTag, title, subtitle, form, _rawDisclaimer
   };
 }
 
-export function mapMainFooterToProps({ name }, { title, logo }, allSanitySocialInfo) {
-  return {
-    name,
-    logo: logo.asset.url,
-    brandName: title,
-    social: allSanitySocialInfo.edges,
-  };
-}
-
 export function mapMainNavToProps({ menu }) {
   return {
     menu,
@@ -75,20 +51,20 @@ export function mapGuideCardToProps({ h1, slug, excerpt, cardImage, displayDate 
     title: h1,
     date: displayDate,
     excerpt,
-    image: cardImage?.mainImage?.asset?.fluid,
+    image: cardImage?.mainImage?._rawAsset,
     imageAlt: cardImage?.mainImage?.alt,
-    imageFilename: cardImage?.mainImage?.asset?.originalFilename,
+    imageFilename: cardImage?.mainImage?._rawAsset?.originalFilename,
     url: `/${slug.current}`,
   };
 }
 
-export function mapFluidImgBlockToProps({ asset, alt }) {
+export function mapFluidImgBlockToProps({ _rawAsset, alt }) {
   return {
-    image: asset?.fluid,
+    image: _rawAsset,
     alt,
-    title: asset?.originalFilename,
-    width: asset?.metadata?.dimensions?.width,
-    height: asset?.metadata?.dimensions?.height,
+    title: _rawAsset?.originalFilename,
+    width: _rawAsset?.metadata?.dimensions?.width,
+    height: _rawAsset?.metadata?.dimensions?.height,
   };
 }
 
