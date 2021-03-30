@@ -19,11 +19,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function HighlightImportant({ blockContent, id }) {
-  const style = useStyles();
+  const classes = useStyles();
   return (
-    <Paper variant="outlined" key={id} className={style.root}>
-      <Typography component="p" variant="h4" className={style.text}>
-        <MenuBookIcon className={style.icon} /> Important
+    <Paper variant="outlined" key={id} className={classes.root}>
+      <Typography component="p" variant="h4" className={classes.text}>
+        <MenuBookIcon className={classes.icon} /> Important
       </Typography>
       <TextContent blocks={blockContent} />
     </Paper>

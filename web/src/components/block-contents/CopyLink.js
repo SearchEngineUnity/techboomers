@@ -16,21 +16,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function CopyLink({ id }) {
-  const style = useStyles();
+  const classes = useStyles();
   const [baseURL, setBaseURL] = useState(null);
 
   useEffect(() => {
     setBaseURL(window.location.href.split('#')[0]);
   }, [baseURL]);
 
-  return (
+  return id ? (
     <CopyToClipboard text={`${baseURL}#${id}`}>
-      <Tooltip title="Copy link" placement="right" className={style.tooltip}>
-        <IconButton className={style.button} aria-label="copy link" component="span">
+      <Tooltip title="Copy link" placement="right" className={classes.tooltip}>
+        <IconButton className={classes.button} aria-label="copy link" component="span">
           <LinkIcon />
         </IconButton>
       </Tooltip>
     </CopyToClipboard>
-  );
+  ) : null;
 }
 export default CopyLink;

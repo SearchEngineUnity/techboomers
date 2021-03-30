@@ -12,11 +12,6 @@ export default {
       title: 'Table Name',
     },
     {
-      name: 'options',
-      type: 'string',
-      title: 'Presentation options',
-    },
-    {
       name: 'colHeading',
       type: 'boolean',
       title: 'This table has a column heading',
@@ -31,6 +26,13 @@ export default {
       options: {
         layout: 'checkbox',
       },
+    },
+    {
+      name: 'colgroup',
+      type: 'array',
+      title:
+        'This sets the width of column in order from left to right. Use 0 for auto default sizing.',
+      of: [{ type: 'colWidth' }],
     },
     {
       name: 'table',

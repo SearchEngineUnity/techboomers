@@ -1,6 +1,7 @@
 export { rowPlus, smartTable, tableBlock, tableBlockContent, tablePlus } from './smartTable';
 export { default as basicTable } from './basicTable';
 export { default as card } from './card';
+export { default as colWidth } from './colWidth';
 export { default as excerpt } from './excerpt';
 export { default as externalLink } from './externalLink';
 export { default as fullBlockContent } from './fullBlockContent';

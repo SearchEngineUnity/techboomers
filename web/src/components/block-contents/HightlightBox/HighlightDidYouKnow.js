@@ -19,11 +19,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function HighlightDidYouKnow({ blockContent, id }) {
-  const style = useStyles();
+  const classes = useStyles();
   return (
-    <Paper variant="outlined" key={id} className={style.root}>
-      <Typography component="p" variant="h4" className={style.text}>
-        <MenuBookIcon className={style.icon} /> Did You Know
+    <Paper variant="outlined" key={id} className={classes.root}>
+      <Typography component="p" variant="h4" className={classes.text}>
+        <MenuBookIcon className={classes.icon} /> Did You Know
       </Typography>
       <TextContent blocks={blockContent} />
     </Paper>

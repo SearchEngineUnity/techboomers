@@ -72,10 +72,10 @@ export default {
             },
             fields: [
               {
-                name: 'heading',
+                name: 'idTag',
                 type: 'string',
-                title: 'Heading',
-                description: 'The exact full heading of jump destination.',
+                title: 'ID tag',
+                description: 'The exact ID of the destination.',
               },
             ],
           },

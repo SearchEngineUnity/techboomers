@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Card1({ title, image, url }) {
-  const style = useStyles();
+  const classes = useStyles();
 
   return (
     <Card>

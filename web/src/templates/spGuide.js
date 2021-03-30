@@ -44,7 +44,6 @@ export const query = graphql`
       _rawBody(resolveReferences: { maxDepth: 14 })
       toc {
         _key
-        header
         title
       }
       description
@@ -69,11 +68,11 @@ const SPGuide = ({ data }) => {
       <Box py={3}>
         <Container maxWidth="lg">
           <Grid container spacing={3}>
-            <Grid item xl={9} md={8} sm={12}>
+            <Grid item lg={9} md={8} xs={12}>
               <GuideBody blocks={data.guide._rawBody} />
             </Grid>
             <Hidden smDown>
-              <Grid item xl={3} md={4}>
+              <Grid item lg={3} md={4}>
                 <ToC toc={data.guide.toc} />
               </Grid>
             </Hidden>

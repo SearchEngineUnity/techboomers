@@ -19,11 +19,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function HighlightDefinition({ blockContent, id }) {
-  const style = useStyles();
+  const classes = useStyles();
   return (
-    <Paper variant="outlined" key={id} className={style.root}>
-      <Typography component="p" variant="h4" className={style.text}>
-        <MenuBookIcon className={style.icon} /> Definition
+    <Paper variant="outlined" key={id} className={classes.root}>
+      <Typography component="p" variant="h4" className={classes.text}>
+        <MenuBookIcon className={classes.icon} /> Definition
       </Typography>
       <TextContent blocks={blockContent} />
     </Paper>
