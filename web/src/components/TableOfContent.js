@@ -33,7 +33,7 @@ const accumulateOffsetTop = (el, totalOffset = 0) => {
 };
 
 function Toc({ toc }) {
-  const style = useStyles();
+  const classes = useStyles();
 
   const [headings, setHeadings] = useState({
     titles: [],
@@ -63,8 +63,6 @@ function Toc({ toc }) {
     setHeadings({ titles, nodes });
   }, [toc]);
 
-  const ids = headings.titles.map((x) => x.id);
-
   // Add scroll event listener to update currently active heading.
   useEffect(() => {
     const scrollHandler = () => {
@@ -93,17 +91,17 @@ function Toc({ toc }) {
   }, [active, headings]);
 
   return (
-    <Box p={3} className={style.root}>
+    <Box p={3} className={classes.root}>
       <Typography component="p" variant="h6">
         Table of Content
       </Typography>
       <br />
-      <Typography className={style.list} variant="body1">
+      <Typography className={classes.list} variant="body1">
         {/* {toc.map((link) => componentTypeSwitch(link))} */}
         {headings.titles.map(({ title, id }, index) => (
           <Link
             to={`#${id}`}
-            className={`${active === index ? style.activeLink : null} ${style.link}`}
+            className={`${active === index ? classes.activeLink : null} ${classes.link}`}
             underline="none"
             key={title}
             onClick={(e) => {

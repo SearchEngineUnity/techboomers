@@ -7,28 +7,20 @@ import Subtitle from './block-contents/GuideSerializer';
 import ProgressBar from './ScrollProgressBar';
 import { mapFluidImgBlockToProps } from '../lib/mapToProps';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: theme.palette.primary.main,
-  },
-}));
-
 function GuideHero({ h1, subtitle, date, image }) {
-  const style = useStyles();
-
   const lastUpdatedDate = new Date(date.replace(/-/g, '/'));
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
 
   return (
     <>
-      <Box className={style.root} id="hero" component="section" py={3}>
+      <Box bgcolor="primary.main" color="primary.contrastText" id="hero" component="section" py={3}>
         <Container maxWidth="lg">
           <Grid container direction="row" justify="center" alignItems="center" spacing={3}>
             <Grid item md={6} xs={12}>
               <Typography variant="h1">{h1}</Typography>
               <Subtitle blocks={subtitle} />
               <br />
-              <Typography component="p" variant="caption" className={style.date}>
+              <Typography component="p" variant="caption">
                 Last updated: {lastUpdatedDate.toLocaleDateString('en-US', options)}
               </Typography>
             </Grid>

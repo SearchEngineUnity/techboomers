@@ -36,16 +36,6 @@ const serializers = {
   types: {
     block(props) {
       switch (props.node.style) {
-        case 'h1':
-          return (
-            <Typography
-              variant="h1"
-              id={`${props.children.toString().toLowerCase().trim().replace(/ /g, '-')}`}
-            >
-              {props.children}
-            </Typography>
-          );
-
         case 'h2':
           return (
             <Typography
@@ -53,7 +43,7 @@ const serializers = {
               id={
                 props.node.markDefs.length !== 0
                   ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
-                  : props.children.toString().toLowerCase().trim().replace(/ /g, '-')
+                  : false
               }
             >
               {props.children}
@@ -61,7 +51,7 @@ const serializers = {
                 id={
                   props.node.markDefs.length !== 0
                     ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
-                    : props.children.toString().toLowerCase().trim().replace(/ /g, '-')
+                    : false
                 }
               />
             </Typography>
@@ -71,7 +61,11 @@ const serializers = {
           return (
             <Typography
               variant="h3"
-              id={`${props.children.toString().toLowerCase().trim().replace(/ /g, '-')}`}
+              id={
+                props.node.markDefs.length !== 0
+                  ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
+                  : false
+              }
             >
               {props.children}
             </Typography>
@@ -81,7 +75,11 @@ const serializers = {
           return (
             <Typography
               variant="h4"
-              id={`${props.children.toString().toLowerCase().trim().replace(/ /g, '-')}`}
+              id={
+                props.node.markDefs.length !== 0
+                  ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
+                  : false
+              }
             >
               {props.children}
             </Typography>
@@ -91,7 +89,11 @@ const serializers = {
           return (
             <Typography
               variant="h5"
-              id={`${props.children.toString().toLowerCase().trim().replace(/ /g, '-')}`}
+              id={
+                props.node.markDefs.length !== 0
+                  ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
+                  : false
+              }
             >
               {props.children}
             </Typography>
@@ -101,7 +103,11 @@ const serializers = {
           return (
             <Typography
               variant="h6"
-              id={`${props.children.toString().toLowerCase().trim().replace(/ /g, '-')}`}
+              id={
+                props.node.markDefs.length !== 0
+                  ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
+                  : false
+              }
             >
               {props.children}
             </Typography>
@@ -156,8 +162,8 @@ const serializers = {
       );
     },
     jumpLink: ({ mark, children }) => {
-      const { heading } = mark;
-      return <Link to={`#${heading.toLowerCase().trim().replace(/ /g, '-')}`}>{children}</Link>;
+      const { idTag } = mark;
+      return <Link to={`#${idTag}`}>{children}</Link>;
     },
     inlineImage: ({ mark, children }) => {
       switch (mark._type) {

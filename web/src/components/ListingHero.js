@@ -1,22 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Paper, Typography, Grid } from '@material-ui/core';
+import { Container, Box, Typography, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import ImgBlock from './FluidImgBlock';
 import Subtitle from './block-contents/HeroSubtitleSerializer';
 import { mapFluidImgBlockToProps } from '../lib/mapToProps';
 
-const useStyles = makeStyles((theme) => ({
-  hero: {
-    backgroundColor: theme.palette.primary.main,
-  },
-}));
-
-function ListingHero({ h1, subtitle, date, image }) {
-  const style = useStyles();
-
+function ListingHero({ h1, subtitle, image }) {
   return (
-    <Paper component="section" square elevation={0} className={style.hero}>
+    <Box component="section" bgcolor="primary.main" color="primary.contrastText" py={3} id="hero">
       <Container maxWidth="lg">
         <Grid container direction="row" justify="center" alignItems="center">
           <Grid item md={6} sm={12}>
@@ -28,7 +20,7 @@ function ListingHero({ h1, subtitle, date, image }) {
           </Grid>
         </Grid>
       </Container>
-    </Paper>
+    </Box>
   );
 }
 

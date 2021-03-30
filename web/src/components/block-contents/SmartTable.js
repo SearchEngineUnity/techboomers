@@ -13,11 +13,23 @@ import {
   TableRow,
   Paper,
 } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import TableContent from './TableSerializer';
 import Illustration from './Illustration';
 
+const useStyles = makeStyles((theme) => ({
+  table: {
+    tableLayout: 'fixed',
+    minWidth: 700,
+  },
+  row: {
+    verticalAlign: 'top',
+  },
+}));
+
 function SmartTable({ smartTable }) {
-  const { colHeading, rowHeading } = smartTable;
+  const classes = useStyles();
+  const { colHeading, rowHeading, title, colgroup } = smartTable;
 
   let thead = [];
   let tbody = smartTable.table.rows;
@@ -29,7 +41,14 @@ function SmartTable({ smartTable }) {
 
   return (
     <TableContainer component={Paper}>
-      <Table>
+      <Table className={classes.table} size="small" aria-label={title}>
+        {colgroup && (
+          <colgroup>
+            {colgroup.map((col) =>
+              col.width !== 0 ? <col style={{ width: `${col.width}%` }} /> : <col />,
+            )}
+          </colgroup>
+        )}
         {colHeading && (
           <TableHead>
             <TableRow key={thead._key}>
@@ -57,7 +76,7 @@ function SmartTable({ smartTable }) {
         )}
         <TableBody>
           {tbody.map((row) => (
-            <TableRow key={row._key}>
+            <TableRow key={row._key} className={classes.row}>
               {row.cells.map((cell, index) => {
                 if (rowHeading && index === 0) {
                   if (cell._type === 'tableBlock') {
@@ -102,6 +121,8 @@ function SmartTable({ smartTable }) {
       </Table>
     </TableContainer>
   );
+
+  // return null;
 }
 
 export default SmartTable;

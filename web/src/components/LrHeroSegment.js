@@ -6,14 +6,7 @@ import ImgBlock from './FluidImgBlock';
 import HeroBlock from './HeroBlock';
 import { mapFluidImgBlockToProps, mapHeroBlockToProps } from '../lib/mapToProps';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: theme.palette.primary.main,
-  },
-}));
-
 function LrHeroSegment({ layout, blocks, idTag }) {
-  const style = useStyles();
   const colArr = layout.split(':').map((el) => parseInt(el, 10));
 
   const colCalculator = (value) => {
@@ -79,7 +72,7 @@ function LrHeroSegment({ layout, blocks, idTag }) {
   };
 
   return (
-    <Box id={idTag} component="section" className={style.root} py={3}>
+    <Box id={idTag} component="section" bgcolor="primary.main" color="primary.contrastText" py={3}>
       <Container maxWidth="lg">
         <Grid container direction="row" justify="center" alignItems="center" spacing={3}>
           {blocks.map((block, index) => {
