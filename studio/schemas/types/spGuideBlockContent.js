@@ -1,6 +1,5 @@
 import { FaExternalLinkAlt, FaLink, FaHashtag } from 'react-icons/fa';
 import { MdLink, MdImage } from 'react-icons/md';
-import { AiOutlinePicCenter } from 'react-icons/ai';
 import ExternalLinkRenderer from '../components/ExternalLinkRenderer';
 import InternalLinkRenderer from '../components/InternalLinkRenderer';
 import JumpLinkRenderer from '../components/JumpLinkRenderer';
@@ -104,6 +103,17 @@ export default {
               hotspot: true, // <-- Defaults to false
               storeOriginalFilename: true,
             },
+            fields: [
+              {
+                name: 'height',
+                type: 'string',
+                title: 'Image height',
+                description: `You can enter a height in px or vh. If the image's native height is smaller it will be used instead.`,
+                options: {
+                  isHighlighted: true, // <-- make this field easily accessible
+                },
+              },
+            ],
             blockEditor: {
               icon: MdImage,
               render: InlineImageRenderer,
