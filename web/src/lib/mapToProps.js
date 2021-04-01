@@ -62,9 +62,6 @@ export function mapFluidImgBlockToProps({ _rawAsset, alt }) {
   return {
     image: _rawAsset,
     alt,
-    title: _rawAsset?.originalFilename,
-    width: _rawAsset?.metadata?.dimensions?.width,
-    height: _rawAsset?.metadata?.dimensions?.height,
   };
 }
 

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import {
   Table,
@@ -23,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
 function BasicTable({ basicTable }) {
   const classes = useStyles();
   const { colHeading, rowHeading, title, colgroup } = basicTable;
-  console.log(colgroup);
 
   let thead = [];
   let tbody = basicTable.table.rows;
@@ -38,17 +38,26 @@ function BasicTable({ basicTable }) {
       <Table className={classes.table} size="small" aria-label={title}>
         {colgroup && (
           <colgroup>
-            {colgroup.map((col) =>
-              col.width !== 0 ? <col style={{ width: `${col.width}%` }} /> : <col />,
+            {colgroup.map((col, index) =>
+              col.width !== 0 ? (
+                <col style={{ width: `${col.width}%` }} key={`colWidth-${index}`} />
+              ) : (
+                <col />
+              ),
             )}
           </colgroup>
         )}
         {colHeading && (
           <TableHead>
             <TableRow key={thead._key}>
-              {thead.cells.map(
-                (cell, index) =>
-              rowHeading ? <TableCell key={`${thead._key}-${index}`} scope="row">{cell}</TableCell> : <TableCell key={`${thead._key}-${index}`}>{cell}</TableCell> // eslint-disable-line
+              {thead.cells.map((cell, index) =>
+                rowHeading ? (
+                  <TableCell key={`${thead._key}-${index}`} scope="row">
+                    {cell}
+                  </TableCell>
+                ) : (
+                  <TableCell key={`${thead._key}-${index}`}>{cell}</TableCell>
+                ),
               )}
             </TableRow>
           </TableHead>
@@ -58,9 +67,18 @@ function BasicTable({ basicTable }) {
             <TableRow key={row._key} className={classes.row}>
               {row.cells.map((cell, index) => {
                 if (rowHeading && index === 0) {
-                return <TableCell className="MuiTableCell-head" component="th" key={`${row.row_key}-${index}`} scope="row">{cell}</TableCell>; // eslint-disable-line
+                  return (
+                    <TableCell
+                      className="MuiTableCell-head"
+                      component="th"
+                      key={`${row.row_key}-${index}`}
+                      scope="row"
+                    >
+                      {cell}
+                    </TableCell>
+                  );
                 }
-              return <TableCell key={`${row._key}-${index}`}>{cell}</TableCell>; // eslint-disable-line
+                return <TableCell key={`${row._key}-${index}`}>{cell}</TableCell>;
               })}
             </TableRow>
           ))}

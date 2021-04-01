@@ -43,7 +43,7 @@ const serializers = {
               id={
                 props.node.markDefs.length !== 0
                   ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
-                  : false
+                  : undefined
               }
             >
               {props.children}
@@ -51,7 +51,7 @@ const serializers = {
                 id={
                   props.node.markDefs.length !== 0
                     ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
-                    : false
+                    : undefined
                 }
               />
             </Typography>
@@ -64,7 +64,7 @@ const serializers = {
               id={
                 props.node.markDefs.length !== 0
                   ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
-                  : false
+                  : undefined
               }
             >
               {props.children}
@@ -78,7 +78,7 @@ const serializers = {
               id={
                 props.node.markDefs.length !== 0
                   ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
-                  : false
+                  : undefined
               }
             >
               {props.children}
@@ -92,7 +92,7 @@ const serializers = {
               id={
                 props.node.markDefs.length !== 0
                   ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
-                  : false
+                  : undefined
               }
             >
               {props.children}
@@ -106,7 +106,7 @@ const serializers = {
               id={
                 props.node.markDefs.length !== 0
                   ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
-                  : false
+                  : undefined
               }
             >
               {props.children}
@@ -169,7 +169,7 @@ const serializers = {
       switch (mark._type) {
         case 'inlineImage':
           if (mark.asset) {
-            return <InlineImage image={mark.asset} alt={children[0]} />;
+            return <InlineImage image={mark} alt={children[0]} />;
           }
           return null;
 

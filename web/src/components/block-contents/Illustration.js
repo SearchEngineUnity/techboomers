@@ -3,16 +3,27 @@ import { Box, Typography } from '@material-ui/core';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import sanityConfig from '../../../sanityConfig';
+import { useWindowSize } from '../../hooks/useWindowSize';
 
 function Illustration({ illustration }) {
   const imageFluid = illustration?.asset;
   const fluidProps = getGatsbyImageData(imageFluid, {}, sanityConfig);
-  const { width, height } = illustration.asset.metadata.dimensions;
-  const imageFilename = illustration?.asset?.originalFilename || 'image';
+  const windowSize = useWindowSize();
+  const windowHeight = windowSize.height;
+  const imageHeight = illustration?.asset?.metadata?.dimensions?.height;
+  const customHeight = illustration?.height
+    ? (illustration?.height / 100) * windowHeight
+    : undefined;
+  const maxHeight = customHeight && customHeight < imageHeight ? customHeight : imageHeight;
 
   return (
-    <Box component="figure" mb={2} mx="auto">
-      <GatsbyImage image={fluidProps} alt={illustration.alt} />
+    <Box component="figure" justifyContent="center">
+      <GatsbyImage
+        image={fluidProps}
+        alt={illustration.alt}
+        style={{ display: 'block', maxHeight }}
+        objectFit="contain"
+      />
       {/* <Img
         fluid={fluidProps}
         objectFit="contain"

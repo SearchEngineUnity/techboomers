@@ -4,12 +4,12 @@ import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import sanityConfig from '../../sanityConfig';
 
-function FluidImgBlock({ image, alt, title, width, height, loading }) {
+function FluidImgBlock({ image, alt, loading }) {
   const loadingSetting = loading || 'lazy';
   const imageData = getGatsbyImageData(image, {}, sanityConfig);
 
   return (
-    <GatsbyImage image={imageData} alt={alt} />
+    <GatsbyImage image={imageData} alt={alt} loading={loadingSetting} />
     // <Img
     //   fluid={image}
     //   alt={alt}
