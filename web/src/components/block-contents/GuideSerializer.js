@@ -13,7 +13,7 @@ import SmartTable from './SmartTable';
 import CopyLink from './CopyLink';
 
 const NoIndentUl = styled.ul`
-  list-style-type: circle;
+  list-style-type: disk;
   margin-left: 1.4rem;
   padding-left: 0;
 
@@ -39,6 +39,7 @@ const serializers = {
         case 'h2':
           return (
             <Typography
+              gutterBottom
               variant="h2"
               id={
                 props.node.markDefs.length !== 0
@@ -60,6 +61,7 @@ const serializers = {
         case 'h3':
           return (
             <Typography
+              gutterBottom
               variant="h3"
               id={
                 props.node.markDefs.length !== 0
@@ -74,6 +76,7 @@ const serializers = {
         case 'h4':
           return (
             <Typography
+              gutterBottom
               variant="h4"
               id={
                 props.node.markDefs.length !== 0
@@ -88,6 +91,7 @@ const serializers = {
         case 'h5':
           return (
             <Typography
+              gutterBottom
               variant="h5"
               id={
                 props.node.markDefs.length !== 0
@@ -102,6 +106,7 @@ const serializers = {
         case 'h6':
           return (
             <Typography
+              gutterBottom
               variant="h6"
               id={
                 props.node.markDefs.length !== 0
@@ -118,7 +123,9 @@ const serializers = {
 
         default:
           return props.children[0] ? (
-            <Typography variant="body1">{props.children}</Typography>
+            <Typography gutterBottom variant="body1">
+              {props.children}
+            </Typography>
           ) : (
             <br />
           );
