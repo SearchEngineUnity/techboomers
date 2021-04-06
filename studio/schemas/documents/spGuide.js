@@ -140,7 +140,7 @@ export default {
     },
     {
       name: 'toc',
-      title: 'Table of Content',
+      title: 'Table of Contents',
       type: 'array',
       of: [{ type: 'tocLink' }],
       description: 'The order should match the in content appearance.',

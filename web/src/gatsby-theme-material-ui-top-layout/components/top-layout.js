@@ -7,8 +7,6 @@ import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
 const ThemeProvider = ({ children, data }) => {
   const { sanityPalette: palette, sanityTypography: typography } = data;
-  let defaultTheme = createMuiTheme();
-  defaultTheme = responsiveFontSizes(defaultTheme);
 
   let theme = createMuiTheme({
     palette: {

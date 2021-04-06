@@ -92,16 +92,18 @@ function Toc({ toc }) {
 
   return (
     <Box p={3} className={classes.root}>
-      <Typography component="p" variant="h6">
-        Table of Content
+      <Typography component="p" variant="h4" gutterBottom>
+        Table of Contents
       </Typography>
-      <br />
-      <Typography className={classes.list} variant="body1">
+      <Typography className={classes.list} variant="body2">
         {/* {toc.map((link) => componentTypeSwitch(link))} */}
         {headings.titles.map(({ title, id }, index) => (
           <Link
+            // style={{ lineHeight: 0.5 }}
             to={`#${id}`}
-            className={`${active === index ? classes.activeLink : null} ${classes.link}`}
+            className={`${active === index ? classes.activeLink : null} ${
+              classes.link
+            } MuiTypography-gutterBottom`}
             underline="none"
             key={title}
             onClick={(e) => {
