@@ -15,6 +15,8 @@ import CopyLink from './CopyLink';
 const NoIndentUl = styled.ul`
   list-style-type: disk;
   margin-left: 1.4rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   padding-left: 0;
 
   & > li {
@@ -25,6 +27,8 @@ const NoIndentUl = styled.ul`
 const NoIndentOl = styled.ol`
   list-style-type: decimal;
   margin-left: 1.4rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   padding-left: 0;
 
   & > li {

@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
+import { Box } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import styled from 'styled-components';
 
-const PlayerWrapper = styled.div`
-  position: relative;
-  padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
-  margin-bottom: 0.5rem;
-`;
+const useStyles = makeStyles((theme) => ({
+  root: {
+    position: 'relative',
+    paddingTop: '56.25%',
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2),
+  },
+}));
 
 const StyledReactPlayer = styled(ReactPlayer)`
   position: absolute;
@@ -15,10 +20,11 @@ const StyledReactPlayer = styled(ReactPlayer)`
 `;
 
 function VideoEmbed({ url }) {
+  const classes = useStyles();
   return (
-    <PlayerWrapper>
+    <Box className={classes.root}>
       <StyledReactPlayer url={url} controls width="100%" height="100%" />
-    </PlayerWrapper>
+    </Box>
   );
 }
 

@@ -12,6 +12,10 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2),
+  },
   table: {
     tableLayout: 'fixed',
     minWidth: 700,
@@ -34,7 +38,7 @@ function BasicTable({ basicTable }) {
   }
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} className={classes.root}>
       <Table className={classes.table} size="small" aria-label={title}>
         {colgroup && (
           <colgroup>
