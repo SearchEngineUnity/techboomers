@@ -8,18 +8,46 @@ const serializers = {
     block(props) {
       switch (props.node.style) {
         case 'h1':
-          return <Typography variant="h1">{props.children}</Typography>;
+          return (
+            <Typography variant="h1" gutterBottom>
+              {props.children}
+            </Typography>
+          );
         case 'h2':
-          return <Typography variant="h2">{props.children}</Typography>;
+          return (
+            <Typography variant="h2" gutterBottom>
+              {props.children}
+            </Typography>
+          );
         case 'h3':
-          return <Typography variant="h3">{props.children}</Typography>;
+          return (
+            <Typography variant="h3" gutterBottom>
+              {props.children}
+            </Typography>
+          );
         case 'h4':
-          return <Typography variant="h4">{props.children}</Typography>;
+          return (
+            <Typography variant="h4" gutterBottom>
+              {props.children}
+            </Typography>
+          );
+        case 'h5':
+          return (
+            <Typography variant="h5" gutterBottom>
+              {props.children}
+            </Typography>
+          );
+        case 'h6':
+          return (
+            <Typography variant="h6" gutterBottom>
+              {props.children}
+            </Typography>
+          );
         case 'blockquote':
           return <blockquote>{props.children}</blockquote>;
         default:
           return (
-            <Typography component="p" variant="body1">
+            <Typography component="p" variant="body1" gutterBottom>
               {props.children}
             </Typography>
           );

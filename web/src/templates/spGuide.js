@@ -65,7 +65,7 @@ const SPGuide = ({ data }) => {
     <Layout>
       <SEO {...mapSeoToProps(data.guide, data.site.siteMetadata.siteUrl, type)} />
       <GuideHero {...mapGuideHeroToProps(data.guide)} />
-      <Box py={3}>
+      <Box my={3}>
         <Container maxWidth="lg">
           <Grid container spacing={3}>
             <Grid item lg={9} md={8} xs={12}>

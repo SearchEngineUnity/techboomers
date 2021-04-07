@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Paper, Typography } from '@material-ui/core';
+import { Box, Paper, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import MenuBookIcon from '@material-ui/icons/MenuBook';
+import ErrorOutlineOutlinedIcon from '@material-ui/icons/ErrorOutlineOutlined';
 import TextContent from '../TextSerializer';
 
 const useStyles = makeStyles((theme) => ({
@@ -12,6 +12,10 @@ const useStyles = makeStyles((theme) => ({
   },
   icon: {
     color: theme.palette.hlBox.important.iconColor,
+    position: 'relative',
+    top: theme.spacing(0.5),
+    width: theme.typography.h4.lineHeight * 16,
+    height: theme.typography.h4.lineHeight * 16,
   },
   text: {
     color: theme.palette.hlBox.important.textColor,
@@ -21,12 +25,12 @@ const useStyles = makeStyles((theme) => ({
 function HighlightImportant({ blockContent, id }) {
   const classes = useStyles();
   return (
-    <Paper variant="outlined" key={id} className={classes.root}>
+    <Box component={Paper} variant="outlined" key={id} className={classes.root} my={2} p={2}>
       <Typography component="p" variant="h4" className={classes.text}>
-        <MenuBookIcon className={classes.icon} /> Important
+        <ErrorOutlineOutlinedIcon className={classes.icon} /> Important
       </Typography>
       <TextContent blocks={blockContent} />
-    </Paper>
+    </Box>
   );
 }
 
