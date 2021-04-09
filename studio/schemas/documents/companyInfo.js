@@ -4,19 +4,18 @@ export default {
   name: 'companyInfo',
   title: 'Contact Info',
   type: 'document',
-  __experimental_actions: ['update', 'publish'],
+  __experimental_actions: ['create', 'update', 'publish'],
   icon: MdBusiness,
   fields: [
     {
       name: 'name',
       title: 'Company name',
       type: 'string',
-      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'email',
       title: 'Email',
-      type: 'email',
+      type: 'string',
     },
     {
       name: 'phone',
@@ -70,5 +69,18 @@ export default {
       title: 'Country',
       type: 'string',
     },
+    {
+      name: 'homePage',
+      title: 'Home Page',
+      type: 'url',
+    },
   ],
+  preview: {
+    select: {},
+    prepare() {
+      return {
+        title: `Contact Info`,
+      };
+    },
+  },
 };
