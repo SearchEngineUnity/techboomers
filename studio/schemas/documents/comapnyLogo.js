@@ -14,10 +14,7 @@ export default {
     {
       name: 'logo',
       title: 'Logo',
-      type: 'image',
-      options: {
-        storeOriginalFilename: true,
-      },
+      type: 'illustration',
     },
   ],
   preview: {

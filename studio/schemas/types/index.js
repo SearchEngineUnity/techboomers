@@ -1,5 +1,6 @@
 export { rowPlus, smartTable, tableBlock, tableBlockContent, tablePlus } from './smartTable';
 export { default as basicTable } from './basicTable';
+export { default as brandItem } from './brandItem';
 export { default as card } from './card';
 export { default as colWidth } from './colWidth';
 export { default as excerpt } from './excerpt';
@@ -20,6 +21,8 @@ export { default as navBrand } from './navBrand';
 export { default as navGroup } from './navGroup';
 export { default as navItem } from './navItem';
 export { default as navJumpLink } from './navJumpLink';
+export { default as navPhone } from './navPhone';
+export { default as navSet } from './navSet';
 export { default as openGraph } from './openGraph';
 export { default as simpleBlockContent } from './simpleBlockContent';
 export { default as spGuideBlockContent } from './spGuideBlockContent';

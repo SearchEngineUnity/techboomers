@@ -1,13 +1,13 @@
 export default {
   name: 'navBrand',
   type: 'object',
-  title: 'Navigation Brand Item',
+  title: 'Navigation Brand Group',
   fields: [
     {
-      name: 'brand',
-      title: 'Brand',
-      type: 'reference',
-      to: [{ type: 'companyLogo' }],
+      name: 'brandGroup',
+      title: 'Brand Group',
+      type: 'array',
+      of: [{ type: 'brandItem' }],
     },
     {
       name: 'nav',
@@ -17,9 +17,13 @@ export default {
   ],
   preview: {
     select: {
-      title: 'brand.title',
       subtitle: 'nav.slug.current',
-      media: 'brand.logo',
+    },
+    prepare({ subtitle }) {
+      return {
+        title: 'Nav Brand Group',
+        subtitle,
+      };
     },
   },
 };

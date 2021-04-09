@@ -7,28 +7,25 @@ export default {
   icon: FiNavigation2,
   fields: [
     {
-      name: 'title',
-      Title: 'Title',
+      name: 'type',
+      Title: 'Type',
       type: 'string',
+      options: {
+        list: [
+          { title: 'Main Navigation', value: 'mainNav' },
+          { title: 'Main Footer', value: 'mainFooter' },
+        ],
+      },
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
-      name: 'menu',
+      name: 'menuArray',
       title: 'Menu',
       type: 'array',
       description: 'Use Navigation Item for single link and Group for bundled links',
       of: [
         {
-          type: 'navBrand',
-        },
-        {
-          type: 'navItem',
-        },
-        {
-          type: 'navGroup',
-        },
-        {
-          type: 'navJumpLink',
+          type: 'navSet',
         },
       ],
       validation: (Rule) => Rule.min(1).error('Must contain one item'),
@@ -36,7 +33,12 @@ export default {
   ],
   preview: {
     select: {
-      title: 'title',
+      title: 'type',
+    },
+    prepare({ title }) {
+      return {
+        title,
+      };
     },
   },
 };

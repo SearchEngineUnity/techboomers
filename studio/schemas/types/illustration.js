@@ -21,9 +21,6 @@ export default {
       title: 'Image height',
       description: `You can enter a height % of vh. If the image's native height is smaller it will be used instead.`,
       validation: (Rule) => Rule.integer(),
-      options: {
-        isHighlighted: true, // <-- make this field easily accessible
-      },
     },
     {
       name: 'caption',
