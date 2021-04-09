@@ -2,9 +2,11 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { Container, Grid, Box, Hidden } from '@material-ui/core';
 import Layout from '../containers/layout';
+import MainNav from '../components/MainNav';
 import GuideHero from '../components/GuideHero';
 import GuideBody from '../components/block-contents/GuideSerializer';
 import ToC from '../components/TableOfContent';
+import MainFooter from '../components/MainFooter';
 // import SocialSharing from '../components/SocialSharing';
 import SEO from '../components/Seo';
 
@@ -64,6 +66,7 @@ const SPGuide = ({ data }) => {
     // Need code here for if banner return banner
     <Layout>
       <SEO {...mapSeoToProps(data.guide, data.site.siteMetadata.siteUrl, type)} />
+      <MainNav />
       <GuideHero {...mapGuideHeroToProps(data.guide)} />
       <Box my={3}>
         <Container maxWidth="lg">
@@ -79,6 +82,7 @@ const SPGuide = ({ data }) => {
           </Grid>
         </Container>
       </Box>
+      <MainFooter />
     </Layout>
   );
 };
