@@ -9,6 +9,17 @@ const ThemeProvider = ({ children, data }) => {
   const { sanityPalette: palette, sanityTypography: typography } = data;
 
   let theme = createMuiTheme({
+    overrides: {
+      // Style sheet name ⚛️
+      MuiIcon: {
+        // Name of the rule
+        root: {
+          // Some CSS
+          fontFamily: 'Material Icons',
+        },
+      },
+    },
+
     palette: {
       common: {
         black: palette?.black?.hex || '#000',

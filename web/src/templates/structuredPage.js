@@ -3,9 +3,11 @@ import { graphql } from 'gatsby';
 
 import Layout from '../containers/layout';
 import SEO from '../components/Seo';
+import MainNav from '../components/MainNav';
 import LrHero from '../components/LrHeroSegment';
 import GridSegment from '../components/GridSegment';
 import { useSpGuides } from '../hooks/useSpGuides';
+import MainFooter from '../components/MainFooter';
 import { mapLrHeroToProps, mapSeoToProps, mapLearningSegmentToProps } from '../lib/mapToProps';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -111,6 +113,7 @@ const StructuredPage = ({ data }) => {
   return (
     <Layout>
       <SEO {...mapSeoToProps(data.page, data.site.siteMetadata.siteUrl, type)} />
+      <MainNav />
       <main>
         {data.page.segments.map((segment) => {
           const { _type } = segment;
@@ -135,6 +138,7 @@ const StructuredPage = ({ data }) => {
           }
         })}
       </main>
+      <MainFooter />
     </Layout>
   );
 };
