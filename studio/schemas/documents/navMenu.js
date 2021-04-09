@@ -19,43 +19,13 @@ export default {
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
-      name: 'menuTop',
-      title: 'Menu Top',
+      name: 'menuArray',
+      title: 'Menu',
       type: 'array',
       description: 'Use Navigation Item for single link and Group for bundled links',
       of: [
         {
-          type: 'navBrand',
-        },
-        {
-          type: 'navItem',
-        },
-        {
-          type: 'navGroup',
-        },
-        {
-          type: 'navPhone',
-        },
-      ],
-      validation: (Rule) => Rule.min(1).error('Must contain one item'),
-    },
-    {
-      name: 'menuBottom',
-      title: 'Menu Bottom',
-      type: 'array',
-      description: 'Use Navigation Item for single link and Group for bundled links',
-      of: [
-        {
-          type: 'navBrand',
-        },
-        {
-          type: 'navItem',
-        },
-        {
-          type: 'navGroup',
-        },
-        {
-          type: 'navPhone',
+          type: 'navSet',
         },
       ],
       validation: (Rule) => Rule.min(1).error('Must contain one item'),

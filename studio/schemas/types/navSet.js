@@ -3,33 +3,12 @@ import { FiNavigation2 } from 'react-icons/fi';
 export default {
   name: 'navSet',
   title: 'Navigation Menu',
-  type: 'document',
+  type: 'object',
   icon: FiNavigation2,
   fields: [
     {
-      name: 'menu',
-      title: 'Menu Top',
-      type: 'array',
-      description: 'Use Navigation Item for single link and Group for bundled links',
-      of: [
-        {
-          type: 'navBrand',
-        },
-        {
-          type: 'navItem',
-        },
-        {
-          type: 'navGroup',
-        },
-        {
-          type: 'navPhone',
-        },
-      ],
-      validation: (Rule) => Rule.min(1).error('Must contain one item'),
-    },
-    {
-      name: 'menuBottom',
-      title: 'Menu Bottom',
+      name: 'menuGroup',
+      title: 'Menu Group',
       type: 'array',
       description: 'Use Navigation Item for single link and Group for bundled links',
       of: [
@@ -50,12 +29,9 @@ export default {
     },
   ],
   preview: {
-    select: {
-      title: 'type',
-    },
-    prepare({ title }) {
+    prepare() {
       return {
-        title,
+        title: 'Navigation Set',
       };
     },
   },
