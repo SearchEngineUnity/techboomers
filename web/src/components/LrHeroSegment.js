@@ -1,6 +1,5 @@
 import React from 'react';
-import { Container, Grid, Box, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { Container, Grid, Box } from '@material-ui/core';
 import ImgBlock from './FluidImgBlock';
 // import PropTypes from 'prop-types';
 import HeroBlock from './HeroBlock';
@@ -76,22 +75,24 @@ function LrHeroSegment({ layout, blocks, idTag }) {
       <Container maxWidth="lg">
         <Grid container direction="row" justify="center" alignItems="center" spacing={3}>
           {blocks.map((block, index) => {
-            const { _type } = block;
+            const { _type, _key } = block;
             const col = colCalculator(colArr[index]);
             let InnerBlock;
             switch (_type) {
               case 'video':
-                InnerBlock = <div>Video block under development</div>;
+                InnerBlock = <div key="video">Video block under development</div>;
                 break;
               case 'illustration':
                 // return <ImgBlock {...mapFluidImgBlockToProps(image)} loading="eager" />;
-                InnerBlock = <ImgBlock {...mapFluidImgBlockToProps(block)} loading="eager" />;
+                InnerBlock = (
+                  <ImgBlock {...mapFluidImgBlockToProps(block)} loading="eager" key={_key} />
+                );
                 break;
               case 'heroBlock':
-                InnerBlock = <HeroBlock {...mapHeroBlockToProps(block)} />;
+                InnerBlock = <HeroBlock {...mapHeroBlockToProps(block)} key={_key} />;
                 break;
               default:
-                InnerBlock = <div> LR block still under development</div>;
+                InnerBlock = <div key="default-inner-block"> LR block still under development</div>;
                 break;
             }
             return (

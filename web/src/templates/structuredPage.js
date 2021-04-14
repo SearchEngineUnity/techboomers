@@ -1,9 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-
 import Layout from '../containers/layout';
 import SEO from '../components/Seo';
-import MainNav from '../components/MainNav';
 import LrHero from '../components/LrHeroSegment';
 import GridSegment from '../components/GridSegment';
 import { useSpGuides } from '../hooks/useSpGuides';
@@ -105,15 +103,13 @@ export const query = graphql`
   }
 `;
 
-const StructuredPage = ({ data }) => {
+const StructuredPage = ({ data, location }) => {
   const type = 'page';
-
   const spGuides = useSpGuides();
 
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO {...mapSeoToProps(data.page, data.site.siteMetadata.siteUrl, type)} />
-      <MainNav />
       <main>
         {data.page.segments.map((segment) => {
           const { _type } = segment;

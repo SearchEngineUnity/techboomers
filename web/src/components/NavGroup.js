@@ -1,70 +1,79 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Icon, Menu, MenuItem, ListItemIcon, ListItemText, Box } from '@material-ui/core';
 import { Link } from 'gatsby-theme-material-ui';
-import { makeStyles } from '@material-ui/core/styles';
-import { Typography, MenuList, MenuItem, Icon } from '@material-ui/core';
+import { navigate } from 'gatsby';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-}));
+function NavGroup({ title, url, group, location }) {
+  const [anchorEl, setAnchorEl] = useState(null);
+  function handleClick(event) {
+    if (anchorEl !== event.currentTarget) {
+      setAnchorEl(event.currentTarget);
+    }
+  }
+  function handleMouseOver(event) {
+    if (anchorEl !== event.currentTarget) {
+      setAnchorEl(event.currentTarget);
+    }
+  }
+  function handleClose() {
+    setAnchorEl(null);
+  }
 
-function NavGroup({ url, title, icon }) {
-  const classes = useStyles();
+  function handleNavigate(nav) {
+    setAnchorEl(null);
+    navigate(`/${nav.slug.current}`);
+  }
   return (
-    <MenuList>
-      <MenuItem>
-        <Link to="http://www.google.com">
-          <Icon>tapas</Icon>
-          <Typography display="inline" variant="h4">
-            Nav Menu Item
-          </Typography>
+    <>
+      <Box
+        fontSize="h4.fontSize"
+        fontWeight={`/${url}` === location.pathname ? 'fontWeightBold' : 'fontWeightRegular'}
+      >
+        <Link
+          to={`/${url}`}
+          aria-owns={anchorEl ? title : undefined}
+          aria-haspopup="true"
+          onClick={handleClick}
+          onMouseOver={handleMouseOver}
+        >
+          {title}
         </Link>
-      </MenuItem>
-
-      <MenuItem>
-        <Link to="http://www.google.com">
-          <Icon className={classes.icon}>tapas</Icon>
-          <Typography display="inline" variant="h4">
-            Nav Menu Item
-          </Typography>
-        </Link>
-      </MenuItem>
-
-      <MenuItem>
-        <Link to="http://www.google.com">
-          <Icon>tapas</Icon>
-          <Typography display="inline" variant="h4">
-            Nav Menu Item
-          </Typography>
-        </Link>
-      </MenuItem>
-    </MenuList>
-
-    //     <Menu
-    //   id="simple-menu"
-    //   anchorEl={anchorEl}
-    //   keepMounted
-    //   open={Boolean(anchorEl)}
-    //   onClose={handleClose}
-    // >
-    //   <MenuItem onClick={handleClose}>Profile</MenuItem>
-    //   <MenuItem onClick={handleClose}>My account</MenuItem>
-    //   <MenuItem onClick={handleClose}>Logout</MenuItem>
-    // </Menu>
-
-    //         <navGroup>
-    //             <navItem>
-    //             <i>icon is optional</>item in drop down style
-    //             </navItem>
-    //         </navGroup>
+      </Box>
+      <Menu
+        id={title}
+        getContentAnchorEl={null}
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+        MenuListProps={{ onMouseLeave: handleClose, disablePadding: true }}
+        disableEnforceFocus
+        style={{ pointerEvents: 'none', marginTop: '8px' }}
+        PaperProps={{ style: { pointerEvents: 'auto' }, square: true }}
+        hideBackdrop
+        keepMounted
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+      >
+        {group.map(({ icon, title: itemTitle, nav, _key }) => (
+          <MenuItem
+            onClick={() => handleNavigate(nav)}
+            key={_key}
+            selected={`/${url}` === location.pathname}
+          >
+            <ListItemIcon>
+              <Icon>{icon}</Icon>
+            </ListItemIcon>
+            <ListItemText primary={itemTitle} />
+          </MenuItem>
+        ))}
+      </Menu>
+    </>
   );
 }
-
 export default NavGroup;

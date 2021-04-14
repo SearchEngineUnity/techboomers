@@ -1,20 +1,10 @@
 import React from 'react';
 import { CardActionArea } from 'gatsby-theme-material-ui';
 import { Typography, Card, CardContent } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import ImgBlock from './FluidImgBlock';
 import { mapFluidImgBlockToProps } from '../lib/mapToProps';
 
-const useStyles = makeStyles((theme) => ({
-  card: {
-    borderTopLeftRadius: theme.shape.borderRadius,
-    borderTopRightRadius: theme.shape.borderRadius,
-  },
-}));
-
 function Card1({ title, image, url }) {
-  const classes = useStyles();
-
   return (
     <Card>
       <CardActionArea to={url}>

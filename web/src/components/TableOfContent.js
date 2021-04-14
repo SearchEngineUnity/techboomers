@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Typography } from '@material-ui/core';
 import { Link } from 'gatsby-theme-material-ui';
@@ -96,7 +96,6 @@ function Toc({ toc }) {
         Table of Contents
       </Typography>
       <Typography className={classes.list} variant="body2">
-        {/* {toc.map((link) => componentTypeSwitch(link))} */}
         {headings.titles.map(({ title, id }, index) => (
           <Link
             // style={{ lineHeight: 0.5 }}
@@ -105,7 +104,7 @@ function Toc({ toc }) {
               classes.link
             } MuiTypography-gutterBottom`}
             underline="none"
-            key={title}
+            key={id}
             onClick={(e) => {
               e.preventDefault();
               window.history.replaceState(
