@@ -2,7 +2,6 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { Container, Grid, Box, Hidden } from '@material-ui/core';
 import Layout from '../containers/layout';
-import MainNav from '../components/MainNav';
 import GuideHero from '../components/GuideHero';
 import GuideBody from '../components/block-contents/GuideSerializer';
 import ToC from '../components/TableOfContent';
@@ -58,15 +57,14 @@ export const query = graphql`
   }
 `;
 
-const SPGuide = ({ data }) => {
+const SPGuide = ({ data, location }) => {
   const type = 'guide';
   // const url = `${data.site.siteMetadata.siteUrl}/${data.guide.slug.current}`;
 
   return (
     // Need code here for if banner return banner
-    <Layout>
+    <Layout location={location}>
       <SEO {...mapSeoToProps(data.guide, data.site.siteMetadata.siteUrl, type)} />
-      <MainNav />
       <GuideHero {...mapGuideHeroToProps(data.guide)} />
       <Box my={3}>
         <Container maxWidth="lg">

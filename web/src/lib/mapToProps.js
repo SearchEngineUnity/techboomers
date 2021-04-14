@@ -90,3 +90,26 @@ export function mapLearningSegmentToProps({ idTag }) {
     idTag,
   };
 }
+
+export function mapNavBrandToProps({ brandGroup, nav }) {
+  return {
+    url: nav?.slug?.current,
+    brandGroup,
+  };
+}
+
+export function mapNavItemToProps({ isButton, title, nav }) {
+  return {
+    isButton,
+    url: nav?.slug?.current,
+    title,
+  };
+}
+
+export function mapNavGroupToProps({ title, nav, group }) {
+  return {
+    title,
+    url: nav?.slug?.current,
+    group,
+  };
+}

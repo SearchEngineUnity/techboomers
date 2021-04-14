@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, Box, Typography, Grid } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import ImgBlock from './FluidImgBlock';
 import Subtitle from './block-contents/HeroSubtitleSerializer';
 import { mapFluidImgBlockToProps } from '../lib/mapToProps';

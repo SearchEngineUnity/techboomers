@@ -8,13 +8,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
-import styled from 'styled-components';
+import MainNav from '../components/MainNav';
 
-const Layout = ({ children }) => (
+const Layout = ({ children, location }) => (
   <>
     <Helmet />
-
+    <MainNav location={location} />
     <>{children}</>
   </>
 );
