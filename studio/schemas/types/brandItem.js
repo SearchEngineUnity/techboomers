@@ -22,6 +22,11 @@ export default {
       },
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
+    {
+      name: 'height',
+      title: 'Logo Height in pixels',
+      type: 'number',
+    },
   ],
   preview: {
     select: {

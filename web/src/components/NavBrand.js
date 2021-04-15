@@ -7,12 +7,14 @@ function NavBrand({ url, brandGroup, location }) {
     <>
       {brandGroup.map((group) => {
         const { type, brand } = group;
+        const height = group.height || 48;
+        console.log(height);
         switch (type) {
           case 'desktop':
             return (
               <Box display={{ xs: 'none', lg: 'block', xl: 'block' }} key={type}>
                 <Link to={`/${url}`}>
-                  <img src={brand.logo.asset.url} alt={brand.title} height={48} wdith="auto" />
+                  <img src={brand.logo.asset.url} alt={brand.title} height={height} wdith="auto" />
                 </Link>
               </Box>
             );
@@ -23,7 +25,7 @@ function NavBrand({ url, brandGroup, location }) {
                 key={type}
               >
                 <Link to={`/${url}`}>
-                  <img src={brand.logo.asset.url} alt={brand.title} height={48} wdith="auto" />
+                  <img src={brand.logo.asset.url} alt={brand.title} height={height} wdith="auto" />
                 </Link>
               </Box>
             );
@@ -34,7 +36,7 @@ function NavBrand({ url, brandGroup, location }) {
                 key={type}
               >
                 <Link to={`/${url}`}>
-                  <img src={brand.logo.asset.url} alt={brand.title} height={48} wdith="auto" />
+                  <img src={brand.logo.asset.url} alt={brand.title} height={height} wdith="auto" />
                 </Link>
               </Box>
             );

@@ -128,6 +128,7 @@ export default function MyMainNav(props) {
                   _key
                   _type
                   brandGroup {
+                    height
                     type
                     brand {
                       title

@@ -134,7 +134,6 @@ const StructuredPage = ({ data, location }) => {
           }
         })}
       </main>
-      <MainFooter />
     </Layout>
   );
 };
