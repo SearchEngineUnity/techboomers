@@ -80,7 +80,6 @@ const SPGuide = ({ data, location }) => {
           </Grid>
         </Container>
       </Box>
-      <MainFooter />
     </Layout>
   );
 };
