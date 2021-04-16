@@ -32,15 +32,7 @@ const serializers = {
   types: {
     block(props) {
       const { children } = props;
-      return (
-        <>
-          {children[0] ? (
-            <Typography component="p" variant="body1" gutterBottom>
-              {children}
-            </Typography>
-          ) : null}
-        </>
-      );
+      return <>{children[0] ? <div>{children}</div> : null}</>;
     },
     illustration({ node }) {
       return <Illustration illustration={node} table />;
