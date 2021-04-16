@@ -1,4 +1,6 @@
-import { FaRegSmile, FaExternalLinkAlt, FaLink } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaLink } from 'react-icons/fa';
+import { MdLink } from 'react-icons/md';
+import JumpLinkRenderer from '../../components/JumpLinkRenderer';
 
 export default {
   name: 'tableBlockContent',
@@ -8,10 +10,6 @@ export default {
       type: 'block',
       styles: [],
       marks: {
-        decorators: [
-          { title: 'Strong', value: 'strong' },
-          { title: 'Emphasis', value: 'em' },
-        ],
         annotations: [
           {
             title: 'External Link',
@@ -46,6 +44,23 @@ export default {
                 type: 'reference',
                 title: 'Reference',
                 to: [{ type: 'guide' }, { type: 'page' }, { type: 'mpguide' }],
+              },
+            ],
+          },
+          {
+            name: 'jumpLink',
+            type: 'object',
+            title: 'Page Jump',
+            blockEditor: {
+              icon: MdLink,
+              render: JumpLinkRenderer,
+            },
+            fields: [
+              {
+                name: 'idTag',
+                type: 'string',
+                title: 'ID tag',
+                description: 'The exact ID of the destination.',
               },
             ],
           },

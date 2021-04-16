@@ -5,7 +5,9 @@ import Subtitle from './block-contents/HeroSubtitleSerializer';
 function HeroBlock({ h1, subtitle }) {
   return (
     <>
-      <Typography variant="h1">{h1}</Typography>
+      <Typography variant="h1" gutterBottom>
+        {h1}
+      </Typography>
       <Subtitle blocks={subtitle} />
     </>
   );

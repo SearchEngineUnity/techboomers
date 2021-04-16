@@ -5,7 +5,7 @@ import InternalLinkRenderer from '../components/InternalLinkRenderer';
 import JumpLinkRenderer from '../components/JumpLinkRenderer';
 
 export default {
-  name: 'heroBlockContent',
+  name: 'highlightBoxBlockContent',
   type: 'array',
   of: [
     {
@@ -70,9 +70,6 @@ export default {
           },
         ],
       },
-    },
-    {
-      type: 'illustration',
     },
   ],
 };

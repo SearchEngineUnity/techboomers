@@ -10,6 +10,7 @@ const NoIndentUl = styled.ul`
   list-style-type: disk;
   margin-left: 1.4rem;
   padding-left: 0;
+  margin-top: 0;
 
   & > li {
     position: relative;
@@ -20,6 +21,7 @@ const NoIndentOl = styled.ol`
   list-style-type: decimal;
   margin-left: 1.4rem;
   padding-left: 0;
+  margin-top: 0;
 
   & > li {
     position: relative;
@@ -29,58 +31,19 @@ const NoIndentOl = styled.ol`
 const serializers = {
   types: {
     block(props) {
-      switch (props.node.style) {
-        case 'h2':
-          return (
-            <Typography gutterBottom variant="h2">
-              {props.children}
+      const { children } = props;
+      return (
+        <>
+          {children[0] ? (
+            <Typography component="p" variant="body1" gutterBottom>
+              {children}
             </Typography>
-          );
-
-        case 'h3':
-          return (
-            <Typography gutterBottom variant="h3">
-              {props.children}
-            </Typography>
-          );
-
-        case 'h4':
-          return (
-            <Typography gutterBottom variant="h4">
-              {props.children}
-            </Typography>
-          );
-
-        case 'h5':
-          return (
-            <Typography gutterBottom variant="h5">
-              {props.children}
-            </Typography>
-          );
-
-        case 'h6':
-          return (
-            <Typography gutterBottom variant="h6">
-              {props.children}
-            </Typography>
-          );
-
-        case 'blockquote':
-          return <blockquote>{props.children}</blockquote>;
-
-        default:
-          return props.children[0] ? (
-            <Typography gutterBottom variant="body1">
-              {props.children}
-            </Typography>
-          ) : (
-            <br />
-          );
-      }
+          ) : null}
+        </>
+      );
     },
-
     illustration({ node }) {
-      return <Illustration illustration={node} />;
+      return <Illustration illustration={node} table />;
     },
   },
   marks: {

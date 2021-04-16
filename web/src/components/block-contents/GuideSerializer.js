@@ -1,6 +1,6 @@
 import BaseBlockContent from '@sanity/block-content-to-react';
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography, Box } from '@material-ui/core';
 import { Link } from 'gatsby-theme-material-ui';
 import styled from 'styled-components';
 import VideoEmbed from './VideoEmbed';
@@ -10,13 +10,10 @@ import Illustration from './Illustration';
 import InlineImage from './InlineImage';
 import HighlightBox from './HightlightBox/HighlightBox';
 import SmartTable from './SmartTable';
-import CopyLink from './CopyLink';
+// import CopyLink from './CopyLink';
 
 const NoIndentUl = styled.ul`
-  list-style-type: disk;
   margin-left: 1.4rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
   padding-left: 0;
 
   & > li {
@@ -27,13 +24,15 @@ const NoIndentUl = styled.ul`
 const NoIndentOl = styled.ol`
   list-style-type: decimal;
   margin-left: 1.4rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
   padding-left: 0;
 
   & > li {
     position: relative;
   }
+`;
+
+const StyledTypography = styled(Typography)`
+  margin-top: 1.35em;
 `;
 
 const serializers = {
@@ -42,7 +41,7 @@ const serializers = {
       switch (props.node.style) {
         case 'h2':
           return (
-            <Typography
+            <StyledTypography
               gutterBottom
               variant="h2"
               id={
@@ -52,19 +51,19 @@ const serializers = {
               }
             >
               {props.children}
-              <CopyLink
+              {/* <CopyLink
                 id={
                   props.node.markDefs.length !== 0
                     ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
                     : undefined
                 }
-              />
-            </Typography>
+              /> */}
+            </StyledTypography>
           );
 
         case 'h3':
           return (
-            <Typography
+            <StyledTypography
               gutterBottom
               variant="h3"
               id={
@@ -74,12 +73,12 @@ const serializers = {
               }
             >
               {props.children}
-            </Typography>
+            </StyledTypography>
           );
 
         case 'h4':
           return (
-            <Typography
+            <StyledTypography
               gutterBottom
               variant="h4"
               id={
@@ -89,12 +88,12 @@ const serializers = {
               }
             >
               {props.children}
-            </Typography>
+            </StyledTypography>
           );
 
         case 'h5':
           return (
-            <Typography
+            <StyledTypography
               gutterBottom
               variant="h5"
               id={
@@ -104,12 +103,12 @@ const serializers = {
               }
             >
               {props.children}
-            </Typography>
+            </StyledTypography>
           );
 
         case 'h6':
           return (
-            <Typography
+            <StyledTypography
               gutterBottom
               variant="h6"
               id={
@@ -119,20 +118,29 @@ const serializers = {
               }
             >
               {props.children}
-            </Typography>
+            </StyledTypography>
           );
 
         case 'blockquote':
-          return <blockquote>{props.children}</blockquote>;
+          return (
+            <Box
+              component="blockquote"
+              fontSize="h2.fontSize"
+              fontWeight={100}
+              borderColor="primary.main"
+              pl={4}
+              borderLeft={4}
+            >
+              &#8220; {props.children} &#8221;
+            </Box>
+          );
 
         default:
           return props.children[0] ? (
             <Typography gutterBottom variant="body1">
               {props.children}
             </Typography>
-          ) : (
-            <br />
-          );
+          ) : null;
       }
     },
     ctaButton({ node }) {

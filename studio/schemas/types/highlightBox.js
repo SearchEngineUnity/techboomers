@@ -17,7 +17,7 @@ export default {
     {
       name: 'text',
       title: 'Text',
-      type: 'simpleBlockContent',
+      type: 'highlightBoxBlockContent',
     },
   ],
 };
