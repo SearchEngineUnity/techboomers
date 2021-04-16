@@ -20,9 +20,9 @@ function GuideHero({ h1, subtitle, date, image }) {
               </Typography>
               <Subtitle blocks={subtitle} />
               <br />
-              <Typography component="p" variant="subtitle2">
+              <Box fontSize="0.775rem" fontWeight={600} component="p">
                 Last updated: {lastUpdatedDate.toLocaleDateString('en-US', options)}
-              </Typography>
+              </Box>
             </Grid>
             <Grid item md={6} xs={12}>
               <ImgBlock {...mapFluidImgBlockToProps(image)} loading="eager" height={400} />

@@ -125,10 +125,11 @@ const serializers = {
           return (
             <Box
               component="blockquote"
-              fontSize="h2.fontSize"
+              fontSize="h3.fontSize"
               fontWeight={100}
               borderColor="primary.main"
               pl={4}
+              py={1}
               borderLeft={4}
             >
               &#8220; {props.children} &#8221;

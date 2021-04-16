@@ -8,7 +8,7 @@ const useStyles = makeStyles({
     position: 'sticky',
     top: 0,
     zIndex: 5,
-    height: '0.5rem',
+    height: '0.4rem',
   },
 });
 

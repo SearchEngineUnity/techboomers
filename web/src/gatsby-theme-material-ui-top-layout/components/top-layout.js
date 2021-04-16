@@ -18,8 +18,12 @@ const ThemeProvider = ({ children, data }) => {
           fontFamily: 'Material Icons',
         },
       },
+      MuiTableCell: {
+        head: {
+          fontWeight: 600,
+        },
+      },
     },
-
     palette: {
       common: {
         black: palette?.black?.hex || '#000',
