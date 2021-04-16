@@ -5,6 +5,7 @@
 
 import React from 'react';
 import {
+  Box,
   Table,
   TableBody,
   TableCell,
@@ -45,49 +46,24 @@ function SmartTable({ smartTable }) {
   }
 
   return (
-    <TableContainer component={Paper} className={classes.root}>
-      <Table className={classes.table} size="small" aria-label={title}>
-        {colgroup && (
-          <colgroup>
-            {colgroup.map((col) =>
-              col.width !== 0 ? <col style={{ width: `${col.width}%` }} /> : <col />,
-            )}
-          </colgroup>
-        )}
-        {colHeading && (
-          <TableHead>
-            <TableRow key={thead._key}>
-              {thead.cells.map((cell, index) => {
-                if (cell._type === 'tableBlock') {
-                  return (
-                    // eslint-disable-next-line
-                  <TableCell key={`${thead._key}-${index}`}>
-                      <TableContent blocks={cell.copy} />
-                    </TableCell>
-                  );
-                }
-                if (cell._type === 'illustration') {
-                  return (
-                    // eslint-disable-next-line
-                  <TableCell key={`${thead._key}-${index}`} style={{ verticalAlign: 'top' }}>
-                      <Illustration illustration={cell} />
-                    </TableCell>
-                  );
-                }
-                return <TableCell>Uh oh something went wrong.</TableCell>;
-              })}
-            </TableRow>
-          </TableHead>
-        )}
-        <TableBody>
-          {tbody.map((row) => (
-            <TableRow key={row._key} className={classes.row}>
-              {row.cells.map((cell, index) => {
-                if (rowHeading && index === 0) {
+    <Box mx="40px" my={2}>
+      <TableContainer component={Paper} className={classes.root}>
+        <Table className={classes.table} size="small" aria-label={title}>
+          {colgroup && (
+            <colgroup>
+              {colgroup.map((col) =>
+                col.width !== 0 ? <col style={{ width: `${col.width}%` }} /> : <col />,
+              )}
+            </colgroup>
+          )}
+          {colHeading && (
+            <TableHead>
+              <TableRow key={thead._key}>
+                {thead.cells.map((cell, index) => {
                   if (cell._type === 'tableBlock') {
                     return (
                       // eslint-disable-next-line
-                      <TableCell className="MuiTableCell-head" component="th" key={`${row._key}-${index}`} style={{ verticalAlign: 'top' }}>
+                  <TableCell key={`${thead._key}-${index}`}>
                         <TableContent blocks={cell.copy} />
                       </TableCell>
                     );
@@ -95,36 +71,63 @@ function SmartTable({ smartTable }) {
                   if (cell._type === 'illustration') {
                     return (
                       // eslint-disable-next-line
-                      <TableCell component="th" key={`${row._key}-${index}`} style={{ verticalAlign: 'top' }}>
-                        <Illustration illustration={cell} />
+                  <TableCell key={`${thead._key}-${index}`} style={{ verticalAlign: 'top' }}>
+                        <Illustration illustration={cell} table />
                       </TableCell>
                     );
                   }
-                  return <TableCell component="th">oh oh something is wrong</TableCell>;
-                }
-                if (cell._type === 'tableBlock') {
-                  return (
-                    // eslint-disable-next-line
+                  return <TableCell>Uh oh something went wrong.</TableCell>;
+                })}
+              </TableRow>
+            </TableHead>
+          )}
+          <TableBody>
+            {tbody.map((row) => (
+              <TableRow key={row._key} className={classes.row}>
+                {row.cells.map((cell, index) => {
+                  if (rowHeading && index === 0) {
+                    if (cell._type === 'tableBlock') {
+                      return (
+                        // eslint-disable-next-line
+                      <TableCell className="MuiTableCell-head" component="th" key={`${row._key}-${index}`} style={{ verticalAlign: 'top' }}>
+                          <TableContent blocks={cell.copy} />
+                        </TableCell>
+                      );
+                    }
+                    if (cell._type === 'illustration') {
+                      return (
+                        // eslint-disable-next-line
+                      <TableCell component="th" key={`${row._key}-${index}`} style={{ verticalAlign: 'top' }}>
+                          <Illustration illustration={cell} />
+                        </TableCell>
+                      );
+                    }
+                    return <TableCell component="th">oh oh something is wrong</TableCell>;
+                  }
+                  if (cell._type === 'tableBlock') {
+                    return (
+                      // eslint-disable-next-line
                     <TableCell key={`${row._key}-${index}`} style={{ verticalAlign: 'top' }}>
-                      <TableContent blocks={cell.copy} />
-                    </TableCell>
-                  );
-                }
-                if (cell._type === 'illustration') {
-                  return (
-                    // eslint-disable-next-line
+                        <TableContent blocks={cell.copy} />
+                      </TableCell>
+                    );
+                  }
+                  if (cell._type === 'illustration') {
+                    return (
+                      // eslint-disable-next-line
                     <TableCell key={`${row._key}-${index}`} style={{ verticalAlign: 'top' }}>
-                      <Illustration illustration={cell} />
-                    </TableCell>
-                  );
-                }
-                return <TableCell>oh oh something is wrong</TableCell>;
-              })}
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+                        <Illustration illustration={cell} table />
+                      </TableCell>
+                    );
+                  }
+                  return <TableCell>oh oh something is wrong</TableCell>;
+                })}
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Box>
   );
 
   // return null;

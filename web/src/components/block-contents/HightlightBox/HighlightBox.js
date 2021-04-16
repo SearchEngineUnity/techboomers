@@ -1,4 +1,5 @@
 import React from 'react';
+import { Box } from '@material-ui/core';
 import HighlightProTip from './HighlightProTip';
 import HighlightImportant from './HighlightImportant';
 import HighlightWarning from './HighlightWarning';
@@ -8,19 +9,39 @@ import HighlightDefinition from './HighlightDefinition';
 const HighlightBox = ({ box }) => {
   switch (box.type) {
     case 'Pro Tip':
-      return <HighlightProTip blockContent={box.text} id={box._key} />;
+      return (
+        <Box mx="40px" my={2}>
+          <HighlightProTip blockContent={box.text} id={box._key} />
+        </Box>
+      );
 
     case 'Important':
-      return <HighlightImportant blockContent={box.text} id={box._key} />;
+      return (
+        <Box mx="40px" my={2}>
+          <HighlightImportant blockContent={box.text} id={box._key} />
+        </Box>
+      );
 
     case 'Warning':
-      return <HighlightWarning blockContent={box.text} id={box._key} />;
+      return (
+        <Box mx="40px" my={2}>
+          <HighlightWarning blockContent={box.text} id={box._key} />
+        </Box>
+      );
 
     case 'Did You Know':
-      return <HighlightDidYouKnow blockContent={box.text} id={box._key} />;
+      return (
+        <Box mx="40px" my={2}>
+          <HighlightDidYouKnow blockContent={box.text} id={box._key} />
+        </Box>
+      );
 
     case 'Definition':
-      return <HighlightDefinition blockContent={box.text} id={box._key} />;
+      return (
+        <Box mx="40px" my={2}>
+          <HighlightDefinition blockContent={box.text} id={box._key} />
+        </Box>
+      );
 
     default:
       return <h3>Undefined Highlight Box</h3>;

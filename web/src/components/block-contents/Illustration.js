@@ -5,7 +5,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import sanityConfig from '../../../sanityConfig';
 import { useWindowSize } from '../../hooks/useWindowSize';
 
-function Illustration({ illustration }) {
+function Illustration({ illustration, table }) {
   const imageFluid = illustration?.asset;
   const fluidProps = getGatsbyImageData(imageFluid, {}, sanityConfig);
   const windowSize = useWindowSize();
@@ -17,7 +17,7 @@ function Illustration({ illustration }) {
   const maxHeight = customHeight && customHeight < imageHeight ? customHeight : imageHeight;
 
   return (
-    <Box component="figure" justifyContent="center">
+    <Box component="figure" justifyContent="center" mt={table ? 0 : '16px'}>
       <GatsbyImage
         image={fluidProps}
         alt={illustration.alt}

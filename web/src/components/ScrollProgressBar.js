@@ -8,6 +8,7 @@ const useStyles = makeStyles({
     position: 'sticky',
     top: 0,
     zIndex: 5,
+    height: '0.5rem',
   },
 });
 
@@ -51,8 +52,11 @@ export default function ScrollPRogressBar() {
   });
 
   return (
-    <div className={classes.root}>
-      <LinearProgress variant="determinate" value={progress} color="secondary" />
-    </div>
+    <LinearProgress
+      variant="determinate"
+      value={progress}
+      color="secondary"
+      className={classes.root}
+    />
   );
 }

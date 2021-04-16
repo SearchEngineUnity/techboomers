@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import {
+  Box,
   Table,
   TableBody,
   TableCell,
@@ -12,10 +13,6 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(2),
-  },
   table: {
     tableLayout: 'fixed',
     minWidth: 700,
@@ -38,57 +35,59 @@ function BasicTable({ basicTable }) {
   }
 
   return (
-    <TableContainer component={Paper} className={classes.root}>
-      <Table className={classes.table} size="small" aria-label={title}>
-        {colgroup && (
-          <colgroup>
-            {colgroup.map((col, index) =>
-              col.width !== 0 ? (
-                <col style={{ width: `${col.width}%` }} key={`colWidth-${index}`} />
-              ) : (
-                <col />
-              ),
-            )}
-          </colgroup>
-        )}
-        {colHeading && (
-          <TableHead>
-            <TableRow key={thead._key}>
-              {thead.cells.map((cell, index) =>
-                rowHeading ? (
-                  <TableCell key={`${thead._key}-${index}`} scope="row">
-                    {cell}
-                  </TableCell>
+    <Box mx="40px" my={2}>
+      <TableContainer component={Paper}>
+        <Table className={classes.table} size="small" aria-label={title}>
+          {colgroup && (
+            <colgroup>
+              {colgroup.map((col, index) =>
+                col.width !== 0 ? (
+                  <col style={{ width: `${col.width}%` }} key={`colWidth-${index}`} />
                 ) : (
-                  <TableCell key={`${thead._key}-${index}`}>{cell}</TableCell>
+                  <col />
                 ),
               )}
-            </TableRow>
-          </TableHead>
-        )}
-        <TableBody>
-          {tbody.map((row) => (
-            <TableRow key={row._key} className={classes.row}>
-              {row.cells.map((cell, index) => {
-                if (rowHeading && index === 0) {
-                  return (
-                    <TableCell
-                      className="MuiTableCell-head"
-                      component="th"
-                      key={`${row.row_key}-${index}`}
-                      scope="row"
-                    >
+            </colgroup>
+          )}
+          {colHeading && (
+            <TableHead>
+              <TableRow key={thead._key}>
+                {thead.cells.map((cell, index) =>
+                  rowHeading ? (
+                    <TableCell key={`${thead._key}-${index}`} scope="row">
                       {cell}
                     </TableCell>
-                  );
-                }
-                return <TableCell key={`${row._key}-${index}`}>{cell}</TableCell>;
-              })}
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+                  ) : (
+                    <TableCell key={`${thead._key}-${index}`}>{cell}</TableCell>
+                  ),
+                )}
+              </TableRow>
+            </TableHead>
+          )}
+          <TableBody>
+            {tbody.map((row) => (
+              <TableRow key={row._key} className={classes.row}>
+                {row.cells.map((cell, index) => {
+                  if (rowHeading && index === 0) {
+                    return (
+                      <TableCell
+                        className="MuiTableCell-head"
+                        component="th"
+                        key={`${row.row_key}-${index}`}
+                        scope="row"
+                      >
+                        {cell}
+                      </TableCell>
+                    );
+                  }
+                  return <TableCell key={`${row._key}-${index}`}>{cell}</TableCell>;
+                })}
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Box>
   );
 }
 

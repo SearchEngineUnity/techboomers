@@ -85,7 +85,12 @@ function LrHeroSegment({ layout, blocks, idTag }) {
               case 'illustration':
                 // return <ImgBlock {...mapFluidImgBlockToProps(image)} loading="eager" />;
                 InnerBlock = (
-                  <ImgBlock {...mapFluidImgBlockToProps(block)} loading="eager" key={_key} />
+                  <ImgBlock
+                    {...mapFluidImgBlockToProps(block)}
+                    loading="eager"
+                    key={_key}
+                    height={400}
+                  />
                 );
                 break;
               case 'heroBlock':

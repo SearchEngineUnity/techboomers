@@ -9,6 +9,7 @@ export { default as fullBlockContent } from './fullBlockContent';
 export { default as heroBlock } from './heroBlock';
 export { default as heroBlockContent } from './heroBlockContent';
 export { default as highlightBox } from './highlightBox';
+export { default as hightlghtBoxBlockContent } from './highlightBoxBlockContent';
 export { default as hlbColorSet } from './hlbColorSet';
 export { default as illustration } from './illustration';
 export { default as internalLink } from './internalLink';

@@ -10,11 +10,6 @@ const useStyles = makeStyles((theme) => ({
     position: 'sticky',
     top: 0,
   },
-  list: {
-    '& > *': {
-      display: 'block',
-    },
-  },
   activeLink: {
     color: theme.palette.primary.dark,
     fontWeight: 'bold',
@@ -95,16 +90,13 @@ function Toc({ toc }) {
       <Typography component="p" variant="h4" gutterBottom>
         Table of Contents
       </Typography>
-      <Typography className={classes.list} variant="body2">
-        {headings.titles.map(({ title, id }, index) => (
+      {headings.titles.map(({ title, id }, index) => (
+        <Box mb={1} fontSize="body2.fontSize" display="block" key={id}>
           <Link
             // style={{ lineHeight: 0.5 }}
             to={`#${id}`}
-            className={`${active === index ? classes.activeLink : null} ${
-              classes.link
-            } MuiTypography-gutterBottom`}
-            underline="none"
-            key={id}
+            className={`${active === index ? classes.activeLink : null} ${classes.link}`}
+            underline="hover"
             onClick={(e) => {
               e.preventDefault();
               window.history.replaceState(
@@ -120,8 +112,8 @@ function Toc({ toc }) {
           >
             {title}
           </Link>
-        ))}
-      </Typography>
+        </Box>
+      ))}
     </Box>
   );
 }

@@ -63,24 +63,26 @@ const SPGuide = ({ data, location }) => {
 
   return (
     // Need code here for if banner return banner
-    <Layout location={location}>
+    // <Layout location={location}>
+    <>
       <SEO {...mapSeoToProps(data.guide, data.site.siteMetadata.siteUrl, type)} />
       <GuideHero {...mapGuideHeroToProps(data.guide)} />
       <Box my={3}>
         <Container maxWidth="lg">
           <Grid container spacing={3}>
-            <Grid item lg={9} md={8} xs={12}>
+            <Grid item md={9} xs={12}>
               <GuideBody blocks={data.guide._rawBody} />
             </Grid>
             <Hidden smDown>
-              <Grid item lg={3} md={4}>
+              <Grid item md={3}>
                 <ToC toc={data.guide.toc} />
               </Grid>
             </Hidden>
           </Grid>
         </Container>
       </Box>
-    </Layout>
+    </>
+    // </Layout>
   );
 };
 
