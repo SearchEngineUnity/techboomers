@@ -8,7 +8,6 @@ function NavBrand({ url, brandGroup, location }) {
       {brandGroup.map((group) => {
         const { type, brand } = group;
         const height = group.height || 48;
-        console.log(height);
         switch (type) {
           case 'desktop':
             return (

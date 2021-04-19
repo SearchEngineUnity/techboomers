@@ -4,7 +4,6 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
 function NavItem({ url, title, isButton, location }) {
-  console.log(location);
   return (
     <>
       {isButton ? (

@@ -16,7 +16,7 @@ const Layout = ({ children, location }) => (
     <Helmet />
     <MainNav location={location} />
     <>{children}</>
-    <MainFooter />
+    <MainFooter location={location} />
   </>
 );
 

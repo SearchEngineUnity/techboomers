@@ -107,35 +107,35 @@ const StructuredPage = ({ data, location }) => {
   const spGuides = useSpGuides();
 
   return (
-    // <Layout location={location}>
-    <>
-      <SEO {...mapSeoToProps(data.page, data.site.siteMetadata.siteUrl, type)} />
-      <main>
-        {data.page.segments.map((segment) => {
-          const { _type } = segment;
-          switch (_type) {
-            case 'hero':
-              return <div key={segment._key}>This is the Hero segment</div>;
+    <Layout location={location}>
+      <>
+        <SEO {...mapSeoToProps(data.page, data.site.siteMetadata.siteUrl, type)} />
+        <main>
+          {data.page.segments.map((segment) => {
+            const { _type } = segment;
+            switch (_type) {
+              case 'hero':
+                return <div key={segment._key}>This is the Hero segment</div>;
 
-            case 'learningSegment': {
-              return (
-                <GridSegment
-                  key={segment._key}
-                  {...mapLearningSegmentToProps(segment)}
-                  cards={spGuides}
-                />
-              );
+              case 'learningSegment': {
+                return (
+                  <GridSegment
+                    key={segment._key}
+                    {...mapLearningSegmentToProps(segment)}
+                    cards={spGuides}
+                  />
+                );
+              }
+
+              case 'lrHero':
+                return <LrHero key={segment._key} {...mapLrHeroToProps(segment)} />;
+              default:
+                return <div>Still under development</div>;
             }
-
-            case 'lrHero':
-              return <LrHero key={segment._key} {...mapLrHeroToProps(segment)} />;
-            default:
-              return <div>Still under development</div>;
-          }
-        })}
-      </main>
-    </>
-    // </Layout>
+          })}
+        </main>
+      </>
+    </Layout>
   );
 };
 
