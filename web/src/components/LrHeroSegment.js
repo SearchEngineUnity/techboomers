@@ -71,38 +71,38 @@ function LrHeroSegment({ layout, blocks, idTag }) {
   };
 
   return (
-    <Box id={idTag} component="section" bgcolor="primary.main" color="primary.contrastText" py={3}>
+    <Box id={idTag} component="section" bgcolor="primary.main" color="primary.contrastText" py={8}>
       <Container maxWidth="lg">
-        <Grid container direction="row" justify="center" alignItems="center" spacing={3}>
+        <Grid container direction="row" justify="center" alignItems="center" spacing={8}>
           {blocks.map((block, index) => {
             const { _type, _key } = block;
             const col = colCalculator(colArr[index]);
-            let InnerBlock;
-            switch (_type) {
-              case 'video':
-                InnerBlock = <div key="video">Video block under development</div>;
-                break;
-              case 'illustration':
-                // return <ImgBlock {...mapFluidImgBlockToProps(image)} loading="eager" />;
-                InnerBlock = (
-                  <ImgBlock
-                    {...mapFluidImgBlockToProps(block)}
-                    loading="eager"
-                    key={_key}
-                    height={400}
-                  />
-                );
-                break;
-              case 'heroBlock':
-                InnerBlock = <HeroBlock {...mapHeroBlockToProps(block)} key={_key} />;
-                break;
-              default:
-                InnerBlock = <div key="default-inner-block"> LR block still under development</div>;
-                break;
-            }
+            const blockSelector = (key) => {
+              switch (key) {
+                case 'video':
+                  return <div key="video">Video block under development</div>;
+
+                case 'illustration':
+                  // return <ImgBlock {...mapFluidImgBlockToProps(image)} loading="eager" />;
+                  return (
+                    <ImgBlock
+                      {...mapFluidImgBlockToProps(block)}
+                      loading="eager"
+                      key={_key}
+                      height={400}
+                    />
+                  );
+
+                case 'heroBlock':
+                  return <HeroBlock {...mapHeroBlockToProps(block)} key={_key} />;
+
+                default:
+                  return <div key="default-inner-block"> LR block still under development</div>;
+              }
+            };
             return (
               <Grid item {...col} key={block._key || 'default'}>
-                {InnerBlock}
+                {blockSelector(_type)}
               </Grid>
             );
           })}
