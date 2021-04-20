@@ -5,9 +5,21 @@ import Card1 from './Card1';
 // import { mapCardToProps } from '../lib/mapToProps';
 
 function GridSegment({ idTag, title, subtitle, cards }) {
-  const pageSize = 2;
-  const [currentPage, setCurrentPage] = useState(0);
-  const cardsOnPage = 0;
+  const pageSize = 6;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const handleOnClickBack = (current) => {
+    const count = current - 1 < 1 ? 1 : current - 1;
+    setCurrentPage(count);
+  };
+
+  const handleOnClickForward = (current, arr) => {
+    const count =
+      current + 1 > Math.ceil(arr.length / pageSize)
+        ? Math.ceil(arr.length / pageSize)
+        : current + 1;
+    setCurrentPage(count);
+  };
 
   return (
     <Box as="section" id={idTag} py={3}>
@@ -19,7 +31,7 @@ function GridSegment({ idTag, title, subtitle, cards }) {
           </Typography>
         )}
         <Grid container spacing={3}>
-          {cards.slice(currentPage * pageSize, (currentPage + 1) * pageSize).map((card) => (
+          {cards.slice((currentPage - 1) * pageSize, currentPage * pageSize).map((card) => (
             <>
               <Grid item key={card._key} xs={12} md={6} lg={4}>
                 <Card1 {...card} />
@@ -27,8 +39,8 @@ function GridSegment({ idTag, title, subtitle, cards }) {
             </>
           ))}
         </Grid>
-        <Button onClick={() => setCurrentPage(currentPage - 1)}>Back</Button>
-        <Button onClick={() => setCurrentPage(currentPage + 1)}>Forward</Button>
+        <Button onClick={() => handleOnClickBack(currentPage)}>Back</Button>
+        <Button onClick={() => handleOnClickForward(currentPage, cards)}>Forward</Button>
       </Container>
     </Box>
   );
