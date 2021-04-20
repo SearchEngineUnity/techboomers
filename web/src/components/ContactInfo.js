@@ -1,8 +1,24 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Box } from '@material-ui/core';
+import { Link } from 'gatsby-theme-material-ui';
 import { StaticQuery, graphql } from 'gatsby';
 
-const ContactInfo = ({ data }) => <Typography>this is an address</Typography>;
+const ContactInfo = ({ data }) => {
+  const { sanityCompanyInfo: companyInfo } = data;
+
+  return (
+    <Box my={2}>
+      <div>{companyInfo.address1}</div>
+      {companyInfo.address2 && <div>{companyInfo.address2}</div>}
+      <div>
+        {companyInfo.city}, {companyInfo.province}, {companyInfo.postalCode}
+      </div>
+      {companyInfo.phone && <div>{companyInfo.phone}</div>}
+      {companyInfo.email && <Link to={`mailto:${companyInfo.email}`}>{companyInfo.email}</Link>}
+    </Box>
+  );
+};
+
 export default function Contact(props) {
   return (
     <StaticQuery

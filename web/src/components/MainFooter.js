@@ -1,13 +1,15 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import { Box, Container, Divider, Grid, Toolbar } from '@material-ui/core';
+import { Box, Container, Divider, Grid, Toolbar, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'gatsby-theme-material-ui';
-// import NavBrand from './NavBrand';
+import NavBrand from './NavBrand';
 import ContactInfo from './ContactInfo';
 import SocialMedia from './SocialMedia';
 import FooterGroup from './FooterGroup';
 import FooterItem from './FooterItem';
+
+import { mapNavBrandToProps, mapNavItemToProps, mapNavGroupToProps } from '../lib/mapToProps';
 
 const useStyles = makeStyles((theme) => ({
   divider: {
@@ -29,22 +31,24 @@ const MainFooter = ({ location, data }) => {
   const { menuArray } = footerMenu;
   console.log(menuArray);
   return (
-    <Box component="footer" color="common.white" bgcolor="common.black">
+    <Box component="footer" color="common.white" bgcolor="grey.700" fontSize={14}>
       <Container maxWidth="lg">
         <Grid container spacing={3}>
           {menuArray.map((group) => (
-            <Grid item xs={12} md={6} lg={3} key={group._key}>
+            <Grid item xs={12} lg={3} key={group._key}>
               {group.menuGroup.map((item) => {
                 switch (item._type) {
                   case 'navBrand':
                     return (
                       <React.Fragment key={item._key}>
-                        <div>this is a navbrand</div>
-                        {/* <NavBrand /> */}
+                        <NavBrand {...mapNavBrandToProps(item)} />
                         <ContactInfo />
                       </React.Fragment>
                     );
-
+                  case 'navItem':
+                    return <div>this is a nav item</div>;
+                  case 'navGroup':
+                    return <div>this is a nav group</div>;
                   default:
                     return <div key={item._key}>under construction</div>;
                 }
