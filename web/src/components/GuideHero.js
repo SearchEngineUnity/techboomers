@@ -6,7 +6,7 @@ import ProgressBar from './ScrollProgressBar';
 import { mapFluidImgBlockToProps } from '../lib/mapToProps';
 
 function GuideHero({ h1, subtitle, date, image }) {
-  const lastUpdatedDate = new Date(date.replace(/-/g, '/'));
+  const lastUpdatedDate = date ? new Date(date.replace(/-/g, '/')) : null;
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
 
   return (
@@ -20,9 +20,11 @@ function GuideHero({ h1, subtitle, date, image }) {
               </Typography>
               <Subtitle blocks={subtitle} />
               <br />
-              <Box fontSize="0.775rem" fontWeight={600} component="p">
-                Last updated: {lastUpdatedDate.toLocaleDateString('en-US', options)}
-              </Box>
+              {lastUpdatedDate && (
+                <Box fontSize="0.775rem" fontWeight={600} component="p">
+                  Last updated: {lastUpdatedDate.toLocaleDateString('en-US', options)}
+                </Box>
+              )}
             </Grid>
             <Grid item md={6} xs={12}>
               <ImgBlock {...mapFluidImgBlockToProps(image)} loading="eager" height={400} />
