@@ -1,79 +1,34 @@
-import React, { useState } from 'react';
-import { Icon, Menu, MenuItem, ListItemIcon, ListItemText, Box } from '@material-ui/core';
+import React from 'react';
+import { List, ListItem, Box } from '@material-ui/core';
 import { Link } from 'gatsby-theme-material-ui';
-import { navigate } from 'gatsby';
+import { makeStyles } from '@material-ui/core/styles';
 
-function FooterGroup({ title, url, group, location }) {
-  const [anchorEl, setAnchorEl] = useState(null);
-  function handleClick(event) {
-    if (anchorEl !== event.currentTarget) {
-      setAnchorEl(event.currentTarget);
-    }
-  }
-  function handleMouseOver(event) {
-    if (anchorEl !== event.currentTarget) {
-      setAnchorEl(event.currentTarget);
-    }
-  }
-  function handleClose() {
-    setAnchorEl(null);
-  }
+const useStyles = makeStyles((theme) => ({
+  link: {
+    color: '#FFFFFF',
+  },
+}));
 
-  function handleNavigate(nav) {
-    setAnchorEl(null);
-    navigate(`/${nav.slug.current}`);
-  }
+function FooterGroup({ title, url, group }) {
+  const classes = useStyles();
+
   return (
-    <>
-      <Box
-        fontSize="h4.fontSize"
-        fontWeight={`/${url}` === location.pathname ? 'fontWeightBold' : 'fontWeightRegular'}
-      >
-        <Link
-          to={`/${url}`}
-          aria-owns={anchorEl ? title : undefined}
-          aria-haspopup="true"
-          onClick={handleClick}
-          onMouseOver={handleMouseOver}
-        >
+    <Box my={2}>
+      <Box fontSize={14} fontWeight="fontWeightBold">
+        <Link to={`/${url}`} className={classes.link}>
           {title}
         </Link>
       </Box>
-      <Menu
-        id={title}
-        getContentAnchorEl={null}
-        anchorEl={anchorEl}
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-        MenuListProps={{ onMouseLeave: handleClose, disablePadding: true }}
-        disableEnforceFocus
-        style={{ pointerEvents: 'none', marginTop: '8px' }}
-        PaperProps={{ style: { pointerEvents: 'auto' }, square: true }}
-        hideBackdrop
-        keepMounted
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'left',
-        }}
-      >
-        {group.map(({ icon, title: itemTitle, nav, _key }) => (
-          <MenuItem
-            onClick={() => handleNavigate(nav)}
-            key={_key}
-            selected={`/${url}` === location.pathname}
-          >
-            <ListItemIcon>
-              <Icon>{icon}</Icon>
-            </ListItemIcon>
-            <ListItemText primary={itemTitle} />
-          </MenuItem>
+      <List>
+        {group.map(({ title: itemTitle, nav, _key }) => (
+          <ListItem key={_key}>
+            <Link to={`/${nav.slug.current}`} className={classes.link}>
+              {itemTitle}
+            </Link>
+          </ListItem>
         ))}
-      </Menu>
-    </>
+      </List>
+    </Box>
   );
 }
 export default FooterGroup;
