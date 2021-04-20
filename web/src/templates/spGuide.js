@@ -5,7 +5,6 @@ import Layout from '../containers/layout';
 import GuideHero from '../components/GuideHero';
 import GuideBody from '../components/block-contents/GuideSerializer';
 import ToC from '../components/TableOfContent';
-import MainFooter from '../components/MainFooter';
 // import SocialSharing from '../components/SocialSharing';
 import SEO from '../components/Seo';
 
@@ -63,8 +62,7 @@ const SPGuide = ({ data, location }) => {
 
   return (
     // Need code here for if banner return banner
-    // <Layout location={location}>
-    <>
+    <Layout location={location}>
       <SEO {...mapSeoToProps(data.guide, data.site.siteMetadata.siteUrl, type)} />
       <GuideHero {...mapGuideHeroToProps(data.guide)} />
       <Box my={3}>
@@ -81,8 +79,7 @@ const SPGuide = ({ data, location }) => {
           </Grid>
         </Container>
       </Box>
-    </>
-    // </Layout>
+    </Layout>
   );
 };
 

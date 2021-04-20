@@ -1,27 +1,22 @@
 import React from 'react';
 import { Link, Button } from 'gatsby-theme-material-ui';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
-function FooterItem({ url, title, isButton, location }) {
-  console.log(location);
+function FooterItem({ url, title, isButton }) {
   return (
-    <>
+    <Box my={2}>
       {isButton ? (
         <Button variant="contained" color="primary" to={url}>
-          <Typography component="div" variant="h4">
+          <Box fontSize={14} color="common.white">
             {title}
-          </Typography>
+          </Box>
         </Button>
       ) : (
-        <Box
-          fontSize="h4.fontSize"
-          fontWeight={`/${url}` === location.pathname ? 'fontWeightBold' : 'fontWeightRegular'}
-        >
+        <Box fontSize={14} fontWeight="fontWeightBold" color="common.white">
           <Link to={url}>{title}</Link>
         </Box>
       )}
-    </>
+    </Box>
   );
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import { Box, Container, Divider, Grid, Toolbar, Typography } from '@material-ui/core';
+import { Box, Container, Divider, Grid, Toolbar, Typography, Hidden } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'gatsby-theme-material-ui';
 import NavBrand from './NavBrand';
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MainFooter = ({ location, data }) => {
+const MainFooter = ({ data }) => {
   const classes = useStyles();
   console.log(data);
   const { sanityCompanyInfo: companyInfo, sanityNavMenu: footerMenu } = data;
@@ -31,29 +31,46 @@ const MainFooter = ({ location, data }) => {
   const { menuArray } = footerMenu;
   console.log(menuArray);
   return (
-    <Box component="footer" color="common.white" bgcolor="grey.700" fontSize={14}>
+    <Box component="footer" color="common.white" bgcolor="common.black" fontSize={14}>
       <Container maxWidth="lg">
         <Grid container spacing={3}>
           {menuArray.map((group) => (
-            <Grid item xs={12} lg={3} key={group._key}>
+            <React.Fragment key={group._key}>
               {group.menuGroup.map((item) => {
                 switch (item._type) {
                   case 'navBrand':
                     return (
-                      <React.Fragment key={item._key}>
-                        <NavBrand {...mapNavBrandToProps(item)} />
-                        <ContactInfo />
-                      </React.Fragment>
+                      <Grid item xs={12} md={3} lg={3} key={item._key}>
+                        <Box my={2}>
+                          <NavBrand {...mapNavBrandToProps(item)} />
+                          <ContactInfo />
+                          <Hidden mdUp>
+                            <SocialMedia />
+                          </Hidden>
+                        </Box>
+                      </Grid>
                     );
                   case 'navItem':
-                    return <div>this is a nav item</div>;
+                    return (
+                      <Hidden smDown>
+                        <Grid item xs={12} md={3} lg={3} key={item._key}>
+                          <FooterItem {...mapNavItemToProps(item)} />
+                        </Grid>
+                      </Hidden>
+                    );
                   case 'navGroup':
-                    return <div>this is a nav group</div>;
+                    return (
+                      <Hidden smDown>
+                        <Grid item xs={12} md={3} lg={3} key={item._key}>
+                          <FooterGroup {...mapNavGroupToProps(item)} />
+                        </Grid>
+                      </Hidden>
+                    );
                   default:
                     return <div key={item._key}>under construction</div>;
                 }
               })}
-            </Grid>
+            </React.Fragment>
           ))}
         </Grid>
       </Container>
@@ -64,8 +81,10 @@ const MainFooter = ({ location, data }) => {
             &#0169; Copyright {new Date().getFullYear()} {companyInfo.name}
           </Box>
           <Link to="https://google.com">Privacy Policy</Link>
-          <div className={classes.grow} />
-          <SocialMedia />
+          <Hidden smDown>
+            <div className={classes.grow} />
+            <SocialMedia />
+          </Hidden>
         </Toolbar>
       </Container>
     </Box>

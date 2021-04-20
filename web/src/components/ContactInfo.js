@@ -8,10 +8,12 @@ const ContactInfo = ({ data }) => {
 
   return (
     <Box my={2}>
-      <div>{companyInfo.address1}</div>
+      {companyInfo.address1 && <div>{companyInfo.address1}</div>}
       {companyInfo.address2 && <div>{companyInfo.address2}</div>}
       <div>
-        {companyInfo.city}, {companyInfo.province}, {companyInfo.postalCode}
+        {companyInfo.city ? `${companyInfo.city}, ` : null}
+        {companyInfo.province ? `${companyInfo.province}, ` : null}
+        {companyInfo.postalCode ? `${companyInfo.postalCode}` : null}
       </div>
       {companyInfo.phone && <div>{companyInfo.phone}</div>}
       {companyInfo.email && <Link to={`mailto:${companyInfo.email}`}>{companyInfo.email}</Link>}
