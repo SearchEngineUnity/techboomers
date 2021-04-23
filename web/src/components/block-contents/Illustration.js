@@ -2,35 +2,36 @@ import React from 'react';
 import { Box, Typography } from '@material-ui/core';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import styled from 'styled-components';
 import sanityConfig from '../../../sanityConfig';
 import { useWindowSize } from '../../hooks/useWindowSize';
 
+const StyledGI = styled(GatsbyImage)`
+  /* Color the border and text with theme.main */
+  max-height: ${(props) => `${props.customMaxHeight}px`};
+`;
+
 function Illustration({ illustration, table }) {
   const imageFluid = illustration?.asset;
-  const fluidProps = getGatsbyImageData(imageFluid, {}, sanityConfig);
   const windowSize = useWindowSize();
   const windowHeight = windowSize.height;
   const imageHeight = illustration?.asset?.metadata?.dimensions?.height;
   const customHeight = illustration?.height
     ? (illustration?.height / 100) * windowHeight
     : undefined;
-  const maxHeight = customHeight && customHeight < imageHeight ? customHeight : imageHeight;
+  const maxHeight =
+    customHeight && customHeight < Math.round(imageHeight) ? customHeight : imageHeight;
+  const fluidProps = getGatsbyImageData(imageFluid, {}, sanityConfig);
 
   return (
     <Box component="figure" justifyContent="center" mt={table ? 0 : '16px'}>
-      <GatsbyImage
+      <StyledGI
         image={fluidProps}
         alt={illustration.alt}
-        style={{ display: 'block', maxHeight }}
+        style={{ display: 'block' }}
         objectFit="contain"
+        customMaxHeight={maxHeight}
       />
-      {/* <Img
-        fluid={fluidProps}
-        objectFit="contain"
-        style={{ maxHeight: height, maxWidth: width, marginLeft: 'auto', marginRight: 'auto' }}
-        alt={illustration.alt}
-        title={imageFilename}
-      /> */}
       {illustration.caption && (
         <Typography component="figcaption" variant="body1">
           {illustration.caption}

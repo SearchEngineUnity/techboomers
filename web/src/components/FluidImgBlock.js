@@ -17,15 +17,6 @@ function FluidImgBlock({ image, alt, loading, height }) {
       style={{ display: 'block', maxHeight }}
       objectFit="contain"
     />
-    // <Img
-    //   fluid={image}
-    //   alt={alt}
-    //   title={title}
-    //   loading={loadingSetting}
-    //   fadeIn={false}
-    //   objectFit="contain"
-    //   style={{ maxHeight: height, maxWidth: width, marginLeft: 'auto', marginRight: 'auto' }}
-    // />
   );
 }
 
