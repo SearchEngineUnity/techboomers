@@ -44,7 +44,7 @@ function BasicTable({ basicTable }) {
                 col.width !== 0 ? (
                   <col style={{ width: `${col.width}%` }} key={`colWidth-${index}`} />
                 ) : (
-                  <col />
+                  <col key={`colWidth-${index}`} />
                 ),
               )}
             </colgroup>
@@ -73,7 +73,7 @@ function BasicTable({ basicTable }) {
                       <TableCell
                         className="MuiTableCell-head"
                         component="th"
-                        key={`${row.row_key}-${index}`}
+                        key={`${row._key}-${index}`}
                         scope="row"
                       >
                         {cell}

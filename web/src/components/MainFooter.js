@@ -25,11 +25,9 @@ const useStyles = makeStyles((theme) => ({
 
 const MainFooter = ({ data }) => {
   const classes = useStyles();
-  console.log(data);
   const { sanityCompanyInfo: companyInfo, sanityNavMenu: footerMenu } = data;
-
   const { menuArray } = footerMenu;
-  console.log(menuArray);
+
   return (
     <Box component="footer" color="common.white" bgcolor="common.black" fontSize={14}>
       <Container maxWidth="lg">
@@ -52,16 +50,16 @@ const MainFooter = ({ data }) => {
                     );
                   case 'navItem':
                     return (
-                      <Hidden smDown>
-                        <Grid item xs={12} md={3} lg={3} key={item._key}>
+                      <Hidden smDown key={item._key}>
+                        <Grid item xs={12} md={3} lg={3}>
                           <FooterItem {...mapNavItemToProps(item)} />
                         </Grid>
                       </Hidden>
                     );
                   case 'navGroup':
                     return (
-                      <Hidden smDown>
-                        <Grid item xs={12} md={3} lg={3} key={item._key}>
+                      <Hidden smDown key={item._key}>
+                        <Grid item xs={12} md={3} lg={3}>
                           <FooterGroup {...mapNavGroupToProps(item)} />
                         </Grid>
                       </Hidden>
