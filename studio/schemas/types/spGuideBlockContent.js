@@ -106,7 +106,7 @@ export default {
                 name: 'height',
                 type: 'string',
                 title: 'Image height',
-                description: `You can enter a height in px or vh. If the image's native height is smaller it will be used instead.`,
+                description: `You can enter a height % of vh. If the image's native height is smaller it will be used instead.`,
                 options: {
                   isHighlighted: true, // <-- make this field easily accessible
                 },

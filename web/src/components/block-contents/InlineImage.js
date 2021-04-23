@@ -2,8 +2,14 @@ import React from 'react';
 import { Box } from '@material-ui/core';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import styled from 'styled-components';
 import sanityConfig from '../../../sanityConfig';
 import { useWindowSize } from '../../hooks/useWindowSize';
+
+const StyledGI = styled(GatsbyImage)`
+  /* Color the border and text with theme.main */
+  max-height: ${(props) => `${props.customMaxHeight}px`};
+`;
 
 function InlineImage({ image, alt }) {
   const imageFluid = image?.asset;
@@ -16,11 +22,12 @@ function InlineImage({ image, alt }) {
 
   return (
     <Box component="figure" justifyContent="center">
-      <GatsbyImage
+      <StyledGI
         image={fluidProps}
         alt={alt}
-        style={{ display: 'block', maxHeight }}
+        style={{ display: 'block' }}
         objectFit="contain"
+        customMaxHeight={maxHeight}
       />
     </Box>
   );
