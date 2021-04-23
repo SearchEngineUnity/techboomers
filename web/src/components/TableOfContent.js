@@ -65,7 +65,7 @@ function Toc({ toc }) {
       // Offsets need to be recomputed inside scrollHandler because
       // lazily-loaded content increases offsets as user scrolls down.
       const offsets = nodes.map((el) => accumulateOffsetTop(el));
-      const activeIndex = offsets.findIndex((offset) => offset > window.scrollY);
+      const activeIndex = offsets.findIndex((offset) => offset > window.scrollY + 45);
       setActive(activeIndex === -1 ? titles.length - 1 : activeIndex - 1);
     };
     window.addEventListener(`scroll`, scrollHandler);

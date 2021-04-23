@@ -8,7 +8,7 @@ import { useWindowSize } from '../../hooks/useWindowSize';
 
 const StyledGI = styled(GatsbyImage)`
   /* Color the border and text with theme.main */
-  max-height: ${(props) => `${props.customMaxHeight}px`};
+  max-height: ${(props) => `${props.custommaxheight}px`};
 `;
 
 function Illustration({ illustration, table }) {
@@ -30,7 +30,7 @@ function Illustration({ illustration, table }) {
         alt={illustration.alt}
         style={{ display: 'block' }}
         objectFit="contain"
-        customMaxHeight={maxHeight}
+        custommaxheight={maxHeight}
       />
       {illustration.caption && (
         <Typography component="figcaption" variant="body1">
