@@ -1,28 +1,30 @@
 import React, { useState } from 'react';
 import { Grid, Box, Typography, Container, Button } from '@material-ui/core';
-// import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
+import Pagination from '@material-ui/lab/Pagination';
 import Card1 from './Card1';
 // import { mapCardToProps } from '../lib/mapToProps';
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > * + *': {
+      marginTop: theme.spacing(2),
+    },
+  },
+}));
+
 function GridSegment({ idTag, title, subtitle, cards }) {
-  const pageSize = 6;
+  const classes = useStyles();
+  const pageSize = 2;
+  const pageCount = Math.ceil(cards.length / pageSize);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const handleOnClickBack = (current) => {
-    const count = current - 1 < 1 ? 1 : current - 1;
-    setCurrentPage(count);
-  };
-
-  const handleOnClickForward = (current, arr) => {
-    const count =
-      current + 1 > Math.ceil(arr.length / pageSize)
-        ? Math.ceil(arr.length / pageSize)
-        : current + 1;
-    setCurrentPage(count);
+  const handleChange = (event, value) => {
+    setCurrentPage(value);
   };
 
   return (
-    <Box as="section" id={idTag} py={3}>
+    <Box as="section" id={idTag} pt={3} pb={3}>
       <Container maxWidth="lg">
         {title && <Typography variant="h2">{title}</Typography>}
         {subtitle && (
@@ -39,30 +41,18 @@ function GridSegment({ idTag, title, subtitle, cards }) {
             </>
           ))}
         </Grid>
-        <Button onClick={() => handleOnClickBack(currentPage)}>Back</Button>
-        <Button onClick={() => handleOnClickForward(currentPage, cards)}>Forward</Button>
+        <Box className={classes.root} mt={3}>
+          <Pagination
+            count={pageCount}
+            page={currentPage}
+            variant="outlined"
+            shape="rounded"
+            onChange={handleChange}
+          />
+        </Box>
       </Container>
     </Box>
   );
 }
 
 export default GridSegment;
-
-// https://reactjs.org/docs/hooks-state.html
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
-
-// currentpage = 0
-// pagesize = 10
-// cards [ ]
-
-// page 1
-// start = 0 end = 10
-// start = currentpage * pagesize end = (currentpage +1) * pagesize
-
-// page 2
-// start =10 end = 20
-// start = currentpage * pagesize  end = (currentpage +1) * pagesize
-
-// page 3
-// start = 20 end = 30
-// start = currentpage * pagesize  end = (currentpage +1) * pagesize
