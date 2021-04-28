@@ -1,20 +1,10 @@
 import React, { useState } from 'react';
 import { Grid, Box, Typography, Container, Button } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import Pagination from '@material-ui/lab/Pagination';
 import Card1 from './Card1';
 // import { mapCardToProps } from '../lib/mapToProps';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > * + *': {
-      marginTop: theme.spacing(2),
-    },
-  },
-}));
-
 function GridSegment({ idTag, title, subtitle, cards }) {
-  const classes = useStyles();
   const pageSize = 2;
   const pageCount = Math.ceil(cards.length / pageSize);
   const [currentPage, setCurrentPage] = useState(1);
@@ -24,7 +14,7 @@ function GridSegment({ idTag, title, subtitle, cards }) {
   };
 
   return (
-    <Box as="section" id={idTag} pt={3} pb={3}>
+    <Box component="section" id={idTag} py={3}>
       <Container maxWidth="lg">
         {title && <Typography variant="h2">{title}</Typography>}
         {subtitle && (
@@ -41,7 +31,7 @@ function GridSegment({ idTag, title, subtitle, cards }) {
             </>
           ))}
         </Grid>
-        <Box className={classes.root} mt={3}>
+        <Box mt={3}>
           <Pagination
             count={pageCount}
             page={currentPage}

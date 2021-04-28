@@ -25,6 +25,8 @@ export { default as navJumpLink } from './navJumpLink';
 export { default as navPhone } from './navPhone';
 export { default as navSet } from './navSet';
 export { default as openGraph } from './openGraph';
+export { default as sectionBlock } from './sectionBlock';
+export { default as sectionColorOverrides } from './sectionColorOverrides';
 export { default as simpleBlockContent } from './simpleBlockContent';
 export { default as spGuideBlockContent } from './spGuideBlockContent';
 export { default as textBlock } from './textBlock';

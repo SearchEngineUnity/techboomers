@@ -1,5 +1,5 @@
 import { MdWeb } from 'react-icons/md';
-import * as segments from '../segments';
+import * as sections from '../sections';
 
 export default {
   name: 'page',
@@ -24,8 +24,8 @@ export default {
       },
     },
     {
-      name: 'segments',
-      title: 'Segments',
+      name: 'sections',
+      title: 'Sections',
       options: {
         collapsible: true,
         collapsed: false,
@@ -86,12 +86,12 @@ export default {
       fieldset: 'social',
     },
     {
-      name: 'segments',
+      name: 'sections',
       type: 'array',
-      fieldsest: 'segments',
-      title: 'Segments',
+      fieldsest: 'sections',
+      title: 'Sections',
       of: [
-        ...Object.values(segments).map(({ name, title }) => ({
+        ...Object.values(sections).map(({ name, title }) => ({
           type: name,
           title,
         })),

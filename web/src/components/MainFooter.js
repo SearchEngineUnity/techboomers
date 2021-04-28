@@ -29,7 +29,7 @@ const MainFooter = ({ data }) => {
   const { menuArray } = footerMenu;
 
   return (
-    <Box component="footer" color="common.white" bgcolor="common.black" fontSize={14}>
+    <Box component="footer" color="common.white" bgcolor="common.black" fontSize={14} pt={2}>
       <Container maxWidth="lg">
         <Grid container spacing={3}>
           {menuArray.map((group) => (

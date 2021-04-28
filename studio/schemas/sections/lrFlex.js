@@ -1,7 +1,20 @@
+import { SiAdobelightroomclassic } from 'react-icons/si';
+
 export default {
-  name: 'lrHero',
-  title: 'LR - Hero',
+  name: 'lrFlex',
+  title: 'LR - Flex',
   type: 'object',
+  icon: SiAdobelightroomclassic,
+  fieldsets: [
+    {
+      name: 'presentation',
+      title: 'Presentation Settings',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+    },
+  ],
   fields: [
     {
       name: 'idTag',
@@ -11,17 +24,33 @@ export default {
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
+      name: 'title',
+      type: 'string',
+      title: 'Title',
+    },
+    {
+      name: 'subtitle',
+      type: 'simpleBlockContent',
+      title: 'Subtitle',
+    },
+    {
       name: 'blocks',
       type: 'array',
       title: 'Blocks',
       description: 'Please pick a maximum of two. The first item will appear left in layout.',
-      of: [{ type: 'heroBlock' }, { type: 'illustration' }, { type: 'video' }],
+      of: [{ type: 'sectionBlock' }, { type: 'illustration' }, { type: 'video' }],
       validation: (Rule) => Rule.length(2).error('Must contain two items'),
+    },
+    {
+      name: 'footer',
+      title: 'Footer Text',
+      type: 'simpleBlockContent',
     },
     {
       name: 'layout',
       type: 'string',
       title: 'Layout',
+      fieldset: 'presentation',
       options: {
         list: [
           { title: '5:1', value: '10:2' },
@@ -36,20 +65,28 @@ export default {
         ],
       },
     },
+    {
+      name: 'reverseOrder',
+      type: 'boolean',
+      title: 'Reverse order on stacking?',
+      fieldset: 'presentation',
+    },
+    {
+      name: 'colorOverrides',
+      type: 'sectionColorOverrides',
+      title: 'Color Overrides',
+      fieldset: 'presentation',
+    },
   ],
   preview: {
     select: {
-      blocks: 'blocks',
       subtitle: '_type',
+      id: 'idTag',
     },
-    prepare({ blocks, subtitle }) {
-      const { title } = blocks.filter((el) => el._type === 'heroBlock')[0];
-      const media = blocks.filter((el) => el._type === 'illustration')[0] || '';
-
+    prepare({ id, subtitle }) {
       return {
-        title,
         subtitle,
-        media,
+        title: `ID: ${id}`,
       };
     },
   },
