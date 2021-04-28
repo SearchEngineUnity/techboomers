@@ -1,8 +1,10 @@
+import { ImBooks } from 'react-icons/im';
+
 export default {
-  name: 'learningSegment',
-  title: 'Learning Segment',
-  description: 'Renders a dynamic list segment of the list type selected below',
+  name: 'learningSection',
+  title: 'Learning List Section',
   type: 'object',
+  icon: ImBooks,
   fields: [
     {
       name: 'idTag',
@@ -13,9 +15,14 @@ export default {
     },
   ],
   preview: {
-    prepare() {
+    select: {
+      subtitle: '_type',
+      id: 'idTag',
+    },
+    prepare({ id, subtitle }) {
       return {
-        title: `Learning List Segment`,
+        subtitle,
+        title: `ID: ${id}`,
       };
     },
   },

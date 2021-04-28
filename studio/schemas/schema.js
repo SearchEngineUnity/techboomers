@@ -4,7 +4,7 @@ import createSchema from 'part:@sanity/base/schema-creator';
 // Then import schema types from any plugins that might expose them
 import schemaTypes from 'all:part:@sanity/base/schema-type';
 
-import * as segments from './segments';
+import * as sections from './sections';
 import * as types from './types';
 import * as documents from './documents';
 
@@ -16,6 +16,6 @@ export default createSchema({
   types: schemaTypes.concat([
     ...Object.values(documents),
     ...Object.values(types),
-    ...Object.values(segments),
+    ...Object.values(sections),
   ]),
 });

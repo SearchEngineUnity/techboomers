@@ -14,7 +14,7 @@ export const query = graphql`
       slug {
         current
       }
-      segments {
+      sections {
         ... on SanityHero {
           _key
           _type
@@ -41,7 +41,7 @@ export const query = graphql`
           mediaIsBg
           _rawSubtitle(resolveReferences: { maxDepth: 14 })
         }
-        ... on SanityLearningSegment {
+        ... on SanityLearningSection {
           _key
           _type
           idTag
@@ -110,24 +110,24 @@ const StructuredPage = ({ data, location }) => {
     <Layout location={location}>
       <SEO {...mapSeoToProps(data.page, data.site.siteMetadata.siteUrl, type)} />
       <main>
-        {data.page.segments.map((segment) => {
-          const { _type } = segment;
+        {data.page.sections.map((section) => {
+          const { _type } = section;
           switch (_type) {
             case 'hero':
-              return <div key={segment._key}>This is the Hero segment</div>;
+              return <div key={section._key}>This is the Hero section</div>;
 
-            case 'learningSegment': {
+            case 'learningSection': {
               return (
                 <GridSegment
-                  key={segment._key}
-                  {...mapLearningSegmentToProps(segment)}
+                  key={section._key}
+                  {...mapLearningSegmentToProps(section)}
                   cards={spGuides}
                 />
               );
             }
 
             case 'lrHero':
-              return <LrHero key={segment._key} {...mapLrHeroToProps(segment)} />;
+              return <LrHero key={section._key} {...mapLrHeroToProps(section)} />;
             default:
               return <div>Still under development</div>;
           }

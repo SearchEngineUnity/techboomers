@@ -1,7 +1,10 @@
+import { BiHeading } from 'react-icons/bi';
+
 export default {
-  name: 'lrSegment',
-  title: 'LR - Flex',
+  name: 'lrHero',
+  title: 'LR - Hero',
   type: 'object',
+  icon: BiHeading,
   fields: [
     {
       name: 'idTag',
@@ -11,27 +14,12 @@ export default {
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
-      name: 'title',
-      type: 'string',
-      title: 'Title',
-    },
-    {
-      name: 'subtitle',
-      type: 'simpleBlockContent',
-      title: 'Subtitle',
-    },
-    {
       name: 'blocks',
       type: 'array',
       title: 'Blocks',
       description: 'Please pick a maximum of two. The first item will appear left in layout.',
-      of: [{ type: 'simpleBlockContent' }, { type: 'illustration' }, { type: 'video' }],
+      of: [{ type: 'heroBlock' }, { type: 'illustration' }, { type: 'video' }],
       validation: (Rule) => Rule.length(2).error('Must contain two items'),
-    },
-    {
-      name: 'footer',
-      title: 'Footer Text',
-      type: 'simpleBlockContent',
     },
     {
       name: 'layout',
@@ -51,25 +39,16 @@ export default {
         ],
       },
     },
-    {
-      name: 'reverseOrder',
-      type: 'boolean',
-      Title: 'Reverse order on stacking?',
-    },
   ],
   preview: {
     select: {
-      title: 'title',
-      blocks: 'blocks',
       subtitle: '_type',
+      id: 'idTag',
     },
-    prepare({ blocks, title, subtitle }) {
-      const media = blocks.filter((el) => el._type === 'illustration')[0] || '';
-
+    prepare({ id, subtitle }) {
       return {
-        title,
         subtitle,
-        media,
+        title: `ID: ${id}`,
       };
     },
   },
