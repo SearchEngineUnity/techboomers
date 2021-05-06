@@ -4,8 +4,14 @@ import Layout from '../containers/layout';
 import SEO from '../components/Seo';
 import LrHero from '../components/LrHeroSegment';
 import GridSegment from '../components/GridSegment';
+import LrFlex from '../components/StructuredLrFlex';
 import { useSpGuides } from '../hooks/useSpGuides';
-import { mapLrHeroToProps, mapSeoToProps, mapLearningSegmentToProps } from '../lib/mapToProps';
+import {
+  mapLrHeroToProps,
+  mapSeoToProps,
+  mapLearningSegmentToProps,
+  mapLrFlexToProps,
+} from '../lib/mapToProps';
 
 // eslint-disable-next-line import/prefer-default-export
 export const query = graphql`
@@ -72,6 +78,60 @@ export const query = graphql`
           idTag
           layout
         }
+        ... on SanityLrFlex {
+          _key
+          _type
+          _rawFooter(resolveReferences: { maxDepth: 10 })
+          alignment
+          blocks {
+            ... on SanitySectionIllustration {
+              _key
+              _type
+              alt
+              _rawAsset(resolveReferences: { maxDepth: 10 })
+              height
+              caption
+            }
+            ... on SanitySectionBlock {
+              _key
+              _type
+              _rawText(resolveReferences: { maxDepth: 10 })
+              header {
+                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+                title
+              }
+            }
+            ... on SanityVideo {
+              _key
+              _type
+              url
+            }
+          }
+          colorOverrides {
+            background {
+              hex
+            }
+            footer {
+              hex
+            }
+            foreground {
+              hex
+            }
+            subtitle {
+              hex
+            }
+            title {
+              hex
+            }
+          }
+          header {
+            title
+            _rawSubtitle(resolveReferences: { maxDepth: 10 })
+          }
+          idTag
+          layout
+          reverseOrder
+        }
       }
       slug {
         current
@@ -128,6 +188,10 @@ const StructuredPage = ({ data, location }) => {
 
             case 'lrHero':
               return <LrHero key={section._key} {...mapLrHeroToProps(section)} />;
+
+            case 'lrFlex':
+              return <LrFlex key={section._key} {...mapLrFlexToProps(section)} />;
+
             default:
               return <div>Still under development</div>;
           }

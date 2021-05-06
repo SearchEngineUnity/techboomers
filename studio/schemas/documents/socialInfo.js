@@ -12,14 +12,7 @@ export default {
       title: 'Social',
       type: 'string',
       options: {
-        list: [
-          { title: 'Facebook', value: 'facebook' },
-          { title: 'Twitter', value: 'twitter' },
-          { title: 'Instagram', value: 'instagram' },
-          { title: 'Pinterest', value: 'pinterest' },
-          { title: 'LinkedIn', value: 'linkedin' },
-          { title: 'Youtube', value: 'youtube' },
-        ],
+        list: ['facebook', 'twitter', 'instagram', 'pinterest', 'linkedin', 'youtube'],
       },
       validation: (Rule) => [Rule.required().error('Field is required')],
     },

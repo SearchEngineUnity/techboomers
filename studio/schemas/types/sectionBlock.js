@@ -4,15 +4,23 @@ export default {
   type: 'object',
   fields: [
     {
+      name: 'header',
+      title: 'Header',
+      type: 'header',
+    },
+    {
       name: 'text',
       title: 'Text',
-      type: 'simpleBlockContent',
+      type: 'structuredBlockContent',
     },
   ],
   preview: {
-    prepare() {
+    select: {
+      title: 'header.title',
+    },
+    prepare({ title }) {
       return {
-        title: `Section Block`,
+        title: title || 'Section PT Block',
       };
     },
   },

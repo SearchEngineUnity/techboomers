@@ -4,18 +4,13 @@ export default {
   title: 'Color Overrides',
   fields: [
     {
-      name: 'border',
-      Title: 'Border Color',
-      type: 'color',
-    },
-    {
       name: 'background',
-      Title: 'Background Color',
+      title: 'Background Color',
       type: 'color',
     },
     {
       name: 'foreground',
-      Title: 'Foreground Color',
+      title: 'Foreground Color',
       Description:
         'Color used for all foregrond text. This is overriden by title and subtitle colors if provided.',
       type: 'color',
@@ -28,6 +23,11 @@ export default {
     {
       name: 'subtitle',
       title: 'Subtitle Color',
+      type: 'color',
+    },
+    {
+      name: 'footer',
+      title: 'Footer Color',
       type: 'color',
     },
   ],
