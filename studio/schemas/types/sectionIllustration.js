@@ -1,6 +1,6 @@
 export default {
-  name: 'illustration',
-  title: 'Illustration',
+  name: 'sectionIllustration',
+  title: 'Section Illustration',
   type: 'image',
   options: {
     hotspot: true, // <-- Defaults to false
@@ -19,8 +19,7 @@ export default {
       name: 'height',
       type: 'number',
       title: 'Image Max Height',
-      description: `You can enter a height % of vh. If the image's native height is smaller it will be used instead.`,
-      validation: (Rule) => Rule.integer(),
+      description: `You can enter a height in pixels. If the image's native height is smaller it will be used instead.`,
     },
     {
       name: 'caption',

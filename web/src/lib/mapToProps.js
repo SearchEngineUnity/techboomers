@@ -113,3 +113,34 @@ export function mapNavGroupToProps({ title, nav, group }) {
     group,
   };
 }
+
+export function mapLrFlexToProps({
+  _rawFooter,
+  alignment,
+  blocks,
+  colorOverrides,
+  header,
+  idTag,
+  layout,
+  reverseOrder,
+}) {
+  return {
+    idTag,
+    h2: header.title,
+    subtitle: header._rawSubtitle,
+    blocks,
+    footer: _rawFooter,
+    layout,
+    alignment,
+    reverseOrder,
+    colorOverrides,
+  };
+}
+
+export function mapSectionBlockToProps({ header, _rawText }) {
+  return {
+    title: header.title,
+    subtitle: header._rawSubtitle,
+    sectionText: _rawText,
+  };
+}

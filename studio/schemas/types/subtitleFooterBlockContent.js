@@ -5,17 +5,12 @@ import InternalLinkRenderer from '../components/InternalLinkRenderer';
 import JumpLinkRenderer from '../components/JumpLinkRenderer';
 
 export default {
-  name: 'heroBlockContent',
+  name: 'subtitleFooterBlockContent',
   type: 'array',
   of: [
     {
       type: 'block',
-      styles: [
-        { title: 'Normal', value: 'normal' },
-        { title: 'H2', value: 'h2' },
-        { title: 'H3', value: 'h3' },
-        { title: 'H4', value: 'h4' },
-      ],
+      styles: [],
       marks: {
         annotations: [
           {
@@ -75,9 +70,6 @@ export default {
           },
         ],
       },
-    },
-    {
-      type: 'illustration',
     },
   ],
 };
