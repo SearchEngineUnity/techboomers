@@ -1,11 +1,11 @@
 import React from 'react';
-import { Container, Grid, Box, Typography } from '@material-ui/core';
+import { Container, Grid, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Subtitle from './block-contents/H2SubtitleSerializer';
 import ImgBlock from './FluidImgBlock';
 import SectionBlock from './SectionBlock';
-import Footer from './block-contents/SectionFooterSerializer';
 import { mapFluidImgBlockToProps, mapSectionBlockToProps } from '../lib/mapToProps';
+import StructuredSectionFooter from './StructuredSectionFooter';
+import StructuredSectionHeader from './StructuredSectionHeader';
 
 const useStyles = makeStyles((theme) => ({
   blockOneReverse: {
@@ -119,28 +119,7 @@ function StructuredLrFlex({
       color={colorOverrides?.foreground?.hex || 'text.primary'}
     >
       <Container maxWidth="lg">
-        {h2 && (
-          <Box component="header" mb={2}>
-            <Box
-              component={Typography}
-              variant="h2"
-              gutterBottom
-              color={
-                colorOverrides?.title?.hex || colorOverrides?.foreground?.hex || 'text.primary'
-              }
-            >
-              {h2}
-            </Box>
-
-            <Box
-              color={
-                colorOverrides?.subtitle?.hex || colorOverrides?.foreground?.hex || 'text.primary'
-              }
-            >
-              <Subtitle blocks={subtitle} />
-            </Box>
-          </Box>
-        )}
+        <StructuredSectionHeader h2={h2} subtitle={subtitle} colorOverrides={colorOverrides} />
         <Grid
           container
           justify="center"
@@ -193,13 +172,7 @@ function StructuredLrFlex({
             );
           })}
         </Grid>
-        <Box
-          component="footer"
-          color={colorOverrides?.footer?.hex || colorOverrides?.foreground?.hex || 'text.primary'}
-          mt={2}
-        >
-          <Footer blocks={footer} />
-        </Box>
+        <StructuredSectionFooter footer={footer} colorOverrides={colorOverrides} />
       </Container>
     </Box>
   );
