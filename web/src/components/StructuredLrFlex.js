@@ -32,6 +32,11 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  section: {
+    [theme.breakpoints.down('sm')]: {
+      padding: 16,
+    },
+  },
 }));
 
 const StyledBox = styled(Box)`
@@ -128,8 +133,8 @@ function StructuredLrFlex({
       py={8}
       bgcolor={colorOverrides?.background?.hex || 'transparent'}
       color={colorOverrides?.foreground?.hex || 'text.primary'}
-      // className={classes.linkColor}
       colorOverrides={colorOverrides}
+      className={classes.section}
     >
       <Container maxWidth="lg">
         <StructuredSectionHeader
