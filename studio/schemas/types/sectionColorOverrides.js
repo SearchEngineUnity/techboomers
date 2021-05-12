@@ -30,5 +30,10 @@ export default {
       title: 'Footer Color',
       type: 'color',
     },
+    {
+      name: 'link',
+      title: 'Link Color',
+      type: 'color',
+    },
   ],
 };

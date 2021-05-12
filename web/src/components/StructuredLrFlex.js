@@ -1,7 +1,10 @@
 import React from 'react';
 import { Container, Grid, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'gatsby-theme-material-ui';
+import styled from 'styled-components';
 import ImgBlock from './FluidImgBlock';
+import YoutubeBlock from './YoutubeBlock';
 import SectionBlock from './SectionBlock';
 import { mapFluidImgBlockToProps, mapSectionBlockToProps } from '../lib/mapToProps';
 import StructuredSectionFooter from './StructuredSectionFooter';
@@ -31,6 +34,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const StyledBox = styled(Box)`
+  & a {
+    color: ${({ colorOverrides }) =>
+      colorOverrides?.link?.hex ? colorOverrides?.link?.hex : null};
+  }
+`;
+
 function StructuredLrFlex({
   idTag,
   h2,
@@ -38,14 +48,16 @@ function StructuredLrFlex({
   blocks,
   footer,
   layout,
-  alignment,
+  blockAlignment,
+  headerAlignment,
+  footerAlignment,
   reverseOrder,
   colorOverrides,
 }) {
   const classes = useStyles();
-  console.log(reverseOrder);
 
   const colArr = layout.split(':').map((el) => parseInt(el, 10));
+  console.log(classes);
 
   const colCalculator = (value) => {
     switch (value) {
@@ -110,20 +122,26 @@ function StructuredLrFlex({
   };
 
   return (
-    <Box
+    <StyledBox
       id={idTag}
       component="section"
       py={8}
-      textAlign={alignment}
       bgcolor={colorOverrides?.background?.hex || 'transparent'}
       color={colorOverrides?.foreground?.hex || 'text.primary'}
+      // className={classes.linkColor}
+      colorOverrides={colorOverrides}
     >
       <Container maxWidth="lg">
-        <StructuredSectionHeader h2={h2} subtitle={subtitle} colorOverrides={colorOverrides} />
+        <StructuredSectionHeader
+          h2={h2}
+          subtitle={subtitle}
+          colorOverrides={colorOverrides}
+          align={headerAlignment}
+        />
         <Grid
           container
           justify="center"
-          alignItems="center"
+          alignItems={blockAlignment}
           spacing={8}
           className={classes.mobileGrid}
         >
@@ -132,23 +150,17 @@ function StructuredLrFlex({
             const col = colCalculator(colArr[index]);
             const blockSelector = (key) => {
               switch (key) {
-                case 'video':
-                  return <div key="video">Video block under development</div>;
+                case 'youtubeBlock':
+                  return <YoutubeBlock key={_key} url={block.url} />;
 
-                case 'illustration':
-                  return (
-                    <ImgBlock
-                      {...mapFluidImgBlockToProps(block)}
-                      loading="eager"
-                      key={_key}
-                      height={400}
-                    />
-                  );
+                case 'imageBlock':
+                  return <ImgBlock {...mapFluidImgBlockToProps(block)} key={_key} />;
 
                 case 'sectionBlock':
                   return (
                     <SectionBlock
-                      h2={!!h2}
+                      hasSectionH2={!!h2}
+                      hasSectionFooter={!!footer}
                       colorOverrides={colorOverrides}
                       {...mapSectionBlockToProps(block)}
                     />
@@ -172,9 +184,13 @@ function StructuredLrFlex({
             );
           })}
         </Grid>
-        <StructuredSectionFooter footer={footer} colorOverrides={colorOverrides} />
+        <StructuredSectionFooter
+          footer={footer}
+          colorOverrides={colorOverrides}
+          align={footerAlignment}
+        />
       </Container>
-    </Box>
+    </StyledBox>
   );
 }
 
