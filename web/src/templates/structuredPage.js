@@ -36,7 +36,7 @@ export const query = graphql`
               caption
               _rawAsset(resolveReferences: { maxDepth: 10 })
             }
-            ... on SanityVideo {
+            ... on SanityYoutubeBlock {
               _key
               _type
               url
@@ -68,7 +68,7 @@ export const query = graphql`
               _rawSubtitle(resolveReferences: { maxDepth: 14 })
               title
             }
-            ... on SanityVideo {
+            ... on SanityYoutubeBlock {
               _key
               _type
               title
@@ -82,14 +82,17 @@ export const query = graphql`
           _key
           _type
           _rawFooter(resolveReferences: { maxDepth: 10 })
-          alignment
+          blockAlignment
+          headerAlignment
+          footerAlignment
           blocks {
-            ... on SanitySectionIllustration {
+            ... on SanityImageBlock {
               _key
               _type
               alt
               _rawAsset(resolveReferences: { maxDepth: 10 })
-              height
+              maxHeight
+              maxWidth
               caption
             }
             ... on SanitySectionBlock {
@@ -100,8 +103,11 @@ export const query = graphql`
                 _rawSubtitle(resolveReferences: { maxDepth: 10 })
                 title
               }
+              _rawFooter(resolveReferences: { maxDepth: 10 })
+              headerAlignment
+              footerAlignment
             }
-            ... on SanityVideo {
+            ... on SanityYoutubeBlock {
               _key
               _type
               url
@@ -121,6 +127,9 @@ export const query = graphql`
               hex
             }
             title {
+              hex
+            }
+            link {
               hex
             }
           }

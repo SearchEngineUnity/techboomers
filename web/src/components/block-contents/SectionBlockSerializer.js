@@ -96,19 +96,27 @@ const serializers = {
     internalLink: ({ mark, children }) => {
       const { slug = {} } = mark.reference;
       const href = slug.current === '/' ? `/` : `/${slug.current}`;
-      return <Link to={href}>{children}</Link>;
+      return (
+        <Link to={href} color="inherit">
+          {children}
+        </Link>
+      );
     },
     externalLink: ({ mark, children }) => {
       const { href } = mark;
       return (
-        <Link to={href} target="_blank" rel="noopener noreferrer">
+        <Link to={href} target="_blank" rel="noopener noreferrer" color="initial">
           {children}
         </Link>
       );
     },
     jumpLink: ({ mark, children }) => {
       const { idTag } = mark;
-      return <Link to={`#${idTag}`}>{children}</Link>;
+      return (
+        <Link to={`#${idTag}`} color="initial">
+          {children}
+        </Link>
+      );
     },
     inlineImage: ({ mark, children }) => {
       switch (mark._type) {

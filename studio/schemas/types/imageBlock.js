@@ -1,7 +1,10 @@
+import { BsCardImage } from 'react-icons/bs';
+
 export default {
-  name: 'sectionIllustration',
-  title: 'Section Illustration',
+  name: 'imageBlock',
+  title: 'Image Block',
   type: 'image',
+  icon: BsCardImage,
   options: {
     hotspot: true, // <-- Defaults to false
     storeOriginalFilename: true,
@@ -16,15 +19,30 @@ export default {
       },
     },
     {
-      name: 'height',
+      name: 'maxWidth',
+      type: 'number',
+      title: 'Image Max Width',
+      description: `You can enter a width in pixels. If the image's native width is smaller it will be used instead.`,
+      options: {
+        isHighlighted: true, // <-- make this field easily accessible
+      },
+    },
+    {
+      name: 'maxHeight',
       type: 'number',
       title: 'Image Max Height',
       description: `You can enter a height in pixels. If the image's native height is smaller it will be used instead.`,
+      options: {
+        isHighlighted: true, // <-- make this field easily accessible
+      },
     },
     {
       name: 'caption',
       type: 'text',
       title: 'Caption',
+      options: {
+        isHighlighted: true, // <-- make this field easily accessible
+      },
     },
   ],
   preview: {
@@ -34,7 +52,7 @@ export default {
     },
     prepare({ title, media }) {
       return {
-        title: `Alt text: ${title}`,
+        title,
         media,
       };
     },

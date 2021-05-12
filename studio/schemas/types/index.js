@@ -28,7 +28,7 @@ export { default as navSet } from './navSet';
 export { default as openGraph } from './openGraph';
 export { default as sectionBlock } from './sectionBlock';
 export { default as sectionColorOverrides } from './sectionColorOverrides';
-export { default as sectionIllustration } from './sectionIllustration';
+export { default as imageBlock } from './imageBlock';
 export { default as simpleBlockContent } from './simpleBlockContent';
 export { default as spGuideBlockContent } from './spGuideBlockContent';
 export { default as structuredBlockContent } from './structuredBlockContent';
@@ -36,5 +36,5 @@ export { default as subtitleFooterBlockContent } from './subtitleFooterBlockCont
 export { default as textBlock } from './textBlock';
 export { default as tocLink } from './tocLink';
 export { default as twitterTag } from './twitterTag';
-export { default as video } from './video';
+export { default as youtubeBlock } from './youtubeBlock';
 export { default as videoEmbed } from './videoEmbed';

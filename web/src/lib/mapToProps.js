@@ -58,10 +58,13 @@ export function mapGuideCardToProps({ h1, slug, excerpt, cardImage, displayDate 
   };
 }
 
-export function mapFluidImgBlockToProps({ _rawAsset, alt }) {
+export function mapFluidImgBlockToProps({ _rawAsset, alt, caption, maxHeight, maxWidth }) {
   return {
     image: _rawAsset,
     alt,
+    caption,
+    maxHeight,
+    maxWidth,
   };
 }
 
@@ -116,7 +119,9 @@ export function mapNavGroupToProps({ title, nav, group }) {
 
 export function mapLrFlexToProps({
   _rawFooter,
-  alignment,
+  blockAlignment,
+  headerAlignment,
+  footerAlignment,
   blocks,
   colorOverrides,
   header,
@@ -126,21 +131,32 @@ export function mapLrFlexToProps({
 }) {
   return {
     idTag,
-    h2: header.title,
-    subtitle: header._rawSubtitle,
+    h2: header?.title,
+    subtitle: header?._rawSubtitle,
     blocks,
     footer: _rawFooter,
     layout,
-    alignment,
+    blockAlignment,
+    headerAlignment,
+    footerAlignment,
     reverseOrder,
     colorOverrides,
   };
 }
 
-export function mapSectionBlockToProps({ header, _rawText }) {
+export function mapSectionBlockToProps({
+  header,
+  _rawText,
+  _rawFooter,
+  headerAlignment,
+  footerAlignment,
+}) {
   return {
-    title: header.title,
-    subtitle: header._rawSubtitle,
+    h2: header?.title,
+    subtitle: header?._rawSubtitle,
     sectionText: _rawText,
+    footer: _rawFooter,
+    headerAlignment,
+    footerAlignment,
   };
 }

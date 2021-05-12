@@ -33,7 +33,7 @@ export default {
       type: 'array',
       title: 'Blocks',
       description: 'Please pick a maximum of two. The first item will appear left in layout.',
-      of: [{ type: 'sectionBlock' }, { type: 'sectionIllustration' }, { type: 'video' }],
+      of: [{ type: 'sectionBlock' }, { type: 'imageBlock' }, { type: 'youtubeBlock' }],
       validation: (Rule) => Rule.length(2).error('Must contain two items'),
     },
     {
@@ -71,8 +71,37 @@ export default {
       initialValue: false,
     },
     {
-      name: 'alignment',
-      title: 'Header/Footer Text Alignment',
+      name: 'blockAlignment',
+      title: 'Block Alignment',
+      type: 'string',
+      description: 'This only apply to the header footer above and below the LR blocks.',
+      options: {
+        list: [
+          { title: 'Top', value: 'flex-start' },
+          { title: 'Center', value: 'center' },
+        ],
+        layout: 'radio',
+        direction: 'horizontal',
+      },
+      fieldset: 'presentation',
+      initialValue: 'center',
+    },
+    {
+      name: 'headerAlignment',
+      title: 'Header Text Alignment',
+      type: 'string',
+      description: 'This only apply to the header footer above and below the LR blocks.',
+      options: {
+        list: ['left', 'center', 'right'],
+        layout: 'radio',
+        direction: 'horizontal',
+      },
+      fieldset: 'presentation',
+      initialValue: 'left',
+    },
+    {
+      name: 'footerAlignment',
+      title: 'Footer Text Alignment',
       type: 'string',
       description: 'This only apply to the header footer above and below the LR blocks.',
       options: {
