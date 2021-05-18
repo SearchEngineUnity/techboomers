@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'gatsby-theme-material-ui';
 import styled from 'styled-components';
 import ImgBlock from './FluidImgBlock';
-import YoutubeBlock from './YoutubeBlock';
+import VideoBlock from './VideoBlock';
 import SectionBlock from './SectionBlock';
 import { mapFluidImgBlockToProps, mapSectionBlockToProps } from '../lib/mapToProps';
 import StructuredSectionFooter from './StructuredSectionFooter';
@@ -48,7 +48,7 @@ const StyledBox = styled(Box)`
 
 function StructuredLrFlex({
   idTag,
-  h2,
+  heading,
   subtitle,
   blocks,
   footer,
@@ -133,12 +133,11 @@ function StructuredLrFlex({
       py={8}
       bgcolor={colorOverrides?.background?.hex || 'transparent'}
       color={colorOverrides?.foreground?.hex || 'text.primary'}
-      colorOverrides={colorOverrides}
       className={classes.section}
     >
       <Container maxWidth="lg">
         <StructuredSectionHeader
-          h2={h2}
+          heading={heading}
           subtitle={subtitle}
           colorOverrides={colorOverrides}
           align={headerAlignment}
@@ -152,11 +151,12 @@ function StructuredLrFlex({
         >
           {blocks.map((block, index) => {
             const { _type, _key } = block;
+            console.log(block);
             const col = colCalculator(colArr[index]);
             const blockSelector = (key) => {
               switch (key) {
-                case 'youtubeBlock':
-                  return <YoutubeBlock key={_key} url={block.url} />;
+                case 'videoBlock':
+                  return <VideoBlock key={_key} url={block.url} ratio={block.ratio} />;
 
                 case 'imageBlock':
                   return <ImgBlock {...mapFluidImgBlockToProps(block)} key={_key} />;
@@ -164,7 +164,7 @@ function StructuredLrFlex({
                 case 'sectionBlock':
                   return (
                     <SectionBlock
-                      hasSectionH2={!!h2}
+                      hasSectionHeading={!!heading}
                       hasSectionFooter={!!footer}
                       colorOverrides={colorOverrides}
                       {...mapSectionBlockToProps(block)}

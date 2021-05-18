@@ -11,27 +11,29 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function StructuredSectionHeader({ h2, subtitle, colorOverrides, align, hasSectionH2 }) {
+function StructuredSectionHeader({ heading, subtitle, colorOverrides, align, hasSectionHeading }) {
+  console.log(heading);
   const classes = useStyles();
   return (
     <>
-      {h2 || subtitle ? (
+      {heading || subtitle ? (
         <Box
-          component={hasSectionH2 ? 'div' : 'header'}
+          component={hasSectionHeading ? 'div' : 'header'}
           mb={4}
           textAlign={align}
           className={classes.header}
         >
-          {!hasSectionH2 && h2 && (
+          {!hasSectionHeading && heading && (
+
             <Box
               component={Typography}
               variant="h2"
               gutterBottom
               color={
-                colorOverrides?.title?.hex || colorOverrides?.foreground?.hex || 'text.primary'
+                colorOverrides?.heading?.hex || colorOverrides?.foreground?.hex || 'text.primary'
               }
             >
-              {h2}
+              {heading}
             </Box>
           )}
 

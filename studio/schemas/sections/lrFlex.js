@@ -33,7 +33,7 @@ export default {
       type: 'array',
       title: 'Blocks',
       description: 'Please pick a maximum of two. The first item will appear left in layout.',
-      of: [{ type: 'sectionBlock' }, { type: 'imageBlock' }, { type: 'youtubeBlock' }],
+      of: [{ type: 'sectionBlock' }, { type: 'imageBlock' }, { type: 'videoBlock' }],
       validation: (Rule) => Rule.length(2).error('Must contain two items'),
     },
     {

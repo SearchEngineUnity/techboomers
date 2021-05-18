@@ -24,7 +24,7 @@ export default {
       name: 'heroMedia',
       title: 'Hero Media Asset',
       type: 'array',
-      of: [{ type: 'illustration' }, { type: 'youtubeBlock' }],
+      of: [{ type: 'illustration' }, { type: 'videoBlock' }],
       validation: (Rule) => [Rule.max(1).error('Can only contain 1 media asset')],
     },
     {

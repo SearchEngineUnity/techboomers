@@ -131,7 +131,7 @@ export function mapLrFlexToProps({
 }) {
   return {
     idTag,
-    h2: header?.title,
+    heading: header?.heading,
     subtitle: header?._rawSubtitle,
     blocks,
     footer: _rawFooter,
@@ -152,7 +152,7 @@ export function mapSectionBlockToProps({
   footerAlignment,
 }) {
   return {
-    h2: header?.title,
+    heading: header?.heading,
     subtitle: header?._rawSubtitle,
     sectionText: _rawText,
     footer: _rawFooter,

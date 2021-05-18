@@ -36,7 +36,7 @@ export const query = graphql`
               caption
               _rawAsset(resolveReferences: { maxDepth: 10 })
             }
-            ... on SanityYoutubeBlock {
+            ... on SanityVideoBlock {
               _key
               _type
               url
@@ -68,7 +68,7 @@ export const query = graphql`
               _rawSubtitle(resolveReferences: { maxDepth: 14 })
               title
             }
-            ... on SanityYoutubeBlock {
+            ... on SanityVideoBlock {
               _key
               _type
               title
@@ -101,16 +101,17 @@ export const query = graphql`
               _rawText(resolveReferences: { maxDepth: 10 })
               header {
                 _rawSubtitle(resolveReferences: { maxDepth: 10 })
-                title
+                heading
               }
               _rawFooter(resolveReferences: { maxDepth: 10 })
               headerAlignment
               footerAlignment
             }
-            ... on SanityYoutubeBlock {
+            ... on SanityVideoBlock {
               _key
               _type
               url
+              ratio
             }
           }
           colorOverrides {
@@ -126,7 +127,7 @@ export const query = graphql`
             subtitle {
               hex
             }
-            title {
+            heading {
               hex
             }
             link {
@@ -134,7 +135,7 @@ export const query = graphql`
             }
           }
           header {
-            title
+            heading
             _rawSubtitle(resolveReferences: { maxDepth: 10 })
           }
           idTag

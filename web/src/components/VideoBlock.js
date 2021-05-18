@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactPlayer from 'react-player';
+import ReactPlayer from 'react-player/lazy';
 import { Box } from '@material-ui/core';
 import styled from 'styled-components';
 
@@ -9,12 +9,12 @@ const StyledReactPlayer = styled(ReactPlayer)`
   left: 0;
 `;
 
-function YoutubeBlock({ url }) {
+function VideoBlock({ url, ratio }) {
   return (
-    <Box pt="56.25%" position="relative">
+    <Box pt={ratio} position="relative">
       <StyledReactPlayer url={url} controls width="100%" height="100%" />
     </Box>
   );
 }
 
-export default YoutubeBlock;
+export default VideoBlock;

@@ -16,8 +16,8 @@ export default {
       type: 'color',
     },
     {
-      name: 'title',
-      title: 'Title Color',
+      name: 'heading',
+      title: 'Heading Color',
       type: 'color',
     },
     {

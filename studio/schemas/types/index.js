@@ -36,5 +36,5 @@ export { default as subtitleFooterBlockContent } from './subtitleFooterBlockCont
 export { default as textBlock } from './textBlock';
 export { default as tocLink } from './tocLink';
 export { default as twitterTag } from './twitterTag';
-export { default as youtubeBlock } from './youtubeBlock';
+export { default as videoBlock } from './videoBlock';
 export { default as videoEmbed } from './videoEmbed';
