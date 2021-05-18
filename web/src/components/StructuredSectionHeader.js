@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import Subtitle from './block-contents/H2SubtitleSerializer';
 
 const useStyles = makeStyles((theme) => ({
@@ -24,6 +25,7 @@ function StructuredSectionHeader({ heading, subtitle, colorOverrides, align, has
           className={classes.header}
         >
           {!hasSectionHeading && heading && (
+
             <Box
               component={Typography}
               variant="h2"

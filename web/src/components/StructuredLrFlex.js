@@ -32,6 +32,11 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  section: {
+    [theme.breakpoints.down('sm')]: {
+      padding: 16,
+    },
+  },
 }));
 
 const StyledBox = styled(Box)`
