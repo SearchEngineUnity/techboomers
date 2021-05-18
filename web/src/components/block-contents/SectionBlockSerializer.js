@@ -89,7 +89,7 @@ const serializers = {
       return <SmartTable smartTable={node} />;
     },
     videoEmbed({ node }) {
-      return <VideoEmbed url={node.url} />;
+      return <VideoEmbed url={node.url} ratio={node.ratio} />;
     },
   },
   marks: {

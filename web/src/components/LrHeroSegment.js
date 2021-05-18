@@ -79,8 +79,8 @@ function LrHeroSegment({ layout, blocks, idTag }) {
             const col = colCalculator(colArr[index]);
             const blockSelector = (key) => {
               switch (key) {
-                case 'youtubeBlock':
-                  return <div key="youtubeBlock">Video block under development</div>;
+                case 'videoBlock':
+                  return <div key="videoBlock">Video block under development</div>;
 
                 case 'illustration':
                   // return <ImgBlock {...mapFluidImgBlockToProps(image)} loading="eager" />;

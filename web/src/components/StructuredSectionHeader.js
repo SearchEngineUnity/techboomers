@@ -1,23 +1,38 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import { Box, Typography } from '@material-ui/core';
 import Subtitle from './block-contents/H2SubtitleSerializer';
 
-function StructuredSectionHeader({ h2, subtitle, colorOverrides, align, hasSectionH2 }) {
-  console.log(hasSectionH2);
+const useStyles = makeStyles((theme) => ({
+  header: {
+    [theme.breakpoints.down('sm')]: {
+      marginBottom: 16,
+    },
+  },
+}));
+
+function StructuredSectionHeader({ heading, subtitle, colorOverrides, align, hasSectionHeading }) {
+  console.log(heading);
+  const classes = useStyles();
   return (
     <>
-      {h2 || subtitle ? (
-        <Box component={hasSectionH2 ? 'div' : 'header'} mb={2} textAlign={align}>
-          {!hasSectionH2 && h2 && (
+      {heading || subtitle ? (
+        <Box
+          component={hasSectionHeading ? 'div' : 'header'}
+          mb={4}
+          textAlign={align}
+          className={classes.header}
+        >
+          {!hasSectionHeading && heading && (
             <Box
               component={Typography}
               variant="h2"
               gutterBottom
               color={
-                colorOverrides?.title?.hex || colorOverrides?.foreground?.hex || 'text.primary'
+                colorOverrides?.heading?.hex || colorOverrides?.foreground?.hex || 'text.primary'
               }
             >
-              {h2}
+              {heading}
             </Box>
           )}
 

@@ -163,7 +163,7 @@ const serializers = {
       return <p>Work in progress</p>;
     },
     videoEmbed({ node }) {
-      return <VideoEmbed url={node.url} />;
+      return <VideoEmbed url={node.url} ratio={node.ratio} />;
     },
   },
   marks: {
