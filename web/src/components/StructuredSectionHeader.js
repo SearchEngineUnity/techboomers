@@ -24,7 +24,6 @@ function StructuredSectionHeader({ heading, subtitle, colorOverrides, align, has
           className={classes.header}
         >
           {!hasSectionHeading && heading && (
-
             <Box
               component={Typography}
               variant="h2"
