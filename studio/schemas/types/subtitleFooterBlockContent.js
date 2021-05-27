@@ -11,6 +11,7 @@ export default {
     {
       type: 'block',
       styles: [],
+      lists: [],
       marks: {
         annotations: [
           {
