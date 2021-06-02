@@ -15,6 +15,7 @@ export default {
       name: 'ratio',
       type: 'string',
       title: 'Aspect Ratio',
+      description: `Please select based on your video's aspect ratio. Vimeo video could be in either size.`,
       options: {
         list: [
           { title: 'Youtube (16: 9)', value: '56.25%' },

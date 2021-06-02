@@ -35,7 +35,7 @@ export default {
       name: 'headerAlignment',
       title: 'Header Text Alignment',
       type: 'string',
-      description: 'This only apply to the header footer above and below the LR blocks.',
+      description: 'This only apply to the header above and text.',
       options: {
         list: ['left', 'center', 'right'],
         layout: 'radio',
@@ -48,7 +48,7 @@ export default {
       name: 'footerAlignment',
       title: 'Footer Text Alignment',
       type: 'string',
-      description: 'This only apply to the header footer above and below the LR blocks.',
+      description: 'This only apply to the footer below text.',
       options: {
         list: ['left', 'center', 'right'],
         layout: 'radio',

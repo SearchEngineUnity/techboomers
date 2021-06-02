@@ -1,4 +1,5 @@
 import { SiAdobelightroomclassic } from 'react-icons/si';
+import * as blocks from '../blocks';
 
 export default {
   name: 'lrFlex',
@@ -20,7 +21,7 @@ export default {
       name: 'idTag',
       title: 'ID',
       type: 'string',
-      description: 'Please use "-" in place of space',
+      description: 'Please only use alphanumeric characters and hypen',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
@@ -33,7 +34,14 @@ export default {
       type: 'array',
       title: 'Blocks',
       description: 'Please pick a maximum of two. The first item will appear left in layout.',
-      of: [{ type: 'sectionBlock' }, { type: 'imageBlock' }, { type: 'videoBlock' }],
+      of: [
+        ...Object.values(blocks)
+          .filter((block) => block.name !== 'heroBlock')
+          .map(({ name, title }) => ({
+            type: name,
+            title,
+          })),
+      ],
       validation: (Rule) => Rule.length(2).error('Must contain two items'),
     },
     {
@@ -74,7 +82,7 @@ export default {
       name: 'blockAlignment',
       title: 'Block Alignment',
       type: 'string',
-      description: 'This only apply to the header footer above and below the LR blocks.',
+      description: 'This determines how the L and R blocks align to each other.',
       options: {
         list: [
           { title: 'Top', value: 'flex-start' },
@@ -90,7 +98,7 @@ export default {
       name: 'headerAlignment',
       title: 'Header Text Alignment',
       type: 'string',
-      description: 'This only apply to the header footer above and below the LR blocks.',
+      description: 'This only apply to the header above the LR blocks.',
       options: {
         list: ['left', 'center', 'right'],
         layout: 'radio',
@@ -103,7 +111,7 @@ export default {
       name: 'footerAlignment',
       title: 'Footer Text Alignment',
       type: 'string',
-      description: 'This only apply to the header footer above and below the LR blocks.',
+      description: 'This only apply to the footer below the LR blocks.',
       options: {
         list: ['left', 'center', 'right'],
         layout: 'radio',
