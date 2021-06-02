@@ -7,6 +7,7 @@ import StructuredSectionFooter from './StructuredSectionFooter';
 
 function SectionBlock({
   hasSectionHeading,
+  hasSectionSubtitle,
   hasSectionFooter,
   heading,
   subtitle,
@@ -22,7 +23,8 @@ function SectionBlock({
         heading={heading}
         subtitle={subtitle}
         align={headerAlignment}
-        hasSectionH2={hasSectionHeading}
+        hasSectionHeading={hasSectionHeading}
+        hasSectionSubtitle={hasSectionSubtitle}
         colorOverrides={colorOverrides}
       />
       <SectionTextBlock blocks={sectionText} />

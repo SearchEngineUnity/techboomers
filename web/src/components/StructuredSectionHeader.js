@@ -11,8 +11,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function StructuredSectionHeader({ heading, subtitle, colorOverrides, align, hasSectionHeading }) {
-  console.log(heading);
+function StructuredSectionHeader({
+  heading,
+  subtitle,
+  colorOverrides,
+  align,
+  hasSectionHeading,
+  hasSectionSubtitle,
+}) {
   const classes = useStyles();
   return (
     <>
@@ -36,7 +42,7 @@ function StructuredSectionHeader({ heading, subtitle, colorOverrides, align, has
             </Box>
           )}
 
-          {subtitle && (
+          {!hasSectionSubtitle && subtitle && (
             <Box
               color={
                 colorOverrides?.subtitle?.hex || colorOverrides?.foreground?.hex || 'text.primary'
