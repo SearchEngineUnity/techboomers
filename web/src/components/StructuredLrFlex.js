@@ -62,7 +62,6 @@ function StructuredLrFlex({
   const classes = useStyles();
 
   const colArr = layout.split(':').map((el) => parseInt(el, 10));
-  console.log(classes);
 
   const colCalculator = (value) => {
     switch (value) {
@@ -151,7 +150,6 @@ function StructuredLrFlex({
         >
           {blocks.map((block, index) => {
             const { _type, _key } = block;
-            console.log(block);
             const col = colCalculator(colArr[index]);
             const blockSelector = (key) => {
               switch (key) {
@@ -166,6 +164,7 @@ function StructuredLrFlex({
                     <SectionBlock
                       hasSectionHeading={!!heading}
                       hasSectionFooter={!!footer}
+                      hasSectionSubtitle={!!subtitle}
                       colorOverrides={colorOverrides}
                       {...mapSectionBlockToProps(block)}
                     />
