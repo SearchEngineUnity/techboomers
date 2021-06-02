@@ -18,7 +18,8 @@
     "media",
     "@sanity/dashboard",
     "dashboard-widget-netlify",
-    "graph-view"
+    "graph-view",
+    "dashboard-widget-gatsby"
   ],
   "env": {
     "development": {

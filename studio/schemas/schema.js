@@ -4,9 +4,12 @@ import createSchema from 'part:@sanity/base/schema-creator';
 // Then import schema types from any plugins that might expose them
 import schemaTypes from 'all:part:@sanity/base/schema-type';
 
+import * as blockContents from './blockContents';
+import * as blocks from './blocks';
+import * as documents from './documents';
+import * as insertables from './insertables';
 import * as sections from './sections';
 import * as types from './types';
-import * as documents from './documents';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -14,8 +17,11 @@ export default createSchema({
   // Then proceed to concatenate our our document type
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
+    ...Object.values(blockContents),
+    ...Object.values(blocks),
     ...Object.values(documents),
-    ...Object.values(types),
+    ...Object.values(insertables),
     ...Object.values(sections),
+    ...Object.values(types),
   ]),
 });
