@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 const StyledBox = styled(Box)`
   & a {
     color: ${({ colorOverrides }) =>
-      colorOverrides?.link?.hex ? colorOverrides?.link?.hex : null};
+      colorOverrides?.link?.color?.hex ? colorOverrides?.link?.color?.hex : null};
   }
 `;
 

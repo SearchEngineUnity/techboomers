@@ -1,3 +1,4 @@
+export { default as colorOption } from './colorOption';
 export { default as comapnyLogo } from './comapnyLogo';
 export { default as companyInfo } from './companyInfo';
 export { default as spGuide } from './spGuide';
@@ -5,6 +6,7 @@ export { default as navMenu } from './navMenu';
 export { default as page } from './page';
 export { default as palette } from './palette';
 export { default as redirect } from './redirect';
+export { default as sectionColorSet } from './sectionColorSet';
 export { default as generalSettings } from './generalSettings';
 export { default as socialInfo } from './socialInfo';
 export { default as tedtImage } from './testImage';

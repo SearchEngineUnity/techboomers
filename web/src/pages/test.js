@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Typography, Paper, Box } from '@material-ui/core';
+import { Container, Typography, Paper, Box, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 // import { Link } from "gatsby"
 import { Link } from 'gatsby-theme-material-ui';
@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0.5),
     margin: theme.spacing(4),
     color: theme.palette.primary.main,
+  },
+  margin: {
+    margin: theme.spacing(1),
   },
 }));
 
@@ -44,6 +47,28 @@ const Page = () => {
         </Box>
         <StyledDiv>this should be red</StyledDiv>
       </Paper>
+      <div>
+        <Button variant="outlined" size="small" color="secondary" className={classes.margin}>
+          Click here for a free quote.
+        </Button>
+        <Button variant="contained" size="medium" color="primary" className={classes.margin}>
+          Click here for a free quote.
+        </Button>
+        <Button variant="contained" size="large" color="primary" className={classes.margin}>
+          Click here for a free quote.
+        </Button>
+      </div>
+      <div>
+        <Button variant="contained" size="small" color="primary" className={classes.margin}>
+          Contact us
+        </Button>
+        <Button variant="contained" size="medium" color="primary" className={classes.margin}>
+          Contact us
+        </Button>
+        <Button variant="contained" size="large" color="primary" className={classes.margin}>
+          Contact us
+        </Button>
+      </div>
     </Container>
   );
 };

@@ -97,7 +97,7 @@ const serializers = {
       const { slug = {} } = mark.reference;
       const href = slug.current === '/' ? `/` : `/${slug.current}`;
       return (
-        <Link to={href} color="inherit">
+        <Link to={href} color="initial">
           {children}
         </Link>
       );

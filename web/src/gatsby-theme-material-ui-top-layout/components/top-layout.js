@@ -26,31 +26,100 @@ const ThemeProvider = ({ children, data }) => {
     },
     palette: {
       common: {
-        black: palette?.black?.hex || '#000',
-        white: palette?.white?.hex || '#fff',
+        black:
+          `${palette?.black?.color?.hex}${
+            palette?.black?.color?.alpha < 1 ? palette?.black?.color?.alpha * 100 : ''
+          }` || '#000',
+        white:
+          `${palette?.white?.color?.hex}${
+            palette?.white?.color?.alpha < 1 ? palette?.white?.color?.alpha * 100 : ''
+          }` || '#fff',
       },
       primary: {
-        light: palette?.primary?.light?.hex || '#7986cb',
-        main: palette?.primary?.main?.hex || '#3f51b5',
-        dark: palette?.primary?.dark?.hex || '#303f9f',
-        contrastText: palette?.primary?.contrastText?.hex || '#fff',
+        light:
+          `${palette?.primary?.light?.color?.hex}${
+            palette?.primary?.light?.color?.alpha < 1
+              ? palette?.primary?.light?.color?.alpha * 100
+              : ''
+          }` || '#7986cb',
+        main:
+          `${palette?.primary?.main?.color?.hex}${
+            palette?.primary?.main?.color?.alpha < 1
+              ? palette?.primary?.main?.color?.alpha * 100
+              : ''
+          }` || '#3f51b5',
+        dark:
+          `${palette?.primary?.dark?.color?.hex}${
+            palette?.primary?.dark?.color?.alpha < 1
+              ? palette?.primary?.dark?.color?.alpha * 100
+              : ''
+          }` || '#303f9f',
+        contrastText:
+          `${palette?.primary?.contrastText?.color?.hex}${
+            palette?.primary?.contrastText?.color?.alpha < 1
+              ? palette?.primary?.contrastText?.color?.alpha * 100
+              : ''
+          }` || '#fff',
       },
       secondary: {
-        light: palette?.secondary?.light?.hex || '#ff4081',
-        main: palette?.secondary?.main?.hex || '#f50057',
-        dark: palette?.secondary?.dark?.hex || '#c51162',
-        contrastText: palette?.secondary?.contrastText?.hex || '#fff',
+        light:
+          `${palette?.secondary?.light?.color?.hex}${
+            palette?.secondary?.light?.color?.alpha < 1
+              ? palette?.secondary?.light?.color?.alpha * 100
+              : ''
+          }` || '#ff4081',
+        main:
+          `${palette?.secondary?.main?.color?.hex}${
+            palette?.secondary?.main?.color?.alpha < 1
+              ? palette?.secondary?.main?.color?.alpha * 100
+              : ''
+          }` || '#f50057',
+        dark:
+          `${palette?.secondary?.dark?.color?.hex}${
+            palette?.secondary?.dark?.color?.alpha < 1
+              ? palette?.secondary?.dark?.color?.alpha * 100
+              : ''
+          }` || '#c51162',
+        contrastText:
+          `${palette?.secondary?.contrastText?.color?.hex}${
+            palette?.secondary?.contrastText?.color?.alpha < 1
+              ? palette?.secondary?.contrastText?.color?.alpha * 100
+              : ''
+          }` || '#fff',
       },
       text: {
-        primary: palette?.primaryText?.hex || 'rgba(0, 0, 0, 0.87)',
-        secondary: palette?.secondaryText?.hex || 'rgba(0, 0, 0, 0.54)',
-        disabled: palette?.disabled?.hex || 'rgba(0, 0, 0, 0.38)',
-        hint: palette?.hint?.hex || 'rgba(0, 0, 0, 0.38)',
+        primary:
+          `${palette?.primaryText?.color?.hex}${
+            palette?.primaryText?.color?.alpha < 1 ? palette?.primaryText?.color?.alpha * 100 : ''
+          }` || 'rgba(0, 0, 0, 0.87)',
+        secondary:
+          `${palette?.secondaryText?.color?.hex}${
+            palette?.secondaryText?.color?.alpha < 1
+              ? palette?.secondaryText?.color?.alpha * 100
+              : ''
+          }` || 'rgba(0, 0, 0, 0.54)',
+        disabled:
+          `${palette?.disabled?.color?.hex}${
+            palette?.disabled?.color?.alpha < 1 ? palette?.disabled?.color?.alpha * 100 : ''
+          }` || 'rgba(0, 0, 0, 0.38)',
+        hint:
+          `${palette?.hint?.color?.hex}${
+            palette?.hint?.color?.alpha < 1 ? palette?.hint?.color?.alpha * 100 : ''
+          }` || 'rgba(0, 0, 0, 0.38)',
       },
-      divider: palette?.divider?.hex || 'rgba(0, 0, 0, 0.12)',
+      divider:
+        `${palette?.divider?.color?.hex}${
+          palette?.hint?.divider?.alpha < 1 ? palette?.divider?.color?.alpha * 100 : ''
+        }` || 'rgba(0, 0, 0, 0.12)',
       background: {
-        paper: palette?.paper?.hex || '#fff',
-        default: palette?.default?.hex || '#fafafa',
+        paper:
+          `${palette?.paper?.color?.hex}${
+            palette?.paper?.color?.alpha < 1 ? palette?.paper?.color?.alpha * 100 : ''
+          }` || '#fff',
+        default:
+          `${palette?.default?.color?.hex}${
+            palette?.default?.color?.alpha < 1 ? palette?.default?.color?.alpha * 100 : ''
+          }` || '#fafafa',
       },
       hlBox: {
         definition: {
@@ -198,130 +267,195 @@ export default function TopLayout({ children }) {
       query={graphql`
         {
           sanityPalette {
-            primary {
-              dark {
-                hex
-              }
-              contrastText {
-                hex
-              }
-              light {
-                hex
-              }
-              main {
-                hex
-              }
-            }
-            secondary {
-              dark {
-                hex
-              }
-              contrastText {
-                hex
-              }
-              light {
-                hex
-              }
-              main {
-                hex
-              }
-            }
             protip {
               bgColor {
                 hex
+                alpha
               }
               borderColor {
                 hex
+                alpha
               }
               iconColor {
                 hex
+                alpha
               }
               textColor {
                 hex
+                alpha
               }
             }
             definition {
               bgColor {
                 hex
+                alpha
               }
               borderColor {
                 hex
+                alpha
               }
               iconColor {
                 hex
+                alpha
               }
               textColor {
                 hex
+                alpha
               }
             }
             important {
               bgColor {
                 hex
+                alpha
               }
               borderColor {
                 hex
+                alpha
               }
               iconColor {
                 hex
+                alpha
               }
               textColor {
                 hex
+                alpha
               }
             }
             warning {
               bgColor {
                 hex
+                alpha
               }
               borderColor {
                 hex
+                alpha
               }
               iconColor {
                 hex
+                alpha
               }
               textColor {
                 hex
+                alpha
               }
             }
             dyk {
               bgColor {
                 hex
+                alpha
               }
               borderColor {
                 hex
+                alpha
               }
               iconColor {
                 hex
+                alpha
               }
               textColor {
                 hex
+                alpha
               }
             }
             black {
-              hex
+              color {
+                hex
+                alpha
+              }
             }
             default {
-              hex
-            }
-            paper {
-              hex
-            }
-            white {
-              hex
+              color {
+                hex
+                alpha
+              }
             }
             disabledText {
-              hex
+              color {
+                hex
+                alpha
+              }
             }
             divider {
-              hex
+              color {
+                hex
+                alpha
+              }
             }
             hintText {
-              hex
+              color {
+                hex
+                alpha
+              }
+            }
+            primary {
+              contrastText {
+                color {
+                  hex
+                  alpha
+                }
+              }
+              dark {
+                color {
+                  hex
+                  alpha
+                }
+              }
+              light {
+                color {
+                  hex
+                  alpha
+                }
+              }
+              main {
+                color {
+                  hex
+                  alpha
+                }
+              }
             }
             primaryText {
-              hex
+              color {
+                hex
+                alpha
+              }
+            }
+            secondary {
+              contrastText {
+                color {
+                  hex
+                  alpha
+                }
+              }
+              dark {
+                color {
+                  hex
+                  alpha
+                }
+              }
+              light {
+                color {
+                  hex
+                  alpha
+                }
+              }
+              main {
+                color {
+                  hex
+                  alpha
+                }
+              }
             }
             secondaryText {
-              hex
+              color {
+                alpha
+                hex
+              }
+            }
+            white {
+              color {
+                hex
+                alpha
+              }
             }
           }
           sanityTypography {
