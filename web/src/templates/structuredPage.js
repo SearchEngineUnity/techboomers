@@ -114,26 +114,6 @@ export const query = graphql`
               ratio
             }
           }
-          colorOverrides {
-            background {
-              hex
-            }
-            footer {
-              hex
-            }
-            foreground {
-              hex
-            }
-            subtitle {
-              hex
-            }
-            heading {
-              hex
-            }
-            link {
-              hex
-            }
-          }
           header {
             heading
             _rawSubtitle(resolveReferences: { maxDepth: 10 })
@@ -141,6 +121,44 @@ export const query = graphql`
           idTag
           layout
           reverseOrder
+          colorOverrides {
+            background {
+              color {
+                hex
+                alpha
+              }
+            }
+            footer {
+              color {
+                hex
+                alpha
+              }
+            }
+            foreground {
+              color {
+                hex
+                alpha
+              }
+            }
+            heading {
+              color {
+                hex
+                alpha
+              }
+            }
+            link {
+              color {
+                hex
+                alpha
+              }
+            }
+            subtitle {
+              color {
+                alpha
+                hex
+              }
+            }
+          }
         }
       }
       slug {

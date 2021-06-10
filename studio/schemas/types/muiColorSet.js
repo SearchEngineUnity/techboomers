@@ -6,22 +6,26 @@ export default {
     {
       name: 'light',
       title: 'Light',
-      type: 'color',
+      type: 'reference',
+      to: [{ type: 'colorOption' }],
     },
     {
       name: 'main',
       title: 'Main',
-      type: 'color',
+      type: 'reference',
+      to: [{ type: 'colorOption' }],
     },
     {
       name: 'dark',
       title: 'Dark',
-      type: 'color',
+      type: 'reference',
+      to: [{ type: 'colorOption' }],
     },
     {
       name: 'contrastText',
       title: 'Contrast Text',
-      type: 'color',
+      type: 'reference',
+      to: [{ type: 'colorOption' }],
     },
   ],
 };
