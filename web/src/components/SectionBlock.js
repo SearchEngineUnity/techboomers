@@ -15,7 +15,9 @@ function SectionBlock({
   footer,
   headerAlignment,
   footerAlignment,
-  colorOverrides,
+  headingColor,
+  subtitleColor,
+  footerColor,
 }) {
   return (
     <>
@@ -25,17 +27,17 @@ function SectionBlock({
         align={headerAlignment}
         hasSectionHeading={hasSectionHeading}
         hasSectionSubtitle={hasSectionSubtitle}
-        colorOverrides={colorOverrides}
+        headingColor={headingColor}
+        subtitleColor={subtitleColor}
       />
       <SectionTextBlock blocks={sectionText} />
       <StructuredSectionFooter
         footer={footer}
-        colorOverrides={colorOverrides}
+        footerColor={footerColor}
         align={footerAlignment}
         hasSectionFooter={hasSectionFooter}
       />
     </>
   );
 }
-
 export default SectionBlock;

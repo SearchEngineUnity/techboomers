@@ -10,11 +10,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
 function StructuredSectionHeader({
   heading,
   subtitle,
-  colorOverrides,
+  headingColor,
+  subtitleColor,
   align,
   hasSectionHeading,
   hasSectionSubtitle,
@@ -30,24 +30,12 @@ function StructuredSectionHeader({
           className={classes.header}
         >
           {!hasSectionHeading && heading && (
-            <Box
-              component={Typography}
-              variant="h2"
-              gutterBottom
-              color={
-                colorOverrides?.heading?.hex || colorOverrides?.foreground?.hex || 'text.primary'
-              }
-            >
+            <Box component={Typography} variant="h2" gutterBottom color={headingColor}>
               {heading}
             </Box>
           )}
-
           {!hasSectionSubtitle && subtitle && (
-            <Box
-              color={
-                colorOverrides?.subtitle?.hex || colorOverrides?.foreground?.hex || 'text.primary'
-              }
-            >
+            <Box color={subtitleColor}>
               <Subtitle blocks={subtitle} />
             </Box>
           )}
@@ -56,5 +44,4 @@ function StructuredSectionHeader({
     </>
   );
 }
-
 export default StructuredSectionHeader;
