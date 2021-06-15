@@ -18,6 +18,5 @@ export { default as navJumpLink } from './navJumpLink';
 export { default as navPhone } from './navPhone';
 export { default as navSet } from './navSet';
 export { default as openGraph } from './openGraph';
-export { default as sectionColorOverrides } from './sectionColorOverrides';
 export { default as tocLink } from './tocLink';
 export { default as twitterTag } from './twitterTag';

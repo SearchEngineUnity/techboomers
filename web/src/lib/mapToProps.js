@@ -123,7 +123,7 @@ export function mapLrFlexToProps({
   headerAlignment,
   footerAlignment,
   blocks,
-  colorOverrides,
+  colorSettings,
   header,
   idTag,
   layout,
@@ -140,7 +140,7 @@ export function mapLrFlexToProps({
     headerAlignment,
     footerAlignment,
     reverseOrder,
-    colorOverrides,
+    colorSettings,
   };
 }
 
