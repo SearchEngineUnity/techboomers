@@ -57,7 +57,7 @@ function StructuredLrFlex({
   headerAlignment,
   footerAlignment,
   reverseOrder,
-  colorOverrides,
+  colorSettings,
 }) {
   const classes = useStyles();
   const colArr = layout.split(':').map((el) => parseInt(el, 10));
@@ -115,12 +115,12 @@ function StructuredLrFlex({
     }
   };
 
-  const backgroundColor = determinColor(colorOverrides?.background?.color) || 'transparent';
-  const foregroundColor = determinColor(colorOverrides?.foreground?.color) || 'text.primary';
-  const linkColor = determinColor(colorOverrides?.link?.color) || 'initial';
-  const headingColor = determinColor(colorOverrides?.heading?.color) || 'inherit';
-  const subtitleColor = determinColor(colorOverrides?.subtitle?.color) || 'inherit';
-  const footerColor = determinColor(colorOverrides?.footer?.color) || 'inherit';
+  const backgroundColor = determinColor(colorSettings?.background?.color) || 'transparent';
+  const foregroundColor = determinColor(colorSettings?.foreground?.color) || 'text.primary';
+  const linkColor = determinColor(colorSettings?.link?.color) || 'initial';
+  const headingColor = determinColor(colorSettings?.heading?.color) || 'inherit';
+  const subtitleColor = determinColor(colorSettings?.subtitle?.color) || 'inherit';
+  const footerColor = determinColor(colorSettings?.footer?.color) || 'inherit';
 
   return (
     <StyledBox
@@ -159,7 +159,7 @@ function StructuredLrFlex({
                 case 'sectionBlock':
                   return (
                     <SectionBlock
-                      hasSectionH2={!!heading}
+                      hasSectionHeading={!!heading}
                       hasSectionFooter={!!footer}
                       hasSectionSubtitle={!!subtitle}
                       headingColor={headingColor}

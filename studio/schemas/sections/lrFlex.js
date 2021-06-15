@@ -121,10 +121,8 @@ export default {
       initialValue: 'left',
     },
     {
-      name: 'colorOverrides',
-      title: 'Color Overrides',
-      description:
-        'The color in order of background / foreground / link / heeading / subtitle / footer',
+      name: 'colorSettings',
+      title: 'Color Settings',
       type: 'reference',
       to: [{ type: 'sectionColorSet' }],
       fieldset: 'presentation',

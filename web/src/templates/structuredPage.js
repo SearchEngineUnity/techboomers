@@ -121,7 +121,7 @@ export const query = graphql`
           idTag
           layout
           reverseOrder
-          colorOverrides {
+          colorSettings {
             background {
               color {
                 hex
