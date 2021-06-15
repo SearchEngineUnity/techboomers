@@ -10,8 +10,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
-function StructuredSectionFooter({ footer, colorOverrides, align, hasSectionFooter }) {
+function StructuredSectionFooter({ footer, footerColor, align, hasSectionFooter }) {
   const classes = useStyles();
   return (
     <>
@@ -19,7 +18,7 @@ function StructuredSectionFooter({ footer, colorOverrides, align, hasSectionFoot
         <Box
           className={classes.footer}
           component={hasSectionFooter ? 'div' : 'footer'}
-          color={colorOverrides?.footer?.hex || colorOverrides?.foreground?.hex || 'text.primary'}
+          color={footerColor}
           mt={4}
           textAlign={align}
         >
@@ -29,5 +28,4 @@ function StructuredSectionFooter({ footer, colorOverrides, align, hasSectionFoot
     </>
   );
 }
-
 export default StructuredSectionFooter;
