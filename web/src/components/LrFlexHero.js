@@ -114,8 +114,8 @@ function LrFlexHero({
     }
   };
 
-  const backgroundColor = determinColor(colorSettings?.background?.color) || 'transparent';
-  const foregroundColor = determinColor(colorSettings?.foreground?.color) || 'text.primary';
+  const backgroundColor = determinColor(colorSettings?.background?.color) || 'primary.main';
+  const foregroundColor = determinColor(colorSettings?.foreground?.color) || 'primary.contrastText';
   const linkColor = determinColor(colorSettings?.link?.color) || 'initial';
   const headingColor = determinColor(colorSettings?.heading?.color) || 'inherit';
   const subtitleColor = determinColor(colorSettings?.subtitle?.color) || 'inherit';
