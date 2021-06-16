@@ -4,10 +4,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import styled from 'styled-components';
 import ImgBlock from './FluidImgBlock';
 import VideoBlock from './VideoBlock';
-import SectionBlock from './SectionBlock';
+import SectionBlock from './HeroSectionBlock';
 import { mapFluidImgBlockToProps, mapSectionBlockToProps } from '../lib/mapToProps';
-import StructuredSectionFooter from './StructuredSectionFooter';
-import StructuredSectionHeader from './StructuredSectionHeader';
+import HeroSectionFooter from './HeroSectionFooter';
+import HeroSectionHeader from './HeroSectionHeader';
 import { determinColor } from '../lib/helperFunctions';
 
 const useStyles = makeStyles((theme) => ({
@@ -45,7 +45,7 @@ const StyledBox = styled(Box)`
   }
 `;
 
-function StructuredLrFlex({
+function LrFlexHero({
   idTag,
   heading,
   subtitle,
@@ -114,8 +114,8 @@ function StructuredLrFlex({
     }
   };
 
-  const backgroundColor = determinColor(colorSettings?.background?.color) || 'transparent';
-  const foregroundColor = determinColor(colorSettings?.foreground?.color) || 'text.primary';
+  const backgroundColor = determinColor(colorSettings?.background?.color) || 'primary.main';
+  const foregroundColor = determinColor(colorSettings?.foreground?.color) || 'primary.contrastText';
   const linkColor = determinColor(colorSettings?.link?.color) || 'initial';
   const headingColor = determinColor(colorSettings?.heading?.color) || 'inherit';
   const subtitleColor = determinColor(colorSettings?.subtitle?.color) || 'inherit';
@@ -132,7 +132,7 @@ function StructuredLrFlex({
       className={classes.section}
     >
       <Container maxWidth="lg">
-        <StructuredSectionHeader
+        <HeroSectionHeader
           heading={heading}
           subtitle={subtitle}
           headingColor={headingColor}
@@ -155,7 +155,7 @@ function StructuredLrFlex({
                   return <VideoBlock key={_key} url={block.url} ratio={block.ratio} />;
                 case 'imageBlock':
                   return <ImgBlock {...mapFluidImgBlockToProps(block)} key={_key} />;
-                case 'sectionBlock':
+                case 'heroBlock':
                   return (
                     <SectionBlock
                       hasSectionHeading={!!heading}
@@ -185,14 +185,10 @@ function StructuredLrFlex({
             );
           })}
         </Grid>
-        <StructuredSectionFooter
-          footer={footer}
-          footerColor={footerColor}
-          align={footerAlignment}
-        />
+        <HeroSectionFooter footer={footer} footerColor={footerColor} align={footerAlignment} />
       </Container>
     </StyledBox>
   );
 }
 
-export default StructuredLrFlex;
+export default LrFlexHero;

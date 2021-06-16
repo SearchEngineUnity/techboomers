@@ -77,8 +77,31 @@ export function mapGuideHeroToProps({ h1, _rawSubtitle, displayDate, heroImage }
   };
 }
 
-export function mapLrHeroToProps({ idTag, layout, blocks }) {
-  return { idTag, layout, blocks };
+export function mapLrHeroToProps({
+  _rawFooter,
+  blockAlignment,
+  headerAlignment,
+  footerAlignment,
+  blocks,
+  colorSettings,
+  header,
+  idTag,
+  layout,
+  reverseOrder,
+}) {
+  return {
+    idTag,
+    heading: header?.heading,
+    subtitle: header?._rawSubtitle,
+    blocks,
+    footer: _rawFooter,
+    layout,
+    blockAlignment,
+    headerAlignment,
+    footerAlignment,
+    reverseOrder,
+    colorSettings,
+  };
 }
 
 export function mapHeroBlockToProps({ title, _rawSubtitle }) {

@@ -1,7 +1,7 @@
 import React from 'react';
-import SectionTextBlock from './block-contents/SectionBlockSerializer';
-import StructuredSectionHeader from './StructuredSectionHeader';
-import StructuredSectionFooter from './StructuredSectionFooter';
+import SectionTextBlock from './block-contents/HeroSectionBlockSeralizer';
+import HeroSectionHeader from './HeroSectionHeader';
+import HeroSectionFooter from './HeroSectionFooter';
 
 function SectionBlock({
   hasSectionHeading,
@@ -19,7 +19,7 @@ function SectionBlock({
 }) {
   return (
     <>
-      <StructuredSectionHeader
+      <HeroSectionHeader
         heading={heading}
         subtitle={subtitle}
         align={headerAlignment}
@@ -29,7 +29,7 @@ function SectionBlock({
         subtitleColor={subtitleColor}
       />
       <SectionTextBlock blocks={sectionText} />
-      <StructuredSectionFooter
+      <HeroSectionFooter
         footer={footer}
         footerColor={footerColor}
         align={footerAlignment}

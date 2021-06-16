@@ -1,5 +1,7 @@
 export { default as fullBlockContent } from './fullBlockContent';
 export { default as heroBlockContent } from './heroBlockContent';
+export { default as heroFooterBlockContent } from './heroFooterBlockContent';
+export { default as heroSubtitleBlockContent } from './heroSubtitleBlockContent';
 export { default as hightlghtBoxBlockContent } from './highlightBoxBlockContent';
 export { default as simpleBlockContent } from './simpleBlockContent';
 export { default as spGuideBlockContent } from './spGuideBlockContent';
