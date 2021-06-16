@@ -38,6 +38,13 @@ const serializers = {
   types: {
     block(props) {
       switch (props.node.style) {
+        case 'h2':
+          return (
+            <StyledTypography gutterBottom variant="h2">
+              {props.children}
+            </StyledTypography>
+          );
+
         case 'h3':
           return (
             <StyledTypography gutterBottom variant="h3">

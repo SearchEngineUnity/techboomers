@@ -4,6 +4,7 @@ export { default as colWidth } from './colWidth';
 export { default as excerpt } from './excerpt';
 export { default as externalLink } from './externalLink';
 export { default as header } from './header';
+export { default as heroHeader } from './heroHeader';
 export { default as hlbColorSet } from './hlbColorSet';
 export { default as internalLink } from './internalLink';
 export { default as linkSet } from './linkSet';

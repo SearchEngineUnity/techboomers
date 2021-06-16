@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../containers/layout';
 import SEO from '../components/Seo';
-import LrHero from '../components/LrHeroSegment';
+import LrHero from '../components/LrFlexHero';
 import GridSegment from '../components/GridSegment';
 import LrFlex from '../components/StructuredLrFlex';
 import { useSpGuides } from '../hooks/useSpGuides';
@@ -21,32 +21,6 @@ export const query = graphql`
         current
       }
       sections {
-        ... on SanityHero {
-          _key
-          _type
-          title
-          heroBg {
-            hex
-          }
-          heroMedia {
-            ... on SanityIllustration {
-              _key
-              _type
-              alt
-              caption
-              _rawAsset(resolveReferences: { maxDepth: 10 })
-            }
-            ... on SanityVideoBlock {
-              _key
-              _type
-              url
-              title
-            }
-          }
-          idTag
-          mediaIsBg
-          _rawSubtitle(resolveReferences: { maxDepth: 14 })
-        }
         ... on SanityLearningSection {
           _key
           _type
@@ -56,27 +30,82 @@ export const query = graphql`
           _key
           _type
           blocks {
-            ... on SanityIllustration {
+            ... on SanityImageBlock {
               _key
               _type
               alt
               _rawAsset(resolveReferences: { maxDepth: 10 })
+              maxHeight
+              maxWidth
+              caption
             }
             ... on SanityHeroBlock {
               _key
               _type
-              _rawSubtitle(resolveReferences: { maxDepth: 14 })
-              title
+              _rawFooter(resolveReferences: { maxDepth: 10 })
+              _rawText(resolveReferences: { maxDepth: 10 })
+              header {
+                heading
+                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+              }
+              headerAlignment
             }
             ... on SanityVideoBlock {
               _key
               _type
-              title
               url
+              ratio
             }
           }
           idTag
           layout
+          reverseOrder
+          colorSettings {
+            background {
+              color {
+                hex
+                alpha
+              }
+            }
+            footer {
+              color {
+                hex
+                alpha
+              }
+            }
+            foreground {
+              color {
+                hex
+                alpha
+              }
+            }
+            heading {
+              color {
+                hex
+                alpha
+              }
+            }
+            link {
+              color {
+                hex
+                alpha
+              }
+            }
+            subtitle {
+              color {
+                alpha
+                hex
+              }
+            }
+          }
+          _rawFooter(resolveReferences: { maxDepth: 10 })
+          header {
+            heading
+            _rawSubtitle(resolveReferences: { maxDepth: 10 })
+          }
+          blockAlignment
+          footerAlignment
+          headerAlignment
         }
         ... on SanityLrFlex {
           _key
@@ -201,9 +230,6 @@ const StructuredPage = ({ data, location }) => {
         {data.page.sections.map((section) => {
           const { _type } = section;
           switch (_type) {
-            case 'hero':
-              return <div key={section._key}>This is the Hero section</div>;
-
             case 'learningSection': {
               return (
                 <GridSegment
