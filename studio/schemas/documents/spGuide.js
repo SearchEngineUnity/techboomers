@@ -112,12 +112,14 @@ export default {
       title: 'Card Title',
       type: 'string',
       fieldset: 'card',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'cardImage',
       title: 'Card Image',
       type: 'illustration',
       fieldset: 'card',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'h1',
@@ -137,6 +139,7 @@ export default {
       title: 'Hero Image',
       type: 'illustration',
       fieldset: 'hero',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'toc',
@@ -167,12 +170,14 @@ export default {
       title: 'Noindex',
       type: 'boolean',
       fieldset: 'indexing',
+      initialValue: false,
     },
     {
       name: 'nofollow',
       title: 'Nofollow',
       type: 'boolean',
       fieldset: 'indexing',
+      initialValue: false,
     },
     {
       name: 'canonical',
