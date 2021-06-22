@@ -7,8 +7,10 @@
 
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { StaticQuery, graphql } from 'gatsby';
 
-function Seo({
+const Seo = ({
+  data,
   type,
   title,
   description,
@@ -21,18 +23,19 @@ function Seo({
   canonical,
   heroImage,
   mpUrl,
-}) {
+}) => {
+  const homePage = data.sanityCompanyInfo.homePage.replace(/\/+$/, '');
   let metaURL = '';
   let ogType = '';
   const robots = `${nofollow ? 'nofollow' : ''} ${noindex ? 'noindex' : ''}`;
 
   switch (type) {
     case 'page':
-      metaURL = slug === '/' ? siteUrl : `${siteUrl}/${slug}`;
+      metaURL = slug === '/' ? homePage : `${data.homePage}/${slug}`;
       ogType = 'website';
       break;
     case 'guide':
-      metaURL = `${siteUrl}/${slug}`;
+      metaURL = `${homePage}/${slug}`;
       ogType = 'article';
       break;
     default:
@@ -47,7 +50,6 @@ function Seo({
   const twitterDescription = twitter?.description || ogDescription || description;
 
   console.log(metaURL);
-
   return (
     <Helmet>
       <title>{title}</title>
@@ -70,6 +72,19 @@ function Seo({
       )}
     </Helmet>
   );
-}
+};
 
-export default Seo;
+export default function MySeo(props) {
+  return (
+    <StaticQuery
+      query={graphql`
+        {
+          sanityCompanyInfo {
+            homePage
+          }
+        }
+      `}
+      render={(data) => <Seo data={data} {...props} />}
+    />
+  );
+}
