@@ -31,8 +31,8 @@ function Seo({
       metaURL = slug === '/' ? siteUrl : `${siteUrl}/${slug}`;
       ogType = 'website';
       break;
-    case 'chapter':
-      metaURL = `${siteUrl}/${mpUrl}/${slug}`;
+    case 'guide':
+      metaURL = `${siteUrl}/${slug}`;
       ogType = 'article';
       break;
     default:
@@ -45,6 +45,8 @@ function Seo({
 
   const twitterTitle = twitter?.title || ogTitle || title;
   const twitterDescription = twitter?.description || ogDescription || description;
+
+  console.log(metaURL);
 
   return (
     <Helmet>
@@ -61,7 +63,11 @@ function Seo({
       <meta name="twitter:description" content={twitterDescription} />
       <meta name="twitter:image" content={ogImage} />
       {(noindex || nofollow) && <meta name="robots" content={robots} />}
-      {canonical && <link rel="canonical" href={canonical} />}
+      {canonical ? (
+        <link rel="canonical" href={canonical} />
+      ) : (
+        <link rel="canonical" href={metaURL} />
+      )}
     </Helmet>
   );
 }
