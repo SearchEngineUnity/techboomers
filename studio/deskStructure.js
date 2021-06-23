@@ -174,6 +174,7 @@ export default () =>
               S.documentTypeListItem('navMenu').title('Navigation Menus'),
               S.divider(),
               S.documentTypeListItem('page').title('Structured Pages'),
+              S.documentTypeListItem('listingPage').title('Listing Pages'),
               S.documentTypeListItem('spGuide').title('SP Guides'),
               S.divider(),
               S.documentTypeListItem('redirect').title('Redirects'),

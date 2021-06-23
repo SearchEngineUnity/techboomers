@@ -2,7 +2,7 @@ import { MdWeb } from 'react-icons/md';
 import * as sections from '../sections';
 
 export default {
-  name: 'page',
+  name: 'listingPage',
   type: 'document',
   title: 'Structured Page',
   icon: MdWeb,
@@ -91,12 +91,10 @@ export default {
       fieldsest: 'sections',
       title: 'Sections',
       of: [
-        ...Object.values(sections)
-          .filter((section) => section._type !== 'listingSection')
-          .map(({ name, title }) => ({
-            type: name,
-            title,
-          })),
+        ...Object.values(sections).map(({ name, title }) => ({
+          type: name,
+          title,
+        })),
       ],
     },
     {
