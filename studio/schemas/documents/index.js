@@ -2,6 +2,7 @@ export { default as colorOption } from './colorOption';
 export { default as comapnyLogo } from './comapnyLogo';
 export { default as companyInfo } from './companyInfo';
 export { default as spGuide } from './spGuide';
+export { default as listingPage } from './listingPage';
 export { default as navMenu } from './navMenu';
 export { default as page } from './page';
 export { default as palette } from './palette';
