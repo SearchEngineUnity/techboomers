@@ -4,6 +4,7 @@ import ThemeTopLayout from 'gatsby-theme-material-ui-top-layout/src/components/t
 import { StaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import { determinColor } from '../../lib/helperFunctions';
 
 const ThemeProvider = ({ children, data }) => {
   const { sanityPalette: palette, sanityTypography: typography } = data;
@@ -26,100 +27,31 @@ const ThemeProvider = ({ children, data }) => {
     },
     palette: {
       common: {
-        black:
-          `${palette?.black?.color?.hex}${
-            palette?.black?.color?.alpha < 1 ? palette?.black?.color?.alpha * 100 : ''
-          }` || '#000',
-        white:
-          `${palette?.white?.color?.hex}${
-            palette?.white?.color?.alpha < 1 ? palette?.white?.color?.alpha * 100 : ''
-          }` || '#fff',
+        black: determinColor(palette?.black?.color) || '#000',
+        white: determinColor(palette?.white?.color) || '#fff',
       },
       primary: {
-        light:
-          `${palette?.primary?.light?.color?.hex}${
-            palette?.primary?.light?.color?.alpha < 1
-              ? palette?.primary?.light?.color?.alpha * 100
-              : ''
-          }` || '#7986cb',
-        main:
-          `${palette?.primary?.main?.color?.hex}${
-            palette?.primary?.main?.color?.alpha < 1
-              ? palette?.primary?.main?.color?.alpha * 100
-              : ''
-          }` || '#3f51b5',
-        dark:
-          `${palette?.primary?.dark?.color?.hex}${
-            palette?.primary?.dark?.color?.alpha < 1
-              ? palette?.primary?.dark?.color?.alpha * 100
-              : ''
-          }` || '#303f9f',
-        contrastText:
-          `${palette?.primary?.contrastText?.color?.hex}${
-            palette?.primary?.contrastText?.color?.alpha < 1
-              ? palette?.primary?.contrastText?.color?.alpha * 100
-              : ''
-          }` || '#fff',
+        light: determinColor(palette?.primary?.light?.color) || '#7986cb',
+        main: determinColor(palette?.primary?.main?.color) || '#3f51b5',
+        dark: determinColor(palette?.primary?.dark?.color) || '#303f9f',
+        contrastText: determinColor(palette?.primary?.contrastText?.color) || '#fff',
       },
       secondary: {
-        light:
-          `${palette?.secondary?.light?.color?.hex}${
-            palette?.secondary?.light?.color?.alpha < 1
-              ? palette?.secondary?.light?.color?.alpha * 100
-              : ''
-          }` || '#ff4081',
-        main:
-          `${palette?.secondary?.main?.color?.hex}${
-            palette?.secondary?.main?.color?.alpha < 1
-              ? palette?.secondary?.main?.color?.alpha * 100
-              : ''
-          }` || '#f50057',
-        dark:
-          `${palette?.secondary?.dark?.color?.hex}${
-            palette?.secondary?.dark?.color?.alpha < 1
-              ? palette?.secondary?.dark?.color?.alpha * 100
-              : ''
-          }` || '#c51162',
-        contrastText:
-          `${palette?.secondary?.contrastText?.color?.hex}${
-            palette?.secondary?.contrastText?.color?.alpha < 1
-              ? palette?.secondary?.contrastText?.color?.alpha * 100
-              : ''
-          }` || '#fff',
+        light: determinColor(palette?.secondary?.light?.color) || '#ff4081',
+        main: determinColor(palette?.secondary?.main?.color) || '#f50057',
+        dark: determinColor(palette?.secondary?.dark?.color) || '#c51162',
+        contrastText: determinColor(palette?.secondary?.contrastText?.color) || '#fff',
       },
       text: {
-        primary:
-          `${palette?.primaryText?.color?.hex}${
-            palette?.primaryText?.color?.alpha < 1 ? palette?.primaryText?.color?.alpha * 100 : ''
-          }` || 'rgba(0, 0, 0, 0.87)',
-        secondary:
-          `${palette?.secondaryText?.color?.hex}${
-            palette?.secondaryText?.color?.alpha < 1
-              ? palette?.secondaryText?.color?.alpha * 100
-              : ''
-          }` || 'rgba(0, 0, 0, 0.54)',
-        disabled:
-          `${palette?.disabled?.color?.hex}${
-            palette?.disabled?.color?.alpha < 1 ? palette?.disabled?.color?.alpha * 100 : ''
-          }` || 'rgba(0, 0, 0, 0.38)',
-        hint:
-          `${palette?.hint?.color?.hex}${
-            palette?.hint?.color?.alpha < 1 ? palette?.hint?.color?.alpha * 100 : ''
-          }` || 'rgba(0, 0, 0, 0.38)',
+        primary: determinColor(palette?.primaryText?.color) || 'rgba(0, 0, 0, 0.87)',
+        secondary: determinColor(palette?.secondaryText?.color) || 'rgba(0, 0, 0, 0.54)',
+        disabled: determinColor(palette?.disabled?.color) || 'rgba(0, 0, 0, 0.38)',
+        hint: determinColor(palette?.hint?.color) || 'rgba(0, 0, 0, 0.38)',
       },
-      divider:
-        `${palette?.divider?.color?.hex}${
-          palette?.hint?.divider?.alpha < 1 ? palette?.divider?.color?.alpha * 100 : ''
-        }` || 'rgba(0, 0, 0, 0.12)',
+      divider: determinColor(palette?.divider?.color) || 'rgba(0, 0, 0, 0.12)',
       background: {
-        paper:
-          `${palette?.paper?.color?.hex}${
-            palette?.paper?.color?.alpha < 1 ? palette?.paper?.color?.alpha * 100 : ''
-          }` || '#fff',
-        default:
-          `${palette?.default?.color?.hex}${
-            palette?.default?.color?.alpha < 1 ? palette?.default?.color?.alpha * 100 : ''
-          }` || '#fafafa',
+        paper: determinColor(palette?.paper?.color) || '#fff',
+        default: determinColor(palette?.default?.color) || '#fafafa',
       },
       hlBox: {
         definition: {
