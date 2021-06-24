@@ -7,5 +7,5 @@ export const determinColor = (color) => {
   if (color.alpha === 1) {
     return color.hex;
   }
-  return color.hex + color.alpha * 100;
+  return color.hex + (color.alpha * 100).toString().padStart(2, '0');
 };

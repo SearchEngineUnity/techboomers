@@ -51,7 +51,16 @@ const Page = () => {
         <Button variant="outlined" size="small" color="secondary" className={classes.margin}>
           Click here for a free quote.
         </Button>
-        <Button variant="contained" size="medium" color="primary" className={classes.margin}>
+        <Button
+          variant="contained"
+          disableElevation
+          size="small"
+          color="secondary"
+          className={classes.margin}
+        >
+          Click here for a free quote.
+        </Button>
+        <Button variant="contained" size="medium" color="secondary" className={classes.margin}>
           Click here for a free quote.
         </Button>
         <Button variant="contained" size="large" color="primary" className={classes.margin}>
@@ -69,6 +78,9 @@ const Page = () => {
           Contact us
         </Button>
       </div>
+      <Button variant="contained" color="primary" disableElevation>
+        Disable elevation
+      </Button>
     </Container>
   );
 };
