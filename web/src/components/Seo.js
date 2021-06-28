@@ -24,14 +24,16 @@ const Seo = ({
   heroImage,
   mpUrl,
 }) => {
-  const homePage = data.sanityCompanyInfo.homePage.replace(/\/+$/, '');
+  const homePage = data?.sanityCompanyInfo?.homePage
+    ? data.sanityCompanyInfo.homePage.replace(/\/+$/, '')
+    : siteUrl;
   let metaURL = '';
   let ogType = '';
   const robots = `${nofollow ? 'nofollow' : ''} ${noindex ? 'noindex' : ''}`;
 
   switch (type) {
     case 'page':
-      metaURL = slug === '/' ? homePage : `${data.homePage}/${slug}`;
+      metaURL = slug === '/' ? homePage : `${homePage}/${slug}`;
       ogType = 'website';
       break;
     case 'guide':

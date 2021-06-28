@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 export const determinColor = (color) => {
   console.log(color);
-  if (color === undefined) {
+  if (!color) {
     return null;
   }
   if (color.alpha === 1) {

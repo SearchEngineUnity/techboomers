@@ -37,80 +37,87 @@ const useStyles = makeStyles((theme) => ({
 const MainNav = ({ data, location }) => {
   const classes = useStyles();
   return (
-    <AppBar position="static" className={classes.appBar}>
-      <Container maxWidth="lg">
-        {data.sanityNavMenu.menuArray.map((menu, menuIndex) => {
-          const { menuGroup, _key } = menu;
-          return (
-            <Box
-              display={{
-                xs: menuIndex === 0 ? 'block' : 'none',
-                sm: menuIndex === 0 ? 'block' : 'none',
-                md: 'block',
-                lg: 'block',
-                xl: 'block',
-              }}
-              key={_key}
-            >
-              <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }} disableGutters>
-                {menuGroup.map((group) => {
-                  const { _type, _key: groupKey } = group;
-                  switch (_type) {
-                    case 'navBrand':
-                      return <NavBrand {...mapNavBrandToProps(group)} key={groupKey} />;
-                    case 'navPhone':
-                      return <NavPhone text={group.text} key={groupKey} />;
-                    case 'navItem':
-                      return (
-                        <Box
-                          display={{
-                            xs: 'none',
-                            sm: 'block',
-                            md: 'block',
-                            lg: 'block',
-                            xl: 'block',
-                          }}
-                          key={groupKey}
-                        >
-                          <NavItem {...mapNavItemToProps(group)} location={location} />
-                        </Box>
-                      );
-                    case 'navGroup':
-                      return (
-                        <Box
-                          display={{
-                            xs: 'none',
-                            sm: 'block',
-                            md: 'block',
-                            lg: 'block',
-                            xl: 'block',
-                          }}
-                          key={groupKey}
-                        >
-                          <NavGroup {...mapNavGroupToProps(group)} location={location} />
-                        </Box>
-                      );
+    <>
+      {data.sanityNavMenu && (
+        <AppBar position="static" className={classes.appBar}>
+          <Container maxWidth="lg">
+            {data.sanityNavMenu.menuArray.map((menu, menuIndex) => {
+              const { menuGroup, _key } = menu;
+              return (
+                <Box
+                  display={{
+                    xs: menuIndex === 0 ? 'block' : 'none',
+                    sm: menuIndex === 0 ? 'block' : 'none',
+                    md: 'block',
+                    lg: 'block',
+                    xl: 'block',
+                  }}
+                  key={_key}
+                >
+                  <Toolbar
+                    style={{ display: 'flex', justifyContent: 'space-between' }}
+                    disableGutters
+                  >
+                    {menuGroup.map((group) => {
+                      const { _type, _key: groupKey } = group;
+                      switch (_type) {
+                        case 'navBrand':
+                          return <NavBrand {...mapNavBrandToProps(group)} key={groupKey} />;
+                        case 'navPhone':
+                          return <NavPhone text={group.text} key={groupKey} />;
+                        case 'navItem':
+                          return (
+                            <Box
+                              display={{
+                                xs: 'none',
+                                sm: 'block',
+                                md: 'block',
+                                lg: 'block',
+                                xl: 'block',
+                              }}
+                              key={groupKey}
+                            >
+                              <NavItem {...mapNavItemToProps(group)} location={location} />
+                            </Box>
+                          );
+                        case 'navGroup':
+                          return (
+                            <Box
+                              display={{
+                                xs: 'none',
+                                sm: 'block',
+                                md: 'block',
+                                lg: 'block',
+                                xl: 'block',
+                              }}
+                              key={groupKey}
+                            >
+                              <NavGroup {...mapNavGroupToProps(group)} location={location} />
+                            </Box>
+                          );
 
-                    default:
-                      return <div>under construction</div>;
-                  }
-                })}
-                {menuIndex === 0 && (
-                  <MainNavHamburger
-                    menu={data.sanityNavMenu.menuArray[1]}
-                    brand={
-                      data.sanityNavMenu.menuArray[0].menuGroup.filter(
-                        (x) => x._type === 'navBrand',
-                      )[0]
-                    }
-                  />
-                )}
-              </Toolbar>
-            </Box>
-          );
-        })}
-      </Container>
-    </AppBar>
+                        default:
+                          return <div>under construction</div>;
+                      }
+                    })}
+                    {menuIndex === 0 && (
+                      <MainNavHamburger
+                        menu={data.sanityNavMenu.menuArray[1]}
+                        brand={
+                          data.sanityNavMenu.menuArray[0].menuGroup.filter(
+                            (x) => x._type === 'navBrand',
+                          )[0]
+                        }
+                      />
+                    )}
+                  </Toolbar>
+                </Box>
+              );
+            })}
+          </Container>
+        </AppBar>
+      )}
+    </>
   );
 };
 
