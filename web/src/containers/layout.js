@@ -6,22 +6,38 @@
  */
 
 import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import MainNav from '../components/MainNav';
 import MainFooter from '../components/MainFooter';
 
-const Layout = ({ children, location }) => (
-  <>
-    <Helmet />
-    <MainNav location={location} />
-    <>{children}</>
-    <MainFooter />
-  </>
-);
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+const MyLayout = ({ data, children, location }) => {
+  console.log(data);
+  return (
+    <>
+      <Helmet />
+      {data.mainNav && <MainNav location={location} />}
+      <>{children}</>
+      {data.footer && <MainFooter />}
+    </>
+  );
 };
 
-export default Layout;
+export default function Layout(props) {
+  return (
+    <StaticQuery
+      query={graphql`
+        {
+          footer: sanityNavMenu(type: { eq: "mainFooter" }) {
+            type
+          }
+          mainNav: sanityNavMenu(type: { eq: "mainNav" }) {
+            type
+          }
+        }
+      `}
+      render={(data) => <MyLayout data={data} {...props} />}
+    />
+  );
+}
