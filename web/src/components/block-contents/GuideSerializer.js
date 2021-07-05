@@ -141,7 +141,9 @@ const serializers = {
             <Typography gutterBottom variant="body1">
               {props.children}
             </Typography>
-          ) : null;
+          ) : (
+            <br />
+          );
       }
     },
     ctaButton({ node }) {
