@@ -5,12 +5,14 @@ import SEO from '../components/Seo';
 import LrHero from '../components/LrFlexHero';
 import GridSegment from '../components/GridSegment';
 import LrFlex from '../components/StructuredLrFlex';
+import StackFlex from '../components/StackFlex';
 import { useSpGuides } from '../hooks/useSpGuides';
 import {
   mapLrHeroToProps,
   mapSeoToProps,
   mapLearningSegmentToProps,
   mapLrFlexToProps,
+  mapStackFlexToProps,
 } from '../lib/mapToProps';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -189,6 +191,86 @@ export const query = graphql`
             }
           }
         }
+        ... on SanityStackFlex {
+          _key
+          _type
+          _rawFooter(resolveReferences: { maxDepth: 10 })
+          blockWidth
+          footerAlignment
+          headerAlignment
+          idTag
+          header {
+            heading
+            _rawSubtitle(resolveReferences: { maxDepth: 10 })
+          }
+          blocks {
+            ... on SanityImageBlock {
+              _key
+              _type
+              alt
+              _rawAsset(resolveReferences: { maxDepth: 10 })
+              maxHeight
+              maxWidth
+              caption
+            }
+            ... on SanitySectionBlock {
+              _key
+              _type
+              _rawText(resolveReferences: { maxDepth: 10 })
+              header {
+                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+                heading
+              }
+              _rawFooter(resolveReferences: { maxDepth: 10 })
+              headerAlignment
+              footerAlignment
+            }
+            ... on SanityVideoBlock {
+              _key
+              _type
+              url
+              ratio
+            }
+          }
+          colorSettings {
+            background {
+              color {
+                hex
+                alpha
+              }
+            }
+            footer {
+              color {
+                hex
+                alpha
+              }
+            }
+            foreground {
+              color {
+                hex
+                alpha
+              }
+            }
+            heading {
+              color {
+                hex
+                alpha
+              }
+            }
+            link {
+              color {
+                hex
+                alpha
+              }
+            }
+            subtitle {
+              color {
+                alpha
+                hex
+              }
+            }
+          }
+        }
       }
       slug {
         current
@@ -245,6 +327,9 @@ const StructuredPage = ({ data, location }) => {
 
             case 'lrFlex':
               return <LrFlex key={section._key} {...mapLrFlexToProps(section)} />;
+
+            case 'stackFlex':
+              return <StackFlex key={section._key} {...mapStackFlexToProps(section)} />;
 
             default:
               return <div>Still under development</div>;
