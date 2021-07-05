@@ -17,6 +17,14 @@ const useStyles = makeStyles((theme) => ({
   margin: {
     margin: theme.spacing(1),
   },
+  root: {
+    '&:hover': {
+      backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.3) 0 0)',
+    },
+    color: '#406CCB',
+    backgroundColor: 'white',
+    borderColor: '#406CCB',
+  },
 }));
 
 const Page = () => {
@@ -78,9 +86,41 @@ const Page = () => {
           Contact us
         </Button>
       </div>
-      <Button variant="contained" color="primary" disableElevation>
-        Disable elevation
-      </Button>
+      <div>
+        <Button variant="contained" size="medium" color="primary" className={classes.margin}>
+          Contact us
+        </Button>
+        <Button variant="outlined" size="medium" className={`${classes.margin} ${classes.root}`}>
+          Contact us
+        </Button>
+        <btn
+          className={`${classes.margin} ${classes.root}`}
+          style={{
+            padding: '6px 16PX',
+            borderRadius: '4px',
+            backgroundColor: '#406CCB',
+            color: 'white',
+            boxShadow:
+              '0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%)',
+          }}
+        >
+          Contact us
+        </btn>
+      </div>
+      <div>
+        <Button variant="outlined" size="medium" color="primary" className={classes.margin}>
+          Contact us
+        </Button>
+        <div className={`${classes.margin} ${classes.root}`}>
+          <Button variant="outlined" size="medium" color="primary">
+            Contact us
+          </Button>
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
     </Container>
   );
 };

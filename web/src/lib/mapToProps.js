@@ -183,3 +183,28 @@ export function mapSectionBlockToProps({
     footerAlignment,
   };
 }
+
+export function mapStackFlexToProps({
+  _rawFooter,
+  blockAlignment,
+  headerAlignment,
+  footerAlignment,
+  blocks,
+  colorSettings,
+  header,
+  idTag,
+  blockWidth,
+}) {
+  return {
+    idTag,
+    heading: header?.heading,
+    subtitle: header?._rawSubtitle,
+    blocks,
+    footer: _rawFooter,
+    blockWidth,
+    blockAlignment,
+    headerAlignment,
+    footerAlignment,
+    colorSettings,
+  };
+}
