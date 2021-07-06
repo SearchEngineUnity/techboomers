@@ -12,17 +12,14 @@ import { Helmet } from 'react-helmet';
 import MainNav from '../components/MainNav';
 import MainFooter from '../components/MainFooter';
 
-const MyLayout = ({ data, children, location }) => {
-  console.log(data);
-  return (
-    <>
-      <Helmet />
-      {data.mainNav && <MainNav location={location} />}
-      <>{children}</>
-      {data.footer && <MainFooter />}
-    </>
-  );
-};
+const MyLayout = ({ data, children, location }) => (
+  <>
+    <Helmet />
+    {data.mainNav && <MainNav location={location} />}
+    <>{children}</>
+    {data.footer && <MainFooter />}
+  </>
+);
 
 export default function Layout(props) {
   return (

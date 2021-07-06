@@ -208,3 +208,24 @@ export function mapStackFlexToProps({
     colorSettings,
   };
 }
+
+export function mapListingSectionToProps({
+  _rawFooter,
+  headerAlignment,
+  footerAlignment,
+  layout,
+  colorSettings,
+  header,
+  idTag,
+}) {
+  return {
+    idTag,
+    heading: header?.heading,
+    subtitle: header?._rawSubtitle,
+    footer: _rawFooter,
+    layout,
+    headerAlignment,
+    footerAlignment,
+    colorSettings,
+  };
+}

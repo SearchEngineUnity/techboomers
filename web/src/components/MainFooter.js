@@ -24,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const MainFooter = ({ data }) => {
-  console.log(data.sanityNavMenu);
   const classes = useStyles();
   const { sanityCompanyInfo: companyInfo, sanityNavMenu: footerMenu } = data;
   const { menuArray } = footerMenu;

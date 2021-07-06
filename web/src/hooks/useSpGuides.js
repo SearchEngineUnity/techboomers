@@ -5,7 +5,7 @@ export const useSpGuides = () => {
   const { guides } = useStaticQuery(
     graphql`
       query AllSpGuides {
-        guides: allSanitySpGuide {
+        guides: allSanitySpGuide(sort: { fields: [displayDate], order: DESC }) {
           nodes {
             _id
             slug {
@@ -31,20 +31,20 @@ export const useSpGuides = () => {
     url: slug.current,
   }));
 
-  const dateSortedCards = guidesAsCards.sort((a, b) => {
-    const dateA = a.date;
-    const dateB = b.date;
+  // const dateSortedCards = guidesAsCards.sort((a, b) => {
+  //   const dateA = a.date;
+  //   const dateB = b.date;
 
-    if (dateA < dateB) {
-      return 1;
-    }
+  //   if (dateA < dateB) {
+  //     return 1;
+  //   }
 
-    if (dateA > dateB) {
-      return -1;
-    }
+  //   if (dateA > dateB) {
+  //     return -1;
+  //   }
 
-    return 0;
-  });
+  //   return 0;
+  // });
 
-  return dateSortedCards;
+  return guidesAsCards;
 };

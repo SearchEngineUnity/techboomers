@@ -62,7 +62,7 @@ export default {
           { title: '6/4/2', value: '6/4/2' },
           { title: '4/2/1', value: '4/2/1' },
           { title: '3/2/1', value: '3/2/1' },
-          { title: '2/1/1', value: '2/1/1' },
+          { title: '2/2/1', value: '2/2/1' },
         ],
       },
       initialValue: '3/2/1',
