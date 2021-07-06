@@ -1,6 +1,5 @@
 /* eslint-disable import/prefer-default-export */
 export const determinColor = (color) => {
-  console.log(color);
   if (!color) {
     return null;
   }

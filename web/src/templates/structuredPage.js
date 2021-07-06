@@ -3,14 +3,11 @@ import { graphql } from 'gatsby';
 import Layout from '../containers/layout';
 import SEO from '../components/Seo';
 import LrHero from '../components/LrFlexHero';
-import GridSegment from '../components/GridSegment';
 import LrFlex from '../components/StructuredLrFlex';
 import StackFlex from '../components/StackFlex';
-import { useSpGuides } from '../hooks/useSpGuides';
 import {
   mapLrHeroToProps,
   mapSeoToProps,
-  mapLearningSegmentToProps,
   mapLrFlexToProps,
   mapStackFlexToProps,
 } from '../lib/mapToProps';
@@ -23,11 +20,6 @@ export const query = graphql`
         current
       }
       sections {
-        ... on SanityLearningSection {
-          _key
-          _type
-          idTag
-        }
         ... on SanityLrHero {
           _key
           _type
@@ -303,7 +295,6 @@ export const query = graphql`
 
 const StructuredPage = ({ data, location }) => {
   const type = 'page';
-  const spGuides = useSpGuides();
 
   return (
     <Layout location={location}>
@@ -312,16 +303,6 @@ const StructuredPage = ({ data, location }) => {
         {data.page.sections.map((section) => {
           const { _type } = section;
           switch (_type) {
-            case 'learningSection': {
-              return (
-                <GridSegment
-                  key={section._key}
-                  {...mapLearningSegmentToProps(section)}
-                  cards={spGuides}
-                />
-              );
-            }
-
             case 'lrHero':
               return <LrHero key={section._key} {...mapLrHeroToProps(section)} />;
 

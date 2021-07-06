@@ -3,29 +3,26 @@ import { graphql } from 'gatsby';
 import Layout from '../containers/layout';
 import SEO from '../components/Seo';
 import LrHero from '../components/LrFlexHero';
-import GridSegment from '../components/GridSegment';
 import LrFlex from '../components/StructuredLrFlex';
+import StackFlex from '../components/StackFlex';
+import ListingSection from '../components/ListingSection';
 import { useSpGuides } from '../hooks/useSpGuides';
 import {
   mapLrHeroToProps,
   mapSeoToProps,
-  mapLearningSegmentToProps,
   mapLrFlexToProps,
+  mapStackFlexToProps,
+  mapListingSectionToProps,
 } from '../lib/mapToProps';
 
 // eslint-disable-next-line import/prefer-default-export
 export const query = graphql`
-  query ListingPageTemplate($slug: String) {
+  query ListPageTemplate($slug: String) {
     page: sanityListingPage(slug: { current: { eq: $slug } }) {
       slug {
         current
       }
       sections {
-        ... on SanityLearningSection {
-          _key
-          _type
-          idTag
-        }
         ... on SanityLrHero {
           _key
           _type
@@ -189,6 +186,139 @@ export const query = graphql`
             }
           }
         }
+        ... on SanityStackFlex {
+          _key
+          _type
+          _rawFooter(resolveReferences: { maxDepth: 10 })
+          blockWidth
+          footerAlignment
+          headerAlignment
+          idTag
+          header {
+            heading
+            _rawSubtitle(resolveReferences: { maxDepth: 10 })
+          }
+          blocks {
+            ... on SanityImageBlock {
+              _key
+              _type
+              alt
+              _rawAsset(resolveReferences: { maxDepth: 10 })
+              maxHeight
+              maxWidth
+              caption
+            }
+            ... on SanitySectionBlock {
+              _key
+              _type
+              _rawText(resolveReferences: { maxDepth: 10 })
+              header {
+                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+                heading
+              }
+              _rawFooter(resolveReferences: { maxDepth: 10 })
+              headerAlignment
+              footerAlignment
+            }
+            ... on SanityVideoBlock {
+              _key
+              _type
+              url
+              ratio
+            }
+          }
+          colorSettings {
+            background {
+              color {
+                hex
+                alpha
+              }
+            }
+            footer {
+              color {
+                hex
+                alpha
+              }
+            }
+            foreground {
+              color {
+                hex
+                alpha
+              }
+            }
+            heading {
+              color {
+                hex
+                alpha
+              }
+            }
+            link {
+              color {
+                hex
+                alpha
+              }
+            }
+            subtitle {
+              color {
+                alpha
+                hex
+              }
+            }
+          }
+        }
+        ... on SanityListingSection {
+          _key
+          _type
+          listType
+          _rawFooter(resolveReferences: { maxDepth: 10 })
+          count
+          footerAlignment
+          header {
+            _rawSubtitle(resolveReferences: { maxDepth: 10 })
+            heading
+          }
+          headerAlignment
+          idTag
+          layout
+          colorSettings {
+            background {
+              color {
+                hex
+                alpha
+              }
+            }
+            footer {
+              color {
+                hex
+                alpha
+              }
+            }
+            foreground {
+              color {
+                hex
+                alpha
+              }
+            }
+            heading {
+              color {
+                hex
+                alpha
+              }
+            }
+            link {
+              color {
+                hex
+                alpha
+              }
+            }
+            subtitle {
+              color {
+                alpha
+                hex
+              }
+            }
+          }
+        }
       }
       slug {
         current
@@ -219,9 +349,24 @@ export const query = graphql`
   }
 `;
 
-const StructuredPage = ({ data, location }) => {
-  const type = 'page';
+const StructuredPage = ({ data, location, pageContext }) => {
+  let allListItems;
   const spGuides = useSpGuides();
+
+  switch (pageContext.listType) {
+    case 'SPG':
+      allListItems = spGuides;
+      break;
+
+    default:
+      break;
+  }
+
+  const type = 'page';
+
+  const { currentpage, limit } = pageContext;
+
+  const listingItems = allListItems.slice((currentpage - 1) * limit, currentpage * limit);
 
   return (
     <Layout location={location}>
@@ -230,21 +375,25 @@ const StructuredPage = ({ data, location }) => {
         {data.page.sections.map((section) => {
           const { _type } = section;
           switch (_type) {
-            case 'learningSection': {
-              return (
-                <GridSegment
-                  key={section._key}
-                  {...mapLearningSegmentToProps(section)}
-                  cards={spGuides}
-                />
-              );
-            }
-
             case 'lrHero':
               return <LrHero key={section._key} {...mapLrHeroToProps(section)} />;
 
             case 'lrFlex':
               return <LrFlex key={section._key} {...mapLrFlexToProps(section)} />;
+
+            case 'stackFlex':
+              return <StackFlex key={section._key} {...mapStackFlexToProps(section)} />;
+
+            case 'listingSection':
+              console.log(section);
+              return (
+                <ListingSection
+                  key={section._key}
+                  {...mapListingSectionToProps(section)}
+                  {...pageContext}
+                  listingItems={listingItems}
+                />
+              );
 
             default:
               return <div>Still under development</div>;

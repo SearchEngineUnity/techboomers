@@ -51,7 +51,6 @@ const Seo = ({
   const twitterTitle = twitter?.title || ogTitle || title;
   const twitterDescription = twitter?.description || ogDescription || description;
 
-  console.log(metaURL);
   return (
     <Helmet>
       <title>{title}</title>

@@ -60,7 +60,6 @@ function StructuredLrFlex({
 }) {
   const classes = useStyles();
   const colArr = layout.split(':').map((el) => parseInt(el, 10));
-  console.log(classes);
   const colCalculator = (value) => {
     switch (value) {
       case 10:

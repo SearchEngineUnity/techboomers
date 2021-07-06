@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Grid, Box, Typography, Container, Button } from '@material-ui/core';
 import Pagination from '@material-ui/lab/Pagination';
-import Card1 from './Card1';
+import Card1 from '../components/TileImageTitle1';
+import { useSpGuides } from '../hooks/useSpGuides';
 // import { mapCardToProps } from '../lib/mapToProps';
 
 function GridSegment({ idTag, title, subtitle, cards }) {
+  const spGuides = useSpGuides();
   const pageSize = 2;
   const pageCount = Math.ceil(cards.length / pageSize);
   const [currentPage, setCurrentPage] = useState(1);
