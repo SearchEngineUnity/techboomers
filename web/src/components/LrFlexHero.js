@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Grid, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import styled from 'styled-components';
 import ImgBlock from './FluidImgBlock';
 import VideoBlock from './VideoBlock';
 import SectionBlock from './HeroSectionBlock';
@@ -36,14 +35,11 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       padding: 16,
     },
+    '& a': {
+      color: (props) => props.linkColor,
+    },
   },
 }));
-
-const StyledBox = styled(Box)`
-  & a {
-    color: ${({ linkColor }) => linkColor};
-  }
-`;
 
 function LrFlexHero({
   idTag,
@@ -58,7 +54,6 @@ function LrFlexHero({
   reverseOrder,
   colorSettings,
 }) {
-  const classes = useStyles();
   const colArr = layout.split(':').map((el) => parseInt(el, 10));
   const colCalculator = (value) => {
     switch (value) {
@@ -120,14 +115,15 @@ function LrFlexHero({
   const subtitleColor = determinColor(colorSettings?.subtitle?.color) || 'inherit';
   const footerColor = determinColor(colorSettings?.footer?.color) || 'inherit';
 
+  const classes = useStyles({ linkColor });
+
   return (
-    <StyledBox
+    <Box
       id={idTag}
       component="section"
       py={8}
       bgcolor={backgroundColor}
       color={foregroundColor}
-      linkColor={linkColor}
       className={classes.section}
     >
       <Container maxWidth="lg">
@@ -188,7 +184,7 @@ function LrFlexHero({
         </Grid>
         <HeroSectionFooter footer={footer} footerColor={footerColor} align={footerAlignment} />
       </Container>
-    </StyledBox>
+    </Box>
   );
 }
 
