@@ -4,7 +4,6 @@ import Pagination from '@material-ui/lab/Pagination';
 import PaginationItem from '@material-ui/lab/PaginationItem';
 import { Link } from 'gatsby';
 import { makeStyles } from '@material-ui/core/styles';
-import styled from 'styled-components';
 import StructuredSectionFooter from './StructuredSectionFooter';
 import StructuredSectionHeader from './StructuredSectionHeader';
 import { determinColor } from '../lib/helperFunctions';
@@ -24,14 +23,11 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       padding: 16,
     },
+    '& a': {
+      color: (props) => props.linkColor,
+    },
   },
 }));
-
-const StyledBox = styled(Box)`
-  & a {
-    color: ${({ linkColor }) => linkColor};
-  }
-`;
 
 function ListingSection({
   idTag,
@@ -50,8 +46,6 @@ function ListingSection({
   slug,
   listingItems,
 }) {
-  const classes = useStyles();
-
   // number of tiles desktop/table/moble: '6/4/2' -> {lg: 2, md: 3, xs: 6}
   const colCalculator = (value) => {
     switch (value) {
@@ -93,15 +87,14 @@ function ListingSection({
   const headingColor = determinColor(colorSettings?.heading?.color) || 'inherit';
   const subtitleColor = determinColor(colorSettings?.subtitle?.color) || 'inherit';
   const footerColor = determinColor(colorSettings?.footer?.color) || 'inherit';
-
+  const classes = useStyles({ linkColor });
   return (
-    <StyledBox
+    <Box
       id={idTag}
       component="section"
       py={8}
       bgcolor={backgroundColor}
       color={foregroundColor}
-      linkColor={linkColor}
       className={classes.section}
     >
       <Container maxWidth="lg">
@@ -140,7 +133,7 @@ function ListingSection({
           align={footerAlignment}
         />
       </Container>
-    </StyledBox>
+    </Box>
   );
 }
 
