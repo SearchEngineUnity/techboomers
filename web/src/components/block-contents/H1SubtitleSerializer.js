@@ -29,19 +29,27 @@ const serializers = {
       const { slug = {} } = mark.reference;
       const href = slug.current === '/' ? `/` : `/${slug.current}`;
 
-      return <Link to={href}>{children}</Link>;
+      return (
+        <Link to={href} className="pt-link">
+          {children}
+        </Link>
+      );
     },
     externalLink: ({ mark, children }) => {
       const { href } = mark;
       return (
-        <a href={href} target="_blank" rel="noopener noreferrer">
+        <a href={href} target="_blank" rel="noopener noreferrer" className="pt-link">
           {children}
         </a>
       );
     },
     jumpLink: ({ mark, children }) => {
       const { idTag } = mark;
-      return <Link to={`#${idTag}`}>{children}</Link>;
+      return (
+        <Link to={`#${idTag}`} className="pt-link">
+          {children}
+        </Link>
+      );
     },
   },
   list: ({ children }) => <NoIndentUl>{children}</NoIndentUl>,

@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       padding: 16,
     },
-    '& a': {
+    '& .pt-link': {
       color: (props) => props.linkColor,
     },
   },
@@ -118,8 +118,10 @@ function ListingSection({
             count={numPages}
             variant="outlined"
             shape="rounded"
+            color="primary"
             renderItem={(item) => (
               <PaginationItem
+                color="primary"
                 component={Link}
                 to={`/${slug}${item.page === 1 ? '' : `/${item.page}`}`}
                 {...item}
