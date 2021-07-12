@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       padding: 16,
     },
-    '& a': {
+    '& .pt-link': {
       color: (props) => props.linkColor,
     },
   },

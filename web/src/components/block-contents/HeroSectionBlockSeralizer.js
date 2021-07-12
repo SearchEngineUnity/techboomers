@@ -105,7 +105,7 @@ const serializers = {
       const { slug = {} } = mark.reference;
       const href = slug.current === '/' ? `/` : `/${slug.current}`;
       return (
-        <Link to={href} color="initial">
+        <Link to={href} color="initial" className="pt-link">
           {children}
         </Link>
       );
@@ -113,7 +113,13 @@ const serializers = {
     externalLink: ({ mark, children }) => {
       const { href } = mark;
       return (
-        <Link to={href} target="_blank" rel="noopener noreferrer" color="initial">
+        <Link
+          to={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          color="initial"
+          className="pt-link"
+        >
           {children}
         </Link>
       );
@@ -121,7 +127,7 @@ const serializers = {
     jumpLink: ({ mark, children }) => {
       const { idTag } = mark;
       return (
-        <Link to={`#${idTag}`} color="initial">
+        <Link to={`#${idTag}`} color="initial" className="pt-link">
           {children}
         </Link>
       );
