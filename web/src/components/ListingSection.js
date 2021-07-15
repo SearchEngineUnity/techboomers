@@ -27,6 +27,13 @@ const useStyles = makeStyles((theme) => ({
       color: (props) => props.linkColor,
     },
   },
+  root: {
+    color: 'inherit',
+  },
+  outlined: {
+    border: '1px solid',
+    borderColor: 'inherit',
+  },
 }));
 
 function ListingSection({
@@ -87,7 +94,7 @@ function ListingSection({
   const headingColor = determinColor(colorSettings?.heading?.color) || 'inherit';
   const subtitleColor = determinColor(colorSettings?.subtitle?.color) || 'inherit';
   const footerColor = determinColor(colorSettings?.footer?.color) || 'inherit';
-  const classes = useStyles({ linkColor });
+  const classes = useStyles({ linkColor, foregroundColor });
   return (
     <Box
       id={idTag}
@@ -118,10 +125,9 @@ function ListingSection({
             count={numPages}
             variant="outlined"
             shape="rounded"
-            color="primary"
             renderItem={(item) => (
               <PaginationItem
-                color="primary"
+                classes={{ root: classes.root, outlined: classes.outlined }}
                 component={Link}
                 to={`/${slug}${item.page === 1 ? '' : `/${item.page}`}`}
                 {...item}

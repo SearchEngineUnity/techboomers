@@ -1,6 +1,6 @@
 export default {
   name: 'heroBlock',
-  title: 'Text Block',
+  title: 'Hero Block',
   type: 'object',
   fieldsets: [
     {
