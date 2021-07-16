@@ -17,6 +17,12 @@ export default {
   ],
   fields: [
     {
+      name: 'idTag',
+      title: 'Button ID',
+      type: 'string',
+      validation: (Rule) => [Rule.required().error('Field is required')],
+    },
+    {
       name: 'text',
       title: 'Button Text',
       type: 'string',
@@ -41,15 +47,10 @@ export default {
       initialValue: 'left',
     },
     {
-      name: 'settings',
-      title: 'Button Settings',
-      type: 'btnSettingsMui',
-      fieldset: 'presentation',
-    },
-    {
-      name: 'colors',
-      title: 'Color settings',
-      type: 'muiColorSet',
+      name: 'design',
+      title: 'Button Design Option',
+      type: 'reference',
+      to: [{ type: 'btnDesignMui' }],
       fieldset: 'presentation',
     },
   ],

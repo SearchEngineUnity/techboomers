@@ -16,6 +16,12 @@ export default {
       initialValue: false,
     },
     {
+      name: 'disableRipple',
+      title: 'Disable ripple',
+      type: 'boolean',
+      initialValue: false,
+    },
+    {
       name: 'fullWidth',
       title: 'Make button full width',
       type: 'boolean',

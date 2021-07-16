@@ -12,7 +12,12 @@ export default {
   ],
   preview: {
     select: {
-      title: 'hashId',
+      id: 'hashId',
+    },
+    prepare({ id }) {
+      return {
+        title: `/#${id}`,
+      };
     },
   },
 };

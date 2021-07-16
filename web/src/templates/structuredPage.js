@@ -5,6 +5,7 @@ import SEO from '../components/Seo';
 import LrHero from '../components/LrFlexHero';
 import LrFlex from '../components/StructuredLrFlex';
 import StackFlex from '../components/StackFlex';
+
 import {
   mapLrHeroToProps,
   mapSeoToProps,
@@ -24,6 +25,83 @@ export const query = graphql`
           _key
           _type
           blocks {
+            ... on SanityBtnBlockMui {
+              _key
+              _type
+              idTag
+              btnAlignment
+              link {
+                ... on SanityJumpLink {
+                  _key
+                  _type
+                  hashId
+                }
+                ... on SanityInternalLink {
+                  _key
+                  _type
+                  reference {
+                    ... on SanityPage {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                    ... on SanitySpGuide {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                  }
+                }
+                ... on SanityExternalLink {
+                  _key
+                  _type
+                  href
+                }
+              }
+              text
+              design {
+                settings {
+                  disableElevation
+                  disableFocusRipple
+                  disableRipple
+                  fullWidth
+                  size
+                  variant
+                }
+                colors {
+                  contrastText {
+                    color {
+                      hex
+                      alpha
+                    }
+                    tone
+                  }
+                  dark {
+                    tone
+                    color {
+                      alpha
+                      hex
+                    }
+                  }
+                  light {
+                    color {
+                      alpha
+                      hex
+                    }
+                    tone
+                  }
+                  main {
+                    tone
+                    color {
+                      alpha
+                      hex
+                    }
+                  }
+                }
+              }
+            }
             ... on SanityImageBlock {
               _key
               _type
@@ -136,6 +214,81 @@ export const query = graphql`
               url
               ratio
             }
+            ... on SanityBtnBlockMui {
+              _key
+              _type
+              btnAlignment
+              link {
+                ... on SanityJumpLink {
+                  _key
+                  _type
+                  hashId
+                }
+                ... on SanityInternalLink {
+                  _key
+                  _type
+                  reference {
+                    ... on SanityPage {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                    ... on SanitySpGuide {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                  }
+                }
+                ... on SanityExternalLink {
+                  _key
+                  _type
+                  href
+                }
+              }
+              text
+              design {
+                settings {
+                  disableElevation
+                  disableFocusRipple
+                  fullWidth
+                  size
+                  variant
+                }
+                colors {
+                  contrastText {
+                    color {
+                      hex
+                      alpha
+                    }
+                    tone
+                  }
+                  dark {
+                    tone
+                    color {
+                      alpha
+                      hex
+                    }
+                  }
+                  light {
+                    color {
+                      alpha
+                      hex
+                    }
+                    tone
+                  }
+                  main {
+                    tone
+                    color {
+                      alpha
+                      hex
+                    }
+                  }
+                }
+              }
+            }
           }
           header {
             heading
@@ -196,6 +349,81 @@ export const query = graphql`
             _rawSubtitle(resolveReferences: { maxDepth: 10 })
           }
           blocks {
+            ... on SanityBtnBlockMui {
+              _key
+              _type
+              btnAlignment
+              link {
+                ... on SanityJumpLink {
+                  _key
+                  _type
+                  hashId
+                }
+                ... on SanityInternalLink {
+                  _key
+                  _type
+                  reference {
+                    ... on SanityPage {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                    ... on SanitySpGuide {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                  }
+                }
+                ... on SanityExternalLink {
+                  _key
+                  _type
+                  href
+                }
+              }
+              text
+              design {
+                settings {
+                  disableElevation
+                  disableFocusRipple
+                  fullWidth
+                  size
+                  variant
+                }
+                colors {
+                  contrastText {
+                    color {
+                      hex
+                      alpha
+                    }
+                    tone
+                  }
+                  dark {
+                    tone
+                    color {
+                      alpha
+                      hex
+                    }
+                  }
+                  light {
+                    color {
+                      alpha
+                      hex
+                    }
+                    tone
+                  }
+                  main {
+                    tone
+                    color {
+                      alpha
+                      hex
+                    }
+                  }
+                }
+              }
+            }
             ... on SanityImageBlock {
               _key
               _type

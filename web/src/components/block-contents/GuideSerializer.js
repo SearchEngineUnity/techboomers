@@ -5,7 +5,6 @@ import { Link } from 'gatsby-theme-material-ui';
 import styled from 'styled-components';
 import VideoEmbed from './VideoEmbed';
 import BasicTable from './BasicTable';
-import CtaBtn from './CtaBtn';
 import Illustration from './Illustration';
 import InlineImage from './InlineImage';
 import HighlightBox from './HightlightBox/HighlightBox';
@@ -145,9 +144,6 @@ const serializers = {
             <br />
           );
       }
-    },
-    ctaButton({ node }) {
-      return <CtaBtn btn={node} />;
     },
     illustration({ node }) {
       return <Illustration illustration={node} />;

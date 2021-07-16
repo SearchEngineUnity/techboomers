@@ -4,7 +4,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import ImgBlock from './FluidImgBlock';
 import VideoBlock from './VideoBlock';
 import SectionBlock from './HeroSectionBlock';
-import { mapFluidImgBlockToProps, mapSectionBlockToProps } from '../lib/mapToProps';
+import BtnBlock from './BtnBlockMui';
+import {
+  mapFluidImgBlockToProps,
+  mapSectionBlockToProps,
+  mapMuiBtnToProps,
+} from '../lib/mapToProps';
 import HeroSectionFooter from './HeroSectionFooter';
 import HeroSectionHeader from './HeroSectionHeader';
 import { determinColor } from '../lib/helperFunctions';
@@ -164,8 +169,10 @@ function LrFlexHero({
                       {...mapSectionBlockToProps(block)}
                     />
                   );
+                case 'btnBlockMui':
+                  return <BtnBlock key={_key} {...mapMuiBtnToProps(block)} />;
                 default:
-                  return <div key="default-inner-block"> LR block still under development</div>;
+                  return <div key="default-inner-block"> Block still under development</div>;
               }
             };
             return (

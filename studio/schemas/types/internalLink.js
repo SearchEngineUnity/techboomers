@@ -10,4 +10,14 @@ export default {
       to: [{ type: 'page' }, { type: 'spGuide' }],
     },
   ],
+  preview: {
+    select: {
+      link: 'reference.slug.current',
+    },
+    prepare({ link }) {
+      return {
+        title: `/${link}`,
+      };
+    },
+  },
 };
