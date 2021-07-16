@@ -229,3 +229,19 @@ export function mapListingSectionToProps({
     colorSettings,
   };
 }
+
+export function mapMuiBtnToProps({ idTag, btnAlignment, link, text, design }) {
+  return {
+    idTag,
+    text,
+    variant: design?.settings?.variant || 'contained',
+    size: design?.settings?.size || 'medium',
+    disableElevation: design.settings.disableElevation,
+    disableFocusRipple: design.settings.disableFocusRipple,
+    disableRipple: design.settings.disableRipple,
+    fullWidth: design.settings.fullWidth,
+    link,
+    colors: design.colors,
+    alignment: btnAlignment,
+  };
+}

@@ -14,4 +14,14 @@ export default {
         }),
     },
   ],
+  preview: {
+    select: {
+      link: 'href',
+    },
+    prepare({ link }) {
+      return {
+        title: link,
+      };
+    },
+  },
 };

@@ -1,3 +1,4 @@
+export { default as btnDesignMui } from './btnDesignMui';
 export { default as colorOption } from './colorOption';
 export { default as comapnyLogo } from './comapnyLogo';
 export { default as companyInfo } from './companyInfo';
