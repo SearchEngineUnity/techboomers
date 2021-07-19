@@ -26,6 +26,7 @@ export default {
       name: 'text',
       title: 'Button Text',
       type: 'string',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'link',
@@ -52,6 +53,7 @@ export default {
       type: 'reference',
       to: [{ type: 'btnDesignMui' }],
       fieldset: 'presentation',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],
   preview: {

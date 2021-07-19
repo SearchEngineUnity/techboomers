@@ -234,14 +234,14 @@ export function mapMuiBtnToProps({ idTag, btnAlignment, link, text, design }) {
   return {
     idTag,
     text,
-    variant: design?.settings?.variant || 'contained',
-    size: design?.settings?.size || 'medium',
-    disableElevation: design.settings.disableElevation,
-    disableFocusRipple: design.settings.disableFocusRipple,
-    disableRipple: design.settings.disableRipple,
-    fullWidth: design.settings.fullWidth,
+    variant: design?.settings?.variant,
+    size: design?.settings?.size,
+    disableElevation: design?.settings?.disableElevation,
+    disableFocusRipple: design?.settings?.disableFocusRipple,
+    disableRipple: design?.settings?.disableRipple,
+    fullWidth: design?.settings?.fullWidth,
     link,
-    colors: design.colors,
+    colors: design?.colors,
     alignment: btnAlignment,
   };
 }

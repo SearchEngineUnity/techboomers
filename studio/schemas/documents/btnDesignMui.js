@@ -19,7 +19,7 @@ export default {
     {
       name: 'colors',
       title: 'Color settings',
-      type: 'muiColorSet',
+      type: 'muiBtnColorSet',
     },
   ],
   preview: {

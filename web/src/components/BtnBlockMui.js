@@ -18,16 +18,14 @@ function BtnBlockMui({
   colors,
   alignment,
 }) {
-  const { light, main, dark, contrastText } = colors;
-  const lightColor = determinColor(light.color);
-  const mainColor = determinColor(main.color);
-  const darkColor = determinColor(dark.color);
-  const contrastTextColor = determinColor(contrastText.color);
+  const { main, dark, contrastText } = colors;
+  const mainColor = determinColor(main?.color);
+  const darkColor = determinColor(dark?.color);
+  const contrastTextColor = determinColor(contrastText?.color);
 
   const theme = createMuiTheme({
     palette: {
       primary: {
-        light: lightColor,
         main: mainColor,
         dark: darkColor,
         contrastText: contrastTextColor,
@@ -35,10 +33,12 @@ function BtnBlockMui({
     },
   });
 
-  console.log(alignment);
-
   const internal = link[0]._type === 'internalLink';
   const external = link[0]._type === 'externalLink';
+
+  if (external) {
+    console.log(link);
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -65,11 +65,11 @@ function BtnBlockMui({
             size={size}
             disableElevation={disableElevation}
             disableFocusRipple={disableFocusRipple}
-            disbableRipple={disableRipple}
+            disableRipple={disableRipple}
             fullWidth={fullWidth}
-            tartget={external ? '_blank' : ''}
+            target={external ? '_blank' : ''}
             rel={external ? 'noopener noreferrer' : ''}
-            href={external ? link[0].reference.href : `#${link[0].reference.hashId}`}
+            href={external ? link[0].href : `#${link[0].hashId}`}
           >
             {text}
           </Button>
