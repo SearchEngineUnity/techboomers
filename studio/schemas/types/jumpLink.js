@@ -16,7 +16,7 @@ export default {
     },
     prepare({ id }) {
       return {
-        title: `/#${id}`,
+        title: `#${id}`,
       };
     },
   },

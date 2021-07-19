@@ -33,10 +33,12 @@ function BtnBlockMui({
     },
   });
 
-  console.log(disableRipple);
-
   const internal = link[0]._type === 'internalLink';
   const external = link[0]._type === 'externalLink';
+
+  if (external) {
+    console.log(link);
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -65,9 +67,9 @@ function BtnBlockMui({
             disableFocusRipple={disableFocusRipple}
             disableRipple={disableRipple}
             fullWidth={fullWidth}
-            tartget={external ? '_blank' : ''}
+            target={external ? '_blank' : ''}
             rel={external ? 'noopener noreferrer' : ''}
-            href={external ? link[0].reference.href : `#${link[0].reference.hashId}`}
+            href={external ? link[0].href : `#${link[0].hashId}`}
           >
             {text}
           </Button>

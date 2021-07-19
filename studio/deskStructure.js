@@ -146,9 +146,7 @@ export default () =>
                         ]),
                     ),
                 ),
-              S.listItem()
-                .title('Butten Design Options - MUI')
-                .child(S.document().schemaType('btnDesignMui').documentId('btnDesignMui')),
+              S.documentTypeListItem('btnDesignMui').title('Button Design Options - MUI'),
             ]),
         ),
 
