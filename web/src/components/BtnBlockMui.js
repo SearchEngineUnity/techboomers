@@ -18,8 +18,7 @@ function BtnBlockMui({
   colors,
   alignment,
 }) {
-  const { light, main, dark, contrastText } = colors;
-  const lightColor = determinColor(light?.color);
+  const { main, dark, contrastText } = colors;
   const mainColor = determinColor(main?.color);
   const darkColor = determinColor(dark?.color);
   const contrastTextColor = determinColor(contrastText?.color);
@@ -27,7 +26,6 @@ function BtnBlockMui({
   const theme = createMuiTheme({
     palette: {
       primary: {
-        light: lightColor,
         main: mainColor,
         dark: darkColor,
         contrastText: contrastTextColor,

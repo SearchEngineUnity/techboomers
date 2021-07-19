@@ -85,13 +85,6 @@ export const query = graphql`
                       hex
                     }
                   }
-                  light {
-                    color {
-                      alpha
-                      hex
-                    }
-                    tone
-                  }
                   main {
                     tone
                     color {
@@ -273,13 +266,6 @@ export const query = graphql`
                       hex
                     }
                   }
-                  light {
-                    color {
-                      alpha
-                      hex
-                    }
-                    tone
-                  }
                   main {
                     tone
                     color {
@@ -408,13 +394,6 @@ export const query = graphql`
                       alpha
                       hex
                     }
-                  }
-                  light {
-                    color {
-                      alpha
-                      hex
-                    }
-                    tone
                   }
                   main {
                     tone
