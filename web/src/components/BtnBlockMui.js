@@ -19,10 +19,10 @@ function BtnBlockMui({
   alignment,
 }) {
   const { light, main, dark, contrastText } = colors;
-  const lightColor = determinColor(light.color);
-  const mainColor = determinColor(main.color);
-  const darkColor = determinColor(dark.color);
-  const contrastTextColor = determinColor(contrastText.color);
+  const lightColor = determinColor(light?.color);
+  const mainColor = determinColor(main?.color);
+  const darkColor = determinColor(dark?.color);
+  const contrastTextColor = determinColor(contrastText?.color);
 
   const theme = createMuiTheme({
     palette: {
@@ -35,7 +35,7 @@ function BtnBlockMui({
     },
   });
 
-  console.log(alignment);
+  console.log(disableRipple);
 
   const internal = link[0]._type === 'internalLink';
   const external = link[0]._type === 'externalLink';
@@ -65,7 +65,7 @@ function BtnBlockMui({
             size={size}
             disableElevation={disableElevation}
             disableFocusRipple={disableFocusRipple}
-            disbableRipple={disableRipple}
+            disableRipple={disableRipple}
             fullWidth={fullWidth}
             tartget={external ? '_blank' : ''}
             rel={external ? 'noopener noreferrer' : ''}

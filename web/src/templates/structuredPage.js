@@ -253,6 +253,7 @@ export const query = graphql`
                 settings {
                   disableElevation
                   disableFocusRipple
+                  disableRipple
                   fullWidth
                   size
                   variant
@@ -388,6 +389,7 @@ export const query = graphql`
                 settings {
                   disableElevation
                   disableFocusRipple
+                  disableRipple
                   fullWidth
                   size
                   variant
