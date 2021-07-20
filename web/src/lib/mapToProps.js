@@ -235,13 +235,15 @@ export function mapMuiBtnToProps({ idTag, btnAlignment, link, text, design }) {
     idTag,
     text,
     variant: design?.settings?.variant,
-    size: design?.settings?.size,
     disableElevation: design?.settings?.disableElevation,
     disableFocusRipple: design?.settings?.disableFocusRipple,
     disableRipple: design?.settings?.disableRipple,
     fullWidth: design?.settings?.fullWidth,
+    borderRadius: design?.settings?.borderRadius,
+    padding: design?.settings?.padding,
     link,
     colors: design?.colors,
     alignment: btnAlignment,
+    typography: design?.typography,
   };
 }

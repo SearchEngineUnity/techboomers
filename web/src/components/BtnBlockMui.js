@@ -1,27 +1,36 @@
 import React from 'react';
 import { Button as InternalBtn } from 'gatsby-theme-material-ui';
 import { Button, Box } from '@material-ui/core';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-
+import { createMuiTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
 import { determinColor } from '../lib/helperFunctions';
+
+const useStyles = makeStyles((theme) => ({
+  size: {
+    padding: (props) => props.padding,
+  },
+}));
 
 function BtnBlockMui({
   idTag,
   text,
   variant,
-  size,
   disableElevation,
   disableFocusRipple,
   disableRipple,
   fullWidth,
+  borderRadius,
+  padding,
   link,
   colors,
   alignment,
+  typography,
 }) {
   const { main, dark, contrastText } = colors;
   const mainColor = determinColor(main?.color);
   const darkColor = determinColor(dark?.color);
   const contrastTextColor = determinColor(contrastText?.color);
+
+  console.log(padding);
 
   const theme = createMuiTheme({
     palette: {
@@ -31,7 +40,22 @@ function BtnBlockMui({
         contrastText: contrastTextColor,
       },
     },
+    shape: {
+      borderRadius: borderRadius || '4px',
+    },
+    typography: {
+      button: {
+        fontFamily: typography?.fontFamily || 'Roboto, Helvetica, Arial, sans-serif',
+        fontWeight: typography?.fontWeight || 500,
+        fontSize: typography?.fontSize || '0.875rem',
+        lineHeight: typography?.lineHeight || 1.75,
+        letterSpacing: typography?.letterSpacing || '0.02857em',
+        textTransform: 'none',
+      },
+    },
   });
+
+  const classes = useStyles({ padding });
 
   const internal = link[0]._type === 'internalLink';
   const external = link[0]._type === 'externalLink';
@@ -48,12 +72,12 @@ function BtnBlockMui({
             id={idTag}
             color="primary"
             variant={variant}
-            size={size}
             disableElevation={disableElevation}
             disableFocusRipple={disableFocusRipple}
             disableRipple={disableRipple}
             fullWidth={fullWidth}
             to={`/${link[0].reference.slug.current}`}
+            className={classes.size}
           >
             {text}
           </InternalBtn>
@@ -62,11 +86,11 @@ function BtnBlockMui({
             id={idTag}
             color="primary"
             variant={variant}
-            size={size}
             disableElevation={disableElevation}
             disableFocusRipple={disableFocusRipple}
             disableRipple={disableRipple}
             fullWidth={fullWidth}
+            className={classes.size}
             target={external ? '_blank' : ''}
             rel={external ? 'noopener noreferrer' : ''}
             href={external ? link[0].href : `#${link[0].hashId}`}

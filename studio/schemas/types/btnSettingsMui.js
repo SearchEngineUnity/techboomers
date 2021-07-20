@@ -4,6 +4,34 @@ export default {
   type: 'object',
   fields: [
     {
+      name: 'variant',
+      title: `Choose between 'Filled', 'Outlined', or 'Text only'.`,
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Filled', value: 'contained' },
+          { title: 'Outlined', value: 'outlined' },
+          { title: 'Text only', value: 'text' },
+        ],
+        layout: 'radio',
+        direction: 'horizontal',
+      },
+      initialValue: 'contained',
+    },
+    {
+      name: 'padding',
+      title: 'Button padding',
+      type: 'string',
+      description: `Accept string as per padding CSS variable. See https://developer.mozilla.org/en-US/docs/Web/CSS/padding.`,
+    },
+    {
+      name: 'borderRadius',
+      title: 'Button border radius',
+      type: 'string',
+      description: `Accept string as per border-radius CSS variable. See https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius.`,
+      initialValue: '4px',
+    },
+    {
       name: 'disableElevation',
       title: 'Disable elevation',
       type: 'boolean',
@@ -26,32 +54,6 @@ export default {
       title: 'Make button full width',
       type: 'boolean',
       initialValue: false,
-    },
-    {
-      name: 'size',
-      title: 'Button Size',
-      type: 'string',
-      options: {
-        list: ['small', 'medium', 'large'],
-        layout: 'radio',
-        direction: 'horizontal',
-      },
-      initialValue: 'medium',
-    },
-    {
-      name: 'variant',
-      title: `Choose between 'Filled', 'Outlined', or 'Text only'.`,
-      type: 'string',
-      options: {
-        list: [
-          { title: 'Filled', value: 'contained' },
-          { title: 'Outlined', value: 'outlined' },
-          { title: 'Text only', value: 'text' },
-        ],
-        layout: 'radio',
-        direction: 'horizontal',
-      },
-      initialValue: 'contained',
     },
   ],
 };

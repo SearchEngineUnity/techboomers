@@ -140,12 +140,12 @@ export default {
       type: 'muiTypeStyleSet',
       fieldset: 'variants',
     },
-    {
-      name: 'button',
-      title: 'Button',
-      type: 'muiTypeStyleSetBtn',
-      fieldset: 'variants',
-    },
+    // {
+    //   name: 'button',
+    //   title: 'Button',
+    //   type: 'muiTypeStyleSetBtn',
+    //   fieldset: 'variants',
+    // },
   ],
   preview: {
     select: {},
