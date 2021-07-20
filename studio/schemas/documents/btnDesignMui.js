@@ -8,7 +8,7 @@ export default {
   fields: [
     {
       name: 'name',
-      title: 'Button Design Name',
+      title: 'Design Name',
       type: 'string',
     },
     {
@@ -18,8 +18,13 @@ export default {
     },
     {
       name: 'colors',
-      title: 'Color settings',
+      title: 'Color Settings',
       type: 'muiBtnColorSet',
+    },
+    {
+      name: 'typography',
+      title: 'Typography Settings',
+      type: 'muiTypeStyleSetBtn',
     },
   ],
   preview: {

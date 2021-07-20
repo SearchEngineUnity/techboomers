@@ -62,13 +62,21 @@ export const query = graphql`
               }
               text
               design {
+                typography {
+                  fontFamily
+                  fontWeight
+                  fontSize
+                  lineHeight
+                  letterSpacing
+                }
                 settings {
                   disableElevation
                   disableFocusRipple
                   disableRipple
                   fullWidth
-                  size
                   variant
+                  padding
+                  borderRadius
                 }
                 colors {
                   contrastText {
@@ -243,13 +251,21 @@ export const query = graphql`
               }
               text
               design {
+                typography {
+                  fontFamily
+                  fontWeight
+                  fontSize
+                  lineHeight
+                  letterSpacing
+                }
                 settings {
                   disableElevation
                   disableFocusRipple
                   disableRipple
                   fullWidth
-                  size
                   variant
+                  padding
+                  borderRadius
                 }
                 colors {
                   contrastText {
@@ -372,13 +388,21 @@ export const query = graphql`
               }
               text
               design {
+                typography {
+                  fontFamily
+                  fontWeight
+                  fontSize
+                  lineHeight
+                  letterSpacing
+                }
                 settings {
                   disableElevation
                   disableFocusRipple
                   disableRipple
                   fullWidth
-                  size
                   variant
+                  padding
+                  borderRadius
                 }
                 colors {
                   contrastText {

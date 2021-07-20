@@ -177,14 +177,14 @@ const ThemeProvider = ({ children, data }) => {
         lineHeight: typography?.overline?.lineHeight || 2.66,
         textTransform: 'none',
       },
-      button: {
-        fontFamily: typography?.button?.fontFamily || 'Roboto, Helvetica, Arial, sans-serif',
-        fontWeight: typography?.button?.fontWeight || 500,
-        fontSize: typography?.button?.fontSize || '0.875rem',
-        lineHeight: typography?.button?.lineHeight || 1.75,
-        letterSpacing: typography?.button?.letterSpacing || '0.02857em',
-        textTransform: 'none',
-      },
+      // button: {
+      //   fontFamily: typography?.button?.fontFamily || 'Roboto, Helvetica, Arial, sans-serif',
+      //   fontWeight: typography?.button?.fontWeight || 500,
+      //   fontSize: typography?.button?.fontSize || '0.875rem',
+      //   lineHeight: typography?.button?.lineHeight || 1.75,
+      //   letterSpacing: typography?.button?.letterSpacing || '0.02857em',
+      //   textTransform: 'none',
+      // },
     },
   });
 
@@ -469,13 +469,6 @@ export default function TopLayout({ children }) {
               fontSize
               fontWeight
               lineHeight
-            }
-            button {
-              fontFamily
-              fontSize
-              fontWeight
-              lineHeight
-              letterSpacing
             }
           }
         }
