@@ -1,18 +1,18 @@
 import React from 'react';
 import { Container, Grid, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import ImgBlock from './FluidImgBlock';
-import VideoBlock from './VideoBlock';
-import SectionBlock from './SectionBlock';
-import BtnBlock from './BtnBlockMui';
+import ImgBlock from '../FluidImgBlock';
+import VideoBlock from '../VideoBlock';
+import SectionBlock from '../SectionBlock';
+import BtnBlock from '../BtnBlockMui';
 import {
   mapFluidImgBlockToProps,
   mapSectionBlockToProps,
   mapMuiBtnToProps,
-} from '../lib/mapToProps';
-import StructuredSectionFooter from './StructuredSectionFooter';
-import StructuredSectionHeader from './StructuredSectionHeader';
-import { determinColor } from '../lib/helperFunctions';
+} from '../../lib/mapToProps';
+import StructuredSectionFooter from '../StructuredSectionFooter';
+import StructuredSectionHeader from '../StructuredSectionHeader';
+import { determinColor } from '../../lib/helperFunctions';
 
 const useStyles = makeStyles((theme) => ({
   blockOneReverse: {

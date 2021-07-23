@@ -14,6 +14,14 @@ export default {
         collapsed: true,
       },
     },
+    {
+      name: 'tileSet',
+      title: 'Tile Set',
+      options: {
+        collapsible: true,
+        collapsed: false,
+      },
+    },
   ],
   fields: [
     {
@@ -29,15 +37,30 @@ export default {
       title: 'Header',
     },
     {
-      name: 'tiles',
-      title: 'Tile Set',
-      type: 'array',
-      of: [{ type: 'tileMui' }],
-    },
-    {
       name: 'footer',
       title: 'Footer',
       type: 'subtitleFooterBlockContent',
+    },
+    {
+      name: 'tiles',
+      title: 'Tile Set',
+      type: 'array',
+      fieldset: 'tileSet',
+      of: [{ type: 'tileBasic' }],
+    },
+    {
+      name: 'tileOption',
+      title: 'Tile output option',
+      type: 'string',
+      fieldset: 'tileSet',
+      options: {
+        list: [
+          { title: 'Image only tile 1', value: '1' },
+          { title: 'Image and text tile 1', value: '2' },
+          { title: 'Image and text tile 2', value: '3' },
+        ],
+      },
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'layout',

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container, Typography, Grid, Box } from '@material-ui/core';
-import ImgBlock from './FluidImgBlock';
-import Subtitle from './block-contents/HeroSubtitleSerializer';
-import ProgressBar from './ScrollProgressBar';
-import { mapFluidImgBlockToProps } from '../lib/mapToProps';
+import ImgBlock from '../FluidImgBlock';
+import Subtitle from '../block-contents/HeroSubtitleSerializer';
+import ProgressBar from '../ScrollProgressBar';
+import { mapFluidImgBlockToProps } from '../../lib/mapToProps';
 
 function GuideHero({ h1, subtitle, date, image }) {
   const lastUpdatedDate = date ? new Date(date.replace(/-/g, '/')) : null;

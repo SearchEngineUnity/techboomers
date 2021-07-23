@@ -1,18 +1,18 @@
 import React from 'react';
 import { Container, Grid, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import ImgBlock from './FluidImgBlock';
-import VideoBlock from './VideoBlock';
-import SectionBlock from './SectionBlock';
-import BtnBlock from './BtnBlockMui';
+import ImgBlock from '../FluidImgBlock';
+import VideoBlock from '../VideoBlock';
+import SectionBlock from '../HeroSectionBlock';
+import BtnBlock from '../BtnBlockMui';
 import {
   mapFluidImgBlockToProps,
   mapSectionBlockToProps,
   mapMuiBtnToProps,
-} from '../lib/mapToProps';
-import StructuredSectionFooter from './StructuredSectionFooter';
-import StructuredSectionHeader from './StructuredSectionHeader';
-import { determinColor } from '../lib/helperFunctions';
+} from '../../lib/mapToProps';
+import HeroSectionFooter from '../HeroSectionFooter';
+import HeroSectionHeader from '../HeroSectionHeader';
+import { determinColor } from '../../lib/helperFunctions';
 
 const useStyles = makeStyles((theme) => ({
   blockOneReverse: {
@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function StructuredLrFlex({
+function LrFlexHero({
   idTag,
   heading,
   subtitle,
@@ -113,8 +113,8 @@ function StructuredLrFlex({
     }
   };
 
-  const backgroundColor = determinColor(colorSettings?.background?.color) || 'transparent';
-  const foregroundColor = determinColor(colorSettings?.foreground?.color) || 'text.primary';
+  const backgroundColor = determinColor(colorSettings?.background?.color) || 'primary.main';
+  const foregroundColor = determinColor(colorSettings?.foreground?.color) || 'primary.contrastText';
   const linkColor = determinColor(colorSettings?.link?.color) || 'initial';
   const headingColor = determinColor(colorSettings?.heading?.color) || 'inherit';
   const subtitleColor = determinColor(colorSettings?.subtitle?.color) || 'inherit';
@@ -132,7 +132,7 @@ function StructuredLrFlex({
       className={classes.section}
     >
       <Container maxWidth="lg">
-        <StructuredSectionHeader
+        <HeroSectionHeader
           heading={heading}
           subtitle={subtitle}
           headingColor={headingColor}
@@ -154,8 +154,10 @@ function StructuredLrFlex({
                 case 'videoBlock':
                   return <VideoBlock key={_key} url={block.url} ratio={block.ratio} />;
                 case 'imageBlock':
-                  return <ImgBlock {...mapFluidImgBlockToProps(block)} key={_key} />;
-                case 'sectionBlock':
+                  return (
+                    <ImgBlock {...mapFluidImgBlockToProps(block)} key={_key} loading="eager" />
+                  );
+                case 'heroBlock':
                   return (
                     <SectionBlock
                       hasSectionHeading={!!heading}
@@ -169,9 +171,8 @@ function StructuredLrFlex({
                   );
                 case 'btnBlockMui':
                   return <BtnBlock key={_key} {...mapMuiBtnToProps(block)} />;
-
                 default:
-                  return <div key="default-inner-block"> LR block still under development</div>;
+                  return <div key="default-inner-block"> Block still under development</div>;
               }
             };
             return (
@@ -188,14 +189,10 @@ function StructuredLrFlex({
             );
           })}
         </Grid>
-        <StructuredSectionFooter
-          footer={footer}
-          footerColor={footerColor}
-          align={footerAlignment}
-        />
+        <HeroSectionFooter footer={footer} footerColor={footerColor} align={footerAlignment} />
       </Container>
     </Box>
   );
 }
 
-export default StructuredLrFlex;
+export default LrFlexHero;

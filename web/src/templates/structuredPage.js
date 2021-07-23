@@ -2,15 +2,17 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../containers/layout';
 import SEO from '../components/Seo';
-import LrHero from '../components/LrFlexHero';
-import LrFlex from '../components/StructuredLrFlex';
-import StackFlex from '../components/StackFlex';
+import LrHero from '../components/sections/LrFlexHero';
+import LrFlex from '../components/sections/StructuredLrFlex';
+import StackFlex from '../components/sections/StackFlex';
+import GridFlex from '../components/sections/GridFlex';
 
 import {
   mapLrHeroToProps,
   mapSeoToProps,
   mapLrFlexToProps,
   mapStackFlexToProps,
+  mapGridFlexToProps,
 } from '../lib/mapToProps';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -496,6 +498,100 @@ export const query = graphql`
             }
           }
         }
+        ... on SanityGridFlex {
+          _key
+          _type
+          _rawFooter(resolveReferences: { maxDepth: 10 })
+          footerAlignment
+          headerAlignment
+          idTag
+          layout
+          tileOption
+          colorSettings {
+            background {
+              color {
+                alpha
+                hex
+              }
+            }
+            footer {
+              color {
+                alpha
+                hex
+              }
+            }
+            foreground {
+              color {
+                alpha
+                hex
+              }
+            }
+            link {
+              color {
+                alpha
+                hex
+              }
+            }
+            heading {
+              color {
+                alpha
+                hex
+              }
+            }
+            subtitle {
+              color {
+                alpha
+                hex
+              }
+            }
+          }
+          header {
+            heading
+            _rawSubtitle(resolveReferences: { maxDepth: 10 })
+          }
+          tiles {
+            _key
+            link {
+              ... on SanityExternalLink {
+                _key
+                _type
+                href
+              }
+              ... on SanityInternalLink {
+                _key
+                _type
+                reference {
+                  ... on SanityPage {
+                    id
+                    slug {
+                      current
+                    }
+                  }
+                  ... on SanitySpGuide {
+                    id
+                    slug {
+                      current
+                    }
+                  }
+                }
+              }
+              ... on SanityJumpLink {
+                _key
+                _type
+                hashId
+              }
+            }
+            subtitle
+            text
+            title
+            tileImage {
+              alt
+              _rawAsset(resolveReferences: { maxDepth: 10 })
+              caption
+              height
+            }
+          }
+        }
       }
       slug {
         current
@@ -544,6 +640,9 @@ const StructuredPage = ({ data, location }) => {
 
             case 'stackFlex':
               return <StackFlex key={section._key} {...mapStackFlexToProps(section)} />;
+
+            case 'gridFlex':
+              return <GridFlex key={section._key} {...mapGridFlexToProps(section)} />;
 
             default:
               return <div>Still under development</div>;

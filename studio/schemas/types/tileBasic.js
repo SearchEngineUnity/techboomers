@@ -1,6 +1,6 @@
 export default {
-  name: 'tileMui',
-  title: 'Tile - Mui',
+  name: 'tileBasic',
+  title: 'Tile - Basic',
   type: 'object',
   fieldsets: [
     {
@@ -35,7 +35,7 @@ export default {
     },
     {
       name: 'link',
-      title: 'Link',
+      title: 'Tile link',
       type: 'array',
       of: [{ type: 'internalLink' }, { type: 'externalLink' }, { type: 'jumpLink' }],
       validation: (Rule) => Rule.length(1).error('Must contain one item'),

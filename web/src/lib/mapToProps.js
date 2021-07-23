@@ -247,3 +247,37 @@ export function mapMuiBtnToProps({ idTag, btnAlignment, link, text, design }) {
     typography: design?.typography,
   };
 }
+
+export function mapGridFlexToProps({
+  idTag,
+  _rawFooter,
+  headerAlignment,
+  footerAlignment,
+  layout,
+  colorSettings,
+  header,
+  tiles,
+  tileOption,
+}) {
+  return {
+    idTag,
+    heading: header?.heading,
+    subtitle: header?._rawSubtitle,
+    footer: _rawFooter,
+    layout,
+    headerAlignment,
+    footerAlignment,
+    colorSettings,
+    tiles,
+    tileOption,
+  };
+}
+
+export function mapFluidImgToProps({ _rawAsset, alt, caption, height }) {
+  return {
+    image: _rawAsset,
+    alt,
+    caption,
+    maxHeight: height,
+  };
+}

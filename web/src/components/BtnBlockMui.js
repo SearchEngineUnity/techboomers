@@ -30,8 +30,6 @@ function BtnBlockMui({
   const darkColor = determinColor(dark?.color);
   const contrastTextColor = determinColor(contrastText?.color);
 
-  console.log(padding);
-
   const theme = createMuiTheme({
     palette: {
       primary: {
@@ -59,10 +57,6 @@ function BtnBlockMui({
 
   const internal = link[0]._type === 'internalLink';
   const external = link[0]._type === 'externalLink';
-
-  if (external) {
-    console.log(link);
-  }
 
   return (
     <ThemeProvider theme={theme}>

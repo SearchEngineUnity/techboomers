@@ -4,10 +4,10 @@ import Pagination from '@material-ui/lab/Pagination';
 import PaginationItem from '@material-ui/lab/PaginationItem';
 import { Link } from 'gatsby';
 import { makeStyles } from '@material-ui/core/styles';
-import StructuredSectionFooter from './StructuredSectionFooter';
-import StructuredSectionHeader from './StructuredSectionHeader';
-import { determinColor } from '../lib/helperFunctions';
-import TileImageTitle1 from './TileImageTitle1';
+import StructuredSectionFooter from '../StructuredSectionFooter';
+import StructuredSectionHeader from '../StructuredSectionHeader';
+import { determinColor } from '../../lib/helperFunctions';
+import TileImageTitle1 from '../tiles/TileSpg';
 
 const useStyles = makeStyles((theme) => ({
   mobileGrid: {
