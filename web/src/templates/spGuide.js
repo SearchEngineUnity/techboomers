@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { Container, Grid, Box, Hidden } from '@material-ui/core';
 import Layout from '../containers/layout';
-import GuideHero from '../components/GuideHero';
+import GuideHero from '../components/sections/GuideHero';
 import GuideBody from '../components/block-contents/GuideSerializer';
 import ToC from '../components/TableOfContent';
 // import SocialSharing from '../components/SocialSharing';

@@ -2,10 +2,10 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../containers/layout';
 import SEO from '../components/Seo';
-import LrHero from '../components/LrFlexHero';
-import LrFlex from '../components/StructuredLrFlex';
-import StackFlex from '../components/StackFlex';
-import ListingSection from '../components/ListingSection';
+import LrHero from '../components/sections/LrFlexHero';
+import LrFlex from '../components/sections/StructuredLrFlex';
+import StackFlex from '../components/sections/StackFlex';
+import ListingSection from '../components/sections/ListingSection';
 import { useSpGuides } from '../hooks/useSpGuides';
 import {
   mapLrHeroToProps,
@@ -385,7 +385,6 @@ const StructuredPage = ({ data, location, pageContext }) => {
               return <StackFlex key={section._key} {...mapStackFlexToProps(section)} />;
 
             case 'listingSection':
-              console.log(section);
               return (
                 <ListingSection
                   key={section._key}

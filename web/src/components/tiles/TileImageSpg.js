@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, Typography } from '@material-ui/core';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import sanityConfig from '../../sanityConfig';
+import sanityConfig from '../../../sanityConfig';
 
 function TileImage({ image, alt }) {
   const ratio = 16 / 9;
