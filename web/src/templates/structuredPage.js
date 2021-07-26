@@ -41,6 +41,7 @@ export const query = graphql`
                 ... on SanityInternalLink {
                   _key
                   _type
+                  newTab
                   reference {
                     ... on SanityPage {
                       id
@@ -60,6 +61,7 @@ export const query = graphql`
                   _key
                   _type
                   href
+                  newTab
                 }
               }
               text
@@ -230,6 +232,7 @@ export const query = graphql`
                 ... on SanityInternalLink {
                   _key
                   _type
+                  newTab
                   reference {
                     ... on SanityPage {
                       id
@@ -249,6 +252,7 @@ export const query = graphql`
                   _key
                   _type
                   href
+                  newTab
                 }
               }
               text
@@ -367,6 +371,7 @@ export const query = graphql`
                 ... on SanityInternalLink {
                   _key
                   _type
+                  newTab
                   reference {
                     ... on SanityPage {
                       id
@@ -386,6 +391,7 @@ export const query = graphql`
                   _key
                   _type
                   href
+                  newTab
                 }
               }
               text
