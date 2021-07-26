@@ -25,6 +25,7 @@ function BtnBlockMui({
   alignment,
   typography,
 }) {
+  console.log(link);
   const { main, dark, contrastText } = colors;
   const mainColor = determinColor(main?.color);
   const darkColor = determinColor(dark?.color);
@@ -57,11 +58,13 @@ function BtnBlockMui({
 
   const internal = link[0]._type === 'internalLink';
   const external = link[0]._type === 'externalLink';
+  const { newTab } = link[0];
+  console.log(newTab);
 
   return (
     <ThemeProvider theme={theme}>
       <Box textAlign={alignment}>
-        {internal ? (
+        {internal && !newTab ? (
           <InternalBtn
             id={idTag}
             color="primary"
@@ -70,8 +73,8 @@ function BtnBlockMui({
             disableFocusRipple={disableFocusRipple}
             disableRipple={disableRipple}
             fullWidth={fullWidth}
-            to={`/${link[0].reference.slug.current}`}
             className={classes.size}
+            to={`/${link[0].reference.slug.current}`}
           >
             {text}
           </InternalBtn>
@@ -85,9 +88,16 @@ function BtnBlockMui({
             disableRipple={disableRipple}
             fullWidth={fullWidth}
             className={classes.size}
-            target={external ? '_blank' : ''}
+            target={newTab ? '_blank' : ''}
             rel={external ? 'noopener noreferrer' : ''}
-            href={external ? link[0].href : `#${link[0].hashId}`}
+            href={
+              // eslint-disable-next-line no-nested-ternary
+              internal
+                ? `/${link[0].reference.slug.current}`
+                : external
+                ? link[0].href
+                : `#${link[0].hashId}`
+            }
           >
             {text}
           </Button>
