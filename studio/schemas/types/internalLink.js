@@ -9,6 +9,12 @@ export default {
       title: 'Reference',
       to: [{ type: 'page' }, { type: 'spGuide' }],
     },
+    {
+      title: 'Open in new tab?',
+      name: 'newTab',
+      type: 'boolean',
+      initialValue: false,
+    },
   ],
   preview: {
     select: {

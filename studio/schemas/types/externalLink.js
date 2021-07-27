@@ -13,6 +13,12 @@ export default {
           scheme: ['https', 'http', 'mailto', 'tel'],
         }),
     },
+    {
+      title: 'Open in new tab?',
+      name: 'newTab',
+      type: 'boolean',
+      initialValue: true,
+    },
   ],
   preview: {
     select: {
