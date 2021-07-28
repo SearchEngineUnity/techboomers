@@ -42,6 +42,7 @@ export const query = graphql`
                   _key
                   _type
                   newTab
+                  internalHash
                   reference {
                     ... on SanityPage {
                       id
@@ -62,6 +63,7 @@ export const query = graphql`
                   _type
                   href
                   newTab
+                  noreferrer
                 }
               }
               text
@@ -233,6 +235,7 @@ export const query = graphql`
                   _key
                   _type
                   newTab
+                  internalHash
                   reference {
                     ... on SanityPage {
                       id
@@ -253,6 +256,7 @@ export const query = graphql`
                   _type
                   href
                   newTab
+                  noreferrer
                 }
               }
               text
@@ -372,6 +376,7 @@ export const query = graphql`
                   _key
                   _type
                   newTab
+                  internalHash
                   reference {
                     ... on SanityPage {
                       id
@@ -392,6 +397,7 @@ export const query = graphql`
                   _type
                   href
                   newTab
+                  noreferrer
                 }
               }
               text
@@ -562,10 +568,14 @@ export const query = graphql`
                 _key
                 _type
                 href
+                noreferrer
+                newTab
               }
               ... on SanityInternalLink {
                 _key
                 _type
+                newTab
+                internalHash
                 reference {
                   ... on SanityPage {
                     id
