@@ -19,6 +19,12 @@ export default {
       type: 'boolean',
       initialValue: true,
     },
+    {
+      title: 'rel=noreferrer?',
+      name: 'noreferrer',
+      type: 'boolean',
+      initialValue: true,
+    },
   ],
   preview: {
     select: {

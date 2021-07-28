@@ -58,8 +58,8 @@ function BtnBlockMui({
 
   const internal = link[0]._type === 'internalLink';
   const external = link[0]._type === 'externalLink';
-  const { newTab } = link[0];
-  console.log(newTab);
+  const { newTab, noreferrer, internalHash } = link[0];
+  console.log(internalHash);
 
   return (
     <ThemeProvider theme={theme}>
@@ -74,7 +74,7 @@ function BtnBlockMui({
             disableRipple={disableRipple}
             fullWidth={fullWidth}
             className={classes.size}
-            to={`/${link[0].reference.slug.current}`}
+            to={`/${link[0].reference.slug.current}${internalHash ? `#${internalHash}` : ''}`}
           >
             {text}
           </InternalBtn>
@@ -89,11 +89,11 @@ function BtnBlockMui({
             fullWidth={fullWidth}
             className={classes.size}
             target={newTab ? '_blank' : ''}
-            rel={external ? 'noopener noreferrer' : ''}
+            rel={`${newTab ? 'noopener' : ''} ${noreferrer ? 'noreferrer' : ''}`}
             href={
               // eslint-disable-next-line no-nested-ternary
               internal
-                ? `/${link[0].reference.slug.current}`
+                ? `/${link[0].reference.slug.current}${internalHash ? `#${internalHash}` : ''}`
                 : external
                 ? link[0].href
                 : `#${link[0].hashId}`

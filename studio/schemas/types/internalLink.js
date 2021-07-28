@@ -7,7 +7,13 @@ export default {
       name: 'reference',
       type: 'reference',
       title: 'Reference',
-      to: [{ type: 'page' }, { type: 'spGuide' }],
+      to: [{ type: 'page' }, { type: 'spGuide' }, { type: 'listingPage' }],
+    },
+    {
+      name: 'internalHash',
+      title: 'Hash Id',
+      type: 'string',
+      description: 'Please enter the ID of the segment you would like to jump to',
     },
     {
       title: 'Open in new tab?',
@@ -19,10 +25,11 @@ export default {
   preview: {
     select: {
       link: 'reference.slug.current',
+      id: 'internalHash',
     },
-    prepare({ link }) {
+    prepare({ link, id }) {
       return {
-        title: `/${link}`,
+        title: id ? `/${link}#${id}` : `/${link}`,
       };
     },
   },
