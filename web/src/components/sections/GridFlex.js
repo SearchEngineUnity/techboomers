@@ -40,39 +40,47 @@ function GridFlex({
   tileOption,
 }) {
   // number of tiles desktop/table/moble: '6/4/2' -> {lg: 2, md: 3, xs: 6}
-  const colCalculator = (value) => {
-    switch (value) {
-      case '6/4/2':
-        return {
-          xs: 6,
-          md: 3,
-          lg: 2,
-        };
-      case '4/2/1':
-        return {
-          xs: 12,
-          md: 6,
-          lg: 3,
-        };
-      case '3/2/1':
-        return {
-          xs: 12,
-          md: 6,
-          lg: 4,
-        };
-      case '2/2/1':
-        return {
-          xs: 12,
-          md: 6,
-          lg: 6,
-        };
-      default:
-        console.log('calculator missing');
-        return null;
-    }
+  const calCalculate = (value) => {
+    const valueArrStr = value.split('/');
+    const valueArrNum = valueArrStr.map((el) => parseInt(el, 10));
+    const colObj = { lg: 12 / valueArrNum[0], md: 12 / valueArrNum[1], xs: 12 / valueArrNum[2] };
+    console.log(colObj);
+    return colObj;
   };
 
-  const col = colCalculator(layout);
+  // const colCalculator = (value) => {
+  //   switch (value) {
+  //     case '6/4/2':
+  //       return {
+  //         xs: 6,
+  //         md: 3,
+  //         lg: 2,
+  //       };
+  //     case '4/2/1':
+  //       return {
+  //         xs: 12,
+  //         md: 6,
+  //         lg: 3,
+  //       };
+  //     case '3/2/1':
+  //       return {
+  //         xs: 12,
+  //         md: 6,
+  //         lg: 4,
+  //       };
+  //     case '2/2/1':
+  //       return {
+  //         xs: 12,
+  //         md: 6,
+  //         lg: 6,
+  //       };
+  //     default:
+  //       console.log('calculator missing');
+  //       return null;
+  //   }
+  // };
+
+  const col = calCalculate(layout);
 
   const backgroundColor = determinColor(colorSettings?.background?.color) || 'transparent';
   const foregroundColor = determinColor(colorSettings?.foreground?.color) || 'text.primary';
