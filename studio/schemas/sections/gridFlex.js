@@ -68,16 +68,9 @@ export default {
       title: 'Layout',
       fieldset: 'presentation',
       description:
-        'Choose the number of tiles in a row. The three values are tile numbers for desktop/table/mobile.',
-      options: {
-        list: [
-          { title: '6/4/2', value: '6/4/2' },
-          { title: '4/2/1', value: '4/2/1' },
-          { title: '3/2/1', value: '3/2/1' },
-          { title: '2/2/1', value: '2/2/1' },
-        ],
-      },
+        'Enter the number of tiles in a row. The three values are tile numbers for desktop/table/mobile.',
       initialValue: '3/2/1',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'headerAlignment',
