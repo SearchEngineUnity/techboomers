@@ -1,6 +1,6 @@
 export default {
-  title: 'External Link',
-  name: 'externalLink',
+  title: 'Internal Global Link',
+  name: 'internalGlobal',
   type: 'object',
   fields: [
     {
@@ -10,20 +10,14 @@ export default {
       validation: (Rule) =>
         Rule.uri({
           allowRelative: true,
-          scheme: ['https', 'http', 'mailto', 'tel'],
+          scheme: ['https', 'http'],
         }),
     },
     {
       title: 'Open in new tab?',
       name: 'newTab',
       type: 'boolean',
-      initialValue: true,
-    },
-    {
-      title: 'rel=noreferrer?',
-      name: 'noreferrer',
-      type: 'boolean',
-      initialValue: true,
+      initialValue: false,
     },
   ],
   preview: {

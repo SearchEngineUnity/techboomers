@@ -1,6 +1,6 @@
 export default {
-  title: 'Internal Link',
-  name: 'internalLink',
+  title: 'Internal Local Link',
+  name: 'internalLocal',
   type: 'object',
   fields: [
     {
@@ -10,10 +10,16 @@ export default {
       to: [{ type: 'page' }, { type: 'spGuide' }, { type: 'listingPage' }],
     },
     {
-      name: 'internalHash',
+      name: 'hashId',
       title: 'Hash Id',
       type: 'string',
       description: 'Please enter the ID of the segment you would like to jump to',
+    },
+    {
+      name: 'parameter',
+      title: 'Parameter(s)',
+      type: 'string',
+      description: 'Please enter all needed parameters for the link',
     },
     {
       title: 'Open in new tab?',
@@ -25,11 +31,12 @@ export default {
   preview: {
     select: {
       link: 'reference.slug.current',
-      id: 'internalHash',
+      id: 'hashId',
+      parameter: 'parameter',
     },
-    prepare({ link, id }) {
+    prepare({ link, id, parameter }) {
       return {
-        title: id ? `/${link}#${id}` : `/${link}`,
+        title: `/${link}${id ? `#${id}` : ''}${parameter ? `?${parameter}` : ''}`,
       };
     },
   },

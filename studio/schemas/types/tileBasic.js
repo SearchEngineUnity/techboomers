@@ -37,7 +37,12 @@ export default {
       name: 'link',
       title: 'Tile link',
       type: 'array',
-      of: [{ type: 'internalLink' }, { type: 'externalLink' }, { type: 'jumpLink' }],
+      of: [
+        { type: 'internalLocal' },
+        { type: 'internalGlobal' },
+        { type: 'externalLink' },
+        { type: 'jumpLink' },
+      ],
       validation: (Rule) => Rule.length(1).error('Must contain one item'),
     },
   ],
