@@ -38,12 +38,32 @@ export const query = graphql`
                   _type
                   hashId
                 }
-                ... on SanityInternalLink {
+                ... on SanityExternalLink {
+                  _key
+                  _type
+                  href
+                  newTab
+                  noreferrer
+                }
+                ... on SanityInternalGlobal {
+                  _key
+                  _type
+                  href
+                  newTab
+                }
+                ... on SanityInternalLocal {
                   _key
                   _type
                   newTab
-                  internalHash
+                  hashId
+                  parameter
                   reference {
+                    ... on SanityListingPage {
+                      id
+                      slug {
+                        current
+                      }
+                    }
                     ... on SanityPage {
                       id
                       slug {
@@ -57,13 +77,6 @@ export const query = graphql`
                       }
                     }
                   }
-                }
-                ... on SanityExternalLink {
-                  _key
-                  _type
-                  href
-                  newTab
-                  noreferrer
                 }
               }
               text
@@ -231,12 +244,32 @@ export const query = graphql`
                   _type
                   hashId
                 }
-                ... on SanityInternalLink {
+                ... on SanityExternalLink {
+                  _key
+                  _type
+                  href
+                  newTab
+                  noreferrer
+                }
+                ... on SanityInternalGlobal {
+                  _key
+                  _type
+                  href
+                  newTab
+                }
+                ... on SanityInternalLocal {
                   _key
                   _type
                   newTab
-                  internalHash
+                  hashId
+                  parameter
                   reference {
+                    ... on SanityListingPage {
+                      id
+                      slug {
+                        current
+                      }
+                    }
                     ... on SanityPage {
                       id
                       slug {
@@ -250,13 +283,6 @@ export const query = graphql`
                       }
                     }
                   }
-                }
-                ... on SanityExternalLink {
-                  _key
-                  _type
-                  href
-                  newTab
-                  noreferrer
                 }
               }
               text
@@ -357,10 +383,6 @@ export const query = graphql`
           footerAlignment
           headerAlignment
           idTag
-          header {
-            heading
-            _rawSubtitle(resolveReferences: { maxDepth: 10 })
-          }
           blocks {
             ... on SanityBtnBlockMui {
               _key
@@ -372,12 +394,32 @@ export const query = graphql`
                   _type
                   hashId
                 }
-                ... on SanityInternalLink {
+                ... on SanityExternalLink {
+                  _key
+                  _type
+                  href
+                  newTab
+                  noreferrer
+                }
+                ... on SanityInternalGlobal {
+                  _key
+                  _type
+                  href
+                  newTab
+                }
+                ... on SanityInternalLocal {
                   _key
                   _type
                   newTab
-                  internalHash
+                  hashId
+                  parameter
                   reference {
+                    ... on SanityListingPage {
+                      id
+                      slug {
+                        current
+                      }
+                    }
                     ... on SanityPage {
                       id
                       slug {
@@ -391,13 +433,6 @@ export const query = graphql`
                       }
                     }
                   }
-                }
-                ... on SanityExternalLink {
-                  _key
-                  _type
-                  href
-                  newTab
-                  noreferrer
                 }
               }
               text
@@ -509,6 +544,10 @@ export const query = graphql`
               }
             }
           }
+          header {
+            heading
+            _rawSubtitle(resolveReferences: { maxDepth: 10 })
+          }
         }
         ... on SanityGridFlex {
           _key
@@ -571,12 +610,30 @@ export const query = graphql`
                 noreferrer
                 newTab
               }
-              ... on SanityInternalLink {
+              ... on SanityJumpLink {
+                _key
+                _type
+                hashId
+              }
+              ... on SanityInternalGlobal {
+                _key
+                _type
+                href
+                newTab
+              }
+              ... on SanityInternalLocal {
                 _key
                 _type
                 newTab
-                internalHash
+                hashId
+                parameter
                 reference {
+                  ... on SanityListingPage {
+                    id
+                    slug {
+                      current
+                    }
+                  }
                   ... on SanityPage {
                     id
                     slug {
@@ -590,11 +647,6 @@ export const query = graphql`
                     }
                   }
                 }
-              }
-              ... on SanityJumpLink {
-                _key
-                _type
-                hashId
               }
             }
             subtitle

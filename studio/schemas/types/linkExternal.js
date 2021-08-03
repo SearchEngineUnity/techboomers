@@ -9,7 +9,7 @@ export default {
       type: 'url',
       validation: (Rule) =>
         Rule.uri({
-          allowRelative: true,
+          allowRelative: false,
           scheme: ['https', 'http', 'mailto', 'tel'],
         }),
     },
