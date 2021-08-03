@@ -4,7 +4,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import ImgBlock from '../FluidImgBlock';
 import VideoBlock from '../VideoBlock';
 import SectionBlock from '../SectionBlock';
-import BtnBlock from '../BtnBlockMui';
+import ButtonExternal from '../buttons/ButtonExternal';
+import ButtonInternalGlobal from '../buttons/ButtonInternalGlobal';
+import ButtonInternalLocal from '../buttons/ButtonInternalLocal';
+import ButtonJumpLink from '../buttons/ButtonJumpLink';
 import {
   mapFluidImgBlockToProps,
   mapSectionBlockToProps,
@@ -150,12 +153,12 @@ function StructuredLrFlex({
             const { _type, _key } = block;
             const col = colCalculator(colArr[index]);
             const blockSelector = (key) => {
-              switch (key) {
-                case 'videoBlock':
+              switch (true) {
+                case key === 'videoBlock':
                   return <VideoBlock key={_key} url={block.url} ratio={block.ratio} />;
-                case 'imageBlock':
+                case key === 'imageBlock':
                   return <ImgBlock {...mapFluidImgBlockToProps(block)} key={_key} />;
-                case 'sectionBlock':
+                case key === 'sectionBlock':
                   return (
                     <SectionBlock
                       hasSectionHeading={!!heading}
@@ -167,11 +170,16 @@ function StructuredLrFlex({
                       {...mapSectionBlockToProps(block)}
                     />
                   );
-                case 'btnBlockMui':
-                  return <BtnBlock key={_key} {...mapMuiBtnToProps(block)} />;
-
+                case key === 'btnBlockMui' && block.link[0]._type === 'jumpLink':
+                  return <ButtonJumpLink key={_key} {...mapMuiBtnToProps(block)} />;
+                case key === 'btnBlockMui' && block.link[0]._type === 'externalLink':
+                  return <ButtonExternal key={_key} {...mapMuiBtnToProps(block)} />;
+                case key === 'btnBlockMui' && block.link[0]._type === 'internalGlobal':
+                  return <ButtonInternalGlobal key={_key} {...mapMuiBtnToProps(block)} />;
+                case key === 'btnBlockMui' && block.link[0]._type === 'internalLocal':
+                  return <ButtonInternalLocal key={_key} {...mapMuiBtnToProps(block)} />;
                 default:
-                  return <div key="default-inner-block"> LR block still under development</div>;
+                  return <div key="default-inner-block"> Block still under development</div>;
               }
             };
             return (
