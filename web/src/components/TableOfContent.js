@@ -80,7 +80,6 @@ function Toc({ toc }) {
 
     if (hash) {
       const activeIndex = headings.titles.map((title) => title.id).indexOf(hashId);
-      console.log(activeIndex);
       setActive(activeIndex);
     }
   }, [active, headings]);
