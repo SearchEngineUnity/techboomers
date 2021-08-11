@@ -106,14 +106,11 @@ function GridFlex({
           align={headerAlignment}
         />
         <Grid container spacing={3}>
-          {tiles.map((tile) => {
-            console.log(tile);
-            return (
-              <Grid item key={tile._key} {...col}>
-                <Tile1 {...mapFluidImgToProps(tile.tileImage)} />
-              </Grid>
-            );
-          })}
+          {tiles.map((tile) => (
+            <Grid item key={tile._key} {...col}>
+              <Tile1 {...mapFluidImgToProps(tile.tileImage)} />
+            </Grid>
+          ))}
         </Grid>
         <StructuredSectionFooter
           footer={footer}

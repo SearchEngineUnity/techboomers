@@ -7,15 +7,12 @@ import QueryContainer from 'part:@sanity/base/query-container';
 
 const SectionColorPreview = ({ document }) => {
   // The JSON preview
-  console.log(document.displayed.name);
   const documentQuery = `*[_type == 'sectionColorSet' && name == '${document.displayed.name}'] | order(_updatedAt desc) {
     background->, foreground->, link->, heading->, subtitle->, footer->
   }`;
   return (
     <QueryContainer query={documentQuery}>
       {({ result, loading }) => {
-        console.log(result);
-
         const bgColor = result?.documents[0]?.background?.color?.hex
           ? result?.documents[0]?.background?.color?.hex
           : 'transparent';
