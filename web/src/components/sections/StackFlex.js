@@ -8,10 +8,12 @@ import ButtonExternal from '../buttons/ButtonExternal';
 import ButtonInternalGlobal from '../buttons/ButtonInternalGlobal';
 import ButtonInternalLocal from '../buttons/ButtonInternalLocal';
 import ButtonJumpLink from '../buttons/ButtonJumpLink';
+import GridFlex from '../BlockGridFlex';
 import {
   mapFluidImgBlockToProps,
   mapSectionBlockToProps,
   mapMuiBtnToProps,
+  mapGridFlexToProps,
 } from '../../lib/mapToProps';
 import StructuredSectionFooter from '../StructuredSectionFooter';
 import StructuredSectionHeader from '../StructuredSectionHeader';
@@ -164,6 +166,8 @@ function StructuredLrFlex({
                     {...mapSectionBlockToProps(block)}
                   />
                 );
+              case key === 'gridFlex':
+                return <GridFlex key={block._key} {...mapGridFlexToProps(block)} />;
               case key === 'btnBlockMui' && block.link[0]._type === 'jumpLink':
                 return <ButtonJumpLink key={_key} {...mapMuiBtnToProps(block)} />;
               case key === 'btnBlockMui' && block.link[0]._type === 'externalLink':

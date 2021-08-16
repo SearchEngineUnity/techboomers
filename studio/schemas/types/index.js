@@ -21,6 +21,6 @@ export { default as navJumpLink } from './navJumpLink';
 export { default as navPhone } from './navPhone';
 export { default as navSet } from './navSet';
 export { default as openGraph } from './openGraph';
-export { default as tileBasic } from './tileBasic';
+export { default as tileInfo } from './tileInfo';
 export { default as tocLink } from './tocLink';
 export { default as twitterTag } from './twitterTag';

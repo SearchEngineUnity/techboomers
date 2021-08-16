@@ -248,26 +248,9 @@ export function mapMuiBtnToProps({ idTag, btnAlignment, link, text, design }) {
   };
 }
 
-export function mapGridFlexToProps({
-  idTag,
-  _rawFooter,
-  headerAlignment,
-  footerAlignment,
-  layout,
-  colorSettings,
-  header,
-  tiles,
-  tileOption,
-}) {
+export function mapGridFlexToProps({ layout, tiles, tileOption }) {
   return {
-    idTag,
-    heading: header?.heading,
-    subtitle: header?._rawSubtitle,
-    footer: _rawFooter,
     layout,
-    headerAlignment,
-    footerAlignment,
-    colorSettings,
     tiles,
     tileOption,
   };
