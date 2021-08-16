@@ -8,10 +8,12 @@ import ButtonExternal from '../buttons/ButtonExternal';
 import ButtonInternalGlobal from '../buttons/ButtonInternalGlobal';
 import ButtonInternalLocal from '../buttons/ButtonInternalLocal';
 import ButtonJumpLink from '../buttons/ButtonJumpLink';
+import GridFlex from '../BlockGridFlex';
 import {
   mapFluidImgBlockToProps,
   mapSectionBlockToProps,
   mapMuiBtnToProps,
+  mapGridFlexToProps,
 } from '../../lib/mapToProps';
 import HeroSectionFooter from '../HeroSectionFooter';
 import HeroSectionHeader from '../HeroSectionHeader';
@@ -172,6 +174,8 @@ function LrFlexHero({
                       {...mapSectionBlockToProps(block)}
                     />
                   );
+                case key === 'gridFlex':
+                  return <GridFlex key={block._key} {...mapGridFlexToProps(block)} />;
                 case key === 'btnBlockMui' && block.link[0]._type === 'jumpLink':
                   return <ButtonJumpLink key={_key} {...mapMuiBtnToProps(block)} />;
                 case key === 'btnBlockMui' && block.link[0]._type === 'externalLink':
@@ -180,6 +184,7 @@ function LrFlexHero({
                   return <ButtonInternalGlobal key={_key} {...mapMuiBtnToProps(block)} />;
                 case key === 'btnBlockMui' && block.link[0]._type === 'internalLocal':
                   return <ButtonInternalLocal key={_key} {...mapMuiBtnToProps(block)} />;
+
                 default:
                   return <div key="default-inner-block"> Block still under development</div>;
               }

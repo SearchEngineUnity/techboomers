@@ -1,7 +1,7 @@
 import React from 'react';
 import { CardActionArea } from 'gatsby-theme-material-ui';
 import { Typography, Card, CardContent } from '@material-ui/core';
-import ImgBlock from './TileImage';
+import ImgBlock from './TileImageRecSqr'; // this needs to be changed to gatsby image
 import { mapFluidImgBlockToProps } from '../../lib/mapToProps';
 
 function TileImageTitle1({ title, image, url }) {

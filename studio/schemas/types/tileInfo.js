@@ -1,6 +1,6 @@
 export default {
-  name: 'tileBasic',
-  title: 'Tile - Basic',
+  name: 'tileInfo',
+  title: 'Tile - Information Content',
   type: 'object',
   fieldsets: [
     {
@@ -14,24 +14,19 @@ export default {
   ],
   fields: [
     {
-      name: 'title',
-      title: 'Title',
-      type: 'string',
+      name: 'tileImage',
+      title: 'Illustration',
+      type: 'illustration',
     },
     {
-      name: 'subtitle',
-      title: 'Subtitle',
+      name: 'title',
+      title: 'Title',
       type: 'string',
     },
     {
       name: 'text',
       title: 'Text',
       type: 'text',
-    },
-    {
-      name: 'tileImage',
-      title: 'Illustration',
-      type: 'illustration',
     },
     {
       name: 'link',
@@ -49,6 +44,13 @@ export default {
   preview: {
     select: {
       title: 'title',
+      media: 'tileImage.asset',
+    },
+    prepare({ media, title }) {
+      return {
+        title: title || `tile`,
+        media,
+      };
     },
   },
 };
