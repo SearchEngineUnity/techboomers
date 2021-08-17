@@ -6,7 +6,7 @@ import GuideHero from '../components/sections/GuideHero';
 import GuideBody from '../components/block-contents/GuideSerializer';
 import ToC from '../components/TableOfContent';
 // import SocialSharing from '../components/SocialSharing';
-import SEO from '../components/Seo';
+import Seo from '../components/Seo';
 
 import { mapGuideHeroToProps, mapSeoToProps } from '../lib/mapToProps';
 
@@ -63,7 +63,7 @@ const SPGuide = ({ data, location }) => {
   return (
     // Need code here for if banner return banner
     <Layout location={location}>
-      <SEO {...mapSeoToProps(data.guide, data.site.siteMetadata.siteUrl, type)} />
+      <Seo {...mapSeoToProps(data.guide, data.site.siteMetadata.siteUrl, type)} />
       <GuideHero {...mapGuideHeroToProps(data.guide)} />
       <Box my={3}>
         <Container maxWidth="lg">

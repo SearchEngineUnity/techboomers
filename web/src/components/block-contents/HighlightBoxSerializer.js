@@ -1,6 +1,5 @@
 import BaseBlockContent from '@sanity/block-content-to-react';
 import React from 'react';
-import { Link } from 'gatsby-theme-material-ui';
 import { Typography } from '@material-ui/core';
 import JumpLink from '../link/JumpLink';
 import ExternalLink from '../link/LinkExternal';

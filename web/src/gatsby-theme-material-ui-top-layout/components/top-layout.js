@@ -2,7 +2,6 @@
 import React from 'react';
 import ThemeTopLayout from 'gatsby-theme-material-ui-top-layout/src/components/top-layout';
 import { StaticQuery, graphql } from 'gatsby';
-import PropTypes from 'prop-types';
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import { determinColor } from '../../lib/helperFunctions';
 

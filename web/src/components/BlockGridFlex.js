@@ -1,8 +1,9 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import Tile1 from './tiles/TileImageRecSqr';
 import Tile2 from './tiles/TileImageCircle';
+import Tile3 from './tiles/TileImageTitleBorder';
+import Tile4 from './tiles/TileImageTitleTextBase';
 import { mapFluidImgToProps } from '../lib/mapToProps';
 
 function GridFlex({ layout, tiles, tileOption }) {
@@ -48,7 +49,7 @@ function GridFlex({ layout, tiles, tileOption }) {
 
   const col = calCalculate(layout);
 
-  console.log(layout);
+  console.log(tileOption);
   console.log(tiles);
 
   return (
@@ -61,9 +62,22 @@ function GridFlex({ layout, tiles, tileOption }) {
             case '2':
               return <Tile2 {...mapFluidImgToProps(tile.tileImage)} link={tile.link[0]} />;
             case '3':
-              return <p>image title border</p>;
+              return (
+                <Tile3
+                  {...mapFluidImgToProps(tile.tileImage)}
+                  link={tile.link[0]}
+                  title={tile.title}
+                />
+              );
             case '4':
-              return <p>image title text base</p>;
+              return (
+                <Tile4
+                  {...mapFluidImgToProps(tile.tileImage)}
+                  link={tile.link[0]}
+                  title={tile.title}
+                  text={tile.text}
+                />
+              );
             default:
               return <div key="default-inner-block"> Tile still under development</div>;
           }

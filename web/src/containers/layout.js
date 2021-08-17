@@ -7,7 +7,6 @@
 
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import MainNav from '../components/MainNav';
 import MainFooter from '../components/MainFooter';

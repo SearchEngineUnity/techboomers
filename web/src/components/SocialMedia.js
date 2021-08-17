@@ -1,8 +1,6 @@
 import React from 'react';
-import { Typography, Icon } from '@material-ui/core';
 import { IconButton } from 'gatsby-theme-material-ui';
 import { StaticQuery, graphql } from 'gatsby';
-import { keys } from '@material-ui/core/styles/createBreakpoints';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';

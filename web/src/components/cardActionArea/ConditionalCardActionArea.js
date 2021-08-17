@@ -1,8 +1,4 @@
 import React from 'react';
-import CardActionAreaExternal from './CardActionAreaExternal';
-import CardActionAreaInternalGlobal from './CardActionAreaInternalGlobal';
-import CardActionAreaIntneralLocal from './CardActionAreaInternalLocal';
-import CardActionAreaJumpLink from './CardActionAreaJumpLink';
 
 const ConditionalCardActionArea = ({
   condition,

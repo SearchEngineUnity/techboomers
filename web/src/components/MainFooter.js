@@ -1,6 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import { Box, Container, Divider, Grid, Toolbar, Typography, Hidden } from '@material-ui/core';
+import { Box, Container, Divider, Grid, Toolbar, Hidden } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'gatsby-theme-material-ui';
 import NavBrand from './NavBrand';

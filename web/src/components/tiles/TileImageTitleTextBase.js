@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from '@material-ui/core';
+import { Typography, Card, CardContent } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
@@ -12,11 +12,12 @@ import sanityConfig from '../../../sanityConfig';
 
 const useStyles = makeStyles({
   card: {
-    borderRadius: '10000px',
+    border: '1px solid #acb4b8',
+    height: '100%',
   },
 });
 
-function TileImageCircle({ image, alt, link }) {
+function TileImageRecSqr({ image, alt, link, title, text }) {
   const classes = useStyles();
 
   const imageData = getGatsbyImageData(
@@ -27,10 +28,11 @@ function TileImageCircle({ image, alt, link }) {
     sanityConfig,
   );
 
+  console.log(link);
   const linkType = link ? link._type : 'noLink';
 
   return (
-    <Card square elevation={link ? 8 : 0} classes={{ root: classes.card }}>
+    <Card elevation={link ? 8 : 0} classes={{ root: classes.card }} square>
       <ConditionalCardActionArea
         condition={linkType}
         jumpLink={(children) => (
@@ -47,9 +49,17 @@ function TileImageCircle({ image, alt, link }) {
         )}
       >
         <GatsbyImage image={imageData} alt={alt} />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {title}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="div">
+            {text}
+          </Typography>
+        </CardContent>
       </ConditionalCardActionArea>
     </Card>
   );
 }
 
-export default TileImageCircle;
+export default TileImageRecSqr;

@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import VideoEmbed from './VideoEmbed';
 import BasicTable from './BasicTable';
 import Illustration from './Illustration';
-import InlineImage from './InlineImage';
 import HighlightBox from './HightlightBox/HighlightBox';
 import SmartTable from './SmartTable';
 import JumpLink from '../link/JumpLink';
