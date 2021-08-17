@@ -1,7 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Box, Typography, Card } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { Card } from '@material-ui/core';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import CardActionAreaExternal from '../cardActionArea/CardActionAreaExternal';

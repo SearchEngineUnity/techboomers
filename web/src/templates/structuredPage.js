@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../containers/layout';
-import SEO from '../components/Seo';
+import Seo from '../components/Seo';
 import LrHero from '../components/sections/LrFlexHero';
 import LrFlex from '../components/sections/StructuredLrFlex';
 import StackFlex from '../components/sections/StackFlex';
@@ -774,7 +774,7 @@ const StructuredPage = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <SEO {...mapSeoToProps(data.page, data.site.siteMetadata.siteUrl, type)} />
+      <Seo {...mapSeoToProps(data.page, data.site.siteMetadata.siteUrl, type)} />
       <main>
         {data.page.sections.map((section) => {
           const { _type } = section;
