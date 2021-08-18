@@ -7,6 +7,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 import * as blockContents from './blockContents';
 import * as blocks from './blocks';
 import * as documents from './documents';
+import * as formParts from './formParts';
 import * as insertables from './insertables';
 import * as sections from './sections';
 import * as types from './types';
@@ -20,6 +21,7 @@ export default createSchema({
     ...Object.values(blockContents),
     ...Object.values(blocks),
     ...Object.values(documents),
+    ...Object.values(formParts),
     ...Object.values(insertables),
     ...Object.values(sections),
     ...Object.values(types),
