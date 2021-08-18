@@ -38,7 +38,6 @@ export default {
         { type: 'externalLink' },
         { type: 'jumpLink' },
       ],
-      validation: (Rule) => Rule.length(1).error('Must contain one item'),
     },
   ],
   preview: {
