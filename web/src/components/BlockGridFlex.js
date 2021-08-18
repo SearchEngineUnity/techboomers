@@ -15,42 +15,7 @@ function GridFlex({ layout, tiles, tileOption }) {
     return colObj;
   };
 
-  // const colCalculator = (value) => {
-  //   switch (value) {
-  //     case '6/4/2':
-  //       return {
-  //         xs: 6,
-  //         md: 3,
-  //         lg: 2,
-  //       };
-  //     case '4/2/1':
-  //       return {
-  //         xs: 12,
-  //         md: 6,
-  //         lg: 3,
-  //       };
-  //     case '3/2/1':
-  //       return {
-  //         xs: 12,
-  //         md: 6,
-  //         lg: 4,
-  //       };
-  //     case '2/2/1':
-  //       return {
-  //         xs: 12,
-  //         md: 6,
-  //         lg: 6,
-  //       };
-  //     default:
-  //       console.log('calculator missing');
-  //       return null;
-  //   }
-  // };
-
   const col = calCalculate(layout);
-
-  console.log(tileOption);
-  console.log(tiles);
 
   return (
     <Grid container spacing={3}>

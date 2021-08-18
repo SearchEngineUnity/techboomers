@@ -58,10 +58,8 @@ export const query = graphql`
 
 const SPGuide = ({ data, location }) => {
   const type = 'guide';
-  // const url = `${data.site.siteMetadata.siteUrl}/${data.guide.slug.current}`;
 
   return (
-    // Need code here for if banner return banner
     <Layout location={location}>
       <Seo {...mapSeoToProps(data.guide, data.site.siteMetadata.siteUrl, type)} />
       <GuideHero {...mapGuideHeroToProps(data.guide)} />

@@ -151,12 +151,13 @@ function StructuredLrFlex({
           const blockSelector = (key) => {
             switch (true) {
               case key === 'videoBlock':
-                return <VideoBlock url={block.url} ratio={block.ratio} />;
+                return <VideoBlock url={block.url} ratio={block.ratio} key={_key} />;
               case key === 'imageBlock':
-                return <ImgBlock {...mapFluidImgBlockToProps(block)} />;
+                return <ImgBlock {...mapFluidImgBlockToProps(block)} key={_key} />;
               case key === 'sectionBlock':
                 return (
                   <SectionBlock
+                    key={_key}
                     hasSectionHeading={!!heading}
                     hasSectionFooter={!!footer}
                     hasSectionSubtitle={!!subtitle}
@@ -167,7 +168,7 @@ function StructuredLrFlex({
                   />
                 );
               case key === 'gridFlex':
-                return <GridFlex key={block._key} {...mapGridFlexToProps(block)} />;
+                return <GridFlex key={_key} {...mapGridFlexToProps(block)} />;
               case key === 'btnBlockMui' && block.link[0]._type === 'jumpLink':
                 return <ButtonJumpLink key={_key} {...mapMuiBtnToProps(block)} />;
               case key === 'btnBlockMui' && block.link[0]._type === 'externalLink':

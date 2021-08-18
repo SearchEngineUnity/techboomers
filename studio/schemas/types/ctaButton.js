@@ -1,10 +1,10 @@
-import { BsBootstrap } from 'react-icons/bs';
+import { MdAddBox } from 'react-icons/md';
 
 export default {
-  name: 'btnBlockMui',
-  title: 'Button - MUI',
+  title: 'CTA Button',
+  name: 'ctaButton',
   type: 'object',
-  icon: BsBootstrap,
+  icon: MdAddBox,
   fieldsets: [
     {
       name: 'presentation',
@@ -27,18 +27,6 @@ export default {
       title: 'Button Text',
       type: 'string',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
-      name: 'link',
-      title: 'Link',
-      type: 'array',
-      of: [
-        { type: 'jumpLink' },
-        { type: 'internalLocal' },
-        { type: 'internalGlobal' },
-        { type: 'externalLink' },
-      ],
-      validation: (Rule) => Rule.length(1).error('Must contain one item'),
     },
     {
       name: 'btnAlignment',

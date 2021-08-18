@@ -40,7 +40,6 @@ export default function ScrollPRogressBar() {
   const listenToScrollEvent = () => {
     document.addEventListener('scroll', () => {
       requestAnimationFrame(() => {
-        // Calculates the scroll distance
         calculateScrollDistance();
       });
     });

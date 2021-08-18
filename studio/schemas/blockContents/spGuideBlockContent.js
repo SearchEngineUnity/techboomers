@@ -1,7 +1,7 @@
 import { FaExternalLinkAlt, FaLink, FaHashtag } from 'react-icons/fa';
 import { GiLinkedRings } from 'react-icons/gi';
 import { MdLink, MdImage } from 'react-icons/md';
-import InlineImageRenderer from '../components/InlineImageRenderer';
+// import InlineImageRenderer from '../components/InlineImageRenderer';
 import HashIdRenderer from '../components/hashIdRenderer';
 import ExternalLinkRenderer from '../components/ExternalLinkRenderer';
 import InternalLocalRenderer from '../components/InternalLocalRenderer';

@@ -86,7 +86,6 @@ function Toc({ toc }) {
       {headings.titles.map(({ title, id }, index) => (
         <Box mb={1} fontSize="body2.fontSize" display="block" key={id}>
           <Link
-            // style={{ lineHeight: 0.5 }}
             to={`#${id}`}
             className={`${active === index ? classes.activeLink : null} ${classes.link}`}
             underline="hover"

@@ -4,7 +4,7 @@ import { Container, Typography, Card, CardContent, CardMedia, Grid } from '@mate
 import { makeStyles } from '@material-ui/core/styles';
 // import { Link } from "gatsby"
 // import { Link } from 'gatsby-theme-material-ui';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 // import Subtitle from '../components/block-contents/HeroSubtitle';
 
 // const StyledDiv = styled.div``;

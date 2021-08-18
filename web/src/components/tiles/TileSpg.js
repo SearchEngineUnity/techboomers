@@ -1,8 +1,8 @@
 import React from 'react';
 import { CardActionArea } from 'gatsby-theme-material-ui';
-import { GatsbyImage } from 'gatsby-plugin-image';
+// import { GatsbyImage } from 'gatsby-plugin-image';
 import { Typography, Card, CardContent } from '@material-ui/core';
-import { mapFluidImgBlockToProps } from '../../lib/mapToProps';
+// import { mapFluidImgBlockToProps } from '../../lib/mapToProps';
 
 function TileSpg({ title, image, url }) {
   return (

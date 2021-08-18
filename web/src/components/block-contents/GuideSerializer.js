@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import VideoEmbed from './VideoEmbed';
 import BasicTable from './BasicTable';
 import Illustration from './Illustration';
-import InlineImage from './InlineImage';
 import HighlightBox from './HightlightBox/HighlightBox';
 import SmartTable from './SmartTable';
 import JumpLink from '../link/JumpLink';
@@ -17,8 +16,6 @@ import ButtonInternalGlobal from '../buttons/ButtonInternalGlobal';
 import ButtonInternalLocal from '../buttons/ButtonInternalLocal';
 import ButtonJumpLInk from '../buttons/ButtonJumpLink';
 import { mapMuiBtnToProps } from '../../lib/mapToProps';
-
-// import CopyLink from './CopyLink';
 
 const NoIndentUl = styled.ul`
   margin-left: 1.4rem;
@@ -59,13 +56,6 @@ const serializers = {
               }
             >
               {props.children}
-              {/* <CopyLink
-                id={
-                  props.node.markDefs.length !== 0
-                    ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
-                    : undefined
-                }
-              /> */}
             </StyledTypography>
           );
 
@@ -223,18 +213,6 @@ const serializers = {
           {children}
         </JumpLink>
       );
-    },
-    inlineImage: ({ mark, children }) => {
-      switch (mark._type) {
-        case 'inlineImage':
-          if (mark.asset) {
-            return <InlineImage image={mark} alt={children[0]} />;
-          }
-          return null;
-
-        default:
-          return <p>doesn't work</p>; // eslint-disable-line
-      }
     },
   },
   list: ({ children }) => {
