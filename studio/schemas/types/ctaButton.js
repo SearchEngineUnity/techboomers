@@ -5,28 +5,54 @@ export default {
   name: 'ctaButton',
   type: 'object',
   icon: MdAddBox,
+  fieldsets: [
+    {
+      name: 'presentation',
+      title: 'Presentation Settings',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+    },
+  ],
   fields: [
     {
-      title: 'Title',
-      name: 'title',
+      name: 'idTag',
+      title: 'Button ID',
       type: 'string',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
-      title: 'Internal page',
-      name: 'internalLink',
-      type: 'internalLink',
-      description: 'Use this field to look up the page within the same website',
+      name: 'text',
+      title: 'Button Text',
+      type: 'string',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
-      title: 'External link',
-      name: 'externalLink',
-      type: 'externalLink',
-      description: 'Use this field if link is external to the website',
+      name: 'btnAlignment',
+      title: 'Button Alignment',
+      type: 'string',
+      options: {
+        list: ['left', 'center', 'right'],
+        layout: 'radio',
+        direction: 'horizontal',
+      },
+      fieldset: 'presentation',
+      initialValue: 'left',
+    },
+    {
+      name: 'design',
+      title: 'Button Design Option',
+      type: 'reference',
+      to: [{ type: 'btnDesignMui' }],
+      fieldset: 'presentation',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],
   preview: {
     select: {
-      title: 'title',
+      title: 'text',
+      subtitle: 'idTag',
     },
   },
 };

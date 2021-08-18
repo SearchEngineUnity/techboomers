@@ -18,7 +18,6 @@ function TileImageRecSqr({ image, alt, link }) {
     sanityConfig,
   );
 
-  console.log(link);
   const linkType = link ? link._type : 'noLink';
 
   return (

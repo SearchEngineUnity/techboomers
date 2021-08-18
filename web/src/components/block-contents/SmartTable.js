@@ -129,8 +129,6 @@ function SmartTable({ smartTable }) {
       </TableContainer>
     </Box>
   );
-
-  // return null;
 }
 
 export default SmartTable;

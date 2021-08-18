@@ -149,18 +149,6 @@ const serializers = {
         </JumpLink>
       );
     },
-    // inlineImage: ({ mark, children }) => {
-    //   switch (mark._type) {
-    //     case 'inlineImage':
-    //       if (mark.asset) {
-    //         return <InlineImage image={mark} alt={children[0]} />;
-    //       }
-    //       return null;
-
-    //     default:
-    //       return <p>doesn't work</p>; // eslint-disable-line
-    //   }
-    // },
   },
   list: ({ children }) => {
     switch (children[0].props.node.listItem) {

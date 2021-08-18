@@ -64,6 +64,7 @@ export default {
   preview: {
     select: {
       title: 'text',
+      subtitle: 'idTag',
     },
   },
 };
