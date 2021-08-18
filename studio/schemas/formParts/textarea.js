@@ -4,35 +4,34 @@ export default {
   title: 'Textarea',
   fields: [
     {
+      name: 'id',
+      type: 'string',
+      title: 'Id Tag',
+      description: 'Give one string to identify this field',
+      validation: (Rule) => [Rule.required().error('Field is required')],
+    },
+    {
       name: 'label',
       type: 'string',
       title: 'Label',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
-
     {
-      name: 'name',
+      name: 'helperText',
+      title: 'Helper Text',
       type: 'string',
-      title: 'Name',
-      description: 'Give one word that describes this field ',
-      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'rows',
       title: 'Number of rows of text',
-      type: 'string',
+      type: 'number',
       validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
-      name: 'placeholder',
-      type: 'string',
-      title: 'Placeholder',
-      description: 'This populates the example within the input box',
     },
     {
       name: 'required',
       title: 'Is this information required?',
       type: 'boolean',
+      initialValue: false,
     },
   ],
   preview: {
