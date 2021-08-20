@@ -52,20 +52,26 @@ export default {
     },
     {
       name: 'layout',
+      title: 'Number of tiles in a row',
+      description: 'Please enter in the format of value/value/value for desktop/tablet/mobile.',
       type: 'string',
-      title: 'Layout',
       fieldset: 'presentation',
-      description:
-        'Choose the number of tiles in a row. The three values are tile numbers for desktop/table/mobile.',
+    },
+    {
+      name: 'tileOption',
+      title: 'Tile output option',
+      type: 'string',
+      fieldset: 'presentation',
       options: {
         list: [
-          { title: '6/4/2', value: '6/4/2' },
-          { title: '4/2/1', value: '4/2/1' },
-          { title: '3/2/1', value: '3/2/1' },
-          { title: '2/2/1', value: '2/2/1' },
+          { title: 'image-top', value: '1' },
+          { title: 'image-bottom', value: '2' },
+          { title: 'image-left', value: '3' },
+          { title: 'image-right', value: '4' },
+          { title: 'image-right-3col', value: '5' },
         ],
       },
-      initialValue: '3/2/1',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'headerAlignment',

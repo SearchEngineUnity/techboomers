@@ -27,6 +27,165 @@ export const query = graphql`
           _key
           _type
           blocks {
+            ... on SanityGridFlex {
+              _key
+              _type
+              layout
+              tileOption
+              tiles {
+                _key
+                link {
+                  ... on SanityExternalLink {
+                    _key
+                    _type
+                    href
+                    noreferrer
+                    newTab
+                  }
+                  ... on SanityJumpLink {
+                    _key
+                    _type
+                    hashId
+                  }
+                  ... on SanityInternalGlobal {
+                    _key
+                    _type
+                    href
+                    newTab
+                  }
+                  ... on SanityInternalLocal {
+                    _key
+                    _type
+                    newTab
+                    hashId
+                    parameter
+                    reference {
+                      ... on SanityListingPage {
+                        id
+                        slug {
+                          current
+                        }
+                      }
+                      ... on SanityPage {
+                        id
+                        slug {
+                          current
+                        }
+                      }
+                      ... on SanitySpGuide {
+                        id
+                        slug {
+                          current
+                        }
+                      }
+                    }
+                  }
+                }
+                text
+                title
+                tileImage {
+                  alt
+                  _rawAsset(resolveReferences: { maxDepth: 10 })
+                  caption
+                  height
+                }
+              }
+            }
+            ... on SanityBtnBlockMui {
+              _key
+              _type
+              idTag
+              btnAlignment
+              link {
+                ... on SanityJumpLink {
+                  _key
+                  _type
+                  hashId
+                }
+                ... on SanityExternalLink {
+                  _key
+                  _type
+                  href
+                  newTab
+                  noreferrer
+                }
+                ... on SanityInternalGlobal {
+                  _key
+                  _type
+                  href
+                  newTab
+                }
+                ... on SanityInternalLocal {
+                  _key
+                  _type
+                  newTab
+                  hashId
+                  parameter
+                  reference {
+                    ... on SanityListingPage {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                    ... on SanityPage {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                    ... on SanitySpGuide {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                  }
+                }
+              }
+              text
+              design {
+                typography {
+                  fontFamily
+                  fontWeight
+                  fontSize
+                  lineHeight
+                  letterSpacing
+                }
+                settings {
+                  disableElevation
+                  disableFocusRipple
+                  disableRipple
+                  fullWidth
+                  variant
+                  padding
+                  borderRadius
+                }
+                colors {
+                  contrastText {
+                    color {
+                      hex
+                      alpha
+                    }
+                    tone
+                  }
+                  dark {
+                    tone
+                    color {
+                      alpha
+                      hex
+                    }
+                  }
+                  main {
+                    tone
+                    color {
+                      alpha
+                      hex
+                    }
+                  }
+                }
+              }
+            }
             ... on SanityImageBlock {
               _key
               _type
@@ -112,6 +271,70 @@ export const query = graphql`
           headerAlignment
           footerAlignment
           blocks {
+            ... on SanityGridFlex {
+              _key
+              _type
+              layout
+              tileOption
+              tiles {
+                _key
+                link {
+                  ... on SanityExternalLink {
+                    _key
+                    _type
+                    href
+                    noreferrer
+                    newTab
+                  }
+                  ... on SanityJumpLink {
+                    _key
+                    _type
+                    hashId
+                  }
+                  ... on SanityInternalGlobal {
+                    _key
+                    _type
+                    href
+                    newTab
+                  }
+                  ... on SanityInternalLocal {
+                    _key
+                    _type
+                    newTab
+                    hashId
+                    parameter
+                    reference {
+                      ... on SanityListingPage {
+                        id
+                        slug {
+                          current
+                        }
+                      }
+                      ... on SanityPage {
+                        id
+                        slug {
+                          current
+                        }
+                      }
+                      ... on SanitySpGuide {
+                        id
+                        slug {
+                          current
+                        }
+                      }
+                    }
+                  }
+                }
+                text
+                title
+                tileImage {
+                  alt
+                  _rawAsset(resolveReferences: { maxDepth: 10 })
+                  caption
+                  height
+                }
+              }
+            }
             ... on SanityImageBlock {
               _key
               _type
@@ -138,6 +361,100 @@ export const query = graphql`
               _type
               url
               ratio
+            }
+            ... on SanityBtnBlockMui {
+              _key
+              _type
+              btnAlignment
+              link {
+                ... on SanityJumpLink {
+                  _key
+                  _type
+                  hashId
+                }
+                ... on SanityExternalLink {
+                  _key
+                  _type
+                  href
+                  newTab
+                  noreferrer
+                }
+                ... on SanityInternalGlobal {
+                  _key
+                  _type
+                  href
+                  newTab
+                }
+                ... on SanityInternalLocal {
+                  _key
+                  _type
+                  newTab
+                  hashId
+                  parameter
+                  reference {
+                    ... on SanityListingPage {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                    ... on SanityPage {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                    ... on SanitySpGuide {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                  }
+                }
+              }
+              text
+              design {
+                typography {
+                  fontFamily
+                  fontWeight
+                  fontSize
+                  lineHeight
+                  letterSpacing
+                }
+                settings {
+                  disableElevation
+                  disableFocusRipple
+                  disableRipple
+                  fullWidth
+                  variant
+                  padding
+                  borderRadius
+                }
+                colors {
+                  contrastText {
+                    color {
+                      hex
+                      alpha
+                    }
+                    tone
+                  }
+                  dark {
+                    tone
+                    color {
+                      alpha
+                      hex
+                    }
+                  }
+                  main {
+                    tone
+                    color {
+                      alpha
+                      hex
+                    }
+                  }
+                }
+              }
             }
           }
           header {
@@ -194,11 +511,165 @@ export const query = graphql`
           footerAlignment
           headerAlignment
           idTag
-          header {
-            heading
-            _rawSubtitle(resolveReferences: { maxDepth: 10 })
-          }
           blocks {
+            ... on SanityGridFlex {
+              _key
+              _type
+              layout
+              tileOption
+              tiles {
+                _key
+                link {
+                  ... on SanityExternalLink {
+                    _key
+                    _type
+                    href
+                    noreferrer
+                    newTab
+                  }
+                  ... on SanityJumpLink {
+                    _key
+                    _type
+                    hashId
+                  }
+                  ... on SanityInternalGlobal {
+                    _key
+                    _type
+                    href
+                    newTab
+                  }
+                  ... on SanityInternalLocal {
+                    _key
+                    _type
+                    newTab
+                    hashId
+                    parameter
+                    reference {
+                      ... on SanityListingPage {
+                        id
+                        slug {
+                          current
+                        }
+                      }
+                      ... on SanityPage {
+                        id
+                        slug {
+                          current
+                        }
+                      }
+                      ... on SanitySpGuide {
+                        id
+                        slug {
+                          current
+                        }
+                      }
+                    }
+                  }
+                }
+                text
+                title
+                tileImage {
+                  alt
+                  _rawAsset(resolveReferences: { maxDepth: 10 })
+                  caption
+                  height
+                }
+              }
+            }
+            ... on SanityBtnBlockMui {
+              _key
+              _type
+              btnAlignment
+              link {
+                ... on SanityJumpLink {
+                  _key
+                  _type
+                  hashId
+                }
+                ... on SanityExternalLink {
+                  _key
+                  _type
+                  href
+                  newTab
+                  noreferrer
+                }
+                ... on SanityInternalGlobal {
+                  _key
+                  _type
+                  href
+                  newTab
+                }
+                ... on SanityInternalLocal {
+                  _key
+                  _type
+                  newTab
+                  hashId
+                  parameter
+                  reference {
+                    ... on SanityListingPage {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                    ... on SanityPage {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                    ... on SanitySpGuide {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                  }
+                }
+              }
+              text
+              design {
+                typography {
+                  fontFamily
+                  fontWeight
+                  fontSize
+                  lineHeight
+                  letterSpacing
+                }
+                settings {
+                  disableElevation
+                  disableFocusRipple
+                  disableRipple
+                  fullWidth
+                  variant
+                  padding
+                  borderRadius
+                }
+                colors {
+                  contrastText {
+                    color {
+                      hex
+                      alpha
+                    }
+                    tone
+                  }
+                  dark {
+                    tone
+                    color {
+                      alpha
+                      hex
+                    }
+                  }
+                  main {
+                    tone
+                    color {
+                      alpha
+                      hex
+                    }
+                  }
+                }
+              }
+            }
             ... on SanityImageBlock {
               _key
               _type
@@ -265,6 +736,10 @@ export const query = graphql`
               }
             }
           }
+          header {
+            heading
+            _rawSubtitle(resolveReferences: { maxDepth: 10 })
+          }
         }
         ... on SanityListingSection {
           _key
@@ -280,6 +755,7 @@ export const query = graphql`
           headerAlignment
           idTag
           layout
+          tileOption
           colorSettings {
             background {
               color {

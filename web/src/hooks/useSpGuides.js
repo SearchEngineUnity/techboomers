@@ -12,8 +12,9 @@ export const useSpGuides = () => {
               current
             }
             displayDate
-            cardTitle
-            cardImage {
+            tileTitle
+            tileText
+            tileImage {
               alt
               _rawAsset(resolveReferences: { maxDepth: 10 })
             }
@@ -23,13 +24,16 @@ export const useSpGuides = () => {
     `,
   );
 
-  const guidesAsCards = guides.nodes.map(({ _id, cardTitle, cardImage, displayDate, slug }) => ({
-    _key: _id,
-    title: cardTitle,
-    image: cardImage,
-    date: displayDate,
-    url: slug.current,
-  }));
+  const guidesAsCards = guides.nodes.map(
+    ({ _id, tileTitle, tileImage, displayDate, slug, tileText }) => ({
+      _key: _id,
+      title: tileTitle,
+      image: tileImage._rawAsset,
+      text: tileText,
+      date: displayDate,
+      url: slug.current,
+    }),
+  );
 
   return guidesAsCards;
 };
