@@ -7,7 +7,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import StructuredSectionFooter from '../StructuredSectionFooter';
 import StructuredSectionHeader from '../StructuredSectionHeader';
 import { determinColor } from '../../lib/helperFunctions';
-import TileImageTitle1 from '../tiles/TileSpg';
+import Tile1 from '../listingTile/TileSpgImageTop';
+import Tile2 from '../listingTile/TileSpgImageBottom';
+import Tile3 from '../listingTile/TileSpgImageLeft';
+import Tile4 from '../listingTile/TileSpgImageRight';
+import Tile5 from '../listingTile/TileSpgImageRightThreeCol';
 
 const useStyles = makeStyles((theme) => ({
   mobileGrid: {
@@ -52,41 +56,17 @@ function ListingSection({
   skip,
   slug,
   listingItems,
+  tileOption,
 }) {
   // number of tiles desktop/table/moble: '6/4/2' -> {lg: 2, md: 3, xs: 6}
-  const colCalculator = (value) => {
-    switch (value) {
-      case '6/4/2':
-        return {
-          xs: 6,
-          md: 3,
-          lg: 2,
-        };
-      case '4/2/1':
-        return {
-          xs: 12,
-          md: 6,
-          lg: 3,
-        };
-      case '3/2/1':
-        return {
-          xs: 12,
-          md: 6,
-          lg: 4,
-        };
-      case '2/2/1':
-        return {
-          xs: 12,
-          md: 6,
-          lg: 6,
-        };
-      default:
-        console.log('calculator missing');
-        return null;
-    }
+  const colCalculate = (value) => {
+    const valueArrStr = value.split('/');
+    const valueArrNum = valueArrStr.map((el) => parseInt(el, 10));
+    const colObj = { lg: 12 / valueArrNum[0], md: 12 / valueArrNum[1], xs: 12 / valueArrNum[2] };
+    return colObj;
   };
 
-  const col = colCalculator(layout);
+  const col = colCalculate(layout);
 
   const backgroundColor = determinColor(colorSettings?.background?.color) || 'transparent';
   const foregroundColor = determinColor(colorSettings?.foreground?.color) || 'text.primary';
@@ -113,11 +93,29 @@ function ListingSection({
           align={headerAlignment}
         />
         <Grid container spacing={3}>
-          {listingItems.map((item) => (
-            <Grid item key={item._key} {...col}>
-              <TileImageTitle1 {...item} />
-            </Grid>
-          ))}
+          {listingItems.map((item) => {
+            const tileSelector = (key) => {
+              switch (key) {
+                case '1':
+                  return <Tile1 {...item} />;
+                case '2':
+                  return <Tile2 {...item} />;
+                case '3':
+                  return <Tile3 {...item} />;
+                case '4':
+                  return <Tile4 {...item} />;
+                case '5':
+                  return <Tile5 {...item} />;
+                default:
+                  return <div> Tile still under development</div>;
+              }
+            };
+            return (
+              <Grid item key={item._key} {...col}>
+                {tileSelector(tileOption)}
+              </Grid>
+            );
+          })}
         </Grid>
         <Box mt={3}>
           <Pagination

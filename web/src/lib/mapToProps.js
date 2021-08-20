@@ -217,6 +217,7 @@ export function mapListingSectionToProps({
   colorSettings,
   header,
   idTag,
+  tileOption,
 }) {
   return {
     idTag,
@@ -227,6 +228,7 @@ export function mapListingSectionToProps({
     headerAlignment,
     footerAlignment,
     colorSettings,
+    tileOption,
   };
 }
 

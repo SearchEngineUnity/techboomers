@@ -23,7 +23,7 @@ export default {
       },
     },
     {
-      name: 'card',
+      name: 'tile',
       title: 'Listing Card Fields',
       options: {
         collapsible: true,
@@ -108,17 +108,24 @@ export default {
       fieldset: 'meta',
     },
     {
-      name: 'cardTitle',
-      title: 'Card Title',
+      name: 'tileTitle',
+      title: 'Tile Title',
       type: 'string',
-      fieldset: 'card',
+      fieldset: 'tile',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
-      name: 'cardImage',
-      title: 'Card Image',
+      name: 'tileImage',
+      title: 'Tile Image',
       type: 'illustration',
-      fieldset: 'card',
+      fieldset: 'tile',
+      validation: (Rule) => [Rule.required().error('Field is required')],
+    },
+    {
+      name: 'tileText',
+      title: 'Tile Text',
+      type: 'text',
+      fieldset: 'tile',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
@@ -190,7 +197,7 @@ export default {
     select: {
       shortName: 'shortName',
       slug: 'slug.current',
-      media: 'cardImage',
+      media: 'tileImage',
     },
     prepare({ shortName, slug, media }) {
       return {
