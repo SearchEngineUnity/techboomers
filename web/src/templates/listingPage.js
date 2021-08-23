@@ -6,6 +6,7 @@ import LrHero from '../components/sections/LrFlexHero';
 import LrFlex from '../components/sections/StructuredLrFlex';
 import StackFlex from '../components/sections/StackFlex';
 import ListingSection from '../components/sections/ListingSection';
+import ListingSectionH1 from '../components/sections/ListingSectionH1';
 import { useSpGuides } from '../hooks/useSpGuides';
 import {
   mapLrHeroToProps,
@@ -844,6 +845,8 @@ const StructuredPage = ({ data, location, pageContext }) => {
 
   const listingItems = allListItems.slice((currentpage - 1) * limit, currentpage * limit);
 
+  console.log(currentpage);
+
   return (
     <Layout location={location}>
       <Seo {...mapSeoToProps(data.page, data.site.siteMetadata.siteUrl, type)} />
@@ -852,7 +855,9 @@ const StructuredPage = ({ data, location, pageContext }) => {
           const { _type } = section;
           switch (_type) {
             case 'lrHero':
-              return <LrHero key={section._key} {...mapLrHeroToProps(section)} />;
+              return currentpage === 1 ? (
+                <LrHero key={section._key} {...mapLrHeroToProps(section)} />
+              ) : null;
 
             case 'lrFlex':
               return <LrFlex key={section._key} {...mapLrFlexToProps(section)} />;
@@ -861,8 +866,15 @@ const StructuredPage = ({ data, location, pageContext }) => {
               return <StackFlex key={section._key} {...mapStackFlexToProps(section)} />;
 
             case 'listingSection':
-              return (
+              return currentpage === 1 ? (
                 <ListingSection
+                  key={section._key}
+                  {...mapListingSectionToProps(section)}
+                  {...pageContext}
+                  listingItems={listingItems}
+                />
+              ) : (
+                <ListingSectionH1
                   key={section._key}
                   {...mapListingSectionToProps(section)}
                   {...pageContext}
