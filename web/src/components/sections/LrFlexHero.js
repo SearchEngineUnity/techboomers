@@ -9,11 +9,13 @@ import ButtonInternalGlobal from '../buttons/ButtonInternalGlobal';
 import ButtonInternalLocal from '../buttons/ButtonInternalLocal';
 import ButtonJumpLink from '../buttons/ButtonJumpLink';
 import GridFlex from '../BlockGridFlex';
+import BlockFormNetlify from '../BlockFormNetlify';
 import {
   mapFluidImgBlockToProps,
   mapSectionBlockToProps,
   mapMuiBtnToProps,
   mapGridFlexToProps,
+  mapBlockFormNetlifyToProps,
 } from '../../lib/mapToProps';
 import HeroSectionFooter from '../HeroSectionFooter';
 import HeroSectionHeader from '../HeroSectionHeader';
@@ -176,6 +178,10 @@ function LrFlexHero({
                   );
                 case key === 'gridFlex':
                   return <GridFlex key={block._key} {...mapGridFlexToProps(block)} />;
+                case key === 'blockFormNetlify':
+                  return (
+                    <BlockFormNetlify key={block._key} {...mapBlockFormNetlifyToProps(block)} />
+                  );
                 case key === 'btnBlockMui' && block.link[0]._type === 'jumpLink':
                   return <ButtonJumpLink key={_key} {...mapMuiBtnToProps(block)} />;
                 case key === 'btnBlockMui' && block.link[0]._type === 'externalLink':
