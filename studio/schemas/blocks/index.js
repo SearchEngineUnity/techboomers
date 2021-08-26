@@ -1,5 +1,5 @@
 export { default as btnBlockMui } from './btnBlockMui';
-export { default as formNetlify } from './formNetlify';
+export { default as blockFormNetlify } from './blockFormNetlify';
 export { default as gridFlex } from './gridFlex';
 export { default as heroBlock } from './heroBlock';
 export { default as sectionBlock } from './sectionBlock';
