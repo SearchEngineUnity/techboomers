@@ -112,7 +112,7 @@ function FormNetlify({ formFields, name, thankYou, submitBtn, formFieldsStyle })
                   name={input.name}
                   onChange={handleChange}
                 >
-                  {input.option.map((option) => (
+                  {input.options.map((option) => (
                     <FormControlLabel
                       value={option.value}
                       control={<Radio />}
