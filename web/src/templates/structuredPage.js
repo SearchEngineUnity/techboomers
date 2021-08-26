@@ -210,6 +210,13 @@ export const query = graphql`
               url
               ratio
             }
+            ... on SanityBlockFormNetlify {
+              _key
+              _type
+              _rawFormNetlify(resolveReferences: { maxDepth: 10 })
+              title
+              titleAlignment
+            }
           }
           idTag
           layout
@@ -454,6 +461,13 @@ export const query = graphql`
                 }
               }
             }
+            ... on SanityBlockFormNetlify {
+              _key
+              _type
+              title
+              titleAlignment
+              _rawFormNetlify(resolveReferences: { maxDepth: 10 })
+            }
           }
           header {
             heading
@@ -695,6 +709,13 @@ export const query = graphql`
               url
               ratio
             }
+            ... on SanityBlockFormNetlify {
+              _key
+              _type
+              _rawFormNetlify(resolveReferences: { maxDepth: 10 })
+              title
+              titleAlignment
+            }
           }
           colorSettings {
             background {
@@ -771,7 +792,7 @@ export const query = graphql`
 
 const StructuredPage = ({ data, location }) => {
   const type = 'page';
-
+  console.log(data);
   return (
     <Layout location={location}>
       <Seo {...mapSeoToProps(data.page, data.site.siteMetadata.siteUrl, type)} />

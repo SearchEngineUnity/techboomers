@@ -266,3 +266,11 @@ export function mapFluidImgToProps({ _rawAsset, alt, caption, height }) {
     maxHeight: height,
   };
 }
+
+export function mapBlockFormNetlifyToProps({ _rawFormNetlify, title, titleAlignment }) {
+  return {
+    title,
+    align: titleAlignment,
+    form: _rawFormNetlify,
+  };
+}
