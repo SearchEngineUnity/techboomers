@@ -92,7 +92,7 @@ function FormNetlify({ formFields, name, thankYou, submitBtn, formFieldsStyle })
               <FormControl component="fieldset">
                 <FormLabel component="legend">{input.label}</FormLabel>
                 <FormGroup>
-                  {input.option.map((option) => (
+                  {input.options.map((option) => (
                     <FormControlLabel
                       control={<Checkbox name={option.value} />}
                       label={option.label}
