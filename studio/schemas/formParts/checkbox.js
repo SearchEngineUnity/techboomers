@@ -24,7 +24,8 @@ export default {
     {
       name: 'options',
       title: 'Options',
-      type: 'option',
+      type: 'array',
+      of: [{ type: 'option' }],
     },
     {
       name: 'required',
