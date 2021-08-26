@@ -1,23 +1,45 @@
 import React, { useState } from 'react';
-import { Button } from '@material-ui/core';
-import { navigate } from '@reach/router';
-// import BlockContent from './block-contents/simpleSerializer';
+import {
+  Button,
+  TextField,
+  MenuItem,
+  Select,
+  Radio,
+  FormControl,
+  FormGroup,
+  FormLabel,
+  InputLabel,
+  RadioGroup,
+  FormControlLabel,
+  FormHelperText,
+  Checkbox,
+} from '@material-ui/core';
 
-function FormNetlify({ formFields, name, submitBtn, formFieldsStyle }) {
-  const [validated, setValidated] = useState(false);
-  let isValid = true;
+function encode(data) {
+  return Object.keys(data)
+    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join('&');
+}
+
+function FormNetlify({ formFields, name, thankYou, submitBtn, formFieldsStyle }) {
+  const [state, setState] = useState({});
   const [success, setSuccess] = useState(false);
+  const [isValid, setIsValid] = useState(false);
 
-  const sendForm = (myForm) => {
-    const inputs = myForm.elements;
-    const formData = new FormData(myForm);
+  const handleChange = (e) => {
+    setState({ ...state, [e.target.name]: e.target.value });
+  };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const inputs = form.elements;
     // eslint-disable-next-line no-plusplus
     for (let index = 0; index < inputs.length - 1; index++) {
       const element = inputs[index];
       if (element.name !== 'bot-field' && element.name !== 'form-name') {
         if (element.validity.valid === false) {
-          isValid = false;
+          setIsValid(false);
         }
       }
     }
@@ -26,31 +48,18 @@ function FormNetlify({ formFields, name, submitBtn, formFieldsStyle }) {
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString(),
+        body: encode({
+          'form-name': form.getAttribute('name'),
+          ...state,
+        }),
       })
         .then(() => {
+          setIsValid(false);
+          form.reset();
           setSuccess(true);
-          myForm.reset();
-          setValidated(false);
-          navigate(`/thank-you`);
         })
         .catch((error) => alert(error));
     }
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const myForm = event.currentTarget;
-
-    if (myForm.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
-    setValidated(true);
-    isValid = true;
-    setSuccess(false);
-    sendForm(myForm);
   };
 
   return (
@@ -62,6 +71,7 @@ function FormNetlify({ formFields, name, submitBtn, formFieldsStyle }) {
       noValidate
       onSubmit={handleSubmit}
       id={name}
+      autoComplete="off"
     >
       <p className="hidden" style={{ display: 'none' }}>
         {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
@@ -70,72 +80,94 @@ function FormNetlify({ formFields, name, submitBtn, formFieldsStyle }) {
         </label>
       </p>
 
+      {success && <p>{thankYou}</p>}
+
       <input type="hidden" name="form-name" value={name} />
       {formFields.map((input) => {
         const { _type } = input;
 
         switch (_type) {
           case 'checkbox':
-            return <div>Checkbox</div>;
+            return (
+              <FormControl component="fieldset">
+                <FormLabel component="legend">{input.label}</FormLabel>
+                <FormGroup>
+                  {input.options.map((option) => (
+                    <FormControlLabel
+                      control={<Checkbox name={option.value} />}
+                      label={option.label}
+                    />
+                  ))}
+                </FormGroup>
+                <FormHelperText>{input.helperText}</FormHelperText>
+              </FormControl>
+            );
           case 'radio':
-            return <div>radio</div>;
+            return (
+              <FormControl component="fieldset">
+                <FormLabel component="legend">{input.label}</FormLabel>
+                <RadioGroup
+                  id={input.id}
+                  aria-label={input.label}
+                  name={input.name}
+                  onChange={handleChange}
+                >
+                  {input.options.map((option) => (
+                    <FormControlLabel
+                      value={option.value}
+                      control={<Radio />}
+                      label={option.label}
+                    />
+                  ))}
+                </RadioGroup>
+                <FormHelperText>{input.helperText}</FormHelperText>
+              </FormControl>
+            );
           case 'select':
-            return <div>select</div>;
+            return (
+              <FormControl>
+                <InputLabel id={`${input.id}-label`}>{input.label}</InputLabel>
+                <Select labelId={`${input.id}-label`} id={input.id} onChange={handleChange}>
+                  {input.options.map((option) => (
+                    <MenuItem value={option.value}>{option.label}</MenuItem>
+                  ))}
+                </Select>
+                <FormHelperText>{input.helperText}</FormHelperText>
+              </FormControl>
+            );
           case 'textarea':
-            return <div>textarea</div>;
+            return (
+              <TextField
+                id={input.id}
+                onChange={handleChange}
+                name={input.id}
+                required={input.required}
+                variant={formFieldsStyle}
+                multiline
+                maxRows={input.rows}
+                minRows={input.rows}
+                label={input.label}
+                helperText={input.helperText}
+                placeholder={input.placeholderText}
+              />
+            );
           case 'textInput':
-            return <div>textInput</div>;
+            return (
+              <TextField
+                id={input.id}
+                onChange={handleChange}
+                name={input.id}
+                required={input.required}
+                variant={formFieldsStyle}
+                type={input.inputType}
+                label={input.label}
+                helperText={input.helperText}
+                placeholder={input.placeholderText}
+              />
+            );
           default:
             return <div>Form Field not Created</div>;
         }
-
-        //   if (_type === 'input' && inputType === 'email') {
-        //     const { _key, label, name, placeholder, required } = input;
-        //     return (
-        //       <Form.Group controlId={name} key={_key}>
-        //         <StyledLabel>{label}</StyledLabel>
-        //         <Form.Control
-        //           type={inputType}
-        //           placeholder={placeholder}
-        //           required={required}
-        //           name={name}
-        //           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-        //           ref={React.createRef()}
-        //         />
-        //       </Form.Group>
-        //     );
-        //   }
-
-        //   if (_type === 'input') {
-        //     const { _key, label, name, placeholder, required } = input;
-        //     return (
-        //       <Form.Group controlId={name} key={_key}>
-        //         <StyledLabel>{label}</StyledLabel>
-        //         <Form.Control
-        //           type={inputType}
-        //           placeholder={placeholder}
-        //           required={required}
-        //           name={name}
-        //           ref={React.createRef()}
-        //         />
-        //       </Form.Group>
-        //     );
-        //   }
-
-        //   const { _key, label, name, placeholder, required, rows } = input;
-        //   return (
-        //     <Form.Group controlId={name} key={_key}>
-        //       <StyledLabel>{label}</StyledLabel>
-        //       <Form.Control
-        //         as="textarea"
-        //         rows={rows}
-        //         placeholder={placeholder}
-        //         required={required}
-        //         name={name}
-        //         ref={React.createRef()}
-        //       />
-        //     </Form.Group>
-        //   );
       })}
       {/* <BlockContent blocks={disclaimer} /> */}
       <Button type="submit">{submitBtn.text}</Button>

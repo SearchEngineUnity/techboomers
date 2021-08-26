@@ -22,6 +22,11 @@ export default {
       type: 'string',
     },
     {
+      name: 'placeholderText',
+      title: 'Placeholder Text',
+      type: 'string',
+    },
+    {
       name: 'inputType',
       title: 'Input Type',
       type: 'string',

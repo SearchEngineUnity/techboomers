@@ -22,6 +22,11 @@ export default {
       type: 'string',
     },
     {
+      name: 'placeholderText',
+      title: 'Placeholder Text',
+      type: 'string',
+    },
+    {
       name: 'rows',
       title: 'Number of rows of text',
       type: 'number',

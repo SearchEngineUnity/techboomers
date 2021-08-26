@@ -30,11 +30,17 @@ export default {
       type: 'submitBtn',
     },
     {
+      name: 'thankYou',
+      title: 'Thank You Message',
+      type: 'string',
+      validation: (Rule) => [Rule.required().error('Field is required')],
+    },
+    {
       name: 'formFieldStyle',
       title: 'Form Field Style',
       type: 'string',
       options: {
-        list: ['normal', 'filled', 'outlined'],
+        list: ['standard', 'filled', 'outlined'],
         layout: 'radio',
         direction: 'horizontal',
       },
