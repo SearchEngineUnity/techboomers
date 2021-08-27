@@ -87,21 +87,21 @@ function FormNetlify({ formFields, name, thankYou, submitBtn, formFieldsStyle })
         const { _type } = input;
 
         switch (_type) {
-          case 'checkbox':
-            return (
-              <FormControl component="fieldset">
-                <FormLabel component="legend">{input.label}</FormLabel>
-                <FormGroup>
-                  {input.options.map((option) => (
-                    <FormControlLabel
-                      control={<Checkbox name={option.value} />}
-                      label={option.label}
-                    />
-                  ))}
-                </FormGroup>
-                <FormHelperText>{input.helperText}</FormHelperText>
-              </FormControl>
-            );
+          // case 'checkbox':
+          //   return (
+          //     <FormControl component="fieldset">
+          //       <FormLabel component="legend">{input.label}</FormLabel>
+          //       <FormGroup>
+          //         {input.options.map((option) => (
+          //           <FormControlLabel
+          //             control={<Checkbox name={option.value} />}
+          //             label={option.label}
+          //           />
+          //         ))}
+          //       </FormGroup>
+          //       <FormHelperText>{input.helperText}</FormHelperText>
+          //     </FormControl>
+          //   );
           case 'radio':
             return (
               <FormControl component="fieldset">
