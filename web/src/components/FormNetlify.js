@@ -30,6 +30,10 @@ function FormNetlify({ formFields, name, thankYou, submitBtn, formFieldsStyle })
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
+  const handleCheckboxChange = (e) => {
+    setState({ ...state, [e.target.name]: e.target.checked });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -87,21 +91,32 @@ function FormNetlify({ formFields, name, thankYou, submitBtn, formFieldsStyle })
         const { _type } = input;
 
         switch (_type) {
-          // case 'checkbox':
-          //   return (
-          //     <FormControl component="fieldset">
-          //       <FormLabel component="legend">{input.label}</FormLabel>
-          //       <FormGroup>
-          //         {input.options.map((option) => (
-          //           <FormControlLabel
-          //             control={<Checkbox name={option.value} />}
-          //             label={option.label}
-          //           />
-          //         ))}
-          //       </FormGroup>
-          //       <FormHelperText>{input.helperText}</FormHelperText>
-          //     </FormControl>
-          //   );
+          case 'checkbox':
+            return (
+              <FormControl component="fieldset">
+                <FormLabel component="legend">{input.label}</FormLabel>
+                <FormGroup>
+                  {input.options.map((option) => {
+                    const key = option.value;
+                    const isChecked = state[key];
+
+                    return (
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            name={option.value}
+                            checked={isChecked}
+                            onChange={handleCheckboxChange}
+                          />
+                        }
+                        label={option.label}
+                      />
+                    );
+                  })}
+                </FormGroup>
+                <FormHelperText>{input.helperText}</FormHelperText>
+              </FormControl>
+            );
           case 'radio':
             return (
               <FormControl component="fieldset">
