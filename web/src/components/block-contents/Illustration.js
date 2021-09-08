@@ -24,7 +24,7 @@ function Illustration({ illustration, table }) {
   const fluidProps = getGatsbyImageData(imageFluid, {}, sanityConfig);
 
   return (
-    <Box component="figure" justifyContent="center" mt={table ? 0 : '16px'}>
+    <Box component="figure" justifyContent="center" my={table ? 0 : '16px'} mx={table ? 0 : '40px'}>
       <StyledGI
         image={fluidProps}
         alt={illustration.alt}
