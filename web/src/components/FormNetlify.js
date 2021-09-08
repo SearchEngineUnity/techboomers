@@ -1,3 +1,4 @@
+// GATSBY CLEAN WHEN MAKING FORM CHANGES THAT DON"T SEEM TO UPDATE!
 import React, { useState } from 'react';
 import {
   Button,
@@ -50,6 +51,7 @@ function FormNetlify({
   };
 
   const handleSubmit = (e) => {
+    console.log(state, success, isValid);
     e.preventDefault();
     const form = e.target;
     const inputs = form.elements;
@@ -62,6 +64,7 @@ function FormNetlify({
         }
       }
     }
+    console.log(`Post For loop${isValid}`);
 
     if (isValid) {
       fetch('/', {
@@ -86,8 +89,8 @@ function FormNetlify({
 
   return (
     <Box
-      bgcolor={backgroundColor}
-      color={foregroundColor}
+      // bgcolor={backgroundColor}
+      // color={foregroundColor}
       border={border}
       borderRadius={borderRadius}
       borderColor={borderColor}
@@ -158,7 +161,7 @@ function FormNetlify({
                     <RadioGroup
                       id={input.id}
                       aria-label={input.label}
-                      name={input.name}
+                      name={input.id}
                       onChange={handleChange}
                     >
                       {input.options.map((option) => (
@@ -178,7 +181,12 @@ function FormNetlify({
                 <div>
                   <FormControl>
                     <InputLabel id={`${input.id}-label`}>{input.label}</InputLabel>
-                    <Select labelId={`${input.id}-label`} id={input.id} onChange={handleChange}>
+                    <Select
+                      labelId={`${input.id}-label`}
+                      id={input.id}
+                      name={input.id}
+                      onChange={handleChange}
+                    >
                       {input.options.map((option) => (
                         <MenuItem value={option.value}>{option.label}</MenuItem>
                       ))}
