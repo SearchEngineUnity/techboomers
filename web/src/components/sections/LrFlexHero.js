@@ -128,6 +128,7 @@ function LrFlexHero({
   const footerColor = determinColor(colorSettings?.footer?.color) || 'inherit';
 
   const classes = useStyles({ linkColor });
+  console.log(foregroundColor);
 
   return (
     <Box
