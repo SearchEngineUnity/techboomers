@@ -4,13 +4,9 @@ import FormNetlify from './FormNetlify';
 
 function BlockFormNetlify({ title, align, form }) {
   return (
-    <>
-      <Box textAlign={align} fontSize="body1.fontSize">
-        <p>{title}</p>
-      </Box>
-
-      <FormNetlify {...form} />
-    </>
+    <Box p={6}>
+      <FormNetlify title={title} align={align} {...form} />
+    </Box>
   );
 }
 export default BlockFormNetlify;

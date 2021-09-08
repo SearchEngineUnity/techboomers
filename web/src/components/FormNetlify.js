@@ -13,7 +13,9 @@ import {
   FormControlLabel,
   FormHelperText,
   Checkbox,
+  Box,
 } from '@material-ui/core';
+import { determinColor } from '../lib/helperFunctions';
 
 function encode(data) {
   return Object.keys(data)
@@ -21,7 +23,20 @@ function encode(data) {
     .join('&');
 }
 
-function FormNetlify({ formFields, name, thankYou, submitBtn, formFieldsStyle }) {
+function FormNetlify({
+  align,
+  title,
+  formFields,
+  name,
+  thankYou,
+  submitBtn,
+  formFieldsStyle,
+  colorSettings,
+  border,
+  borderRadius,
+  borderColor,
+  boxShadow,
+}) {
   const [state, setState] = useState({});
   const [success, setSuccess] = useState(false);
   const [isValid, setIsValid] = useState(false);
@@ -66,127 +81,154 @@ function FormNetlify({ formFields, name, thankYou, submitBtn, formFieldsStyle })
     }
   };
 
+  const backgroundColor = determinColor(colorSettings?.background?.color) || 'primary.main';
+  const foregroundColor = determinColor(colorSettings?.foreground?.color) || 'primary.contrastText';
+
   return (
-    <form
-      name={name}
-      method="POST"
-      data-netlify="true"
-      netlify-honeypot="bot-field"
-      noValidate
-      onSubmit={handleSubmit}
-      id={name}
-      autoComplete="off"
+    <Box
+      bgcolor={backgroundColor}
+      color={foregroundColor}
+      border={border}
+      borderRadius={borderRadius}
+      borderColor={borderColor}
+      boxShadow={5}
+      p={6}
     >
-      <p className="hidden" style={{ display: 'none' }}>
-        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-        <label>
-          Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
-        </label>
-      </p>
+      <Box textAlign={align} fontSize="body1.fontSize">
+        <p>{title}</p>
+      </Box>
 
-      {success && <p>{thankYou}</p>}
+      <form
+        name={name}
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        noValidate
+        onSubmit={handleSubmit}
+        id={name}
+        autoComplete="off"
+      >
+        <p className="hidden" style={{ display: 'none' }}>
+          {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+          <label>
+            Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
+          </label>
+        </p>
 
-      <input type="hidden" name="form-name" value={name} />
-      {formFields.map((input) => {
-        const { _type } = input;
+        {success && <p>{thankYou}</p>}
 
-        switch (_type) {
-          case 'checkbox':
-            return (
-              <FormControl component="fieldset">
-                <FormLabel component="legend">{input.label}</FormLabel>
-                <FormGroup>
-                  {input.options.map((option) => {
-                    const key = option.value;
-                    const isChecked = state[key];
+        <input type="hidden" name="form-name" value={name} />
+        {formFields.map((input) => {
+          const { _type } = input;
 
-                    return (
-                      <FormControlLabel
-                        control={
-                          <Checkbox
-                            name={option.value}
-                            checked={isChecked}
-                            onChange={handleCheckboxChange}
+          switch (_type) {
+            case 'checkbox':
+              return (
+                <div>
+                  <FormControl component="fieldset">
+                    <FormLabel component="legend">{input.label}</FormLabel>
+                    <FormGroup>
+                      {input.options.map((option) => {
+                        const key = option.value;
+                        const isChecked = state[key];
+
+                        return (
+                          <FormControlLabel
+                            control={
+                              <Checkbox
+                                name={option.value}
+                                checked={isChecked}
+                                onChange={handleCheckboxChange}
+                              />
+                            }
+                            label={option.label}
                           />
-                        }
-                        label={option.label}
-                      />
-                    );
-                  })}
-                </FormGroup>
-                <FormHelperText>{input.helperText}</FormHelperText>
-              </FormControl>
-            );
-          case 'radio':
-            return (
-              <FormControl component="fieldset">
-                <FormLabel component="legend">{input.label}</FormLabel>
-                <RadioGroup
-                  id={input.id}
-                  aria-label={input.label}
-                  name={input.name}
-                  onChange={handleChange}
-                >
-                  {input.options.map((option) => (
-                    <FormControlLabel
-                      value={option.value}
-                      control={<Radio />}
-                      label={option.label}
-                    />
-                  ))}
-                </RadioGroup>
-                <FormHelperText>{input.helperText}</FormHelperText>
-              </FormControl>
-            );
-          case 'select':
-            return (
-              <FormControl>
-                <InputLabel id={`${input.id}-label`}>{input.label}</InputLabel>
-                <Select labelId={`${input.id}-label`} id={input.id} onChange={handleChange}>
-                  {input.options.map((option) => (
-                    <MenuItem value={option.value}>{option.label}</MenuItem>
-                  ))}
-                </Select>
-                <FormHelperText>{input.helperText}</FormHelperText>
-              </FormControl>
-            );
-          case 'textarea':
-            return (
-              <TextField
-                id={input.id}
-                onChange={handleChange}
-                name={input.id}
-                required={input.required}
-                variant={formFieldsStyle}
-                multiline
-                maxRows={input.rows}
-                minRows={input.rows}
-                label={input.label}
-                helperText={input.helperText}
-                placeholder={input.placeholderText}
-              />
-            );
-          case 'textInput':
-            return (
-              <TextField
-                id={input.id}
-                onChange={handleChange}
-                name={input.id}
-                required={input.required}
-                variant={formFieldsStyle}
-                type={input.inputType}
-                label={input.label}
-                helperText={input.helperText}
-                placeholder={input.placeholderText}
-              />
-            );
-          default:
-            return <div>Form Field not Created</div>;
-        }
-      })}
-      {/* <BlockContent blocks={disclaimer} /> */}
-      <Button type="submit">{submitBtn.text}</Button>
-    </form>
+                        );
+                      })}
+                    </FormGroup>
+                    <FormHelperText>{input.helperText}</FormHelperText>
+                  </FormControl>
+                </div>
+              );
+            case 'radio':
+              return (
+                <div>
+                  <FormControl component="fieldset">
+                    <FormLabel component="legend">{input.label}</FormLabel>
+                    <RadioGroup
+                      id={input.id}
+                      aria-label={input.label}
+                      name={input.name}
+                      onChange={handleChange}
+                    >
+                      {input.options.map((option) => (
+                        <FormControlLabel
+                          value={option.value}
+                          control={<Radio />}
+                          label={option.label}
+                        />
+                      ))}
+                    </RadioGroup>
+                    <FormHelperText>{input.helperText}</FormHelperText>
+                  </FormControl>
+                </div>
+              );
+            case 'select':
+              return (
+                <div>
+                  <FormControl>
+                    <InputLabel id={`${input.id}-label`}>{input.label}</InputLabel>
+                    <Select labelId={`${input.id}-label`} id={input.id} onChange={handleChange}>
+                      {input.options.map((option) => (
+                        <MenuItem value={option.value}>{option.label}</MenuItem>
+                      ))}
+                    </Select>
+                    <FormHelperText>{input.helperText}</FormHelperText>
+                  </FormControl>
+                </div>
+              );
+            case 'textarea':
+              return (
+                <div>
+                  <TextField
+                    id={input.id}
+                    onChange={handleChange}
+                    name={input.id}
+                    required={input.required}
+                    variant={formFieldsStyle}
+                    multiline
+                    maxRows={input.rows}
+                    minRows={input.rows}
+                    label={input.label}
+                    helperText={input.helperText}
+                    placeholder={input.placeholderText}
+                  />
+                </div>
+              );
+            case 'textInput':
+              return (
+                <div>
+                  <TextField
+                    id={input.id}
+                    onChange={handleChange}
+                    name={input.id}
+                    required={input.required}
+                    variant={formFieldsStyle}
+                    type={input.inputType}
+                    label={input.label}
+                    helperText={input.helperText}
+                    placeholder={input.placeholderText}
+                  />
+                </div>
+              );
+            default:
+              return <div>Form Field not Created</div>;
+          }
+        })}
+        {/* <BlockContent blocks={disclaimer} /> */}
+        <Button type="submit">{submitBtn.text}</Button>
+      </form>
+    </Box>
   );
 }
 
