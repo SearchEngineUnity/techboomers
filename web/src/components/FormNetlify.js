@@ -41,7 +41,7 @@ function FormNetlify({
   console.log(formFields);
   const [state, setState] = useState({});
   const [success, setSuccess] = useState(false);
-  const [validated, setValidated] = useState(false);
+  // const [validated, setValidated] = useState(false);
   let isValid = true;
 
   const handleChange = (e) => {
@@ -59,7 +59,8 @@ function FormNetlify({
     for (let index = 0; index < inputs.length - 1; index++) {
       const element = inputs[index];
       console.log(element);
-      console.log(element.validity);
+      console.log(element.name);
+      console.log(element.validity.valid);
       if (element.name !== 'bot-field' && element.name !== 'form-name') {
         if (element.validity.valid === false) {
           isValid = false;
@@ -82,7 +83,7 @@ function FormNetlify({
       })
         .then(() => {
           console.log('fetch sucessful');
-          setValidated(false);
+          // setValidated(false);
           form.reset();
           setSuccess(true);
         })
@@ -100,7 +101,7 @@ function FormNetlify({
       event.stopPropagation();
     }
 
-    setValidated(true);
+    // setValidated(true);
     isValid = true;
     setSuccess(false);
     sendForm(myForm);
@@ -127,10 +128,9 @@ function FormNetlify({
         name={name}
         method="POST"
         data-netlify="true"
-        netlify
         netlify-honeypot="bot-field"
         noValidate
-        validated={validated}
+        // validated={validated}
         onSubmit={handleSubmit}
         id={name}
         autoComplete="off"
@@ -146,13 +146,13 @@ function FormNetlify({
 
         <input type="hidden" name="form-name" value={name} />
         {formFields.map((input) => {
-          const { _type } = input;
+          const { _type, _key } = input;
 
           switch (_type) {
             case 'checkbox':
               return (
-                <div>
-                  <FormControl component="fieldset" ref={React.createRef()}>
+                <div key={_key}>
+                  <FormControl component="fieldset">
                     <FormLabel component="legend">{input.label}</FormLabel>
                     <FormGroup>
                       {input.options.map((option) => {
@@ -179,8 +179,8 @@ function FormNetlify({
               );
             case 'radio':
               return (
-                <div>
-                  <FormControl component="fieldset" ref={React.createRef()}>
+                <div key={_key}>
+                  <FormControl component="fieldset">
                     <FormLabel component="legend">{input.label}</FormLabel>
                     <RadioGroup
                       id={input.id}
@@ -191,7 +191,7 @@ function FormNetlify({
                       {input.options.map((option) => (
                         <FormControlLabel
                           value={option.value}
-                          control={<Radio />}
+                          control={<Radio name={option.value} />}
                           label={option.label}
                         />
                       ))}
@@ -202,12 +202,13 @@ function FormNetlify({
               );
             case 'select':
               return (
-                <div>
-                  <FormControl ref={React.createRef()}>
+                <div key={_key}>
+                  <FormControl>
                     <InputLabel id={`${input.id}-label`}>{input.label}</InputLabel>
                     <Select
                       labelId={`${input.id}-label`}
                       id={input.id}
+                      value={state[input.id] || ''}
                       name={input.id}
                       onChange={handleChange}
                     >
@@ -221,7 +222,7 @@ function FormNetlify({
               );
             case 'textarea':
               return (
-                <div>
+                <div key={_key}>
                   <TextField
                     id={input.id}
                     onChange={handleChange}
@@ -229,18 +230,16 @@ function FormNetlify({
                     required={input.required}
                     variant={formFieldsStyle}
                     multiline
-                    maxRows={input.rows}
-                    minRows={input.rows}
+                    rows={input.rows}
                     label={input.label}
                     helperText={input.helperText}
                     placeholder={input.placeholderText}
-                    ref={React.createRef()}
                   />
                 </div>
               );
             case 'textInput':
               return (
-                <div>
+                <div key={_key}>
                   <TextField
                     id={input.id}
                     onChange={handleChange}
@@ -251,12 +250,11 @@ function FormNetlify({
                     label={input.label}
                     helperText={input.helperText}
                     placeholder={input.placeholderText}
-                    ref={React.createRef()}
                   />
                 </div>
               );
             default:
-              return <div>Form Field not Created</div>;
+              return <div key="from-default">Form Field not Created</div>;
           }
         })}
         {/* <BlockContent blocks={disclaimer} /> */}
