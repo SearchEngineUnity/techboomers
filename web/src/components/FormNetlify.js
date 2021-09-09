@@ -38,6 +38,7 @@ function FormNetlify({
   borderColor,
   boxShadow,
 }) {
+  console.log(formFields);
   const [state, setState] = useState({});
   const [success, setSuccess] = useState(false);
   const [validated, setValidated] = useState(false);
@@ -57,6 +58,8 @@ function FormNetlify({
     // eslint-disable-next-line no-plusplus
     for (let index = 0; index < inputs.length - 1; index++) {
       const element = inputs[index];
+      console.log(element);
+      console.log(element.validity);
       if (element.name !== 'bot-field' && element.name !== 'form-name') {
         if (element.validity.valid === false) {
           isValid = false;
@@ -74,7 +77,6 @@ function FormNetlify({
         body: encode({
           'form-name': form.getAttribute('name'),
           'bot-field': form.getAttribute('bot-field'),
-          'test-message': 'this is a message for holly.',
           ...state,
         }),
       })
@@ -125,6 +127,7 @@ function FormNetlify({
         name={name}
         method="POST"
         data-netlify="true"
+        netlify
         netlify-honeypot="bot-field"
         noValidate
         validated={validated}
