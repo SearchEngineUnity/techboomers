@@ -64,6 +64,7 @@ function FormNetlify({
       }
     }
     console.log(`Post For loop ${isValid}`);
+    console.log(state);
 
     if (isValid) {
       console.log('attempting to fetch');
@@ -73,6 +74,7 @@ function FormNetlify({
         body: encode({
           'form-name': form.getAttribute('name'),
           'bot-field': form.getAttribute('bot-field'),
+          'test-message': 'this is a message for holly.',
           ...state,
         }),
       })
@@ -125,6 +127,7 @@ function FormNetlify({
         data-netlify="true"
         netlify-honeypot="bot-field"
         noValidate
+        validated={validated}
         onSubmit={handleSubmit}
         id={name}
         autoComplete="off"
@@ -146,7 +149,7 @@ function FormNetlify({
             case 'checkbox':
               return (
                 <div>
-                  <FormControl component="fieldset">
+                  <FormControl component="fieldset" ref={React.createRef()}>
                     <FormLabel component="legend">{input.label}</FormLabel>
                     <FormGroup>
                       {input.options.map((option) => {
@@ -174,7 +177,7 @@ function FormNetlify({
             case 'radio':
               return (
                 <div>
-                  <FormControl component="fieldset">
+                  <FormControl component="fieldset" ref={React.createRef()}>
                     <FormLabel component="legend">{input.label}</FormLabel>
                     <RadioGroup
                       id={input.id}
@@ -197,7 +200,7 @@ function FormNetlify({
             case 'select':
               return (
                 <div>
-                  <FormControl>
+                  <FormControl ref={React.createRef()}>
                     <InputLabel id={`${input.id}-label`}>{input.label}</InputLabel>
                     <Select
                       labelId={`${input.id}-label`}
@@ -228,6 +231,7 @@ function FormNetlify({
                     label={input.label}
                     helperText={input.helperText}
                     placeholder={input.placeholderText}
+                    ref={React.createRef()}
                   />
                 </div>
               );
@@ -244,6 +248,7 @@ function FormNetlify({
                     label={input.label}
                     helperText={input.helperText}
                     placeholder={input.placeholderText}
+                    ref={React.createRef()}
                   />
                 </div>
               );
