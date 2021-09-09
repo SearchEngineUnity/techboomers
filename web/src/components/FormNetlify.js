@@ -40,7 +40,8 @@ function FormNetlify({
 }) {
   const [state, setState] = useState({});
   const [success, setSuccess] = useState(false);
-  const [isValid, setIsValid] = useState(false);
+  const [validated, setValidated] = useState(false);
+  let isValid = true;
 
   const handleChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.value });
@@ -50,38 +51,55 @@ function FormNetlify({
     setState({ ...state, [e.target.name]: e.target.checked });
   };
 
-  const handleSubmit = (e) => {
-    console.log(state, success, isValid);
-    e.preventDefault();
-    const form = e.target;
+  const sendForm = (form) => {
     const inputs = form.elements;
+
     // eslint-disable-next-line no-plusplus
     for (let index = 0; index < inputs.length - 1; index++) {
       const element = inputs[index];
       if (element.name !== 'bot-field' && element.name !== 'form-name') {
         if (element.validity.valid === false) {
-          setIsValid(false);
+          isValid = false;
         }
       }
     }
-    console.log(`Post For loop${isValid}`);
+    console.log(`Post For loop ${isValid}`);
 
     if (isValid) {
+      console.log('attempting to fetch');
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({
           'form-name': form.getAttribute('name'),
+          'bot-field': form.getAttribute('bot-field'),
           ...state,
         }),
       })
         .then(() => {
-          setIsValid(false);
+          console.log('fetch sucessful');
+          setValidated(false);
           form.reset();
           setSuccess(true);
         })
+        // should set up also error message as well should the form fail to send.
         .catch((error) => alert(error));
     }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const myForm = event.currentTarget;
+
+    if (myForm.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    setValidated(true);
+    isValid = true;
+    setSuccess(false);
+    sendForm(myForm);
   };
 
   const backgroundColor = determinColor(colorSettings?.background?.color) || 'primary.main';
