@@ -79,6 +79,9 @@ function FormNetlify({
         body: encode({
           'form-name': form.getAttribute('name'),
           'bot-field': form.getAttribute('bot-field'),
+          name: 'sharon',
+          email: 'sharon@gmail.com',
+          message: 'this is a text message in hard code',
           ...state,
         }),
       })
