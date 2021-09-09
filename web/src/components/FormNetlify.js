@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 // GATSBY CLEAN WHEN MAKING FORM CHANGES THAT DON"T SEEM TO UPDATE!
 import React, { useState } from 'react';
 import {
@@ -19,11 +18,11 @@ import {
 } from '@material-ui/core';
 import { determinColor } from '../lib/helperFunctions';
 
-function encode(data) {
-  return Object.keys(data)
-    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-    .join('&');
-}
+// function encode(data) {
+//   return Object.keys(data)
+//     .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+//     .join('&');
+// }
 
 function FormNetlify({
   align,
@@ -55,6 +54,7 @@ function FormNetlify({
 
   const sendForm = (form) => {
     const inputs = form.elements;
+    const formData = new FormData(form);
 
     // eslint-disable-next-line no-plusplus
     for (let index = 0; index < inputs.length - 1; index++) {
@@ -70,20 +70,21 @@ function FormNetlify({
     }
     console.log(`Post For loop ${isValid}`);
     console.log(state);
+    console.log(form);
+    console.log(formData);
+    console.log(new URLSearchParams(formData).toString());
 
     if (isValid) {
       console.log('attempting to fetch');
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({
-          'form-name': form.getAttribute('name'),
-          'bot-field': form.getAttribute('bot-field'),
-          name: 'sharon',
-          email: 'sharon@gmail.com',
-          message: 'this is a text message in hard code',
-          ...state,
-        }),
+        // body: encode({
+        //   'form-name': form.getAttribute('name'),
+        //   'bot-field': form.getAttribute('bot-field'),
+        //   ...state,
+        // }),
+        body: new URLSearchParams(formData).toString(),
       })
         .then(() => {
           console.log('fetch sucessful');
@@ -100,10 +101,10 @@ function FormNetlify({
     event.preventDefault();
     const myForm = event.currentTarget;
 
-    // if (myForm.checkValidity() === false) {
-    //   event.preventDefault();
-    //   event.stopPropagation();
-    // }
+    if (myForm.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
 
     // setValidated(true);
     isValid = true;
@@ -149,7 +150,7 @@ function FormNetlify({
         {success && <p>{thankYou}</p>}
 
         <input type="hidden" name="form-name" value={name} />
-        {/* {formFields.map((input) => {
+        {formFields.map((input) => {
           const { _type, _key } = input;
 
           switch (_type) {
@@ -161,15 +162,17 @@ function FormNetlify({
                     <FormGroup>
                       {input.options.map((option) => {
                         const key = option.value;
-                        const isChecked = state[key];
+                        const isChecked = !!state[key];
 
                         return (
                           <FormControlLabel
+                            key={option._key}
                             control={
                               <Checkbox
                                 name={option.value}
                                 checked={isChecked}
                                 onChange={handleCheckboxChange}
+                                value={isChecked.toString()}
                               />
                             }
                             label={option.label}
@@ -191,11 +194,13 @@ function FormNetlify({
                       aria-label={input.label}
                       name={input.id}
                       onChange={handleChange}
+                      value={state[input.id] || input.options[0].value}
                     >
                       {input.options.map((option) => (
                         <FormControlLabel
+                          key={option._key}
                           value={option.value}
-                          control={<Radio name={option.value} />}
+                          control={<Radio />}
                           label={option.label}
                         />
                       ))}
@@ -208,16 +213,19 @@ function FormNetlify({
               return (
                 <div key={_key}>
                   <FormControl>
-                    <InputLabel id={`${input.id}-label`}>{input.label}</InputLabel>
+                    <InputLabel htmlFor={input.id}>{input.label}</InputLabel>
                     <Select
-                      labelId={`${input.id}-label`}
+                      native
                       id={input.id}
                       value={state[input.id] || ''}
-                      name={input.id}
+                      inputProps={{ name: input.id, id: input.id }}
                       onChange={handleChange}
                     >
+                      <option aria-label="None" value="" />
                       {input.options.map((option) => (
-                        <MenuItem value={option.value}>{option.label}</MenuItem>
+                        <option value={option.value} key={option.key}>
+                          {option.label}
+                        </option>
                       ))}
                     </Select>
                     <FormHelperText>{input.helperText}</FormHelperText>
@@ -258,24 +266,9 @@ function FormNetlify({
                 </div>
               );
             default:
-              return <div key="from-default">Form Field not Created</div>;
+              return <div key="form-default">Form Field not Created</div>;
           }
-        })} */}
-        <p>
-          <label>
-            Your Name: <input type="text" name="name" />
-          </label>
-        </p>
-        <p>
-          <label>
-            Your Email: <input type="email" name="email" />
-          </label>
-        </p>
-        <p>
-          <label>
-            Message: <textarea name="message" />
-          </label>
-        </p>
+        })}
         {/* <BlockContent blocks={disclaimer} /> */}
         <Button type="submit">{submitBtn.text}</Button>
       </form>
