@@ -79,6 +79,9 @@ function FormNetlify({
         body: encode({
           'form-name': form.getAttribute('name'),
           'bot-field': form.getAttribute('bot-field'),
+          name: 'sharon',
+          email: 'sharon@gmail.com',
+          message: 'this is a text message in hard code',
           ...state,
         }),
       })
@@ -97,10 +100,10 @@ function FormNetlify({
     event.preventDefault();
     const myForm = event.currentTarget;
 
-    if (myForm.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
+    // if (myForm.checkValidity() === false) {
+    //   event.preventDefault();
+    //   event.stopPropagation();
+    // }
 
     // setValidated(true);
     isValid = true;
