@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 // GATSBY CLEAN WHEN MAKING FORM CHANGES THAT DON"T SEEM TO UPDATE!
 import React, { useState } from 'react';
 import {
@@ -145,7 +146,7 @@ function FormNetlify({
         {success && <p>{thankYou}</p>}
 
         <input type="hidden" name="form-name" value={name} />
-        {formFields.map((input) => {
+        {/* {formFields.map((input) => {
           const { _type, _key } = input;
 
           switch (_type) {
@@ -256,7 +257,22 @@ function FormNetlify({
             default:
               return <div key="from-default">Form Field not Created</div>;
           }
-        })}
+        })} */}
+        <p>
+          <label>
+            Your Name: <input type="text" name="name" />
+          </label>
+        </p>
+        <p>
+          <label>
+            Your Email: <input type="email" name="email" />
+          </label>
+        </p>
+        <p>
+          <label>
+            Message: <textarea name="message" />
+          </label>
+        </p>
         {/* <BlockContent blocks={disclaimer} /> */}
         <Button type="submit">{submitBtn.text}</Button>
       </form>
