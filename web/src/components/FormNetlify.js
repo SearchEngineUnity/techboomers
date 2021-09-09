@@ -100,10 +100,10 @@ function FormNetlify({
     event.preventDefault();
     const myForm = event.currentTarget;
 
-    if (myForm.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
+    // if (myForm.checkValidity() === false) {
+    //   event.preventDefault();
+    //   event.stopPropagation();
+    // }
 
     // setValidated(true);
     isValid = true;
