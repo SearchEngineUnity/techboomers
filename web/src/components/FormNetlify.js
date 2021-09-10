@@ -18,11 +18,11 @@ import {
 } from '@material-ui/core';
 import { determinColor } from '../lib/helperFunctions';
 
-// function encode(data) {
-//   return Object.keys(data)
-//     .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-//     .join('&');
-// }
+function encode(data) {
+  return Object.keys(data)
+    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join('&');
+}
 
 function FormNetlify({
   align,
@@ -73,18 +73,24 @@ function FormNetlify({
     console.log(form);
     console.log(formData);
     console.log(new URLSearchParams(formData).toString());
+    console.log(
+      encode({
+        'form-name': form.getAttribute('name'),
+        ...state,
+      }),
+    );
 
     if (isValid) {
       console.log('attempting to fetch');
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        // body: encode({
-        //   'form-name': form.getAttribute('name'),
-        //   'bot-field': form.getAttribute('bot-field'),
-        //   ...state,
-        // }),
-        body: new URLSearchParams(formData).toString(),
+        body: encode({
+          'form-name': form.getAttribute('name'),
+          // 'bot-field': form.getAttribute('bot-field'), This line is in correct
+          ...state,
+        }),
+        // body: new URLSearchParams(formData).toString(),
       })
         .then(() => {
           console.log('fetch sucessful');
@@ -143,7 +149,8 @@ function FormNetlify({
         <p className="hidden" style={{ display: 'none' }}>
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label>
-            Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
+            Don&apos;t fill this out if you&apos;re human:
+            <input name="bot-field" onChange={handleChange} />
           </label>
         </p>
 
@@ -194,7 +201,7 @@ function FormNetlify({
                       aria-label={input.label}
                       name={input.id}
                       onChange={handleChange}
-                      value={state[input.id] || input.options[0].value}
+                      value={state[input.id] || ''}
                     >
                       {input.options.map((option) => (
                         <FormControlLabel
