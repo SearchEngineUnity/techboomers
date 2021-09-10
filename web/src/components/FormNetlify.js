@@ -87,7 +87,7 @@ function FormNetlify({
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({
           'form-name': form.getAttribute('name'),
-          // 'bot-field': form.getAttribute('bot-field'), This line is in correct
+          'bot-field': form.elements['bot-field'].value,
           ...state,
         }),
         // body: new URLSearchParams(formData).toString(),
