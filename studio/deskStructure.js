@@ -146,7 +146,6 @@ export default () =>
               S.documentTypeListItem('btnDesignMui').title('Button Design Options - MUI'),
             ]),
         ),
-
       S.listItem()
         .title('Company Info')
         .icon(HiOutlineOfficeBuilding)
@@ -180,6 +179,17 @@ export default () =>
         ),
       S.divider(),
       S.documentTypeListItem('colorOption').title('Color Options'),
+      S.listItem()
+        .title('Page Layouts')
+        .child(
+          S.list()
+            .title('Page Layouts')
+            .items([
+              S.listItem()
+                .title('SPG Layout')
+                .child(S.document().schemaType('layoutSpg').documentId('layoutSpg')),
+            ]),
+        ),
       S.documentTypeListItem('formNetlify').title('Form Netlify'),
       S.documentTypeListItem('testImage').title('Test Images'),
     ]);

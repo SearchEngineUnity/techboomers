@@ -4,6 +4,7 @@ export { default as comapnyLogo } from './comapnyLogo';
 export { default as companyInfo } from './companyInfo';
 export { default as formNetlify } from './formNetlify';
 export { default as generalSettings } from './generalSettings';
+export { default as layoutSpg } from './layoutSpg';
 export { default as listingPage } from './listingPage';
 export { default as navMenu } from './navMenu';
 export { default as page } from './page';
