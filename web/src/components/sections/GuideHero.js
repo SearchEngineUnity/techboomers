@@ -4,16 +4,24 @@ import ImgBlock from '../FluidImgBlock';
 import Subtitle from '../block-contents/HeroSubtitleSerializer';
 import ProgressBar from '../ScrollProgressBar';
 import { mapFluidImgBlockToProps } from '../../lib/mapToProps';
+import { useSpGuideHero } from '../../hooks/useSpGuideHero';
 
 function GuideHero({ h1, subtitle, date, image }) {
   const lastUpdatedDate = date ? new Date(date.replace(/-/g, '/')) : null;
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const heroAlignment = useSpGuideHero();
 
   return (
     <>
       <Box bgcolor="primary.main" color="primary.contrastText" id="hero" component="section" py={8}>
         <Container maxWidth="lg">
-          <Grid container direction="row" justify="center" alignItems="center" spacing={8}>
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems={heroAlignment.heroLrAlignment}
+            spacing={8}
+          >
             <Grid item md={6} xs={12}>
               <Typography variant="h1" gutterBottom>
                 {h1}
@@ -27,7 +35,9 @@ function GuideHero({ h1, subtitle, date, image }) {
               )}
             </Grid>
             <Grid item md={6} xs={12}>
-              <ImgBlock {...mapFluidImgBlockToProps(image)} loading="eager" height={400} />
+              <div justify={heroAlignment.heroImgAlignment}>
+                <ImgBlock {...mapFluidImgBlockToProps(image)} loading="eager" height={400} />
+              </div>
             </Grid>
           </Grid>
         </Container>
