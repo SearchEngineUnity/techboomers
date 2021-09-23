@@ -1,6 +1,6 @@
 export default {
-  title: 'Facebook Share',
-  name: 'openGraph',
+  title: 'Facebook Open Graph (Meta Tags)',
+  name: 'metaFacebook',
   type: 'object',
   fields: [
     {
@@ -19,7 +19,7 @@ export default {
     },
     {
       title: 'Image',
-      description: 'Facebook and Twitter recommends 1200x630',
+      description: 'Facebook recommends 1200x630',
       name: 'image',
       type: 'image',
       validation: (Rule) => [Rule.required().warning('Optimal image recommended')],
