@@ -74,15 +74,15 @@ export default {
       ],
     },
     {
-      name: 'facebook',
-      title: 'Facebook Share',
-      type: 'openGraph',
+      name: 'metaFacebook',
+      title: 'Facebook Open Graph (Meta Tags)',
+      type: 'metaFacebook',
       fieldset: 'social',
     },
     {
-      name: 'twitter',
-      title: 'Twitter Share',
-      type: 'twitterTag',
+      name: 'metaTwitter',
+      title: 'Twitter Open Graph (Meta Tags)',
+      type: 'metaTwitter',
       fieldset: 'social',
     },
     {
@@ -126,6 +126,7 @@ export default {
       title: 'Canonical URL',
       type: 'url',
       fieldset: 'indexing',
+      description: 'Use this field to replace self canonical URL.',
     },
   ],
   preview: {

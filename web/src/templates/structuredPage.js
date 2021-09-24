@@ -766,13 +766,18 @@ export const query = graphql`
       }
       title
       description
-      twitter {
+      metaTwitter {
+        image {
+          asset {
+            url
+          }
+        }
         description
         title
       }
       nofollow
       noindex
-      facebook {
+      metaFacebook {
         description
         image {
           asset {

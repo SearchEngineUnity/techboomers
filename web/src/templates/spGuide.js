@@ -23,7 +23,12 @@ export const query = graphql`
       }
       displayDate
       title
-      twitter {
+      metaTwitter {
+        image {
+          asset {
+            url
+          }
+        }
         description
         title
       }
@@ -32,7 +37,7 @@ export const query = graphql`
       canonical
       id
       h1
-      facebook {
+      metaFacebook {
         title
         description
         image {

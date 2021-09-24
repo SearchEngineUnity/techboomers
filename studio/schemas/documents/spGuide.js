@@ -8,15 +8,15 @@ export default {
   fieldsets: [
     {
       name: 'general',
-      title: 'General Fields',
+      title: 'SEO and General Fields',
       options: {
         collapsible: true,
         collapsed: true,
       },
     },
     {
-      name: 'meta',
-      title: 'SEO and Social',
+      name: 'social',
+      title: 'Social Sharing',
       options: {
         collapsible: true,
         collapsed: true,
@@ -78,7 +78,7 @@ export default {
       type: 'string',
       title: 'Page Title',
       description: 'Optimal length under 60 characters for Google SERP',
-      fieldset: 'meta',
+      fieldset: 'general',
       validation: (Rule) => [
         Rule.required().error('Field is required'),
         Rule.max(60).warning('Length over optimal'),
@@ -89,23 +89,23 @@ export default {
       title: 'Meta Description',
       type: 'text',
       description: 'Optimal length is under 160 characters for Google SERP',
-      fieldset: 'meta',
+      fieldset: 'general',
       validation: (Rule) => [
         Rule.required().error('Field is require.'),
         Rule.max(160).warning('Length over optimal'),
       ],
     },
     {
-      name: 'facebook',
-      title: 'Facebook Share',
-      type: 'openGraph',
-      fieldset: 'meta',
+      name: 'metaFacebook',
+      title: 'Facebook Open Graph (Meta Tags)',
+      type: 'metaFacebook',
+      fieldset: 'social',
     },
     {
-      name: 'twitter',
-      title: 'Twitter Share',
-      type: 'twitterTag',
-      fieldset: 'meta',
+      name: 'metaTwitter',
+      title: 'Twitter Open Graph (Meta Tags)',
+      type: 'metaTwitter',
+      fieldset: 'social',
     },
     {
       name: 'tileTitle',
@@ -191,6 +191,7 @@ export default {
       title: 'Canonical URL',
       type: 'url',
       fieldset: 'indexing',
+      description: 'Use this field to replace self canonical URL.',
     },
   ],
   preview: {
