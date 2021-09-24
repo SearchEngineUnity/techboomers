@@ -9,7 +9,7 @@ import InternalGlobal from '../link/LinkInternalGlobal';
 import InternalLocal from '../link/LinkInternalLocal';
 
 const NoIndentUl = styled.ul`
-  list-style-type: disk;
+  list-style-type: disc;
   margin-left: 1.4rem;
   padding-left: 0;
   margin-top: 0;
@@ -79,6 +79,8 @@ const serializers = {
     },
   },
   list: ({ children }) => {
+    console.log(children);
+    console.log(children[0].props.node.listItem);
     switch (children[0].props.node.listItem) {
       case 'bullet':
         return <NoIndentUl>{children}</NoIndentUl>;
