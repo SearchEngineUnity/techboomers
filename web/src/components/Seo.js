@@ -14,8 +14,8 @@ const Seo = ({
   type,
   title,
   description,
-  og,
-  twitter,
+  metaFacebook,
+  metaTwitter,
   siteUrl,
   slug,
   noindex,
@@ -44,12 +44,13 @@ const Seo = ({
       break;
   }
 
-  const ogTitle = og?.title || title;
-  const ogDescription = og?.description || description;
-  const ogImage = og?.image?.asset?.url || heroImage?.mainImage?.image?.asset?.url || '';
+  const ogTitle = metaFacebook?.title || title;
+  const ogDescription = metaFacebook?.description || description;
+  const ogImage = metaFacebook.image.asset.url;
 
-  const twitterTitle = twitter?.title || ogTitle || title;
-  const twitterDescription = twitter?.description || ogDescription || description;
+  const twitterTitle = metaTwitter?.title || ogTitle || title;
+  const twitterImage = metaTwitter.image.asset.url;
+  const twitterDescription = metaTwitter?.description || ogDescription || description;
 
   return (
     <Helmet>
@@ -61,10 +62,10 @@ const Seo = ({
       <meta property="og:title" content={ogTitle} />
       <meta property="og:description" content={ogDescription} />
       <meta property="og:image" content={ogImage} />
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={twitterTitle} />
       <meta name="twitter:description" content={twitterDescription} />
-      <meta name="twitter:image" content={ogImage} />
+      <meta name="twitter:image" content={twitterImage} />
       {(noindex || nofollow) && <meta name="robots" content={robots} />}
       {canonical ? (
         <link rel="canonical" href={canonical} />

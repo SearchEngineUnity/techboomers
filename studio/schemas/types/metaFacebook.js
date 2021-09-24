@@ -22,7 +22,7 @@ export default {
       description: 'Facebook recommends 1200x630',
       name: 'image',
       type: 'image',
-      validation: (Rule) => [Rule.required().warning('Optimal image recommended')],
+      validation: (Rule) => [Rule.required().error('Facebook image required')],
     },
   ],
   preview: {
