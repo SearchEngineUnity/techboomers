@@ -22,7 +22,7 @@ export default {
       description: 'Twitter recommends aspect ratio of 2:1 with a minimum dimension of 300x157px',
       name: 'image',
       type: 'image',
-      validation: (Rule) => [Rule.required().warning('Optimal image recommended')],
+      validation: (Rule) => [Rule.required().error('Twitter image required')],
     },
   ],
   preview: {

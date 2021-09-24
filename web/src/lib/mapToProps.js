@@ -1,5 +1,5 @@
 export function mapSeoToProps(
-  { title, description, facebook, twitter, slug, noindex, nofollow, canonical, heroImage },
+  { title, description, metaFacebook, metaTwitter, slug, noindex, nofollow, canonical, heroImage },
   siteUrl,
   type,
   mpUrl = '',
@@ -9,8 +9,8 @@ export function mapSeoToProps(
     type,
     title,
     description,
-    og: facebook,
-    twitter,
+    metaFacebook,
+    metaTwitter,
     siteUrl,
     slug: slug.current,
     noindex,
