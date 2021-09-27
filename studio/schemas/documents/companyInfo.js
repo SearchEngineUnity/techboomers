@@ -71,7 +71,16 @@ export default {
     },
     {
       name: 'homePage',
-      title: 'Home Page',
+      title: 'Company Home Page',
+      description: 'This is the link that will be used for all company logos.',
+      type: 'url',
+      validation: (Rule) => [Rule.required().error('Field is required')],
+    },
+    {
+      name: 'siteDomain',
+      title: 'Site Domain',
+      description:
+        'This is the domain where all pages will be published under. Used for canonical.',
       type: 'url',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
