@@ -777,6 +777,7 @@ export const query = graphql`
       }
       nofollow
       noindex
+      canonical
       metaFacebook {
         description
         image {
@@ -787,20 +788,15 @@ export const query = graphql`
         title
       }
     }
-    site {
-      siteMetadata {
-        siteUrl
-      }
-    }
   }
 `;
 
 const StructuredPage = ({ data, location }) => {
   const type = 'page';
-  console.log(data);
+
   return (
     <Layout location={location}>
-      <Seo {...mapSeoToProps(data.page, data.site.siteMetadata.siteUrl, type)} />
+      <Seo {...mapSeoToProps(data.page, type)} />
       <main>
         {data.page.sections.map((section) => {
           const { _type } = section;
