@@ -797,6 +797,7 @@ export const query = graphql`
           }
         }
       }
+      canonical
       slug {
         current
       }
@@ -823,11 +824,6 @@ export const query = graphql`
         title
       }
     }
-    site {
-      siteMetadata {
-        siteUrl
-      }
-    }
   }
 `;
 
@@ -850,11 +846,9 @@ const StructuredPage = ({ data, location, pageContext }) => {
 
   const listingItems = allListItems.slice((currentpage - 1) * limit, currentpage * limit);
 
-  console.log(currentpage);
-
   return (
     <Layout location={location}>
-      <Seo {...mapSeoToProps(data.page, data.site.siteMetadata.siteUrl, type)} />
+      <Seo {...mapSeoToProps(data.page, type)} />
       <main>
         {data.page.sections.map((section) => {
           const { _type } = section;

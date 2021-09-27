@@ -12,11 +12,6 @@ import { mapGuideHeroToProps, mapSeoToProps } from '../lib/mapToProps';
 
 export const query = graphql`
   query spGuideTemplate($slug: String) {
-    site {
-      siteMetadata {
-        siteUrl
-      }
-    }
     guide: sanitySpGuide(slug: { current: { eq: $slug } }) {
       slug {
         current
@@ -66,7 +61,7 @@ const SPGuide = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <Seo {...mapSeoToProps(data.guide, data.site.siteMetadata.siteUrl, type)} />
+      <Seo {...mapSeoToProps(data.guide, type)} />
       <GuideHero {...mapGuideHeroToProps(data.guide)} />
       <Box my={3}>
         <Container maxWidth="lg">

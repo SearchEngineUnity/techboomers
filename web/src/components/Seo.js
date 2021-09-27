@@ -16,28 +16,22 @@ const Seo = ({
   description,
   metaFacebook,
   metaTwitter,
-  siteUrl,
   slug,
   noindex,
   nofollow,
   canonical,
-  heroImage,
-  mpUrl,
 }) => {
-  const homePage = data?.sanityCompanyInfo?.homePage
-    ? data.sanityCompanyInfo.homePage.replace(/\/+$/, '')
-    : siteUrl;
-  let metaURL = '';
+  let metaURL = data.sanityCompanyInfo.siteDomain;
   let ogType = '';
   const robots = `${nofollow ? 'nofollow' : ''} ${noindex ? 'noindex' : ''}`;
 
   switch (type) {
     case 'page':
-      metaURL = slug === '/' ? homePage : `${homePage}/${slug}`;
+      metaURL = slug === '/' ? metaURL : `${metaURL}/${slug}`;
       ogType = 'website';
       break;
     case 'guide':
-      metaURL = `${homePage}/${slug}`;
+      metaURL = `${metaURL}/${slug}`;
       ogType = 'article';
       break;
     default:
@@ -52,6 +46,7 @@ const Seo = ({
   const twitterImage = metaTwitter.image.asset.url;
   const twitterDescription = metaTwitter?.description || ogDescription || description;
 
+  console.log(canonical);
   return (
     <Helmet>
       <title>{title}</title>
@@ -83,6 +78,7 @@ export default function MySeo(props) {
         {
           sanityCompanyInfo {
             homePage
+            siteDomain
           }
         }
       `}
