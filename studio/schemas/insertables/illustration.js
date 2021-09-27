@@ -19,7 +19,7 @@ export default {
       name: 'height',
       type: 'number',
       title: 'Image Max Height',
-      description: `You can enter a height % of vh. If the image's native height is smaller it will be used instead.`,
+      description: `You can enter a height % of the view port that you would like the image to take up. For example if you want the image to take up half the height only of the open window type 50%. If the image's native height is smaller it will be used instead.`,
       validation: (Rule) => Rule.integer(),
     },
     {
