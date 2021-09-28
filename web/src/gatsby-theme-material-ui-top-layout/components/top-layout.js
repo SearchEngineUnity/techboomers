@@ -54,44 +54,64 @@ const ThemeProvider = ({ children, data }) => {
       },
       hlBox: {
         definition: {
-          bgColor: palette?.definition?.bgColor || '#d6d8d9',
-          borderColor: palette?.definition?.borderColor || '#c6c8ca',
+          bgColor: determinColor(palette?.definition?.bgColor) || '#d6d8d9',
+          borderColor: determinColor(palette?.definition?.borderColor) || '#c6c8ca',
           iconColor:
-            palette?.definition?.iconColor || palette?.primaryText?.hex || 'rgba(0, 0, 0, 0.87)',
+            determinColor(palette?.definition?.iconColor) ||
+            palette?.primaryText?.hex ||
+            'rgba(0, 0, 0, 0.87)',
           textColor:
-            palette?.definition?.bgColor || palette?.primaryText?.hex || 'rgba(0, 0, 0, 0.87)',
+            determinColor(palette?.definition?.textColor) ||
+            palette?.primaryText?.hex ||
+            'rgba(0, 0, 0, 0.87)',
         },
         dyk: {
-          bgColor: palette?.definition?.bgColor || '#d4edda',
-          borderColor: palette?.definition?.borderColor || '#c3e6cb',
+          bgColor: determinColor(palette?.dyk?.bgColor) || '#d4edda',
+          borderColor: determinColor(palette?.dyk?.borderColor) || '#c3e6cv',
           iconColor:
-            palette?.definition?.iconColor || palette?.primaryText?.hex || 'rgba(0, 0, 0, 0.87)',
+            determinColor(palette?.dyk?.iconColor) ||
+            palette?.primaryText?.hex ||
+            'rgba(0, 0, 0, 0.87)',
           textColor:
-            palette?.definition?.bgColor || palette?.primaryText?.hex || 'rgba(0, 0, 0, 0.87)',
+            determinColor(palette?.dyk?.textColor) ||
+            palette?.primaryText?.hex ||
+            'rgba(0, 0, 0, 0.87)',
         },
         important: {
-          bgColor: palette?.definition?.bgColor || '#fff3cd',
-          borderColor: palette?.definition?.borderColor || '#ffeeba',
+          bgColor: determinColor(palette?.important?.bgColor) || '#fff3cd',
+          borderColor: determinColor(palette?.important?.borderColor) || '#ffeeba',
           iconColor:
-            palette?.definition?.iconColor || palette?.primaryText?.hex || 'rgba(0, 0, 0, 0.87)',
+            determinColor(palette?.important?.iconColor) ||
+            palette?.primaryText?.hex ||
+            'rgba(0, 0, 0, 0.87)',
           textColor:
-            palette?.definition?.bgColor || palette?.primaryText?.hex || 'rgba(0, 0, 0, 0.87)',
+            determinColor(palette?.important?.textColor) ||
+            palette?.primaryText?.hex ||
+            'rgba(0, 0, 0, 0.87)',
         },
         proTip: {
-          bgColor: palette?.definition?.bgColor || '#cce5ff',
-          borderColor: palette?.definition?.borderColor || '#b8daff',
+          bgColor: determinColor(palette?.proTip?.bgColor) || '#cce5ff',
+          borderColor: determinColor(palette?.proTip?.borderColor) || '#b8baff',
           iconColor:
-            palette?.definition?.iconColor || palette?.primaryText?.hex || 'rgba(0, 0, 0, 0.87)',
+            determinColor(palette?.proTip?.iconColor) ||
+            palette?.primaryText?.hex ||
+            'rgba(0, 0, 0, 0.87)',
           textColor:
-            palette?.definition?.bgColor || palette?.primaryText?.hex || 'rgba(0, 0, 0, 0.87)',
+            determinColor(palette?.proTip?.textColor) ||
+            palette?.primaryText?.hex ||
+            'rgba(0, 0, 0, 0.87)',
         },
         warning: {
-          bgColor: palette?.definition?.bgColor || '#f8d7da',
-          borderColor: palette?.definition?.borderColor || '#f5c6cb',
+          bgColor: determinColor(palette?.warning?.bgColor) || '#f8d7da',
+          borderColor: determinColor(palette?.warning?.borderColor) || '#f5c6cb',
           iconColor:
-            palette?.definition?.iconColor || palette?.primaryText?.hex || 'rgba(0, 0, 0, 0.87)',
+            determinColor(palette?.warning?.iconColor) ||
+            palette?.primaryText?.hex ||
+            'rgba(0, 0, 0, 0.87)',
           textColor:
-            palette?.definition?.bgColor || palette?.primaryText?.hex || 'rgba(0, 0, 0, 0.87)',
+            determinColor(palette?.warning?.textColor) ||
+            palette?.primaryText?.hex ||
+            'rgba(0, 0, 0, 0.87)',
         },
       },
     },
@@ -190,7 +210,7 @@ export default function TopLayout({ children }) {
       query={graphql`
         {
           sanityPalette {
-            protip {
+            proTip {
               bgColor {
                 hex
                 alpha

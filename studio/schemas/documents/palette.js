@@ -82,7 +82,7 @@ export default {
       fieldset: 'highlightbox',
     },
     {
-      name: 'protip',
+      name: 'proTip',
       title: 'Pro Tip',
       type: 'hlbColorSet',
       fieldset: 'highlightbox',
