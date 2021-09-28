@@ -28,7 +28,9 @@ function HighlightImportant({ blockContent, id }) {
       <Typography component="p" variant="h4" className={classes.text}>
         <ErrorOutlineOutlinedIcon className={classes.icon} /> Important
       </Typography>
-      <TextContent blocks={blockContent} />
+      <div className={classes.text}>
+        <TextContent blocks={blockContent} />
+      </div>
     </Box>
   );
 }

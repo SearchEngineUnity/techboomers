@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     borderColor: theme.palette.hlBox.dyk.borderColor,
   },
   icon: {
-    color: theme.palette.hlBox.important.iconColor,
+    color: theme.palette.hlBox.dyk.iconColor,
     position: 'relative',
     top: theme.spacing(0.5),
     width: theme.typography.h4.lineHeight * 16,
@@ -28,7 +28,9 @@ function HighlightDidYouKnow({ blockContent, id }) {
       <Typography component="p" variant="h4" className={classes.text}>
         <EmojiObjectsOutlinedIcon className={classes.icon} /> Did You Know
       </Typography>
-      <TextContent blocks={blockContent} />
+      <div className={classes.text}>
+        <TextContent blocks={blockContent} />
+      </div>
     </Box>
   );
 }
