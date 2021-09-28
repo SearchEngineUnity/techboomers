@@ -22,3 +22,10 @@
   status = 200
   force = true  
   headers = {X-From = "Netlify"}
+
+  [[redirects]]
+  from = "/word/*"
+  to = "https://random-word-api.herokuapp.com/word?number=10"
+  status = 200
+  force = true  
+  headers = {X-From = "Netlify"}
