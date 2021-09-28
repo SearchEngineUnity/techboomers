@@ -11,6 +11,6 @@
 
 [[redirects]]
   from = "/blog/*"
-  to = "https://reverse-proxy-test.netlify.app/blog/:splat"
+  to = "https://reverse-proxy-test.netlify.app/:splat"
   status = 200
   force = true  
