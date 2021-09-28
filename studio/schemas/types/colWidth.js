@@ -8,18 +8,14 @@ export default {
   fields: [
     {
       name: 'width',
-      type: 'number',
-      title: 'Width in %',
+      type: 'string',
+      title:
+        'Please enter value in px or % (including the unit) or use 0 without any units for auto sizing. Do not mix the usage of units for the same table.',
     },
   ],
   preview: {
     select: {
       title: 'width',
-    },
-    prepare({ title }) {
-      return {
-        title: `${title}%`,
-      };
     },
   },
 };

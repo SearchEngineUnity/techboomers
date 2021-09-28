@@ -16,17 +16,40 @@ export default {
       },
     },
     {
-      name: 'height',
+      name: 'maxWidth',
+      type: 'number',
+      title: 'Image Max Width',
+      description: `You can enter a width in pixels. If the image's native width is smaller it will be used instead.`,
+      // options: {
+      //   isHighlighted: true, // <-- make this field easily accessible
+      // },
+    },
+    {
+      name: 'maxHeight',
       type: 'number',
       title: 'Image Max Height',
-      description: `You can enter a height % of the view port that you would like the image to take up. For example if you want the image to take up half the height only of the open window type 50%. If the image's native height is smaller it will be used instead.`,
-      validation: (Rule) => Rule.integer(),
+      description: `You can enter a height in pixels. If the image's native height is smaller it will be used instead.`,
+      // options: {
+      //   isHighlighted: true, // <-- make this field easily accessible
+      // },
     },
     {
       name: 'caption',
       type: 'text',
       title: 'Caption',
+      options: {
+        isHighlighted: true, // <-- make this field easily accessible
+      },
     },
+    // {
+    //   name: 'border',
+    //   type: 'boolean',
+    //   title: 'Apply border',
+    //   initialValue: false,
+    //   options: {
+    //     isHighlighted: true, // <-- make this field easily accessible
+    //   },
+    // },
   ],
   preview: {
     select: {

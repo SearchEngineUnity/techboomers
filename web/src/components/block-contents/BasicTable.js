@@ -42,9 +42,9 @@ function BasicTable({ basicTable }) {
             <colgroup>
               {colgroup.map((col, index) =>
                 col.width !== 0 ? (
-                  <col style={{ width: `${col.width}%` }} key={`colWidth-${index}`} />
+                  <col span="1" width={col.width} key={`colWidth-${index}`} />
                 ) : (
-                  <col key={`colWidth-${index}`} />
+                  <col key={`colWidth-${index}`} span="1" />
                 ),
               )}
             </colgroup>

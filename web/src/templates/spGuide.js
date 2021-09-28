@@ -50,6 +50,9 @@ export const query = graphql`
       heroImage {
         alt
         _rawAsset(resolveReferences: { maxDepth: 10 })
+        maxHeight
+        maxWidth
+        caption
       }
       _rawSubtitle(resolveReferences: { maxDepth: 10 })
     }
