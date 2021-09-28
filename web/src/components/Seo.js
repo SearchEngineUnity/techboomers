@@ -46,7 +46,6 @@ const Seo = ({
   const twitterImage = metaTwitter.image.asset.url;
   const twitterDescription = metaTwitter?.description || ogDescription || description;
 
-  console.log(canonical);
   return (
     <Helmet>
       <title>{title}</title>

@@ -88,7 +88,9 @@ export const query = graphql`
                   alt
                   _rawAsset(resolveReferences: { maxDepth: 10 })
                   caption
-                  height
+                  maxHeight
+                  maxWidth
+                  caption
                 }
               }
             }
@@ -332,7 +334,9 @@ export const query = graphql`
                   alt
                   _rawAsset(resolveReferences: { maxDepth: 10 })
                   caption
-                  height
+                  maxHeight
+                  maxWidth
+                  caption
                 }
               }
             }
@@ -573,7 +577,9 @@ export const query = graphql`
                   alt
                   _rawAsset(resolveReferences: { maxDepth: 10 })
                   caption
-                  height
+                  maxHeight
+                  maxWidth
+                  caption
                 }
               }
             }

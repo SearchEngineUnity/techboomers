@@ -254,12 +254,13 @@ export function mapGridFlexToProps({ layout, tiles, tileOption }) {
   };
 }
 
-export function mapFluidImgToProps({ _rawAsset, alt, caption, height }) {
+export function mapFluidImgToProps({ _rawAsset, alt, maxHeight, maxWidth, caption }) {
   return {
     image: _rawAsset,
     alt,
+    maxHeight,
+    maxWidth,
     caption,
-    maxHeight: height,
   };
 }
 

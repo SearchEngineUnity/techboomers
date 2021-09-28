@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 // Basic Table is as per its name a very basic table.
 // Do not use this table to implement user interactive elements such as filter and sorting
 // It will not work as currently the key for each cell is generated in party by index of the cell in the array and
@@ -51,8 +52,12 @@ function SmartTable({ smartTable }) {
         <Table className={classes.table} size="small" aria-label={title}>
           {colgroup && (
             <colgroup>
-              {colgroup.map((col) =>
-                col.width !== 0 ? <col style={{ width: `${col.width}%` }} /> : <col />,
+              {colgroup.map((col, index) =>
+                col.width !== 0 ? (
+                  <col span="1" width={col.width} key={`colWidth-${index}`} />
+                ) : (
+                  <col key={`colWidth-${index}`} span="1" />
+                ),
               )}
             </colgroup>
           )}
