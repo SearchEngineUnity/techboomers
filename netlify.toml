@@ -10,7 +10,7 @@
   NODE_ENV = "development"
 
 [[redirects]]
-  from = "/blog/*"
+  from = "/*"
   to = "https://reverse-proxy-test.netlify.app/:splat"
   status = 200
   force = true  
