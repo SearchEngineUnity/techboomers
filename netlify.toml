@@ -10,7 +10,24 @@
   NODE_ENV = "development"
 
 [[redirects]]
-  from = "/seu"
-  to = "https://searchengineunity.com/"
+  from = "/blog"
+  to = "https://reverse-proxy-test.netlify.app/blog"
   status = 200
   force = true 
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+  Access-Control-Allow-Origin = "*"
+
+[[redirects]]
+  from = "/blog/*"
+  to = "https://reverse-proxy-test.netlify.app/blog/:splat"
+  status = 200
+  force = true  
+
+[[redirects]]
+  from = "/word/*"
+  to = "https://random-word-api.herokuapp.com/word?number=10"
+  status = 200
+  force = true  
