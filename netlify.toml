@@ -20,3 +20,9 @@
   to = "https://reverse-proxy-test.netlify.app/blog/:splat"
   status = 200
   force = true  
+
+[[redirects]]
+  from = "/seu"
+  to = "https://searchengineunity.com/"
+  status = 200
+  force = true 
