@@ -20,39 +20,3 @@
   to = "https://reverse-proxy-test.netlify.app/blog/:splat"
   status = 200
   force = true  
-
-[[redirects]]
-  from = "/app-b724bc2b3978b41d646d.js"
-  to = "https://reverse-proxy-test.netlify.app/app-b724bc2b3978b41d646d.js"
-  status = 200
-  force = true    
-
-[[redirects]]
-  from = "/static/webfonts/s/materialicons/v107/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2"
-  to = "https://reverse-proxy-test.netlify.app/static/webfonts/s/materialicons/v107/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2"
-  status = 200
-  force = true    
-
-[[redirects]]
-  from = "/webpack-runtime-c24e000e4b08ab53192d.js"
-  to = "https://reverse-proxy-test.netlify.app/webpack-runtime-c24e000e4b08ab53192d.js"
-  status = 200
-  force = true    
-
-[[redirects]]
-  from = "/commons-205af1783390f77c83cb.js"
-  to = "https://reverse-proxy-test.netlify.app/commons-205af1783390f77c83cb.js"
-  status = 200
-  force = true  
-
-[[redirects]]
-  from = "/component---src-templates-listing-page-js-e0722d3aa4974535298d.js"
-  to = "https://reverse-proxy-test.netlify.app/component---src-templates-listing-page-js-e0722d3aa4974535298d.js"
-  status = 200
-  force = true  
-
-[[redirects]]
-  from = "/page-data/blog/page-data.json"
-  to = "https://reverse-proxy-test.netlify.app/page-data/blog/page-data.json"
-  status = 200
-  force = true  
