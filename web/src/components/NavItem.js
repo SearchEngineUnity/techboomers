@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, Button } from 'gatsby-theme-material-ui';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
+import { Box, Typography } from '@material-ui/core';
 
 function NavItem({ url, title, isButton, location }) {
   return (

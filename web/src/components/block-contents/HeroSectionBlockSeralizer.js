@@ -2,11 +2,7 @@ import BaseBlockContent from '@sanity/block-content-to-react';
 import React from 'react';
 import { Typography, Box } from '@material-ui/core';
 import styled from 'styled-components';
-import VideoEmbed from './VideoEmbed';
-import BasicTable from './BasicTable';
 import Illustration from './Illustration';
-import HighlightBox from './HightlightBox/HighlightBox';
-import SmartTable from './SmartTable';
 import JumpLink from '../link/JumpLink';
 import ExternalLink from '../link/LinkExternal';
 import InternalGlobal from '../link/LinkInternalGlobal';
@@ -14,7 +10,7 @@ import InternalLocal from '../link/LinkInternalLocal';
 import ButtonExternal from '../buttons/ButtonExternal';
 import ButtonInternalGlobal from '../buttons/ButtonInternalGlobal';
 import ButtonInternalLocal from '../buttons/ButtonInternalLocal';
-import ButtonJumpLInk from '../buttons/ButtonJumpLink';
+import ButtonJumpLink from '../buttons/ButtonJumpLink';
 import { mapMuiBtnToProps } from '../../lib/mapToProps';
 
 const NoIndentUl = styled.ul`
@@ -93,22 +89,10 @@ const serializers = {
     illustration({ node }) {
       return <Illustration illustration={node} />;
     },
-    basicTable({ node }) {
-      return <BasicTable basicTable={node} />;
-    },
-    highlightBox({ node }) {
-      return <HighlightBox box={node} />;
-    },
-    smartTable({ node }) {
-      return <SmartTable smartTable={node} />;
-    },
-    videoEmbed({ node }) {
-      return <VideoEmbed url={node.url} ratio={node.ratio} />;
-    },
     btnBlockMui({ node }) {
       switch (node.link[0]._type) {
         case 'jumpLink':
-          return <ButtonJumpLInk {...mapMuiBtnToProps(node)} />;
+          return <ButtonJumpLink {...mapMuiBtnToProps(node)} />;
         case 'internalLocal':
           return <ButtonInternalLocal {...mapMuiBtnToProps(node)} />;
         case 'internalGlobal':

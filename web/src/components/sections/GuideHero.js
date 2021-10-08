@@ -1,19 +1,39 @@
 import React from 'react';
 import { Container, Typography, Grid, Box } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import ImgBlock from '../FluidImgBlock';
 import Subtitle from '../block-contents/HeroSubtitleSerializer';
 import ProgressBar from '../ScrollProgressBar';
 import { mapFluidImgBlockToProps } from '../../lib/mapToProps';
 import { useSpGuideHero } from '../../hooks/useSpGuideHero';
 
+const useStyles = makeStyles((theme) => ({
+  section: {
+    [theme.breakpoints.down('sm')]: {
+      padding: 16,
+    },
+    '& .pt-link': {
+      color: theme.palette.secondary.main,
+    },
+  },
+}));
+
 function GuideHero({ h1, subtitle, date, image }) {
   const lastUpdatedDate = date ? new Date(date.replace(/-/g, '/')) : null;
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const heroAlignment = useSpGuideHero();
+  const classes = useStyles();
 
   return (
     <>
-      <Box bgcolor="primary.main" color="primary.contrastText" id="hero" component="section" py={8}>
+      <Box
+        bgcolor="primary.main"
+        color="primary.contrastText"
+        id="hero"
+        component="section"
+        className={classes.section}
+        py={8}
+      >
         <Container maxWidth="lg">
           <Grid
             container

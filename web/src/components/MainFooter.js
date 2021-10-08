@@ -8,7 +8,6 @@ import ContactInfo from './ContactInfo';
 import SocialMedia from './SocialMedia';
 import FooterGroup from './FooterGroup';
 import FooterItem from './FooterItem';
-
 import { mapNavBrandToProps, mapNavItemToProps, mapNavGroupToProps } from '../lib/mapToProps';
 
 const useStyles = makeStyles((theme) => ({
