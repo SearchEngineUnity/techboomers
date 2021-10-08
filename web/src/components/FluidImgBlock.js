@@ -16,6 +16,7 @@ function FluidImgBlock({ image, alt, loading, maxHeight, maxWidth, caption }) {
         image={imageData}
         alt={alt}
         loading={loadingSetting}
+        objectFit="contain"
         style={{
           display: 'block',
           maxHeight: customMaxHeight,
@@ -23,7 +24,6 @@ function FluidImgBlock({ image, alt, loading, maxHeight, maxWidth, caption }) {
           marginLeft: 'auto',
           marginRight: 'auto',
         }}
-        objectFit="contain"
       />
       {caption && (
         <Typography variant="caption" component="figcaption">
