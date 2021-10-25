@@ -191,5 +191,4 @@ export default () =>
             ]),
         ),
       S.documentTypeListItem('formNetlify').title('Form Netlify'),
-      S.documentTypeListItem('testImage').title('Test Images'),
     ]);
