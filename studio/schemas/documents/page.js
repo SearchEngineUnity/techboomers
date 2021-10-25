@@ -92,7 +92,7 @@ export default {
       title: 'Sections',
       of: [
         ...Object.values(sections)
-          .filter((section) => section._type !== 'listingSection')
+          .filter((section) => section.name !== 'listingSection')
           .map(({ name, title }) => ({
             type: name,
             title,

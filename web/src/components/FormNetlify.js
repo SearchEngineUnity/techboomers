@@ -1,5 +1,6 @@
 // GATSBY CLEAN WHEN MAKING FORM CHANGES THAT DON"T SEEM TO UPDATE!
 import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import {
   Button,
   TextField,
@@ -24,6 +25,12 @@ function encode(data) {
     .join('&');
 }
 
+const useStyles = makeStyles((theme) => ({
+  control: {
+    marginBottom: theme.spacing(2),
+  },
+}));
+
 function FormNetlify({
   align,
   title,
@@ -31,14 +38,14 @@ function FormNetlify({
   name,
   thankYou,
   submitBtn,
-  formFieldsStyle,
   colorSettings,
   border,
   borderRadius,
   borderColor,
   boxShadow,
+  variant,
 }) {
-  console.log(formFields);
+  const classes = useStyles();
   const [state, setState] = useState({});
   const [success, setSuccess] = useState(false);
   // const [validated, setValidated] = useState(false);
@@ -59,29 +66,14 @@ function FormNetlify({
     // eslint-disable-next-line no-plusplus
     for (let index = 0; index < inputs.length - 1; index++) {
       const element = inputs[index];
-      console.log(element);
-      console.log(element.name);
-      console.log(element.validity.valid);
       if (element.name !== 'bot-field' && element.name !== 'form-name') {
         if (element.validity.valid === false) {
           isValid = false;
         }
       }
     }
-    console.log(`Post For loop ${isValid}`);
-    console.log(state);
-    console.log(form);
-    console.log(formData);
-    console.log(new URLSearchParams(formData).toString());
-    console.log(
-      encode({
-        'form-name': form.getAttribute('name'),
-        ...state,
-      }),
-    );
 
     if (isValid) {
-      console.log('attempting to fetch');
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -93,7 +85,6 @@ function FormNetlify({
         // body: new URLSearchParams(formData).toString(),
       })
         .then(() => {
-          console.log('fetch sucessful');
           // setValidated(false);
           form.reset();
           setSuccess(true);
@@ -163,114 +154,110 @@ function FormNetlify({
           switch (_type) {
             case 'checkbox':
               return (
-                <div key={_key}>
-                  <FormControl component="fieldset">
-                    <FormLabel component="legend">{input.label}</FormLabel>
-                    <FormGroup>
-                      {input.options.map((option) => {
-                        const key = option.value;
-                        const isChecked = !!state[key];
+                <FormControl component="fieldset" fullWidth key={_key} className={classes.control}>
+                  <FormLabel component="legend">{input.label}</FormLabel>
+                  <FormGroup>
+                    {input.options.map((option) => {
+                      const key = option.value;
+                      const isChecked = !!state[key];
 
-                        return (
-                          <FormControlLabel
-                            key={option._key}
-                            control={
-                              <Checkbox
-                                name={option.value}
-                                checked={isChecked}
-                                onChange={handleCheckboxChange}
-                                value={isChecked.toString()}
-                              />
-                            }
-                            label={option.label}
-                          />
-                        );
-                      })}
-                    </FormGroup>
-                    <FormHelperText>{input.helperText}</FormHelperText>
-                  </FormControl>
-                </div>
+                      return (
+                        <FormControlLabel
+                          key={option._key}
+                          control={
+                            <Checkbox
+                              name={option.value}
+                              checked={isChecked}
+                              onChange={handleCheckboxChange}
+                              value={isChecked.toString()}
+                            />
+                          }
+                          label={option.label}
+                        />
+                      );
+                    })}
+                  </FormGroup>
+                  <FormHelperText>{input.helperText}</FormHelperText>
+                </FormControl>
               );
             case 'radio':
               return (
-                <div key={_key}>
-                  <FormControl component="fieldset">
-                    <FormLabel component="legend">{input.label}</FormLabel>
-                    <RadioGroup
-                      id={input.id}
-                      aria-label={input.label}
-                      name={input.id}
-                      onChange={handleChange}
-                      value={state[input.id] || ''}
-                    >
-                      {input.options.map((option) => (
-                        <FormControlLabel
-                          key={option._key}
-                          value={option.value}
-                          control={<Radio />}
-                          label={option.label}
-                        />
-                      ))}
-                    </RadioGroup>
-                    <FormHelperText>{input.helperText}</FormHelperText>
-                  </FormControl>
-                </div>
+                <FormControl component="fieldset" fullWidth key={_key}>
+                  <FormLabel component="legend">{input.label}</FormLabel>
+                  <RadioGroup
+                    id={input.id}
+                    aria-label={input.label}
+                    name={input.id}
+                    onChange={handleChange}
+                    value={state[input.id] || ''}
+                  >
+                    {input.options.map((option) => (
+                      <FormControlLabel
+                        key={option._key}
+                        value={option.value}
+                        control={<Radio />}
+                        label={option.label}
+                      />
+                    ))}
+                  </RadioGroup>
+                  <FormHelperText>{input.helperText}</FormHelperText>
+                </FormControl>
               );
             case 'select':
               return (
-                <div key={_key}>
-                  <FormControl>
-                    <InputLabel htmlFor={input.id}>{input.label}</InputLabel>
-                    <Select
-                      native
-                      id={input.id}
-                      value={state[input.id] || ''}
-                      inputProps={{ name: input.id, id: input.id }}
-                      onChange={handleChange}
-                    >
-                      <option aria-label="None" value="" />
-                      {input.options.map((option) => (
-                        <option value={option.value} key={option.key}>
-                          {option.label}
-                        </option>
-                      ))}
-                    </Select>
-                    <FormHelperText>{input.helperText}</FormHelperText>
-                  </FormControl>
-                </div>
+                <FormControl component="fieldset" fullWidth key={_key}>
+                  <FormLabel component="legend">{input.label}</FormLabel>
+                  <Select
+                    native
+                    id={input.id}
+                    value={state[input.id] || ''}
+                    inputProps={{ name: input.id, id: input.id }}
+                    onChange={handleChange}
+                    variant={variant}
+                  >
+                    <option aria-label="None" value="" />
+                    {input.options.map((option) => (
+                      <option value={option.value} key={option.key}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </Select>
+                  <FormHelperText>{input.helperText}</FormHelperText>
+                </FormControl>
               );
             case 'textarea':
               return (
-                <div key={_key}>
+                <FormControl component="fieldset" fullWidth key={_key}>
+                  <FormLabel component="legend">{input.label}</FormLabel>
                   <TextField
                     id={input.id}
                     onChange={handleChange}
                     name={input.id}
                     required={input.required}
-                    variant={formFieldsStyle}
+                    variant={variant}
                     multiline
                     rows={input.rows}
-                    label={input.label}
-                    helperText={input.helperText}
                     placeholder={input.placeholderText}
                   />
-                </div>
+                  <FormHelperText>{input.helperText}</FormHelperText>
+                </FormControl>
               );
             case 'textInput':
               return (
-                <div key={_key}>
+                <FormControl component="fieldset" fullWidth key={_key}>
+                  <FormLabel component="legend">{input.label}</FormLabel>
                   <TextField
                     id={input.id}
                     onChange={handleChange}
                     name={input.id}
                     required={input.required}
-                    variant={formFieldsStyle}
+                    variant={variant}
                     type={input.inputType}
-                    label={input.label}
-                    helperText={input.helperText}
                     placeholder={input.placeholderText}
+                    fullWidth
                   />
-                </div>
+                  <FormHelperText>{input.helperText}</FormHelperText>
+                </FormControl>
               );
             default:
               return <div key="form-default">Form Field not Created</div>;

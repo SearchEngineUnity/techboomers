@@ -45,6 +45,37 @@ export default {
       fieldset: 'presentation',
       initialValue: 'left',
     },
+    {
+      name: 'fieldVariant',
+      title: 'Form Field Variant',
+      type: 'string',
+      description:
+        'This determines the field variant that is used for Input, Textarea, and Select.',
+      options: {
+        list: [
+          { title: 'Underline', value: 'standard' },
+          { title: 'Filled', value: 'filled' },
+          { title: 'Outlined', value: 'outlined' },
+        ],
+        layout: 'radio',
+        direction: 'horizontal',
+      },
+      fieldset: 'presentation',
+      initialValue: 'outlined',
+    },
+    // {
+    //   name: 'titleAlignment',
+    //   title: 'Title Alignment',
+    //   type: 'string',
+    //   description: 'This only apply to the header above and text.',
+    //   options: {
+    //     list: ['left', 'center', 'right'],
+    //     layout: 'radio',
+    //     direction: 'horizontal',
+    //   },
+    //   fieldset: 'presentation',
+    //   initialValue: 'left',
+    // },
   ],
   preview: {
     select: {
