@@ -8,10 +8,12 @@ const {
   NODE_ENV,
   URL: NETLIFY_SITE_URL = 'https://democentermui.netlify.app', // update to new netlify URL
   DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
-  CONTEXT: NETLIFY_ENV = NODE_ENV || process.env.GATSBY_ENV,
+  CONTEXT: NETLIFY_ENV = NODE_ENV,
 } = process.env;
 const isNetlifyProduction = NETLIFY_ENV === 'production';
 const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
+console.log(NETLIFY_ENV);
+console.log(NODE_ENV);
 
 module.exports = {
   siteMetadata: {
@@ -81,6 +83,7 @@ module.exports = {
         env: {
           production: {
             policy: [{ userAgent: '*', disallow: ['/404'] }],
+            sitemap: `${siteUrl}/sitemap.xml`,
           },
           'branch-deploy': {
             policy: [{ userAgent: '*', disallow: ['/'] }],
@@ -96,6 +99,22 @@ module.exports = {
             policy: [{ userAgent: '*', disallow: ['/'] }],
             sitemap: null,
             host: null,
+          },
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: siteUrl,
+        sitemap: `${siteUrl}/sitemap.xml`,
+        resolveEnv: () => process.env.GATSBY_ENV,
+        env: {
+          development: {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+          },
+          production: {
+            policy: [{ userAgent: '*', disallow: ['/404'] }],
           },
         },
       },
