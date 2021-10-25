@@ -264,10 +264,16 @@ export function mapFluidImgToProps({ _rawAsset, alt, maxHeight, maxWidth, captio
   };
 }
 
-export function mapBlockFormNetlifyToProps({ _rawFormNetlify, title, titleAlignment }) {
+export function mapBlockFormNetlifyToProps({
+  _rawFormNetlify,
+  title,
+  titleAlignment,
+  fieldVariant,
+}) {
   return {
     title,
     align: titleAlignment,
     form: _rawFormNetlify,
+    variant: fieldVariant,
   };
 }

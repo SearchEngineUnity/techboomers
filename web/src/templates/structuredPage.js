@@ -218,6 +218,7 @@ export const query = graphql`
               _rawFormNetlify(resolveReferences: { maxDepth: 10 })
               title
               titleAlignment
+              fieldVariant
             }
           }
           idTag
@@ -470,6 +471,7 @@ export const query = graphql`
               _type
               title
               titleAlignment
+              fieldVariant
               _rawFormNetlify(resolveReferences: { maxDepth: 10 })
             }
           }
@@ -721,6 +723,7 @@ export const query = graphql`
               _rawFormNetlify(resolveReferences: { maxDepth: 10 })
               title
               titleAlignment
+              fieldVariant
             }
           }
           colorSettings {
