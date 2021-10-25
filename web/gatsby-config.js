@@ -103,21 +103,5 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: 'gatsby-plugin-robots-txt',
-      options: {
-        host: siteUrl,
-        sitemap: `${siteUrl}/sitemap.xml`,
-        resolveEnv: () => process.env.GATSBY_ENV,
-        env: {
-          development: {
-            policy: [{ userAgent: '*', disallow: ['/'] }],
-          },
-          production: {
-            policy: [{ userAgent: '*', disallow: ['/404'] }],
-          },
-        },
-      },
-    },
   ],
 };
