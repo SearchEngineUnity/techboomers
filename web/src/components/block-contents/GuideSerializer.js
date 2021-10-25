@@ -218,9 +218,9 @@ const serializers = {
   list: ({ children }) => {
     switch (children[0].props.node.listItem) {
       case 'bullet':
-        return <NoIndentUl>{children}</NoIndentUl>;
+        return <ul>{children}</ul>;
       default:
-        return <NoIndentOl>{children}</NoIndentOl>;
+        return <ol>{children}</ol>;
     }
   },
   listItem: ({ children }) => (
