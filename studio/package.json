@@ -37,7 +37,8 @@
     "sanity-plugin-dashboard-widget-gatsby": "^1.0.9",
     "sanity-plugin-dashboard-widget-netlify": "^1.0.1",
     "sanity-plugin-media": "^1.1.2",
-    "sanity-plugin-table": "^2.2.0"
+    "sanity-plugin-table": "^2.2.0",
+    "styled-components": "^5.3.3"
   },
   "repository": {
     "type": "git",

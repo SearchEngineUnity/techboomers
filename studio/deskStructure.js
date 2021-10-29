@@ -144,6 +144,7 @@ export default () =>
                     ),
                 ),
               S.documentTypeListItem('btnDesignMui').title('Button Design Options - MUI'),
+              S.documentTypeListItem('formStyle').title('Form Design Options'),
             ]),
         ),
       S.listItem()
