@@ -2,13 +2,13 @@
 import React from 'react';
 import ThemeTopLayout from 'gatsby-theme-material-ui-top-layout/src/components/top-layout';
 import { StaticQuery, graphql } from 'gatsby';
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import { createTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import { determinColor } from '../../lib/helperFunctions';
 
 const ThemeProvider = ({ children, data }) => {
   const { sanityPalette: palette, sanityTypography: typography } = data;
 
-  let theme = createMuiTheme({
+  let theme = createTheme({
     overrides: {
       // Style sheet name ⚛️
       MuiIcon: {

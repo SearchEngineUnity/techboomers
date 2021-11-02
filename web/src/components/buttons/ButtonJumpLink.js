@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Box } from '@material-ui/core';
-import { createMuiTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
+import { createTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
 import { determinColor } from '../../lib/helperFunctions';
 
 const useStyles = makeStyles((theme) => ({
@@ -29,7 +29,7 @@ function ButtonJumpLink({
   const darkColor = determinColor(dark?.color);
   const contrastTextColor = determinColor(contrastText?.color);
 
-  const theme = createMuiTheme({
+  const theme = createTheme({
     palette: {
       primary: {
         main: mainColor,
