@@ -268,12 +268,12 @@ export function mapBlockFormNetlifyToProps({
   _rawFormNetlify,
   title,
   titleAlignment,
-  fieldVariant,
+  _rawFormStyle,
 }) {
   return {
     title,
     align: titleAlignment,
     form: _rawFormNetlify,
-    variant: fieldVariant,
+    style: _rawFormStyle,
   };
 }

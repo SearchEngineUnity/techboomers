@@ -218,7 +218,7 @@ export const query = graphql`
               _rawFormNetlify(resolveReferences: { maxDepth: 10 })
               title
               titleAlignment
-              fieldVariant
+              _rawFormStyle(resolveReferences: { maxDepth: 10 })
             }
           }
           idTag
@@ -471,8 +471,8 @@ export const query = graphql`
               _type
               title
               titleAlignment
-              fieldVariant
               _rawFormNetlify(resolveReferences: { maxDepth: 10 })
+              _rawFormStyle(resolveReferences: { maxDepth: 10 })
             }
           }
           header {
@@ -723,7 +723,7 @@ export const query = graphql`
               _rawFormNetlify(resolveReferences: { maxDepth: 10 })
               title
               titleAlignment
-              fieldVariant
+              _rawFormStyle(resolveReferences: { maxDepth: 10 })
             }
           }
           colorSettings {
@@ -802,6 +802,7 @@ export const query = graphql`
 
 const StructuredPage = ({ data, location }) => {
   const type = 'page';
+  console.log(data);
 
   return (
     <Layout location={location}>

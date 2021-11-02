@@ -37,15 +37,34 @@ export default {
       to: [{ type: 'colorOption' }],
     },
     {
+      name: 'hoverColor',
+      title: 'Hover Border Color',
+      type: 'reference',
+      to: [{ type: 'colorOption' }],
+    },
+    {
+      name: 'focusedColor',
+      title: 'Focused Border Color',
+      type: 'reference',
+      to: [{ type: 'colorOption' }],
+    },
+    {
       name: 'backgroundColor',
       title: 'Backbround Color',
       type: 'reference',
       to: [{ type: 'colorOption' }],
     },
     {
+      name: 'labelColor',
+      title: 'Label Color',
+      type: 'reference',
+      to: [{ type: 'colorOption' }],
+    },
+    {
       name: 'inputColor',
       title: 'Input Color',
-      type: 'color',
+      type: 'reference',
+      to: [{ type: 'colorOption' }],
     },
     {
       name: 'placeholderColor',
@@ -55,7 +74,7 @@ export default {
     },
     {
       name: 'helperColor',
-      title: 'Helpter Text Color',
+      title: 'Helper Text Color',
       type: 'reference',
       to: [{ type: 'colorOption' }],
     },

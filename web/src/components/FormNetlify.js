@@ -1,6 +1,6 @@
 // GATSBY CLEAN WHEN MAKING FORM CHANGES THAT DON"T SEEM TO UPDATE!
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { createTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import {
   Button,
   TextField,
@@ -31,20 +31,75 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function FormNetlify({
-  align,
-  title,
-  formFields,
-  name,
-  thankYou,
-  submitBtn,
-  colorSettings,
-  border,
-  borderRadius,
-  borderColor,
-  boxShadow,
-  variant,
-}) {
+function FormNetlify({ align, title, formFields, name, thankYou, submitBtn, style }) {
+  console.log(style);
+  const {
+    backgroundColor: fieldBgColor,
+    borderColor: fieldBorderColor,
+    hoverColor,
+    focusedColor,
+    borderRadius: fieldBorderRadius,
+    btnStyle,
+    fieldVariant: variant,
+    labelColor,
+    helperColor,
+    inputColor,
+    placeholderColor,
+    selectorColor,
+  } = style;
+
+  console.log(variant);
+
+  const theme = createTheme({
+    // changing secondary main chainges the button colors for checkbox and radio button...
+    palette: {
+      secondary: {
+        main: selectorColor.color.hex,
+      },
+    },
+    overrides: {
+      // Style sheet name ⚛️
+      MuiFormLabel: {
+        // Name of the rule
+        root: {
+          // Some CSS
+          color: labelColor.color.hex,
+        },
+      },
+      MuiFormHelperText: {
+        root: {
+          color: helperColor.color.hex,
+        },
+      },
+      MuiOutlinedInput: {
+        root: {
+          borderRadius: fieldBorderRadius,
+          border: `solid 1px ${fieldBorderColor.color.hex}`,
+          backgroundColor: fieldBgColor.color.hex,
+          // this doesn't quite work
+          '&:hover': {
+            border: `solid 1px ${hoverColor.color.hex}`,
+          },
+          // this doesn't quite work
+          '&.Mui-focused': {
+            border: `solid 1px ${focusedColor.color.hex}`,
+          },
+        },
+      },
+      MuiInputBase: {
+        // I think this affects both input and placeholder text... placeholder seems like a lighter shade of the input choice?
+        root: {
+          color: 'inputColor.color.hex',
+        },
+      },
+      MuiFormControlLabel: {
+        root: {
+          color: inputColor.color.hex,
+        },
+      },
+    },
+  });
+
   const classes = useStyles();
   const [state, setState] = useState({});
   const [success, setSuccess] = useState(false);
@@ -109,164 +164,160 @@ function FormNetlify({
     sendForm(myForm);
   };
 
-  const backgroundColor = determinColor(colorSettings?.background?.color) || 'primary.main';
-  const foregroundColor = determinColor(colorSettings?.foreground?.color) || 'primary.contrastText';
-
   return (
-    <Box
-      // bgcolor={backgroundColor}
-      // color={foregroundColor}
-      border={border}
-      borderRadius={borderRadius}
-      borderColor={borderColor}
-      boxShadow={5}
-      p={6}
-    >
-      <Box textAlign={align} fontSize="body1.fontSize">
-        <p>{title}</p>
-      </Box>
+    <ThemeProvider theme={theme}>
+      <Box boxShadow={5} p={6}>
+        <Box textAlign={align} fontSize="body1.fontSize">
+          <p>{title}</p>
+        </Box>
 
-      <form
-        name={name}
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-        noValidate
-        // validated={validated}
-        onSubmit={handleSubmit}
-        id={name}
-        autoComplete="off"
-      >
-        <p className="hidden" style={{ display: 'none' }}>
-          {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-          <label>
-            Don&apos;t fill this out if you&apos;re human:
-            <input name="bot-field" onChange={handleChange} />
-          </label>
-        </p>
+        <form
+          name={name}
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          noValidate
+          // validated={validated}
+          onSubmit={handleSubmit}
+          id={name}
+          autoComplete="off"
+        >
+          <p className="hidden" style={{ display: 'none' }}>
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label>
+              Don&apos;t fill this out if you&apos;re human:
+              <input name="bot-field" onChange={handleChange} />
+            </label>
+          </p>
 
-        {success && <p>{thankYou}</p>}
+          {success && <p>{thankYou}</p>}
 
-        <input type="hidden" name="form-name" value={name} />
-        {formFields.map((input) => {
-          const { _type, _key } = input;
+          <input type="hidden" name="form-name" value={name} />
+          {formFields.map((input) => {
+            const { _type, _key } = input;
 
-          switch (_type) {
-            case 'checkbox':
-              return (
-                <FormControl component="fieldset" fullWidth key={_key} className={classes.control}>
-                  <FormLabel component="legend">{input.label}</FormLabel>
-                  <FormGroup>
-                    {input.options.map((option) => {
-                      const key = option.value;
-                      const isChecked = !!state[key];
+            switch (_type) {
+              case 'checkbox':
+                return (
+                  <FormControl
+                    component="fieldset"
+                    fullWidth
+                    key={_key}
+                    className={classes.control}
+                  >
+                    <FormLabel component="legend">{input.label}</FormLabel>
+                    <FormGroup>
+                      {input.options.map((option) => {
+                        const key = option.value;
+                        const isChecked = !!state[key];
 
-                      return (
+                        return (
+                          <FormControlLabel
+                            key={option._key}
+                            control={
+                              <Checkbox
+                                name={option.value}
+                                checked={isChecked}
+                                onChange={handleCheckboxChange}
+                                value={isChecked.toString()}
+                              />
+                            }
+                            label={option.label}
+                          />
+                        );
+                      })}
+                    </FormGroup>
+                    <FormHelperText>{input.helperText}</FormHelperText>
+                  </FormControl>
+                );
+              case 'radio':
+                return (
+                  <FormControl component="fieldset" fullWidth key={_key}>
+                    <FormLabel component="legend">{input.label}</FormLabel>
+                    <RadioGroup
+                      id={input.id}
+                      aria-label={input.label}
+                      name={input.id}
+                      onChange={handleChange}
+                      value={state[input.id] || ''}
+                    >
+                      {input.options.map((option) => (
                         <FormControlLabel
                           key={option._key}
-                          control={
-                            <Checkbox
-                              name={option.value}
-                              checked={isChecked}
-                              onChange={handleCheckboxChange}
-                              value={isChecked.toString()}
-                            />
-                          }
+                          value={option.value}
+                          control={<Radio />}
                           label={option.label}
                         />
-                      );
-                    })}
-                  </FormGroup>
-                  <FormHelperText>{input.helperText}</FormHelperText>
-                </FormControl>
-              );
-            case 'radio':
-              return (
-                <FormControl component="fieldset" fullWidth key={_key}>
-                  <FormLabel component="legend">{input.label}</FormLabel>
-                  <RadioGroup
-                    id={input.id}
-                    aria-label={input.label}
-                    name={input.id}
-                    onChange={handleChange}
-                    value={state[input.id] || ''}
-                  >
-                    {input.options.map((option) => (
-                      <FormControlLabel
-                        key={option._key}
-                        value={option.value}
-                        control={<Radio />}
-                        label={option.label}
-                      />
-                    ))}
-                  </RadioGroup>
-                  <FormHelperText>{input.helperText}</FormHelperText>
-                </FormControl>
-              );
-            case 'select':
-              return (
-                <FormControl component="fieldset" fullWidth key={_key}>
-                  <FormLabel component="legend">{input.label}</FormLabel>
-                  <Select
-                    native
-                    id={input.id}
-                    value={state[input.id] || ''}
-                    inputProps={{ name: input.id, id: input.id }}
-                    onChange={handleChange}
-                    variant={variant}
-                  >
-                    <option aria-label="None" value="" />
-                    {input.options.map((option) => (
-                      <option value={option.value} key={option.key}>
-                        {option.label}
-                      </option>
-                    ))}
-                  </Select>
-                  <FormHelperText>{input.helperText}</FormHelperText>
-                </FormControl>
-              );
-            case 'textarea':
-              return (
-                <FormControl component="fieldset" fullWidth key={_key}>
-                  <FormLabel component="legend">{input.label}</FormLabel>
-                  <TextField
-                    id={input.id}
-                    onChange={handleChange}
-                    name={input.id}
-                    required={input.required}
-                    variant={variant}
-                    multiline
-                    rows={input.rows}
-                    placeholder={input.placeholderText}
-                  />
-                  <FormHelperText>{input.helperText}</FormHelperText>
-                </FormControl>
-              );
-            case 'textInput':
-              return (
-                <FormControl component="fieldset" fullWidth key={_key}>
-                  <FormLabel component="legend">{input.label}</FormLabel>
-                  <TextField
-                    id={input.id}
-                    onChange={handleChange}
-                    name={input.id}
-                    required={input.required}
-                    variant={variant}
-                    type={input.inputType}
-                    placeholder={input.placeholderText}
-                    fullWidth
-                  />
-                  <FormHelperText>{input.helperText}</FormHelperText>
-                </FormControl>
-              );
-            default:
-              return <div key="form-default">Form Field not Created</div>;
-          }
-        })}
-        {/* <BlockContent blocks={disclaimer} /> */}
-        <Button type="submit">{submitBtn.text}</Button>
-      </form>
-    </Box>
+                      ))}
+                    </RadioGroup>
+                    <FormHelperText>{input.helperText}</FormHelperText>
+                  </FormControl>
+                );
+              case 'select':
+                return (
+                  <FormControl component="fieldset" fullWidth key={_key}>
+                    <FormLabel component="legend">{input.label}</FormLabel>
+                    <Select
+                      native
+                      id={input.id}
+                      value={state[input.id] || ''}
+                      inputProps={{ name: input.id, id: input.id }}
+                      onChange={handleChange}
+                      variant={variant}
+                    >
+                      <option aria-label="None" value="" />
+                      {input.options.map((option) => (
+                        <option value={option.value} key={option.key}>
+                          {option.label}
+                        </option>
+                      ))}
+                    </Select>
+                    <FormHelperText>{input.helperText}</FormHelperText>
+                  </FormControl>
+                );
+              case 'textarea':
+                return (
+                  <FormControl component="fieldset" fullWidth key={_key}>
+                    <FormLabel component="legend">{input.label}</FormLabel>
+                    <TextField
+                      id={input.id}
+                      onChange={handleChange}
+                      name={input.id}
+                      required={input.required}
+                      variant={variant}
+                      multiline
+                      rows={input.rows}
+                      placeholder={input.placeholderText}
+                    />
+                    <FormHelperText>{input.helperText}</FormHelperText>
+                  </FormControl>
+                );
+              case 'textInput':
+                return (
+                  <FormControl component="fieldset" fullWidth key={_key}>
+                    <FormLabel component="legend">{input.label}</FormLabel>
+                    <TextField
+                      id={input.id}
+                      onChange={handleChange}
+                      name={input.id}
+                      required={input.required}
+                      variant={variant}
+                      type={input.inputType}
+                      placeholder={input.placeholderText}
+                      fullWidth
+                    />
+                    <FormHelperText>{input.helperText}</FormHelperText>
+                  </FormControl>
+                );
+              default:
+                return <div key="form-default">Form Field not Created</div>;
+            }
+          })}
+          {/* <BlockContent blocks={disclaimer} /> */}
+          <Button type="submit">{submitBtn.text}</Button>
+        </form>
+      </Box>
+    </ThemeProvider>
   );
 }
 
