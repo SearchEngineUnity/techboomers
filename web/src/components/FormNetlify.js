@@ -50,57 +50,99 @@ function FormNetlify({ align, title, formFields, name, thankYou, submitBtn, styl
 
   console.log(variant);
 
+  // const theme = createTheme({
+  //   // changing secondary main chainges the button colors for checkbox and radio button...
+  //   palette: {
+  //     secondary: {
+  //       main: selectorColor.color.hex,
+  //     },
+  //   },
+  //   overrides: {
+  //     // Style sheet name ⚛️
+  //     MuiFormLabel: {
+  //       // Name of the rule
+  //       root: {
+  //         // Some CSS
+  //         color: labelColor.color.hex,
+  //       },
+  //     },
+  //     MuiFormHelperText: {
+  //       root: {
+  //         color: helperColor.color.hex,
+  //       },
+  //     },
+  //     MuiOutlinedInput: {
+  //       root: {
+  //         borderRadius: fieldBorderRadius,
+  //         backgroundColor: fieldBgColor.color.hex,
+  //         "&$notchedOutline": {
+  //           borderColor: fieldBorderColor.color.hex,
+  //         },
+  //         "&:hover:not($disabled):not($cssFocused):not($error) $notchedOutline": {
+  //           borderColor: "blue" //hovered
+  //         },
+  //         "&$cssFocused $notchedOutline": {
+  //           borderColor: "red" //focused
+  //         }
+  //       },
+  //     },
+  //     MuiInputBase: {
+  //       // I think this affects both input and placeholder text... placeholder seems like a lighter shade of the input choice?
+  //       root: {
+  //         color: 'inputColor.color.hex',
+  //       },
+  //     },
+  //     MuiFormControlLabel: {
+  //       root: {
+  //         color: inputColor.color.hex,
+  //       },
+  //     },
+  //   },
+  // });
   const theme = createTheme({
     // changing secondary main chainges the button colors for checkbox and radio button...
     palette: {
+      primary: {
+        main: focusedColor.color.hex, // mui-focused class color (applies to border and checkbox, select, radio label color)
+      },
       secondary: {
-        main: selectorColor.color.hex,
+        main: selectorColor.color.hex, // selector color (checkbox icon and radio icon)
+      },
+      text: {
+        primary: inputColor.color.hex, // controls input text and placholder text and hover border color
+        secondary: labelColor.color.hex, // control label text, helper text, and the border of checkbox and radio icons
       },
     },
     overrides: {
-      // Style sheet name ⚛️
-      MuiFormLabel: {
-        // Name of the rule
-        root: {
-          // Some CSS
-          color: labelColor.color.hex,
-        },
-      },
-      MuiFormHelperText: {
-        root: {
-          color: helperColor.color.hex,
-        },
-      },
       MuiOutlinedInput: {
         root: {
-          borderRadius: fieldBorderRadius,
-          border: `solid 1px ${fieldBorderColor.color.hex}`,
-          backgroundColor: fieldBgColor.color.hex,
-          // this doesn't quite work
+          borderRadius: fieldBorderRadius, // border radius change for outlined variants
+          backgroundColor: fieldBgColor.color.hex, // background color change for outlined variants
+        },
+      },
+      MuiFilledInput: {
+        root: {
+          backgroundColor: '#d32f2f',
           '&:hover': {
-            border: `solid 1px ${hoverColor.color.hex}`,
+            backgroundColor: '#ff4081',
           },
-          // this doesn't quite work
+          '@media (hover: none)': {
+            backgroundColor: '#d32f2f',
+            '&:hover': {
+              backgroundColor: '#ff4081 !important',
+            },
+          },
           '&.Mui-focused': {
-            border: `solid 1px ${focusedColor.color.hex}`,
+            backgroundColor: '#ff4081',
           },
-        },
-      },
-      MuiInputBase: {
-        // I think this affects both input and placeholder text... placeholder seems like a lighter shade of the input choice?
-        root: {
-          color: 'inputColor.color.hex',
-        },
-      },
-      MuiFormControlLabel: {
-        root: {
-          color: inputColor.color.hex,
         },
       },
     },
   });
 
   const classes = useStyles();
+  console.log(hoverColor.color.hex);
+  console.log(focusedColor.color.hex);
   const [state, setState] = useState({});
   const [success, setSuccess] = useState(false);
   // const [validated, setValidated] = useState(false);

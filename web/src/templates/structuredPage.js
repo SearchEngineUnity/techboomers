@@ -802,7 +802,6 @@ export const query = graphql`
 
 const StructuredPage = ({ data, location }) => {
   const type = 'page';
-  console.log(data);
 
   return (
     <Layout location={location}>

@@ -4,7 +4,7 @@ import * as sections from '../sections';
 export default {
   name: 'listingPage',
   type: 'document',
-  title: 'Structured Page',
+  title: 'Listing Page',
   icon: MdWeb,
   fieldsets: [
     {

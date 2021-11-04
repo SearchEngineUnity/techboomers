@@ -1,6 +1,6 @@
 export default {
   name: 'muiBtnColorSet',
-  title: 'Mui Color Set',
+  title: 'Mui Btn Color Set',
   type: 'object',
   fields: [
     {

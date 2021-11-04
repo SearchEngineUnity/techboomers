@@ -47,7 +47,7 @@ export default {
     },
     {
       name: 'formStyle',
-      title: 'Form Sylte',
+      title: 'Form Style',
       type: 'reference',
       to: [{ type: 'formStyle' }],
       fieldset: 'presentation',
