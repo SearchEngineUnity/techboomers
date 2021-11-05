@@ -34,11 +34,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function FormNetlify({ align, title, formFields, name, thankYou, submitBtn, style }) {
-  console.log(style);
   const {
     backgroundColor: fieldBgColor,
     fieldBgHoverColor,
-    hoverColor,
     focusedColor,
     borderRadius: fieldBorderRadius,
     btnStyle,
@@ -98,7 +96,6 @@ function FormNetlify({ align, title, formFields, name, thankYou, submitBtn, styl
   //   },
   // });
   const theme = createTheme({
-    // changing secondary main chainges the button colors for checkbox and radio button...
     palette: {
       primary: {
         main: focusedColor.color.hex, // mui-focused class color (applies to border and checkbox, select, radio label color)
@@ -139,8 +136,6 @@ function FormNetlify({ align, title, formFields, name, thankYou, submitBtn, styl
   });
 
   const classes = useStyles();
-  console.log(hoverColor.color.hex);
-  console.log(focusedColor.color.hex);
   const [state, setState] = useState({});
   const [success, setSuccess] = useState(false);
   // const [validated, setValidated] = useState(false);

@@ -31,32 +31,33 @@ export default {
       type: 'string',
     },
     {
-      name: 'hoverColor',
-      title: 'Hover Border Color',
-      type: 'reference',
-      to: [{ type: 'colorOption' }],
-    },
-    {
       name: 'focusedColor',
       title: 'Focused Border Color',
+      description:
+        'Sets the color of borders, the checkbox label, the select label and the radio label color when one clicks into the field/fieldset.',
       type: 'reference',
       to: [{ type: 'colorOption' }],
     },
     {
       name: 'backgroundColor',
       title: 'Backbround Color',
+      description: 'Sets the backgroud color for filled variant and outlined variant.',
       type: 'reference',
       to: [{ type: 'colorOption' }],
     },
     {
       name: 'fieldBgHoverColor',
       title: 'Background Hover Color',
+      description:
+        'Sets the backgroud color for filled variant and outlined variant on hover AND the background color for filled variant when one clicks into the filed/fieldset.',
       type: 'reference',
       to: [{ type: 'colorOption' }],
     },
     {
       name: 'labelColor',
       title: 'Label Color',
+      description:
+        'Sets the label text color, helper text color and the outline color of checkbox and radio icons.',
       type: 'reference',
       to: [{ type: 'colorOption' }],
     },
@@ -64,6 +65,8 @@ export default {
       name: 'inputColor',
       title: 'Input Color',
       type: 'reference',
+      desription:
+        'Sets the input text color, placeholder text color, and the border color on hover.',
       to: [{ type: 'colorOption' }],
     },
     {
