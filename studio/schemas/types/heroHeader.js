@@ -1,6 +1,6 @@
 export default {
   name: 'heroHeader',
-  title: 'Header',
+  title: 'Hero Header',
   type: 'object',
   fields: [
     {

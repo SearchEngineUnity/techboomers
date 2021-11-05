@@ -12,7 +12,7 @@ export default {
       title: 'Social',
       type: 'string',
       options: {
-        list: ['facebook', 'twitter', 'instagram', 'pinterest', 'linkedin', 'youtube'],
+        list: ['feacbook', 'twitter', 'instagram', 'pinterest', 'linkedin', 'youtube'],
       },
       validation: (Rule) => [Rule.required().error('Field is required')],
     },

@@ -35,17 +35,6 @@ export default {
       type: 'string',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
-    {
-      name: 'formFieldStyle',
-      title: 'Form Field Style',
-      type: 'string',
-      options: {
-        list: ['standard', 'filled', 'outlined'],
-        layout: 'radio',
-        direction: 'horizontal',
-      },
-      initualValue: 'outlined',
-    },
   ],
   preview: {
     select: {

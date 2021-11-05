@@ -10,9 +10,9 @@ import { makeStyles } from '@material-ui/core/styles';
 // const StyledDiv = styled.div``;
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    // maxWidth: 345,
-  },
+  // root: {
+  //   maxWidth: 345,
+  // },
   media: {
     height: 0,
     paddingTop: '100%', // 16:9

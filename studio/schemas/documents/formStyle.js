@@ -31,12 +31,6 @@ export default {
       type: 'string',
     },
     {
-      name: 'borderColor',
-      title: 'Border Color',
-      type: 'reference',
-      to: [{ type: 'colorOption' }],
-    },
-    {
       name: 'hoverColor',
       title: 'Hover Border Color',
       type: 'reference',
@@ -55,6 +49,12 @@ export default {
       to: [{ type: 'colorOption' }],
     },
     {
+      name: 'fieldBgHoverColor',
+      title: 'Background Hover Color',
+      type: 'reference',
+      to: [{ type: 'colorOption' }],
+    },
+    {
       name: 'labelColor',
       title: 'Label Color',
       type: 'reference',
@@ -63,18 +63,6 @@ export default {
     {
       name: 'inputColor',
       title: 'Input Color',
-      type: 'reference',
-      to: [{ type: 'colorOption' }],
-    },
-    {
-      name: 'placeholderColor',
-      title: 'placeholder Text Color',
-      type: 'reference',
-      to: [{ type: 'colorOption' }],
-    },
-    {
-      name: 'helperColor',
-      title: 'Helper Text Color',
       type: 'reference',
       to: [{ type: 'colorOption' }],
     },
