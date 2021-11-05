@@ -22,10 +22,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const divStyle = {
-  display: 'none',
-};
-
 const MainFooter = ({ data }) => {
   const classes = useStyles();
   const { sanityCompanyInfo: companyInfo, sanityNavMenu: footerMenu } = data;
@@ -34,14 +30,7 @@ const MainFooter = ({ data }) => {
   return (
     <>
       {data.sanityNavMenu && (
-        <Box
-          component="footer"
-          color="common.white"
-          bgcolor="common.black"
-          fontSize={14}
-          pt={2}
-          style={divStyle}
-        >
+        <Box component="footer" color="common.white" bgcolor="common.black" fontSize={14} pt={2}>
           <Container maxWidth="lg">
             <Grid container spacing={3}>
               {menuArray.map((group) => (

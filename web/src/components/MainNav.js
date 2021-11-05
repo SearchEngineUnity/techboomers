@@ -31,16 +31,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const divStyle = {
-  display: 'none',
-};
-
 const MainNav = ({ data, location }) => {
   const classes = useStyles();
   return (
     <>
       {data.sanityNavMenu && (
-        <AppBar position="static" className={classes.appBar} style={divStyle}>
+        <AppBar position="static" className={classes.appBar}>
           <Container maxWidth="lg">
             {data.sanityNavMenu.menuArray.map((menu, menuIndex) => {
               const { menuGroup, _key } = menu;
