@@ -17,6 +17,8 @@ import {
   Checkbox,
   Box,
 } from '@material-ui/core';
+import ButtonSubmit from './buttons/ButtonSubmit';
+import { mapMuiBtnSubmitToProps } from '../lib/mapToProps';
 import { determinColor } from '../lib/helperFunctions';
 
 function encode(data) {
@@ -35,20 +37,16 @@ function FormNetlify({ align, title, formFields, name, thankYou, submitBtn, styl
   console.log(style);
   const {
     backgroundColor: fieldBgColor,
-    borderColor: fieldBorderColor,
+    fieldBgHoverColor,
     hoverColor,
     focusedColor,
     borderRadius: fieldBorderRadius,
     btnStyle,
     fieldVariant: variant,
     labelColor,
-    helperColor,
     inputColor,
-    placeholderColor,
     selectorColor,
   } = style;
-
-  console.log(variant);
 
   // const theme = createTheme({
   //   // changing secondary main chainges the button colors for checkbox and radio button...
@@ -116,24 +114,24 @@ function FormNetlify({ align, title, formFields, name, thankYou, submitBtn, styl
     overrides: {
       MuiOutlinedInput: {
         root: {
-          borderRadius: fieldBorderRadius, // border radius change for outlined variants
-          backgroundColor: fieldBgColor.color.hex, // background color change for outlined variants
+          borderRadius: fieldBorderRadius, // border radius change for outlined variant
+          backgroundColor: fieldBgColor.color.hex, // background color change for outlined variant
         },
       },
       MuiFilledInput: {
         root: {
-          backgroundColor: '#d32f2f',
+          backgroundColor: fieldBgColor.color.hex, // background color for filled variant
           '&:hover': {
-            backgroundColor: '#ff4081',
+            backgroundColor: fieldBgHoverColor.color.hex, // background color on hover for filled variant
           },
           '@media (hover: none)': {
-            backgroundColor: '#d32f2f',
+            backgroundColor: fieldBgColor.color.hex, // background color for filled variant when media has no hover
             '&:hover': {
-              backgroundColor: '#ff4081 !important',
+              backgroundColor: fieldBgHoverColor.color.hex, // background color on hover for filled variant when media has no hover
             },
           },
           '&.Mui-focused': {
-            backgroundColor: '#ff4081',
+            backgroundColor: fieldBgHoverColor.color.hex, // background color when clicked into the field
           },
         },
       },
@@ -356,7 +354,7 @@ function FormNetlify({ align, title, formFields, name, thankYou, submitBtn, styl
             }
           })}
           {/* <BlockContent blocks={disclaimer} /> */}
-          <Button type="submit">{submitBtn.text}</Button>
+          <ButtonSubmit type="submit" text={submitBtn.text} {...mapMuiBtnSubmitToProps(btnStyle)} />
         </form>
       </Box>
     </ThemeProvider>

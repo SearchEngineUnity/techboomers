@@ -246,6 +246,20 @@ export function mapMuiBtnToProps({ idTag, btnAlignment, link, text, design }) {
   };
 }
 
+export function mapMuiBtnSubmitToProps({ settings, colors, typography }) {
+  return {
+    variant: settings?.variant,
+    disableElevation: settings?.disableElevation,
+    disableFocusRipple: settings?.disableFocusRipple,
+    disableRipple: settings?.disableRipple,
+    fullWidth: settings?.fullWidth,
+    borderRadius: settings?.borderRadius,
+    padding: settings?.padding,
+    colors,
+    typography,
+  };
+}
+
 export function mapGridFlexToProps({ layout, tiles, tileOption }) {
   return {
     layout,
