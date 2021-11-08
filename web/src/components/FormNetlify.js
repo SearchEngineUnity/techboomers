@@ -177,6 +177,7 @@ function FormNetlify({ align, title, formFields, name, thankYou, submitBtn, styl
         .then(() => {
           // setValidated(false);
           form.reset();
+          setState({});
           setSuccess(true);
         })
         // should set up also error message as well should the form fail to send.
