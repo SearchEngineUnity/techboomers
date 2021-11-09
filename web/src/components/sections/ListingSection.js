@@ -80,9 +80,9 @@ function ListingSection({
   const theme = createTheme({
     palette: {
       action: {
-        selected: '#ff0000',
-        focus: '#00ff00',
-        hover: '#0000ff',
+        selected: 'rgba(255, 0, 0, 1)',
+        focus: 'rgba(0, 255, 0, 1)',
+        hover: 'rgba(0, 0, 255, 1)',
       },
       text: {
         primary: foregroundColor,
