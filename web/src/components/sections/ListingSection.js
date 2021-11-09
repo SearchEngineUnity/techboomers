@@ -3,7 +3,8 @@ import { Container, Grid, Box } from '@material-ui/core';
 import Pagination from '@material-ui/lab/Pagination';
 import PaginationItem from '@material-ui/lab/PaginationItem';
 import { Link } from 'gatsby';
-import { makeStyles } from '@material-ui/core/styles';
+import { createTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
+import { dark } from '@material-ui/core/styles/createPalette';
 import StructuredSectionFooter from '../StructuredSectionFooter';
 import StructuredSectionHeader from '../StructuredSectionHeader';
 import { determinColor } from '../../lib/helperFunctions';
@@ -75,6 +76,20 @@ function ListingSection({
   const subtitleColor = determinColor(colorSettings?.subtitle?.color) || 'inherit';
   const footerColor = determinColor(colorSettings?.footer?.color) || 'inherit';
   const classes = useStyles({ linkColor, foregroundColor });
+
+  const theme = createTheme({
+    palette: {
+      action: {
+        selected: 'rgba(255, 0, 0, 1)',
+        focus: 'rgba(0, 255, 0, 1)',
+        hover: 'rgba(0, 0, 255, 1)',
+      },
+      text: {
+        primary: foregroundColor,
+      },
+    },
+  });
+
   return (
     <Box
       id={idTag}
@@ -118,22 +133,24 @@ function ListingSection({
           })}
         </Grid>
         {numPages > 1 && (
-          <Box mt={3}>
-            <Pagination
-              page={currentpage}
-              count={numPages}
-              variant="outlined"
-              shape="rounded"
-              renderItem={(item) => (
-                <PaginationItem
-                  classes={{ root: classes.root, outlined: classes.outlined }}
-                  component={Link}
-                  to={`/${slug}${item.page === 1 ? '' : `/${item.page}`}`}
-                  {...item}
-                />
-              )}
-            />
-          </Box>
+          <ThemeProvider theme={theme}>
+            <Box mt={3}>
+              <Pagination
+                page={currentpage}
+                count={numPages}
+                variant="outlined"
+                shape="rounded"
+                renderItem={(item) => (
+                  <PaginationItem
+                    classes={{ root: classes.root, outlined: classes.outlined }}
+                    component={Link}
+                    to={`/${slug}${item.page === 1 ? '' : `/${item.page}`}`}
+                    {...item}
+                  />
+                )}
+              />
+            </Box>
+          </ThemeProvider>
         )}
         <StructuredSectionFooter
           footer={footer}
