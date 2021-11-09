@@ -1,8 +1,5 @@
 import React from 'react';
 import { Container, Grid, Box } from '@material-ui/core';
-// import Pagination from '@material-ui/lab/Pagination';
-// import PaginationItem from '@material-ui/lab/PaginationItem';
-import { Link } from 'gatsby';
 import { makeStyles } from '@material-ui/core/styles';
 import HeroSectionFooter from '../HeroSectionFooter';
 import HeroSectionHeader from '../HeroSectionHeader';
@@ -32,16 +29,9 @@ const useStyles = makeStyles((theme) => ({
       color: (props) => props.linkColor,
     },
   },
-  root: {
-    color: 'inherit',
-  },
-  outlined: {
-    border: '1px solid',
-    borderColor: 'inherit',
-  },
 }));
 
-function ListingSection({
+function ListingSectionH1({
   idTag,
   heading,
   subtitle,
@@ -51,10 +41,7 @@ function ListingSection({
   footerAlignment,
   colorSettings,
   currentpage,
-  limit,
-  listType,
   numPages,
-  skip,
   slug,
   listingItems,
   tileOption,
@@ -68,7 +55,6 @@ function ListingSection({
   };
 
   const col = colCalculate(layout);
-
   const backgroundColor = determinColor(colorSettings?.background?.color) || 'transparent';
   const foregroundColor = determinColor(colorSettings?.foreground?.color) || 'text.primary';
   const linkColor = determinColor(colorSettings?.link?.color) || 'initial';
@@ -76,6 +62,8 @@ function ListingSection({
   const subtitleColor = determinColor(colorSettings?.subtitle?.color) || 'inherit';
   const footerColor = determinColor(colorSettings?.footer?.color) || 'inherit';
   const classes = useStyles({ linkColor, foregroundColor });
+  const paginationColor = colorSettings?.foreground?.color;
+
   return (
     <Box
       id={idTag}
@@ -119,25 +107,12 @@ function ListingSection({
           })}
         </Grid>
         {numPages > 1 && (
-          <Pagination currentpage={currentpage} numPages={numPages} slug={slug} />
-          // <ThemeProvider theme={theme}>
-          //   <Box mt={3}>
-          //     <Pagination
-          //       page={currentpage}
-          //       count={numPages}
-          //       variant="outlined"
-          //       shape="rounded"
-          //       renderItem={(item) => (
-          //         <PaginationItem
-          //           classes={{ root: classes.root, outlined: classes.outlined }}
-          //           component={Link}
-          //           to={`/${slug}${item.page === 1 ? '' : `/${item.page}`}`}
-          //           {...item}
-          //         />
-          //       )}
-          //     />
-          //   </Box>
-          // </ThemeProvider>
+          <Pagination
+            currentpage={currentpage}
+            numPages={numPages}
+            slug={slug}
+            color={paginationColor}
+          />
         )}
         <HeroSectionFooter footer={footer} footerColor={footerColor} align={footerAlignment} />
       </Container>
@@ -145,4 +120,4 @@ function ListingSection({
   );
 }
 
-export default ListingSection;
+export default ListingSectionH1;

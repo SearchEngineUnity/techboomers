@@ -6,7 +6,6 @@ import { Link } from 'gatsby';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 
 function ListingPagination({ currentpage, numPages, slug, color }) {
-  console.log(color);
   const theme = createTheme({
     palette: {
       action: {
