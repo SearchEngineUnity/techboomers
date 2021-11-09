@@ -169,6 +169,7 @@ export const query = graphql`
                     color {
                       hex
                       alpha
+                      _rawRgb
                     }
                     tone
                   }
@@ -177,6 +178,7 @@ export const query = graphql`
                     color {
                       alpha
                       hex
+                      _rawRgb
                     }
                   }
                   main {
@@ -184,6 +186,7 @@ export const query = graphql`
                     color {
                       alpha
                       hex
+                      _rawRgb
                     }
                   }
                 }
@@ -224,36 +227,42 @@ export const query = graphql`
               color {
                 hex
                 alpha
+                _rawRgb
               }
             }
             footer {
               color {
                 hex
                 alpha
+                _rawRgb
               }
             }
             foreground {
               color {
                 hex
                 alpha
+                _rawRgb
               }
             }
             heading {
               color {
                 hex
                 alpha
+                _rawRgb
               }
             }
             link {
               color {
                 hex
                 alpha
+                _rawRgb
               }
             }
             subtitle {
               color {
                 alpha
                 hex
+                _rawRgb
               }
             }
           }
@@ -441,6 +450,7 @@ export const query = graphql`
                     color {
                       hex
                       alpha
+                      _rawRgb
                     }
                     tone
                   }
@@ -449,6 +459,7 @@ export const query = graphql`
                     color {
                       alpha
                       hex
+                      _rawRgb
                     }
                   }
                   main {
@@ -456,6 +467,7 @@ export const query = graphql`
                     color {
                       alpha
                       hex
+                      _rawRgb
                     }
                   }
                 }
@@ -474,36 +486,42 @@ export const query = graphql`
               color {
                 hex
                 alpha
+                _rawRgb
               }
             }
             footer {
               color {
                 hex
                 alpha
+                _rawRgb
               }
             }
             foreground {
               color {
                 hex
                 alpha
+                _rawRgb
               }
             }
             heading {
               color {
                 hex
                 alpha
+                _rawRgb
               }
             }
             link {
               color {
                 hex
                 alpha
+                _rawRgb
               }
             }
             subtitle {
               color {
                 alpha
                 hex
+                _rawRgb
               }
             }
           }
@@ -657,6 +675,7 @@ export const query = graphql`
                     color {
                       hex
                       alpha
+                      _rawRgb
                     }
                     tone
                   }
@@ -665,6 +684,7 @@ export const query = graphql`
                     color {
                       alpha
                       hex
+                      _rawRgb
                     }
                   }
                   main {
@@ -672,6 +692,7 @@ export const query = graphql`
                     color {
                       alpha
                       hex
+                      _rawRgb
                     }
                   }
                 }
@@ -710,36 +731,42 @@ export const query = graphql`
               color {
                 hex
                 alpha
+                _rawRgb
               }
             }
             footer {
               color {
                 hex
                 alpha
+                _rawRgb
               }
             }
             foreground {
               color {
                 hex
                 alpha
+                _rawRgb
               }
             }
             heading {
               color {
                 hex
                 alpha
+                _rawRgb
               }
             }
             link {
               color {
                 hex
                 alpha
+                _rawRgb
               }
             }
             subtitle {
               color {
                 alpha
                 hex
+                _rawRgb
               }
             }
           }
@@ -768,36 +795,42 @@ export const query = graphql`
               color {
                 hex
                 alpha
+                _rawRgb
               }
             }
             footer {
               color {
                 hex
                 alpha
+                _rawRgb
               }
             }
             foreground {
               color {
                 hex
                 alpha
+                _rawRgb
               }
             }
             heading {
               color {
                 hex
                 alpha
+                _rawRgb
               }
             }
             link {
               color {
                 hex
                 alpha
+                _rawRgb
               }
             }
             subtitle {
               color {
                 alpha
                 hex
+                _rawRgb
               }
             }
           }

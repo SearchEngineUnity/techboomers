@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Grid, Box } from '@material-ui/core';
-import Pagination from '@material-ui/lab/Pagination';
-import PaginationItem from '@material-ui/lab/PaginationItem';
+// import Pagination from '@material-ui/lab/Pagination';
+// import PaginationItem from '@material-ui/lab/PaginationItem';
 import { Link } from 'gatsby';
 import { makeStyles } from '@material-ui/core/styles';
 import HeroSectionFooter from '../HeroSectionFooter';
@@ -12,6 +12,7 @@ import Tile2 from '../listingTile/TileSpgImageBottom';
 import Tile3 from '../listingTile/TileSpgImageLeft';
 import Tile4 from '../listingTile/TileSpgImageRight';
 import Tile5 from '../listingTile/TileSpgImageRightThreeCol';
+import Pagination from '../ListingPagination';
 
 const useStyles = makeStyles((theme) => ({
   mobileGrid: {
@@ -117,22 +118,27 @@ function ListingSection({
             );
           })}
         </Grid>
-        <Box mt={3}>
-          <Pagination
-            page={currentpage}
-            count={numPages}
-            variant="outlined"
-            shape="rounded"
-            renderItem={(item) => (
-              <PaginationItem
-                classes={{ root: classes.root, outlined: classes.outlined }}
-                component={Link}
-                to={`/${slug}${item.page === 1 ? '' : `/${item.page}`}`}
-                {...item}
-              />
-            )}
-          />
-        </Box>
+        {numPages > 1 && (
+          <Pagination currentpage={currentpage} numPages={numPages} slug={slug} />
+          // <ThemeProvider theme={theme}>
+          //   <Box mt={3}>
+          //     <Pagination
+          //       page={currentpage}
+          //       count={numPages}
+          //       variant="outlined"
+          //       shape="rounded"
+          //       renderItem={(item) => (
+          //         <PaginationItem
+          //           classes={{ root: classes.root, outlined: classes.outlined }}
+          //           component={Link}
+          //           to={`/${slug}${item.page === 1 ? '' : `/${item.page}`}`}
+          //           {...item}
+          //         />
+          //       )}
+          //     />
+          //   </Box>
+          // </ThemeProvider>
+        )}
         <HeroSectionFooter footer={footer} footerColor={footerColor} align={footerAlignment} />
       </Container>
     </Box>
