@@ -6,7 +6,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { CardActionArea } from 'gatsby-theme-material-ui';
 import sanityConfig from '../../../sanityConfig';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
   },
@@ -15,6 +15,7 @@ const useStyles = makeStyles({
   },
   details: {
     display: 'flex',
+    flexWrap: 'warp',
     flexDirection: 'row',
   },
   content: {
@@ -23,7 +24,12 @@ const useStyles = makeStyles({
   cover: {
     minWidth: 400,
   },
-});
+  footer: {
+    [theme.breakpoints.down('md')]: {
+      marginTop: 16,
+    },
+  },
+}));
 
 function TileImageRecSqr({ image, alt, url, title, text, date }) {
   const classes = useStyles();

@@ -117,22 +117,24 @@ function ListingSection({
             );
           })}
         </Grid>
-        <Box mt={3}>
-          <Pagination
-            page={currentpage}
-            count={numPages}
-            variant="outlined"
-            shape="rounded"
-            renderItem={(item) => (
-              <PaginationItem
-                classes={{ root: classes.root, outlined: classes.outlined }}
-                component={Link}
-                to={`/${slug}${item.page === 1 ? '' : `/${item.page}`}`}
-                {...item}
-              />
-            )}
-          />
-        </Box>
+        {numPages > 1 && (
+          <Box mt={3}>
+            <Pagination
+              page={currentpage}
+              count={numPages}
+              variant="outlined"
+              shape="rounded"
+              renderItem={(item) => (
+                <PaginationItem
+                  classes={{ root: classes.root, outlined: classes.outlined }}
+                  component={Link}
+                  to={`/${slug}${item.page === 1 ? '' : `/${item.page}`}`}
+                  {...item}
+                />
+              )}
+            />
+          </Box>
+        )}
         <StructuredSectionFooter
           footer={footer}
           footerColor={footerColor}

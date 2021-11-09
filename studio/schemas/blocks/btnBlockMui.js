@@ -31,6 +31,7 @@ export default {
     {
       name: 'link',
       title: 'Link',
+      description: 'Only one link can be added.',
       type: 'array',
       of: [
         { type: 'jumpLink' },
