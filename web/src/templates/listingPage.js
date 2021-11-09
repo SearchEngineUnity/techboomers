@@ -788,8 +788,6 @@ export const query = graphql`
           }
           headerAlignment
           idTag
-          layout
-          tileOption
           colorSettings {
             background {
               color {

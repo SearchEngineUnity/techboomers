@@ -209,11 +209,11 @@ export function mapListingSectionToProps({
   _rawFooter,
   headerAlignment,
   footerAlignment,
-  layout,
+  layout = '1/1/1',
   colorSettings,
   header,
   idTag,
-  tileOption,
+  tileOption = '3',
 }) {
   return {
     idTag,

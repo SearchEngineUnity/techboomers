@@ -1,10 +1,6 @@
 import React from 'react';
 import { Container, Grid, Box } from '@material-ui/core';
-// import Pagination from '@material-ui/lab/Pagination';
-// import PaginationItem from '@material-ui/lab/PaginationItem';
-import { Link } from 'gatsby';
-import { createTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
-import { dark } from '@material-ui/core/styles/createPalette';
+import { makeStyles } from '@material-ui/core/styles';
 import StructuredSectionFooter from '../StructuredSectionFooter';
 import StructuredSectionHeader from '../StructuredSectionHeader';
 import { determinColor } from '../../lib/helperFunctions';
@@ -33,13 +29,6 @@ const useStyles = makeStyles((theme) => ({
       color: (props) => props.linkColor,
     },
   },
-  root: {
-    color: 'inherit',
-  },
-  outlined: {
-    border: '1px solid',
-    borderColor: 'inherit',
-  },
 }));
 
 function ListingSection({
@@ -52,10 +41,7 @@ function ListingSection({
   footerAlignment,
   colorSettings,
   currentpage,
-  limit,
-  listType,
   numPages,
-  skip,
   slug,
   listingItems,
   tileOption,
@@ -69,7 +55,6 @@ function ListingSection({
   };
 
   const col = colCalculate(layout);
-
   const backgroundColor = determinColor(colorSettings?.background?.color) || 'transparent';
   const foregroundColor = determinColor(colorSettings?.foreground?.color) || 'text.primary';
   const linkColor = determinColor(colorSettings?.link?.color) || 'initial';
@@ -78,19 +63,6 @@ function ListingSection({
   const footerColor = determinColor(colorSettings?.footer?.color) || 'inherit';
   const paginationColor = colorSettings?.foreground?.color;
   const classes = useStyles({ linkColor, foregroundColor });
-
-  const theme = createTheme({
-    palette: {
-      action: {
-        selected: 'rgba(255, 0, 0, 1)',
-        focus: 'rgba(0, 255, 0, 1)',
-        hover: 'rgba(0, 0, 255, 1)',
-      },
-      text: {
-        primary: foregroundColor,
-      },
-    },
-  });
 
   return (
     <Box
@@ -124,7 +96,7 @@ function ListingSection({
                 case '5':
                   return <Tile5 {...item} />;
                 default:
-                  return <div> Tile still under development</div>;
+                  return <div>Tile still under development</div>;
               }
             };
             return (
@@ -141,24 +113,6 @@ function ListingSection({
             slug={slug}
             color={paginationColor}
           />
-          // <ThemeProvider theme={theme}>
-          //   <Box mt={3}>
-          //     <Pagination
-          //       page={currentpage}
-          //       count={numPages}
-          //       variant="outlined"
-          //       shape="rounded"
-          //       renderItem={(item) => (
-          //         <PaginationItem
-          //           classes={{ root: classes.root, outlined: classes.outlined }}
-          //           component={Link}
-          //           to={`/${slug}${item.page === 1 ? '' : `/${item.page}`}`}
-          //           {...item}
-          //         />
-          //       )}
-          //     />
-          //   </Box>
-          // </ThemeProvider>
         )}
         <StructuredSectionFooter
           footer={footer}
