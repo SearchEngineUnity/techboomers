@@ -106,6 +106,7 @@ export default function Footer(props) {
                   _key
                   _type
                   brandGroup {
+                    _key
                     height
                     type
                     brand {

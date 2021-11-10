@@ -186,7 +186,13 @@ function StructuredLrFlex({
             }
           };
           return (
-            <Grid container justify="center" spacing={8} className={classes.mobileGrid} key={_key}>
+            <Grid
+              container
+              justifyContent="center"
+              spacing={8}
+              className={classes.mobileGrid}
+              key={_key}
+            >
               <Grid item {...col}>
                 {blockSelector(_type)}
               </Grid>

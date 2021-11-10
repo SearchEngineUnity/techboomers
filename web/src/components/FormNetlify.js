@@ -2,15 +2,12 @@
 import React, { useState } from 'react';
 import { createTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import {
-  Button,
   TextField,
-  MenuItem,
   Select,
   Radio,
   FormControl,
   FormGroup,
   FormLabel,
-  InputLabel,
   RadioGroup,
   FormControlLabel,
   FormHelperText,
@@ -19,7 +16,6 @@ import {
 } from '@material-ui/core';
 import ButtonSubmit from './buttons/ButtonSubmit';
 import { mapMuiBtnSubmitToProps } from '../lib/mapToProps';
-import { determinColor } from '../lib/helperFunctions';
 
 function encode(data) {
   return Object.keys(data)
@@ -46,55 +42,6 @@ function FormNetlify({ align, title, formFields, name, thankYou, submitBtn, styl
     selectorColor,
   } = style;
 
-  // const theme = createTheme({
-  //   // changing secondary main chainges the button colors for checkbox and radio button...
-  //   palette: {
-  //     secondary: {
-  //       main: selectorColor.color.hex,
-  //     },
-  //   },
-  //   overrides: {
-  //     // Style sheet name ⚛️
-  //     MuiFormLabel: {
-  //       // Name of the rule
-  //       root: {
-  //         // Some CSS
-  //         color: labelColor.color.hex,
-  //       },
-  //     },
-  //     MuiFormHelperText: {
-  //       root: {
-  //         color: helperColor.color.hex,
-  //       },
-  //     },
-  //     MuiOutlinedInput: {
-  //       root: {
-  //         borderRadius: fieldBorderRadius,
-  //         backgroundColor: fieldBgColor.color.hex,
-  //         "&$notchedOutline": {
-  //           borderColor: fieldBorderColor.color.hex,
-  //         },
-  //         "&:hover:not($disabled):not($cssFocused):not($error) $notchedOutline": {
-  //           borderColor: "blue" //hovered
-  //         },
-  //         "&$cssFocused $notchedOutline": {
-  //           borderColor: "red" //focused
-  //         }
-  //       },
-  //     },
-  //     MuiInputBase: {
-  //       // I think this affects both input and placeholder text... placeholder seems like a lighter shade of the input choice?
-  //       root: {
-  //         color: 'inputColor.color.hex',
-  //       },
-  //     },
-  //     MuiFormControlLabel: {
-  //       root: {
-  //         color: inputColor.color.hex,
-  //       },
-  //     },
-  //   },
-  // });
   const theme = createTheme({
     palette: {
       primary: {
@@ -151,7 +98,6 @@ function FormNetlify({ align, title, formFields, name, thankYou, submitBtn, styl
 
   const sendForm = (form) => {
     const inputs = form.elements;
-    const formData = new FormData(form);
 
     // eslint-disable-next-line no-plusplus
     for (let index = 0; index < inputs.length - 1; index++) {
@@ -172,7 +118,6 @@ function FormNetlify({ align, title, formFields, name, thankYou, submitBtn, styl
           'bot-field': form.elements['bot-field'].value,
           ...state,
         }),
-        // body: new URLSearchParams(formData).toString(),
       })
         .then(() => {
           // setValidated(false);
@@ -303,7 +248,7 @@ function FormNetlify({ align, title, formFields, name, thankYou, submitBtn, styl
                     >
                       <option aria-label="None" value="" />
                       {input.options.map((option) => (
-                        <option value={option.value} key={option.key}>
+                        <option value={option.value} key={option._key}>
                           {option.label}
                         </option>
                       ))}

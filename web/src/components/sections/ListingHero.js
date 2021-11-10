@@ -9,7 +9,7 @@ function ListingHero({ h1, subtitle, image }) {
   return (
     <Box component="section" bgcolor="primary.main" color="primary.contrastText" py={3} id="hero">
       <Container maxWidth="lg">
-        <Grid container direction="row" justify="center" alignItems="center">
+        <Grid container direction="row" justifyContent="center" alignItems="center">
           <Grid item md={6} sm={12}>
             <Typography variant="h1">{h1}</Typography>
             <Subtitle blocks={subtitle} />

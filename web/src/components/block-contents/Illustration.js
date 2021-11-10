@@ -11,7 +11,7 @@ function Illustration({ illustration, table }) {
   const customMaxWidth = illustration.maxWidth || 'auto';
 
   return (
-    <Box component="figure" justifyContent="center" my={table ? 0 : '16px'} mx={table ? 0 : '40px'}>
+    <Box component="figure" justify="center" my={table ? 0 : '16px'} mx={table ? 0 : '40px'}>
       <GatsbyImage
         image={fluidProps}
         alt={illustration.alt}

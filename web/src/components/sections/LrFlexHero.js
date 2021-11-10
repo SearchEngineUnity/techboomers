@@ -148,7 +148,7 @@ function LrFlexHero({
         />
         <Grid
           container
-          justify="center"
+          justifyContent="center"
           alignItems={blockAlignment}
           spacing={8}
           className={classes.mobileGrid}
