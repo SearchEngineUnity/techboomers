@@ -38,7 +38,7 @@ function GuideHero({ h1, subtitle, date, image }) {
           <Grid
             container
             direction="row"
-            justify="center"
+            justifyContent="center"
             alignItems={heroAlignment.heroLrAlignment}
             spacing={8}
           >

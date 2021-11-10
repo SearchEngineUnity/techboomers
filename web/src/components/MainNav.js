@@ -40,6 +40,7 @@ const MainNav = ({ data, location }) => {
           <Container maxWidth="lg">
             {data.sanityNavMenu.menuArray.map((menu, menuIndex) => {
               const { menuGroup, _key } = menu;
+
               return (
                 <Box
                   display={{
@@ -57,6 +58,7 @@ const MainNav = ({ data, location }) => {
                   >
                     {menuGroup.map((group) => {
                       const { _type, _key: groupKey } = group;
+
                       switch (_type) {
                         case 'navBrand':
                           return <NavBrand {...mapNavBrandToProps(group)} key={groupKey} />;
@@ -132,6 +134,7 @@ export default function MyMainNav(props) {
                   _key
                   _type
                   brandGroup {
+                    _key
                     height
                     type
                     brand {

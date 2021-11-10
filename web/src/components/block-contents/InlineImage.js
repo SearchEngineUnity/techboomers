@@ -21,7 +21,7 @@ function InlineImage({ image, alt }) {
   const maxHeight = customHeight && customHeight < imageHeight ? customHeight : imageHeight;
 
   return (
-    <Box component="figure" justifyContent="center">
+    <Box component="figure" justify="center">
       <StyledGI
         image={fluidProps}
         alt={alt}
