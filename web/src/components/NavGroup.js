@@ -1,14 +1,14 @@
-/* eslint-disable react/jsx-no-bind */
 import React, { useState } from 'react';
 import { Icon, Menu, MenuItem, ListItemIcon, ListItemText, Box } from '@material-ui/core';
 import { Link } from 'gatsby-theme-material-ui';
 import { navigate } from 'gatsby';
 
-function NavGroup({ title, url, group, location }) {
+const NavGroup = ({ title, url, group, location }) => {
   // not ture or false what is event.currentTarget? How is this different the event.Target?
   const [anchorEl, setAnchorEl] = useState(null);
+  const [open, setOpen] = useState(false);
 
-  function handleMouseOver(event) {
+  const handleMouseOver = (event) => {
     console.log('handleMouseOver');
     console.log('a1', anchorEl);
     console.log('e', event.currentTarget);
@@ -16,20 +16,23 @@ function NavGroup({ title, url, group, location }) {
       console.log('after if');
       console.log('a2', anchorEl);
       setAnchorEl(event.currentTarget);
+      setOpen(true);
     }
-  }
-  function handleClose() {
+  };
+
+  const handleClose = () => {
     console.log('handelClose');
     console.log('a3', anchorEl);
     setAnchorEl(null);
-  }
+    setOpen(false);
+  };
 
-  function handleNavigate(nav) {
+  const handleNavigate = (nav) => {
     console.log('handelNav');
     console.log('a4', anchorEl);
-    setAnchorEl(null);
+    // setAnchorEl(null);
     navigate(`/${nav.slug.current}`);
-  }
+  };
 
   return (
     <>
@@ -41,7 +44,7 @@ function NavGroup({ title, url, group, location }) {
           to={`/${url}`}
           aria-owns={anchorEl ? title : undefined}
           aria-haspopup="true"
-          onMouseOver={handleMouseOver}
+          onMouseOver={(event) => handleMouseOver(event)}
         >
           {title}
         </Link>
@@ -51,7 +54,8 @@ function NavGroup({ title, url, group, location }) {
         getContentAnchorEl={null}
         anchorEl={anchorEl}
         // Why is anchorEl is Boolean here?
-        open={Boolean(anchorEl)}
+        // open={Boolean(anchorEl)}
+        open={open}
         onClose={handleClose}
         MenuListProps={{ onMouseLeave: handleClose, disablePadding: true }}
         disableEnforceFocus
@@ -83,5 +87,5 @@ function NavGroup({ title, url, group, location }) {
       </Menu>
     </>
   );
-}
+};
 export default NavGroup;
