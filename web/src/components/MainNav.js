@@ -41,11 +41,12 @@ const MainNav = ({ data, location }) => {
     console.log(event.target);
     console.log('current target');
     console.log(event.currentTarget);
-    console.log('event target text content');
-    console.log(event.target.textContent);
     if (event.target !== hoveredElement) {
+      console.log('event target text content');
+      console.log(event.target.textContent);
+      console.log('handle over if statement is triggered');
       setHoveredElement(event.target);
-      setHoveredItemText(event.target.content);
+      setHoveredItemText(event.target.textContent);
     }
   };
   return (
@@ -102,6 +103,10 @@ const MainNav = ({ data, location }) => {
                             </Box>
                           );
                         case 'navGroup':
+                          console.log('group title equals hovered item text?');
+                          console.log(group.title === hoveredItemText);
+                          console.log(group.title);
+                          console.log(hoveredItemText);
                           return (
                             <Box
                               display={{
