@@ -73,23 +73,9 @@ const MainNav = ({ data, location }) => {
 
                       switch (_type) {
                         case 'navBrand':
-                          return (
-                            <NavBrand
-                              {...mapNavBrandToProps(group)}
-                              key={groupKey}
-                              onMouseEnter={(e) => handleMouseEnter(e)}
-                              onMouseLeave={handleMouseLeave}
-                            />
-                          );
+                          return <NavBrand {...mapNavBrandToProps(group)} key={groupKey} />;
                         case 'navPhone':
-                          return (
-                            <NavPhone
-                              text={group.text}
-                              key={groupKey}
-                              onMouseEnter={(e) => handleMouseEnter(e)}
-                              onMouseLeave={handleMouseLeave}
-                            />
-                          );
+                          return <NavPhone text={group.text} key={groupKey} />;
                         case 'navItem':
                           return (
                             <Box
@@ -101,8 +87,6 @@ const MainNav = ({ data, location }) => {
                                 xl: 'block',
                               }}
                               key={groupKey}
-                              onMouseEnter={(e) => handleMouseEnter(e)}
-                              onMouseLeave={handleMouseLeave}
                             >
                               <NavItem {...mapNavItemToProps(group)} location={location} />
                             </Box>

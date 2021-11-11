@@ -5,19 +5,12 @@ import { navigate } from 'gatsby';
 
 const NavGroup = ({ title, url, group, location, isOpen }) => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [open, setOpen] = useState(false);
 
   const handleMouseOver = (event) => {
     if (anchorEl !== event.currentTarget) {
       setAnchorEl(event.currentTarget);
-      setOpen(true);
     }
   };
-
-  // const handleClose = () => {
-  //   setAnchorEl(null);
-  //   setOpen(false);
-  // };
 
   const handleNavigate = (nav) => {
     navigate(`/${nav.slug.current}`);
@@ -47,9 +40,11 @@ const NavGroup = ({ title, url, group, location, isOpen }) => {
               key={_key}
               selected={`/${url}` === location.pathname}
             >
-              <ListItemIcon>
-                <Icon>{icon}</Icon>
-              </ListItemIcon>
+              {icon && (
+                <ListItemIcon>
+                  <Icon>{icon}</Icon>
+                </ListItemIcon>
+              )}
               <ListItemText primary={itemTitle} />
             </MenuItem>
           ))}
