@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Box, Container, Toolbar } from '@material-ui/core';
@@ -33,6 +33,21 @@ const useStyles = makeStyles((theme) => ({
 
 const MainNav = ({ data, location }) => {
   const classes = useStyles();
+  const [hoveredElement, setHoveredElement] = useState(null);
+  const [hoveredItemText, setHoveredItemText] = useState(null);
+
+  const handleOnHover = (event) => {
+    console.log('event target');
+    console.log(event.target);
+    console.log('current target');
+    console.log(event.currentTarget);
+    console.log('event target text content');
+    console.log(event.target.textContent);
+    if (event.target !== hoveredElement) {
+      setHoveredElement(event.target);
+      setHoveredItemText(event.target.content);
+    }
+  };
   return (
     <>
       {data.sanityNavMenu && (
@@ -61,7 +76,13 @@ const MainNav = ({ data, location }) => {
 
                       switch (_type) {
                         case 'navBrand':
-                          return <NavBrand {...mapNavBrandToProps(group)} key={groupKey} />;
+                          return (
+                            <NavBrand
+                              {...mapNavBrandToProps(group)}
+                              key={groupKey}
+                              onMouseEnter={(e) => handleOnHover(e)}
+                            />
+                          );
                         case 'navPhone':
                           return <NavPhone text={group.text} key={groupKey} />;
                         case 'navItem':
@@ -75,6 +96,7 @@ const MainNav = ({ data, location }) => {
                                 xl: 'block',
                               }}
                               key={groupKey}
+                              onMouseEnter={(e) => handleOnHover(e)}
                             >
                               <NavItem {...mapNavItemToProps(group)} location={location} />
                             </Box>
@@ -90,8 +112,13 @@ const MainNav = ({ data, location }) => {
                                 xl: 'block',
                               }}
                               key={groupKey}
+                              onMouseEnter={(e) => handleOnHover(e)}
                             >
-                              <NavGroup {...mapNavGroupToProps(group)} location={location} />
+                              <NavGroup
+                                {...mapNavGroupToProps(group)}
+                                location={location}
+                                isOpen={group.title === hoveredItemText}
+                              />
                             </Box>
                           );
 

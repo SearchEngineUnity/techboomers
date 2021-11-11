@@ -3,22 +3,29 @@ import { Icon, Menu, MenuItem, ListItemIcon, ListItemText, Box } from '@material
 import { Link } from 'gatsby-theme-material-ui';
 import { navigate } from 'gatsby';
 
-const NavGroup = ({ title, url, group, location }) => {
+const NavGroup = ({ title, url, group, location, isOpen }) => {
+  console.log(isOpen);
   // not ture or false what is event.currentTarget? How is this different the event.Target?
   const [anchorEl, setAnchorEl] = useState(null);
-  const [open, setOpen] = useState(false);
+  const [prevIsOpen, setPrevIsOPen] = useState(null);
+  const [open, setOpen] = useState(isOpen);
 
-  const handleMouseOver = (event) => {
-    console.log('handleMouseOver');
-    console.log('a1', anchorEl);
-    console.log('e', event.currentTarget);
-    if (anchorEl !== event.currentTarget) {
-      console.log('after if');
-      console.log('a2', anchorEl);
-      setAnchorEl(event.currentTarget);
-      setOpen(true);
-    }
-  };
+  if (isOpen !== prevIsOpen) {
+    setPrevIsOPen(isOpen);
+    setOpen(isOpen);
+  }
+
+  // const handleMouseOver = (event) => {
+  //   console.log('handleMouseOver');
+  //   console.log('a1', anchorEl);
+  //   console.log('e', event.currentTarget);
+  //   if (anchorEl !== event.currentTarget) {
+  //     console.log('after if');
+  //     console.log('a2', anchorEl);
+  //     setAnchorEl(event.currentTarget);
+  //     setOpen(true);
+  //   }
+  // };
 
   const handleClose = () => {
     console.log('handelClose');
@@ -44,19 +51,19 @@ const NavGroup = ({ title, url, group, location }) => {
           to={`/${url}`}
           aria-owns={anchorEl ? title : undefined}
           aria-haspopup="true"
-          onMouseOver={(event) => handleMouseOver(event)}
+          // onMouseOver={(event) => handleMouseOver(event)}
         >
           {title}
         </Link>
       </Box>
       <Menu
         id={title}
-        getContentAnchorEl={null}
-        anchorEl={anchorEl}
+        // getContentAnchorEl={null}
+        // anchorEl={anchorEl}
         // Why is anchorEl is Boolean here?
         // open={Boolean(anchorEl)}
-        open={open}
-        onClose={handleClose}
+        open={isOpen}
+        // onClose={handleClose}
         MenuListProps={{ onMouseLeave: handleClose, disablePadding: true }}
         disableEnforceFocus
         style={{ pointerEvents: 'none', marginTop: '8px' }}
