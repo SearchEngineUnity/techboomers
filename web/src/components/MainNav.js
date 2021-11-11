@@ -7,7 +7,6 @@ import NavGroup from './NavGroup';
 import NavBrand from './NavBrand';
 import NavPhone from './NavPhone';
 import MainNavHamburger from './MainNavHamburger';
-
 import { mapNavBrandToProps, mapNavItemToProps, mapNavGroupToProps } from '../lib/mapToProps';
 
 const useStyles = makeStyles((theme) => ({
@@ -35,20 +34,17 @@ const MainNav = ({ data, location }) => {
   const classes = useStyles();
   const [hoveredElement, setHoveredElement] = useState(null);
   const [hoveredItemText, setHoveredItemText] = useState(null);
-
-  const handleOnHover = (event) => {
-    console.log('event target');
-    console.log(event.target);
-    console.log('current target');
-    console.log(event.currentTarget);
+  const handleMouseEnter = (event) => {
     if (event.target !== hoveredElement) {
-      console.log('event target text content');
-      console.log(event.target.textContent);
-      console.log('handle over if statement is triggered');
       setHoveredElement(event.target);
       setHoveredItemText(event.target.textContent);
     }
   };
+  const handleMouseLeave = () => {
+    setHoveredElement(null);
+    setHoveredItemText(null);
+  };
+
   return (
     <>
       {data.sanityNavMenu && (
@@ -72,18 +68,22 @@ const MainNav = ({ data, location }) => {
                     style={{ display: 'flex', justifyContent: 'space-between' }}
                     disableGutters
                   >
-                    {menuGroup.map((group) => {
+                    {menuGroup.map((group, index) => {
                       const { _type, _key: groupKey } = group;
+                      const arrayLength = menuGroup.length;
+                      let position = 'bottom-start';
+
+                      if (index + 1 === arrayLength) {
+                        position = 'bottom-end';
+                      }
+
+                      if (index > 0 && index + 1 < arrayLength) {
+                        position = 'bottom';
+                      }
 
                       switch (_type) {
                         case 'navBrand':
-                          return (
-                            <NavBrand
-                              {...mapNavBrandToProps(group)}
-                              key={groupKey}
-                              onMouseEnter={(e) => handleOnHover(e)}
-                            />
-                          );
+                          return <NavBrand {...mapNavBrandToProps(group)} key={groupKey} />;
                         case 'navPhone':
                           return <NavPhone text={group.text} key={groupKey} />;
                         case 'navItem':
@@ -97,16 +97,11 @@ const MainNav = ({ data, location }) => {
                                 xl: 'block',
                               }}
                               key={groupKey}
-                              onMouseEnter={(e) => handleOnHover(e)}
                             >
                               <NavItem {...mapNavItemToProps(group)} location={location} />
                             </Box>
                           );
                         case 'navGroup':
-                          console.log('group title equals hovered item text?');
-                          console.log(group.title === hoveredItemText);
-                          console.log(group.title);
-                          console.log(hoveredItemText);
                           return (
                             <Box
                               display={{
@@ -117,12 +112,16 @@ const MainNav = ({ data, location }) => {
                                 xl: 'block',
                               }}
                               key={groupKey}
-                              onMouseEnter={(e) => handleOnHover(e)}
+                              onMouseEnter={(e) => handleMouseEnter(e)}
+                              onMouseLeave={handleMouseLeave}
+                              onFocus={(e) => handleMouseEnter(e)}
+                              onBlur={handleMouseLeave}
                             >
                               <NavGroup
                                 {...mapNavGroupToProps(group)}
                                 location={location}
                                 isOpen={group.title === hoveredItemText}
+                                position={position}
                               />
                             </Box>
                           );

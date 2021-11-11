@@ -1,43 +1,18 @@
 import React, { useState } from 'react';
-import { Icon, Menu, MenuItem, ListItemIcon, ListItemText, Box } from '@material-ui/core';
+import { Icon, MenuItem, ListItemIcon, ListItemText, Box, Paper, Popper } from '@material-ui/core';
 import { Link } from 'gatsby-theme-material-ui';
 import { navigate } from 'gatsby';
 
-const NavGroup = ({ title, url, group, location, isOpen }) => {
-  console.log(isOpen);
-  // not ture or false what is event.currentTarget? How is this different the event.Target?
+const NavGroup = ({ title, url, group, location, isOpen, position }) => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [prevIsOpen, setPrevIsOPen] = useState(null);
-  const [open, setOpen] = useState(isOpen);
 
-  if (isOpen !== prevIsOpen) {
-    setPrevIsOPen(isOpen);
-    setOpen(isOpen);
-  }
-
-  // const handleMouseOver = (event) => {
-  //   console.log('handleMouseOver');
-  //   console.log('a1', anchorEl);
-  //   console.log('e', event.currentTarget);
-  //   if (anchorEl !== event.currentTarget) {
-  //     console.log('after if');
-  //     console.log('a2', anchorEl);
-  //     setAnchorEl(event.currentTarget);
-  //     setOpen(true);
-  //   }
-  // };
-
-  const handleClose = () => {
-    console.log('handelClose');
-    console.log('a3', anchorEl);
-    setAnchorEl(null);
-    setOpen(false);
+  const handleMouseOver = (event) => {
+    if (anchorEl !== event.currentTarget) {
+      setAnchorEl(event.currentTarget);
+    }
   };
 
   const handleNavigate = (nav) => {
-    console.log('handelNav');
-    console.log('a4', anchorEl);
-    // setAnchorEl(null);
     navigate(`/${nav.slug.current}`);
   };
 
@@ -46,52 +21,31 @@ const NavGroup = ({ title, url, group, location, isOpen }) => {
       <Box
         fontSize="h4.fontSize"
         fontWeight={`/${url}` === location.pathname ? 'fontWeightBold' : 'fontWeightRegular'}
+        onMouseOver={(event) => handleMouseOver(event)}
+        onFocus={(event) => handleMouseOver(event)}
       >
-        <Link
-          to={`/${url}`}
-          aria-owns={anchorEl ? title : undefined}
-          aria-haspopup="true"
-          // onMouseOver={(event) => handleMouseOver(event)}
-        >
+        <Link to={`/${url}`} aria-owns={title} aria-haspopup="true">
           {title}
         </Link>
       </Box>
-      <Menu
-        id={title}
-        // getContentAnchorEl={null}
-        // anchorEl={anchorEl}
-        // Why is anchorEl is Boolean here?
-        // open={Boolean(anchorEl)}
-        open={isOpen}
-        // onClose={handleClose}
-        MenuListProps={{ onMouseLeave: handleClose, disablePadding: true }}
-        disableEnforceFocus
-        style={{ pointerEvents: 'none', marginTop: '8px' }}
-        PaperProps={{ style: { pointerEvents: 'auto' }, square: true }}
-        hideBackdrop
-        keepMounted
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'left',
-        }}
-      >
-        {group.map(({ icon, title: itemTitle, nav, _key }) => (
-          <MenuItem
-            onClick={() => handleNavigate(nav)}
-            key={_key}
-            selected={`/${url}` === location.pathname}
-          >
-            <ListItemIcon>
-              <Icon>{icon}</Icon>
-            </ListItemIcon>
-            <ListItemText primary={itemTitle} />
-          </MenuItem>
-        ))}
-      </Menu>
+      <Popper open={isOpen} anchorEl={anchorEl} placement={position}>
+        <Paper>
+          {group.map(({ icon, title: itemTitle, nav, _key }) => (
+            <MenuItem
+              onClick={() => handleNavigate(nav)}
+              key={_key}
+              selected={`/${nav.slug.current}` === location.pathname}
+            >
+              {icon && (
+                <ListItemIcon>
+                  <Icon>{icon}</Icon>
+                </ListItemIcon>
+              )}
+              <ListItemText primary={itemTitle} />
+            </MenuItem>
+          ))}
+        </Paper>
+      </Popper>
     </>
   );
 };
