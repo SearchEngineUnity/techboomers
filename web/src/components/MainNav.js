@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Box, Container, Toolbar } from '@material-ui/core';
@@ -7,7 +7,6 @@ import NavGroup from './NavGroup';
 import NavBrand from './NavBrand';
 import NavPhone from './NavPhone';
 import MainNavHamburger from './MainNavHamburger';
-
 import { mapNavBrandToProps, mapNavItemToProps, mapNavGroupToProps } from '../lib/mapToProps';
 
 const useStyles = makeStyles((theme) => ({
@@ -33,6 +32,19 @@ const useStyles = makeStyles((theme) => ({
 
 const MainNav = ({ data, location }) => {
   const classes = useStyles();
+  const [hoveredElement, setHoveredElement] = useState(null);
+  const [hoveredItemText, setHoveredItemText] = useState(null);
+  const handleMouseEnter = (event) => {
+    if (event.target !== hoveredElement) {
+      setHoveredElement(event.target);
+      setHoveredItemText(event.target.textContent);
+    }
+  };
+  const handleMouseLeave = () => {
+    setHoveredElement(null);
+    setHoveredItemText(null);
+  };
+
   return (
     <>
       {data.sanityNavMenu && (
@@ -61,9 +73,23 @@ const MainNav = ({ data, location }) => {
 
                       switch (_type) {
                         case 'navBrand':
-                          return <NavBrand {...mapNavBrandToProps(group)} key={groupKey} />;
+                          return (
+                            <NavBrand
+                              {...mapNavBrandToProps(group)}
+                              key={groupKey}
+                              onMouseEnter={(e) => handleMouseEnter(e)}
+                              onMouseLeave={handleMouseLeave}
+                            />
+                          );
                         case 'navPhone':
-                          return <NavPhone text={group.text} key={groupKey} />;
+                          return (
+                            <NavPhone
+                              text={group.text}
+                              key={groupKey}
+                              onMouseEnter={(e) => handleMouseEnter(e)}
+                              onMouseLeave={handleMouseLeave}
+                            />
+                          );
                         case 'navItem':
                           return (
                             <Box
@@ -75,6 +101,8 @@ const MainNav = ({ data, location }) => {
                                 xl: 'block',
                               }}
                               key={groupKey}
+                              onMouseEnter={(e) => handleMouseEnter(e)}
+                              onMouseLeave={handleMouseLeave}
                             >
                               <NavItem {...mapNavItemToProps(group)} location={location} />
                             </Box>
@@ -90,8 +118,14 @@ const MainNav = ({ data, location }) => {
                                 xl: 'block',
                               }}
                               key={groupKey}
+                              onMouseEnter={(e) => handleMouseEnter(e)}
+                              onMouseLeave={handleMouseLeave}
                             >
-                              <NavGroup {...mapNavGroupToProps(group)} location={location} />
+                              <NavGroup
+                                {...mapNavGroupToProps(group)}
+                                location={location}
+                                isOpen={group.title === hoveredItemText}
+                              />
                             </Box>
                           );
 
