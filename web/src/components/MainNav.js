@@ -68,8 +68,18 @@ const MainNav = ({ data, location }) => {
                     style={{ display: 'flex', justifyContent: 'space-between' }}
                     disableGutters
                   >
-                    {menuGroup.map((group) => {
+                    {menuGroup.map((group, index) => {
                       const { _type, _key: groupKey } = group;
+                      const arrayLength = menuGroup.length;
+                      let position = 'bottom-start';
+
+                      if (index + 1 === arrayLength) {
+                        position = 'bottom-end';
+                      }
+
+                      if (index > 0 && index + 1 < arrayLength) {
+                        position = 'bottom';
+                      }
 
                       switch (_type) {
                         case 'navBrand':
@@ -104,11 +114,14 @@ const MainNav = ({ data, location }) => {
                               key={groupKey}
                               onMouseEnter={(e) => handleMouseEnter(e)}
                               onMouseLeave={handleMouseLeave}
+                              onFocus={(e) => handleMouseEnter(e)}
+                              onBlur={handleMouseLeave}
                             >
                               <NavGroup
                                 {...mapNavGroupToProps(group)}
                                 location={location}
                                 isOpen={group.title === hoveredItemText}
+                                position={position}
                               />
                             </Box>
                           );

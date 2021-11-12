@@ -3,7 +3,7 @@ import { Icon, MenuItem, ListItemIcon, ListItemText, Box, Paper, Popper } from '
 import { Link } from 'gatsby-theme-material-ui';
 import { navigate } from 'gatsby';
 
-const NavGroup = ({ title, url, group, location, isOpen }) => {
+const NavGroup = ({ title, url, group, location, isOpen, position }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleMouseOver = (event) => {
@@ -21,24 +21,20 @@ const NavGroup = ({ title, url, group, location, isOpen }) => {
       <Box
         fontSize="h4.fontSize"
         fontWeight={`/${url}` === location.pathname ? 'fontWeightBold' : 'fontWeightRegular'}
+        onMouseOver={(event) => handleMouseOver(event)}
+        onFocus={(event) => handleMouseOver(event)}
       >
-        <Link
-          to={`/${url}`}
-          aria-owns={anchorEl ? title : undefined}
-          aria-haspopup="true"
-          onMouseOver={(event) => handleMouseOver(event)}
-        >
+        <Link to={`/${url}`} aria-owns={title} aria-haspopup="true">
           {title}
         </Link>
       </Box>
-
-      <Popper open={isOpen} anchorEl={anchorEl}>
+      <Popper open={isOpen} anchorEl={anchorEl} placement={position}>
         <Paper>
           {group.map(({ icon, title: itemTitle, nav, _key }) => (
             <MenuItem
               onClick={() => handleNavigate(nav)}
               key={_key}
-              selected={`/${url}` === location.pathname}
+              selected={`/${nav.slug.current}` === location.pathname}
             >
               {icon && (
                 <ListItemIcon>
