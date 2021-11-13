@@ -79,6 +79,11 @@ function FormNetlify({ align, title, formFields, name, thankYou, submitBtn, styl
           },
         },
       },
+      MuiFormControlLabel: {
+        root: {
+          color: labelColor.color.hex,
+        },
+      },
     },
   });
 
