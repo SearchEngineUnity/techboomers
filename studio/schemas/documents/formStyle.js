@@ -40,7 +40,7 @@ export default {
     },
     {
       name: 'backgroundColor',
-      title: 'Backbround Color',
+      title: 'Background Color',
       description: 'Sets the backgroud color for filled variant and outlined variant.',
       type: 'reference',
       to: [{ type: 'colorOption' }],
@@ -65,7 +65,7 @@ export default {
       name: 'inputColor',
       title: 'Input Color',
       type: 'reference',
-      desription:
+      description:
         'Sets the input text color, placeholder text color, and the border color on hover.',
       to: [{ type: 'colorOption' }],
     },
