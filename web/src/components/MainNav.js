@@ -151,7 +151,7 @@ const MainNav = ({ data, location }) => {
   );
 };
 
-export default function MyMainNav(props) {
+export default function MainNavigation(props) {
   return (
     <StaticQuery
       query={graphql`
