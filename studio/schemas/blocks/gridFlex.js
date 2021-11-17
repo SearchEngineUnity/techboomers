@@ -17,7 +17,7 @@ export default {
       title: 'Tile Set',
       type: 'array',
       of: [{ type: 'tileInfo' }],
-      validation: (Rule) => Rule.min(1).error('Must contain 1 item'),
+      validation: (Rule) => Rule.min(1).error('Must contain at least 1 item'),
     },
     {
       name: 'tileOption',

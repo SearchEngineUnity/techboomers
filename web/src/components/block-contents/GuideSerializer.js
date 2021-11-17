@@ -15,6 +15,7 @@ import ButtonExternal from '../buttons/ButtonExternal';
 import ButtonInternalGlobal from '../buttons/ButtonInternalGlobal';
 import ButtonInternalLocal from '../buttons/ButtonInternalLocal';
 import ButtonJumpLink from '../buttons/ButtonJumpLink';
+import SmartList from './SmarList';
 import { mapMuiBtnToProps } from '../../lib/mapToProps';
 
 const NoIndentUl = styled.ul`
@@ -41,6 +42,8 @@ const StyledTypography = styled(Typography)`
 `;
 
 const serializers = {
+  // This is to render the whole block of content without the <div> tag as wrapping container (https://github.com/sanity-io/block-content-to-react)
+  container: (props) => <>{props.children}</>,
   types: {
     block(props) {
       switch (props.node.style) {
@@ -175,6 +178,9 @@ const serializers = {
         default:
           return <p>under development</p>;
       }
+    },
+    smartList({ node }) {
+      return <SmartList {...node} />;
     },
   },
   marks: {

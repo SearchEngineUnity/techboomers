@@ -28,7 +28,7 @@ export default {
           type: 'navSet',
         },
       ],
-      validation: (Rule) => Rule.min(1).error('Must contain one item'),
+      validation: (Rule) => Rule.min(1).error('Must contain at least one item'),
     },
   ],
   preview: {

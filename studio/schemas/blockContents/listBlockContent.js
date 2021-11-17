@@ -1,8 +1,6 @@
-import { FaExternalLinkAlt, FaLink, FaHashtag } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaLink } from 'react-icons/fa';
 import { GiLinkedRings } from 'react-icons/gi';
-import { MdLink, MdImage } from 'react-icons/md';
-// import InlineImageRenderer from '../components/InlineImageRenderer';
-import HashIdRenderer from '../components/hashIdRenderer';
+import { MdLink } from 'react-icons/md';
 import ExternalLinkRenderer from '../components/ExternalLinkRenderer';
 import InternalLocalRenderer from '../components/InternalLocalRenderer';
 import InternalGlobalRenderer from '../components/InternalGlobalRenderer';
@@ -10,36 +8,19 @@ import JumpLinkRenderer from '../components/JumpLinkRenderer';
 
 export default {
   title: 'Block Content',
-  name: 'spGuideBlockContent',
+  name: 'listBlockContent',
   type: 'array',
   of: [
     {
       type: 'block',
       styles: [
         { title: 'Normal', value: 'normal' },
-        { title: 'H2', value: 'h2' },
         { title: 'H3', value: 'h3' },
         { title: 'H4', value: 'h4' },
-        { title: 'Quote', value: 'blockquote' },
       ],
+      lists: [],
       marks: {
         annotations: [
-          {
-            title: 'Hash Id',
-            name: 'hashId',
-            type: 'object',
-            blockEditor: {
-              icon: FaHashtag,
-              render: HashIdRenderer,
-            },
-            fields: [
-              {
-                title: 'ID',
-                name: 'idTag',
-                type: 'string',
-              },
-            ],
-          },
           {
             name: 'jumpLink',
             type: 'object',
@@ -152,31 +133,6 @@ export default {
               },
             ],
           },
-          // {
-          //   title: 'Inline Image',
-          //   name: 'inlineImage',
-          //   type: 'image',
-          //   options: {
-          //     hotspot: true, // <-- Defaults to false
-          //     storeOriginalFilename: true,
-          //   },
-          //   fields: [
-          //     {
-          //       name: 'height',
-          //       type: 'string',
-          //       title: 'Image height',
-          //       description: `You can enter a height % of vh. If the image's native height is smaller it will be used instead.`,
-          //       options: {
-          //         isHighlighted: true, // <-- make this field easily accessible
-          //       },
-          //     },
-          //   ],
-          //   blockEditor: {
-          //     icon: MdImage,
-          //     render: InlineImageRenderer,
-          //   },
-          //   validation: (Rule) => [Rule.required().error('Missing Image')],
-          // },
         ],
       },
     },
@@ -189,6 +145,5 @@ export default {
     { type: 'highlightBox' },
     { type: 'videoEmbed' },
     { type: 'btnBlockMui' },
-    { type: 'smartList' },
   ],
 };
