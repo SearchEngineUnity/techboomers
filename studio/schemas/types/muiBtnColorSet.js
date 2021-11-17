@@ -7,7 +7,7 @@ export default {
       name: 'main',
       title: 'Main',
       description:
-        'This is the bacground color for a filled button. This is the text color and border color for a outlined button. This is the text color for the text only button.',
+        'This is the background color for a filled button. This is the text color and border color for a outlined button. This is the text color for the text only button.',
       type: 'reference',
       to: [{ type: 'colorOption' }],
       validation: (Rule) => [Rule.required().error('Field is required')],
