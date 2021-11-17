@@ -20,5 +20,6 @@ export { default as navItem } from './navItem';
 export { default as navJumpLink } from './navJumpLink';
 export { default as navPhone } from './navPhone';
 export { default as navSet } from './navSet';
+export { default as smartListItem } from './smartListItem';
 export { default as tileInfo } from './tileInfo';
 export { default as tocLink } from './tocLink';

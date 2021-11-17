@@ -1,6 +1,6 @@
 import BaseBlockContent from '@sanity/block-content-to-react';
 import React from 'react';
-import { Typography, Box } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import styled from 'styled-components';
 import VideoEmbed from './VideoEmbed';
 import BasicTable from './BasicTable';
@@ -17,25 +17,6 @@ import ButtonInternalLocal from '../buttons/ButtonInternalLocal';
 import ButtonJumpLink from '../buttons/ButtonJumpLink';
 import { mapMuiBtnToProps } from '../../lib/mapToProps';
 
-const NoIndentUl = styled.ul`
-  margin-left: 1.4rem;
-  padding-left: 0;
-
-  & > li {
-    position: relative;
-  }
-`;
-
-const NoIndentOl = styled.ol`
-  list-style-type: decimal;
-  margin-left: 1.4rem;
-  padding-left: 0;
-
-  & > li {
-    position: relative;
-  }
-`;
-
 const StyledTypography = styled(Typography)`
   margin-top: 1.35em;
 `;
@@ -48,31 +29,47 @@ const serializers = {
       switch (props.node.style) {
         case 'h3':
           return (
-            <StyledTypography gutterBottom variant="h3">
+            <StyledTypography
+              gutterBottom
+              variant="h3"
+              id={
+                props.node.markDefs.length !== 0
+                  ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
+                  : undefined
+              }
+            >
               {props.children}
             </StyledTypography>
           );
 
         case 'h4':
           return (
-            <StyledTypography gutterBottom variant="h4">
+            <StyledTypography
+              gutterBottom
+              variant="h4"
+              id={
+                props.node.markDefs.length !== 0
+                  ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
+                  : undefined
+              }
+            >
               {props.children}
             </StyledTypography>
           );
 
-        case 'blockquote':
+        case 'h5':
           return (
-            <Box
-              component="blockquote"
-              fontSize="h3.fontSize"
-              fontWeight={100}
-              borderColor="primary.main"
-              pl={4}
-              py={1}
-              borderLeft={4}
+            <StyledTypography
+              gutterBottom
+              variant="h5"
+              id={
+                props.node.markDefs.length !== 0
+                  ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
+                  : undefined
+              }
             >
-              &#8220; {props.children} &#8221;
-            </Box>
+              {props.children}
+            </StyledTypography>
           );
 
         default:
@@ -96,6 +93,9 @@ const serializers = {
     },
     smartTable({ node }) {
       return <SmartTable smartTable={node} />;
+    },
+    instagram({ node }) {
+      return <p>Work in progress</p>;
     },
     videoEmbed({ node }) {
       return <VideoEmbed url={node.url} ratio={node.ratio} />;
@@ -152,19 +152,6 @@ const serializers = {
       );
     },
   },
-  list: ({ children }) => {
-    switch (children[0].props.node.listItem) {
-      case 'bullet':
-        return <NoIndentUl>{children}</NoIndentUl>;
-      default:
-        return <NoIndentOl>{children}</NoIndentOl>;
-    }
-  },
-  listItem: ({ children }) => (
-    <Typography variant="body1" component="li">
-      {children}
-    </Typography>
-  ),
 };
 
 const BlockContent = ({ blocks }) => <BaseBlockContent blocks={blocks} serializers={serializers} />;
