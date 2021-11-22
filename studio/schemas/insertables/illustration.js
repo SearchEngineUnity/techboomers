@@ -41,15 +41,6 @@ export default {
         isHighlighted: true, // <-- make this field easily accessible
       },
     },
-    // {
-    //   name: 'border',
-    //   type: 'boolean',
-    //   title: 'Apply border',
-    //   initialValue: false,
-    //   options: {
-    //     isHighlighted: true, // <-- make this field easily accessible
-    //   },
-    // },
   ],
   preview: {
     select: {

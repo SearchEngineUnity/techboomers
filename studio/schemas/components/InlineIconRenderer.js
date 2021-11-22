@@ -1,3 +1,5 @@
+// this is currently not in use but is kept should we ever work ont his feature
+
 /* eslint-disable import/no-unresolved */
 import React from 'react';
 import PropTypes from 'prop-types';

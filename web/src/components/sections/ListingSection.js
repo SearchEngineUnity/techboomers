@@ -4,11 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import StructuredSectionFooter from '../StructuredSectionFooter';
 import StructuredSectionHeader from '../StructuredSectionHeader';
 import { determineColor } from '../../lib/helperFunctions';
-import Tile1 from '../listingTile/TileSpgImageTop';
-import Tile2 from '../listingTile/TileSpgImageBottom';
-import Tile3 from '../listingTile/TileSpgImageLeft';
-import Tile4 from '../listingTile/TileSpgImageRight';
-import Tile5 from '../listingTile/TileSpgImageRightThreeCol';
+import TileImageLeft from '../listingTile/TileSpgImageLeft';
 import Pagination from '../ListingPagination';
 
 const useStyles = makeStyles((theme) => ({
@@ -44,7 +40,6 @@ function ListingSection({
   numPages,
   slug,
   listingItems,
-  tileOption,
 }) {
   // number of tiles desktop/table/mobile: '6/4/2' -> {lg: 2, md: 3, xs: 6}
   const colCalculate = (value) => {
@@ -82,29 +77,11 @@ function ListingSection({
           align={headerAlignment}
         />
         <Grid container spacing={3}>
-          {listingItems.map((item) => {
-            const tileSelector = (key) => {
-              switch (key) {
-                case '1':
-                  return <Tile1 {...item} />;
-                case '2':
-                  return <Tile2 {...item} />;
-                case '3':
-                  return <Tile3 {...item} />;
-                case '4':
-                  return <Tile4 {...item} />;
-                case '5':
-                  return <Tile5 {...item} />;
-                default:
-                  return <div>Tile still under development</div>;
-              }
-            };
-            return (
-              <Grid item key={item._key} {...col}>
-                {tileSelector(tileOption)}
-              </Grid>
-            );
-          })}
+          {listingItems.map((item) => (
+            <Grid item key={item._key} {...col}>
+              <TileImageLeft {...item} />
+            </Grid>
+          ))}
         </Grid>
         {numPages > 1 && (
           <Pagination

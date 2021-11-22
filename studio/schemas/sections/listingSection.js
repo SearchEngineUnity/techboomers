@@ -50,29 +50,6 @@ export default {
       validation: (Rule) => Rule.integer(),
       initialValue: 12,
     },
-    // {
-    //   name: 'layout',
-    //   title: 'Number of tiles in a row',
-    //   description: 'Please enter in the format of value/value/value for desktop/tablet/mobile.',
-    //   type: 'string',
-    //   fieldset: 'presentation',
-    // },
-    // {
-    //   name: 'tileOption',
-    //   title: 'Tile output option',
-    //   type: 'string',
-    //   fieldset: 'presentation',
-    //   options: {
-    //     list: [
-    //       { title: 'image-top', value: '1' },
-    //       { title: 'image-bottom', value: '2' },
-    //       { title: 'image-left', value: '3' },
-    //       { title: 'image-right', value: '4' },
-    //       { title: 'image-right-3col', value: '5' },
-    //     ],
-    //   },
-    //   validation: (Rule) => [Rule.required().error('Field is required')],
-    // },
     {
       name: 'headerAlignment',
       title: 'Header Text Alignment',

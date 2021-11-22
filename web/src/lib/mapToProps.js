@@ -213,7 +213,6 @@ export function mapListingSectionToProps({
   colorSettings,
   header,
   idTag,
-  tileOption = '3',
 }) {
   return {
     idTag,
@@ -224,7 +223,6 @@ export function mapListingSectionToProps({
     headerAlignment,
     footerAlignment,
     colorSettings,
-    tileOption,
   };
 }
 
@@ -260,11 +258,10 @@ export function mapMuiBtnSubmitToProps({ settings, colors, typography }) {
   };
 }
 
-export function mapGridFlexToProps({ layout, tiles, tileOption }) {
+export function mapGridFlexToProps({ layout, tiles }) {
   return {
     layout,
     tiles,
-    tileOption,
   };
 }
 
