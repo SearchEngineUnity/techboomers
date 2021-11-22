@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Grid, Box } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import StructuredSectionFooter from '../StructuredSectionFooter';
 import StructuredSectionHeader from '../StructuredSectionHeader';
 import { determinColor } from '../../lib/helperFunctions';
