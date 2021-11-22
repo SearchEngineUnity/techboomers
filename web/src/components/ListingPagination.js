@@ -3,10 +3,13 @@ import { Box } from '@material-ui/core';
 import Pagination from '@material-ui/lab/Pagination';
 import PaginationItem from '@material-ui/lab/PaginationItem';
 import { Link } from 'gatsby';
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+import { createTheme, ThemeProvider, useTheme } from '@material-ui/core/styles';
 
 function ListingPagination({ currentpage, numPages, slug, color }) {
+  const prevTheme = useTheme();
+
   const theme = createTheme({
+    typography: prevTheme.typography,
     palette: {
       action: {
         selected: color

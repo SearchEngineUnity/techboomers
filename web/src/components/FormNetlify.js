@@ -1,6 +1,6 @@
 // GATSBY CLEAN WHEN MAKING FORM CHANGES THAT DON"T SEEM TO UPDATE!
 import React, { useState } from 'react';
-import { createTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import { createTheme, makeStyles, ThemeProvider, useTheme } from '@material-ui/core/styles';
 import {
   TextField,
   Select,
@@ -13,6 +13,7 @@ import {
   FormHelperText,
   Checkbox,
   Box,
+  Typography,
 } from '@material-ui/core';
 import ButtonSubmit from './buttons/ButtonSubmit';
 import { mapMuiBtnSubmitToProps } from '../lib/mapToProps';
@@ -42,6 +43,8 @@ function FormNetlify({ align, title, formFields, name, thankYou, submitBtn, styl
     selectorColor,
   } = style;
 
+  const prevTheme = useTheme();
+
   const theme = createTheme({
     palette: {
       primary: {
@@ -55,14 +58,7 @@ function FormNetlify({ align, title, formFields, name, thankYou, submitBtn, styl
         secondary: labelColor.color.hex, // control label text, helper text, and the border of checkbox and radio icons
       },
     },
-    typography: {
-      body1: {
-        fontSize: '2rem',
-        fontWeight: 900,
-        lineHeight: 2,
-        letterSpacing: '1em',
-      },
-    },
+    typography: prevTheme.typography,
     overrides: {
       MuiOutlinedInput: {
         root: {
@@ -161,8 +157,10 @@ function FormNetlify({ align, title, formFields, name, thankYou, submitBtn, styl
   return (
     <ThemeProvider theme={theme}>
       <Box boxShadow={5} p={6} bgcolor="background.paper">
-        <Box textAlign={align} fontSize="body1.fontSize" color={labelColor.color.hex}>
-          <p>{title}</p>
+        <Box textAlign={align} color={labelColor.color.hex}>
+          <Typography component="p" variant="h3" paragraph>
+            {title}
+          </Typography>
         </Box>
 
         <form
