@@ -1,6 +1,6 @@
 export { default as btnDesignMui } from './btnDesignMui';
 export { default as colorOption } from './colorOption';
-export { default as comapnyLogo } from './comapnyLogo';
+export { default as companyLogo } from './companyLogo';
 export { default as companyInfo } from './companyInfo';
 export { default as formNetlify } from './formNetlify';
 export { default as formStyle } from './formStyle';

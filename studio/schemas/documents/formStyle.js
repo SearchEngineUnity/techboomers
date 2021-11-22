@@ -41,7 +41,7 @@ export default {
     {
       name: 'backgroundColor',
       title: 'Background Color',
-      description: 'Sets the backgroud color for filled variant and outlined variant.',
+      description: 'Sets the background color for filled variant and outlined variant.',
       type: 'reference',
       to: [{ type: 'colorOption' }],
     },
@@ -49,7 +49,7 @@ export default {
       name: 'fieldBgHoverColor',
       title: 'Background Hover Color',
       description:
-        'Sets the backgroud color for filled variant and outlined variant on hover AND the background color for filled variant when one clicks into the filed/fieldset.',
+        'Sets the background color for filled variant and outlined variant on hover AND the background color for filled variant when one clicks into the filed/fieldset.',
       type: 'reference',
       to: [{ type: 'colorOption' }],
     },

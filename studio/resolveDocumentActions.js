@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import defaultResolve from 'part:@sanity/base/document-actions';
 
 import PreviewAction from './previewAction';

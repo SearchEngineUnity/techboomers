@@ -3,7 +3,7 @@ import { Container, Grid, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import HeroSectionFooter from '../HeroSectionFooter';
 import HeroSectionHeader from '../HeroSectionHeader';
-import { determinColor } from '../../lib/helperFunctions';
+import { determineColor } from '../../lib/helperFunctions';
 import Tile1 from '../listingTile/TileSpgImageTop';
 import Tile2 from '../listingTile/TileSpgImageBottom';
 import Tile3 from '../listingTile/TileSpgImageLeft';
@@ -46,7 +46,7 @@ function ListingSectionH1({
   listingItems,
   tileOption,
 }) {
-  // number of tiles desktop/table/moble: '6/4/2' -> {lg: 2, md: 3, xs: 6}
+  // number of tiles desktop/table/mobile: '6/4/2' -> {lg: 2, md: 3, xs: 6}
   const colCalculate = (value) => {
     const valueArrStr = value.split('/');
     const valueArrNum = valueArrStr.map((el) => parseInt(el, 10));
@@ -55,12 +55,12 @@ function ListingSectionH1({
   };
 
   const col = colCalculate(layout);
-  const backgroundColor = determinColor(colorSettings?.background?.color) || 'transparent';
-  const foregroundColor = determinColor(colorSettings?.foreground?.color) || 'text.primary';
-  const linkColor = determinColor(colorSettings?.link?.color) || 'initial';
-  const headingColor = determinColor(colorSettings?.heading?.color) || 'inherit';
-  const subtitleColor = determinColor(colorSettings?.subtitle?.color) || 'inherit';
-  const footerColor = determinColor(colorSettings?.footer?.color) || 'inherit';
+  const backgroundColor = determineColor(colorSettings?.background?.color) || 'transparent';
+  const foregroundColor = determineColor(colorSettings?.foreground?.color) || 'text.primary';
+  const linkColor = determineColor(colorSettings?.link?.color) || 'initial';
+  const headingColor = determineColor(colorSettings?.heading?.color) || 'inherit';
+  const subtitleColor = determineColor(colorSettings?.subtitle?.color) || 'inherit';
+  const footerColor = determineColor(colorSettings?.footer?.color) || 'inherit';
   const classes = useStyles({ linkColor, foregroundColor });
   const paginationColor = colorSettings?.foreground?.color;
 

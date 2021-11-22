@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import React from 'react';
 import S from '@sanity/desk-tool/structure-builder';
 import { MdSettings, MdBusiness } from 'react-icons/md';
@@ -24,7 +25,7 @@ const SectionColorPreview = ({ document }) => {
 
         const color = result?.documents[0]?.foreground?.color?.hex
           ? result?.documents[0]?.foreground?.color?.hex
-          : 'intial';
+          : 'initial';
         const colorAlpha =
           result?.documents[0]?.foreground?.color?.hex &&
           result?.documents[0]?.foreground?.color?.alpha < 1
@@ -33,7 +34,7 @@ const SectionColorPreview = ({ document }) => {
 
         const link = result?.documents[0]?.link?.color?.hex
           ? result?.documents[0]?.link?.color?.hex
-          : 'intial';
+          : 'initial';
         const linkAlpha =
           result?.documents[0]?.link?.color?.hex && result?.documents[0]?.link?.color?.alpha < 1
             ? link + result.documents[0].link.color.alpha * 100

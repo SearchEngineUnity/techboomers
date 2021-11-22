@@ -88,7 +88,7 @@ export default {
     {
       name: 'sections',
       type: 'array',
-      fieldsest: 'sections',
+      fieldset: 'sections',
       title: 'Sections',
       of: [
         ...Object.values(sections)

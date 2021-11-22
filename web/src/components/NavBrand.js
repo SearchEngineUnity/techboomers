@@ -14,7 +14,7 @@ function NavBrand({ url, brandGroup }) {
             return (
               <Box display={{ xs: 'none', lg: 'block', xl: 'block' }} key={_key}>
                 <Link to={`/${url}`}>
-                  <img src={brand.logo.asset.url} alt={brand.title} height={height} wdith="auto" />
+                  <img src={brand.logo.asset.url} alt={brand.title} height={height} width="auto" />
                 </Link>
               </Box>
             );
@@ -25,7 +25,7 @@ function NavBrand({ url, brandGroup }) {
                 key={_key}
               >
                 <Link to={`/${url}`}>
-                  <img src={brand.logo.asset.url} alt={brand.title} height={height} wdith="auto" />
+                  <img src={brand.logo.asset.url} alt={brand.title} height={height} width="auto" />
                 </Link>
               </Box>
             );
@@ -36,7 +36,7 @@ function NavBrand({ url, brandGroup }) {
                 key={_key}
               >
                 <Link to={`/${url}`}>
-                  <img src={brand.logo.asset.url} alt={brand.title} height={height} wdith="auto" />
+                  <img src={brand.logo.asset.url} alt={brand.title} height={height} width="auto" />
                 </Link>
               </Box>
             );

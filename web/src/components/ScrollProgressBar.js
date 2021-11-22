@@ -32,9 +32,9 @@ export default function ScrollPRogressBar() {
     const docHeight = getDocHeight();
 
     const totalDocScrollLength = docHeight - winHeight;
-    const scrollPostion = Math.floor((scrollTop / totalDocScrollLength) * 100);
+    const scrollPosition = Math.floor((scrollTop / totalDocScrollLength) * 100);
 
-    setProgress(scrollPostion);
+    setProgress(scrollPosition);
   };
 
   const listenToScrollEvent = () => {

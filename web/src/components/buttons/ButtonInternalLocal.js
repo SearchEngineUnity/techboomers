@@ -2,13 +2,13 @@ import React from 'react';
 import { Button } from 'gatsby-theme-material-ui';
 import { Box } from '@material-ui/core';
 import { createTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
-import { determinColor } from '../../lib/helperFunctions';
+import { determineColor } from '../../lib/helperFunctions';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   size: {
     padding: (props) => props.padding,
   },
-}));
+});
 
 function ButtonInternalLocal({
   idTag,
@@ -26,9 +26,9 @@ function ButtonInternalLocal({
   typography,
 }) {
   const { main, dark, contrastText } = colors;
-  const mainColor = determinColor(main?.color);
-  const darkColor = determinColor(dark?.color);
-  const contrastTextColor = determinColor(contrastText?.color);
+  const mainColor = determineColor(main?.color);
+  const darkColor = determineColor(dark?.color);
+  const contrastTextColor = determineColor(contrastText?.color);
 
   const theme = createTheme({
     palette: {

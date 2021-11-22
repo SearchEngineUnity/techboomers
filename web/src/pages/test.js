@@ -9,31 +9,12 @@ import { makeStyles } from '@material-ui/core/styles';
 
 // const StyledDiv = styled.div``;
 
-const useStyles = makeStyles((theme) => ({
-  // root: {
-  //   maxWidth: 345,
-  // },
+const useStyles = makeStyles({
   media: {
     height: 0,
     paddingTop: '100%', // 16:9
   },
-  // paper: {
-  //   padding: theme.spacing(0.5),
-  //   margin: theme.spacing(4),
-  //   color: theme.palette.primary.main,
-  // },
-  // margin: {
-  //   margin: theme.spacing(1),
-  // },
-  // root: {
-  //   '&:hover': {
-  //     backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.3) 0 0)',
-  //   },
-  //   color: '#406CCB',
-  //   backgroundColor: 'white',
-  //   borderColor: '#406CCB',
-  // },
-}));
+});
 
 const Page = () => {
   const classes = useStyles();

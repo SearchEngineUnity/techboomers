@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import VideoEmbed from './VideoEmbed';
 import BasicTable from './BasicTable';
 import Illustration from './Illustration';
-import HighlightBox from './HightlightBox/HighlightBox';
+import HighlightBox from './highlightBox/HighlightBox';
 import SmartTable from './SmartTable';
 import JumpLink from '../link/JumpLink';
 import ExternalLink from '../link/LinkExternal';
@@ -15,27 +15,8 @@ import ButtonExternal from '../buttons/ButtonExternal';
 import ButtonInternalGlobal from '../buttons/ButtonInternalGlobal';
 import ButtonInternalLocal from '../buttons/ButtonInternalLocal';
 import ButtonJumpLink from '../buttons/ButtonJumpLink';
-import SmartList from './SmarList';
+import SmartList from './SmartList';
 import { mapMuiBtnToProps } from '../../lib/mapToProps';
-
-const NoIndentUl = styled.ul`
-  margin-left: 1.4rem;
-  padding-left: 0;
-
-  & > li {
-    position: relative;
-  }
-`;
-
-const NoIndentOl = styled.ol`
-  list-style-type: decimal;
-  margin-left: 1.4rem;
-  padding-left: 0;
-
-  & > li {
-    position: relative;
-  }
-`;
 
 const StyledTypography = styled(Typography)`
   margin-top: 1.35em;
@@ -159,7 +140,7 @@ const serializers = {
     smartTable({ node }) {
       return <SmartTable smartTable={node} />;
     },
-    instagram({ node }) {
+    instagram() {
       return <p>Work in progress</p>;
     },
     videoEmbed({ node }) {

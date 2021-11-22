@@ -5,7 +5,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { makeStyles } from '@material-ui/core/styles';
 
 // Inherit style of Tooltip has a grey background and text is in theme.palette.primary.main
-// When using a button within a tool tip, costum tooltip color styling will be inherited by the button
+// When using a button within a tool tip, custom tooltip color styling will be inherited by the button
 const useStyles = makeStyles((theme) => ({
   tooltip: {
     color: theme.palette.common.white,

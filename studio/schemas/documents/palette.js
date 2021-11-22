@@ -16,7 +16,7 @@ export default {
       },
     },
     {
-      name: 'highlightbox',
+      name: 'highlightBox',
       title: 'Highlight Box',
       options: {
         collapsible: true,
@@ -67,31 +67,31 @@ export default {
       name: 'definition',
       title: 'Definition',
       type: 'hlbColorSet',
-      fieldset: 'highlightbox',
+      fieldset: 'highlightBox',
     },
     {
       name: 'dyk',
       title: 'Did You Know',
       type: 'hlbColorSet',
-      fieldset: 'highlightbox',
+      fieldset: 'highlightBox',
     },
     {
       name: 'important',
-      title: 'Impotant',
+      title: 'Important',
       type: 'hlbColorSet',
-      fieldset: 'highlightbox',
+      fieldset: 'highlightBox',
     },
     {
       name: 'proTip',
       title: 'Pro Tip',
       type: 'hlbColorSet',
-      fieldset: 'highlightbox',
+      fieldset: 'highlightBox',
     },
     {
       name: 'warning',
       title: 'Warning',
       type: 'hlbColorSet',
-      fieldset: 'highlightbox',
+      fieldset: 'highlightBox',
     },
     {
       name: 'black',

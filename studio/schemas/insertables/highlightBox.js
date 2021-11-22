@@ -2,7 +2,7 @@ import { MdSimCardAlert } from 'react-icons/md';
 
 export default {
   name: 'highlightBox',
-  title: 'Hightlight Box',
+  title: 'Highlight Box',
   type: 'object',
   icon: MdSimCardAlert,
   fields: [
