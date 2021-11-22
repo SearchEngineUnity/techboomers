@@ -27,6 +27,21 @@ const serializers = {
   types: {
     block(props) {
       switch (props.node.style) {
+        case 'h2':
+          return (
+            <StyledTypography
+              gutterBottom
+              variant="h2"
+              id={
+                props.node.markDefs.length !== 0
+                  ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
+                  : undefined
+              }
+            >
+              {props.children}
+            </StyledTypography>
+          );
+
         case 'h3':
           return (
             <StyledTypography

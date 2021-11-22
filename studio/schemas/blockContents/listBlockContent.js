@@ -1,6 +1,7 @@
-import { FaExternalLinkAlt, FaLink } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaLink, FaHashtag } from 'react-icons/fa';
 import { GiLinkedRings } from 'react-icons/gi';
 import { MdLink } from 'react-icons/md';
+import HashIdRenderer from '../components/hashIdRenderer';
 import ExternalLinkRenderer from '../components/ExternalLinkRenderer';
 import InternalLocalRenderer from '../components/InternalLocalRenderer';
 import InternalGlobalRenderer from '../components/InternalGlobalRenderer';
@@ -15,12 +16,29 @@ export default {
       type: 'block',
       styles: [
         { title: 'Normal', value: 'normal' },
+        { title: 'H2', value: 'h2' },
         { title: 'H3', value: 'h3' },
         { title: 'H4', value: 'h4' },
       ],
       lists: [],
       marks: {
         annotations: [
+          {
+            title: 'Hash Id',
+            name: 'hashId',
+            type: 'object',
+            blockEditor: {
+              icon: FaHashtag,
+              render: HashIdRenderer,
+            },
+            fields: [
+              {
+                title: 'ID',
+                name: 'idTag',
+                type: 'string',
+              },
+            ],
+          },
           {
             name: 'jumpLink',
             type: 'object',
