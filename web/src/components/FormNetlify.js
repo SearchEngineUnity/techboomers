@@ -55,6 +55,14 @@ function FormNetlify({ align, title, formFields, name, thankYou, submitBtn, styl
         secondary: labelColor.color.hex, // control label text, helper text, and the border of checkbox and radio icons
       },
     },
+    typography: {
+      body1: {
+        fontSize: '2rem',
+        fontWeight: 900,
+        lineHeight: 2,
+        letterSpacing: '1em',
+      },
+    },
     overrides: {
       MuiOutlinedInput: {
         root: {
@@ -152,8 +160,8 @@ function FormNetlify({ align, title, formFields, name, thankYou, submitBtn, styl
 
   return (
     <ThemeProvider theme={theme}>
-      <Box boxShadow={5} p={6}>
-        <Box textAlign={align} fontSize="body1.fontSize">
+      <Box boxShadow={5} p={6} bgcolor="background.paper">
+        <Box textAlign={align} fontSize="body1.fontSize" color={labelColor.color.hex}>
           <p>{title}</p>
         </Box>
 
