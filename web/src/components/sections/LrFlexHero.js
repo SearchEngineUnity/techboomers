@@ -19,7 +19,7 @@ import {
 } from '../../lib/mapToProps';
 import HeroSectionFooter from '../HeroSectionFooter';
 import HeroSectionHeader from '../HeroSectionHeader';
-import { determinColor } from '../../lib/helperFunctions';
+import { determineColor } from '../../lib/helperFunctions';
 
 const useStyles = makeStyles((theme) => ({
   blockOneReverse: {
@@ -120,12 +120,12 @@ function LrFlexHero({
     }
   };
 
-  const backgroundColor = determinColor(colorSettings?.background?.color) || 'transparent';
-  const foregroundColor = determinColor(colorSettings?.foreground?.color) || 'text.primary';
-  const linkColor = determinColor(colorSettings?.link?.color) || 'initial';
-  const headingColor = determinColor(colorSettings?.heading?.color) || 'inherit';
-  const subtitleColor = determinColor(colorSettings?.subtitle?.color) || 'inherit';
-  const footerColor = determinColor(colorSettings?.footer?.color) || 'inherit';
+  const backgroundColor = determineColor(colorSettings?.background?.color) || 'transparent';
+  const foregroundColor = determineColor(colorSettings?.foreground?.color) || 'text.primary';
+  const linkColor = determineColor(colorSettings?.link?.color) || 'initial';
+  const headingColor = determineColor(colorSettings?.heading?.color) || 'inherit';
+  const subtitleColor = determineColor(colorSettings?.subtitle?.color) || 'inherit';
+  const footerColor = determineColor(colorSettings?.footer?.color) || 'inherit';
 
   const classes = useStyles({ linkColor });
 

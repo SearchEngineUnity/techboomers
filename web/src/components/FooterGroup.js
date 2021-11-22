@@ -3,11 +3,11 @@ import { List, ListItem, Box } from '@material-ui/core';
 import { Link } from 'gatsby-theme-material-ui';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   link: {
     color: '#FFFFFF',
   },
-}));
+});
 
 function FooterGroup({ title, url, group }) {
   const classes = useStyles();

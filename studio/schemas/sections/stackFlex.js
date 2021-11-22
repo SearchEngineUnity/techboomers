@@ -55,7 +55,7 @@ export default {
       type: 'string',
       title: 'Block Width',
       fieldset: 'presentation',
-      description: 'This determins the width of the blocks in this section.',
+      description: 'This determines the width of the blocks in this section.',
       options: {
         list: [
           { title: 'full width', value: '12' },

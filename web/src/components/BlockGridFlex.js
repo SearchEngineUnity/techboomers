@@ -7,7 +7,7 @@ import Tile4 from './tiles/TileImageTitleTextBase';
 import { mapFluidImgToProps } from '../lib/mapToProps';
 
 function GridFlex({ layout, tiles, tileOption }) {
-  // number of tiles desktop/table/moble: '6/4/2' -> {lg: 2, md: 3, xs: 6}
+  // number of tiles desktop/table/mobile: '6/4/2' -> {lg: 2, md: 3, xs: 6}
   const colCalculate = (value) => {
     const valueArrStr = value.split('/');
     const valueArrNum = valueArrStr.map((el) => parseInt(el, 10));

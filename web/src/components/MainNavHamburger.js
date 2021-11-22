@@ -48,7 +48,7 @@ function MainNavHamburger({ menu, brand }) {
   const mobileBrand = brandGroup.filter((x) => x.type === 'mobile')[0];
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [collapse, setCollaspe] = React.useState(true);
+  const [collapse, setCollapse] = React.useState(true);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -59,7 +59,7 @@ function MainNavHamburger({ menu, brand }) {
   };
 
   const handleClickCollapse = () => {
-    setCollaspe(!collapse);
+    setCollapse(!collapse);
   };
 
   const handleClickSubNavMenu = (menuLink) => {
@@ -87,7 +87,7 @@ function MainNavHamburger({ menu, brand }) {
                   src={mobileBrand.brand.logo.asset.url}
                   alt={mobileBrand.brand.title}
                   height={48}
-                  wdith="auto"
+                  width="auto"
                 />
               </Link>
             </Box>

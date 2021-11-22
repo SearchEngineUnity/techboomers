@@ -54,7 +54,7 @@ function FormNetlify({ align, title, formFields, name, thankYou, submitBtn, styl
         main: selectorColor.color.hex, // selector color (checkbox icon and radio icon)
       },
       text: {
-        primary: inputColor.color.hex, // controls input text and placholder text and hover border color
+        primary: inputColor.color.hex, // controls input text and placeholder text and hover border color
         secondary: labelColor.color.hex, // control label text, helper text, and the border of checkbox and radio icons
       },
     },

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Container, Box, Typography, Grid } from '@material-ui/core';
 import ImgBlock from '../FluidImgBlock';
 import Subtitle from '../block-contents/HeroSubtitleSerializer';

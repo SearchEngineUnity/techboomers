@@ -4,7 +4,7 @@ import { CardActionArea } from 'gatsby-theme-material-ui';
 import { Typography, Card, CardContent } from '@material-ui/core';
 // import { mapFluidImgBlockToProps } from '../../lib/mapToProps';
 
-function TileSpg({ title, image, url }) {
+function TileSpg({ title, url }) {
   return (
     <Card style={{ height: '100%' }}>
       <CardActionArea to={url} style={{ height: '100%' }}>

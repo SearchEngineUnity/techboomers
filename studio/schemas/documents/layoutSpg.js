@@ -1,5 +1,3 @@
-import { MdBusiness } from 'react-icons/md';
-
 export default {
   name: 'layoutSpg',
   title: 'SPG layout',
@@ -25,7 +23,7 @@ export default {
       name: 'heroImgAlignment',
       title: 'Hero Image Alignment within block',
       type: 'string',
-      description: 'This determines how the image aligns horizontally hwithin the right block.',
+      description: 'This determines how the image aligns horizontally within the right block.',
       options: {
         list: [
           { title: 'Left', value: 'flex-start' },
