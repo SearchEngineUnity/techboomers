@@ -1,7 +1,10 @@
+import { BsFillMenuButtonWideFill } from 'react-icons/bs';
+
 export default {
   name: 'navGroup',
   type: 'object',
   title: 'Navigation Group',
+  icon: BsFillMenuButtonWideFill,
   fields: [
     {
       name: 'title',

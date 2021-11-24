@@ -1,7 +1,10 @@
+import { FaRegImages } from 'react-icons/fa';
+
 export default {
   name: 'navBrand',
   type: 'object',
   title: 'Navigation Brand Group',
+  icon: FaRegImages,
   fields: [
     {
       name: 'brandGroup',

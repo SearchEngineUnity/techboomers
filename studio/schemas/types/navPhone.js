@@ -1,7 +1,10 @@
+import { FiPhoneCall } from 'react-icons/fi';
+
 export default {
   title: 'Call us',
   name: 'navPhone',
   type: 'object',
+  icon: FiPhoneCall,
   fields: [
     {
       name: 'text',

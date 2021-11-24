@@ -196,7 +196,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'title',
+      title: 'h1',
       slug: 'slug.current',
       media: 'tileImage',
       fbImg: 'metaFacebook.image',
