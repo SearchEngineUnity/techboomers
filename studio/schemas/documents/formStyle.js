@@ -1,6 +1,9 @@
+import { HiOutlineColorSwatch } from 'react-icons/hi';
+
 export default {
   name: 'formStyle',
   type: 'document',
+  icon: HiOutlineColorSwatch,
   title: 'formStyle',
   fields: [
     {
@@ -85,7 +88,14 @@ export default {
   ],
   preview: {
     select: {
-      title: 'name',
+      name: 'name',
+      variant: 'fieldVariant',
+    },
+    prepare({ name, variant }) {
+      return {
+        title: name,
+        subtitle: `Variant: ${variant}`,
+      };
     },
   },
 };

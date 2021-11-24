@@ -5,7 +5,7 @@ import { MdLink } from 'react-icons/md';
 const JumpLinkRenderer = ({ children }) => (
   <span>
     {children}
-    <MdLink style={{ display: 'inline' }} />
+    <MdLink style={{ display: 'inline', paddingLeft: '8px', paddingRight: '8px' }} />
   </span>
 );
 

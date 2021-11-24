@@ -1,7 +1,10 @@
+import { BsCardText } from 'react-icons/bs';
+
 export default {
   name: 'heroBlock',
   title: 'Hero Block',
   type: 'object',
+  icon: BsCardText,
   fieldsets: [
     {
       name: 'presentation',

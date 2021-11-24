@@ -20,4 +20,15 @@ export default {
       type: 'highlightBoxBlockContent',
     },
   ],
+  preview: {
+    select: {
+      type: 'type',
+    },
+    prepare({ type }) {
+      return {
+        title: type,
+        subtitle: 'Highlight Box',
+      };
+    },
+  },
 };

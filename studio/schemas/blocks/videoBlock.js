@@ -40,10 +40,12 @@ export default {
   preview: {
     select: {
       title: 'title',
+      url: 'url',
     },
-    prepare({ title }) {
+    prepare({ title, url }) {
       return {
         title: title || 'Video Block',
+        subtitle: url,
       };
     },
   },

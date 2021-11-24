@@ -42,6 +42,13 @@ export default {
   preview: {
     select: {
       title: 'label',
+      subtitle: '_type',
+    },
+    prepare({ title, subtitle }) {
+      return {
+        title: title || 'Textarea label',
+        subtitle,
+      };
     },
   },
 };

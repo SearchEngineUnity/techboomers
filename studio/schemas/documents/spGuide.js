@@ -196,15 +196,17 @@ export default {
   ],
   preview: {
     select: {
-      shortName: 'shortName',
+      title: 'title',
       slug: 'slug.current',
       media: 'tileImage',
+      fbImg: 'metaFacebook.image',
+      twitterImg: 'metaTwitter.image',
     },
-    prepare({ shortName, slug, media }) {
+    prepare({ title, slug, media, fbImg, twitterImg }) {
       return {
-        title: shortName,
+        title,
         subtitle: `/${slug}`,
-        media,
+        media: media || fbImg || twitterImg,
       };
     },
   },

@@ -1,10 +1,10 @@
-import { BsBootstrap } from 'react-icons/bs';
+import { HiOutlineColorSwatch } from 'react-icons/hi';
 
 export default {
   name: 'btnDesignMui',
   title: 'Button Design - MUI',
   type: 'document',
-  icon: BsBootstrap,
+  icon: HiOutlineColorSwatch,
   fields: [
     {
       name: 'name',
@@ -29,7 +29,14 @@ export default {
   ],
   preview: {
     select: {
-      title: 'name',
+      name: 'name',
+      variant: 'settings.variant',
+    },
+    prepare({ name, variant }) {
+      return {
+        title: name,
+        subtitle: `Variant: ${variant}`,
+      };
     },
   },
 };

@@ -8,7 +8,7 @@ const ExternalLinkRenderer = (props) => {
   return (
     <span>
       {children}
-      <FaExternalLinkAlt style={{ display: 'inline' }} />
+      <FaExternalLinkAlt style={{ display: 'inline', paddingLeft: '8px', paddingRight: '8px' }} />
     </span>
   );
 };

@@ -29,7 +29,13 @@ export default {
   preview: {
     select: {
       title: 'title',
-      subtitle: 'nav.slug.current',
+      slug: 'nav.slug.current',
+    },
+    prepare({ title, slug }) {
+      return {
+        title,
+        subtitle: slug === '/' ? `Links to root` : `Links to /${slug}`,
+      };
     },
   },
 };

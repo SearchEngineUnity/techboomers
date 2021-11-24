@@ -64,8 +64,14 @@ export default {
   ],
   preview: {
     select: {
-      title: 'text',
-      subtitle: 'idTag',
+      text: 'text',
+      id: 'idTag',
+    },
+    prepare({ text, id }) {
+      return {
+        title: text,
+        subtitle: `ID: ${id}`,
+      };
     },
   },
 };

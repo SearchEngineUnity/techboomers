@@ -5,7 +5,7 @@ import { GiLinkedRings } from 'react-icons/gi';
 const InternalGlobalRenderer = ({ children }) => (
   <span>
     {children}
-    <GiLinkedRings style={{ display: 'inline' }} />
+    <GiLinkedRings style={{ display: 'inline', paddingLeft: '8px', paddingRight: '8px' }} />
   </span>
 );
 

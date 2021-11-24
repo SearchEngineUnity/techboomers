@@ -1,11 +1,8 @@
-import { FaBullseye } from 'react-icons/fa';
-
 export default {
   name: 'typography',
   type: 'document',
   title: 'Typography',
   __experimental_actions: ['create', 'update', 'publish'],
-  icon: FaBullseye,
   fieldsets: [
     {
       name: 'general',
