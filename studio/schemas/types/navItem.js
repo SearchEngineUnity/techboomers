@@ -1,7 +1,10 @@
+import { FiLink2 } from 'react-icons/fi';
+
 export default {
   name: 'navItem',
   type: 'object',
   title: 'Navigation Item',
+  icon: FiLink2,
   fields: [
     {
       name: 'title',

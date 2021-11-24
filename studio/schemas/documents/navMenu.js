@@ -12,7 +12,7 @@ export default {
       type: 'string',
       options: {
         list: [
-          { title: 'Main Navigation', value: 'mainNav' },
+          { title: 'Main Header', value: 'mainNav' },
           { title: 'Main Footer', value: 'mainFooter' },
         ],
       },
@@ -33,12 +33,17 @@ export default {
   ],
   preview: {
     select: {
-      title: 'type',
+      type: 'type',
     },
-    prepare({ title }) {
-      return {
-        title,
-      };
+    prepare({ type }) {
+      switch (type) {
+        case 'mainNav':
+          return { title: 'Main Header' };
+        case 'mainFooter':
+          return { title: 'Main Footer' };
+        default:
+          return { title: 'Error: Type not found.' };
+      }
     },
   },
 };

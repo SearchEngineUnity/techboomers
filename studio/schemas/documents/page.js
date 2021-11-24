@@ -131,15 +131,20 @@ export default {
   ],
   preview: {
     select: {
-      title: 'title',
+      shortName: 'shortName',
+      pageSections: 'sections',
       slug: 'slug.current',
       fbImg: 'metaFacebook.image',
       twitterImg: 'metaTwitter.image',
     },
-    prepare({ title, slug, fbImg, twitterImg }) {
+    prepare({ shortName, pageSections, slug, fbImg, twitterImg }) {
       const currentSlug = slug === '/' ? '/' : `/${slug}`;
       return {
-        title,
+        title:
+          pageSections[0]?.header?.heading ||
+          pageSections[0]?.blocks[0]?.header?.heading ||
+          pageSections[0]?.blocks[1]?.header?.heading ||
+          `Short name: ${shortName}`,
         subtitle: currentSlug,
         media: fbImg || twitterImg,
       };
