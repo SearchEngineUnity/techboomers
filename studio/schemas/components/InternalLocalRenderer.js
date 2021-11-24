@@ -5,7 +5,7 @@ import { FaLink } from 'react-icons/fa';
 const InternalLocalRenderer = ({ children }) => (
   <span>
     {children}
-    <FaLink style={{ display: 'inline' }} />
+    <FaLink style={{ display: 'inline', paddingLeft: '8px', paddingRight: '8px' }} />
   </span>
 );
 

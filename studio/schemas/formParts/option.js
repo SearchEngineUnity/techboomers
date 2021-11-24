@@ -18,6 +18,13 @@ export default {
   preview: {
     select: {
       title: 'label',
+      subtitle: 'value',
+    },
+    prepare({ title, subtitle }) {
+      return {
+        title: title || 'Option label',
+        subtitle,
+      };
     },
   },
 };

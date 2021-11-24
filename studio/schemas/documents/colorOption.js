@@ -1,11 +1,11 @@
-import { FaBullseye } from 'react-icons/fa';
+import { MdColorize } from 'react-icons/md';
 import React from 'react';
 
 export default {
   name: 'colorOption',
   type: 'document',
   title: 'Color Option',
-  icon: FaBullseye,
+  icon: MdColorize,
   fields: [
     {
       name: 'name',

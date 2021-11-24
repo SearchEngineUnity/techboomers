@@ -131,14 +131,15 @@ export default {
     select: {
       title: 'title',
       slug: 'slug.current',
-      media: 'metaTags.openGraph.image',
+      fbImg: 'metaFacebook.image',
+      twitterImg: 'metaTwitter.image',
     },
-    prepare({ title, slug, media }) {
+    prepare({ title, slug, fbImg, twitterImg }) {
       const currentSlug = slug === '/' ? '/' : `/${slug}`;
       return {
         title,
         subtitle: currentSlug,
-        media,
+        media: fbImg || twitterImg,
       };
     },
   },

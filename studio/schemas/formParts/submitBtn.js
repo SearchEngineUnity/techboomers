@@ -54,5 +54,11 @@ export default {
       title: 'text',
       subtitle: 'idTag',
     },
+    prepare({ title, subtitle }) {
+      return {
+        title,
+        subtitle,
+      };
+    },
   },
 };

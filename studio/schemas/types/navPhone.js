@@ -9,4 +9,15 @@ export default {
       title: 'Call us text',
     },
   ],
+  preview: {
+    select: {
+      name: 'text',
+    },
+    prepare({ name }) {
+      return {
+        title: name,
+        subtitle: 'Links to company phone #',
+      };
+    },
+  },
 };

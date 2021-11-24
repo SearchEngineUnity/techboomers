@@ -29,9 +29,13 @@ export default {
     },
   ],
   preview: {
-    prepare() {
+    select: {
+      menuGroup: 'menuGroup',
+    },
+    prepare({ menuGroup }) {
       return {
         title: 'Navigation Set',
+        subtitle: `# of items in set: ${menuGroup.length}`,
       };
     },
   },

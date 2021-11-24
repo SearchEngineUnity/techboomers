@@ -1,3 +1,5 @@
+// This is not currently in use
+
 export default {
   name: 'navJumpLink',
   type: 'object',

@@ -17,12 +17,12 @@ export default {
   ],
   preview: {
     select: {
-      subtitle: 'nav.slug.current',
+      slug: 'nav.slug.current',
     },
-    prepare({ subtitle }) {
+    prepare({ slug }) {
       return {
         title: 'Nav Brand Group',
-        subtitle,
+        subtitle: slug === '/' ? `Links to root` : `Links to /${slug}`,
       };
     },
   },

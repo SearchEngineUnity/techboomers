@@ -1,8 +1,10 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
 import S from '@sanity/desk-tool/structure-builder';
+import { FaPalette } from 'react-icons/fa';
 import { MdSettings, MdBusiness } from 'react-icons/md';
-import { HiOutlineOfficeBuilding } from 'react-icons/hi';
+import { BsType } from 'react-icons/bs';
+import { HiOutlineOfficeBuilding, HiOutlineColorSwatch } from 'react-icons/hi';
 import { AiOutlineGlobal } from 'react-icons/ai';
 import QueryContainer from 'part:@sanity/base/query-container';
 
@@ -110,26 +112,55 @@ export default () =>
     .title('Demo Centre')
     .items([
       S.listItem()
+        .title('Website')
+        .icon(AiOutlineGlobal)
+        .child(
+          S.list()
+            .title('Website')
+            .items([
+              S.documentTypeListItem('navMenu').title('Navigation Menus'),
+              S.divider(),
+              S.documentTypeListItem('page').title('Structured Pages'),
+              S.documentTypeListItem('listingPage').title('Listing Pages'),
+              S.documentTypeListItem('spGuide').title('SP Guides'),
+              S.divider(),
+              S.documentTypeListItem('redirect').title('Redirects'),
+            ]),
+        ),
+      S.documentTypeListItem('formNetlify').title('Form Netlify'),
+      S.divider(),
+      S.listItem()
         .title('Site Settings')
         .icon(MdSettings)
         .child(
           S.list()
             .title('Site Settings')
             .items([
+              // will reactive when we add more general functions for things like api keys etc etc
+              // S.listItem()
+              //   .title('General Settings')
+              //   .icon(MdSettings)
+              //   .child(S.document().schemaType('generalSettings').documentId('generalSettings')),
               S.listItem()
-                .title('General Settings')
-                .icon(MdSettings)
-                .child(S.document().schemaType('generalSettings').documentId('generalSettings')),
-              S.listItem()
-                .title('Palette')
-                .icon(MdSettings)
+                .title('Theme - Palette')
+                .icon(FaPalette)
                 .child(S.document().schemaType('palette').documentId('palette')),
               S.listItem()
-                .title('Typography')
-                .icon(MdSettings)
+                .title('Theme - Typography')
+                .icon(BsType)
                 .child(S.document().schemaType('typography').documentId('typography')),
+            ]),
+        ),
+      S.documentTypeListItem('colorOption').title('Color Options'),
+      S.listItem()
+        .title('Design Options')
+        .icon(HiOutlineColorSwatch)
+        .child(
+          S.list()
+            .title('Design Options')
+            .items([
               S.listItem()
-                .title('Section Color Sets')
+                .title('Section Color Options')
                 .schemaType('sectionColorSet')
                 .child(
                   S.documentTypeList('sectionColorSet')
@@ -163,23 +194,4 @@ export default () =>
               S.documentTypeListItem('companyLogo').title('Company Logos'),
             ]),
         ),
-      S.listItem()
-        .title('Website')
-        .icon(AiOutlineGlobal)
-        .child(
-          S.list()
-            .title('Website')
-            .items([
-              S.documentTypeListItem('navMenu').title('Navigation Menus'),
-              S.divider(),
-              S.documentTypeListItem('page').title('Structured Pages'),
-              S.documentTypeListItem('listingPage').title('Listing Pages'),
-              S.documentTypeListItem('spGuide').title('SP Guides'),
-              S.divider(),
-              S.documentTypeListItem('redirect').title('Redirects'),
-            ]),
-        ),
-      S.divider(),
-      S.documentTypeListItem('colorOption').title('Color Options'),
-      S.documentTypeListItem('formNetlify').title('Form Netlify'),
     ]);

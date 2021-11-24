@@ -1,7 +1,10 @@
+import { HiOutlineColorSwatch } from 'react-icons/hi';
+
 export default {
   name: 'sectionColorSet',
   type: 'document',
   title: 'Section Color Set',
+  icon: HiOutlineColorSwatch,
   fields: [
     {
       name: 'name',

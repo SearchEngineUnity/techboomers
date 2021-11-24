@@ -40,5 +40,10 @@ export default {
     select: {
       title: 'name',
     },
+    prepare({ title }) {
+      return {
+        title,
+      };
+    },
   },
 };

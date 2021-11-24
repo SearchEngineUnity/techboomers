@@ -5,7 +5,7 @@ import { FaHashtag } from 'react-icons/fa';
 const HashIdRenderer = ({ children }) => (
   <span>
     {children}
-    <FaHashtag style={{ display: 'inline' }} />
+    <FaHashtag style={{ display: 'inline', paddingLeft: '8px', paddingRight: '8px' }} />
   </span>
 );
 

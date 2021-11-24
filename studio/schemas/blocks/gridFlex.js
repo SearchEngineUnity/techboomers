@@ -7,6 +7,12 @@ export default {
   icon: FiGrid,
   fields: [
     {
+      name: 'name',
+      title: 'Name',
+      type: 'string',
+      description: 'Please enter a short name to describe the contents of the grid.',
+    },
+    {
       name: 'layout',
       title: 'Number of tiles in a row',
       description: 'Please enter in the format of value/value/value for desktop/tablet/mobile.',
@@ -36,13 +42,22 @@ export default {
   ],
   preview: {
     select: {
-      subtitle: '_type',
+      name: 'name',
+      tileOption: 'tileOption',
     },
-    prepare({ subtitle }) {
-      return {
-        subtitle,
-        title: `Grid`,
-      };
+    prepare({ name, tileOption }) {
+      switch (tileOption) {
+        case '1':
+          return { title: name || 'Grid', subtitle: 'display: image-only-rectangle/square' };
+        case '2':
+          return { title: name || 'Grid', subtitle: 'display: image-only-circle' };
+        case '3':
+          return { title: name || 'Grid', subtitle: 'display: image-title-border' };
+        case '4':
+          return { title: name || 'Grid', subtitle: 'display: image-title-text-base' };
+        default:
+          return { title: 'Error' };
+      }
     },
   },
 };
