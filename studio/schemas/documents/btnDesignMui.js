@@ -10,16 +10,19 @@ export default {
       name: 'name',
       title: 'Design Name',
       type: 'string',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'settings',
       title: 'Button Settings',
       type: 'btnSettingsMui',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'colors',
       title: 'Color Settings',
       type: 'muiBtnColorSet',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'typography',

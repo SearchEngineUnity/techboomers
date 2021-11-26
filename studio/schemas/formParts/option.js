@@ -13,6 +13,7 @@ export default {
       name: 'value',
       title: 'Value',
       type: 'string',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],
   preview: {

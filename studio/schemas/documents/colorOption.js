@@ -11,22 +11,25 @@ export default {
       name: 'name',
       title: 'Name',
       type: 'string',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'color',
       title: 'Color',
       type: 'color',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'tone',
       title: 'Is this a dark color or a light color?',
-      description: 'This will be used to determine the overlay color on press.',
+      description: 'Value currently not in use.',
       type: 'string',
       options: {
         list: ['light', 'dark'],
         layout: 'radio',
         direction: 'horizontal',
       },
+      initialValue: 'light',
     },
   ],
   preview: {

@@ -10,6 +10,7 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
+      description: `This is used as the logo image's alt`,
     },
     {
       name: 'logo',

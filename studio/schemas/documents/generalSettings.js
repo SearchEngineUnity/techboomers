@@ -1,3 +1,5 @@
+// this is currently not in use but is kept should we ever work on this feature
+
 import { FaBullseye } from 'react-icons/fa';
 
 export default {

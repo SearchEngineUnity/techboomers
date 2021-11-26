@@ -1,4 +1,4 @@
-// this is currently not in use but is kept should we ever work ont his feature
+// this is currently not in use but is kept should we ever work on this feature
 
 export default {
   name: 'layoutSpg',
