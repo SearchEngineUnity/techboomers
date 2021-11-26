@@ -57,10 +57,7 @@ export default {
       title: 'Page Title',
       description: 'Optimal length under 60 characters for Google SERP',
       fieldset: 'general',
-      validation: (Rule) => [
-        Rule.required().error('Field is required'),
-        Rule.max(60).warning('Length over optimal'),
-      ],
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'description',
@@ -68,10 +65,7 @@ export default {
       type: 'text',
       description: 'Optimal length is under 160 characters for Google SERP',
       fieldset: 'general',
-      validation: (Rule) => [
-        Rule.required().error('Field is require.'),
-        Rule.max(160).warning('Length over optimal'),
-      ],
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'metaFacebook',

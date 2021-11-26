@@ -10,6 +10,7 @@ export default {
       name: 'title',
       type: 'string',
       title: 'Table Name',
+      description: 'This is for label purpose in studio only.',
     },
     {
       name: 'colHeading',

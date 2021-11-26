@@ -26,6 +26,7 @@ export default {
       title: 'Options',
       type: 'array',
       of: [{ type: 'option' }],
+      validation: (Rule) => Rule.min(1).error('Must contain at least one item'),
     },
     {
       name: 'required',

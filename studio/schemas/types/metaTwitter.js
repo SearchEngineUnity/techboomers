@@ -8,14 +8,12 @@ export default {
       name: 'title',
       type: 'string',
       description: 'Optimal length is under 70 characters',
-      validation: (Rule) => [Rule.max(70).warning('Length over optimal')],
     },
     {
       title: 'Description',
       name: 'description',
       type: 'text',
       description: 'Optimal length is under 200 characters with a max of 420 characters.',
-      validation: (Rule) => [Rule.max(420).error('Length over maximum')],
     },
     {
       title: 'Image',

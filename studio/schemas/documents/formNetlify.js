@@ -28,6 +28,7 @@ export default {
       name: 'submitBtn',
       title: 'Submit Button',
       type: 'submitBtn',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'thankYou',

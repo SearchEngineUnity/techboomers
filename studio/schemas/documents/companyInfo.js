@@ -11,16 +11,19 @@ export default {
       name: 'name',
       title: 'Company name',
       type: 'string',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'email',
       title: 'Email',
       type: 'string',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'phone',
       title: 'Phone Number',
       type: 'string',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'address1',

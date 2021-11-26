@@ -10,6 +10,7 @@ export default {
       name: 'name',
       title: 'Name',
       type: 'string',
+      description: 'This is for label purpose in studio only.',
     },
     {
       name: 'fieldVariant',
@@ -27,11 +28,14 @@ export default {
         direction: 'horizontal',
       },
       initialValue: 'outlined',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'borderRadius',
       title: 'border Radius',
       type: 'string',
+      initialValues: '4px',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'focusedColor',
@@ -40,6 +44,7 @@ export default {
         'Sets the color of borders, the checkbox label, the select label and the radio label color when one clicks into the field/fieldset.',
       type: 'reference',
       to: [{ type: 'colorOption' }],
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'backgroundColor',
@@ -47,6 +52,7 @@ export default {
       description: 'Sets the background color for filled variant and outlined variant.',
       type: 'reference',
       to: [{ type: 'colorOption' }],
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'fieldBgHoverColor',
@@ -55,6 +61,7 @@ export default {
         'Sets the background color for filled variant and outlined variant on hover AND the background color for filled variant when one clicks into the filed/fieldset.',
       type: 'reference',
       to: [{ type: 'colorOption' }],
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'labelColor',
@@ -63,6 +70,7 @@ export default {
         'Sets the label text color, helper text color and the outline color of checkbox and radio icons.',
       type: 'reference',
       to: [{ type: 'colorOption' }],
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'inputColor',
@@ -71,6 +79,7 @@ export default {
       description:
         'Sets the input text color, placeholder text color, and the border color on hover.',
       to: [{ type: 'colorOption' }],
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'selectorColor',
@@ -78,12 +87,14 @@ export default {
       description: 'This would apply to the radio button and the checkbox.',
       type: 'reference',
       to: [{ type: 'colorOption' }],
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'btnStyle',
       title: 'Button Style',
       type: 'reference',
       to: [{ type: 'btnDesignMui' }],
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],
   preview: {

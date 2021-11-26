@@ -1,10 +1,12 @@
-import { FaWpforms } from 'react-icons/fa';
+// File not in use
+
+import { MdAddBox } from 'react-icons/md';
 
 export default {
-  title: 'Block Form Netlify',
-  name: 'blockFormNetlify',
+  title: 'CTA Button',
+  name: 'ctaButton',
   type: 'object',
-  icon: FaWpforms,
+  icon: MdAddBox,
   fieldsets: [
     {
       name: 'presentation',
@@ -17,28 +19,21 @@ export default {
   ],
   fields: [
     {
-      name: 'title',
-      title: 'Form Title',
+      name: 'idTag',
+      title: 'Button ID',
       type: 'string',
-      description: 'This is the title of the form that will appear on top of the form fields.',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
-      name: 'formNetlify',
-      title: 'Form Netlify',
-      type: 'reference',
-      to: [
-        {
-          type: 'formNetlify',
-        },
-      ],
+      name: 'text',
+      title: 'Button Text',
+      type: 'string',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
-      name: 'titleAlignment',
-      title: 'Title Alignment',
+      name: 'btnAlignment',
+      title: 'Button Alignment',
       type: 'string',
-      description: 'This only apply to the form title.',
       options: {
         list: ['left', 'center', 'right'],
         layout: 'radio',
@@ -48,18 +43,18 @@ export default {
       initialValue: 'left',
     },
     {
-      name: 'formStyle',
-      title: 'Form Style',
+      name: 'design',
+      title: 'Button Design Option',
       type: 'reference',
-      to: [{ type: 'formStyle' }],
+      to: [{ type: 'btnDesignMui' }],
       fieldset: 'presentation',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],
   preview: {
     select: {
-      title: 'title',
-      subtitle: 'formNetlify.name',
+      title: 'text',
+      subtitle: 'idTag',
     },
   },
 };

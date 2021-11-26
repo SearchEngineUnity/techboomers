@@ -17,6 +17,8 @@ export default {
       title: 'Number of tiles in a row',
       description: 'Please enter in the format of value/value/value for desktop/tablet/mobile.',
       type: 'string',
+      initialValue: '3/2/1',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'tiles',
