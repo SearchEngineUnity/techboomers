@@ -1,11 +1,11 @@
-import { SiAdobelightroomclassic } from 'react-icons/si';
+import { SiAdobelightroom } from 'react-icons/si';
 import * as blocks from '../blocks';
 
 export default {
   name: 'lrFlex',
   title: 'LR - Flex',
   type: 'object',
-  icon: SiAdobelightroomclassic,
+  icon: SiAdobelightroom,
   fieldsets: [
     {
       name: 'presentation',

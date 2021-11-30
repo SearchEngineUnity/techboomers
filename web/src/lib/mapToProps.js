@@ -258,10 +258,11 @@ export function mapMuiBtnSubmitToProps({ settings, colors, typography }) {
   };
 }
 
-export function mapGridFlexToProps({ layout, tiles }) {
+export function mapGridFlexToProps({ layout, tiles, tileOption }) {
   return {
     layout,
     tiles,
+    tileOption,
   };
 }
 
