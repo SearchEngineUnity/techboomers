@@ -8,6 +8,7 @@ export default {
       title: 'Hash Id',
       type: 'string',
       description: 'Please enter the ID of the segment you would like to jump to',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],
   preview: {

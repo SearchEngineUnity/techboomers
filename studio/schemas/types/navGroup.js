@@ -10,6 +10,7 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'icon',
@@ -21,13 +22,15 @@ export default {
     {
       name: 'nav',
       type: 'reference',
-      to: [{ type: 'page' }, { type: 'spGuide' }],
+      to: [{ type: 'page' }, { type: 'listingPage' }, { type: 'spGuide' }],
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       title: 'Group',
       name: 'group',
       type: 'array',
       of: [{ type: 'navItem' }],
+      validation: (Rule) => [Rule.min(1).error('Must contain at least oen item')],
     },
   ],
   preview: {

@@ -35,6 +35,7 @@ export default {
         ],
       },
       initialValue: '56.25%',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],
   preview: {

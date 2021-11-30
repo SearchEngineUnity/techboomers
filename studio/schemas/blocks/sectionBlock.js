@@ -43,6 +43,7 @@ export default {
       },
       fieldset: 'presentation',
       initialValue: 'left',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'footerAlignment',
@@ -56,6 +57,7 @@ export default {
       },
       fieldset: 'presentation',
       initialValue: 'left',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],
   preview: {

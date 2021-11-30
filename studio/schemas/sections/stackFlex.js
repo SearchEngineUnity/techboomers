@@ -67,6 +67,7 @@ export default {
         direction: 'horizontal',
       },
       initialValue: '12',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'headerAlignment',
@@ -80,6 +81,7 @@ export default {
       },
       fieldset: 'presentation',
       initialValue: 'left',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'footerAlignment',
@@ -93,6 +95,7 @@ export default {
       },
       fieldset: 'presentation',
       initialValue: 'left',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'colorSettings',

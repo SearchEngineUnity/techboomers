@@ -30,6 +30,7 @@ export default {
         direction: 'horizontal',
       },
       initialValue: 'light',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],
   preview: {

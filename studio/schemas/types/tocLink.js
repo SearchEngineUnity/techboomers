@@ -7,8 +7,7 @@ export default {
       name: 'title',
       type: 'string',
       title: 'Title',
-      description:
-        'This is the menu item text that will appear in the Table of Contents it can be different text then the H2 itself. All H2s on page will be listed on the table of contents. Please ensure that all H2 items are also added with hash ids.',
+      description: `Please add all H2's to this ToC. The text can be different from the text of the H2. Please ensure that all H2's in PT are also added with hash ids.`,
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],

@@ -18,12 +18,14 @@ export default {
       name: 'newTab',
       type: 'boolean',
       initialValue: true,
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       title: 'rel=noreferrer?',
       name: 'noreferrer',
       type: 'boolean',
       initialValue: false,
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],
   preview: {

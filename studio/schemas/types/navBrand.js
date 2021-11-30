@@ -11,11 +11,13 @@ export default {
       title: 'Brand Group',
       type: 'array',
       of: [{ type: 'brandItem' }],
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'nav',
       type: 'reference',
       to: [{ type: 'page' }],
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],
   preview: {

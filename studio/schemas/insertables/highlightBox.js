@@ -13,11 +13,13 @@ export default {
       options: {
         list: ['Pro Tip', 'Important', 'Warning', 'Did You Know', 'Definition'],
       },
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'text',
       title: 'Text',
       type: 'highlightBoxBlockContent',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],
   preview: {
