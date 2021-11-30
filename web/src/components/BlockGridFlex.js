@@ -16,6 +16,7 @@ function GridFlex({ layout, tiles, tileOption }) {
   };
 
   const col = colCalculate(layout);
+  console.log(tileOption);
 
   return (
     <Grid container spacing={3}>

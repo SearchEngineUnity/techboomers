@@ -52,10 +52,10 @@ function SmartTable({ smartTable }) {
           {colgroup && (
             <colgroup>
               {colgroup.map((col, index) =>
-                col.width !== 0 ? (
-                  <col span="1" width={col.width} key={`colWidth-${index}`} />
+                col.width !== '0' ? (
+                  <col span="1" style={{ width: col.width }} key={`colWidth-${index}`} />
                 ) : (
-                  <col key={`colWidth-${index}`} span="1" />
+                  <col key={`colWidth-${index}`} span="1" style={{ width: 'auto' }} />
                 ),
               )}
             </colgroup>
