@@ -1,5 +1,5 @@
 import { MdVideocam } from 'react-icons/md';
-// import EmbedPlayer from '../components/preview/EmbedPlayer';
+import Player from '../components/previews/VideoEmbedPreview';
 
 export default {
   type: 'object',
@@ -30,6 +30,6 @@ export default {
   ],
   preview: {
     select: { url: 'url' },
-    // component: EmbedPlayer,
+    component: Player,
   },
 };

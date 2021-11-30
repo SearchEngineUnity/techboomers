@@ -1,4 +1,4 @@
-import MouseIcon from '../components/MouseIcon';
+import MouseIcon from '../components/previews/MouseIcon';
 
 export default {
   name: 'socialInfo',
