@@ -1,12 +1,12 @@
 import { FaExternalLinkAlt, FaLink, FaHashtag } from 'react-icons/fa';
 import { GiLinkedRings } from 'react-icons/gi';
 import { MdLink } from 'react-icons/md';
-// import InlineImageRenderer from '../components/InlineImageRenderer';
-import HashIdRenderer from '../components/HashIdRenderer';
-import ExternalLinkRenderer from '../components/ExternalLinkRenderer';
-import InternalLocalRenderer from '../components/InternalLocalRenderer';
-import InternalGlobalRenderer from '../components/InternalGlobalRenderer';
-import JumpLinkRenderer from '../components/JumpLinkRenderer';
+// import InlineImageRenderer from '../components/previews/InlineImageRenderer';
+import HashIdRenderer from '../components/previews/HashIdRenderer';
+import ExternalLinkRenderer from '../components/previews/ExternalLinkRenderer';
+import InternalLocalRenderer from '../components/previews/InternalLocalRenderer';
+import InternalGlobalRenderer from '../components/previews/InternalGlobalRenderer';
+import JumpLinkRenderer from '../components/previews/JumpLinkRenderer';
 
 export default {
   title: 'Block Content',
