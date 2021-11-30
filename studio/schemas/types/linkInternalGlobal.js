@@ -18,6 +18,7 @@ export default {
       name: 'newTab',
       type: 'boolean',
       initialValue: false,
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],
   preview: {

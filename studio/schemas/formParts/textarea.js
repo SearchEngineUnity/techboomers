@@ -37,6 +37,7 @@ export default {
       title: 'Is this information required?',
       type: 'boolean',
       initialValue: false,
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],
   preview: {

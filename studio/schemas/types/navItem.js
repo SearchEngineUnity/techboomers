@@ -10,6 +10,7 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'icon',
@@ -21,12 +22,15 @@ export default {
     {
       name: 'nav',
       type: 'reference',
-      to: [{ type: 'page' }, { type: 'spGuide' }],
+      to: [{ type: 'page' }, { type: 'listingPage' }, { type: 'spGuide' }],
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'isButton',
       type: 'boolean',
       title: 'Is it in the Button Style?',
+      initialValue: false,
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],
   preview: {

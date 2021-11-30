@@ -10,6 +10,7 @@ export default {
       name: 'text',
       type: 'string',
       title: 'Call us text',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],
   preview: {

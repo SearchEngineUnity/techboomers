@@ -70,6 +70,7 @@ export default {
         direction: 'horizontal',
       },
       initialValue: '6:6',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'reverseOrder',
@@ -77,6 +78,7 @@ export default {
       title: 'Reverse order on stacking?',
       fieldset: 'presentation',
       initialValue: false,
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'blockAlignment',
@@ -93,6 +95,7 @@ export default {
       },
       fieldset: 'presentation',
       initialValue: 'center',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'headerAlignment',
@@ -106,6 +109,7 @@ export default {
       },
       fieldset: 'presentation',
       initialValue: 'left',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'footerAlignment',
@@ -119,6 +123,7 @@ export default {
       },
       fieldset: 'presentation',
       initialValue: 'left',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'colorSettings',

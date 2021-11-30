@@ -8,6 +8,7 @@ export default {
       title: 'Brand',
       type: 'reference',
       to: [{ type: 'companyLogo' }],
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'type',

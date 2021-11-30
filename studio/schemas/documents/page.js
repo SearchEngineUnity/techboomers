@@ -107,6 +107,7 @@ export default {
       type: 'boolean',
       fieldset: 'indexing',
       initialValue: false,
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'nofollow',
@@ -114,6 +115,7 @@ export default {
       type: 'boolean',
       fieldset: 'indexing',
       initialValue: false,
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'canonical',

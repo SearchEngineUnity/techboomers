@@ -20,6 +20,7 @@ export default {
         direction: 'horizontal',
       },
       initialValue: 'center',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'heroImgAlignment',
@@ -34,6 +35,7 @@ export default {
         ],
         layout: 'radio',
         direction: 'horizontal',
+        validation: (Rule) => [Rule.required().error('Field is required')],
       },
       initialValue: 'center',
     },

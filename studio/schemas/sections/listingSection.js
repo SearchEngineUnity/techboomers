@@ -30,6 +30,8 @@ export default {
       options: {
         list: ['SPG', 'MCG'],
       },
+      initialValue: 'SPG',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'header',
@@ -47,8 +49,11 @@ export default {
       title: 'Count',
       fieldset: 'presentation',
       description: 'Number of tiles per page',
-      validation: (Rule) => Rule.integer(),
       initialValue: 12,
+      validation: (Rule) => [
+        Rule.required().error('Field is required'),
+        Rule.integer().error('Value must be an integer'),
+      ],
     },
     {
       name: 'headerAlignment',
@@ -62,6 +67,7 @@ export default {
       },
       fieldset: 'presentation',
       initialValue: 'left',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'footerAlignment',
@@ -75,6 +81,7 @@ export default {
       },
       fieldset: 'presentation',
       initialValue: 'left',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'colorSettings',

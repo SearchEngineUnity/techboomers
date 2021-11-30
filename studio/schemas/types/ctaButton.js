@@ -41,6 +41,7 @@ export default {
       },
       fieldset: 'presentation',
       initialValue: 'left',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'design',

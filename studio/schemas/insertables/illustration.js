@@ -14,6 +14,7 @@ export default {
       options: {
         isHighlighted: true, // <-- make this field easily accessible
       },
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'maxWidth',

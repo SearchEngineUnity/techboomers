@@ -9,17 +9,21 @@ export default {
       title: 'Nav title',
       name: 'title',
       type: 'string',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'link',
       title: 'Link',
       type: 'string',
       description: 'Please enter the ID of the segment you would like to jump to',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'isButton',
       type: 'boolean',
       title: 'Apply Button Style?',
+      initialValue: false,
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],
   preview: {
