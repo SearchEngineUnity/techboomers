@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function FormNetlify({ align, title, formFields, name, thankYou, submitBtn, style }) {
+function FormNetlify({ align, title, form, style }) {
   const {
     backgroundColor: fieldBgColor,
     fieldBgHoverColor,
@@ -42,6 +42,8 @@ function FormNetlify({ align, title, formFields, name, thankYou, submitBtn, styl
     inputColor,
     selectorColor,
   } = style;
+
+  const { formFields, name, thankYou, submitBtn } = form;
 
   const prevTheme = useTheme();
 
@@ -105,8 +107,8 @@ function FormNetlify({ align, title, formFields, name, thankYou, submitBtn, styl
     setState({ ...state, [e.target.name]: e.target.checked });
   };
 
-  const sendForm = (form) => {
-    const inputs = form.elements;
+  const sendForm = (thisForm) => {
+    const inputs = thisForm.elements;
 
     // eslint-disable-next-line no-plusplus
     for (let index = 0; index < inputs.length - 1; index++) {
