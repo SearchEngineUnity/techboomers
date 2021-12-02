@@ -67,7 +67,7 @@ function SmartTable({ smartTable }) {
                   if (cell._type === 'tableBlock') {
                     return (
                       // eslint-disable-next-line
-                  <TableCell key={`${thead._key}-${index}`}>
+                  <TableCell key={`${thead._key}-${index}`} style={{overflow: 'hidden'}}>
                         <TableContent blocks={cell.copy} />
                       </TableCell>
                     );
@@ -75,7 +75,7 @@ function SmartTable({ smartTable }) {
                   if (cell._type === 'illustration') {
                     return (
                       // eslint-disable-next-line
-                  <TableCell key={`${thead._key}-${index}`} style={{ verticalAlign: 'top' }}>
+                  <TableCell key={`${thead._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }} >
                         <Illustration illustration={cell} table />
                       </TableCell>
                     );
@@ -93,7 +93,7 @@ function SmartTable({ smartTable }) {
                     if (cell._type === 'tableBlock') {
                       return (
                         // eslint-disable-next-line
-                      <TableCell className="MuiTableCell-head" component="th" key={`${row._key}-${index}`} style={{ verticalAlign: 'top' }}>
+                      <TableCell className="MuiTableCell-head" component="th" key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }}>
                           <TableContent blocks={cell.copy} />
                         </TableCell>
                       );
@@ -101,7 +101,7 @@ function SmartTable({ smartTable }) {
                     if (cell._type === 'illustration') {
                       return (
                         // eslint-disable-next-line
-                      <TableCell component="th" key={`${row._key}-${index}`} style={{ verticalAlign: 'top' }}>
+                      <TableCell component="th" key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }}>
                           <Illustration illustration={cell} />
                         </TableCell>
                       );
@@ -111,7 +111,7 @@ function SmartTable({ smartTable }) {
                   if (cell._type === 'tableBlock') {
                     return (
                       // eslint-disable-next-line
-                    <TableCell key={`${row._key}-${index}`} style={{ verticalAlign: 'top' }}>
+                    <TableCell key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }}>
                         <TableContent blocks={cell.copy} />
                       </TableCell>
                     );
@@ -119,7 +119,7 @@ function SmartTable({ smartTable }) {
                   if (cell._type === 'illustration') {
                     return (
                       // eslint-disable-next-line
-                    <TableCell key={`${row._key}-${index}`} style={{ verticalAlign: 'top' }}>
+                    <TableCell key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }}>
                         <Illustration illustration={cell} table />
                       </TableCell>
                     );
