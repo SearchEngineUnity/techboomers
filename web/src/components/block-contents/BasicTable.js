@@ -54,11 +54,17 @@ function BasicTable({ basicTable }) {
               <TableRow key={thead._key}>
                 {thead.cells.map((cell, index) =>
                   rowHeading ? (
-                    <TableCell key={`${thead._key}-${index}`} scope="row">
+                    <TableCell
+                      key={`${thead._key}-${index}`}
+                      scope="row"
+                      style={{ overflow: 'hidden' }}
+                    >
                       {cell}
                     </TableCell>
                   ) : (
-                    <TableCell key={`${thead._key}-${index}`}>{cell}</TableCell>
+                    <TableCell key={`${thead._key}-${index}`} style={{ overflow: 'hidden' }}>
+                      {cell}
+                    </TableCell>
                   ),
                 )}
               </TableRow>
@@ -75,12 +81,17 @@ function BasicTable({ basicTable }) {
                         component="th"
                         key={`${row._key}-${index}`}
                         scope="row"
+                        style={{ overflow: 'hidden' }}
                       >
                         {cell}
                       </TableCell>
                     );
                   }
-                  return <TableCell key={`${row._key}-${index}`}>{cell}</TableCell>;
+                  return (
+                    <TableCell key={`${row._key}-${index}`} style={{ overflow: 'hidden' }}>
+                      {cell}
+                    </TableCell>
+                  );
                 })}
               </TableRow>
             ))}
