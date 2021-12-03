@@ -15,6 +15,7 @@ export default {
     {
       name: 'variants',
       title: 'Variants',
+      description: 'Please include units for font sizes (px, em, or rem).',
       options: {
         collapsible: true,
         collapsed: true,
