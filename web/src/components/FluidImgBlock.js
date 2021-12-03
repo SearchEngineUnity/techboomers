@@ -11,7 +11,7 @@ function FluidImgBlock({ image, alt, loading, maxHeight, maxWidth, caption }) {
   const customMaxWidth = maxWidth || 'auto';
 
   return (
-    <Box component="figure" justify="center">
+    <Box component="figure" justify="center" m={0}>
       <GatsbyImage
         image={imageData}
         alt={alt}
