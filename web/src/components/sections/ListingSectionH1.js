@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container, Grid, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import HeroSectionFooter from '../HeroSectionFooter';
-import HeroSectionHeader from '../HeroSectionHeader';
+import HeroSectionFooter from './HeroSectionFooter';
+import HeroSectionHeader from './HeroSectionHeader';
 import { determineColor } from '../../lib/helperFunctions';
 import TileImageLeft from '../listingTile/TileSpgImageLeft';
 import Pagination from '../ListingPagination';

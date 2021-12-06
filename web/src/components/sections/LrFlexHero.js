@@ -1,15 +1,15 @@
 import React from 'react';
 import { Container, Grid, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import ImgBlock from '../FluidImgBlock';
-import VideoBlock from '../VideoBlock';
-import SectionBlock from '../HeroSectionBlock';
+import ImgBlock from '../blocks/FluidImgBlock';
+import VideoBlock from '../blocks/VideoBlock';
+import SectionBlock from '../blocks/HeroSectionBlock';
 import ButtonExternal from '../buttons/ButtonExternal';
 import ButtonInternalGlobal from '../buttons/ButtonInternalGlobal';
 import ButtonInternalLocal from '../buttons/ButtonInternalLocal';
 import ButtonJumpLink from '../buttons/ButtonJumpLink';
-import GridFlex from '../BlockGridFlex';
-import BlockFormNetlify from '../BlockFormNetlify';
+import GridFlex from '../blocks/BlockGridFlex';
+import BlockFormNetlify from '../blocks/BlockFormNetlify';
 import {
   mapFluidImgBlockToProps,
   mapSectionBlockToProps,
@@ -17,8 +17,8 @@ import {
   mapGridFlexToProps,
   mapBlockFormNetlifyToProps,
 } from '../../lib/mapToProps';
-import HeroSectionFooter from '../HeroSectionFooter';
-import HeroSectionHeader from '../HeroSectionHeader';
+import HeroSectionFooter from './HeroSectionFooter';
+import HeroSectionHeader from './HeroSectionHeader';
 import { determineColor } from '../../lib/helperFunctions';
 
 const useStyles = makeStyles((theme) => ({

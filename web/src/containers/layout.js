@@ -8,8 +8,8 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
-import MainNav from '../components/MainNav';
-import MainFooter from '../components/MainFooter';
+import MainNav from '../components/navs/headerElements/MainNav';
+import MainFooter from '../components/navs/footerElements/MainFooter';
 
 const MyLayout = ({ data, children, location }) => (
   <>
