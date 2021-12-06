@@ -15,8 +15,8 @@ import {
   Box,
   Typography,
 } from '@material-ui/core';
-import ButtonSubmit from './buttons/ButtonSubmit';
-import { mapMuiBtnSubmitToProps } from '../lib/mapToProps';
+import ButtonSubmit from '../buttons/ButtonSubmit';
+import { mapMuiBtnSubmitToProps } from '../../lib/mapToProps';
 
 function encode(data) {
   return Object.keys(data)

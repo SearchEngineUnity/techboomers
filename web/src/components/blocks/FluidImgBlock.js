@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Typography } from '@material-ui/core';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import sanityConfig from '../../sanityConfig';
+import sanityConfig from '../../../sanityConfig';
 
 function FluidImgBlock({ image, alt, loading, maxHeight, maxWidth, caption }) {
   const loadingSetting = loading || 'lazy';

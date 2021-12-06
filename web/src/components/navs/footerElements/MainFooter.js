@@ -3,12 +3,12 @@ import { StaticQuery, graphql } from 'gatsby';
 import { Box, Container, Divider, Grid, Toolbar, Hidden } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'gatsby-theme-material-ui';
-import NavBrand from './NavBrand';
-import ContactInfo from './ContactInfo';
-import SocialMedia from './SocialMedia';
+import NavBrand from '../headerElements/NavBrand';
+import ContactInfo from '../../ContactInfo';
+import SocialMedia from '../../SocialMedia';
 import FooterGroup from './FooterGroup';
 import FooterItem from './FooterItem';
-import { mapNavBrandToProps, mapNavItemToProps, mapNavGroupToProps } from '../lib/mapToProps';
+import { mapNavBrandToProps, mapNavItemToProps, mapNavGroupToProps } from '../../../lib/mapToProps';
 
 const useStyles = makeStyles((theme) => ({
   divider: {

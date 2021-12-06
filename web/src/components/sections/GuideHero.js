@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Typography, Grid, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import ImgBlock from '../FluidImgBlock';
+import ImgBlock from '../blocks/FluidImgBlock';
 import Subtitle from '../block-contents/HeroSubtitleSerializer';
 import ProgressBar from '../ScrollProgressBar';
 import { mapFluidImgBlockToProps } from '../../lib/mapToProps';

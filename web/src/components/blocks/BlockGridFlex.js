@@ -1,10 +1,10 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
-import Tile1 from './tiles/TileImageRecSqr';
-import Tile2 from './tiles/TileImageCircle';
-import Tile3 from './tiles/TileImageTitleBorder';
-import Tile4 from './tiles/TileImageTitleTextBase';
-import { mapFluidImgToProps } from '../lib/mapToProps';
+import Tile1 from '../tiles/TileImageRecSqr';
+import Tile2 from '../tiles/TileImageCircle';
+import Tile3 from '../tiles/TileImageTitleBorder';
+import Tile4 from '../tiles/TileImageTitleTextBase';
+import { mapFluidImgToProps } from '../../lib/mapToProps';
 
 function GridFlex({ layout, tiles, tileOption }) {
   // number of tiles desktop/table/mobile: '6/4/2' -> {lg: 2, md: 3, xs: 6}
@@ -16,7 +16,6 @@ function GridFlex({ layout, tiles, tileOption }) {
   };
 
   const col = colCalculate(layout);
-  console.log(tileOption);
 
   return (
     <Grid container spacing={3}>

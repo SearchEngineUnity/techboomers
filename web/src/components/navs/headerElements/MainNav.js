@@ -7,7 +7,7 @@ import NavGroup from './NavGroup';
 import NavBrand from './NavBrand';
 import NavPhone from './NavPhone';
 import MainNavHamburger from './MainNavHamburger';
-import { mapNavBrandToProps, mapNavItemToProps, mapNavGroupToProps } from '../lib/mapToProps';
+import { mapNavBrandToProps, mapNavItemToProps, mapNavGroupToProps } from '../../../lib/mapToProps';
 
 const useStyles = makeStyles((theme) => ({
   root: {
