@@ -19,27 +19,13 @@ export default {
       type: 'color',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
-    {
-      name: 'tone',
-      title: 'Is this a dark color or a light color?',
-      description: 'Value currently not in use.',
-      type: 'string',
-      options: {
-        list: ['light', 'dark'],
-        layout: 'radio',
-        direction: 'horizontal',
-      },
-      initialValue: 'light',
-      validation: (Rule) => [Rule.required().error('Field is required')],
-    },
   ],
   preview: {
     select: {
       title: 'name',
       color: 'color',
-      tone: 'tone',
     },
-    prepare({ title, color, tone }) {
+    prepare({ title, color }) {
       return {
         title,
         media: (
@@ -50,13 +36,10 @@ export default {
               width: '100%',
               height: '100%',
               backgroundColor: `${color.hex}${color.alpha < 1 ? color.alpha * 100 : ''}`,
-              color: tone === 'light' ? '#000' : '#FFF',
               fontSize: '24px',
               alignItems: 'center',
             }}
-          >
-            <span>T</span>
-          </div>
+          />
         ),
       };
     },
