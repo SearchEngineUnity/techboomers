@@ -171,10 +171,8 @@ export const query = graphql`
                       alpha
                       _rawRgb
                     }
-                    tone
                   }
                   dark {
-                    tone
                     color {
                       alpha
                       hex
@@ -182,7 +180,6 @@ export const query = graphql`
                     }
                   }
                   main {
-                    tone
                     color {
                       alpha
                       hex
@@ -452,10 +449,8 @@ export const query = graphql`
                       alpha
                       _rawRgb
                     }
-                    tone
                   }
                   dark {
-                    tone
                     color {
                       alpha
                       hex
@@ -463,7 +458,6 @@ export const query = graphql`
                     }
                   }
                   main {
-                    tone
                     color {
                       alpha
                       hex
@@ -677,10 +671,8 @@ export const query = graphql`
                       alpha
                       _rawRgb
                     }
-                    tone
                   }
                   dark {
-                    tone
                     color {
                       alpha
                       hex
@@ -688,7 +680,6 @@ export const query = graphql`
                     }
                   }
                   main {
-                    tone
                     color {
                       alpha
                       hex
