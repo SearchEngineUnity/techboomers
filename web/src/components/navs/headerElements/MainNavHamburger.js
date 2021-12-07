@@ -17,11 +17,16 @@ import {
 import { Menu, Close, ExpandLess, ExpandMore } from '@material-ui/icons';
 import { Link, IconButton } from 'gatsby-theme-material-ui';
 import { makeStyles } from '@material-ui/core/styles';
+import NavItem from './NavItem';
+import NavBrand from './NavBrand';
+import NavPhone from './NavPhone';
+import { mapNavBrandToProps, mapNavItemToProps } from '../../../lib/mapToProps';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
     position: 'relative',
     backgroundColor: theme.palette.common.white,
+    color: theme.palette.common.black,
   },
   title: {
     marginLeft: theme.spacing(2),
@@ -41,11 +46,11 @@ const useStyles = makeStyles((theme) => ({
 
 const Transition = React.forwardRef((props, ref) => <Slide direction="up" ref={ref} {...props} />);
 
-function MainNavHamburger({ menu, brand }) {
-  const { menuGroup } = menu;
-  const { nav, brandGroup } = brand;
-  const url = nav.slug.current;
-  const mobileBrand = brandGroup.filter((x) => x.type === 'mobile')[0];
+function MainNavHamburger({ topMenu, bottomMenu }) {
+  // const { menuGroup } = menu;
+  // const { nav, brandGroup } = brand;
+  // const url = nav.slug.current;
+  // const mobileBrand = brandGroup.filter((x) => x.type === 'mobile')[0];
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [collapse, setCollapse] = React.useState(true);
@@ -80,7 +85,7 @@ function MainNavHamburger({ menu, brand }) {
         PaperProps={{ className: classes.list }}
       >
         <AppBar className={classes.appBar}>
-          <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
+          {/* <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
             <Box display={{ xs: 'block', sm: 'block', md: 'none', lg: 'none', xl: 'none' }}>
               <Link to={`/${url}`}>
                 <img
@@ -94,10 +99,61 @@ function MainNavHamburger({ menu, brand }) {
             <IconButton edge="end" color="inherit" onClick={handleClose} aria-label="close">
               <Close />
             </IconButton>
+          </Toolbar> */}
+          <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
+            {topMenu.map((group) => {
+              const { _type, _key: groupKey } = group;
+              const mobileBrand =
+                _type === 'navBrand'
+                  ? group.brandGroup.filter((x) => x.type === 'mobile')[0]
+                  : null;
+              const url = _type === 'navBrand' ? group.nav.slug.current : null;
+
+              switch (_type) {
+                case 'navBrand':
+                  return (
+                    <Box display={{ xs: 'block', sm: 'block', md: 'none', lg: 'none', xl: 'none' }}>
+                      <Link to={`/${url}`}>
+                        <img
+                          src={mobileBrand.brand.logo.asset.url}
+                          alt={mobileBrand.brand.title}
+                          height={48}
+                          width="auto"
+                        />
+                      </Link>
+                    </Box>
+                  );
+                case 'navPhone':
+                  return <NavPhone text={group.text} key={groupKey} />;
+                case 'navItem':
+                  return (
+                    <Box
+                      display={{
+                        xs: 'none',
+                        sm: 'block',
+                        md: 'block',
+                        lg: 'block',
+                        xl: 'block',
+                      }}
+                      key={groupKey}
+                    >
+                      <NavItem {...mapNavItemToProps(group)} />
+                    </Box>
+                  );
+                case 'navGroup':
+                  return <div>Nav Group is not allowed in the top menu</div>;
+
+                default:
+                  return <div>under construction</div>;
+              }
+            })}
+            <IconButton edge="end" color="inherit" onClick={handleClose} aria-label="close">
+              <Close />
+            </IconButton>
           </Toolbar>
         </AppBar>
         <List className={classes.list}>
-          {menuGroup.map((group, index) => {
+          {bottomMenu.map((group, index) => {
             const { _type, title, nav: groupNav, _key } = group;
             switch (_type) {
               case 'navItem':

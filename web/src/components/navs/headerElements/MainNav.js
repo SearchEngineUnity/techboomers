@@ -132,12 +132,8 @@ const MainNav = ({ data, location }) => {
                     })}
                     {menuIndex === 0 && (
                       <MainNavHamburger
-                        menu={data.sanityNavMenu.menuArray[1]}
-                        brand={
-                          data.sanityNavMenu.menuArray[0].menuGroup.filter(
-                            (x) => x._type === 'navBrand',
-                          )[0]
-                        }
+                        bottomMenu={data.sanityNavMenu.menuArray[1].menuGroup}
+                        topMenu={data.sanityNavMenu.menuArray[0].menuGroup}
                       />
                     )}
                   </Toolbar>
