@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
   details: {
     display: 'flex',
-    flexWrap: 'warp',
+    flexWrap: 'wrap',
     flexDirection: 'row',
   },
   content: {
