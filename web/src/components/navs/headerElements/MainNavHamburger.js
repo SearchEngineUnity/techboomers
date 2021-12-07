@@ -2,25 +2,22 @@ import React from 'react';
 import { navigate } from 'gatsby';
 import {
   Box,
-  Icon,
   Dialog,
   ListItemText,
-  ListItemIcon,
   ListItem,
   List,
   Divider,
   AppBar,
   Toolbar,
   Slide,
-  Collapse,
 } from '@material-ui/core';
-import { Menu, Close, ExpandLess, ExpandMore } from '@material-ui/icons';
+import { Menu, Close } from '@material-ui/icons';
 import { Link, IconButton } from 'gatsby-theme-material-ui';
 import { makeStyles } from '@material-ui/core/styles';
 import NavItem from './NavItem';
-import NavBrand from './NavBrand';
 import NavPhone from './NavPhone';
-import { mapNavBrandToProps, mapNavItemToProps } from '../../../lib/mapToProps';
+import NavGroup from './NavGroupHamburger';
+import { mapNavItemToProps } from '../../../lib/mapToProps';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -47,13 +44,8 @@ const useStyles = makeStyles((theme) => ({
 const Transition = React.forwardRef((props, ref) => <Slide direction="up" ref={ref} {...props} />);
 
 function MainNavHamburger({ topMenu, bottomMenu }) {
-  // const { menuGroup } = menu;
-  // const { nav, brandGroup } = brand;
-  // const url = nav.slug.current;
-  // const mobileBrand = brandGroup.filter((x) => x.type === 'mobile')[0];
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [collapse, setCollapse] = React.useState(true);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -63,13 +55,9 @@ function MainNavHamburger({ topMenu, bottomMenu }) {
     setOpen(false);
   };
 
-  const handleClickCollapse = () => {
-    setCollapse(!collapse);
-  };
-
   const handleClickSubNavMenu = (menuLink) => {
     navigate(`/${menuLink}`);
-    handleClose();
+    // handleClose();
   };
 
   return (
@@ -85,21 +73,6 @@ function MainNavHamburger({ topMenu, bottomMenu }) {
         PaperProps={{ className: classes.list }}
       >
         <AppBar className={classes.appBar}>
-          {/* <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Box display={{ xs: 'block', sm: 'block', md: 'none', lg: 'none', xl: 'none' }}>
-              <Link to={`/${url}`}>
-                <img
-                  src={mobileBrand.brand.logo.asset.url}
-                  alt={mobileBrand.brand.title}
-                  height={48}
-                  width="auto"
-                />
-              </Link>
-            </Box>
-            <IconButton edge="end" color="inherit" onClick={handleClose} aria-label="close">
-              <Close />
-            </IconButton>
-          </Toolbar> */}
           <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
             {topMenu.map((group) => {
               const { _type, _key: groupKey } = group;
@@ -168,37 +141,7 @@ function MainNavHamburger({ topMenu, bottomMenu }) {
                   </React.Fragment>
                 );
               case 'navGroup':
-                return (
-                  <React.Fragment key={_key}>
-                    {index === 0 ? null : <Divider />}
-                    <Box style={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <ListItem button onClick={() => handleClickSubNavMenu(groupNav.slug.current)}>
-                        <ListItemText primary={title} />
-                      </ListItem>
-                      <IconButton onClick={handleClickCollapse} color="inherit">
-                        {collapse ? <ExpandMore /> : <ExpandLess />}
-                      </IconButton>
-                    </Box>
-                    <Collapse in={!collapse} timeout="auto" unmountOnExit>
-                      {group.group.map(
-                        ({ icon, title: itemTitle, nav: itemNav, _key: itemKey }) => (
-                          <List component="div" disablePadding key={itemKey}>
-                            <ListItem
-                              button
-                              className={classes.nested}
-                              onClick={() => handleClickSubNavMenu(itemNav.slug.current)}
-                            >
-                              <ListItemIcon className={classes.icon}>
-                                <Icon>{icon}</Icon>
-                              </ListItemIcon>
-                              <ListItemText primary={itemTitle} />
-                            </ListItem>
-                          </List>
-                        ),
-                      )}
-                    </Collapse>
-                  </React.Fragment>
-                );
+                return <NavGroup key={_key} navGroup={group} index={index} />;
 
               default:
                 return <div key={_key}>under construction</div>;
