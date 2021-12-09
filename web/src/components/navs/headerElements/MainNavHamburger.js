@@ -85,7 +85,10 @@ function MainNavHamburger({ topMenu, bottomMenu }) {
               switch (_type) {
                 case 'navBrand':
                   return (
-                    <Box display={{ xs: 'block', sm: 'block', md: 'none', lg: 'none', xl: 'none' }}>
+                    <Box
+                      display={{ xs: 'block', sm: 'block', md: 'none', lg: 'none', xl: 'none' }}
+                      key={groupKey}
+                    >
                       <Link to={`/${url}`}>
                         <img
                           src={mobileBrand.brand.logo.asset.url}

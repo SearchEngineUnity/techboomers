@@ -114,13 +114,15 @@ const MainNav = ({ data, location }) => {
                               key={groupKey}
                               onMouseEnter={(e) => handleMouseEnter(e)}
                               onMouseLeave={handleMouseLeave}
-                              onFocus={(e) => handleMouseEnter(e)}
-                              onBlur={handleMouseLeave}
                             >
                               <NavGroup
                                 {...mapNavGroupToProps(group)}
                                 location={location}
-                                isOpen={group.title === hoveredItemText}
+                                isOpen={
+                                  hoveredItemText === null
+                                    ? 'noHover'
+                                    : group.title === hoveredItemText
+                                }
                                 position={position}
                               />
                             </Box>
