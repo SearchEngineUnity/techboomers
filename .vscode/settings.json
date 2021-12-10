@@ -12,5 +12,8 @@
     "Videocam",
     "webkitallowfullscreen",
     "Wpforms"
+  ],
+  "cSpell.ignoreWords": [
+    "describedby"
   ]
 }
