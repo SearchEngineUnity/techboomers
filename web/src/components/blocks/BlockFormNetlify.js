@@ -161,7 +161,7 @@ function FormNetlify({ align, title, form, style }) {
       })
         .then(() => {
           // setValidated(false);
-          form.reset();
+          thisForm.reset();
           setState({});
           setSuccess(true);
         })
