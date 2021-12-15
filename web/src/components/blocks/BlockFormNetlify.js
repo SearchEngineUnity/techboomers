@@ -103,6 +103,7 @@ function FormNetlify({ align, title, form, style }) {
 
   const handleChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.value });
+    setErrorMsgs({ ...errorMsgs, [e.target.name]: '' });
   };
 
   const handleCheckboxChange = (e) => {
@@ -110,35 +111,43 @@ function FormNetlify({ align, title, form, style }) {
   };
 
   const fieldValidation = (element) => {
+    console.log(element);
     if (element.checkValidity() === false) {
-      setErrorMsgs({ ...state, [element.name]: element.validationMessage });
+      console.log('validity false');
+      setErrorMsgs({ ...errorMsgs, [element.name]: element.validationMessage });
       return;
     }
     if (element.hasAttribute('required') && element.value.trim() === '') {
-      setErrorMsgs({ ...state, [element.name]: 'Please enter text in the field.' });
+      console.log('empty white space');
+      setErrorMsgs({ ...errorMsgs, [element.name]: 'Please enter text in the field.' });
       return;
     }
-    setErrorMsgs({ ...state, [element.name]: '' });
+    setErrorMsgs({ ...errorMsgs, [element.name]: '' });
   };
 
   const sendForm = (thisForm) => {
     const inputs = thisForm.elements;
+    const errors = {};
 
     // eslint-disable-next-line no-plusplus
     for (let index = 0; index < inputs.length - 1; index++) {
       const element = inputs[index];
       if (element.name !== 'bot-field' && element.name !== 'form-name') {
-        fieldValidation(element);
         if (element.validity.valid === false) {
           isValid = false;
+          // Object.assign(...errors, { [element.name]: element.validationMessage });
+          errors[element.name] = element.validationMessage;
           console.log('element validity valid is false');
         }
         if (element.hasAttribute('required') && element.value && element.value.trim() === '') {
           isValid = false;
+          errors[element.name] = 'Please enter text in the field.';
           console.log('required and value is just spaces');
         }
       }
     }
+    console.log(errors);
+    setErrorMsgs({ ...errorMsgs, ...errors });
 
     if (isValid) {
       fetch('/', {
@@ -182,13 +191,13 @@ function FormNetlify({ align, title, form, style }) {
     event.preventDefault();
     const myForm = event.currentTarget;
 
-    if (myForm.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
+    // if (myForm.checkValidity() === false) {
+    //   event.preventDefault();
+    //   event.stopPropagation();
+    // }
 
-    // setValidated(true);
-    isValid = true;
+    // // setValidated(true);
+    // isValid = true;
     setSuccess(false);
     sendForm(myForm);
   };
@@ -312,6 +321,7 @@ function FormNetlify({ align, title, form, style }) {
                     <FormLabel component="legend">{input.label}</FormLabel>
                     <TextField
                       id={input.id}
+                      error={!!errorMsgs[input.id]}
                       onChange={handleChange}
                       name={input.id}
                       required={input.required}
@@ -319,8 +329,11 @@ function FormNetlify({ align, title, form, style }) {
                       multiline
                       rows={input.rows}
                       placeholder={input.placeholderText}
+                      onBlur={(e) => fieldValidation(e.currentTarget)}
                     />
-                    <FormHelperText>{input.helperText}</FormHelperText>
+                    <FormHelperText error={!!errorMsgs[input.id]}>
+                      {errorMsgs[input.id] ? errorMsgs[input.id] : input.helperText}
+                    </FormHelperText>
                   </FormControl>
                 );
               case 'textInput':
@@ -348,7 +361,6 @@ function FormNetlify({ align, title, form, style }) {
                 return <div key="form-default">Form Field not Created</div>;
             }
           })}
-          <input required name="test" type="text" />
           {/* <BlockContent blocks={disclaimer} /> */}
           <ButtonSubmit type="submit" text={submitBtn.text} {...mapMuiBtnSubmitToProps(btnStyle)} />
         </form>
