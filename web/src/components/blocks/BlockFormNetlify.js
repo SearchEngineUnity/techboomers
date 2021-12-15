@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 // GATSBY CLEAN WHEN MAKING FORM CHANGES THAT DON"T SEEM TO UPDATE!
 import React, { useState } from 'react';
 import { createTheme, makeStyles, ThemeProvider, useTheme } from '@material-ui/core/styles';
@@ -95,20 +96,38 @@ function FormNetlify({ align, title, form, style }) {
 
   const classes = useStyles();
   const [state, setState] = useState({});
+  const [errorMsgs, setErrorMsgs] = useState({});
   const [success, setSuccess] = useState(false);
   // const [validated, setValidated] = useState(false);
   let isValid = true;
 
   const handleChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.value });
+    setErrorMsgs({ ...errorMsgs, [e.target.name]: '' });
   };
 
   const handleCheckboxChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.checked });
   };
 
+  const fieldValidation = (element) => {
+    console.log(element);
+    if (element.checkValidity() === false) {
+      console.log('validity false');
+      setErrorMsgs({ ...errorMsgs, [element.name]: element.validationMessage });
+      return;
+    }
+    if (element.hasAttribute('required') && element.value.trim() === '') {
+      console.log('empty white space');
+      setErrorMsgs({ ...errorMsgs, [element.name]: 'Please enter text in the field.' });
+      return;
+    }
+    setErrorMsgs({ ...errorMsgs, [element.name]: '' });
+  };
+
   const sendForm = (thisForm) => {
     const inputs = thisForm.elements;
+    const errors = {};
 
     // eslint-disable-next-line no-plusplus
     for (let index = 0; index < inputs.length - 1; index++) {
@@ -116,9 +135,19 @@ function FormNetlify({ align, title, form, style }) {
       if (element.name !== 'bot-field' && element.name !== 'form-name') {
         if (element.validity.valid === false) {
           isValid = false;
+          // Object.assign(...errors, { [element.name]: element.validationMessage });
+          errors[element.name] = element.validationMessage;
+          console.log('element validity valid is false');
+        }
+        if (element.hasAttribute('required') && element.value && element.value.trim() === '') {
+          isValid = false;
+          errors[element.name] = 'Please enter text in the field.';
+          console.log('required and value is just spaces');
         }
       }
     }
+    console.log(errors);
+    setErrorMsgs({ ...errorMsgs, ...errors });
 
     if (isValid) {
       fetch('/', {
@@ -141,17 +170,34 @@ function FormNetlify({ align, title, form, style }) {
     }
   };
 
+  // const fieldValidation = (event) => {
+  //   console.log('field validation triggered');
+  //   const field = event.currentTarget;
+  //   console.log(field);
+  //   console.log(field.checkValidity());
+  //   console.log(field.validationMessage);
+  //   if (field.checkValidity() === false) {
+  //     setErrorMsgs({ ...state, [event.target.name]: field.validationMessage });
+  //     return;
+  //   }
+  //   if (field.value.trim() === '') {
+  //     setErrorMsgs({ ...state, [event.target.name]: 'Please enter text in the field.' });
+  //     return;
+  //   }
+  //   setErrorMsgs({ ...state, [event.target.name]: '' });
+  // };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const myForm = event.currentTarget;
 
-    if (myForm.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
+    // if (myForm.checkValidity() === false) {
+    //   event.preventDefault();
+    //   event.stopPropagation();
+    // }
 
-    // setValidated(true);
-    isValid = true;
+    // // setValidated(true);
+    // isValid = true;
     setSuccess(false);
     sendForm(myForm);
   };
@@ -275,6 +321,7 @@ function FormNetlify({ align, title, form, style }) {
                     <FormLabel component="legend">{input.label}</FormLabel>
                     <TextField
                       id={input.id}
+                      error={!!errorMsgs[input.id]}
                       onChange={handleChange}
                       name={input.id}
                       required={input.required}
@@ -282,8 +329,11 @@ function FormNetlify({ align, title, form, style }) {
                       multiline
                       rows={input.rows}
                       placeholder={input.placeholderText}
+                      onBlur={(e) => fieldValidation(e.currentTarget)}
                     />
-                    <FormHelperText>{input.helperText}</FormHelperText>
+                    <FormHelperText error={!!errorMsgs[input.id]}>
+                      {errorMsgs[input.id] ? errorMsgs[input.id] : input.helperText}
+                    </FormHelperText>
                   </FormControl>
                 );
               case 'textInput':
@@ -291,6 +341,7 @@ function FormNetlify({ align, title, form, style }) {
                   <FormControl component="fieldset" fullWidth key={_key}>
                     <FormLabel component="legend">{input.label}</FormLabel>
                     <TextField
+                      error={!!errorMsgs[input.id]}
                       id={input.id}
                       onChange={handleChange}
                       name={input.id}
@@ -299,8 +350,11 @@ function FormNetlify({ align, title, form, style }) {
                       type={input.inputType}
                       placeholder={input.placeholderText}
                       fullWidth
+                      onBlur={(e) => fieldValidation(e.currentTarget)}
                     />
-                    <FormHelperText>{input.helperText}</FormHelperText>
+                    <FormHelperText error={!!errorMsgs[input.id]}>
+                      {errorMsgs[input.id] ? errorMsgs[input.id] : input.helperText}
+                    </FormHelperText>
                   </FormControl>
                 );
               default:
