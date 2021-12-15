@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 // GATSBY CLEAN WHEN MAKING FORM CHANGES THAT DON"T SEEM TO UPDATE!
 import React, { useState } from 'react';
 import { createTheme, makeStyles, ThemeProvider, useTheme } from '@material-ui/core/styles';
@@ -95,6 +96,7 @@ function FormNetlify({ align, title, form, style }) {
 
   const classes = useStyles();
   const [state, setState] = useState({});
+  const [errorMsgs, setErrorMsgs] = useState({});
   const [success, setSuccess] = useState(false);
   // const [validated, setValidated] = useState(false);
   let isValid = true;
@@ -107,6 +109,18 @@ function FormNetlify({ align, title, form, style }) {
     setState({ ...state, [e.target.name]: e.target.checked });
   };
 
+  const fieldValidation = (element) => {
+    if (element.checkValidity() === false) {
+      setErrorMsgs({ ...state, [element.name]: element.validationMessage });
+      return;
+    }
+    if (element.hasAttribute('required') && element.value.trim() === '') {
+      setErrorMsgs({ ...state, [element.name]: 'Please enter text in the field.' });
+      return;
+    }
+    setErrorMsgs({ ...state, [element.name]: '' });
+  };
+
   const sendForm = (thisForm) => {
     const inputs = thisForm.elements;
 
@@ -114,8 +128,14 @@ function FormNetlify({ align, title, form, style }) {
     for (let index = 0; index < inputs.length - 1; index++) {
       const element = inputs[index];
       if (element.name !== 'bot-field' && element.name !== 'form-name') {
+        fieldValidation(element);
         if (element.validity.valid === false) {
           isValid = false;
+          console.log('element validity valid is false');
+        }
+        if (element.hasAttribute('required') && element.value && element.value.trim() === '') {
+          isValid = false;
+          console.log('required and value is just spaces');
         }
       }
     }
@@ -140,6 +160,23 @@ function FormNetlify({ align, title, form, style }) {
         .catch((error) => alert(error));
     }
   };
+
+  // const fieldValidation = (event) => {
+  //   console.log('field validation triggered');
+  //   const field = event.currentTarget;
+  //   console.log(field);
+  //   console.log(field.checkValidity());
+  //   console.log(field.validationMessage);
+  //   if (field.checkValidity() === false) {
+  //     setErrorMsgs({ ...state, [event.target.name]: field.validationMessage });
+  //     return;
+  //   }
+  //   if (field.value.trim() === '') {
+  //     setErrorMsgs({ ...state, [event.target.name]: 'Please enter text in the field.' });
+  //     return;
+  //   }
+  //   setErrorMsgs({ ...state, [event.target.name]: '' });
+  // };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -291,6 +328,7 @@ function FormNetlify({ align, title, form, style }) {
                   <FormControl component="fieldset" fullWidth key={_key}>
                     <FormLabel component="legend">{input.label}</FormLabel>
                     <TextField
+                      error={!!errorMsgs[input.id]}
                       id={input.id}
                       onChange={handleChange}
                       name={input.id}
@@ -299,14 +337,18 @@ function FormNetlify({ align, title, form, style }) {
                       type={input.inputType}
                       placeholder={input.placeholderText}
                       fullWidth
+                      onBlur={(e) => fieldValidation(e.currentTarget)}
                     />
-                    <FormHelperText>{input.helperText}</FormHelperText>
+                    <FormHelperText error={!!errorMsgs[input.id]}>
+                      {errorMsgs[input.id] ? errorMsgs[input.id] : input.helperText}
+                    </FormHelperText>
                   </FormControl>
                 );
               default:
                 return <div key="form-default">Form Field not Created</div>;
             }
           })}
+          <input required name="test" type="text" />
           {/* <BlockContent blocks={disclaimer} /> */}
           <ButtonSubmit type="submit" text={submitBtn.text} {...mapMuiBtnSubmitToProps(btnStyle)} />
         </form>
