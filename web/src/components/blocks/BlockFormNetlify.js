@@ -98,7 +98,7 @@ function FormNetlify({ align, title, form, style }) {
   const [state, setState] = useState({});
   const [errorMsgs, setErrorMsgs] = useState({});
   const [success, setSuccess] = useState(false);
-  // const [validated, setValidated] = useState(false);
+
   let isValid = true;
 
   const handleChange = (e) => {
@@ -125,6 +125,16 @@ function FormNetlify({ align, title, form, style }) {
     setErrorMsgs({ ...errorMsgs, [element.name]: '' });
   };
 
+  const selectValidation = (element) => {
+    console.log(element);
+    if (element.hasAttribute('required') && !state[element.name]) {
+      console.log('empty value');
+      setErrorMsgs({ ...errorMsgs, [element.name]: 'Please make a selection.' });
+      return;
+    }
+    setErrorMsgs({ ...errorMsgs, [element.name]: '' });
+  };
+
   const sendForm = (thisForm) => {
     const inputs = thisForm.elements;
     const errors = {};
@@ -133,9 +143,9 @@ function FormNetlify({ align, title, form, style }) {
     for (let index = 0; index < inputs.length - 1; index++) {
       const element = inputs[index];
       if (element.name !== 'bot-field' && element.name !== 'form-name') {
+        console.log(element.tagName);
         if (element.validity.valid === false) {
           isValid = false;
-          // Object.assign(...errors, { [element.name]: element.validationMessage });
           errors[element.name] = element.validationMessage;
           console.log('element validity valid is false');
         }
@@ -143,6 +153,14 @@ function FormNetlify({ align, title, form, style }) {
           isValid = false;
           errors[element.name] = 'Please enter text in the field.';
           console.log('required and value is just spaces');
+        }
+        if (
+          element.hasAttribute('required') &&
+          element.tagName === 'SELECT' &&
+          !state[element.name]
+        ) {
+          errors[element.name] = 'Please make a selection.';
+          console.log('no selection made');
         }
       }
     }
@@ -160,7 +178,6 @@ function FormNetlify({ align, title, form, style }) {
         }),
       })
         .then(() => {
-          // setValidated(false);
           thisForm.reset();
           setState({});
           setSuccess(true);
@@ -170,34 +187,10 @@ function FormNetlify({ align, title, form, style }) {
     }
   };
 
-  // const fieldValidation = (event) => {
-  //   console.log('field validation triggered');
-  //   const field = event.currentTarget;
-  //   console.log(field);
-  //   console.log(field.checkValidity());
-  //   console.log(field.validationMessage);
-  //   if (field.checkValidity() === false) {
-  //     setErrorMsgs({ ...state, [event.target.name]: field.validationMessage });
-  //     return;
-  //   }
-  //   if (field.value.trim() === '') {
-  //     setErrorMsgs({ ...state, [event.target.name]: 'Please enter text in the field.' });
-  //     return;
-  //   }
-  //   setErrorMsgs({ ...state, [event.target.name]: '' });
-  // };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     const myForm = event.currentTarget;
 
-    // if (myForm.checkValidity() === false) {
-    //   event.preventDefault();
-    //   event.stopPropagation();
-    // }
-
-    // // setValidated(true);
-    // isValid = true;
     setSuccess(false);
     sendForm(myForm);
   };
@@ -299,20 +292,26 @@ function FormNetlify({ align, title, form, style }) {
                     <FormLabel component="legend">{input.label}</FormLabel>
                     <Select
                       native
-                      id={input.id}
+                      error={!!errorMsgs[input.id]}
+                      required={input.required}
                       value={state[input.id] || ''}
                       inputProps={{ name: input.id, id: input.id }}
                       onChange={handleChange}
                       variant={variant}
+                      onBlur={(e) => selectValidation(e.currentTarget)}
                     >
-                      <option aria-label="None" value="" />
+                      <option aria-label="None" value="" disabled={input.required}>
+                        Select
+                      </option>
                       {input.options.map((option) => (
                         <option value={option.value} key={option._key}>
                           {option.label}
                         </option>
                       ))}
                     </Select>
-                    <FormHelperText>{input.helperText}</FormHelperText>
+                    <FormHelperText error={!!errorMsgs[input.id]}>
+                      {errorMsgs[input.id] ? errorMsgs[input.id] : input.helperText}
+                    </FormHelperText>
                   </FormControl>
                 );
               case 'textarea':
