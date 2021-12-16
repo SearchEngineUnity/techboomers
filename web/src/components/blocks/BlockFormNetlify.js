@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-escape */
 // GATSBY CLEAN WHEN MAKING FORM CHANGES THAT DON"T SEEM TO UPDATE!
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { createTheme, makeStyles, ThemeProvider, useTheme } from '@material-ui/core/styles';
 import {
   TextField,
@@ -96,8 +96,22 @@ function FormNetlify({ align, title, form, style }) {
 
   const classes = useStyles();
   const [state, setState] = useState({});
+  const [requiredRadioFields, setRequiredRadioFields] = useState(null);
+  const [requiredCheckboxFields, setRequiredCheckboxFields] = useState(null);
   const [errorMsgs, setErrorMsgs] = useState({});
   const [success, setSuccess] = useState(false);
+
+  useEffect(() => {
+    const requirements = formFields
+      .filter((field) => field.required && field._type === 'radio')
+      .map((field) => field.id);
+    setRequiredRadioFields(requirements);
+  }, []);
+
+  useEffect(() => {
+    const requirements = formFields.filter((field) => field.required && field._type === 'checkbox');
+    setRequiredCheckboxFields(requirements);
+  }, []);
 
   let isValid = true;
 
@@ -108,17 +122,16 @@ function FormNetlify({ align, title, form, style }) {
 
   const handleCheckboxChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.checked });
+    const key = e.target.closest('fieldset').id;
+    setErrorMsgs({ ...errorMsgs, [key]: '' });
   };
 
   const fieldValidation = (element) => {
-    console.log(element);
     if (element.checkValidity() === false) {
-      console.log('validity false');
       setErrorMsgs({ ...errorMsgs, [element.name]: element.validationMessage });
       return;
     }
     if (element.hasAttribute('required') && element.value.trim() === '') {
-      console.log('empty white space');
       setErrorMsgs({ ...errorMsgs, [element.name]: 'Please enter text in the field.' });
       return;
     }
@@ -126,9 +139,7 @@ function FormNetlify({ align, title, form, style }) {
   };
 
   const selectValidation = (element) => {
-    console.log(element);
     if (element.hasAttribute('required') && !state[element.name]) {
-      console.log('empty value');
       setErrorMsgs({ ...errorMsgs, [element.name]: 'Please make a selection.' });
       return;
     }
@@ -140,19 +151,16 @@ function FormNetlify({ align, title, form, style }) {
     const errors = {};
 
     // eslint-disable-next-line no-plusplus
-    for (let index = 0; index < inputs.length - 1; index++) {
+    for (let index = 0; index < inputs.length; index++) {
       const element = inputs[index];
       if (element.name !== 'bot-field' && element.name !== 'form-name') {
-        console.log(element.tagName);
         if (element.validity.valid === false) {
           isValid = false;
           errors[element.name] = element.validationMessage;
-          console.log('element validity valid is false');
         }
         if (element.hasAttribute('required') && element.value && element.value.trim() === '') {
           isValid = false;
           errors[element.name] = 'Please enter text in the field.';
-          console.log('required and value is just spaces');
         }
         if (
           element.hasAttribute('required') &&
@@ -160,11 +168,33 @@ function FormNetlify({ align, title, form, style }) {
           !state[element.name]
         ) {
           errors[element.name] = 'Please make a selection.';
-          console.log('no selection made');
         }
       }
     }
-    console.log(errors);
+
+    // eslint-disable-next-line no-plusplus
+    for (let index = 0; index < requiredRadioFields.length; index++) {
+      if (!state[requiredRadioFields[index]]) {
+        errors[requiredRadioFields[index]] = 'Please make a selection.';
+      }
+    }
+
+    // eslint-disable-next-line no-plusplus
+    for (let index = 0; index < requiredCheckboxFields.length; index++) {
+      let error = true;
+      const { options } = requiredCheckboxFields[index];
+
+      options.forEach((option) => {
+        if (state[option.value]) {
+          error = false;
+        }
+      });
+
+      if (error) {
+        errors[requiredCheckboxFields[index].id] = 'Error: checkbox not checked.';
+      }
+    }
+
     setErrorMsgs({ ...errorMsgs, ...errors });
 
     if (isValid) {
@@ -237,6 +267,8 @@ function FormNetlify({ align, title, form, style }) {
                     fullWidth
                     key={_key}
                     className={classes.control}
+                    error={!!errorMsgs[input.id]}
+                    id={input.id}
                   >
                     <FormLabel component="legend">{input.label}</FormLabel>
                     <FormGroup>
@@ -260,12 +292,19 @@ function FormNetlify({ align, title, form, style }) {
                         );
                       })}
                     </FormGroup>
-                    <FormHelperText>{input.helperText}</FormHelperText>
+                    <FormHelperText error={!!errorMsgs[input.id]}>
+                      {errorMsgs[input.id] ? errorMsgs[input.id] : input.helperText}
+                    </FormHelperText>
                   </FormControl>
                 );
               case 'radio':
                 return (
-                  <FormControl component="fieldset" fullWidth key={_key}>
+                  <FormControl
+                    component="fieldset"
+                    fullWidth
+                    key={_key}
+                    error={!!errorMsgs[input.id]}
+                  >
                     <FormLabel component="legend">{input.label}</FormLabel>
                     <RadioGroup
                       id={input.id}
@@ -283,12 +322,19 @@ function FormNetlify({ align, title, form, style }) {
                         />
                       ))}
                     </RadioGroup>
-                    <FormHelperText>{input.helperText}</FormHelperText>
+                    <FormHelperText error={!!errorMsgs[input.id]}>
+                      {errorMsgs[input.id] ? errorMsgs[input.id] : input.helperText}
+                    </FormHelperText>
                   </FormControl>
                 );
               case 'select':
                 return (
-                  <FormControl component="fieldset" fullWidth key={_key}>
+                  <FormControl
+                    component="fieldset"
+                    fullWidth
+                    key={_key}
+                    error={!!errorMsgs[input.id]}
+                  >
                     <FormLabel component="legend">{input.label}</FormLabel>
                     <Select
                       native
@@ -316,7 +362,12 @@ function FormNetlify({ align, title, form, style }) {
                 );
               case 'textarea':
                 return (
-                  <FormControl component="fieldset" fullWidth key={_key}>
+                  <FormControl
+                    component="fieldset"
+                    fullWidth
+                    key={_key}
+                    error={!!errorMsgs[input.id]}
+                  >
                     <FormLabel component="legend">{input.label}</FormLabel>
                     <TextField
                       id={input.id}
@@ -337,7 +388,12 @@ function FormNetlify({ align, title, form, style }) {
                 );
               case 'textInput':
                 return (
-                  <FormControl component="fieldset" fullWidth key={_key}>
+                  <FormControl
+                    component="fieldset"
+                    fullWidth
+                    key={_key}
+                    error={!!errorMsgs[input.id]}
+                  >
                     <FormLabel component="legend">{input.label}</FormLabel>
                     <TextField
                       error={!!errorMsgs[input.id]}
