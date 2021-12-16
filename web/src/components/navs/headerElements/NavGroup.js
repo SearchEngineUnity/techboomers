@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import {
   Icon,
+  MenuList,
   MenuItem,
   ListItemIcon,
   ListItemText,
@@ -14,7 +15,7 @@ import {
 import { ExpandLess, ExpandMore } from '@material-ui/icons';
 import { navigate } from 'gatsby';
 
-const NavGroup = ({ title, url, group, location, position }) => {
+const NavGroup = ({ title, group, location, position }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleOnClick = (event) => {
@@ -41,28 +42,35 @@ const NavGroup = ({ title, url, group, location, position }) => {
           onClick={(e) => handleOnClick(e)}
           aria-describedby={id}
           type="button"
+          style={{ lineHeight: '56px' }}
         >
           <Box fontSize="h4.fontSize">
             {title}
-            {open ? <ExpandLess /> : <ExpandMore />}
+            {open ? (
+              <ExpandLess style={{ verticalAlign: 'middle' }} />
+            ) : (
+              <ExpandMore style={{ verticalAlign: 'middle' }} />
+            )}
           </Box>
         </Link>
         <Popper id={id} open={open} anchorEl={anchorEl} placement={position}>
           <Paper>
-            {group.map(({ icon, title: itemTitle, nav, _key }) => (
-              <MenuItem
-                onClick={() => handleNavigate(nav)}
-                key={_key}
-                selected={`/${nav.slug.current}` === location.pathname}
-              >
-                {icon && (
-                  <ListItemIcon>
-                    <Icon>{icon}</Icon>
-                  </ListItemIcon>
-                )}
-                <ListItemText primary={itemTitle} />
-              </MenuItem>
-            ))}
+            <MenuList autoFocusItem={open}>
+              {group.map(({ icon, title: itemTitle, nav, _key }) => (
+                <MenuItem
+                  onClick={() => handleNavigate(nav)}
+                  key={_key}
+                  selected={`/${nav.slug.current}` === location.pathname}
+                >
+                  {icon && (
+                    <ListItemIcon>
+                      <Icon>{icon}</Icon>
+                    </ListItemIcon>
+                  )}
+                  <ListItemText primary={itemTitle} />
+                </MenuItem>
+              ))}
+            </MenuList>
           </Paper>
         </Popper>
       </div>
