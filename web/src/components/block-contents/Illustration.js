@@ -7,21 +7,22 @@ import sanityConfig from '../../../sanityConfig';
 function Illustration({ illustration, table }) {
   const imageFluid = illustration?.asset;
   const fluidProps = getGatsbyImageData(imageFluid, {}, sanityConfig);
-  const customMaxHeight = illustration.maxHeight || 'auto';
-  const customMaxWidth = illustration.maxWidth || 'auto';
+  const customMaxHeight = illustration.maxHeight || '100%';
+  const customMaxWidth = illustration.maxWidth || '100%';
+  console.log(illustration);
 
   return (
-    <Box component="figure" justify="center" my={table ? 0 : '16px'} mx={table ? 0 : '40px'}>
+    <Box component="figure" my={table ? 0 : '16px'} mx={table ? 0 : '40px'}>
       <GatsbyImage
         image={fluidProps}
         alt={illustration.alt}
         objectFit="contain"
         style={{
-          display: 'block',
+          display: illustration.align === 'left' ? 'inline-block' : 'block',
           maxHeight: customMaxHeight,
           maxWidth: customMaxWidth,
-          marginLeft: 'auto',
-          marginRight: 'auto',
+          // marginLeft: 'auto',
+          // marginRight: 'auto',
         }}
       />
       {illustration.caption && (
