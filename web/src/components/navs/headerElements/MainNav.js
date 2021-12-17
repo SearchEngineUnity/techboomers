@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.common.white,
     color: theme.palette.common.black,
   },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
   title: {
     flexGrow: 1,
   },
@@ -29,6 +32,18 @@ const useStyles = makeStyles((theme) => ({
 
 const MainNav = ({ data, location }) => {
   const classes = useStyles();
+  // const [hoveredElement, setHoveredElement] = useState(null);
+  // const [hoveredItemText, setHoveredItemText] = useState(null);
+  // const handleMouseEnter = (event) => {
+  //   if (event.target !== hoveredElement) {
+  //     setHoveredElement(event.target);
+  //     setHoveredItemText(event.target.textContent);
+  //   }
+  // };
+  // const handleMouseLeave = () => {
+  //   setHoveredElement(null);
+  //   setHoveredItemText(null);
+  // };
 
   return (
     <>
@@ -49,7 +64,10 @@ const MainNav = ({ data, location }) => {
                   }}
                   key={_key}
                 >
-                  <Toolbar style={{ justifyContent: 'space-between' }} disableGutters>
+                  <Toolbar
+                    style={{ display: 'flex', justifyContent: 'space-between' }}
+                    disableGutters
+                  >
                     {menuGroup.map((group, index) => {
                       const { _type, _key: groupKey } = group;
                       const arrayLength = menuGroup.length;
@@ -94,10 +112,13 @@ const MainNav = ({ data, location }) => {
                                 xl: 'block',
                               }}
                               key={groupKey}
+                              // onMouseEnter={(e) => handleMouseEnter(e)}
+                              // onMouseLeave={handleMouseLeave}
                             >
                               <NavGroup
                                 {...mapNavGroupToProps(group)}
                                 location={location}
+                                // isOpen={group.title === hoveredItemText}
                                 position={position}
                               />
                             </Box>
@@ -161,20 +182,6 @@ export default function MainNavigation(props) {
                   _key
                   _type
                   title
-                  nav {
-                    ... on SanitySpGuide {
-                      slug {
-                        current
-                      }
-                      _id
-                    }
-                    ... on SanityPage {
-                      slug {
-                        current
-                      }
-                      _id
-                    }
-                  }
                   group {
                     title
                     isButton

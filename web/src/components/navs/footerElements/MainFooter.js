@@ -129,20 +129,6 @@ export default function Footer(props) {
                   _key
                   _type
                   title
-                  nav {
-                    ... on SanitySpGuide {
-                      slug {
-                        current
-                      }
-                      _id
-                    }
-                    ... on SanityPage {
-                      slug {
-                        current
-                      }
-                      _id
-                    }
-                  }
                   group {
                     title
                     isButton

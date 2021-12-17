@@ -17,6 +17,17 @@ export default {
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
+      name: 'align',
+      type: 'string',
+      title: 'Alignment',
+      options: {
+        list: ['left', 'center'],
+        layout: 'radio',
+        direction: 'horizontal',
+      },
+      defaultValue: 'center',
+    },
+    {
       name: 'maxWidth',
       type: 'number',
       title: 'Image Max Width',

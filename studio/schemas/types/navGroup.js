@@ -20,12 +20,6 @@ export default {
         'Visit https://fonts.google.com/icons?selected=Material+Icons to search for an icon.',
     },
     {
-      name: 'nav',
-      type: 'reference',
-      to: [{ type: 'page' }, { type: 'listingPage' }, { type: 'spGuide' }],
-      validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
       title: 'Group',
       name: 'group',
       type: 'array',
