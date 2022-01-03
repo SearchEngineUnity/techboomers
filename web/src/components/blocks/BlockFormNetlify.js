@@ -1,5 +1,4 @@
 /* eslint-disable no-useless-escape */
-// GATSBY CLEAN WHEN MAKING FORM CHANGES THAT DON"T SEEM TO UPDATE!
 import React, { useState, useEffect } from 'react';
 import { createTheme, makeStyles, ThemeProvider, useTheme } from '@material-ui/core/styles';
 import {
@@ -240,7 +239,6 @@ function FormNetlify({ align, title, form, style }) {
           data-netlify="true"
           netlify-honeypot="bot-field"
           noValidate
-          // validated={validated}
           onSubmit={handleSubmit}
           id={name}
           autoComplete="off"
@@ -295,6 +293,7 @@ function FormNetlify({ align, title, form, style }) {
                     <FormHelperText error={!!errorMsgs[input.id]}>
                       {errorMsgs[input.id] ? errorMsgs[input.id] : input.helperText}
                     </FormHelperText>
+                    <br />
                   </FormControl>
                 );
               case 'radio':
@@ -325,6 +324,7 @@ function FormNetlify({ align, title, form, style }) {
                     <FormHelperText error={!!errorMsgs[input.id]}>
                       {errorMsgs[input.id] ? errorMsgs[input.id] : input.helperText}
                     </FormHelperText>
+                    <br />
                   </FormControl>
                 );
               case 'select':
@@ -358,6 +358,7 @@ function FormNetlify({ align, title, form, style }) {
                     <FormHelperText error={!!errorMsgs[input.id]}>
                       {errorMsgs[input.id] ? errorMsgs[input.id] : input.helperText}
                     </FormHelperText>
+                    <br />
                   </FormControl>
                 );
               case 'textarea':
@@ -384,6 +385,7 @@ function FormNetlify({ align, title, form, style }) {
                     <FormHelperText error={!!errorMsgs[input.id]}>
                       {errorMsgs[input.id] ? errorMsgs[input.id] : input.helperText}
                     </FormHelperText>
+                    <br />
                   </FormControl>
                 );
               case 'textInput':
@@ -410,13 +412,13 @@ function FormNetlify({ align, title, form, style }) {
                     <FormHelperText error={!!errorMsgs[input.id]}>
                       {errorMsgs[input.id] ? errorMsgs[input.id] : input.helperText}
                     </FormHelperText>
+                    <br />
                   </FormControl>
                 );
               default:
                 return <div key="form-default">Form Field not Created</div>;
             }
           })}
-          {/* <BlockContent blocks={disclaimer} /> */}
           <ButtonSubmit type="submit" text={submitBtn.text} {...mapMuiBtnSubmitToProps(btnStyle)} />
         </form>
       </Box>

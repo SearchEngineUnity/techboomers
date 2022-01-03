@@ -9,26 +9,39 @@ function Illustration({ illustration, table }) {
   const fluidProps = getGatsbyImageData(imageFluid, {}, sanityConfig);
   const customMaxHeight = illustration.maxHeight || '100%';
   const customMaxWidth = illustration.maxWidth || '100%';
-  console.log(illustration);
+  const imageHeight = imageFluid.metadata.dimensions.height;
+  // All image values example imageFluid.metadata.dimensions.height
+  // In sanity check illustration under insertable.
+  console.log(imageFluid);
 
   return (
-    <Box component="figure" my={table ? 0 : '16px'} mx={table ? 0 : '40px'}>
-      <GatsbyImage
-        image={fluidProps}
-        alt={illustration.alt}
-        objectFit="contain"
-        style={{
-          display: illustration.align === 'left' ? 'inline-block' : 'block',
-          maxHeight: customMaxHeight,
-          maxWidth: customMaxWidth,
-          // marginLeft: 'auto',
-          // marginRight: 'auto',
-        }}
-      />
+    <Box component="figure">
+      <Box
+        display="flex"
+        justifyContent="flex-start"
+        my={table ? 0 : '16px'}
+        mx={table ? 0 : '40px'}
+      >
+        <GatsbyImage
+          style={{
+            maxHeight: customMaxHeight,
+            maxWidth: customMaxWidth,
+            imageHeight,
+            display: 'block',
+          }}
+          image={fluidProps}
+          alt={illustration.alt}
+          objectFit="contain"
+        />
+      </Box>
       {illustration.caption && (
-        <Typography component="figcaption" variant="caption">
-          {illustration.caption}
-        </Typography>
+        <Box display="flex" justifyContent="center" my={table ? 0 : '16px'} mx={table ? 0 : '40px'}>
+          <div style={{ width: '500px' }}>
+            <Typography component="figcaption" variant="caption">
+              {illustration.caption}
+            </Typography>
+          </div>
+        </Box>
       )}
     </Box>
   );

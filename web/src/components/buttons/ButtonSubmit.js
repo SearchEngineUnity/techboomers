@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@material-ui/core';
+import { Button, Box } from '@material-ui/core';
 import { createTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
 import { determineColor } from '../../lib/helperFunctions';
 
@@ -53,18 +53,20 @@ function ButtonSubmit({
 
   return (
     <ThemeProvider theme={theme}>
-      <Button
-        color="primary"
-        variant={variant}
-        disableElevation={disableElevation}
-        disableFocusRipple={disableFocusRipple}
-        disableRipple={disableRipple}
-        fullWidth={fullWidth}
-        className={classes.size}
-        type="submit"
-      >
-        {text}
-      </Button>
+      <Box p={3}>
+        <Button
+          color="primary"
+          variant={variant}
+          disableElevation={disableElevation}
+          disableFocusRipple={disableFocusRipple}
+          disableRipple={disableRipple}
+          fullWidth={fullWidth}
+          className={classes.size}
+          type="submit"
+        >
+          {text}
+        </Button>
+      </Box>
     </ThemeProvider>
   );
 }

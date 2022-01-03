@@ -5,7 +5,6 @@ import Layout from '../containers/layout';
 import GuideHero from '../components/sections/GuideHero';
 import GuideBody from '../components/block-contents/GuideSerializer';
 import ToC from '../components/TableOfContent';
-// import SocialSharing from '../components/SocialSharing';
 import Seo from '../components/Seo';
 
 import { mapGuideHeroToProps, mapSeoToProps } from '../lib/mapToProps';

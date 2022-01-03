@@ -57,7 +57,6 @@ function MainNavHamburger({ topMenu, bottomMenu }) {
 
   const handleClickSubNavMenu = (menuLink) => {
     navigate(`/${menuLink}`);
-    // handleClose();
   };
 
   return (
