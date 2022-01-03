@@ -7,7 +7,7 @@ function NavItem({ url, title, isButton, location }) {
     <>
       {isButton ? (
         <Button variant="contained" color="primary" to={url}>
-          <Typography component="div" variant="h4">
+          <Typography component="span" variant="h4">
             {title}
           </Typography>
         </Button>

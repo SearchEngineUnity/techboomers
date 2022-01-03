@@ -6,11 +6,11 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { CardActionArea } from 'gatsby-theme-material-ui';
 import sanityConfig from '../../../sanityConfig';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   card: {
     height: '100%',
   },
-}));
+});
 
 function TileImageRecSqr({ image, alt, url, title, text, date }) {
   const classes = useStyles();

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Box, Typography, Grid } from '@material-ui/core';
-import ImgBlock from '../FluidImgBlock';
+import ImgBlock from '../blocks/FluidImgBlock';
 import Subtitle from '../block-contents/HeroSubtitleSerializer';
 import { mapFluidImgBlockToProps } from '../../lib/mapToProps';
 
