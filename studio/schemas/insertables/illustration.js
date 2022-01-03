@@ -20,12 +20,17 @@ export default {
       name: 'align',
       type: 'string',
       title: 'Alignment',
+      description: 'This only affects image alignment in portable text.',
       options: {
-        list: ['left', 'center'],
+        list: [
+          { title: 'Left', value: 'flex-start' },
+          { title: 'Center', value: 'center' },
+        ],
         layout: 'radio',
         direction: 'horizontal',
+        isHighlighted: true, // <-- make this field easily accessible
       },
-      defaultValue: 'center',
+      initialValue: 'center',
     },
     {
       name: 'maxWidth',
