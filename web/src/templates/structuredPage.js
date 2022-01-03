@@ -5,7 +5,6 @@ import Seo from '../components/Seo';
 import LrHero from '../components/sections/LrFlexHero';
 import LrFlex from '../components/sections/StructuredLrFlex';
 import StackFlex from '../components/sections/StackFlex';
-
 import {
   mapLrHeroToProps,
   mapSeoToProps,

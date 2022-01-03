@@ -58,7 +58,7 @@ function ButtonInternalLocal({
 
   return (
     <ThemeProvider theme={theme}>
-      <Box textAlign={alignment}>
+      <Box textAlign={alignment} p={3}>
         <Button
           id={idTag}
           color="primary"

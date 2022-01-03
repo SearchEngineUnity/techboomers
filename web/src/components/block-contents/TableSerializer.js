@@ -36,6 +36,7 @@ const serializers = {
   types: {
     block(props) {
       const { children } = props;
+      // Should this be a div?
       return <>{children[0] ? <div>{children}</div> : null}</>;
     },
     illustration({ node }) {
