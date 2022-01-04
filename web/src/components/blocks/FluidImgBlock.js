@@ -9,27 +9,43 @@ function FluidImgBlock({ image, alt, loading, maxHeight, maxWidth, caption }) {
   const imageData = getGatsbyImageData(image, {}, sanityConfig);
   const customMaxHeight = maxHeight || 'auto';
   const customMaxWidth = maxWidth || 'auto';
+  const imageWidth = image.metadata.dimensions.width;
+  const imgAspectRatio = image.metadata.dimensions.aspectRatio;
+
+  const calculatedWidthBasedOnCustomMaxWidth =
+    customMaxWidth === '100%' ? imageWidth : customMaxWidth;
+
+  const calculatedWidthBasedOnCustomMaxHeight =
+    customMaxHeight === '100%' ? imageWidth : customMaxHeight * imgAspectRatio;
+
+  const widthArray = [
+    imageWidth,
+    calculatedWidthBasedOnCustomMaxWidth,
+    calculatedWidthBasedOnCustomMaxHeight,
+  ];
+
+  const minMaxWidth = Math.min(...widthArray);
 
   return (
-    <Box component="figure" justify="center" m={0}>
-      <GatsbyImage
-        image={imageData}
-        alt={alt}
-        loading={loadingSetting}
-        objectFit="contain"
-        style={{
-          display: 'block',
-          maxHeight: customMaxHeight,
-          maxWidth: customMaxWidth,
-          marginLeft: 'auto',
-          marginRight: 'auto',
-        }}
-      />
-      {caption && (
-        <Typography variant="caption" component="figcaption">
-          {caption}
-        </Typography>
-      )}
+    <Box component="figure" justifyContent="center" m={0} display="flex">
+      <Box width={`${minMaxWidth}px`}>
+        <GatsbyImage
+          image={imageData}
+          alt={alt}
+          loading={loadingSetting}
+          objectFit="contain"
+          style={{
+            display: 'block',
+            maxHeight: customMaxHeight,
+            maxWidth: customMaxWidth,
+          }}
+        />
+        {caption && (
+          <Typography variant="caption" component="figcaption">
+            <em>{caption}</em>
+          </Typography>
+        )}
+      </Box>
     </Box>
   );
 }

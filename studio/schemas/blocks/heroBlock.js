@@ -66,7 +66,7 @@ export default {
     },
     prepare({ title }) {
       return {
-        title: title || 'Section PT Block',
+        title: title || 'Hero Block',
       };
     },
   },

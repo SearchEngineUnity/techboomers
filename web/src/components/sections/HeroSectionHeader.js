@@ -20,9 +20,10 @@ function StructuredSectionHeader({
   hasSectionSubtitle,
 }) {
   const classes = useStyles();
+
   return (
     <>
-      {heading || subtitle ? (
+      {(!hasSectionHeading && heading) || (!hasSectionSubtitle && subtitle) ? (
         <Box
           component={hasSectionHeading ? 'div' : 'header'}
           mb={4}

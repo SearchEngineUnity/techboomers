@@ -8,7 +8,7 @@ function NavPhone({ text, data }) {
       <Box
         display={{ xs: 'none', sm: 'none', md: 'none', lg: 'block', xl: 'block' }}
         fontWeight="fontWeightBold"
-        fontSize="h2.fontSize"
+        fontSize="h3.fontSize"
         content="telephone=no"
       >
         {text} {data.sanityCompanyInfo.phone}
@@ -17,7 +17,7 @@ function NavPhone({ text, data }) {
       <Box
         display={{ xs: 'block', sm: 'block', md: 'block', lg: 'none', xl: 'none' }}
         fontWeight="fontWeightBold"
-        fontSize="h2.fontSize"
+        fontSize="h4.fontSize"
       >
         <Link
           href={`tel:+${data.sanityCompanyInfo.phone}`}
