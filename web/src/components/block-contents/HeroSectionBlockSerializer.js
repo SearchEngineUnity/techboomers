@@ -43,28 +43,58 @@ const serializers = {
     block(props) {
       switch (props.node.style) {
         case 'h2':
-          return (
-            <StyledTypography gutterBottom variant="h2">
+          return props.children[0] ? (
+            <StyledTypography
+              gutterBottom
+              variant="h2"
+              id={
+                props.node.markDefs.length !== 0
+                  ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
+                  : undefined
+              }
+            >
               {props.children}
             </StyledTypography>
+          ) : (
+            <br />
           );
 
         case 'h3':
-          return (
-            <StyledTypography gutterBottom variant="h3">
+          return props.children[0] ? (
+            <StyledTypography
+              gutterBottom
+              variant="h3"
+              id={
+                props.node.markDefs.length !== 0
+                  ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
+                  : undefined
+              }
+            >
               {props.children}
             </StyledTypography>
+          ) : (
+            <br />
           );
 
         case 'h4':
-          return (
-            <StyledTypography gutterBottom variant="h4">
+          return props.children[0] ? (
+            <StyledTypography
+              gutterBottom
+              variant="h4"
+              id={
+                props.node.markDefs.length !== 0
+                  ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
+                  : undefined
+              }
+            >
               {props.children}
             </StyledTypography>
+          ) : (
+            <br />
           );
 
         case 'blockquote':
-          return (
+          return props.children[0] ? (
             <Box
               component="blockquote"
               fontSize="h3.fontSize"
@@ -76,6 +106,8 @@ const serializers = {
             >
               &#8220; {props.children} &#8221;
             </Box>
+          ) : (
+            <br />
           );
 
         default:

@@ -68,8 +68,8 @@ function ButtonInternalLocal({
           disableRipple={disableRipple}
           fullWidth={fullWidth}
           className={classes.size}
-          target={newTab ? '_blank' : ''}
-          rel={newTab ? 'noopener' : ''}
+          target={newTab ? '_blank' : undefined}
+          rel={newTab ? 'noopener' : undefined}
           to={`/${reference.slug.current}${hashId ? `#${hashId}` : ''}${
             parameter ? `?${parameter}` : ''
           }`}

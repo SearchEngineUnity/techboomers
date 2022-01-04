@@ -215,6 +215,14 @@ export const query = graphql`
               url
               ratio
             }
+            ... on SanityBlockFormNetlify {
+              _key
+              _type
+              _rawFormNetlify(resolveReferences: { maxDepth: 10 })
+              title
+              titleAlignment
+              _rawFormStyle(resolveReferences: { maxDepth: 10 })
+            }
           }
           idTag
           layout
@@ -467,6 +475,14 @@ export const query = graphql`
                 }
               }
             }
+            ... on SanityBlockFormNetlify {
+              _key
+              _type
+              _rawFormNetlify(resolveReferences: { maxDepth: 10 })
+              title
+              titleAlignment
+              _rawFormStyle(resolveReferences: { maxDepth: 10 })
+            }
           }
           header {
             heading
@@ -715,6 +731,14 @@ export const query = graphql`
               _type
               url
               ratio
+            }
+            ... on SanityBlockFormNetlify {
+              _key
+              _type
+              _rawFormNetlify(resolveReferences: { maxDepth: 10 })
+              title
+              titleAlignment
+              _rawFormStyle(resolveReferences: { maxDepth: 10 })
             }
           }
           colorSettings {

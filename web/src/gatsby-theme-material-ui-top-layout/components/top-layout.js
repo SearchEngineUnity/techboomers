@@ -67,7 +67,7 @@ const ThemeProvider = ({ children, data }) => {
         },
         dyk: {
           bgColor: determineColor(palette?.dyk?.bgColor) || '#d4edda',
-          borderColor: determineColor(palette?.dyk?.borderColor) || '#c3e6cv',
+          borderColor: determineColor(palette?.dyk?.borderColor) || '#C3E6CB',
           iconColor:
             determineColor(palette?.dyk?.iconColor) ||
             palette?.primaryText?.hex ||

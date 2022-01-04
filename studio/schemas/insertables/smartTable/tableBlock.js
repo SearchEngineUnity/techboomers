@@ -15,7 +15,6 @@ export default {
       subtitle: '_type',
     },
     prepare({ content, subtitle }) {
-      console.log(content);
       switch (content[0]._type) {
         case 'block':
           return {

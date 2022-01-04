@@ -3,7 +3,6 @@ import {
   createTheme,
   makeStyles,
   ThemeProvider,
-  useTheme,
   responsiveFontSizes,
 } from '@material-ui/core/styles';
 import { Container, Typography, Grid, Paper, Box } from '@material-ui/core';

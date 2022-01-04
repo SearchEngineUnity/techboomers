@@ -15,7 +15,17 @@ const ContactInfo = ({ data }) => {
         {companyInfo.province ? `${companyInfo.province}, ` : null}
         {companyInfo.postalCode ? `${companyInfo.postalCode}` : null}
       </div>
-      {companyInfo.phone && <div>{companyInfo.phone}</div>}
+      {companyInfo.phone && (
+        <Link
+          href={`tel:+${companyInfo.phone}`}
+          content="telephone=yes"
+          color="inherit"
+          underline="none"
+          style={{ display: 'block' }}
+        >
+          {companyInfo.phone}
+        </Link>
+      )}
       {companyInfo.email && <Link to={`mailto:${companyInfo.email}`}>{companyInfo.email}</Link>}
     </Box>
   );

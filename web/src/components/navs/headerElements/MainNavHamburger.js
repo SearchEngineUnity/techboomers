@@ -92,8 +92,7 @@ function MainNavHamburger({ topMenu, bottomMenu }) {
                         <img
                           src={mobileBrand.brand.logo.asset.url}
                           alt={mobileBrand.brand.title}
-                          height={48}
-                          width="auto"
+                          height={mobileBrand.height}
                         />
                       </Link>
                     </Box>

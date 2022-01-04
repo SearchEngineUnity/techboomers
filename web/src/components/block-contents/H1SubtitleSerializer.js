@@ -22,10 +22,12 @@ const serializers = {
   types: {
     block(props) {
       const { children } = props;
-      return (
+      return children[0] ? (
         <Typography component="p" variant="h3" gutterBottom>
           {children}
         </Typography>
+      ) : (
+        <br />
       );
     },
   },

@@ -28,7 +28,7 @@ const serializers = {
     block(props) {
       switch (props.node.style) {
         case 'h2':
-          return (
+          return props.children[0] ? (
             <StyledTypography
               gutterBottom
               variant="h2"
@@ -40,10 +40,12 @@ const serializers = {
             >
               {props.children}
             </StyledTypography>
+          ) : (
+            <br />
           );
 
         case 'h3':
-          return (
+          return props.children[0] ? (
             <StyledTypography
               gutterBottom
               variant="h3"
@@ -55,10 +57,12 @@ const serializers = {
             >
               {props.children}
             </StyledTypography>
+          ) : (
+            <br />
           );
 
         case 'h4':
-          return (
+          return props.children[0] ? (
             <StyledTypography
               gutterBottom
               variant="h4"
@@ -70,10 +74,12 @@ const serializers = {
             >
               {props.children}
             </StyledTypography>
+          ) : (
+            <br />
           );
 
         case 'h5':
-          return (
+          return props.children[0] ? (
             <StyledTypography
               gutterBottom
               variant="h5"
@@ -85,6 +91,8 @@ const serializers = {
             >
               {props.children}
             </StyledTypography>
+          ) : (
+            <br />
           );
 
         default:
@@ -131,6 +139,7 @@ const serializers = {
     },
   },
   marks: {
+    hashId: ({ children }) => children,
     internalLocal: ({ mark, children }) => {
       const { slug = {} } = mark.reference;
       const { newTab, hashId, parameter } = mark;

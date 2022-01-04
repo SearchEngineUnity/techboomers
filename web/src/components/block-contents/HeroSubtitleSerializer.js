@@ -12,10 +12,12 @@ const serializers = {
   types: {
     block(props) {
       const { children } = props;
-      return (
+      return children[0] ? (
         <Typography component="p" variant="subtitle1" gutterBottom>
           {children}
         </Typography>
+      ) : (
+        <br />
       );
     },
   },

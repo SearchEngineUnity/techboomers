@@ -11,17 +11,10 @@ function Illustration({ illustration, table }) {
   const customMaxWidth = illustration.maxWidth || '100%';
   const imageWidth = imageFluid.metadata.dimensions.width;
   const imgAspectRatio = imageFluid.metadata.dimensions.aspectRatio;
-  // All image values example imageFluid.metadata.dimensions.height
-  // In sanity check illustration under insertable.
-  console.log(illustration.align);
 
-  // 1. imageWidth(original) 2. width based on customMaxWidth 3. width based on customMaxHeight
-  // 1 = imageWidth
-  // 2 = customMaxWidth
   const calculatedWidthBasedOnCustomMaxWidth =
     customMaxWidth === '100%' ? imageWidth : customMaxWidth;
-  // 3 = customMaxHeight to calculate custom maxWidth
-  // aspectratio = wdith/ height
+
   const calculatedWidthBasedOnCustomMaxHeight =
     customMaxHeight === '100%' ? imageWidth : customMaxHeight * imgAspectRatio;
 
@@ -34,7 +27,6 @@ function Illustration({ illustration, table }) {
   const minMaxWidth = Math.min(...widthArray);
 
   const my = table ? 0 : '16px';
-
   const mx = table ? 0 : '40px';
 
   return (

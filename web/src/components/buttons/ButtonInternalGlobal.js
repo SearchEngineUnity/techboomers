@@ -67,8 +67,8 @@ function ButtonInternalGlobal({
           disableRipple={disableRipple}
           fullWidth={fullWidth}
           className={classes.size}
-          target={newTab ? '_blank' : ''}
-          rel={newTab ? 'noopener' : ''}
+          target={newTab ? '_blank' : undefined}
+          rel={newTab ? 'noopener' : undefined}
           href={href}
         >
           {text}

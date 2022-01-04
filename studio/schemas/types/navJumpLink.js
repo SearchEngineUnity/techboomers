@@ -15,7 +15,7 @@ export default {
       name: 'link',
       title: 'Link',
       type: 'string',
-      description: 'Please enter the ID of the segment you would like to jump to',
+      description: 'Please enter the ID of the section you would like to jump to',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
