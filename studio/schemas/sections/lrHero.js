@@ -33,7 +33,7 @@ export default {
       name: 'blocks',
       type: 'array',
       title: 'Blocks',
-      description: 'Please pick a maximum of two. The first item will appear left in layout.',
+      description: 'Please select exactly two blocks. The first item will appear left in layout.',
       of: [
         ...Object.values(blocks)
           .filter((block) => block.name !== 'sectionBlock')
