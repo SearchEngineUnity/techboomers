@@ -1,12 +1,15 @@
-/* eslint-disable react/jsx-no-target-blank */
 import React from 'react';
 import { Link } from '@material-ui/core';
 
 function ExternalLink({ href, children, noreferrer, newTab, className }) {
   return (
     <Link
-      target={newTab ? '_blank' : ''}
-      rel={`${newTab ? 'noopener' : ''} ${noreferrer ? 'noreferrer' : ''}`}
+      target={newTab ? '_blank' : undefined}
+      rel={
+        newTab || noreferrer
+          ? `${newTab ? 'noopener' : ''} ${noreferrer ? 'noreferrer' : ''}`
+          : undefined
+      }
       className={className}
       href={href}
     >

@@ -1,12 +1,11 @@
-/* eslint-disable react/jsx-no-target-blank */
 import React from 'react';
 import { Link } from 'gatsby-theme-material-ui';
 
 function InternalLocal({ href, children, newTab, className }) {
   return (
     <Link
-      target={newTab ? '_blank' : ''}
-      rel={newTab ? 'noopener' : ''}
+      target={newTab ? '_blank' : undefined}
+      rel={newTab ? 'noopener' : undefined}
       to={href}
       className={className}
     >

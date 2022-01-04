@@ -4,6 +4,7 @@ export default {
   title: 'Call us',
   name: 'navPhone',
   type: 'object',
+  description: 'Only functional for main header and not main footer.',
   icon: FiPhoneCall,
   fields: [
     {

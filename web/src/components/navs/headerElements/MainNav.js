@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Box, Container, Toolbar } from '@material-ui/core';

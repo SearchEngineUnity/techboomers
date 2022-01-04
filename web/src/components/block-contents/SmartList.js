@@ -9,7 +9,7 @@ function SmartList({ type, listItems }) {
       {type === 'ordered' && (
         <ol>
           {listItems.map((li) => (
-            <Typography variant="body1" component="li">
+            <Typography variant="body1" component="li" key={li._key}>
               <ListContent blocks={li.content} />
             </Typography>
           ))}
@@ -18,7 +18,7 @@ function SmartList({ type, listItems }) {
       {type === 'unordered' && (
         <ul>
           {listItems.map((li) => (
-            <Typography variant="body1" component="li">
+            <Typography variant="body1" component="li" key={li._key}>
               <ListContent blocks={li.content} />
             </Typography>
           ))}

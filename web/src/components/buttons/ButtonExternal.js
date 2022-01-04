@@ -67,8 +67,12 @@ function ButtonExternal({
           disableRipple={disableRipple}
           fullWidth={fullWidth}
           className={classes.size}
-          target={newTab ? '_blank' : ''}
-          rel={`${newTab ? 'noopener' : ''} ${noreferrer ? 'noreferrer' : ''}`}
+          target={newTab ? '_blank' : undefined}
+          rel={
+            newTab || noreferrer
+              ? `${newTab ? 'noopener' : ''} ${noreferrer ? 'noreferrer' : ''}`
+              : undefined
+          }
           href={href}
         >
           {text}

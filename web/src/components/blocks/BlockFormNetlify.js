@@ -105,12 +105,12 @@ function FormNetlify({ align, title, form, style }) {
       .filter((field) => field.required && field._type === 'radio')
       .map((field) => field.id);
     setRequiredRadioFields(requirements);
-  }, []);
+  }, [formFields]);
 
   useEffect(() => {
     const requirements = formFields.filter((field) => field.required && field._type === 'checkbox');
     setRequiredCheckboxFields(requirements);
-  }, []);
+  }, [formFields]);
 
   let isValid = true;
 

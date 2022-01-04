@@ -4,8 +4,12 @@ import { CardActionArea } from '@material-ui/core';
 function CardActionAreaExternal({ href, children, noreferrer, newTab }) {
   return (
     <CardActionArea
-      target={newTab ? '_blank' : ''}
-      rel={`${newTab ? 'noopener' : ''} ${noreferrer ? 'noreferrer' : ''}`}
+      target={newTab ? '_blank' : undefined}
+      rel={
+        newTab || noreferrer
+          ? `${newTab ? 'noopener' : ''} ${noreferrer ? 'noreferrer' : ''}`
+          : undefined
+      }
       href={href}
     >
       {children}

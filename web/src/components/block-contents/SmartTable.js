@@ -93,7 +93,7 @@ function SmartTable({ smartTable }) {
                     if (cell._type === 'tableBlock') {
                       return (
                         // eslint-disable-next-line
-                      <TableCell className="MuiTableCell-head" component="th" key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }}>
+                      <TableCell className="MuiTableCell-head" component="th" role={undefined} key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }}>
                           <TableContent blocks={cell.copy} />
                         </TableCell>
                       );
@@ -101,7 +101,7 @@ function SmartTable({ smartTable }) {
                     if (cell._type === 'illustration') {
                       return (
                         // eslint-disable-next-line
-                      <TableCell component="th" key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }}>
+                      <TableCell component="th" role={undefined} key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }}>
                           <Illustration illustration={cell} />
                         </TableCell>
                       );

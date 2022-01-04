@@ -82,6 +82,7 @@ function BasicTable({ basicTable }) {
                         key={`${row._key}-${index}`}
                         scope="row"
                         style={{ overflow: 'hidden' }}
+                        role={undefined}
                       >
                         {cell}
                       </TableCell>
