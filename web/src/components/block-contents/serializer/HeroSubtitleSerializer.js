@@ -1,10 +1,10 @@
 import BaseBlockContent from '@sanity/block-content-to-react';
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import JumpLink from '../link/JumpLink';
-import ExternalLink from '../link/LinkExternal';
-import InternalGlobal from '../link/LinkInternalGlobal';
-import InternalLocal from '../link/LinkInternalLocal';
+import JumpLink from '../../link/JumpLink';
+import ExternalLink from '../../link/LinkExternal';
+import InternalGlobal from '../../link/LinkInternalGlobal';
+import InternalLocal from '../../link/LinkInternalLocal';
 
 const serializers = {
   // This is to render the whole block of content without the <div> tag as wrapping container (https://github.com/sanity-io/block-content-to-react)
@@ -13,7 +13,7 @@ const serializers = {
     block(props) {
       const { children } = props;
       return children[0] ? (
-        <Typography component="p" variant="body1" gutterBottom>
+        <Typography component="p" variant="subtitle1" gutterBottom>
           {children}
         </Typography>
       ) : (

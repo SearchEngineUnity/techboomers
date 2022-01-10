@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import ListContent from './ListSerializer';
+import ListContent from './serializer/ListSerializer';
 
 function SmartList({ type, listItems }) {
   return (

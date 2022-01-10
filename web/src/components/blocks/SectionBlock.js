@@ -1,5 +1,5 @@
 import React from 'react';
-import SectionTextBlock from '../block-contents/SectionBlockSerializer';
+import SectionTextBlock from '../block-contents/serializer/SectionBlockSerializer';
 import StructuredSectionHeader from '../sections/StructuredSectionHeader';
 import StructuredSectionFooter from '../sections/StructuredSectionFooter';
 
