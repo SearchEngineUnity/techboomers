@@ -15,9 +15,7 @@ function FooterGroup({ title, url, group }) {
   return (
     <Box my={2}>
       <Box fontSize={14} fontWeight="fontWeightBold">
-        <Link to={`/${url}`} className={classes.link}>
-          {title}
-        </Link>
+        {title}
       </Box>
       <List>
         {group.map(({ title: itemTitle, nav, _key }) => (

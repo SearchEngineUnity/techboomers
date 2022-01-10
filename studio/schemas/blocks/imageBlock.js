@@ -54,6 +54,7 @@ export default {
       return {
         title,
         media,
+        subtitle: 'Image Block',
       };
     },
   },

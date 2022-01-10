@@ -50,13 +50,13 @@ export default {
     prepare({ name, tileOption }) {
       switch (tileOption) {
         case '1':
-          return { title: name || 'Grid', subtitle: 'display: image-only-rectangle/square' };
+          return { title: name || 'Grid Flex', subtitle: 'display: image-only-rectangle/square' };
         case '2':
-          return { title: name || 'Grid', subtitle: 'display: image-only-circle' };
+          return { title: name || 'Grid Flex', subtitle: 'display: image-only-circle' };
         case '3':
-          return { title: name || 'Grid', subtitle: 'display: image-title-border' };
+          return { title: name || 'Grid Flex', subtitle: 'display: image-title-border' };
         case '4':
-          return { title: name || 'Grid', subtitle: 'display: image-title-text-base' };
+          return { title: name || 'Grid Flex', subtitle: 'display: image-title-text-base' };
         default:
           return { title: 'Error' };
       }
