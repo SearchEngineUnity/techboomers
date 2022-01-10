@@ -2,21 +2,35 @@ import BaseBlockContent from '@sanity/block-content-to-react';
 import React from 'react';
 import { Typography, Box } from '@material-ui/core';
 import styled from 'styled-components';
-import VideoEmbed from './VideoEmbed';
-import BasicTable from './BasicTable';
-import Illustration from './Illustration';
-import HighlightBox from './highlightBox/HighlightBox';
-import SmartTable from './SmartTable';
-import JumpLink from '../link/JumpLink';
-import ExternalLink from '../link/LinkExternal';
-import InternalGlobal from '../link/LinkInternalGlobal';
-import InternalLocal from '../link/LinkInternalLocal';
-import ButtonExternal from '../buttons/ButtonExternal';
-import ButtonInternalGlobal from '../buttons/ButtonInternalGlobal';
-import ButtonInternalLocal from '../buttons/ButtonInternalLocal';
-import ButtonJumpLink from '../buttons/ButtonJumpLink';
-import SmartList from './SmartList';
-import { mapMuiBtnToProps } from '../../lib/mapToProps';
+import Illustration from '../Illustration';
+import JumpLink from '../../link/JumpLink';
+import ExternalLink from '../../link/LinkExternal';
+import InternalGlobal from '../../link/LinkInternalGlobal';
+import InternalLocal from '../../link/LinkInternalLocal';
+import ButtonExternal from '../../buttons/ButtonExternal';
+import ButtonInternalGlobal from '../../buttons/ButtonInternalGlobal';
+import ButtonInternalLocal from '../../buttons/ButtonInternalLocal';
+import ButtonJumpLink from '../../buttons/ButtonJumpLink';
+import { mapMuiBtnToProps } from '../../../lib/mapToProps';
+
+const NoIndentUl = styled.ul`
+  margin-left: 1.4rem;
+  padding-left: 0;
+
+  & > li {
+    position: relative;
+  }
+`;
+
+const NoIndentOl = styled.ol`
+  list-style-type: decimal;
+  margin-left: 1.4rem;
+  padding-left: 0;
+
+  & > li {
+    position: relative;
+  }
+`;
 
 const StyledTypography = styled(Typography)`
   margin-top: 1.35em;
@@ -79,40 +93,6 @@ const serializers = {
             <br />
           );
 
-        case 'h5':
-          return props.children[0] ? (
-            <StyledTypography
-              gutterBottom
-              variant="h5"
-              id={
-                props.node.markDefs.length !== 0
-                  ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
-                  : undefined
-              }
-            >
-              {props.children}
-            </StyledTypography>
-          ) : (
-            <br />
-          );
-
-        case 'h6':
-          return props.children[0] ? (
-            <StyledTypography
-              gutterBottom
-              variant="h6"
-              id={
-                props.node.markDefs.length !== 0
-                  ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
-                  : undefined
-              }
-            >
-              {props.children}
-            </StyledTypography>
-          ) : (
-            <br />
-          );
-
         case 'blockquote':
           return props.children[0] ? (
             <Box
@@ -141,22 +121,7 @@ const serializers = {
       }
     },
     illustration({ node }) {
-      return <Illustration illustration={node} />;
-    },
-    basicTable({ node }) {
-      return <BasicTable basicTable={node} />;
-    },
-    highlightBox({ node }) {
-      return <HighlightBox box={node} />;
-    },
-    smartTable({ node }) {
-      return <SmartTable smartTable={node} />;
-    },
-    instagram() {
-      return <p>Work in progress</p>;
-    },
-    videoEmbed({ node }) {
-      return <VideoEmbed url={node.url} ratio={node.ratio} />;
+      return <Illustration illustration={node} zeroMx />;
     },
     btnBlockMui({ node }) {
       switch (node.link[0]._type) {
@@ -172,12 +137,8 @@ const serializers = {
           return <p>under development</p>;
       }
     },
-    smartList({ node }) {
-      return <SmartList {...node} />;
-    },
   },
   marks: {
-    hashId: ({ children }) => children,
     internalLocal: ({ mark, children }) => {
       const { slug = {} } = mark.reference;
       const { newTab, hashId, parameter } = mark;
@@ -217,9 +178,9 @@ const serializers = {
   list: ({ children }) => {
     switch (children[0].props.node.listItem) {
       case 'bullet':
-        return <ul>{children}</ul>;
+        return <NoIndentUl>{children}</NoIndentUl>;
       default:
-        return <ol>{children}</ol>;
+        return <NoIndentOl>{children}</NoIndentOl>;
     }
   },
   listItem: ({ children }) => (

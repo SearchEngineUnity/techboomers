@@ -1,10 +1,20 @@
 import BaseBlockContent from '@sanity/block-content-to-react';
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import JumpLink from '../link/JumpLink';
-import ExternalLink from '../link/LinkExternal';
-import InternalGlobal from '../link/LinkInternalGlobal';
-import InternalLocal from '../link/LinkInternalLocal';
+import styled from 'styled-components';
+import JumpLink from '../../link/JumpLink';
+import ExternalLink from '../../link/LinkExternal';
+import InternalGlobal from '../../link/LinkInternalGlobal';
+import InternalLocal from '../../link/LinkInternalLocal';
+
+const NoIndentUl = styled.ul`
+  margin-left: 1.4rem;
+  padding-left: 0;
+
+  & > li {
+    position: relative;
+  }
+`;
 
 const serializers = {
   // This is to render the whole block of content without the <div> tag as wrapping container (https://github.com/sanity-io/block-content-to-react)
@@ -13,7 +23,7 @@ const serializers = {
     block(props) {
       const { children } = props;
       return children[0] ? (
-        <Typography component="p" variant="h5" gutterBottom>
+        <Typography component="p" variant="h3" gutterBottom>
           {children}
         </Typography>
       ) : (
@@ -58,6 +68,12 @@ const serializers = {
       );
     },
   },
+  list: ({ children }) => <NoIndentUl>{children}</NoIndentUl>,
+  listItem: ({ children }) => (
+    <Typography variant="body1" component="li">
+      {children}
+    </Typography>
+  ),
 };
 
 const BlockContent = ({ blocks }) => <BaseBlockContent blocks={blocks} serializers={serializers} />;

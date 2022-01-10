@@ -4,7 +4,7 @@ import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import sanityConfig from '../../../sanityConfig';
 
-function Illustration({ illustration, table }) {
+function Illustration({ illustration, zeroMy, zeroMx }) {
   const imageFluid = illustration?.asset;
   const fluidProps = getGatsbyImageData(imageFluid, {}, sanityConfig);
   const customMaxHeight = illustration.maxHeight || '100%';
@@ -26,8 +26,8 @@ function Illustration({ illustration, table }) {
 
   const minMaxWidth = Math.min(...widthArray);
 
-  const my = table ? 0 : '16px';
-  const mx = table ? 0 : '40px';
+  const my = zeroMy ? 0 : '16px';
+  const mx = zeroMx ? 0 : '40px';
 
   return (
     <Box component="figure" my={my} mx={mx} display="flex" justifyContent={illustration.align}>

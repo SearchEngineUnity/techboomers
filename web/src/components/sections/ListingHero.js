@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Box, Typography, Grid } from '@material-ui/core';
 import ImgBlock from '../blocks/FluidImgBlock';
-import Subtitle from '../block-contents/HeroSubtitleSerializer';
+import Subtitle from '../block-contents/serializer/HeroSubtitleSerializer';
 import { mapFluidImgBlockToProps } from '../../lib/mapToProps';
 
 function ListingHero({ h1, subtitle, image }) {

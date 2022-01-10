@@ -2,11 +2,11 @@ import BaseBlockContent from '@sanity/block-content-to-react';
 import React from 'react';
 import { Typography } from '@material-ui/core';
 import styled from 'styled-components';
-import Illustration from './Illustration';
-import JumpLink from '../link/JumpLink';
-import ExternalLink from '../link/LinkExternal';
-import InternalGlobal from '../link/LinkInternalGlobal';
-import InternalLocal from '../link/LinkInternalLocal';
+import Illustration from '../Illustration';
+import JumpLink from '../../link/JumpLink';
+import ExternalLink from '../../link/LinkExternal';
+import InternalGlobal from '../../link/LinkInternalGlobal';
+import InternalLocal from '../../link/LinkInternalLocal';
 
 const NoIndentUl = styled.ul`
   list-style-type: disc;
@@ -39,7 +39,7 @@ const serializers = {
       return children[0] ? <div>{children}</div> : <br />;
     },
     illustration({ node }) {
-      return <Illustration illustration={node} table />;
+      return <Illustration illustration={node} zeroMy zeroMx />;
     },
   },
   marks: {
