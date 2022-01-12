@@ -30,29 +30,25 @@ export default function ScrollPRogressBar() {
     const scrollTop = window.pageYOffset;
     const winHeight = window.innerHeight;
     const docHeight = getDocHeight();
-
     const totalDocScrollLength = docHeight - winHeight;
     const scrollPosition = Math.floor((scrollTop / totalDocScrollLength) * 100);
 
     setProgress(scrollPosition);
   };
 
-  const listenToScrollEvent = () => {
-    document.addEventListener('scroll', () => {
+  useEffect(() => {
+    const handleScroll = () => {
       requestAnimationFrame(() => {
         calculateScrollDistance();
       });
-    });
-  };
-
-  useEffect(() => {
-    listenToScrollEvent();
-    // probably need to unmount this listener for proper clean up?
-  });
+      console.log('scrolling');
+    };
+    document.addEventListener('scroll', handleScroll);
+    return () => document.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     calculateScrollDistance();
-    // probably need to unmount this listener for proper clean up?
   });
 
   return (
