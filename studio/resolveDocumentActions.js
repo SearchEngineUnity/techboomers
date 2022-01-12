@@ -1,11 +1,10 @@
-/* eslint-disable import/no-unresolved */
+// resolveDocumentActions.js
+
+// import the default document actions
 import defaultResolve from 'part:@sanity/base/document-actions';
 
-import PreviewAction from './previewAction';
+import { PreviewAction } from './PreviewAction';
 
 export default function resolveDocumentActions(props) {
-  if (props.type === 'page' || props.type === 'mpGuide' || props.type === 'spGuide') {
-    return [PreviewAction, ...defaultResolve(props)];
-  }
-  return [...defaultResolve(props)];
+  return [PreviewAction, ...defaultResolve(props)];
 }
