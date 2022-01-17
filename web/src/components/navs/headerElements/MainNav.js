@@ -10,23 +10,9 @@ import MainNavHamburger from './MainNavHamburger';
 import { mapNavBrandToProps, mapNavItemToProps, mapNavGroupToProps } from '../../../lib/mapToProps';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
   appBar: {
     backgroundColor: theme.palette.common.white,
     color: theme.palette.common.black,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-  img: {
-    height: 32,
-    width: 'auto',
-    margin: 'auto',
   },
 }));
 
@@ -36,7 +22,7 @@ const MainNav = ({ data, location }) => {
   return (
     <>
       {data.sanityNavMenu && (
-        <AppBar position="static" className={classes.appBar}>
+        <AppBar position="static" classes={{ colorDefault: classes.appBar }} color="default">
           <Container maxWidth="lg">
             {data.sanityNavMenu.menuArray.map((menu, menuIndex) => {
               const { menuGroup, _key } = menu;
