@@ -62,7 +62,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'header.title',
+      title: 'header.heading',
     },
     prepare({ title }) {
       return {
