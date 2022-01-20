@@ -18,8 +18,7 @@
     "media",
     "@sanity/dashboard",
     "dashboard-widget-netlify",
-    "dashboard-widget-gatsby",
-    "content-model-graph"
+    "dashboard-widget-gatsby"
   ],
   "env": {
     "development": {

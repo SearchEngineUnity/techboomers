@@ -2,6 +2,7 @@
   base = "web/"
   command = "npm run build"
   publish = "public"
+  environment = { NODE_VERSION = "16.10.0" }
 
 [context.staging.environment]
   NODE_ENV = "development"
