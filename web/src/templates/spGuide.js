@@ -64,21 +64,23 @@ const SPGuide = ({ data, location }) => {
   return (
     <Layout location={location}>
       <Seo {...mapSeoToProps(data.guide, type)} />
-      <GuideHero {...mapGuideHeroToProps(data.guide)} />
-      <Box my={3}>
-        <Container maxWidth="lg">
-          <Grid container spacing={3}>
-            <Grid item md={9} xs={12}>
-              <GuideBody blocks={data.guide._rawBody} />
-            </Grid>
-            <Hidden smDown>
-              <Grid item md={3}>
-                <ToC toc={data.guide.toc} />
+      <article>
+        <GuideHero {...mapGuideHeroToProps(data.guide)} />
+        <Box my={3}>
+          <Container maxWidth="lg">
+            <Grid container spacing={3}>
+              <Grid item md={9} xs={12} component="main">
+                <GuideBody blocks={data.guide._rawBody} />
               </Grid>
-            </Hidden>
-          </Grid>
-        </Container>
-      </Box>
+              <Hidden smDown>
+                <Grid item md={3} component="aside">
+                  <ToC toc={data.guide.toc} />
+                </Grid>
+              </Hidden>
+            </Grid>
+          </Container>
+        </Box>
+      </article>
     </Layout>
   );
 };
