@@ -6,7 +6,7 @@ function NavItem({ url, title, isButton, location }) {
   return (
     <>
       {isButton ? (
-        <Button variant="contained" color="primary" to={url}>
+        <Button variant="contained" color="primary" to={url} role="menuitem">
           <Typography component="span" variant="h4">
             {title}
           </Typography>
@@ -15,8 +15,11 @@ function NavItem({ url, title, isButton, location }) {
         <Box
           fontSize="h4.fontSize"
           fontWeight={`/${url}` === location.pathname ? 'fontWeightBold' : 'fontWeightRegular'}
+          role="none"
         >
-          <Link to={url}>{title}</Link>
+          <Link to={url} role="menuitem">
+            {title}
+          </Link>
         </Box>
       )}
     </>

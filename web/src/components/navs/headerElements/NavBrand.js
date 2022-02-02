@@ -12,8 +12,8 @@ function NavBrand({ url, brandGroup }) {
         switch (type) {
           case 'desktop':
             return (
-              <Box display={{ xs: 'none', lg: 'block', xl: 'block' }} key={_key}>
-                <Link to={`/${url}`}>
+              <Box display={{ xs: 'none', lg: 'block', xl: 'block' }} key={_key} role="none">
+                <Link to={`/${url}`} role="menuitem">
                   <img src={brand.logo.asset.url} alt={brand.title} height={height} />
                 </Link>
               </Box>
@@ -23,8 +23,9 @@ function NavBrand({ url, brandGroup }) {
               <Box
                 display={{ xs: 'none', sm: 'none', md: 'block', lg: 'none', xl: 'none' }}
                 key={_key}
+                role="none"
               >
-                <Link to={`/${url}`}>
+                <Link to={`/${url}`} role="menuitem">
                   <img src={brand.logo.asset.url} alt={brand.title} height={height} />
                 </Link>
               </Box>
@@ -34,8 +35,9 @@ function NavBrand({ url, brandGroup }) {
               <Box
                 display={{ xs: 'block', sm: 'block', md: 'none', lg: 'none', xl: 'none' }}
                 key={_key}
+                role="none"
               >
-                <Link to={`/${url}`}>
+                <Link to={`/${url}`} role="menuitem">
                   <img src={brand.logo.asset.url} alt={brand.title} height={height} />
                 </Link>
               </Box>

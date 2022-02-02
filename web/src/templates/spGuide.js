@@ -64,12 +64,12 @@ const SPGuide = ({ data, location }) => {
   return (
     <Layout location={location}>
       <Seo {...mapSeoToProps(data.guide, type)} />
-      <article>
+      <main>
         <GuideHero {...mapGuideHeroToProps(data.guide)} />
         <Box my={3}>
           <Container maxWidth="lg">
             <Grid container spacing={3}>
-              <Grid item md={9} xs={12} component="main">
+              <Grid item md={9} xs={12} component="article">
                 <GuideBody blocks={data.guide._rawBody} />
               </Grid>
               <Hidden smDown>
@@ -80,7 +80,7 @@ const SPGuide = ({ data, location }) => {
             </Grid>
           </Container>
         </Box>
-      </article>
+      </main>
     </Layout>
   );
 };
