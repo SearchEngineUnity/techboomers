@@ -20,6 +20,7 @@
     "sanity"
   ],
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
     "@sanity/base": "^2.24.0",
     "@sanity/color-input": "^2.24.0",
     "@sanity/components": "^2.1.0",
