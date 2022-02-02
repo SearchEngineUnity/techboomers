@@ -9,21 +9,30 @@ function NavPhone({ text, data }) {
         display={{ xs: 'none', sm: 'none', md: 'none', lg: 'block', xl: 'block' }}
         fontWeight="fontWeightBold"
         fontSize="h3.fontSize"
-        content="telephone=no"
+        content="telephone=yes"
       >
-        {text} {data.sanityCompanyInfo.phone}
+        <Link
+          href={`tel:${data.sanityCompanyInfo.phone}`}
+          content="telephone=yes"
+          color="inherit"
+          underline="none"
+          role="menuitem"
+        >
+          {text} {data.sanityCompanyInfo.phone}
+        </Link>
       </Box>
-
       <Box
         display={{ xs: 'block', sm: 'block', md: 'block', lg: 'none', xl: 'none' }}
         fontWeight="fontWeightBold"
         fontSize="h4.fontSize"
+        role="none"
       >
         <Link
-          href={`tel:+${data.sanityCompanyInfo.phone}`}
+          href={`tel:${data.sanityCompanyInfo.phone}`}
           content="telephone=yes"
           color="inherit"
           underline="none"
+          role="menuitem"
         >
           {data.sanityCompanyInfo.phone}
         </Link>

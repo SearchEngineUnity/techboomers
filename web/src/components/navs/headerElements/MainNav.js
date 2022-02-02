@@ -23,7 +23,7 @@ const MainNav = ({ data, location }) => {
     <>
       {data.sanityNavMenu && (
         <AppBar position="static" classes={{ colorDefault: classes.appBar }} color="default">
-          <Container maxWidth="lg">
+          <Container maxWidth="lg" component="nav" aria-label="main navigation header" role="menu">
             {data.sanityNavMenu.menuArray.map((menu, menuIndex) => {
               const { menuGroup, _key } = menu;
 
@@ -37,10 +37,12 @@ const MainNav = ({ data, location }) => {
                     xl: 'block',
                   }}
                   key={_key}
+                  role="none"
                 >
                   <Toolbar
                     style={{ display: 'flex', justifyContent: 'space-between' }}
                     disableGutters
+                    role="menubar"
                   >
                     {menuGroup.map((group, index) => {
                       const { _type, _key: groupKey } = group;
@@ -71,6 +73,7 @@ const MainNav = ({ data, location }) => {
                                 xl: 'block',
                               }}
                               key={groupKey}
+                              role="none"
                             >
                               <NavItem {...mapNavItemToProps(group)} location={location} />
                             </Box>
@@ -86,6 +89,7 @@ const MainNav = ({ data, location }) => {
                                 xl: 'block',
                               }}
                               key={groupKey}
+                              role="none"
                             >
                               <NavGroup
                                 {...mapNavGroupToProps(group)}
