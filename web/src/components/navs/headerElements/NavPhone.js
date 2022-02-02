@@ -9,7 +9,7 @@ function NavPhone({ text, data }) {
         display={{ xs: 'none', sm: 'none', md: 'none', lg: 'block', xl: 'block' }}
         fontWeight="fontWeightBold"
         fontSize="h3.fontSize"
-        content="telephone=yes"
+        role="none"
       >
         <Link
           href={`tel:${data.sanityCompanyInfo.phone}`}

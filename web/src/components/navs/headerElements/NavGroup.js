@@ -35,7 +35,7 @@ const NavGroup = ({ title, group, location, position }) => {
 
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
-      <div>
+      <div role="none">
         <Link
           component="button"
           color="primary"
@@ -43,6 +43,9 @@ const NavGroup = ({ title, group, location, position }) => {
           aria-describedby={id}
           type="button"
           style={{ lineHeight: '56px' }}
+          role="menuitem"
+          aria-expanded={open}
+          aria-haspopup="true"
         >
           <Box fontSize="h4.fontSize">
             {title}
@@ -54,7 +57,7 @@ const NavGroup = ({ title, group, location, position }) => {
           </Box>
         </Link>
         <Popper id={id} open={open} anchorEl={anchorEl} placement={position}>
-          <Paper>
+          <Paper role="none">
             <MenuList autoFocusItem={open}>
               {group.map(({ icon, title: itemTitle, nav, _key }) => (
                 <MenuItem
