@@ -8,6 +8,7 @@ import { HiOutlineOfficeBuilding, HiOutlineColorSwatch } from 'react-icons/hi';
 import { AiOutlineGlobal } from 'react-icons/ai';
 import SectionColorPreview from './preview/SectionColorPreview';
 import ButtonMuiPreview from './preview/ButtonMuiPreview';
+import FormDesignPreview from './preview/FormDesignPreview';
 
 export default () =>
   S.list()
@@ -93,7 +94,22 @@ export default () =>
                         ]),
                     ),
                 ),
-              S.documentTypeListItem('formStyle').title('Form Design Options'),
+              S.listItem()
+                .title('Form Design Options')
+                .schemaType('formStyle')
+                .child(
+                  S.documentTypeList('formStyle')
+                    .title('Form Design Set')
+                    .child((documentId) =>
+                      S.document()
+                        .documentId(documentId)
+                        .schemaType('formStyle')
+                        .views([
+                          S.view.form(),
+                          S.view.component(FormDesignPreview).title('Preview'),
+                        ]),
+                    ),
+                ),
             ]),
         ),
       S.listItem()
