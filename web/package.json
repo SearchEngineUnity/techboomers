@@ -2,7 +2,7 @@
   "name": "web",
   "version": "1.0.0",
   "private": true,
-  "description": "web",
+  "description": "web frontend for site builder",
   "author": "SEU Dev",
   "keywords": [
     "gatsby"
