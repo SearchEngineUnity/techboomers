@@ -1,7 +1,7 @@
 {
-  "name": "demo-centre-mui",
+  "name": "siteBuilderV1",
   "version": "1.0.0",
-  "description": "This is the demo centre with MUI.",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "clean": "lerna run clean",
@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SearchEngineUnity/demo-centre-mui.git"
+    "url": "git+https://github.com/SearchEngineUnity/siteBuilderV1.git"
   },
   "keywords": [
     "demo",
@@ -34,9 +34,9 @@
   "author": "SEU Dev",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SearchEngineUnity/demo-centre-mui/issues"
+    "url": "https://github.com/SearchEngineUnity/siteBuilderV1/issues"
   },
-  "homepage": "https://github.com/SearchEngineUnity/demo-centre-mui#readme",
+  "homepage": "https://github.com/SearchEngineUnity/siteBuilderV1#readme",
   "devDependencies": {
     "eslint": "^7.19.0",
     "eslint-config-airbnb": "^18.2.1",
