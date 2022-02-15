@@ -5,7 +5,7 @@ export const useSpGuides = () => {
   const { guides } = useStaticQuery(
     graphql`
       query AllSpGuides {
-        guides: allSanitySpGuide(sort: { fields: [displayDate], order: DESC }) {
+        guides: allSanitySoloGuidePage(sort: { fields: [displayDate], order: DESC }) {
           nodes {
             _id
             slug {

@@ -8,26 +8,33 @@ export default {
   icon: MdColorize,
   fields: [
     {
-      name: 'name',
-      title: 'Name',
+      name: 'seuID',
+      title: 'SEU ID',
+      type: 'string',
+      validation: (Rule) => [Rule.required().error('Field is required')],
+    },
+    {
+      name: 'label',
+      title: 'Label',
       type: 'string',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'color',
-      title: 'Color',
+      title: 'Select Color',
       type: 'color',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],
   preview: {
     select: {
-      title: 'name',
+      label: 'label',
+      id: 'seuID',
       color: 'color',
     },
-    prepare({ title, color }) {
+    prepare({ label, id, color }) {
       return {
-        title,
+        title: id,
         media: (
           <div
             style={{

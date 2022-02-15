@@ -69,7 +69,7 @@ export default {
                 name: 'reference',
                 type: 'reference',
                 title: 'Reference',
-                to: [{ type: 'page' }, { type: 'spGuide' }, { type: 'listingPage' }],
+                to: [{ type: 'page' }, { type: 'soloGuidePage' }, { type: 'listingPage' }],
               },
               {
                 name: 'hashId',

@@ -11,7 +11,7 @@ import { mapGuideHeroToProps, mapSeoToProps } from '../lib/mapToProps';
 
 export const query = graphql`
   query spGuideTemplate($slug: String) {
-    guide: sanitySpGuide(slug: { current: { eq: $slug } }) {
+    guide: SanitySoloGuidePage(slug: { current: { eq: $slug } }) {
       slug {
         current
       }

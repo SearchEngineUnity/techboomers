@@ -13,5 +13,5 @@ export { default as palette } from './palette';
 export { default as redirect } from './redirect';
 export { default as sectionColorSet } from './sectionColorSet';
 export { default as socialInfo } from './socialInfo';
-export { default as spGuide } from './spGuide';
+export { default as soloGuidePage } from './soloGuidePage';
 export { default as typography } from './typography';

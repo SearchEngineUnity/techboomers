@@ -69,7 +69,7 @@ export const query = graphql`
                           current
                         }
                       }
-                      ... on SanitySpGuide {
+                      ... on SanitySoloGuidePage {
                         id
                         slug {
                           current
@@ -133,7 +133,7 @@ export const query = graphql`
                         current
                       }
                     }
-                    ... on SanitySpGuide {
+                    ... on SanitySoloGuidePage {
                       id
                       slug {
                         current
@@ -320,7 +320,7 @@ export const query = graphql`
                           current
                         }
                       }
-                      ... on SanitySpGuide {
+                      ... on SanitySoloGuidePage {
                         id
                         slug {
                           current
@@ -410,7 +410,7 @@ export const query = graphql`
                         current
                       }
                     }
-                    ... on SanitySpGuide {
+                    ... on SanitySoloGuidePage {
                       id
                       slug {
                         current
@@ -568,7 +568,7 @@ export const query = graphql`
                           current
                         }
                       }
-                      ... on SanitySpGuide {
+                      ... on SanitySoloGuidePage {
                         id
                         slug {
                           current
@@ -631,7 +631,7 @@ export const query = graphql`
                         current
                       }
                     }
-                    ... on SanitySpGuide {
+                    ... on SanitySoloGuidePage {
                       id
                       slug {
                         current

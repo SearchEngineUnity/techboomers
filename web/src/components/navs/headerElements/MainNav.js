@@ -167,7 +167,7 @@ export default function MainNavigation(props) {
                           current
                         }
                       }
-                      ... on SanitySpGuide {
+                      ... on SanitySoloGuidePage {
                         slug {
                           current
                         }
@@ -187,7 +187,7 @@ export default function MainNavigation(props) {
                         current
                       }
                     }
-                    ... on SanitySpGuide {
+                    ... on SanitySoloGuidePage {
                       slug {
                         current
                       }

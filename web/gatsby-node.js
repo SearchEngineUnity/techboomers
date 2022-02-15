@@ -49,7 +49,7 @@ async function createListingPages(actions, graphql) {
           }
         }
       }
-      allSanitySpGuide {
+      allSanitySoloGuidePage {
         totalCount
       }
     }
@@ -65,7 +65,7 @@ async function createListingPages(actions, graphql) {
     let totalCount;
     switch (listType) {
       case 'SPG':
-        totalCount = data.allSanitySpGuide.totalCount;
+        totalCount = data.allSanitysoloGuidePage.totalCount;
         break;
 
       default:
@@ -93,7 +93,7 @@ async function createListingPages(actions, graphql) {
 async function createGuide(actions, graphql) {
   const { data } = await graphql(`
     {
-      allSanitySpGuide {
+      allSanitySoloGuidePage {
         edges {
           node {
             slug {
@@ -105,11 +105,11 @@ async function createGuide(actions, graphql) {
     }
   `);
 
-  const guides = data.allSanitySpGuide.edges;
+  const guides = data.allSanitysoloGuidePage.edges;
   guides.forEach((guide) => {
     actions.createPage({
       path: `/${guide.node.slug.current}`,
-      component: path.resolve(`./src/templates/spGuide.js`),
+      component: path.resolve(`./src/templates/soloGuidePage.js`),
       context: {
         slug: guide.node.slug.current,
       },

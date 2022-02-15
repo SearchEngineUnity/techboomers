@@ -1,9 +1,9 @@
 import { RiPagesLine } from 'react-icons/ri';
 
 export default {
-  name: 'spGuide',
+  name: 'soloGuidePage',
   type: 'document',
-  title: 'Single Page Guide',
+  title: 'Solo Guide Page',
   icon: RiPagesLine,
   fieldsets: [
     {
@@ -57,8 +57,18 @@ export default {
   ],
   fields: [
     {
-      name: 'shortName',
-      title: 'Short Name',
+      name: 'seuID',
+      title: 'seuID',
+      type: 'string',
+      fieldset: 'general',
+      validation: (Rule) => [
+        Rule.required().error('Field is required'),
+        // add a custom rule for isUnique
+      ],
+    },
+    {
+      name: 'shortLabel',
+      title: 'Short Label',
       type: 'string',
       fieldset: 'general',
       validation: (Rule) => [
@@ -68,37 +78,35 @@ export default {
     },
     {
       name: 'displayDate',
-      title: 'Display date',
+      title: 'Display Date',
       type: 'date',
       fieldset: 'general',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
-      name: 'title',
+      name: 'pageTitle',
       type: 'string',
       title: 'Page Title',
-      description: 'Optimal length under 60 characters for Google SERP',
       fieldset: 'general',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
-      name: 'description',
+      name: 'metaDescription',
       title: 'Meta Description',
       type: 'text',
-      description: 'Optimal length is under 160 characters for Google SERP',
       fieldset: 'general',
       validation: (Rule) => [Rule.required().error('Field is required.')],
     },
     {
-      name: 'metaFacebook',
-      title: 'Facebook Open Graph (Meta Tags)',
-      type: 'metaFacebook',
+      name: 'fbShareMetaPack',
+      title: 'Facebook Open Graph Meta Pack',
+      type: 'fbShareMetaPack',
       fieldset: 'social',
     },
     {
-      name: 'metaTwitter',
-      title: 'Twitter Open Graph (Meta Tags)',
-      type: 'metaTwitter',
+      name: 'twitterShareMetaPack',
+      title: 'Twitter Open Graph Meta Pack',
+      type: 'twitterShareMetaPack',
       fieldset: 'social',
     },
     {
@@ -130,8 +138,8 @@ export default {
       validation: (Rule) => [Rule.required().error('H1 Text is required')],
     },
     {
-      name: 'subtitle',
-      title: 'Subtitle Text',
+      name: 'heroSubtitle',
+      title: 'Hero Subtitle Text',
       type: 'heroBlockContent',
       fieldset: 'hero',
     },
@@ -152,9 +160,9 @@ export default {
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
-      name: 'body',
+      name: 'guideBody',
       type: 'spGuideBlockContent',
-      title: 'Body',
+      title: 'Guide Content Body',
       fieldset: 'mainContent',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
@@ -162,7 +170,7 @@ export default {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      description: 'This guide URL will show as domain.com/slug',
+      description: 'Please add the full path after domain.com/ as slug.',
       fieldset: 'indexing',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
@@ -187,7 +195,7 @@ export default {
       title: 'Canonical URL',
       type: 'url',
       fieldset: 'indexing',
-      description: 'Use this field to replace self canonical URL.',
+      description: 'Fill in to replace default self canonical tag.',
     },
   ],
   preview: {
@@ -195,8 +203,8 @@ export default {
       title: 'h1',
       slug: 'slug.current',
       media: 'tileImage',
-      fbImg: 'metaFacebook.image',
-      twitterImg: 'metaTwitter.image',
+      fbImg: 'facebookShareMetaPack.image',
+      twitterImg: 'twitterShareMetaPack.image',
     },
     prepare({ title, slug, media, fbImg, twitterImg }) {
       return {
