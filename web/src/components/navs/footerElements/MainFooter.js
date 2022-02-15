@@ -139,7 +139,7 @@ export default function Footer(props) {
                           current
                         }
                       }
-                      ... on SanitySpGuide {
+                      ... on SanitySoloGuidePage {
                         slug {
                           current
                         }
@@ -159,7 +159,7 @@ export default function Footer(props) {
                         current
                       }
                     }
-                    ... on SanitySpGuide {
+                    ... on SanitySoloGuidePage {
                       slug {
                         current
                       }

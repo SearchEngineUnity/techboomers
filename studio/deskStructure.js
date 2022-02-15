@@ -25,7 +25,7 @@ export default () =>
               S.divider(),
               S.documentTypeListItem('page').title('Structured Pages'),
               S.documentTypeListItem('listingPage').title('Listing Pages'),
-              S.documentTypeListItem('spGuide').title('SP Guides'),
+              S.documentTypeListItem('soloGuidePage').title('SP Guides'),
               S.divider(),
               S.documentTypeListItem('redirect').title('Redirects'),
             ]),

@@ -68,15 +68,15 @@ export default {
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
-      name: 'metaFacebook',
+      name: 'fbShareMetaPack',
       title: 'Facebook Open Graph (Meta Tags)',
-      type: 'metaFacebook',
+      type: 'fbShareMetaPack',
       fieldset: 'social',
     },
     {
-      name: 'metaTwitter',
+      name: 'twitterShareMetaPack',
       title: 'Twitter Open Graph (Meta Tags)',
-      type: 'metaTwitter',
+      type: 'twitterShareMetaPack',
       fieldset: 'social',
     },
     {
@@ -130,8 +130,8 @@ export default {
       shortName: 'shortName',
       pageSections: 'sections',
       slug: 'slug.current',
-      fbImg: 'metaFacebook.image',
-      twitterImg: 'metaTwitter.image',
+      fbImg: 'fbShareMetaPack.image',
+      twitterImg: 'twitterShareMetaPack.image',
     },
     prepare({ shortName, pageSections, slug, fbImg, twitterImg }) {
       const currentSlug = slug === '/' ? '/' : `/${slug}`;
