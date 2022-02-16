@@ -41,7 +41,7 @@ export default {
       name: 'focusedColor',
       title: 'Focused Border Color',
       description:
-        'Sets the color of borders, the checkbox label, the select label and the radio label color when one clicks into the field/fieldset.',
+        'Sets the color of the input borders, the checkbox label, the select label and the radio label color when one clicks into the field/fieldset.',
       type: 'reference',
       to: [{ type: 'colorOption' }],
       validation: (Rule) => [Rule.required().error('Field is required')],
@@ -57,8 +57,7 @@ export default {
     {
       name: 'fieldBgHoverColor',
       title: 'Background Hover Color',
-      description:
-        'Sets the background color for filled variant and outlined variant on hover AND the background color for filled variant when one clicks into the filed/fieldset.',
+      description: 'Sets the background color for filled variant on hover.',
       type: 'reference',
       to: [{ type: 'colorOption' }],
       validation: (Rule) => [Rule.required().error('Field is required')],

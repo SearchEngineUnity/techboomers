@@ -43,7 +43,6 @@ const FormDesignPreview = ({ document }) => {
           fieldBgHoverColor = result?.documents[0]?.fieldBgHoverColor?.hex;
           focusedColor = result?.documents[0]?.focusedColor?.hex;
           fieldBorderRadius = result?.documents[0]?.fieldBorderRadius;
-          btnStyle = result?.documents[0]?.btnStyle;
           variant = result?.documents[0]?.variant || 'outlined';
           labelColor = result?.documents[0]?.labelColor?.hex;
           inputColor = result?.documents[0]?.inputColor?.hex;
@@ -79,11 +78,11 @@ const FormDesignPreview = ({ document }) => {
                 '@media (hover: none)': {
                   backgroundColor: fieldBgColor || 'rgba(0, 0, 0, 0.09)', // background color for filled variant when media has no hover
                   '&:hover': {
-                    backgroundColor: fieldBgHoverColor || 'rgba(0, 0, 0, 0.09)', // background color on hover for filled variant when media has no hover
+                    backgroundColor: fieldBgColor || 'rgba(0, 0, 0, 0.09)', // background color on hover for filled variant when media has no hover
                   },
                 },
                 '&.Mui-focused': {
-                  backgroundColor: fieldBgHoverColor || 'rgba(0, 0, 0, 0.13)', // background color when clicked into the field
+                  backgroundColor: fieldBgColor || 'rgba(0, 0, 0, 0.09)', // background color when clicked into the field
                 },
               },
             },

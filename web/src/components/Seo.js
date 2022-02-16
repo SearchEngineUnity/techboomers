@@ -40,10 +40,10 @@ const Seo = ({
 
   const ogTitle = fbShareMetaPack?.fbShareTitle || pageTitle;
   const ogDescription = fbShareMetaPack?.fbShareDescription || metaDescription;
-  const ogImage = fbShareMetaPack.fbShareImage.asset.url;
+  const ogImage = fbShareMetaPack?.fbShareImage?.asset.url;
 
   const twitterTitle = twitterShareMetaPack?.twitterShareTitle || ogTitle || pageTitle;
-  const twitterImage = twitterShareMetaPack.twitterShareImage.asset.url;
+  const twitterImage = twitterShareMetaPack?.twitterShareImage?.asset?.url;
   const twitterDescription =
     twitterShareMetaPack?.twitterShareDescription || ogDescription || metaDescription;
 
@@ -56,11 +56,11 @@ const Seo = ({
       <meta property="og:url" content={metaURL} />
       <meta property="og:title" content={ogTitle} />
       <meta property="og:description" content={ogDescription} />
-      <meta property="og:image" content={ogImage} />
+      {ogImage && <meta property="og:image" content={ogImage} />}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={twitterTitle} />
       <meta name="twitter:description" content={twitterDescription} />
-      <meta name="twitter:image" content={twitterImage} />
+      {twitterImage && <meta name="twitter:image" content={twitterImage} />}
       {(noindex || nofollow) && <meta name="robots" content={robots} />}
       {canonical ? (
         <link rel="canonical" href={canonical} />
