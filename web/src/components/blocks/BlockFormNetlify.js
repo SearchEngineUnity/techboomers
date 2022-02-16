@@ -77,11 +77,11 @@ function FormNetlify({ align, title, form, style }) {
           '@media (hover: none)': {
             backgroundColor: fieldBgColor.color.hex, // background color for filled variant when media has no hover
             '&:hover': {
-              backgroundColor: fieldBgHoverColor.color.hex, // background color on hover for filled variant when media has no hover
+              backgroundColor: fieldBgColor.color.hex, // background color on hover for filled variant when media has no hover
             },
           },
           '&.Mui-focused': {
-            backgroundColor: fieldBgHoverColor.color.hex, // background color when clicked into the field
+            backgroundColor: fieldBgColor.color.hex, // background color when clicked into the field
           },
         },
       },
