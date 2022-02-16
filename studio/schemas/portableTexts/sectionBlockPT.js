@@ -1,18 +1,25 @@
 import { FaExternalLinkAlt, FaLink } from 'react-icons/fa';
 import { GiLinkedRings } from 'react-icons/gi';
 import { MdLink } from 'react-icons/md';
+// import InlineImageRenderer from '../components/previews/InlineImageRenderer';
 import ExternalLinkRenderer from '../components/previews/ExternalLinkRenderer';
 import InternalLocalRenderer from '../components/previews/InternalLocalRenderer';
 import InternalGlobalRenderer from '../components/previews/InternalGlobalRenderer';
 import JumpLinkRenderer from '../components/previews/JumpLinkRenderer';
 
 export default {
-  name: 'highlightBoxBlockContent',
+  title: 'Block Content',
+  name: 'sectionBlockPT',
   type: 'array',
   of: [
     {
       type: 'block',
-      styles: [],
+      styles: [
+        { title: 'Normal', value: 'normal' },
+        { title: 'H3', value: 'h3' },
+        { title: 'H4', value: 'h4' },
+        { title: 'Quote', value: 'blockquote' },
+      ],
       marks: {
         annotations: [
           {
@@ -131,8 +138,42 @@ export default {
               },
             ],
           },
+          // {
+          //   title: 'Inline Image',
+          //   name: 'inlineImage',
+          //   type: 'image',
+          //   options: {
+          //     hotspot: true, // <-- Defaults to false
+          //     storeOriginalFilename: true,
+          //   },
+          //   fields: [
+          //     {
+          //       name: 'height',
+          //       type: 'string',
+          //       title: 'Image height',
+          //       description: `You can enter a height % of vh. If the image's native height is smaller it will be used instead.`,
+          //       options: {
+          //         isHighlighted: true, // <-- make this field easily accessible
+          //       },
+          //     },
+          //   ],
+          //   blockEditor: {
+          //     icon: MdImage,
+          //     render: InlineImageRenderer,
+          //   },
+          //   validation: (Rule) => [Rule.required().error('Missing Image')],
+          // },
         ],
       },
     },
+    // You can add additional types here. Note that you can't use
+    // primitive types such as 'string' and 'number' in the same array
+    // as a block type.
+    { type: 'illustration' },
+    { type: 'basicTable' },
+    { type: 'smartTable' },
+    { type: 'highlightBox' },
+    { type: 'videoEmbed' },
+    { type: 'btnBlockMui' },
   ],
 };

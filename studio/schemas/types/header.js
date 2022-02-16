@@ -11,7 +11,7 @@ export default {
     {
       name: 'subtitle',
       title: 'Subtitle',
-      type: 'subtitleFooterBlockContent',
+      type: 'sectionSubtitleFooterPT',
     },
   ],
 };

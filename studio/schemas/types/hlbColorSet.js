@@ -6,22 +6,26 @@ export default {
     {
       name: 'borderColor',
       title: 'Border Color',
-      type: 'color',
+      type: 'reference',
+      to: [{ type: 'colorOption' }],
     },
     {
       name: 'bgColor',
       title: 'Background Color',
-      type: 'color',
+      type: 'reference',
+      to: [{ type: 'colorOption' }],
     },
     {
       name: 'textColor',
       title: 'Text Color',
-      type: 'color',
+      type: 'reference',
+      to: [{ type: 'colorOption' }],
     },
     {
       name: 'iconColor',
       title: 'Icon Color',
-      type: 'color',
+      type: 'reference',
+      to: [{ type: 'colorOption' }],
     },
   ],
 };

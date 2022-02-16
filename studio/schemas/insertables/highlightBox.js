@@ -18,7 +18,7 @@ export default {
     {
       name: 'text',
       title: 'Text',
-      type: 'highlightBoxBlockContent',
+      type: 'highlightBoxPT',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],

@@ -47,7 +47,7 @@ export default {
     {
       name: 'footer',
       title: 'Footer',
-      type: 'heroFooterBlockContent',
+      type: 'heroFooterPT',
     },
     {
       name: 'layout',

@@ -41,7 +41,7 @@ export default {
     {
       name: 'footer',
       title: 'Footer',
-      type: 'subtitleFooterBlockContent',
+      type: 'sectionSubtitleFooterPT',
     },
     {
       name: 'count',

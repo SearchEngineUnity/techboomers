@@ -8,7 +8,7 @@ export default {
   fields: [
     {
       name: 'content',
-      type: 'listBlockContent',
+      type: 'listPT',
     },
   ],
   preview: {

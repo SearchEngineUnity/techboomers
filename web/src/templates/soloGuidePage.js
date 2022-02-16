@@ -10,42 +10,42 @@ import Seo from '../components/Seo';
 import { mapGuideHeroToProps, mapSeoToProps } from '../lib/mapToProps';
 
 export const query = graphql`
-  query spGuideTemplate($slug: String) {
-    guide: SanitySoloGuidePage(slug: { current: { eq: $slug } }) {
+  query soloGuidePageTemplate($slug: String) {
+    guide: sanitySoloGuidePage(slug: { current: { eq: $slug } }) {
       slug {
         current
       }
       displayDate
-      title
-      metaTwitter {
-        image {
+      pageTitle
+      twitterShareMetaPack {
+        twitterShareImage {
           asset {
             url
           }
         }
-        description
-        title
+        twitterShareDescription
+        twitterShareTitle
       }
       noindex
       nofollow
       canonical
       id
       h1
-      metaFacebook {
-        title
-        description
-        image {
+      fbShareMetaPack {
+        fbShareTitle
+        fbShareDescription
+        fbShareImage {
           asset {
             url
           }
         }
       }
-      _rawBody(resolveReferences: { maxDepth: 14 })
+      _rawGuideBody(resolveReferences: { maxDepth: 14 })
       toc {
         _key
         title
       }
-      description
+      metaDescription
       heroImage {
         alt
         _rawAsset(resolveReferences: { maxDepth: 10 })
@@ -53,7 +53,7 @@ export const query = graphql`
         maxWidth
         caption
       }
-      _rawSubtitle(resolveReferences: { maxDepth: 10 })
+      _rawHeroSubtitle(resolveReferences: { maxDepth: 10 })
     }
   }
 `;
@@ -70,7 +70,7 @@ const SPGuide = ({ data, location }) => {
           <Container maxWidth="lg">
             <Grid container spacing={3}>
               <Grid item md={9} xs={12} component="article">
-                <GuideBody blocks={data.guide._rawBody} />
+                <GuideBody blocks={data.guide._rawGuideBody} />
               </Grid>
               <Hidden smDown>
                 <Grid item md={3} component="aside">

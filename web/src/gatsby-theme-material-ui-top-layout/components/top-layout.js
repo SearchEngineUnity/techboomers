@@ -54,62 +54,62 @@ const ThemeProvider = ({ children, data }) => {
       },
       hlBox: {
         definition: {
-          bgColor: determineColor(palette?.definition?.bgColor) || '#d6d8d9',
-          borderColor: determineColor(palette?.definition?.borderColor) || '#c6c8ca',
+          bgColor: determineColor(palette?.definition?.bgColor?.color) || '#d6d8d9',
+          borderColor: determineColor(palette?.definition?.borderColor?.color) || '#c6c8ca',
           iconColor:
-            determineColor(palette?.definition?.iconColor) ||
+            determineColor(palette?.definition?.iconColor?.color) ||
             palette?.primaryText?.hex ||
             'rgba(0, 0, 0, 0.87)',
           textColor:
-            determineColor(palette?.definition?.textColor) ||
+            determineColor(palette?.definition?.textColor?.color) ||
             palette?.primaryText?.hex ||
             'rgba(0, 0, 0, 0.87)',
         },
         dyk: {
-          bgColor: determineColor(palette?.dyk?.bgColor) || '#d4edda',
-          borderColor: determineColor(palette?.dyk?.borderColor) || '#c3e6cb',
+          bgColor: determineColor(palette?.dyk?.bgColor?.color) || '#d4edda',
+          borderColor: determineColor(palette?.dyk?.borderColor?.color) || '#c3e6cb',
           iconColor:
-            determineColor(palette?.dyk?.iconColor) ||
+            determineColor(palette?.dyk?.iconColor?.color) ||
             palette?.primaryText?.hex ||
             'rgba(0, 0, 0, 0.87)',
           textColor:
-            determineColor(palette?.dyk?.textColor) ||
+            determineColor(palette?.dyk?.textColor?.color) ||
             palette?.primaryText?.hex ||
             'rgba(0, 0, 0, 0.87)',
         },
         important: {
-          bgColor: determineColor(palette?.important?.bgColor) || '#fff3cd',
-          borderColor: determineColor(palette?.important?.borderColor) || '#ffeeba',
+          bgColor: determineColor(palette?.important?.bgColor?.color) || '#fff3cd',
+          borderColor: determineColor(palette?.important?.borderColor?.color) || '#ffeeba',
           iconColor:
-            determineColor(palette?.important?.iconColor) ||
+            determineColor(palette?.important?.iconColor?.color) ||
             palette?.primaryText?.hex ||
             'rgba(0, 0, 0, 0.87)',
           textColor:
-            determineColor(palette?.important?.textColor) ||
+            determineColor(palette?.important?.textColor?.color) ||
             palette?.primaryText?.hex ||
             'rgba(0, 0, 0, 0.87)',
         },
         proTip: {
-          bgColor: determineColor(palette?.proTip?.bgColor) || '#cce5ff',
-          borderColor: determineColor(palette?.proTip?.borderColor) || '#b8baff',
+          bgColor: determineColor(palette?.proTip?.bgColor?.color) || '#cce5ff',
+          borderColor: determineColor(palette?.proTip?.borderColor?.color) || '#b8baff',
           iconColor:
-            determineColor(palette?.proTip?.iconColor) ||
+            determineColor(palette?.proTip?.iconColor?.color) ||
             palette?.primaryText?.hex ||
             'rgba(0, 0, 0, 0.87)',
           textColor:
-            determineColor(palette?.proTip?.textColor) ||
+            determineColor(palette?.proTip?.textColor?.color) ||
             palette?.primaryText?.hex ||
             'rgba(0, 0, 0, 0.87)',
         },
         warning: {
-          bgColor: determineColor(palette?.warning?.bgColor) || '#f8d7da',
-          borderColor: determineColor(palette?.warning?.borderColor) || '#f5c6cb',
+          bgColor: determineColor(palette?.warning?.bgColor?.color) || '#f8d7da',
+          borderColor: determineColor(palette?.warning?.borderColor?.color) || '#f5c6cb',
           iconColor:
-            determineColor(palette?.warning?.iconColor) ||
+            determineColor(palette?.warning?.iconColor?.color) ||
             palette?.primaryText?.hex ||
             'rgba(0, 0, 0, 0.87)',
           textColor:
-            determineColor(palette?.warning?.textColor) ||
+            determineColor(palette?.warning?.textColor?.color) ||
             palette?.primaryText?.hex ||
             'rgba(0, 0, 0, 0.87)',
         },
@@ -212,92 +212,132 @@ export default function TopLayout({ children }) {
           sanityPalette {
             proTip {
               bgColor {
-                hex
-                alpha
+                color {
+                  hex
+                  alpha
+                }
               }
               borderColor {
-                hex
-                alpha
+                color {
+                  hex
+                  alpha
+                }
               }
               iconColor {
-                hex
-                alpha
+                color {
+                  hex
+                  alpha
+                }
               }
               textColor {
-                hex
-                alpha
+                color {
+                  hex
+                  alpha
+                }
               }
             }
             definition {
               bgColor {
-                hex
-                alpha
+                color {
+                  hex
+                  alpha
+                }
               }
               borderColor {
-                hex
-                alpha
+                color {
+                  hex
+                  alpha
+                }
               }
               iconColor {
-                hex
-                alpha
+                color {
+                  hex
+                  alpha
+                }
               }
               textColor {
-                hex
-                alpha
+                color {
+                  hex
+                  alpha
+                }
               }
             }
             important {
               bgColor {
-                hex
-                alpha
+                color {
+                  hex
+                  alpha
+                }
               }
               borderColor {
-                hex
-                alpha
+                color {
+                  hex
+                  alpha
+                }
               }
               iconColor {
-                hex
-                alpha
+                color {
+                  hex
+                  alpha
+                }
               }
               textColor {
-                hex
-                alpha
+                color {
+                  hex
+                  alpha
+                }
               }
             }
             warning {
               bgColor {
-                hex
-                alpha
+                color {
+                  hex
+                  alpha
+                }
               }
               borderColor {
-                hex
-                alpha
+                color {
+                  hex
+                  alpha
+                }
               }
               iconColor {
-                hex
-                alpha
+                color {
+                  hex
+                  alpha
+                }
               }
               textColor {
-                hex
-                alpha
+                color {
+                  hex
+                  alpha
+                }
               }
             }
             dyk {
               bgColor {
-                hex
-                alpha
+                color {
+                  hex
+                  alpha
+                }
               }
               borderColor {
-                hex
-                alpha
+                color {
+                  hex
+                  alpha
+                }
               }
               iconColor {
-                hex
-                alpha
+                color {
+                  hex
+                  alpha
+                }
               }
               textColor {
-                hex
-                alpha
+                color {
+                  hex
+                  alpha
+                }
               }
             }
             black {

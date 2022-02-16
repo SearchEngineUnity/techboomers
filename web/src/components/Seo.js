@@ -12,10 +12,10 @@ import { StaticQuery, graphql } from 'gatsby';
 const Seo = ({
   data,
   type,
-  title,
-  description,
-  metaFacebook,
-  metaTwitter,
+  pageTitle,
+  metaDescription,
+  fbShareMetaPack,
+  twitterShareMetaPack,
   slug,
   noindex,
   nofollow,
@@ -38,18 +38,19 @@ const Seo = ({
       break;
   }
 
-  const ogTitle = metaFacebook?.title || title;
-  const ogDescription = metaFacebook?.description || description;
-  const ogImage = metaFacebook.image.asset.url;
+  const ogTitle = fbShareMetaPack?.fbShareTitle || pageTitle;
+  const ogDescription = fbShareMetaPack?.fbShareDescription || metaDescription;
+  const ogImage = fbShareMetaPack.fbShareImage.asset.url;
 
-  const twitterTitle = metaTwitter?.title || ogTitle || title;
-  const twitterImage = metaTwitter.image.asset.url;
-  const twitterDescription = metaTwitter?.description || ogDescription || description;
+  const twitterTitle = twitterShareMetaPack?.twitterShareTitle || ogTitle || pageTitle;
+  const twitterImage = twitterShareMetaPack.twitterShareImage.asset.url;
+  const twitterDescription =
+    twitterShareMetaPack?.twitterShareDescription || ogDescription || metaDescription;
 
   return (
     <Helmet>
-      <title>{title}</title>
-      <meta name="description" content={description} />
+      <title>{pageTitle}</title>
+      <meta name="description" content={metaDescription} />
       <meta property="og:locale" content="en_CA" />
       <meta property="og:type" content={ogType} />
       <meta property="og:url" content={metaURL} />

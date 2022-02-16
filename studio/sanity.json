@@ -5,7 +5,7 @@
     "dataset": "production"
   },
   "project": {
-    "name": "Demo Centre MUI"
+    "name": "Site Builder V1"
   },
   "plugins": [
     "@sanity/base",

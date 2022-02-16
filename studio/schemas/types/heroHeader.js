@@ -11,7 +11,7 @@ export default {
     {
       name: 'subtitle',
       title: 'Subtitle',
-      type: 'heroSubtitleBlockContent',
+      type: 'heroSubtitlePT',
     },
   ],
 };

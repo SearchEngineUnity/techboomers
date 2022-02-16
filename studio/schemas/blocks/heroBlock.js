@@ -24,12 +24,12 @@ export default {
     {
       name: 'text',
       title: 'Text',
-      type: 'heroBlockContent',
+      type: 'heroBlockPT',
     },
     {
       name: 'footer',
       title: 'Footer',
-      type: 'heroFooterBlockContent',
+      type: 'heroFooterPT',
     },
     {
       name: 'headerAlignment',
