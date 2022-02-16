@@ -52,6 +52,10 @@ export default () =>
                 .title('Theme - Typography')
                 .icon(BsType)
                 .child(S.document().schemaType('typography').documentId('typography')),
+              S.listItem()
+                .title('Solo Guide Page Hero Layout')
+                .icon(MdSettings)
+                .child(S.document().schemaType('layoutSpg').documentId('layoutSpg')),
             ]),
         ),
       S.documentTypeListItem('colorOption').title('Color Options'),

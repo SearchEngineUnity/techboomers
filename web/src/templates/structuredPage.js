@@ -763,28 +763,28 @@ export const query = graphql`
       slug {
         current
       }
-      title
-      description
-      metaTwitter {
-        image {
+      pageTitle
+      metaDescription
+      twitterShareMetaPack {
+        twitterShareImage {
           asset {
             url
           }
         }
-        description
-        title
+        twitterShareDescription
+        twitterShareTitle
       }
       nofollow
       noindex
       canonical
-      metaFacebook {
-        description
-        image {
+      fbShareMetaPack {
+        fbShareTitle
+        fbShareDescription
+        fbShareImage {
           asset {
             url
           }
         }
-        title
       }
     }
   }

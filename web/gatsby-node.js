@@ -65,7 +65,7 @@ async function createListingPages(actions, graphql) {
     let totalCount;
     switch (listType) {
       case 'SPG':
-        totalCount = data.allSanitysoloGuidePage.totalCount;
+        totalCount = data.allSanitySoloGuidePage.totalCount;
         break;
 
       default:
@@ -90,7 +90,7 @@ async function createListingPages(actions, graphql) {
 }
 
 // create individual guides
-async function createGuide(actions, graphql) {
+async function createSoloGuidePages(actions, graphql) {
   const { data } = await graphql(`
     {
       allSanitySoloGuidePage {
@@ -105,7 +105,7 @@ async function createGuide(actions, graphql) {
     }
   `);
 
-  const guides = data.allSanitysoloGuidePage.edges;
+  const guides = data.allSanitySoloGuidePage.edges;
   guides.forEach((guide) => {
     actions.createPage({
       path: `/${guide.node.slug.current}`,
@@ -151,6 +151,6 @@ async function createPageRedirects(actions, graphql) {
 exports.createPages = async ({ actions, graphql }) => {
   await createStructuredPages(actions, graphql);
   await createListingPages(actions, graphql);
-  await createGuide(actions, graphql);
+  await createSoloGuidePages(actions, graphql);
   await createPageRedirects(actions, graphql);
 };

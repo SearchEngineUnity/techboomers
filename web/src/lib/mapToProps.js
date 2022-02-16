@@ -1,18 +1,26 @@
 export function mapSeoToProps(
-  { title, description, metaFacebook, metaTwitter, slug, noindex, nofollow, canonical, heroImage },
+  {
+    pageTitle,
+    metaDescription,
+    fbShareMetaPack,
+    twitterShareMetaPack,
+    slug,
+    noindex,
+    nofollow,
+    canonical,
+  },
   type,
 ) {
   return {
     type,
-    title,
-    description,
-    metaFacebook,
-    metaTwitter,
+    pageTitle,
+    metaDescription,
+    fbShareMetaPack,
+    twitterShareMetaPack,
     slug: slug.current,
     noindex,
     nofollow,
     canonical,
-    heroImage,
   };
 }
 

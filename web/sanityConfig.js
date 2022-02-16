@@ -1,5 +1,5 @@
 const sanityConfig = {
-  projectId: '2xtgdu8l',
+  projectId: 'yb6s8gw4',
   dataset: 'production',
 };
 

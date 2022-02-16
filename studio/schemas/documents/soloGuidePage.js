@@ -192,7 +192,7 @@ export default {
     },
     {
       name: 'canonical',
-      title: 'Canonical URL',
+      title: 'Canonical Link Setting',
       type: 'url',
       fieldset: 'indexing',
       description: 'Fill in to replace default self canonical URL.',

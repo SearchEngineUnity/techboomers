@@ -42,8 +42,8 @@ export default {
   ],
   fields: [
     {
-      name: 'shortName',
-      title: 'Short Name',
+      name: 'seuID',
+      title: 'seuID',
       type: 'string',
       fieldset: 'general',
       validation: (Rule) => [
@@ -52,30 +52,38 @@ export default {
       ],
     },
     {
-      name: 'title',
+      name: 'shortLabel',
+      title: 'Short Label',
+      type: 'string',
+      fieldset: 'general',
+      validation: (Rule) => [
+        Rule.required().error('Field is required'),
+        // add a custom rule for isUnique
+      ],
+    },
+    {
+      name: 'pageTitle',
       type: 'string',
       title: 'Page Title',
-      description: 'Optimal length under 60 characters for Google SERP',
       fieldset: 'general',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
-      name: 'description',
+      name: 'metaDescription',
       title: 'Meta Description',
       type: 'text',
-      description: 'Optimal length is under 160 characters for Google SERP',
       fieldset: 'general',
-      validation: (Rule) => [Rule.required().error('Field is require.')],
+      validation: (Rule) => [Rule.required().error('Field is required.')],
     },
     {
       name: 'fbShareMetaPack',
-      title: 'Facebook Open Graph (Meta Tags)',
+      title: 'Facebook Open Graph Meta Pack',
       type: 'fbShareMetaPack',
       fieldset: 'social',
     },
     {
       name: 'twitterShareMetaPack',
-      title: 'Twitter Open Graph (Meta Tags)',
+      title: 'Twitter Open Graph Meta Pack',
       type: 'twitterShareMetaPack',
       fieldset: 'social',
     },
@@ -117,28 +125,23 @@ export default {
     },
     {
       name: 'canonical',
-      title: 'Canonical URL',
+      title: 'Canonical Link Setting',
       type: 'url',
       fieldset: 'indexing',
-      description: 'Use this field to replace self canonical URL.',
+      description: 'Fill in to replace default self canonical URL.',
     },
   ],
   preview: {
     select: {
-      shortName: 'shortName',
-      pageSections: 'sections',
+      title: 'shortLabel',
       slug: 'slug.current',
-      fbImg: 'fbShareMetaPack.image',
+      fbImg: 'facebookShareMetaPack.image',
       twitterImg: 'twitterShareMetaPack.image',
     },
-    prepare({ shortName, pageSections, slug, fbImg, twitterImg }) {
+    prepare({ title, slug, fbImg, twitterImg }) {
       const currentSlug = slug === '/' ? '/' : `/${slug}`;
       return {
-        title:
-          pageSections[0]?.header?.heading ||
-          pageSections[0]?.blocks[0]?.header?.heading ||
-          pageSections[0]?.blocks[1]?.header?.heading ||
-          `Short name: ${shortName}`,
+        title,
         subtitle: currentSlug,
         media: fbImg || twitterImg,
       };
