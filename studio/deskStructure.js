@@ -12,7 +12,7 @@ import FormDesignPreview from './preview/FormDesignPreview';
 
 export default () =>
   S.list()
-    .title('Demo Centre')
+    .title('Site Builder V1')
     .items([
       S.listItem()
         .title('Website')
@@ -25,7 +25,7 @@ export default () =>
               S.divider(),
               S.documentTypeListItem('page').title('Structured Pages'),
               S.documentTypeListItem('listingPage').title('Listing Pages'),
-              S.documentTypeListItem('soloGuidePage').title('SP Guides'),
+              S.documentTypeListItem('soloGuidePage').title('Solo Guide Pages'),
               S.divider(),
               S.documentTypeListItem('redirect').title('Redirects'),
             ]),

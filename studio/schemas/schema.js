@@ -5,7 +5,7 @@ import createSchema from 'part:@sanity/base/schema-creator';
 // Then import schema types from any plugins that might expose them
 import schemaTypes from 'all:part:@sanity/base/schema-type';
 
-import * as blockContents from './blockContents';
+import * as portableTexts from './portableTexts';
 import * as blocks from './blocks';
 import * as documents from './documents';
 import * as formParts from './formParts';
@@ -19,7 +19,7 @@ export default createSchema({
   // Then proceed to concatenate our our document type
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
-    ...Object.values(blockContents),
+    ...Object.values(portableTexts),
     ...Object.values(blocks),
     ...Object.values(documents),
     ...Object.values(formParts),

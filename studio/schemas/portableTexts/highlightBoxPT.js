@@ -7,13 +7,12 @@ import InternalGlobalRenderer from '../components/previews/InternalGlobalRendere
 import JumpLinkRenderer from '../components/previews/JumpLinkRenderer';
 
 export default {
-  name: 'subtitleFooterBlockContent',
+  name: 'highlightBoxPT',
   type: 'array',
   of: [
     {
       type: 'block',
       styles: [],
-      lists: [],
       marks: {
         annotations: [
           {

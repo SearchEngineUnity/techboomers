@@ -7,12 +7,17 @@ import InternalGlobalRenderer from '../components/previews/InternalGlobalRendere
 import JumpLinkRenderer from '../components/previews/JumpLinkRenderer';
 
 export default {
-  name: 'heroSubtitleBlockContent',
+  name: 'heroBlockPT',
   type: 'array',
   of: [
     {
       type: 'block',
-      styles: [],
+      styles: [
+        { title: 'Normal', value: 'normal' },
+        { title: 'H2', value: 'h2' },
+        { title: 'H3', value: 'h3' },
+        { title: 'H4', value: 'h4' },
+      ],
       marks: {
         annotations: [
           {
@@ -134,5 +139,7 @@ export default {
         ],
       },
     },
+    { type: 'illustration' },
+    { type: 'btnBlockMui' },
   ],
 };

@@ -9,18 +9,9 @@ export default {
   },
   fields: [
     {
-      name: 'alt',
-      type: 'string',
-      title: 'Alt',
-      options: {
-        isHighlighted: true, // <-- make this field easily accessible
-      },
-      validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
       name: 'align',
       type: 'string',
-      title: 'Alignment',
+      title: 'Horizontal Alignment',
       description: 'This only affects image alignment in portable text.',
       options: {
         list: [
@@ -31,7 +22,7 @@ export default {
         direction: 'horizontal',
         // isHighlighted: true, // <-- make this field easily accessible
       },
-      initialValue: 'center',
+      initialValue: 'left',
     },
     {
       name: 'maxWidth',
@@ -52,9 +43,18 @@ export default {
       // },
     },
     {
+      name: 'alt',
+      type: 'string',
+      title: 'Alt',
+      options: {
+        isHighlighted: true, // <-- make this field easily accessible
+      },
+      validation: (Rule) => [Rule.required().error('Field is required')],
+    },
+    {
       name: 'caption',
       type: 'text',
-      title: 'Caption',
+      title: 'Caption Text',
       // options: {
       //   // isHighlighted: true, // <-- make this field easily accessible
       // },

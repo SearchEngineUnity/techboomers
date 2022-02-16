@@ -29,12 +29,11 @@ export default {
   preview: {
     select: {
       label: 'label',
-      id: 'seuID',
       color: 'color',
     },
-    prepare({ label, id, color }) {
+    prepare({ label, color }) {
       return {
-        title: id,
+        title: label,
         media: (
           <div
             style={{
