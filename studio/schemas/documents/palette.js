@@ -142,7 +142,7 @@ export default {
     },
     {
       name: 'proTip',
-      title: 'Pro Tip HighLight Box',
+      title: 'Pro Tip Highlight Box',
       type: 'hlbColorSet',
       fieldset: 'highlightBox',
     },

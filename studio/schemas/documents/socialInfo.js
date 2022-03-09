@@ -1,11 +1,11 @@
-import MouseIcon from '../components/previews/MouseIcon';
+import { MdAlternateEmail } from 'react-icons/md';
 
 export default {
   name: 'socialInfo',
   title: 'Social Info',
   description: 'social media links',
   type: 'document',
-  icon: MouseIcon,
+  icon: MdAlternateEmail,
   fields: [
     {
       name: 'social',

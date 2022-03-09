@@ -12,8 +12,8 @@
       },
       "requireConfigFile": false
     },
-    "extends": ["airbnb", "prettier", "prettier/react"],
-    "plugins": ["react", "prettier", "react-hooks"],
+    "extends": ["airbnb", "prettier", "prettier/react", "plugin:jsx-a11y/recommended"],
+    "plugins": ["react", "prettier", "react-hooks", "jsx-a11y"],
     "rules": {
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
       "react/prop-types": 0,

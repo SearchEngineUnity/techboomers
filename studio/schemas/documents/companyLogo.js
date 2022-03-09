@@ -7,10 +7,22 @@ export default {
   icon: FaRegImages,
   fields: [
     {
-      name: 'title',
-      title: 'Title',
+      name: 'seuID',
+      title: 'seuID',
       type: 'string',
-      description: `This is used as the logo image's alt`,
+      validation: (Rule) => [
+        Rule.required().error('Field is required'),
+        // add a custom rule for isUnique
+      ],
+    },
+    {
+      name: 'label',
+      title: 'Label',
+      type: 'string',
+      validation: (Rule) => [
+        Rule.required().error('Field is required'),
+        // add a custom rule for isUnique
+      ],
     },
     {
       name: 'logo',
@@ -20,7 +32,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'title',
+      title: 'label',
       media: 'logo',
     },
   },

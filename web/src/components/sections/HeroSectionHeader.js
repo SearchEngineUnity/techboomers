@@ -25,7 +25,7 @@ function StructuredSectionHeader({
     <>
       {(!hasSectionHeading && heading) || (!hasSectionSubtitle && subtitle) ? (
         <Box
-          component={hasSectionHeading ? 'div' : 'header'}
+          component={heading ? 'header' : 'div'}
           mb={4}
           textAlign={align}
           className={classes.header}

@@ -12,13 +12,13 @@ function NavPhone({ text, data }) {
         role="none"
       >
         <Link
-          href={`tel:${data.sanityCompanyInfo.phone}`}
+          href={`tel:${data.sanityContactInfo.phone}`}
           content="telephone=yes"
           color="inherit"
           underline="none"
           role="menuitem"
         >
-          {text} {data.sanityCompanyInfo.phone}
+          {text} {data.sanityContactInfo.phone}
         </Link>
       </Box>
       <Box
@@ -28,13 +28,13 @@ function NavPhone({ text, data }) {
         role="none"
       >
         <Link
-          href={`tel:${data.sanityCompanyInfo.phone}`}
+          href={`tel:${data.sanityContactInfo.phone}`}
           content="telephone=yes"
           color="inherit"
           underline="none"
           role="menuitem"
         >
-          {data.sanityCompanyInfo.phone}
+          {data.sanityContactInfo.phone}
         </Link>
       </Box>
     </>
@@ -46,7 +46,7 @@ export default function MyNavPhone(props) {
     <StaticQuery
       query={graphql`
         {
-          sanityCompanyInfo {
+          sanityContactInfo {
             phone
           }
         }
