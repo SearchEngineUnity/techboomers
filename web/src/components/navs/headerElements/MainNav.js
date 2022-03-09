@@ -138,12 +138,12 @@ export default function MainNavigation(props) {
                     height
                     type
                     brand {
-                      title
                       _id
                       logo {
                         asset {
                           url
                         }
+                        alt
                       }
                     }
                   }

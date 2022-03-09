@@ -39,11 +39,10 @@ export default () =>
           S.list()
             .title('Site Settings')
             .items([
-              // will reactive when we add more general functions for things like api keys etc etc
-              // S.listItem()
-              //   .title('General Settings')
-              //   .icon(MdSettings)
-              //   .child(S.document().schemaType('generalSettings').documentId('generalSettings')),
+              S.listItem()
+                .title('General Settings')
+                .icon(MdSettings)
+                .child(S.document().schemaType('generalSettings').documentId('generalSettings')),
               S.listItem()
                 .title('Theme - Palette')
                 .icon(FaPalette)
@@ -126,7 +125,7 @@ export default () =>
               S.listItem()
                 .title('Contact Info')
                 .icon(MdBusiness)
-                .child(S.document().schemaType('companyInfo').documentId('companyInfo')),
+                .child(S.document().schemaType('contactInfo').documentId('contactInfo')),
               S.documentTypeListItem('socialInfo').title('Social Info'),
               S.documentTypeListItem('companyLogo').title('Company Logos'),
             ]),

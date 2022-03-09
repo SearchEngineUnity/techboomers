@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 
 const MainFooter = ({ data }) => {
   const classes = useStyles();
-  const { sanityCompanyInfo: companyInfo, sanityNavMenu: footerMenu } = data;
+  const { sanityContactInfo: contactInfo, sanityNavMenu: footerMenu } = data;
   const { menuArray } = footerMenu;
 
   return (
@@ -77,7 +77,7 @@ const MainFooter = ({ data }) => {
           <Container maxWidth="lg">
             <Toolbar disableGutters>
               <Box component="p" mr={2}>
-                &#0169; Copyright {new Date().getFullYear()} {companyInfo.name}
+                &#0169; Copyright {new Date().getFullYear()} {contactInfo.name}
               </Box>
               <Link to="https://google.com">Privacy Policy</Link>
               <Hidden smDown>
@@ -110,12 +110,12 @@ export default function Footer(props) {
                     height
                     type
                     brand {
-                      title
                       _id
                       logo {
                         asset {
                           url
                         }
+                        alt
                       }
                     }
                   }
@@ -174,7 +174,7 @@ export default function Footer(props) {
               }
             }
           }
-          sanityCompanyInfo {
+          sanityContactInfo {
             name
           }
         }

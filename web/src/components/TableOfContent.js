@@ -45,11 +45,7 @@ function Toc({ toc }) {
     // targets all the headings you want to appear in the ToC.
 
     const nodes = Array.from(document.querySelectorAll('h2'));
-    const titles = nodes.map((node, index) => ({
-      title: toc[index].title,
-      id: node.id,
-    }));
-    setHeadings({ titles, nodes });
+    setHeadings({ titles: toc, nodes });
   }, [toc]);
   // Add scroll event listener to update currently active heading.
   useEffect(() => {
@@ -83,10 +79,10 @@ function Toc({ toc }) {
       <Typography component="p" variant="h4" gutterBottom>
         Table of Contents
       </Typography>
-      {headings.titles.map(({ title, id }, index) => (
-        <Box mb={1} fontSize="body2.fontSize" display="block" key={id}>
+      {headings.titles.map(({ title, hashId }, index) => (
+        <Box mb={1} fontSize="body2.fontSize" display="block" key={hashId}>
           <Link
-            to={`#${id}`}
+            to={`#${hashId}`}
             className={`${active === index ? classes.activeLink : null} ${classes.link}`}
             underline="hover"
             onClick={(e) => {
@@ -94,7 +90,7 @@ function Toc({ toc }) {
               window.history.replaceState(
                 null,
                 null,
-                `${window.location.origin + window.location.pathname}#${id}`,
+                `${window.location.origin + window.location.pathname}#${hashId}`,
               );
               headings.nodes[index].scrollIntoView({
                 behavior: `smooth`,

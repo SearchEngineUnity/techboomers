@@ -21,7 +21,7 @@ const Seo = ({
   nofollow,
   canonical,
 }) => {
-  let metaURL = data.sanityCompanyInfo.siteDomain;
+  let metaURL = data.sanityGeneralSettings.siteDomain;
   let ogType = '';
   const robots = `${nofollow ? 'nofollow' : ''} ${noindex ? 'noindex' : ''}`;
 
@@ -76,8 +76,7 @@ export default function MySeo(props) {
     <StaticQuery
       query={graphql`
         {
-          sanityCompanyInfo {
-            homePage
+          sanityGeneralSettings {
             siteDomain
           }
         }

@@ -44,6 +44,7 @@ export const query = graphql`
       toc {
         _key
         title
+        hashID
       }
       metaDescription
       heroImage {

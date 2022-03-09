@@ -1,7 +1,7 @@
 import { MdBusiness } from 'react-icons/md';
 
 export default {
-  name: 'companyInfo',
+  name: 'contactInfo',
   title: 'Contact Info',
   type: 'document',
   __experimental_actions: ['create', 'update', 'publish'],
@@ -15,24 +15,24 @@ export default {
     },
     {
       name: 'email',
-      title: 'Email',
+      title: 'Contact Email',
       type: 'string',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'phone',
-      title: 'Phone Number',
+      title: 'Contact Phone Number',
       type: 'string',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'address1',
-      title: 'Address 1',
+      title: 'Address Line 1',
       type: 'string',
     },
     {
       name: 'address2',
-      title: 'Address 2',
+      title: 'Address Line 2',
       type: 'string',
     },
     {
@@ -41,30 +41,13 @@ export default {
       type: 'string',
     },
     {
-      name: 'province',
-      title: 'Province',
+      name: 'provinceState',
+      title: 'Province / State',
       type: 'string',
-      options: {
-        list: [
-          { title: 'AB', value: 'AB' },
-          { title: 'BC', value: 'BC' },
-          { title: 'MB', value: 'MB' },
-          { title: 'NL', value: 'NL' },
-          { title: 'NS', value: 'NS' },
-          { title: 'NB', value: 'NB' },
-          { title: 'NT', value: 'NT' },
-          { title: 'NU', value: 'NU' },
-          { title: 'ON', value: 'ON' },
-          { title: 'PE', value: 'PE' },
-          { title: 'QC', value: 'QC' },
-          { title: 'SK', value: 'SK' },
-          { title: 'YT', value: 'YT' },
-        ],
-      },
     },
     {
-      name: 'postalCode',
-      title: 'Postal Code',
+      name: 'mailCode',
+      title: 'Postal Code / ZIP Code',
       type: 'string',
     },
     {
@@ -76,14 +59,6 @@ export default {
       name: 'homePage',
       title: 'Company Home Page',
       description: 'This is the link that will be used for all company logos.',
-      type: 'url',
-      validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
-      name: 'siteDomain',
-      title: 'Site Domain',
-      description:
-        'This is the domain where all pages will be published under. Used for canonical.',
       type: 'url',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },

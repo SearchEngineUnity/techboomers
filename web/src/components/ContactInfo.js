@@ -4,29 +4,29 @@ import { Link } from 'gatsby-theme-material-ui';
 import { StaticQuery, graphql } from 'gatsby';
 
 const ContactInfo = ({ data }) => {
-  const { sanityCompanyInfo: companyInfo } = data;
+  const { sanityContactInfo: contactInfo } = data;
 
   return (
     <Box my={2}>
-      {companyInfo.address1 && <div>{companyInfo.address1}</div>}
-      {companyInfo.address2 && <div>{companyInfo.address2}</div>}
+      {contactInfo.address1 && <div>{contactInfo.address1}</div>}
+      {contactInfo.address2 && <div>{contactInfo.address2}</div>}
       <div>
-        {companyInfo.city ? `${companyInfo.city}, ` : null}
-        {companyInfo.province ? `${companyInfo.province}, ` : null}
-        {companyInfo.postalCode ? `${companyInfo.postalCode}` : null}
+        {contactInfo.city ? `${contactInfo.city}, ` : null}
+        {contactInfo.provinceState ? `${contactInfo.provinceState}, ` : null}
+        {contactInfo.mailCode ? `${contactInfo.mailCode}` : null}
       </div>
-      {companyInfo.phone && (
+      {contactInfo.phone && (
         <Link
-          href={`tel:+${companyInfo.phone}`}
+          href={`tel:+${contactInfo.phone}`}
           content="telephone=yes"
           color="inherit"
           underline="none"
           style={{ display: 'block' }}
         >
-          {companyInfo.phone}
+          {contactInfo.phone}
         </Link>
       )}
-      {companyInfo.email && <Link to={`mailto:${companyInfo.email}`}>{companyInfo.email}</Link>}
+      {contactInfo.email && <Link to={`mailto:${contactInfo.email}`}>{contactInfo.email}</Link>}
     </Box>
   );
 };
@@ -36,15 +36,15 @@ export default function Contact(props) {
     <StaticQuery
       query={graphql`
         {
-          sanityCompanyInfo {
+          sanityContactInfo {
             address1
             address2
             city
             country
             email
             phone
-            postalCode
-            province
+            mailCode
+            provinceState
           }
         }
       `}
