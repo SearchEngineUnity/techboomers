@@ -3,7 +3,7 @@
 import { VscPreview } from 'react-icons/vsc';
 
 export function PreviewAction(props) {
-  const PREVIEW_URL = 'https://preview-sitebuildermuiv1.gtsb.io'; // update to proper URL
+  const PREVIEW_URL = 'https://preview-sitebuilderv1.gtsb.io'; // update to proper URL
   const isDraft = !!props.draft; // eslint-disable-line
   const isPublished = !!props.published; // eslint-disable-line
   const { type, draft, published } = props;

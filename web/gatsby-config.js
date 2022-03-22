@@ -6,7 +6,7 @@ const isProd = process.env.NODE_ENV === 'production';
 
 const {
   NODE_ENV,
-  URL: NETLIFY_SITE_URL = 'https://democentermui.netlify.app', // update to new netlify URL
+  URL: NETLIFY_SITE_URL = 'https://sitebuilderv1.netlify.app', // update to new netlify URL
   DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
   CONTEXT: NETLIFY_ENV = NODE_ENV,
 } = process.env;
