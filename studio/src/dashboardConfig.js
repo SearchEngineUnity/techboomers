@@ -18,7 +18,7 @@ export default {
       name: 'gatsby',
       options: {
         title: 'Gatsby Preview Site',
-        sites: [{ siteUrl: 'https://preview-sitebuildermuiv1.gtsb.io/' }],
+        sites: [{ siteUrl: 'https://preview-sitebuilderv1.gtsb.io/' }],
       },
     },
   ],
