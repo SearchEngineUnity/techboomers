@@ -50,53 +50,59 @@ function BasicTable({ basicTable }) {
             </colgroup>
           )}
           {colHeading && (
-            <TableHead>
-              <TableRow key={thead._key}>
-                {thead.cells.map((cell, index) =>
-                  rowHeading ? (
+            <TableRow key={thead._key}>
+              {thead.cells.map((cell, index) =>
+                // eslint-disable-next-line no-nested-ternary
+                !cell ? (
+                  <td key={`${thead._key}-${index}`} />
+                ) : rowHeading ? (
+                  <TableCell
+                    className="MuiTableCell-head"
+                    component="th"
+                    key={`${thead._key}-${index}`}
+                    scope="row"
+                    style={{ overflow: 'hidden' }}
+                  >
+                    {cell}
+                  </TableCell>
+                ) : (
+                  <TableCell
+                    className="MuiTableCell-head"
+                    component="th"
+                    key={`${thead._key}-${index}`}
+                    style={{ overflow: 'hidden' }}
+                  >
+                    {cell}
+                  </TableCell>
+                ),
+              )}
+            </TableRow>
+          )}
+          {tbody.map((row) => (
+            <TableRow key={row._key} className={classes.row}>
+              {row.cells.map((cell, index) => {
+                if (rowHeading && index === 0) {
+                  return (
                     <TableCell
-                      key={`${thead._key}-${index}`}
+                      className="MuiTableCell-head"
+                      component="th"
+                      key={`${row._key}-${index}`}
                       scope="row"
                       style={{ overflow: 'hidden' }}
+                      role={undefined}
                     >
                       {cell}
                     </TableCell>
-                  ) : (
-                    <TableCell key={`${thead._key}-${index}`} style={{ overflow: 'hidden' }}>
-                      {cell}
-                    </TableCell>
-                  ),
-                )}
-              </TableRow>
-            </TableHead>
-          )}
-          <TableBody>
-            {tbody.map((row) => (
-              <TableRow key={row._key} className={classes.row}>
-                {row.cells.map((cell, index) => {
-                  if (rowHeading && index === 0) {
-                    return (
-                      <TableCell
-                        className="MuiTableCell-head"
-                        component="th"
-                        key={`${row._key}-${index}`}
-                        scope="row"
-                        style={{ overflow: 'hidden' }}
-                        role={undefined}
-                      >
-                        {cell}
-                      </TableCell>
-                    );
-                  }
-                  return (
-                    <TableCell key={`${row._key}-${index}`} style={{ overflow: 'hidden' }}>
-                      {cell}
-                    </TableCell>
                   );
-                })}
-              </TableRow>
-            ))}
-          </TableBody>
+                }
+                return (
+                  <TableCell key={`${row._key}-${index}`} style={{ overflow: 'hidden' }}>
+                    {cell}
+                  </TableCell>
+                );
+              })}
+            </TableRow>
+          ))}
         </Table>
       </TableContainer>
     </Box>

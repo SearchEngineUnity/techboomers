@@ -1,3 +1,4 @@
+export { default as emptyCell } from './emptyCell';
 export { default as rowPlus } from './rowPlus';
 export { default as smartTable } from './smartTable';
 export { default as tableBlock } from './tableBlock';
