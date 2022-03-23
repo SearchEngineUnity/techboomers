@@ -64,6 +64,9 @@ function SmartTable({ smartTable }) {
             <TableHead>
               <TableRow key={thead._key}>
                 {thead.cells.map((cell, index) => {
+                  if (cell._type === 'emptyCell') {
+                    return <td key={`${thead._key}-${index}`} />;
+                  }
                   if (cell._type === 'tableBlock') {
                     return (
                       // eslint-disable-next-line

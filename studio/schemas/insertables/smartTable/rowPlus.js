@@ -5,7 +5,7 @@ export default {
     {
       name: 'cells',
       type: 'array',
-      of: [{ type: 'tableBlock' }, { type: 'illustration' }],
+      of: [{ type: 'tableBlock' }, { type: 'illustration' }, { type: 'emptyCell' }],
     },
   ],
   preview: {
