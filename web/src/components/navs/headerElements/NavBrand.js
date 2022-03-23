@@ -2,7 +2,7 @@ import React from 'react';
 import { Box } from '@material-ui/core';
 import { Link } from 'gatsby-theme-material-ui';
 
-function NavBrand({ url, brandGroup }) {
+function NavBrand({ url, brandGroup, alt }) {
   return (
     <>
       {brandGroup.map((group) => {
@@ -14,7 +14,7 @@ function NavBrand({ url, brandGroup }) {
             return (
               <Box display={{ xs: 'none', lg: 'block', xl: 'block' }} key={_key} role="none">
                 <Link to={`/${url}`} role="menuitem">
-                  <img src={brand.logo.asset.url} alt={brand.logo.alt} height={height} />
+                  <img src={brand.logo.asset.url} alt={alt} height={height} />
                 </Link>
               </Box>
             );
@@ -26,7 +26,7 @@ function NavBrand({ url, brandGroup }) {
                 role="none"
               >
                 <Link to={`/${url}`} role="menuitem">
-                  <img src={brand.logo.asset.url} alt={brand.logo.alt} height={height} />
+                  <img src={brand.logo.asset.url} alt={alt} height={height} />
                 </Link>
               </Box>
             );
@@ -38,7 +38,7 @@ function NavBrand({ url, brandGroup }) {
                 role="none"
               >
                 <Link to={`/${url}`} role="menuitem">
-                  <img src={brand.logo.asset.url} alt={brand.logo.alt} height={height} />
+                  <img src={brand.logo.asset.url} alt={alt} height={height} />
                 </Link>
               </Box>
             );

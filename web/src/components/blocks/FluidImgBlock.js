@@ -31,7 +31,8 @@ function FluidImgBlock({ image, alt, loading, maxHeight, maxWidth, caption }) {
       <Box width={`${minMaxWidth}px`}>
         <GatsbyImage
           image={imageData}
-          alt={alt}
+          // eslint-disable-next-line no-unneeded-ternary
+          alt={alt ? alt : ''}
           loading={loadingSetting}
           objectFit="contain"
           style={{

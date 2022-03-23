@@ -19,6 +19,11 @@ export default {
       to: [{ type: 'page' }],
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
+    {
+      name: 'alt',
+      title: 'Alt for Brand Image',
+      type: 'string',
+    },
   ],
   preview: {
     select: {
