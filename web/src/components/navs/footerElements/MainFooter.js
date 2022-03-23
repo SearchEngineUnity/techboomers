@@ -105,6 +105,7 @@ export default function Footer(props) {
                 ... on SanityNavBrand {
                   _key
                   _type
+                  alt
                   brandGroup {
                     _key
                     height
@@ -115,7 +116,6 @@ export default function Footer(props) {
                         asset {
                           url
                         }
-                        alt
                       }
                     }
                   }

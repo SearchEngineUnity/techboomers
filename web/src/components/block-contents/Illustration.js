@@ -39,7 +39,8 @@ function Illustration({ illustration, zeroMy, zeroMx }) {
             display: 'block',
           }}
           image={fluidProps}
-          alt={illustration.alt}
+          // eslint-disable-next-line no-unneeded-ternary
+          alt={illustration.alt ? illustration.alt : ''}
           objectFit="contain"
         />
         {illustration.caption && (

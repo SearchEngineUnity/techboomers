@@ -133,6 +133,7 @@ export default function MainNavigation(props) {
                 ... on SanityNavBrand {
                   _key
                   _type
+                  alt
                   brandGroup {
                     _key
                     height
@@ -143,7 +144,6 @@ export default function MainNavigation(props) {
                         asset {
                           url
                         }
-                        alt
                       }
                     }
                   }
