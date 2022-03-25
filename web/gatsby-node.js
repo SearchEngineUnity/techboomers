@@ -29,21 +29,21 @@ async function createStructuredPages(actions, graphql) {
 }
 
 // create all listing pages
-async function createListingPages(actions, graphql) {
+async function createFlexListingPages(actions, graphql) {
   const { data } = await graphql(`
     {
-      allSanityListingPage {
+      allSanityFlexListingPage {
         edges {
           node {
             slug {
               current
             }
             sections {
-              ... on SanityListingSection {
+              ... on SanityPaginatedListingSection {
                 _key
                 _type
                 count
-                listType
+                listItemType
               }
             }
           }
@@ -55,16 +55,17 @@ async function createListingPages(actions, graphql) {
     }
   `);
 
-  const pages = data.allSanityListingPage.edges;
+  const pages = data.allSanityFlexListingPage.edges;
   pages.forEach((page) => {
-    const { listType } = page.node.sections.filter(
-      (section) => section._type === 'listingSection',
+    const { listItemType } = page.node.sections.filter(
+      (section) => section._type === 'paginatedListingSection',
     )[0];
-    const numPerPage = page.node.sections.filter((section) => section._type === 'listingSection')[0]
-      .count;
+    const numPerPage = page.node.sections.filter(
+      (section) => section._type === 'paginatedListingSection',
+    )[0].count;
     let totalCount;
-    switch (listType) {
-      case 'SPG':
+    switch (listItemType) {
+      case 'Solo Guide Page':
         totalCount = data.allSanitySoloGuidePage.totalCount;
         break;
 
@@ -75,9 +76,9 @@ async function createListingPages(actions, graphql) {
     Array.from({ length: numPages }).forEach((_, i) => {
       actions.createPage({
         path: i === 0 ? `/${page.node.slug.current}` : `${page.node.slug.current}/${i + 1}`,
-        component: path.resolve(`./src/templates/listingPage.js`),
+        component: path.resolve(`./src/templates/flexListingPage.js`),
         context: {
-          listType,
+          listItemType,
           limit: numPerPage,
           skip: i * numPerPage,
           numPages,
@@ -150,7 +151,7 @@ async function createPageRedirects(actions, graphql) {
 
 exports.createPages = async ({ actions, graphql }) => {
   await createStructuredPages(actions, graphql);
-  await createListingPages(actions, graphql);
+  await createFlexListingPages(actions, graphql);
   await createSoloGuidePages(actions, graphql);
   await createPageRedirects(actions, graphql);
 };

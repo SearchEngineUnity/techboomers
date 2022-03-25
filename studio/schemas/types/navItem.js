@@ -22,7 +22,7 @@ export default {
     {
       name: 'nav',
       type: 'reference',
-      to: [{ type: 'page' }, { type: 'listingPage' }, { type: 'soloGuidePage' }],
+      to: [{ type: 'page' }, { type: 'flexListingPage' }, { type: 'soloGuidePage' }],
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {

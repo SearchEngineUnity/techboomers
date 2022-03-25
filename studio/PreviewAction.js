@@ -19,7 +19,7 @@ export function PreviewAction(props) {
     }
   }
 
-  if ((type === 'page' || type === 'soloGuidePage' || type === 'listingPage') && slug) {
+  if ((type === 'page' || type === 'soloGuidePage' || type === 'flexListingPage') && slug) {
     return {
       label: 'Preview',
       icon: VscPreview,

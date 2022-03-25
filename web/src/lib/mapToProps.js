@@ -214,17 +214,17 @@ export function mapStackFlexToProps({
   };
 }
 
-export function mapListingSectionToProps({
+export function mapPaginatedListingSectionToProps({
   _rawFooter,
   headerAlignment,
   footerAlignment,
   layout = '1/1/1',
   colorSettings,
   header,
-  idTag,
+  hashID,
 }) {
   return {
-    idTag,
+    idTag: hashID,
     heading: header?.heading,
     subtitle: header?._rawSubtitle,
     footer: _rawFooter,

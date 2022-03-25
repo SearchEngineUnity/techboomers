@@ -59,7 +59,7 @@ export const query = graphql`
   }
 `;
 
-const SPGuide = ({ data, location }) => {
+const SoloGuidePage = ({ data, location }) => {
   const type = 'guide';
 
   return (
@@ -86,4 +86,4 @@ const SPGuide = ({ data, location }) => {
   );
 };
 
-export default SPGuide;
+export default SoloGuidePage;
