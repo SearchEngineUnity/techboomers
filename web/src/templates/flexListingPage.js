@@ -5,7 +5,7 @@ import Seo from '../components/Seo';
 import LrHero from '../components/sections/LrFlexHero';
 import LrFlex from '../components/sections/StructuredLrFlex';
 import StackFlex from '../components/sections/StackFlex';
-import ListingSection from '../components/sections/ListingSection';
+import PaginatedListingSection from '../components/sections/PaginatedListingSection';
 import ListingSectionH1 from '../components/sections/ListingSectionH1';
 import { useSpGuides } from '../hooks/useSpGuides';
 import {
@@ -13,13 +13,13 @@ import {
   mapSeoToProps,
   mapLrFlexToProps,
   mapStackFlexToProps,
-  mapListingSectionToProps,
+  mapPaginatedListingSectionToProps,
 } from '../lib/mapToProps';
 
 // eslint-disable-next-line import/prefer-default-export
 export const query = graphql`
   query ListPageTemplate($slug: String) {
-    page: sanityListingPage(slug: { current: { eq: $slug } }) {
+    page: sanityFlexListingPage(slug: { current: { eq: $slug } }) {
       slug {
         current
       }
@@ -61,7 +61,7 @@ export const query = graphql`
                     hashId
                     parameter
                     reference {
-                      ... on SanityListingPage {
+                      ... on SanityFlexListingPage {
                         id
                         slug {
                           current
@@ -125,7 +125,7 @@ export const query = graphql`
                   hashId
                   parameter
                   reference {
-                    ... on SanityListingPage {
+                    ... on SanityFlexListingPage {
                       id
                       slug {
                         current
@@ -321,7 +321,7 @@ export const query = graphql`
                     hashId
                     parameter
                     reference {
-                      ... on SanityListingPage {
+                      ... on SanityFlexListingPage {
                         id
                         slug {
                           current
@@ -411,7 +411,7 @@ export const query = graphql`
                   hashId
                   parameter
                   reference {
-                    ... on SanityListingPage {
+                    ... on SanityFlexListingPage {
                       id
                       slug {
                         current
@@ -578,7 +578,7 @@ export const query = graphql`
                     hashId
                     parameter
                     reference {
-                      ... on SanityListingPage {
+                      ... on SanityFlexListingPage {
                         id
                         slug {
                           current
@@ -641,7 +641,7 @@ export const query = graphql`
                   hashId
                   parameter
                   reference {
-                    ... on SanityListingPage {
+                    ... on SanityFlexListingPage {
                       id
                       slug {
                         current
@@ -790,10 +790,10 @@ export const query = graphql`
             _rawSubtitle(resolveReferences: { maxDepth: 10 })
           }
         }
-        ... on SanityListingSection {
+        ... on SanityPaginatedListingSection {
           _key
           _type
-          listType
+          listItemType
           _rawFooter(resolveReferences: { maxDepth: 10 })
           count
           footerAlignment
@@ -802,7 +802,7 @@ export const query = graphql`
             heading
           }
           headerAlignment
-          idTag
+          hashID
           colorSettings {
             background {
               color {
@@ -883,8 +883,8 @@ const StructuredPage = ({ data, location, pageContext }) => {
   let allListItems;
   const spGuides = useSpGuides();
 
-  switch (pageContext.listType) {
-    case 'SPG':
+  switch (pageContext.listItemType) {
+    case 'Solo Guide Page':
       allListItems = spGuides;
       break;
 
@@ -916,18 +916,18 @@ const StructuredPage = ({ data, location, pageContext }) => {
             case 'stackFlex':
               return <StackFlex key={section._key} {...mapStackFlexToProps(section)} />;
 
-            case 'listingSection':
+            case 'paginatedListingSection':
               return currentpage === 1 ? (
-                <ListingSection
+                <PaginatedListingSection
                   key={section._key}
-                  {...mapListingSectionToProps(section)}
+                  {...mapPaginatedListingSectionToProps(section)}
                   {...pageContext}
                   listingItems={listingItems}
                 />
               ) : (
                 <ListingSectionH1
                   key={section._key}
-                  {...mapListingSectionToProps(section)}
+                  {...mapPaginatedListingSectionToProps(section)}
                   {...pageContext}
                   listingItems={listingItems}
                 />

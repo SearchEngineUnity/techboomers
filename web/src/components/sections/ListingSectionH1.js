@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ListingSectionH1({
+function PaginatedListingSectionH1({
   idTag,
   heading,
   subtitle,
@@ -97,4 +97,4 @@ function ListingSectionH1({
   );
 }
 
-export default ListingSectionH1;
+export default PaginatedListingSectionH1;

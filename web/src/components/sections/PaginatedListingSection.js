@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ListingSection({
+function PaginatedListingSection({
   idTag,
   heading,
   subtitle,
@@ -101,4 +101,4 @@ function ListingSection({
   );
 }
 
-export default ListingSection;
+export default PaginatedListingSection;

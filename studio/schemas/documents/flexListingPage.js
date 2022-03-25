@@ -2,9 +2,9 @@ import { MdWeb } from 'react-icons/md';
 import * as sections from '../sections';
 
 export default {
-  name: 'listingPage',
+  name: 'flexListingPage',
   type: 'document',
-  title: 'Listing Page',
+  title: 'Flex Listing Page',
   icon: MdWeb,
   fieldsets: [
     {
@@ -76,34 +76,10 @@ export default {
       validation: (Rule) => [Rule.required().error('Field is required.')],
     },
     {
-      name: 'fbShareMetaPack',
-      title: 'Facebook Open Graph Meta Pack',
-      type: 'fbShareMetaPack',
-      fieldset: 'social',
-    },
-    {
-      name: 'twitterShareMetaPack',
-      title: 'Twitter Open Graph Meta Pack',
-      type: 'twitterShareMetaPack',
-      fieldset: 'social',
-    },
-    {
-      name: 'sections',
-      type: 'array',
-      fieldset: 'sections',
-      title: 'Sections',
-      of: [
-        ...Object.values(sections).map(({ name, title }) => ({
-          type: name,
-          title,
-        })),
-      ],
-    },
-    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      description: 'This page URL will show as domain.com/slug',
+      description: 'Please add the full path after domain.com/ as slug.',
       fieldset: 'indexing',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
@@ -129,6 +105,30 @@ export default {
       type: 'url',
       fieldset: 'indexing',
       description: 'Fill in to replace default self canonical URL.',
+    },
+    {
+      name: 'fbShareMetaPack',
+      title: 'Facebook Open Graph Meta Pack',
+      type: 'fbShareMetaPack',
+      fieldset: 'social',
+    },
+    {
+      name: 'twitterShareMetaPack',
+      title: 'Twitter Open Graph Meta Pack',
+      type: 'twitterShareMetaPack',
+      fieldset: 'social',
+    },
+    {
+      name: 'sections',
+      type: 'array',
+      fieldset: 'sections',
+      title: 'Sections',
+      of: [
+        ...Object.values(sections).map(({ name, title }) => ({
+          type: name,
+          title,
+        })),
+      ],
     },
   ],
   preview: {

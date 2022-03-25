@@ -94,7 +94,7 @@ export default {
       title: 'Sections',
       of: [
         ...Object.values(sections)
-          .filter((section) => section.name !== 'listingSection')
+          .filter((section) => section.name !== 'paginatedListingSection')
           .map(({ name, title }) => ({
             type: name,
             title,

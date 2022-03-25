@@ -57,7 +57,7 @@ export const query = graphql`
                     hashId
                     parameter
                     reference {
-                      ... on SanityListingPage {
+                      ... on SanityFlexListingPage {
                         id
                         slug {
                           current
@@ -121,7 +121,7 @@ export const query = graphql`
                   hashId
                   parameter
                   reference {
-                    ... on SanityListingPage {
+                    ... on SanityFlexListingPage {
                       id
                       slug {
                         current
@@ -308,7 +308,7 @@ export const query = graphql`
                     hashId
                     parameter
                     reference {
-                      ... on SanityListingPage {
+                      ... on SanityFlexListingPage {
                         id
                         slug {
                           current
@@ -398,7 +398,7 @@ export const query = graphql`
                   hashId
                   parameter
                   reference {
-                    ... on SanityListingPage {
+                    ... on SanityFlexListingPage {
                       id
                       slug {
                         current
@@ -556,7 +556,7 @@ export const query = graphql`
                     hashId
                     parameter
                     reference {
-                      ... on SanityListingPage {
+                      ... on SanityFlexListingPage {
                         id
                         slug {
                           current
@@ -619,7 +619,7 @@ export const query = graphql`
                   hashId
                   parameter
                   reference {
-                    ... on SanityListingPage {
+                    ... on SanityFlexListingPage {
                       id
                       slug {
                         current

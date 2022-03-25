@@ -24,7 +24,7 @@ export default () =>
               S.documentTypeListItem('navMenu').title('Navigation Menus'),
               S.divider(),
               S.documentTypeListItem('page').title('Structured Pages'),
-              S.documentTypeListItem('listingPage').title('Listing Pages'),
+              S.documentTypeListItem('flexListingPage').title('Flex Listing Pages'),
               S.documentTypeListItem('soloGuidePage').title('Solo Guide Pages'),
               S.divider(),
               S.documentTypeListItem('redirect').title('Redirects'),

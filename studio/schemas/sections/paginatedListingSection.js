@@ -1,8 +1,8 @@
 import { ImBooks } from 'react-icons/im';
 
 export default {
-  name: 'listingSection',
-  title: 'Listing Section',
+  name: 'paginatedListingSection',
+  title: 'Paginated Listing Section',
   type: 'object',
   icon: ImBooks,
   fieldsets: [
@@ -17,20 +17,28 @@ export default {
   ],
   fields: [
     {
-      name: 'idTag',
-      title: 'ID',
+      name: 'seuID',
+      title: 'seuID',
       type: 'string',
-      description: 'Please only use alphanumeric characters and hypen',
-      validation: (Rule) => [Rule.required().error('Field is required')],
+      validation: (Rule) => [
+        Rule.required().error('Field is required'),
+        // add a custom rule for isUnique
+      ],
     },
     {
-      name: 'listType',
-      title: 'List Type',
+      name: 'hashID',
+      title: 'Hash ID',
+      type: 'string',
+      description: 'Please only use alphanumeric characters and hypen',
+    },
+    {
+      name: 'listItemType',
+      title: 'List Item Type',
       type: 'string',
       options: {
-        list: ['SPG', 'MCG'],
+        list: ['Solo Guide Page'],
       },
-      initialValue: 'SPG',
+      initialValue: 'Solo Guide Page',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
@@ -94,7 +102,7 @@ export default {
   preview: {
     select: {
       subtitle: '_type',
-      id: 'idTag',
+      id: 'seuID',
     },
     prepare({ id, subtitle }) {
       return {
