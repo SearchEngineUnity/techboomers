@@ -25,6 +25,15 @@ export function PreviewAction(props) {
       icon: VscPreview,
       onHandle: () => {
         // Here you can perform your actions
+        fetch(
+          'https://webhook.gatsbyjs.com/hooks/data_source/03343b3c-af8d-4746-a499-0d3407542e4b',
+          {
+            method: 'POST',
+          },
+        ).then((res) => {
+          console.log('Request complete! response:', res);
+        });
+        // https://webhook.gatsbyjs.com/hooks/data_source/03343b3c-af8d-4746-a499-0d3407542e4b
         window.open(`${PREVIEW_URL}/${slug}`, '_blank');
       },
     };
