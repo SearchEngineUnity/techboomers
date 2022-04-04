@@ -261,14 +261,16 @@ function FormNetlify({ align, title, form, style }) {
               case 'checkbox':
                 return (
                   <FormControl
-                    component="fieldset"
+                    component={input.options.length > 1 ? 'fieldset' : 'div'}
                     fullWidth
                     key={_key}
                     className={classes.control}
                     error={!!errorMsgs[input.id]}
                     id={input.id}
                   >
-                    <FormLabel component="legend">{input.label}</FormLabel>
+                    <FormLabel component={input.options.length > 1 ? 'legend' : 'label'}>
+                      {input.label}
+                    </FormLabel>
                     <FormGroup>
                       {input.options.map((option) => {
                         const key = option.value;
@@ -283,6 +285,7 @@ function FormNetlify({ align, title, form, style }) {
                                 checked={isChecked}
                                 onChange={handleCheckboxChange}
                                 value={isChecked.toString()}
+                                inputProps={{ 'aria-label': option.label }}
                               />
                             }
                             label={option.label}
@@ -316,7 +319,7 @@ function FormNetlify({ align, title, form, style }) {
                         <FormControlLabel
                           key={option._key}
                           value={option.value}
-                          control={<Radio />}
+                          control={<Radio inputProps={{ 'aria-label': option.label }} />}
                           label={option.label}
                         />
                       ))}
@@ -329,13 +332,8 @@ function FormNetlify({ align, title, form, style }) {
                 );
               case 'select':
                 return (
-                  <FormControl
-                    component="fieldset"
-                    fullWidth
-                    key={_key}
-                    error={!!errorMsgs[input.id]}
-                  >
-                    <FormLabel component="legend">{input.label}</FormLabel>
+                  <FormControl fullWidth key={_key} error={!!errorMsgs[input.id]}>
+                    <FormLabel htmlFor={input.id}>{input.label}</FormLabel>
                     <Select
                       native
                       error={!!errorMsgs[input.id]}
@@ -363,15 +361,11 @@ function FormNetlify({ align, title, form, style }) {
                 );
               case 'textarea':
                 return (
-                  <FormControl
-                    component="fieldset"
-                    fullWidth
-                    key={_key}
-                    error={!!errorMsgs[input.id]}
-                  >
-                    <FormLabel component="legend">{input.label}</FormLabel>
+                  <FormControl fullWidth key={_key} error={!!errorMsgs[input.id]}>
+                    <FormLabel htmlFor={input.id}>{input.label}</FormLabel>
                     <TextField
                       id={input.id}
+                      aria-describedby={`${input.id}-helper-text`}
                       error={!!errorMsgs[input.id]}
                       onChange={handleChange}
                       name={input.id}
@@ -382,7 +376,7 @@ function FormNetlify({ align, title, form, style }) {
                       placeholder={input.placeholderText}
                       onBlur={(e) => fieldValidation(e.currentTarget)}
                     />
-                    <FormHelperText error={!!errorMsgs[input.id]}>
+                    <FormHelperText error={!!errorMsgs[input.id]} id={`${input.id}-helper-text`}>
                       {errorMsgs[input.id] ? errorMsgs[input.id] : input.helperText}
                     </FormHelperText>
                     <br />
@@ -390,16 +384,12 @@ function FormNetlify({ align, title, form, style }) {
                 );
               case 'textInput':
                 return (
-                  <FormControl
-                    component="fieldset"
-                    fullWidth
-                    key={_key}
-                    error={!!errorMsgs[input.id]}
-                  >
-                    <FormLabel component="legend">{input.label}</FormLabel>
+                  <FormControl fullWidth key={_key} error={!!errorMsgs[input.id]}>
+                    <FormLabel htmlFor={input.id}>{input.label}</FormLabel>
                     <TextField
                       error={!!errorMsgs[input.id]}
                       id={input.id}
+                      aria-describedby={`${input.id}-helper-text`}
                       onChange={handleChange}
                       name={input.id}
                       required={input.required}
@@ -409,7 +399,7 @@ function FormNetlify({ align, title, form, style }) {
                       fullWidth
                       onBlur={(e) => fieldValidation(e.currentTarget)}
                     />
-                    <FormHelperText error={!!errorMsgs[input.id]}>
+                    <FormHelperText error={!!errorMsgs[input.id]} id={`${input.id}-helper-text`}>
                       {errorMsgs[input.id] ? errorMsgs[input.id] : input.helperText}
                     </FormHelperText>
                     <br />
