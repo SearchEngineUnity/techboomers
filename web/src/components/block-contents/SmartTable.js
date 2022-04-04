@@ -48,7 +48,7 @@ function SmartTable({ smartTable }) {
   return (
     <Box mx="40px" my={2}>
       <TableContainer component={Paper} className={classes.root}>
-        <Table className={classes.table} size="small" aria-label={title}>
+        <Table className={classes.table} size="small" aria-label={title} role="table">
           {colgroup && (
             <colgroup>
               {colgroup.map((col, index) =>
@@ -65,12 +65,12 @@ function SmartTable({ smartTable }) {
               <TableRow key={thead._key}>
                 {thead.cells.map((cell, index) => {
                   if (cell._type === 'emptyCell') {
-                    return <td key={`${thead._key}-${index}`} />;
+                    return <td key={`${thead._key}-${index}`} role="cell" />;
                   }
                   if (cell._type === 'tableBlock') {
                     return (
                       // eslint-disable-next-line
-                  <TableCell key={`${thead._key}-${index}`} style={{overflow: 'hidden'}}>
+                  <TableCell key={`${thead._key}-${index}`} style={{overflow: 'hidden'}} scope="col" role="columnheader">
                         <TableContent blocks={cell.copy} />
                       </TableCell>
                     );
@@ -78,7 +78,7 @@ function SmartTable({ smartTable }) {
                   if (cell._type === 'illustration') {
                     return (
                       // eslint-disable-next-line
-                  <TableCell key={`${thead._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }} >
+                  <TableCell key={`${thead._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }} scope="col" role="columnheader">
                         <Illustration illustration={cell} table />
                       </TableCell>
                     );
@@ -96,7 +96,7 @@ function SmartTable({ smartTable }) {
                     if (cell._type === 'tableBlock') {
                       return (
                         // eslint-disable-next-line
-                      <TableCell className="MuiTableCell-head" component="th" role={undefined} key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }}>
+                      <TableCell className="MuiTableCell-head" component="th" key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }} scope="row" role="rowheader">
                           <TableContent blocks={cell.copy} />
                         </TableCell>
                       );
@@ -104,7 +104,7 @@ function SmartTable({ smartTable }) {
                     if (cell._type === 'illustration') {
                       return (
                         // eslint-disable-next-line
-                      <TableCell component="th" role={undefined} key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }}>
+                      <TableCell component="th" key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }} scope="row" role="rowheader">
                           <Illustration illustration={cell} />
                         </TableCell>
                       );
@@ -114,7 +114,7 @@ function SmartTable({ smartTable }) {
                   if (cell._type === 'tableBlock') {
                     return (
                       // eslint-disable-next-line
-                    <TableCell key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }}>
+                    <TableCell key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }} role="cell">
                         <TableContent blocks={cell.copy} />
                       </TableCell>
                     );
@@ -122,7 +122,7 @@ function SmartTable({ smartTable }) {
                   if (cell._type === 'illustration') {
                     return (
                       // eslint-disable-next-line
-                    <TableCell key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }}>
+                    <TableCell key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }} role="cell">
                         <Illustration illustration={cell} table />
                       </TableCell>
                     );
