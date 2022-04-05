@@ -16,51 +16,84 @@ import { ExpandLess, ExpandMore } from '@material-ui/icons';
 import { navigate } from 'gatsby';
 
 const NavGroup = ({ title, group, location, position }) => {
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [open, setOpen] = React.useState(false);
+  const anchorRef = React.useRef(null);
 
-  const handleOnClick = (event) => {
-    setAnchorEl(anchorEl ? null : event.currentTarget);
+  const handleToggle = () => {
+    setOpen((prevOpen) => !prevOpen);
   };
 
-  const handleClickAway = () => {
-    setAnchorEl(null);
+  const handleClose = (event) => {
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return;
+    }
+
+    setOpen(false);
   };
 
   const handleNavigate = (nav) => {
     navigate(`/${nav.slug.current}`);
   };
 
-  const open = Boolean(anchorEl);
-  const id = open ? title.replace(' ', '-') : undefined;
+  function handleListKeyDown(event) {
+    if (event.key === 'Tab' || event.key === 'Escape') {
+      event.preventDefault();
+      setOpen(false);
+    }
+  }
+
+  // return focus to the button when we transitioned from !open -> open
+  const prevOpen = React.useRef(open);
+  React.useEffect(() => {
+    if (prevOpen.current === true && open === false) {
+      anchorRef.current.focus();
+    }
+
+    prevOpen.current = open;
+  }, [open]);
 
   return (
-    <ClickAwayListener onClickAway={handleClickAway}>
-      <div role="none">
-        <Link
-          component="button"
-          color="primary"
-          onClick={(e) => handleOnClick(e)}
-          aria-describedby={id}
-          type="button"
-          style={{ lineHeight: '56px' }}
-          role="menuitem"
-          aria-expanded={open}
-          aria-haspopup="true"
-        >
-          <Box fontSize="h4.fontSize">
-            {title}
-            {open ? (
-              <ExpandLess style={{ verticalAlign: 'middle' }} />
-            ) : (
-              <ExpandMore style={{ verticalAlign: 'middle' }} />
-            )}
-          </Box>
-        </Link>
-        <Popper id={id} open={open} anchorEl={anchorEl} placement={position}>
-          <Paper role="none">
-            <MenuList autoFocusItem={open}>
+    <div role="none">
+      <Link
+        ref={anchorRef}
+        component="button"
+        color="primary"
+        onClick={handleToggle}
+        type="button"
+        style={{ lineHeight: '56px' }}
+        role="menuitem"
+        aria-controls={open ? title.replace(' ', '-') : undefined}
+        aria-expanded={open}
+        aria-haspopup="true"
+      >
+        <Box fontSize="h4.fontSize">
+          {title}
+          {open ? (
+            <ExpandLess style={{ verticalAlign: 'middle' }} />
+          ) : (
+            <ExpandMore style={{ verticalAlign: 'middle' }} />
+          )}
+        </Box>
+      </Link>
+      <Popper
+        open={open}
+        anchorEl={anchorRef.current}
+        placement={position}
+        role={undefined}
+        disablePortal
+      >
+        <Paper role="none">
+          <ClickAwayListener onClickAway={handleClose}>
+            <MenuList
+              role="menu"
+              autoFocusItem={open}
+              id={title.replace(' ', '-')}
+              // eslint-disable-next-line react/jsx-no-bind
+              onKeyDown={handleListKeyDown}
+            >
               {group.map(({ icon, title: itemTitle, nav, _key }) => (
                 <MenuItem
+                  role="menuitem"
                   onClick={() => handleNavigate(nav)}
                   key={_key}
                   selected={`/${nav.slug.current}` === location.pathname}
@@ -74,10 +107,10 @@ const NavGroup = ({ title, group, location, position }) => {
                 </MenuItem>
               ))}
             </MenuList>
-          </Paper>
-        </Popper>
-      </div>
-    </ClickAwayListener>
+          </ClickAwayListener>
+        </Paper>
+      </Popper>
+    </div>
   );
 };
 

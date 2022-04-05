@@ -23,7 +23,7 @@ const MainNav = ({ data, location }) => {
     <>
       {data.sanityNavMenu && (
         <AppBar position="static" classes={{ colorDefault: classes.appBar }} color="default">
-          <Container maxWidth="lg" component="nav" aria-label="main navigation header" role="menu">
+          <Container maxWidth="lg" component="nav" aria-label="main navigation header">
             {data.sanityNavMenu.menuArray.map((menu, menuIndex) => {
               const { menuGroup, _key } = menu;
 

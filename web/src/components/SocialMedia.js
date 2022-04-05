@@ -34,6 +34,7 @@ const SocialMedia = ({ data }) => {
             to={social.node.link}
             target="_blank"
             key={social.node.social}
+            aria-label={`${social.node.social}`}
           >
             {iconSelector(social.node.social)}
           </IconButton>
