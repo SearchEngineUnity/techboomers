@@ -71,8 +71,8 @@ function MainNavHamburger({ topMenu, bottomMenu }) {
         TransitionComponent={Transition}
         PaperProps={{ className: classes.list }}
       >
-        <AppBar className={classes.appBar}>
-          <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <AppBar className={classes.appBar} component="nav">
+          <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }} role="menubar">
             {topMenu.map((group) => {
               const { _type, _key: groupKey } = group;
               const mobileBrand =
@@ -126,7 +126,7 @@ function MainNavHamburger({ topMenu, bottomMenu }) {
             </IconButton>
           </Toolbar>
         </AppBar>
-        <List className={classes.list}>
+        <List className={classes.list} role="menu">
           {bottomMenu.map((group, index) => {
             const { _type, title, nav: groupNav, _key } = group;
             switch (_type) {
