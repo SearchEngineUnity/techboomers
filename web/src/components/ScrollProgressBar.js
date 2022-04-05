@@ -52,6 +52,7 @@ export default function ScrollPRogressBar() {
 
   return (
     <LinearProgress
+      aria-label="scroll depth indicator"
       variant="determinate"
       value={progress}
       color="secondary"
