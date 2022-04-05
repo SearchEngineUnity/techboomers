@@ -31,7 +31,7 @@ const MainFooter = ({ data }) => {
     <>
       {data.sanityNavMenu && (
         <Box component="footer" color="common.white" bgcolor="common.black" fontSize={14} pt={2}>
-          <Container maxWidth="lg">
+          <Container maxWidth="lg" component="nav" role="menubar">
             <Grid container spacing={3}>
               {menuArray.map((group) => (
                 <React.Fragment key={group._key}>
@@ -73,13 +73,15 @@ const MainFooter = ({ data }) => {
               ))}
             </Grid>
           </Container>
-          <Divider className={classes.divider} />
-          <Container maxWidth="lg">
-            <Toolbar disableGutters>
+          <Divider className={classes.divider} role="none" />
+          <Container maxWidth="lg" role="none">
+            <Toolbar disableGutters role="menubar">
               <Box component="p" mr={2}>
                 &#0169; Copyright {new Date().getFullYear()} {contactInfo.name}
               </Box>
-              <Link to="https://google.com">Privacy Policy</Link>
+              <Link to="https://google.com" role="menuitem">
+                Privacy Policy
+              </Link>
               <Hidden smDown>
                 <div className={classes.grow} />
                 <SocialMedia />
