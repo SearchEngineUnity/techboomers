@@ -5,6 +5,7 @@ export {
   tableBlockContent,
   tablePlus,
   emptyCell,
+  splitCell,
 } from './smartTable';
 export { default as basicTable } from './basicTable';
 export { default as highlightBox } from './highlightBox';
