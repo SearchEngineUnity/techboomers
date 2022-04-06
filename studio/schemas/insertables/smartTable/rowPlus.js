@@ -5,7 +5,12 @@ export default {
     {
       name: 'cells',
       type: 'array',
-      of: [{ type: 'tableBlock' }, { type: 'illustration' }, { type: 'emptyCell' }],
+      of: [
+        { type: 'tableBlock' },
+        { type: 'illustration' },
+        { type: 'emptyCell' },
+        { type: 'splitCell' },
+      ],
     },
   ],
   preview: {
