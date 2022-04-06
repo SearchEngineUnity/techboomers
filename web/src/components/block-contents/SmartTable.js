@@ -31,6 +31,23 @@ const useStyles = makeStyles((theme) => ({
   row: {
     verticalAlign: 'top',
   },
+  crossed: {
+    background:
+      'linear-gradient(to top right, rgba(0,0,0,0) 0%, rgba(0,0,0,0) calc(50% - 1px), rgba(224, 224, 224, 1) 50%, rgba(0,0,0,0) calc(50% + 1px), rgba(0,0,0,0) 100%);',
+  },
+  split: {
+    postion: 'relative',
+    height: '100%',
+    width: '100%',
+    top: 0,
+    left: 0,
+  },
+  splitRight: {
+    float: 'right',
+  },
+  noWrap: {
+    whiteSpace: 'nowrap',
+  },
 }));
 
 function SmartTable({ smartTable }) {
@@ -66,6 +83,25 @@ function SmartTable({ smartTable }) {
                 {thead.cells.map((cell, index) => {
                   if (cell._type === 'emptyCell') {
                     return <td key={`${thead._key}-${index}`} role="cell" />;
+                  }
+                  if (cell._type === 'splitCell') {
+                    return (
+                      <TableCell
+                        key={`${thead._key}-${index}`}
+                        style={{ overflow: 'hidden' }}
+                        scope="col"
+                        role="columnheader"
+                        className={classes.crossed}
+                      >
+                        <div className={classes.split}>
+                          <div className={`${classes.splitRight} ${classes.noWrap}`}>
+                            {cell.splitColHead}
+                          </div>
+                          <br />
+                          <div className={classes.noWrap}>{cell.splitRowHead}</div>
+                        </div>
+                      </TableCell>
+                    );
                   }
                   if (cell._type === 'tableBlock') {
                     return (
