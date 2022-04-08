@@ -1,3 +1,4 @@
+import React from 'react';
 import { FiLink2 } from 'react-icons/fi';
 
 export default {
@@ -16,8 +17,19 @@ export default {
       name: 'icon',
       Title: 'Icon',
       type: 'string',
-      description:
-        'Visit https://fonts.google.com/icons?selected=Material+Icons to search for an icon.',
+      description: (
+        <>
+          Search{' '}
+          <a
+            href="https://fonts.google.com/icons?selected=Material+Icons"
+            target="_blank"
+            rel="noreferrer"
+          >
+            here
+          </a>{' '}
+          for an icon.
+        </>
+      ),
     },
     {
       name: 'nav',

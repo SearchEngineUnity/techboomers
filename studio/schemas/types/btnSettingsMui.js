@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default {
   name: 'btnSettingsMui',
   title: 'Button Settings MUI',
@@ -23,7 +25,18 @@ export default {
       name: 'padding',
       title: 'Button padding',
       type: 'string',
-      description: `Accept string as per padding CSS variable. See https://developer.mozilla.org/en-US/docs/Web/CSS/padding.`,
+      description: (
+        <>
+          Accept string as per padding CSS variable.{' '}
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Resource link
+          </a>
+        </>
+      ),
       initialValue: '0px',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
@@ -31,7 +44,18 @@ export default {
       name: 'borderRadius',
       title: 'Button border radius',
       type: 'string',
-      description: `Accept string as per border-radius CSS variable. See https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius.`,
+      description: (
+        <>
+          Accept string as per border-radius CSS variable.{' '}
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Resource link
+          </a>
+        </>
+      ),
       initialValue: '4px',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
