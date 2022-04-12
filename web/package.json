@@ -30,7 +30,7 @@
     "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
     "gatsby": "^3.14.0",
-    "gatsby-plugin-gatsby-cloud": "^4.6.0",
+    "gatsby-plugin-gatsby-cloud": "^4.11.1",
     "gatsby-plugin-google-gtag": "^3.14.0",
     "gatsby-plugin-google-tagmanager": "^3.1.0",
     "gatsby-plugin-html-attributes": "^1.0.5",
