@@ -10,6 +10,7 @@ async function createStructuredPages(actions, graphql) {
             slug {
               current
             }
+            id
           }
         }
       }
@@ -20,6 +21,7 @@ async function createStructuredPages(actions, graphql) {
   pages.forEach((page) => {
     actions.createPage({
       path: page.node.slug.current === '/' ? '/' : `/${page.node.slug.current}`,
+      ownerNodeId: page.node.id,
       component: path.resolve(`./src/templates/structuredPage.js`),
       context: {
         slug: page.node.slug.current,
@@ -35,6 +37,7 @@ async function createFlexListingPages(actions, graphql) {
       allSanityFlexListingPage {
         edges {
           node {
+            id
             slug {
               current
             }
@@ -100,6 +103,7 @@ async function createSoloGuidePages(actions, graphql) {
             slug {
               current
             }
+            id
           }
         }
       }
@@ -110,6 +114,7 @@ async function createSoloGuidePages(actions, graphql) {
   guides.forEach((guide) => {
     actions.createPage({
       path: `/${guide.node.slug.current}`,
+      ownerNodeId: guide.node.id,
       component: path.resolve(`./src/templates/soloGuidePage.js`),
       context: {
         slug: guide.node.slug.current,
