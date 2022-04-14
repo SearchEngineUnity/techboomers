@@ -2,26 +2,40 @@
 // need to set up prview_url based on env veriables...
 import { VscPreview } from 'react-icons/vsc';
 
-export function PreviewAction(props) {
-  const PREVIEW_URL = 'https://preview-sitebuilderv1.gtsb.io'; // update to proper URL
-  const isDraft = !!props.draft; // eslint-disable-line
-  const isPublished = !!props.published; // eslint-disable-line
-  const { type, draft, published } = props;
-  let slug = '';
+const gatsbyPreviewUrl = process.env.SANITY_STUDIO_GATSBY_PREVIEW_URL;
 
-  if (isDraft) {
-    if (draft.slug) {
-      slug = draft.slug.current === '/' ? '/' : draft.slug.current;
-    }
-  } else if (isPublished) {
-    if (published.slug) {
-      slug = published.slug.current === '/' ? '/' : published.slug.current;
-    }
-  }
+export function PreviewAction({ published, draft, type }) {
+  // const isDraft = !!props.draft; // eslint-disable-line
+  // const isPublished = !!props.published; // eslint-disable-line
+  // const { type, draft, published } = props;
+  // let slug = '';
 
-  if ((type === 'page' || type === 'soloGuidePage' || type === 'flexListingPage') && slug) {
+  // if (isDraft) {
+  //   if (draft.slug) {
+  //     slug = draft.slug.current === '/' ? '/' : draft.slug.current;
+  //   }
+  // } else if (isPublished) {
+  //   if (published.slug) {
+  //     slug = published.slug.current === '/' ? '/' : published.slug.current;
+  //   }
+  // }
+
+  if (type === 'page' || type === 'soloGuidePage' || type === 'flexListingPage') {
+    const doc = draft || published;
+
+    let slug;
+
+    if (published) {
+      slug = published.slug.current === '/' ? '' : published.slug.current;
+    } else if (draft) {
+      slug = draft.slug.current === '/' ? '' : draft.slug.current;
+    }
+
+    console.log(type);
+    console.log(slug);
     return {
       label: 'Preview',
+      disabled: !doc,
       icon: VscPreview,
       onHandle: () => {
         // Here you can perform your actions
@@ -29,12 +43,14 @@ export function PreviewAction(props) {
           'https://webhook.gatsbyjs.com/hooks/data_source/03343b3c-af8d-4746-a499-0d3407542e4b',
           {
             method: 'POST',
+            headers: {
+              'x-gatsby-cloud-data-source': 'gatsby-source-sanity',
+            },
           },
         ).then((res) => {
           console.log('Request complete! response:', res);
         });
-        // https://webhook.gatsbyjs.com/hooks/data_source/03343b3c-af8d-4746-a499-0d3407542e4b
-        window.open(`${PREVIEW_URL}/${slug}`, '_blank');
+        window.open(`${gatsbyPreviewUrl}/${slug}`, '_blank');
       },
     };
   }
