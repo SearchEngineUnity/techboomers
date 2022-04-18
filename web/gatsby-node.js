@@ -19,14 +19,16 @@ async function createStructuredPages(actions, graphql) {
 
   const pages = data.allSanityPage.edges;
   pages.forEach((page) => {
-    actions.createPage({
-      path: page.node.slug.current === '/' ? '/' : `/${page.node.slug.current}`,
-      ownerNodeId: page.node.id,
-      component: path.resolve(`./src/templates/structuredPage.js`),
-      context: {
-        slug: page.node.slug.current,
-      },
-    });
+    if (page?.node?.slug?.current) {
+      actions.createPage({
+        path: page.node.slug.current === '/' ? '/' : `/${page.node.slug.current}`,
+        ownerNodeId: page.node.id,
+        component: path.resolve(`./src/templates/structuredPage.js`),
+        context: {
+          slug: page.node.slug.current,
+        },
+      });
+    }
   });
 }
 
@@ -77,18 +79,20 @@ async function createFlexListingPages(actions, graphql) {
     }
     const numPages = Math.ceil(totalCount / numPerPage);
     Array.from({ length: numPages }).forEach((_, i) => {
-      actions.createPage({
-        path: i === 0 ? `/${page.node.slug.current}` : `${page.node.slug.current}/${i + 1}`,
-        component: path.resolve(`./src/templates/flexListingPage.js`),
-        context: {
-          listItemType,
-          limit: numPerPage,
-          skip: i * numPerPage,
-          numPages,
-          currentpage: i + 1,
-          slug: page.node.slug.current,
-        },
-      });
+      if (page?.node?.slug?.current) {
+        actions.createPage({
+          path: i === 0 ? `/${page.node.slug.current}` : `${page.node.slug.current}/${i + 1}`,
+          component: path.resolve(`./src/templates/flexListingPage.js`),
+          context: {
+            listItemType,
+            limit: numPerPage,
+            skip: i * numPerPage,
+            numPages,
+            currentpage: i + 1,
+            slug: page.node.slug.current,
+          },
+        });
+      }
     });
   });
 }
@@ -112,14 +116,16 @@ async function createSoloGuidePages(actions, graphql) {
 
   const guides = data.allSanitySoloGuidePage.edges;
   guides.forEach((guide) => {
-    actions.createPage({
-      path: `/${guide.node.slug.current}`,
-      ownerNodeId: guide.node.id,
-      component: path.resolve(`./src/templates/soloGuidePage.js`),
-      context: {
-        slug: guide.node.slug.current,
-      },
-    });
+    if (guide?.node?.slug?.current) {
+      actions.createPage({
+        path: `/${guide.node.slug.current}`,
+        ownerNodeId: guide.node.id,
+        component: path.resolve(`./src/templates/soloGuidePage.js`),
+        context: {
+          slug: guide.node.slug.current,
+        },
+      });
+    }
   });
 }
 
