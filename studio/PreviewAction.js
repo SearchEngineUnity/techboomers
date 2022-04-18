@@ -25,32 +25,33 @@ export function PreviewAction({ published, draft, type }) {
 
     let slug;
 
-    if (published) {
-      slug = published.slug.current === '/' ? '' : published.slug.current;
-    } else if (draft) {
-      slug = draft.slug.current === '/' ? '' : draft.slug.current;
+    if (published && published.slug) {
+      slug = published.slug.current === '/' ? '/' : `/${published.slug.current}`;
+    } else if (draft && draft.slug) {
+      slug = draft.slug.current === '/' ? '/' : `/${draft.slug.current}`;
     }
 
-    console.log(type);
     console.log(slug);
+    // console.log(draft)
+
     return {
       label: 'Preview',
-      disabled: !doc,
+      disabled: !slug,
       icon: VscPreview,
       onHandle: () => {
         // Here you can perform your actions
-        fetch(
-          'https://webhook.gatsbyjs.com/hooks/data_source/03343b3c-af8d-4746-a499-0d3407542e4b',
-          {
-            method: 'POST',
-            headers: {
-              'x-gatsby-cloud-data-source': 'gatsby-source-sanity',
-            },
-          },
-        ).then((res) => {
-          console.log('Request complete! response:', res);
-        });
-        window.open(`${gatsbyPreviewUrl}/${slug}`, '_blank');
+        // fetch(
+        //   'https://webhook.gatsbyjs.com/hooks/data_source/03343b3c-af8d-4746-a499-0d3407542e4b',
+        //   {
+        //     method: 'POST',
+        //     headers: {
+        //       'x-gatsby-cloud-data-source': 'gatsby-source-sanity',
+        //     },
+        //   },
+        // ).then((res) => {
+        //   console.log('Request complete! response:', res);
+        // });
+        window.open(`${gatsbyPreviewUrl}${slug}`, '_blank');
       },
     };
   }
