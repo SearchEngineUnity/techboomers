@@ -57,6 +57,7 @@ module.exports = {
         dataset: 'production',
         token: process.env.SANITY_TOKEN,
         overlayDrafts: process.env.SANITY_OVERLAY_DRAFTS || !isProd,
+        watchMode: !isProd,
       },
     },
     'gatsby-plugin-styled-components',

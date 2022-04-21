@@ -134,5 +134,6 @@ export default {
         ],
       },
     },
+    { type: 'btnBlockMui' },
   ],
 };

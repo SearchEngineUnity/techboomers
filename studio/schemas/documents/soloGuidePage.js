@@ -188,7 +188,6 @@ export default {
       of: [{ type: 'tocLink' }],
       description: 'The order should match the in content appearance.',
       fieldset: 'mainContent',
-      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'guideBody',
