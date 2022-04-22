@@ -15,6 +15,7 @@ export default {
     },
     {
       name: 'nav',
+      title: 'Navigate to',
       type: 'reference',
       to: [{ type: 'page' }],
       validation: (Rule) => [Rule.required().error('Field is required')],

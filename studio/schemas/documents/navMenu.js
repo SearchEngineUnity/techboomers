@@ -10,7 +10,7 @@ export default {
       name: 'type',
       Title: 'Type',
       type: 'string',
-      description: 'There should ever be one published copy of each type',
+      description: 'There should only ever be one published copy of each type',
       options: {
         list: [
           { title: 'Main Header', value: 'mainNav' },
@@ -23,7 +23,6 @@ export default {
       name: 'menuArray',
       title: 'Menu',
       type: 'array',
-      description: 'Use Navigation Item for single link and Group for bundled links',
       of: [
         {
           type: 'navSet',
