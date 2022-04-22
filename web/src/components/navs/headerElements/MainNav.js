@@ -59,7 +59,13 @@ const MainNav = ({ data, location }) => {
 
                       switch (_type) {
                         case 'navBrand':
-                          return <NavBrand {...mapNavBrandToProps(group)} key={groupKey} />;
+                          return (
+                            <NavBrand
+                              {...mapNavBrandToProps(group)}
+                              url={data.sanityContactInfo.homePage}
+                              key={groupKey}
+                            />
+                          );
                         case 'navPhone':
                           return <NavPhone text={group.text} key={groupKey} />;
                         case 'navItem':
@@ -107,6 +113,7 @@ const MainNav = ({ data, location }) => {
                       <MainNavHamburger
                         bottomMenu={data.sanityNavMenu.menuArray[1].menuGroup}
                         topMenu={data.sanityNavMenu.menuArray[0].menuGroup}
+                        brandUrl={data.sanityContactInfo.homePage}
                       />
                     )}
                   </Toolbar>
@@ -145,11 +152,6 @@ export default function MainNavigation(props) {
                           url
                         }
                       }
-                    }
-                  }
-                  nav {
-                    slug {
-                      current
                     }
                   }
                 }
@@ -201,6 +203,9 @@ export default function MainNavigation(props) {
                 }
               }
             }
+          }
+          sanityContactInfo {
+            homePage
           }
         }
       `}

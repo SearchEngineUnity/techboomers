@@ -13,9 +13,9 @@ function NavBrand({ url, brandGroup, alt }) {
           case 'desktop':
             return (
               <Box display={{ xs: 'none', lg: 'block', xl: 'block' }} key={_key} role="none">
-                <Link to={`/${url}`} role="menuitem">
+                <a href={url} role="menuitem">
                   <img src={brand.logo.asset.url} alt={alt} height={height} />
-                </Link>
+                </a>
               </Box>
             );
           case 'tablet':
@@ -25,9 +25,9 @@ function NavBrand({ url, brandGroup, alt }) {
                 key={_key}
                 role="none"
               >
-                <Link to={`/${url}`} role="menuitem">
+                <a href={url} role="menuitem">
                   <img src={brand.logo.asset.url} alt={alt} height={height} />
-                </Link>
+                </a>
               </Box>
             );
           case 'mobile':
@@ -37,9 +37,9 @@ function NavBrand({ url, brandGroup, alt }) {
                 key={_key}
                 role="none"
               >
-                <Link to={`/${url}`} role="menuitem">
+                <a href={url} role="menuitem">
                   <img src={brand.logo.asset.url} alt={alt} height={height} />
-                </Link>
+                </a>
               </Box>
             );
 

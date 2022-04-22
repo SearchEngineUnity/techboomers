@@ -121,10 +121,9 @@ export function mapLearningSegmentToProps({ idTag }) {
   };
 }
 
-export function mapNavBrandToProps({ brandGroup, nav, alt }) {
+export function mapNavBrandToProps({ brandGroup, alt }) {
   return {
     alt,
-    url: nav?.slug?.current,
     brandGroup,
   };
 }
