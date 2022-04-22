@@ -41,7 +41,10 @@ const MainFooter = ({ data }) => {
                         return (
                           <Grid item xs={12} md={3} lg={3} key={item._key}>
                             <Box my={2}>
-                              <NavBrand {...mapNavBrandToProps(item)} />
+                              <NavBrand
+                                {...mapNavBrandToProps(item)}
+                                url={data.sanityContactInfo.homePage}
+                              />
                               <ContactInfo />
                               <Hidden mdUp>
                                 <SocialMedia />
@@ -121,11 +124,6 @@ export default function Footer(props) {
                       }
                     }
                   }
-                  nav {
-                    slug {
-                      current
-                    }
-                  }
                 }
                 ... on SanityNavGroup {
                   _key
@@ -142,6 +140,11 @@ export default function Footer(props) {
                         }
                       }
                       ... on SanitySoloGuidePage {
+                        slug {
+                          current
+                        }
+                      }
+                      ... on SanityFlexListingPage {
                         slug {
                           current
                         }
@@ -166,6 +169,11 @@ export default function Footer(props) {
                         current
                       }
                     }
+                    ... on SanityFlexListingPage {
+                      slug {
+                        current
+                      }
+                    }
                   }
                 }
                 ... on SanityNavPhone {
@@ -178,6 +186,7 @@ export default function Footer(props) {
           }
           sanityContactInfo {
             name
+            homePage
           }
         }
       `}

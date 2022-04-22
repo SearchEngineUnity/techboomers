@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Transition = React.forwardRef((props, ref) => <Slide direction="up" ref={ref} {...props} />);
 
-function MainNavHamburger({ topMenu, bottomMenu }) {
+function MainNavHamburger({ topMenu, bottomMenu, brandUrl }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -79,7 +79,6 @@ function MainNavHamburger({ topMenu, bottomMenu }) {
                 _type === 'navBrand'
                   ? group.brandGroup.filter((x) => x.type === 'mobile')[0]
                   : null;
-              const url = _type === 'navBrand' ? group.nav.slug.current : null;
 
               switch (_type) {
                 case 'navBrand':
@@ -88,13 +87,13 @@ function MainNavHamburger({ topMenu, bottomMenu }) {
                       display={{ xs: 'block', sm: 'block', md: 'none', lg: 'none', xl: 'none' }}
                       key={groupKey}
                     >
-                      <Link to={`/${url}`}>
+                      <a href={brandUrl}>
                         <img
                           src={mobileBrand.brand.logo.asset.url}
                           alt={mobileBrand.brand.title}
                           height={mobileBrand.height}
                         />
-                      </Link>
+                      </a>
                     </Box>
                   );
                 case 'navPhone':

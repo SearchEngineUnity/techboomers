@@ -44,10 +44,9 @@ export default {
       title: 'title',
       slug: 'nav.slug.current',
     },
-    prepare({ title, slug }) {
+    prepare({ title }) {
       return {
         title,
-        subtitle: slug === '/' ? `Links to root` : `Links to /${slug}`,
       };
     },
   },

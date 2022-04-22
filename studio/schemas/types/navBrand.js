@@ -14,25 +14,15 @@ export default {
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
-      name: 'nav',
-      type: 'reference',
-      to: [{ type: 'page' }],
-      validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
       name: 'alt',
       title: 'Alt for Brand Image',
       type: 'string',
     },
   ],
   preview: {
-    select: {
-      slug: 'nav.slug.current',
-    },
-    prepare({ slug }) {
+    prepare() {
       return {
         title: 'Nav Brand Group',
-        subtitle: slug === '/' ? `Links to root` : `Links to /${slug}`,
       };
     },
   },

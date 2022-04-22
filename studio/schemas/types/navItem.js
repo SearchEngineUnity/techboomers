@@ -33,6 +33,7 @@ export default {
     },
     {
       name: 'nav',
+      title: 'Navigate to',
       type: 'reference',
       to: [{ type: 'page' }, { type: 'flexListingPage' }, { type: 'soloGuidePage' }],
       validation: (Rule) => [Rule.required().error('Field is required')],
