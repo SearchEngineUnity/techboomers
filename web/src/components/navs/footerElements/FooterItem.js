@@ -13,7 +13,7 @@ function FooterItem({ url, title, isButton }) {
         </Button>
       ) : (
         <Box fontSize={14} fontWeight="fontWeightBold" color="common.white">
-          <Link to={url}>{title}</Link>
+          <Link to={`/${url}`}>{title}</Link>
         </Box>
       )}
     </Box>

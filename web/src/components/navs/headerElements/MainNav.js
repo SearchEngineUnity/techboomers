@@ -174,6 +174,11 @@ export default function MainNavigation(props) {
                           current
                         }
                       }
+                      ... on SanityFlexListingPage {
+                        slug {
+                          current
+                        }
+                      }
                     }
                     _key
                   }
@@ -190,6 +195,11 @@ export default function MainNavigation(props) {
                       }
                     }
                     ... on SanitySoloGuidePage {
+                      slug {
+                        current
+                      }
+                    }
+                    ... on SanityFlexListingPage {
                       slug {
                         current
                       }

@@ -144,6 +144,11 @@ export default function Footer(props) {
                           current
                         }
                       }
+                      ... on SanityFlexListingPage {
+                        slug {
+                          current
+                        }
+                      }
                     }
                     _key
                   }
@@ -160,6 +165,11 @@ export default function Footer(props) {
                       }
                     }
                     ... on SanitySoloGuidePage {
+                      slug {
+                        current
+                      }
+                    }
+                    ... on SanityFlexListingPage {
                       slug {
                         current
                       }
