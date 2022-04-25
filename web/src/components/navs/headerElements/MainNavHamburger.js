@@ -12,7 +12,7 @@ import {
   Slide,
 } from '@material-ui/core';
 import { Menu, Close } from '@material-ui/icons';
-import { Link, IconButton } from 'gatsby-theme-material-ui';
+import { IconButton } from 'gatsby-theme-material-ui';
 import { makeStyles } from '@material-ui/core/styles';
 import NavItem from './NavItem';
 import NavPhone from './NavPhone';
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Transition = React.forwardRef((props, ref) => <Slide direction="up" ref={ref} {...props} />);
 
-function MainNavHamburger({ topMenu, bottomMenu, brandUrl }) {
+function MainNavHamburger({ topMenu, bottomMenu, brandUrl, location }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -110,7 +110,7 @@ function MainNavHamburger({ topMenu, bottomMenu, brandUrl }) {
                       }}
                       key={groupKey}
                     >
-                      <NavItem {...mapNavItemToProps(group)} />
+                      <NavItem {...mapNavItemToProps(group)} location={location} />
                     </Box>
                   );
                 case 'navGroup':
@@ -141,7 +141,7 @@ function MainNavHamburger({ topMenu, bottomMenu, brandUrl }) {
                   </React.Fragment>
                 );
               case 'navGroup':
-                return <NavGroup key={_key} navGroup={group} index={index} />;
+                return <NavGroup key={_key} navGroup={group} index={index} location={location} />;
 
               default:
                 return <div key={_key}>under construction</div>;
