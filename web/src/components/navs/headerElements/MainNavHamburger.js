@@ -39,6 +39,9 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     color: theme.palette.common.white,
   },
+  bold: {
+    fontWeight: theme.typography.fontWeightBold,
+  },
 }));
 
 const Transition = React.forwardRef((props, ref) => <Slide direction="up" ref={ref} {...props} />);
@@ -134,8 +137,19 @@ function MainNavHamburger({ topMenu, bottomMenu, brandUrl, location }) {
                   <React.Fragment key={_key}>
                     {index === 0 ? null : <Divider />}
                     <Box style={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <ListItem button onClick={() => handleClickSubNavMenu(groupNav.slug.current)}>
-                        <ListItemText primary={title} />
+                      <ListItem
+                        button
+                        onClick={() => handleClickSubNavMenu(groupNav.slug.current)}
+                        selected={location.pathname === `/${groupNav.slug.current}`}
+                      >
+                        <ListItemText
+                          primary={title}
+                          primaryTypographyProps={
+                            location.pathname === `/${groupNav.slug.current}`
+                              ? { className: classes.bold }
+                              : false
+                          }
+                        />
                       </ListItem>
                     </Box>
                   </React.Fragment>
