@@ -114,6 +114,7 @@ const MainNav = ({ data, location }) => {
                         bottomMenu={data.sanityNavMenu.menuArray[1].menuGroup}
                         topMenu={data.sanityNavMenu.menuArray[0].menuGroup}
                         brandUrl={data.sanityContactInfo.homePage}
+                        location={location}
                       />
                     )}
                   </Toolbar>
