@@ -1,18 +1,13 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import { Container, Typography, Grid, Paper, Box } from '@material-ui/core';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import FluidImgBlock from '../components/blocks/FluidImgBlock';
-import SvgImgBlock from '../components/SvgImageBlock';
 
 const ImageTest = ({ data }) => {
-  const { id, url, gatsbyImageData } = data.allSanityImageAsset.edges[0].node;
-  console.log(gatsbyImageData);
-  const isGatsbyImage = true;
+  const { gatsbyImageData } = data.allSanityImageAsset.edges[0].node;
   return (
-    <div style={{ width: '400px', height: '400px' }}>
-      {isGatsbyImage ? (
+    <>
+      <div style={{ width: '400px', height: '400px' }}>
         <GatsbyImage
           image={gatsbyImageData}
           objectFit="contain"
@@ -20,18 +15,89 @@ const ImageTest = ({ data }) => {
             display: 'block',
           }}
         />
-      ) : (
-        <img
-          src={url}
+      </div>
+      <div style={{ width: '400px', height: '400px' }}>
+        <GatsbyImage
+          image={gatsbyImageData}
+          objectFit="contain"
           style={{
             display: 'block',
-            objectFit: 'contain',
-            width: '100%',
-            height: 'auto',
           }}
         />
-      )}
-    </div>
+      </div>
+      <div style={{ width: '400px', height: '400px' }}>
+        <GatsbyImage
+          image={gatsbyImageData}
+          objectFit="contain"
+          style={{
+            display: 'block',
+          }}
+        />
+      </div>
+      <div style={{ width: '400px', height: '400px' }}>
+        <GatsbyImage
+          image={gatsbyImageData}
+          objectFit="contain"
+          style={{
+            display: 'block',
+          }}
+        />
+      </div>
+      <div style={{ width: '400px', height: '400px' }}>
+        <GatsbyImage
+          image={gatsbyImageData}
+          objectFit="contain"
+          style={{
+            display: 'block',
+          }}
+        />
+      </div>
+      <div style={{ width: '400px', height: '400px' }}>
+        <GatsbyImage
+          image={gatsbyImageData}
+          objectFit="contain"
+          style={{
+            display: 'block',
+          }}
+        />
+      </div>
+      <div style={{ width: '400px', height: '400px' }}>
+        <GatsbyImage
+          image={gatsbyImageData}
+          objectFit="contain"
+          style={{
+            display: 'block',
+          }}
+        />
+      </div>
+      <div style={{ width: '400px', height: '400px' }}>
+        <GatsbyImage
+          image={gatsbyImageData}
+          objectFit="contain"
+          style={{
+            display: 'block',
+          }}
+        />
+      </div>
+      <div style={{ width: '400px', height: '400px' }}>
+        <GatsbyImage
+          image={gatsbyImageData}
+          objectFit="contain"
+          style={{
+            display: 'block',
+          }}
+        />
+      </div>
+      <div style={{ width: '400px', height: '400px' }}>
+        <GatsbyImage
+          image={gatsbyImageData}
+          objectFit="contain"
+          style={{
+            display: 'block',
+          }}
+        />
+      </div>
+    </>
   );
 };
 
@@ -43,32 +109,7 @@ export default function Layout(props) {
           allSanityImageAsset(filter: { extension: {}, filename: { eq: "car.svg" } }) {
             edges {
               node {
-                id
-                _createdAt
-                _id
-                _key
-                _rawMetadata
-                _rawSource(resolveReferences: { maxDepth: 10 })
-                _rev
-                _type
-                _updatedAt
-                altText
-                assetId
-                description
-                extension
-                filename
-                filesize
-                gatsbyImage
                 gatsbyImageData
-                height
-                label
-                mimeType
-                path
-                publicUrl
-                title
-                uploadId
-                url
-                width
               }
             }
           }
