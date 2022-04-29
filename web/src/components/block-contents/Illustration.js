@@ -3,7 +3,7 @@ import { Box, Typography } from '@material-ui/core';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import sanityConfig from '../../../sanityConfig';
-import SvgImgBlock from '../SvgImage';
+import SvgImgBlock from '../SvgImageBlock';
 
 function Illustration({ illustration, zeroMy, zeroMx }) {
   const imageFluid = illustration?.asset;

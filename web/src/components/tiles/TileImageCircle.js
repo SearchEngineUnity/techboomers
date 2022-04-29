@@ -9,7 +9,7 @@ import CardActionAreaInternalLocal from '../cardActionArea/CardActionAreaInterna
 import CardActionAreaJumpLink from '../cardActionArea/CardActionAreaJumpLink';
 import ConditionalCardActionArea from '../cardActionArea/ConditionalCardActionArea';
 import sanityConfig from '../../../sanityConfig';
-import SvgImgBlock from '../SvgImage';
+import SvgImgBlock from '../SvgImageBlock';
 
 const useStyles = makeStyles({
   card: {
