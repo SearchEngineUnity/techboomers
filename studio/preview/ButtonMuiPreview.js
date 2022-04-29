@@ -6,14 +6,12 @@ import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import { determineColor } from '../lib/helperFunctions';
 
 const ButtonMuiPreview = ({ document }) => {
-  console.log(document);
   // The JSON preview
   const documentQuery = `*[_type == 'btnDesignMui' && name == '${document.displayed.name}'] | order(_updatedAt desc) {name, settings, 'main': colors.main->color, 'dark': colors.dark->color, 'contrastText': colors.contrastText->color, typography}`;
 
   return (
     <QueryContainer query={documentQuery}>
       {({ result, loading }) => {
-        console.log(result);
         let main;
         let dark;
         let contrastText;

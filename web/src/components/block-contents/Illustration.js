@@ -3,7 +3,7 @@ import { Box, Typography } from '@material-ui/core';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import sanityConfig from '../../../sanityConfig';
-import SvgImgBlock from '../svgImage';
+import SvgImgBlock from '../SvgImage';
 
 function Illustration({ illustration, zeroMy, zeroMx }) {
   const imageFluid = illustration?.asset;
@@ -13,8 +13,6 @@ function Illustration({ illustration, zeroMy, zeroMx }) {
   const imageWidth = imageFluid.metadata.dimensions.width;
   const imgAspectRatio = imageFluid.metadata.dimensions.aspectRatio;
   const isSVG = illustration.extension === 'svg';
-
-  console.log(illustration);
 
   const calculatedWidthBasedOnCustomMaxWidth =
     customMaxWidth === 'auto' ? imageWidth : customMaxWidth;

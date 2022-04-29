@@ -3,7 +3,7 @@ import { Box, Typography } from '@material-ui/core';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import sanityConfig from '../../../sanityConfig';
-import SvgImgBlock from '../svgImage';
+import SvgImgBlock from '../SvgImage';
 
 function FluidImgBlock({ image, alt, loading, maxHeight, maxWidth, caption }) {
   const loadingSetting = loading || 'lazy';
@@ -31,8 +31,6 @@ function FluidImgBlock({ image, alt, loading, maxHeight, maxWidth, caption }) {
   if (minMaxWidth === `${imageWidth}px`) {
     minMaxWidth = 'auto';
   }
-
-  console.log(minMaxWidth);
 
   return (
     <Box component="figure" justifyContent="center" m={0} display="flex">

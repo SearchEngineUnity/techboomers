@@ -9,6 +9,7 @@ import CardActionAreaInternalLocal from '../cardActionArea/CardActionAreaInterna
 import CardActionAreaJumpLink from '../cardActionArea/CardActionAreaJumpLink';
 import ConditionalCardActionArea from '../cardActionArea/ConditionalCardActionArea';
 import sanityConfig from '../../../sanityConfig';
+import SvgImgBlock from '../SvgImage';
 
 const useStyles = makeStyles({
   card: {
@@ -26,6 +27,8 @@ function TileImageCircle({ image, alt, link }) {
     },
     sanityConfig,
   );
+
+  console.log(image);
 
   const linkType = link ? link._type : 'noLink';
 

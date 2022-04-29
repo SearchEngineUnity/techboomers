@@ -61,7 +61,6 @@ export const query = graphql`
 
 const SoloGuidePage = ({ data, location }) => {
   const type = 'guide';
-  console.log(data.guide.toc);
 
   return (
     <Layout location={location}>
