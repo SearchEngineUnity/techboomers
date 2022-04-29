@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import { Container, Typography, Grid, Paper, Box } from '@material-ui/core';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import FluidImgBlock from '../components/blocks/FluidImgBlock';
-import SvgImgBlock from '../components/SvgImage';
+import SvgImgBlock from '../components/SvgImageBlock';
 
 const ImageTest = ({ data }) => {
   const { id, url, gatsbyImageData } = data.allSanityImageAsset.edges[0].node;
