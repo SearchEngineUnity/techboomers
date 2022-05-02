@@ -3,7 +3,6 @@ import { Link, Button } from 'gatsby-theme-material-ui';
 import { Box, Typography } from '@material-ui/core';
 
 function NavItem({ url, title, isButton, location }) {
-  console.log(location);
   return (
     <>
       {isButton ? (

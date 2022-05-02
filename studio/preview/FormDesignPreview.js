@@ -19,15 +19,12 @@ import { createTheme, makeStyles, ThemeProvider, useTheme } from '@material-ui/c
 import { determineColor } from '../lib/helperFunctions';
 
 const FormDesignPreview = ({ document }) => {
-  console.log(document);
   // The JSON preview
   const documentQuery = `*[_type == 'formStyle' && name == '${document.displayed.name}'] | order(_updatedAt desc) {'fieldBgColor': backgroundColor->color, 'fieldBorderRadius': borderRadius, 'btnStyle': btnStyle->{'main': colors.main->color, 'dark': colors.dark->color, 'contrastText': colors.contrastText->color, settings, typography}, 'fieldBgHoverColor': fieldBgHoverColor->color, 'variant': fieldVariant, 'focusedColor': focusedColor->color, 'inputColor': inputColor->color, 'labelColor': labelColor->color, name, 'selectorColor': selectorColor->color}`;
 
   return (
     <QueryContainer query={documentQuery}>
       {({ result, loading }) => {
-        console.log(result);
-
         let fieldBgColor;
         let fieldBgHoverColor;
         let focusedColor;

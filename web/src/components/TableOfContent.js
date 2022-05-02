@@ -55,7 +55,6 @@ function Toc({ toc }) {
       // lazily-loaded content increases offsets as user scrolls down.
       const offsets = nodes.map((el) => accumulateOffsetTop(el));
       const activeIndex = offsets.findIndex((offset) => offset > window.scrollY + 45);
-      // console.log('id ' + headings.titles[active].hashID);
       setActive(activeIndex === -1 ? titles.length - 1 : activeIndex - 1);
     };
     window.addEventListener(`scroll`, scrollHandler);
