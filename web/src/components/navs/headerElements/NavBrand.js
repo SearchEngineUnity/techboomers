@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box } from '@material-ui/core';
-import { Link } from 'gatsby-theme-material-ui';
 
 function NavBrand({ url, brandGroup, alt }) {
   return (
@@ -14,7 +13,7 @@ function NavBrand({ url, brandGroup, alt }) {
             return (
               <Box display={{ xs: 'none', lg: 'block', xl: 'block' }} key={_key} role="none">
                 <a href={url} role="menuitem">
-                  <img src={brand.logo.asset.url} alt={alt} height={height} />
+                  <img src={brand.logo.asset.url} alt={alt} height={height} loading="eager" />
                 </a>
               </Box>
             );
@@ -26,7 +25,7 @@ function NavBrand({ url, brandGroup, alt }) {
                 role="none"
               >
                 <a href={url} role="menuitem">
-                  <img src={brand.logo.asset.url} alt={alt} height={height} />
+                  <img src={brand.logo.asset.url} alt={alt} height={height} loading="eager" />
                 </a>
               </Box>
             );
@@ -38,7 +37,7 @@ function NavBrand({ url, brandGroup, alt }) {
                 role="none"
               >
                 <a href={url} role="menuitem">
-                  <img src={brand.logo.asset.url} alt={alt} height={height} />
+                  <img src={brand.logo.asset.url} alt={alt} height={height} loading="eager" />
                 </a>
               </Box>
             );
