@@ -106,7 +106,7 @@ export default function Layout(props) {
     <StaticQuery
       query={graphql`
         {
-          allSanityImageAsset(filter: { extension: {}, filename: { eq: "car.svg" } }) {
+          allSanityImageAsset {
             edges {
               node {
                 gatsbyImageData
