@@ -28,6 +28,12 @@ export default {
       },
     },
     {
+      name: 'minWidth',
+      type: 'string',
+      title: 'Minimum Table Width',
+      description: 'Please make sure to indluce px with the minimum width number. example 100px',
+    },
+    {
       name: 'colgroup',
       type: 'array',
       title:
