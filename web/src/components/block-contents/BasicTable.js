@@ -13,18 +13,18 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
-  table: {
+  table: (props) => ({
     tableLayout: 'fixed',
-    minWidth: 700,
-  },
+    minWidth: props.minWidth,
+  }),
   row: {
     verticalAlign: 'top',
   },
 });
 
 function BasicTable({ basicTable }) {
-  const classes = useStyles();
-  const { colHeading, rowHeading, title, colgroup } = basicTable;
+  const { colHeading, rowHeading, title, minWidth, colgroup } = basicTable;
+  const classes = useStyles({ minWidth });
 
   let thead = [];
   let tbody = basicTable.table.rows;

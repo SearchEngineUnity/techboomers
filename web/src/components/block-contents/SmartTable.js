@@ -17,17 +17,17 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import TableContent from './serializer/TableSerializer';
-import Illustration from './Illustration';
+import FixedTableImage from './FixedTableImage';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
   },
-  table: {
+  table: (props) => ({
     tableLayout: 'fixed',
-    minWidth: 700,
-  },
+    minWidth: props.minWidth,
+  }),
   row: {
     verticalAlign: 'top',
   },
@@ -51,8 +51,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function SmartTable({ smartTable }) {
-  const classes = useStyles();
-  const { colHeading, rowHeading, title, colgroup } = smartTable;
+  const { colHeading, rowHeading, title, minWidth, colgroup } = smartTable;
+  const classes = useStyles({ minWidth });
+  console.log(minWidth);
 
   let thead = [];
   let tbody = smartTable.table.rows;
@@ -115,7 +116,7 @@ function SmartTable({ smartTable }) {
                     return (
                       // eslint-disable-next-line
                   <TableCell key={`${thead._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }} scope="col" role="columnheader">
-                        <Illustration illustration={cell} table />
+                        <FixedTableImage illustration={cell} />
                       </TableCell>
                     );
                   }
@@ -141,7 +142,7 @@ function SmartTable({ smartTable }) {
                       return (
                         // eslint-disable-next-line
                       <TableCell component="th" key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }} scope="row" role="rowheader">
-                          <Illustration illustration={cell} />
+                          <FixedTableImage illustration={cell} />
                         </TableCell>
                       );
                     }
@@ -159,7 +160,7 @@ function SmartTable({ smartTable }) {
                     return (
                       // eslint-disable-next-line
                     <TableCell key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }} role="cell">
-                        <Illustration illustration={cell} table />
+                        <FixedTableImage illustration={cell} />
                       </TableCell>
                     );
                   }
