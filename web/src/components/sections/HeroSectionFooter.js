@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Footer from '../block-contents/serializer/HeroFooterSerializer';
+import Footer from '../portableText/serializer/HeroFooterSerializer';
 
 const useStyles = makeStyles((theme) => ({
   footer: {

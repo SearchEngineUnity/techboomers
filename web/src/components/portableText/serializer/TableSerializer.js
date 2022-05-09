@@ -2,7 +2,7 @@ import BaseBlockContent from '@sanity/block-content-to-react';
 import React from 'react';
 import { Typography } from '@material-ui/core';
 import styled from 'styled-components';
-import Illustration from '../Illustration';
+import Illustration from '../insertable/Illustration';
 import JumpLink from '../../link/JumpLink';
 import ExternalLink from '../../link/LinkExternal';
 import InternalGlobal from '../../link/LinkInternalGlobal';
