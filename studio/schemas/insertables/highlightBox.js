@@ -11,7 +11,13 @@ export default {
       title: 'Type',
       type: 'string',
       options: {
-        list: ['Pro Tip', 'Important', 'Warning', 'Did You Know', 'Definition'],
+        list: [
+          { title: 'Pro Tip', value: 'Pro Tip' },
+          { title: 'Important', value: 'Important' },
+          { title: 'Warning', value: 'Warning' },
+          { title: 'Did You Know', value: 'Did You Know' },
+          { title: 'Definition', value: 'Definition' },
+        ],
       },
       validation: (Rule) => [Rule.required().error('Field is required')],
     },

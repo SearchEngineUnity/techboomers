@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Typography } from '@material-ui/core';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import sanityConfig from '../../../sanityConfig';
+import sanityConfig from '../../../../sanityConfig';
 
 function Illustration({ illustration, zeroMy, zeroMx }) {
   const imageFluid = illustration?.asset;

@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import { Container, Grid, Box, Hidden } from '@material-ui/core';
 import Layout from '../containers/layout';
 import GuideHero from '../components/sections/GuideHero';
-import GuideBody from '../components/block-contents/serializer/GuideSerializer';
+import GuideBody from '../components/portableText/serializer/GuideSerializer';
 import ToC from '../components/TableOfContent';
 import Seo from '../components/Seo';
 

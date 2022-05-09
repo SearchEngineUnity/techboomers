@@ -3,8 +3,8 @@ import { Box } from '@material-ui/core';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
-import sanityConfig from '../../../sanityConfig';
-import { useWindowSize } from '../../hooks/useWindowSize';
+import sanityConfig from '../../../../sanityConfig';
+import { useWindowSize } from '../../../hooks/useWindowSize';
 
 const StyledGI = styled(GatsbyImage)`
   /* Color the border and text with theme.main */

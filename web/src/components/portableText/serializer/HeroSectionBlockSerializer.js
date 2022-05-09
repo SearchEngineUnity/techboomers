@@ -2,11 +2,7 @@ import BaseBlockContent from '@sanity/block-content-to-react';
 import React from 'react';
 import { Typography, Box } from '@material-ui/core';
 import styled from 'styled-components';
-import VideoEmbed from '../VideoEmbed';
-import BasicTable from '../BasicTable';
-import Illustration from '../Illustration';
-import HighlightBox from '../highlightBox/HighlightBox';
-import SmartTable from '../SmartTable';
+import Illustration from '../insertable/Illustration';
 import JumpLink from '../../link/JumpLink';
 import ExternalLink from '../../link/LinkExternal';
 import InternalGlobal from '../../link/LinkInternalGlobal';
@@ -46,6 +42,23 @@ const serializers = {
   types: {
     block(props) {
       switch (props.node.style) {
+        case 'h2':
+          return props.children[0] ? (
+            <StyledTypography
+              gutterBottom
+              variant="h2"
+              id={
+                props.node.markDefs.length !== 0
+                  ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
+                  : undefined
+              }
+            >
+              {props.children}
+            </StyledTypography>
+          ) : (
+            <br />
+          );
+
         case 'h3':
           return props.children[0] ? (
             <StyledTypography
@@ -109,18 +122,6 @@ const serializers = {
     },
     illustration({ node }) {
       return <Illustration illustration={node} zeroMx />;
-    },
-    basicTable({ node }) {
-      return <BasicTable basicTable={node} />;
-    },
-    highlightBox({ node }) {
-      return <HighlightBox box={node} />;
-    },
-    smartTable({ node }) {
-      return <SmartTable smartTable={node} />;
-    },
-    videoEmbed({ node }) {
-      return <VideoEmbed url={node.url} ratio={node.ratio} />;
     },
     btnBlockMui({ node }) {
       switch (node.link[0]._type) {

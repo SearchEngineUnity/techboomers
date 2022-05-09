@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Paper, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { EmojiObjectsOutlined } from '@material-ui/icons/';
-import TextContent from '../serializer/HighlightBoxSerializer';
+import TextContent from '../../serializer/HighlightBoxSerializer';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -11,10 +11,6 @@ const useStyles = makeStyles((theme) => ({
   },
   icon: {
     color: theme.palette.hlBox.dyk.iconColor,
-    position: 'relative',
-    top: theme.spacing(0.5),
-    width: theme.typography.h4.lineHeight * 16,
-    height: theme.typography.h4.lineHeight * 16,
   },
   text: {
     color: theme.palette.hlBox.dyk.textColor,

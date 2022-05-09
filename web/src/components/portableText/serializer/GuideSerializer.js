@@ -2,11 +2,11 @@ import BaseBlockContent from '@sanity/block-content-to-react';
 import React from 'react';
 import { Typography, Box } from '@material-ui/core';
 import styled from 'styled-components';
-import VideoEmbed from '../VideoEmbed';
-import BasicTable from '../BasicTable';
-import Illustration from '../Illustration';
-import HighlightBox from '../highlightBox/HighlightBox';
-import SmartTable from '../SmartTable';
+import VideoEmbed from '../insertable/VideoEmbed';
+import BasicTable from '../insertable/BasicTable';
+import Illustration from '../insertable/Illustration';
+import HighlightBox from '../insertable/highlightBox/HighlightBox';
+import SmartTable from '../insertable/SmartTable';
 import JumpLink from '../../link/JumpLink';
 import ExternalLink from '../../link/LinkExternal';
 import InternalGlobal from '../../link/LinkInternalGlobal';
@@ -15,7 +15,7 @@ import ButtonExternal from '../../buttons/ButtonExternal';
 import ButtonInternalGlobal from '../../buttons/ButtonInternalGlobal';
 import ButtonInternalLocal from '../../buttons/ButtonInternalLocal';
 import ButtonJumpLink from '../../buttons/ButtonJumpLink';
-import SmartList from '../SmartList';
+import SmartList from '../insertable/SmartList';
 import { mapMuiBtnToProps } from '../../../lib/mapToProps';
 
 const StyledTypography = styled(Typography)`

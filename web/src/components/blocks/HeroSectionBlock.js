@@ -1,5 +1,5 @@
 import React from 'react';
-import SectionTextBlock from '../block-contents/serializer/HeroSectionBlockSerializer';
+import SectionTextBlock from '../portableText/serializer/HeroSectionBlockSerializer';
 import HeroSectionHeader from '../sections/HeroSectionHeader';
 import HeroSectionFooter from '../sections/HeroSectionFooter';
 

@@ -1,12 +1,12 @@
 import BaseBlockContent from '@sanity/block-content-to-react';
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography, Box } from '@material-ui/core';
 import styled from 'styled-components';
-import VideoEmbed from '../VideoEmbed';
-import BasicTable from '../BasicTable';
-import Illustration from '../Illustration';
-import HighlightBox from '../highlightBox/HighlightBox';
-import SmartTable from '../SmartTable';
+import VideoEmbed from '../insertable/VideoEmbed';
+import BasicTable from '../insertable/BasicTable';
+import Illustration from '../insertable/Illustration';
+import HighlightBox from '../insertable/highlightBox/HighlightBox';
+import SmartTable from '../insertable/SmartTable';
 import JumpLink from '../../link/JumpLink';
 import ExternalLink from '../../link/LinkExternal';
 import InternalGlobal from '../../link/LinkInternalGlobal';
@@ -16,6 +16,25 @@ import ButtonInternalGlobal from '../../buttons/ButtonInternalGlobal';
 import ButtonInternalLocal from '../../buttons/ButtonInternalLocal';
 import ButtonJumpLink from '../../buttons/ButtonJumpLink';
 import { mapMuiBtnToProps } from '../../../lib/mapToProps';
+
+const NoIndentUl = styled.ul`
+  margin-left: 1.4rem;
+  padding-left: 0;
+
+  & > li {
+    position: relative;
+  }
+`;
+
+const NoIndentOl = styled.ol`
+  list-style-type: decimal;
+  margin-left: 1.4rem;
+  padding-left: 0;
+
+  & > li {
+    position: relative;
+  }
+`;
 
 const StyledTypography = styled(Typography)`
   margin-top: 1.35em;
@@ -27,23 +46,6 @@ const serializers = {
   types: {
     block(props) {
       switch (props.node.style) {
-        case 'h2':
-          return props.children[0] ? (
-            <StyledTypography
-              gutterBottom
-              variant="h2"
-              id={
-                props.node.markDefs.length !== 0
-                  ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
-                  : undefined
-              }
-            >
-              {props.children}
-            </StyledTypography>
-          ) : (
-            <br />
-          );
-
         case 'h3':
           return props.children[0] ? (
             <StyledTypography
@@ -78,19 +80,19 @@ const serializers = {
             <br />
           );
 
-        case 'h5':
+        case 'blockquote':
           return props.children[0] ? (
-            <StyledTypography
-              gutterBottom
-              variant="h5"
-              id={
-                props.node.markDefs.length !== 0
-                  ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
-                  : undefined
-              }
+            <Box
+              component="blockquote"
+              fontSize="h3.fontSize"
+              fontWeight={100}
+              borderColor="primary.main"
+              pl={4}
+              py={1}
+              borderLeft={4}
             >
-              {props.children}
-            </StyledTypography>
+              &#8220; {props.children} &#8221;
+            </Box>
           ) : (
             <br />
           );
@@ -117,9 +119,6 @@ const serializers = {
     smartTable({ node }) {
       return <SmartTable smartTable={node} />;
     },
-    instagram() {
-      return <p>Work in progress</p>;
-    },
     videoEmbed({ node }) {
       return <VideoEmbed url={node.url} ratio={node.ratio} />;
     },
@@ -139,7 +138,6 @@ const serializers = {
     },
   },
   marks: {
-    hashId: ({ children }) => children,
     internalLocal: ({ mark, children }) => {
       const { slug = {} } = mark.reference;
       const { newTab, hashId, parameter } = mark;
@@ -176,6 +174,19 @@ const serializers = {
       );
     },
   },
+  list: ({ children }) => {
+    switch (children[0].props.node.listItem) {
+      case 'bullet':
+        return <NoIndentUl>{children}</NoIndentUl>;
+      default:
+        return <NoIndentOl>{children}</NoIndentOl>;
+    }
+  },
+  listItem: ({ children }) => (
+    <Typography variant="body1" component="li">
+      {children}
+    </Typography>
+  ),
 };
 
 const BlockContent = ({ blocks }) => <BaseBlockContent blocks={blocks} serializers={serializers} />;

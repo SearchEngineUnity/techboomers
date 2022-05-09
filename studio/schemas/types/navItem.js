@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 import React from 'react';
 import { FiLink2 } from 'react-icons/fi';
 
@@ -30,6 +31,23 @@ export default {
           for an icon.
         </>
       ),
+      hidden: ({ document, parent }) => {
+        if (document.type === 'mainFooter') {
+          return true;
+        }
+        for (let i = 0; i < document.menuArray.length; i++) {
+          console.log('outside');
+          for (let j = 0; j < document.menuArray[i].menuGroup.length; j++) {
+            console.log('inside');
+            console.log(document.menuArray[i].menuGroup[j]);
+            if (document.menuArray[i].menuGroup[j]._key === parent._key) {
+              return true;
+            }
+          }
+        }
+
+        return false;
+      },
     },
     {
       name: 'nav',
