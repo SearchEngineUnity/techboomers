@@ -14,24 +14,6 @@ export default {
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
-      name: 'icon',
-      Title: 'Icon',
-      type: 'string',
-      description: (
-        <>
-          Search{' '}
-          <a
-            href="https://fonts.google.com/icons?selected=Material+Icons"
-            target="_blank"
-            rel="noreferrer"
-          >
-            here
-          </a>{' '}
-          for an icon.
-        </>
-      ),
-    },
-    {
       title: 'Group',
       name: 'group',
       type: 'array',
