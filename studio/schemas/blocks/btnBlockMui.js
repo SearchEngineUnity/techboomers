@@ -39,7 +39,10 @@ export default {
         { type: 'internalGlobal' },
         { type: 'externalLink' },
       ],
-      validation: (Rule) => Rule.length(1).error('Must contain only one item'),
+      validation: (Rule) => [
+        Rule.length(1).error('Must contain only one item'),
+        Rule.required().error('Field is required'),
+      ],
     },
     {
       name: 'btnAlignment',
