@@ -1,17 +1,8 @@
 import React from 'react';
 import { List, ListItem, Box } from '@material-ui/core';
 import { Link } from 'gatsby-theme-material-ui';
-import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
-  link: {
-    color: '#FFFFFF',
-  },
-});
-
-function FooterGroup({ title, url, group }) {
-  const classes = useStyles();
-
+function FooterGroup({ title, group }) {
   return (
     <Box my={2}>
       <Box fontSize={14} fontWeight="fontWeightBold">
@@ -20,7 +11,7 @@ function FooterGroup({ title, url, group }) {
       <List>
         {group.map(({ title: itemTitle, nav, _key }) => (
           <ListItem key={_key}>
-            <Link to={`/${nav.slug.current}`} className={classes.link}>
+            <Link to={`/${nav.slug.current}`} color="inherit">
               {itemTitle}
             </Link>
           </ListItem>
