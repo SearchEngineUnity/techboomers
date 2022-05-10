@@ -26,7 +26,11 @@ const ContactInfo = ({ data }) => {
           {contactInfo.phone}
         </Link>
       )}
-      {contactInfo.email && <Link to={`mailto:${contactInfo.email}`}>{contactInfo.email}</Link>}
+      {contactInfo.email && (
+        <Link to={`mailto:${contactInfo.email}`} color="inherit">
+          {contactInfo.email}
+        </Link>
+      )}
     </Box>
   );
 };

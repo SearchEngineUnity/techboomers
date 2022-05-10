@@ -8,6 +8,7 @@ import ContactInfo from '../../ContactInfo';
 import SocialMedia from '../../SocialMedia';
 import FooterGroup from './FooterGroup';
 import FooterItem from './FooterItem';
+import NavPhone from '../headerElements/NavPhone';
 import { mapNavBrandToProps, mapNavItemToProps, mapNavGroupToProps } from '../../../lib/mapToProps';
 
 const useStyles = makeStyles((theme) => ({
@@ -34,12 +35,12 @@ const MainFooter = ({ data }) => {
           <Container maxWidth="lg" component="nav" role="menubar">
             <Grid container spacing={3}>
               {menuArray.map((group) => (
-                <React.Fragment key={group._key}>
+                <Grid container item xs={12} md={3} key={group._key} direction="column">
                   {group.menuGroup.map((item) => {
                     switch (item._type) {
                       case 'navBrand':
                         return (
-                          <Grid item xs={12} md={3} lg={3} key={item._key}>
+                          <Grid item key={item._key}>
                             <Box my={2}>
                               <NavBrand
                                 {...mapNavBrandToProps(item)}
@@ -55,7 +56,7 @@ const MainFooter = ({ data }) => {
                       case 'navItem':
                         return (
                           <Hidden smDown key={item._key}>
-                            <Grid item xs={12} md={3} lg={3}>
+                            <Grid item>
                               <FooterItem {...mapNavItemToProps(item)} />
                             </Grid>
                           </Hidden>
@@ -63,16 +64,25 @@ const MainFooter = ({ data }) => {
                       case 'navGroup':
                         return (
                           <Hidden smDown key={item._key}>
-                            <Grid item xs={12} md={3} lg={3}>
+                            <Grid item>
                               <FooterGroup {...mapNavGroupToProps(item)} />
                             </Grid>
                           </Hidden>
                         );
+                      case 'navPhone':
+                        return (
+                          <Hidden smDown key={item._key}>
+                            <Grid item>
+                              <NavPhone text={item.text} />
+                            </Grid>
+                          </Hidden>
+                        );
+
                       default:
                         return <div key={item._key}>under construction</div>;
                     }
                   })}
-                </React.Fragment>
+                </Grid>
               ))}
             </Grid>
           </Container>
@@ -82,7 +92,7 @@ const MainFooter = ({ data }) => {
               <Box component="p" mr={2}>
                 &#0169; Copyright {new Date().getFullYear()} {contactInfo.name}
               </Box>
-              <Link to="https://google.com" role="menuitem">
+              <Link to="https://google.com" role="menuitem" color="inherit">
                 Privacy Policy
               </Link>
               <Hidden smDown>
