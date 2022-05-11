@@ -73,7 +73,7 @@ const MainFooter = ({ data }) => {
                         return (
                           <Hidden smDown key={item._key}>
                             <Grid item>
-                              <NavPhone text={item.text} />
+                              <NavPhone text={item.text} number={item.phoneNUmber} />
                             </Grid>
                           </Hidden>
                         );
@@ -190,6 +190,7 @@ export default function Footer(props) {
                   _key
                   _type
                   text
+                  phoneNumber
                 }
               }
             }

@@ -1,8 +1,7 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
 import { Box, Link } from '@material-ui/core';
 
-function NavPhone({ text, data }) {
+function NavPhone({ text, number }) {
   return (
     <>
       <Box
@@ -12,13 +11,13 @@ function NavPhone({ text, data }) {
         role="none"
       >
         <Link
-          href={`tel:${data.sanityContactInfo.phone}`}
+          href={`tel:${number}`}
           content="telephone=yes"
           color="inherit"
           underline="none"
           role="menuitem"
         >
-          {text} {data.sanityContactInfo.phone}
+          {text}
         </Link>
       </Box>
       <Box
@@ -28,30 +27,17 @@ function NavPhone({ text, data }) {
         role="none"
       >
         <Link
-          href={`tel:${data.sanityContactInfo.phone}`}
+          href={`tel:${number}`}
           content="telephone=yes"
           color="inherit"
           underline="none"
           role="menuitem"
         >
-          {data.sanityContactInfo.phone}
+          {number}
         </Link>
       </Box>
     </>
   );
 }
 
-export default function MyNavPhone(props) {
-  return (
-    <StaticQuery
-      query={graphql`
-        {
-          sanityContactInfo {
-            phone
-          }
-        }
-      `}
-      render={(data) => <NavPhone data={data} {...props} />}
-    />
-  );
-}
+export default NavPhone;
