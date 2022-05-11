@@ -17,7 +17,7 @@ const ContactInfo = ({ data }) => {
       </div>
       {contactInfo.phone && (
         <Link
-          href={`tel:+${contactInfo.phone}`}
+          href={`tel:${contactInfo.phone}`}
           content="telephone=yes"
           color="inherit"
           underline="none"
