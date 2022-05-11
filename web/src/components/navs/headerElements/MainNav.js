@@ -67,7 +67,9 @@ const MainNav = ({ data, location }) => {
                             />
                           );
                         case 'navPhone':
-                          return <NavPhone text={group.text} key={groupKey} />;
+                          return (
+                            <NavPhone text={group.text} key={groupKey} number={group.phoneNumber} />
+                          );
                         case 'navItem':
                           return (
                             <Box
@@ -211,6 +213,7 @@ export default function MainNavigation(props) {
                   _key
                   _type
                   text
+                  phoneNumber
                 }
               }
             }

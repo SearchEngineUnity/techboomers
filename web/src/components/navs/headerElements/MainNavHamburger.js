@@ -100,7 +100,7 @@ function MainNavHamburger({ topMenu, bottomMenu, brandUrl, location }) {
                     </Box>
                   );
                 case 'navPhone':
-                  return <NavPhone text={group.text} key={groupKey} />;
+                  return <NavPhone text={group.text} key={groupKey} number={group.phoneNumber} />;
                 case 'navItem':
                   return (
                     <Box

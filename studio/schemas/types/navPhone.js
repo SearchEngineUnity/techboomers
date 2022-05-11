@@ -13,15 +13,22 @@ export default {
       title: 'Call us text',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
+    {
+      name: 'phoneNumber',
+      type: 'string',
+      title: 'Phone Number',
+      validation: (Rule) => [Rule.required().error('Field is required')],
+    },
   ],
   preview: {
     select: {
       name: 'text',
+      number: 'phoneNumber',
     },
-    prepare({ name }) {
+    prepare({ name, number }) {
       return {
         title: name,
-        subtitle: 'Links to company phone #',
+        subtitle: `Dials ${number}`,
       };
     },
   },
