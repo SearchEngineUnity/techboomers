@@ -28,7 +28,7 @@ function FooterItem({ url, title, isButton }) {
     <Box my={2}>
       {isButton ? (
         <ThemeProvider theme={theme}>
-          <Button variant="contained" color="primary" to={url}>
+          <Button variant="contained" color="primary" to={`/${url}`}>
             <Box fontSize={14}>{title}</Box>
           </Button>
         </ThemeProvider>

@@ -92,7 +92,7 @@ const MainFooter = ({ data }) => {
               <Box component="p" mr={2}>
                 &#0169; Copyright {new Date().getFullYear()} {contactInfo.name}
               </Box>
-              <Link to="https://google.com" role="menuitem" color="inherit">
+              <Link to="/privacy-policy" role="menuitem" color="inherit">
                 Privacy Policy
               </Link>
               <Hidden smDown>
