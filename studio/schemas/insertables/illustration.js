@@ -12,7 +12,8 @@ export default {
       name: 'align',
       type: 'string',
       title: 'Horizontal Alignment',
-      description: 'This only affects image alignment in portable text.',
+      description:
+        'This only affects alignment for illustrations in portable text and smart table.',
       options: {
         list: [
           { title: 'Left', value: 'flex-start' },
@@ -22,7 +23,7 @@ export default {
         direction: 'horizontal',
         // isHighlighted: true, // <-- make this field easily accessible
       },
-      initialValue: 'left',
+      initialValue: 'flex-start',
     },
     {
       name: 'maxWidth',
