@@ -352,6 +352,12 @@ export default function TopLayout({ children }) {
                 alpha
               }
             }
+            paper {
+              color {
+                hex
+                alpha
+              }
+            }
             disabledText {
               color {
                 hex
