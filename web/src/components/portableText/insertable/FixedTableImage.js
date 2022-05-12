@@ -7,7 +7,6 @@ import sanityConfig from '../../../../sanityConfig';
 function FixedTableImage({ illustration }) {
   const imageFluid = illustration?.asset;
   const fluidProps = getGatsbyImageData(imageFluid, { layout: 'fixed' }, sanityConfig);
-  console.log(illustration);
 
   return (
     <Box component="figure" justifyContent={illustration.align} sx={{ m: 0 }} display="flex">

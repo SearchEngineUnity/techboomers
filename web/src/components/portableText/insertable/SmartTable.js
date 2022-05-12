@@ -53,7 +53,6 @@ const useStyles = makeStyles((theme) => ({
 function SmartTable({ smartTable }) {
   const { colHeading, rowHeading, title, minWidth, colgroup } = smartTable;
   const classes = useStyles({ minWidth });
-  console.log(minWidth);
 
   let thead = [];
   let tbody = smartTable.table.rows;
