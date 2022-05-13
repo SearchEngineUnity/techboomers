@@ -42,6 +42,9 @@ const useStyles = makeStyles((theme) => ({
   bold: {
     fontWeight: theme.typography.fontWeightBold,
   },
+  primaryOutline: {
+    outlineColor: theme.palette.primary.main,
+  },
 }));
 
 const Transition = React.forwardRef((props, ref) => <Slide direction="up" ref={ref} {...props} />);
@@ -90,7 +93,7 @@ function MainNavHamburger({ topMenu, bottomMenu, brandUrl, location }) {
                       display={{ xs: 'block', sm: 'block', md: 'none', lg: 'none', xl: 'none' }}
                       key={groupKey}
                     >
-                      <a href={brandUrl}>
+                      <a href={brandUrl} className={classes.primaryOutline}>
                         <img
                           src={mobileBrand.brand.logo.asset.url}
                           alt={mobileBrand.brand.title}

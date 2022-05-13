@@ -1,7 +1,16 @@
 import React from 'react';
 import { Box, Link } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  primaryOutline: {
+    outlineColor: theme.palette.primary.main,
+  },
+}));
 
 function NavPhone({ text, number }) {
+  const classes = useStyles();
+
   return (
     <>
       <Box
@@ -16,6 +25,7 @@ function NavPhone({ text, number }) {
           color="inherit"
           underline="none"
           role="menuitem"
+          className={classes.primaryOutline}
         >
           {text}
         </Link>
@@ -32,6 +42,7 @@ function NavPhone({ text, number }) {
           color="inherit"
           underline="none"
           role="menuitem"
+          className={classes.primaryOutline}
         >
           {number}
         </Link>
