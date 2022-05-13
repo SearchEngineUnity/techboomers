@@ -1,8 +1,16 @@
 import React from 'react';
 import { Link, Button } from 'gatsby-theme-material-ui';
 import { Box, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  primaryOutline: {
+    outlineColor: theme.palette.primary.main,
+  },
+}));
 
 function NavItem({ url, title, isButton, location }) {
+  const classes = useStyles();
   return (
     <>
       {isButton ? (
@@ -17,7 +25,7 @@ function NavItem({ url, title, isButton, location }) {
           fontWeight={`/${url}` === location.pathname ? 'fontWeightBold' : 'fontWeightRegular'}
           role="none"
         >
-          <Link to={`/${url}`} role="menuitem">
+          <Link to={`/${url}`} role="menuitem" color="primary" className={classes.primaryOutline}>
             {title}
           </Link>
         </Box>
