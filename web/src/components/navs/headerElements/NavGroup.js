@@ -76,6 +76,7 @@ const NavGroup = ({ title, group, location, position }) => {
         </Box>
       </Link>
       <Popper
+        style={{ zIndex: 1900 }}
         open={open}
         anchorEl={anchorRef.current}
         placement={position}

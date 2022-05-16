@@ -23,6 +23,9 @@ function GuideHero({ h1, subtitle, date, image }) {
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const heroAlignment = useSpGuideHero();
   const classes = useStyles();
+  console.log('subtitle start');
+  console.log(subtitle);
+  console.log('subtitle end');
 
   return (
     <>
