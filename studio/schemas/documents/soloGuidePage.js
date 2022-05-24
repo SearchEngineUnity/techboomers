@@ -24,7 +24,7 @@ export default {
     },
     {
       name: 'tile',
-      title: 'Listing Card Fields',
+      title: 'Listing Tile Fields',
       options: {
         collapsible: true,
         collapsed: false,
