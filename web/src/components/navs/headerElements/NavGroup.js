@@ -1,4 +1,3 @@
-// group should be two different names
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import {
@@ -16,7 +15,7 @@ import {
 import { ExpandLess, ExpandMore } from '@material-ui/icons';
 import { navigate } from 'gatsby';
 
-const NavGroup = ({ title, group, location, position }) => {
+const NavGroup = ({ title, subGroup, location, position }) => {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
@@ -93,7 +92,7 @@ const NavGroup = ({ title, group, location, position }) => {
               // eslint-disable-next-line react/jsx-no-bind
               onKeyDown={handleListKeyDown}
             >
-              {group.map(({ icon, title: itemTitle, nav, _key }) => (
+              {subGroup.map(({ icon, title: itemTitle, nav, _key }) => (
                 <MenuItem
                   role="menuitem"
                   onClick={() => handleNavigate(nav)}

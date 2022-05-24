@@ -140,7 +140,7 @@ export function mapNavGroupToProps({ title, nav, group }) {
   return {
     title,
     url: nav?.slug?.current,
-    group,
+    subGroup: group,
   };
 }
 

@@ -24,8 +24,9 @@ const MainNav = ({ data, location }) => {
       {data.sanityNavMenu && (
         <AppBar position="static" classes={{ colorDefault: classes.appBar }} color="default">
           <Container maxWidth="lg" component="nav" aria-label="main navigation header">
-            {data.sanityNavMenu.menuArray.map((menu, menuIndex) => {
-              const { menuGroup, _key } = menu;
+            {data.sanityNavMenu.menuArray.map((menuRow, menuIndex) => {
+              // menu group is not a navgroup. it is the top level menu item.
+              const { menuGroup, _key } = menuRow;
 
               return (
                 <Box

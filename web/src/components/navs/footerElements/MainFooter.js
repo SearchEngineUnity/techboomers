@@ -30,7 +30,7 @@ const MainFooter = ({ data }) => {
 
   return (
     <>
-      {data.sanityNavMenu && (
+      {footerMenu && (
         <Box component="footer" color="common.white" bgcolor="common.black" fontSize={14} pt={2}>
           <Container maxWidth="lg" component="nav" role="menubar">
             <Grid container spacing={3}>
@@ -42,10 +42,7 @@ const MainFooter = ({ data }) => {
                         return (
                           <Grid item key={item._key}>
                             <Box my={2}>
-                              <NavBrand
-                                {...mapNavBrandToProps(item)}
-                                url={data.sanityContactInfo.homePage}
-                              />
+                              <NavBrand {...mapNavBrandToProps(item)} url={contactInfo.homePage} />
                               <ContactInfo />
                               <Hidden mdUp>
                                 <SocialMedia />
