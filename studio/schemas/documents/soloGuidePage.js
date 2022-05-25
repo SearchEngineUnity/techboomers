@@ -24,7 +24,7 @@ export default {
     },
     {
       name: 'tile',
-      title: 'Listing Card Fields',
+      title: 'Listing Tile Fields',
       options: {
         collapsible: true,
         collapsed: false,
@@ -152,7 +152,7 @@ export default {
       title: 'Tile Image',
       type: 'illustration',
       fieldset: 'tile',
-      validation: (Rule) => [Rule.required().error('Field is required')],
+      validation: (Rule) => Rule.custom(({ asset }) => (asset ? true : 'An image is required')),
     },
     {
       name: 'tileText',
@@ -179,7 +179,7 @@ export default {
       title: 'Hero Image',
       type: 'illustration',
       fieldset: 'hero',
-      validation: (Rule) => [Rule.required().error('Field is required')],
+      validation: (Rule) => Rule.custom(({ asset }) => (asset ? true : 'An image is required')),
     },
     {
       name: 'toc',
