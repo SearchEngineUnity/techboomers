@@ -8,12 +8,18 @@ const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.hlBox.dyk.bgColor,
     borderColor: theme.palette.hlBox.dyk.borderColor,
+    '& .pt-link': {
+      color: theme.palette.hlBox.dyk.linkColor,
+    },
   },
   icon: {
     color: theme.palette.hlBox.dyk.iconColor,
   },
   text: {
     color: theme.palette.hlBox.dyk.textColor,
+  },
+  link: {
+    color: theme.palette.hlBox.definition.linkColor,
   },
 }));
 

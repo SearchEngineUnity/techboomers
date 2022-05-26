@@ -27,5 +27,11 @@ export default {
       type: 'reference',
       to: [{ type: 'colorOption' }],
     },
+    {
+      name: 'linkColor',
+      title: 'Link Color',
+      type: 'reference',
+      to: [{ type: 'colorOption' }],
+    },
   ],
 };
