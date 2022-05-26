@@ -54,7 +54,7 @@ const ThemeProvider = ({ children, data }) => {
       },
       hlBox: {
         definition: {
-          bgColor: determineColor(palette?.definition?.bgColor?.color) || '#d6d8d9',
+          bgColor: determineColor(palette?.definition?.bgColor?.color) || '#e9eced',
           borderColor: determineColor(palette?.definition?.borderColor?.color) || '#c6c8ca',
           iconColor:
             determineColor(palette?.definition?.iconColor?.color) ||
@@ -64,6 +64,9 @@ const ThemeProvider = ({ children, data }) => {
             determineColor(palette?.definition?.textColor?.color) ||
             palette?.primaryText?.hex ||
             'rgba(0, 0, 0, 0.87)',
+          linkColor:
+            determineColor(palette?.definition?.linkColor?.color) ||
+            determineColor(palette?.primary?.dark?.color),
         },
         dyk: {
           bgColor: determineColor(palette?.dyk?.bgColor?.color) || '#d4edda',
@@ -76,6 +79,7 @@ const ThemeProvider = ({ children, data }) => {
             determineColor(palette?.dyk?.textColor?.color) ||
             palette?.primaryText?.hex ||
             'rgba(0, 0, 0, 0.87)',
+          linkColor: determineColor(palette?.definition?.linkColor?.color) || '#007030',
         },
         important: {
           bgColor: determineColor(palette?.important?.bgColor?.color) || '#fff3cd',
@@ -88,6 +92,7 @@ const ThemeProvider = ({ children, data }) => {
             determineColor(palette?.important?.textColor?.color) ||
             palette?.primaryText?.hex ||
             'rgba(0, 0, 0, 0.87)',
+          linkColor: determineColor(palette?.definition?.linkColor?.color) || '#935f00',
         },
         proTip: {
           bgColor: determineColor(palette?.proTip?.bgColor?.color) || '#cce5ff',
@@ -100,6 +105,7 @@ const ThemeProvider = ({ children, data }) => {
             determineColor(palette?.proTip?.textColor?.color) ||
             palette?.primaryText?.hex ||
             'rgba(0, 0, 0, 0.87)',
+          linkColor: determineColor(palette?.definition?.linkColor?.color) || '#0056cb',
         },
         warning: {
           bgColor: determineColor(palette?.warning?.bgColor?.color) || '#f8d7da',
@@ -112,6 +118,7 @@ const ThemeProvider = ({ children, data }) => {
             determineColor(palette?.warning?.textColor?.color) ||
             palette?.primaryText?.hex ||
             'rgba(0, 0, 0, 0.87)',
+          linkColor: determineColor(palette?.definition?.linkColor?.color) || '#bd0032',
         },
       },
     },
@@ -235,6 +242,12 @@ export default function TopLayout({ children }) {
                   alpha
                 }
               }
+              linkColor {
+                color {
+                  hex
+                  alpha
+                }
+              }
             }
             definition {
               bgColor {
@@ -256,6 +269,12 @@ export default function TopLayout({ children }) {
                 }
               }
               textColor {
+                color {
+                  hex
+                  alpha
+                }
+              }
+              linkColor {
                 color {
                   hex
                   alpha
@@ -287,6 +306,12 @@ export default function TopLayout({ children }) {
                   alpha
                 }
               }
+              linkColor {
+                color {
+                  hex
+                  alpha
+                }
+              }
             }
             warning {
               bgColor {
@@ -313,6 +338,12 @@ export default function TopLayout({ children }) {
                   alpha
                 }
               }
+              linkColor {
+                color {
+                  hex
+                  alpha
+                }
+              }
             }
             dyk {
               bgColor {
@@ -334,6 +365,12 @@ export default function TopLayout({ children }) {
                 }
               }
               textColor {
+                color {
+                  hex
+                  alpha
+                }
+              }
+              linkColor {
                 color {
                   hex
                   alpha
