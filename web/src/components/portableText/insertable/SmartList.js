@@ -1,4 +1,8 @@
+// This code sheet has been updated to accommodate heading styles in smart list. They will all need to be moved to the new 'Heading Ordered List'
+
 /* eslint-disable react/no-array-index-key */
+// will need to set keys properly for react instead of using eslint disable
+
 import React from 'react';
 import { Typography } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
