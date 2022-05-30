@@ -14,6 +14,7 @@ export default () =>
   S.list()
     .title('Site Builder V1')
     .items([
+      S.documentTypeListItem('textBlock').title('Text Block'), // new to test paste handling
       S.listItem()
         .title('Website')
         .icon(AiOutlineGlobal)

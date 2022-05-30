@@ -14,4 +14,5 @@ export { default as redirect } from './redirect';
 export { default as sectionColorSet } from './sectionColorSet';
 export { default as socialInfo } from './socialInfo';
 export { default as soloGuidePage } from './soloGuidePage';
+export { default as textBlock } from './textBlock'; // this is added to test paste handling
 export { default as typography } from './typography';
