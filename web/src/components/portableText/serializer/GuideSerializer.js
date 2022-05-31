@@ -15,7 +15,8 @@ import ButtonExternal from '../../buttons/ButtonExternal';
 import ButtonInternalGlobal from '../../buttons/ButtonInternalGlobal';
 import ButtonInternalLocal from '../../buttons/ButtonInternalLocal';
 import ButtonJumpLink from '../../buttons/ButtonJumpLink';
-import SmartList from '../insertable/SmartList';
+import SmartOrderedList from '../insertable/SmartOrderedList';
+import SmartUnorderedList from '../insertable/SmartUnorderedList';
 import { mapMuiBtnToProps } from '../../../lib/mapToProps';
 
 const StyledTypography = styled(Typography)`
@@ -172,8 +173,11 @@ const serializers = {
           return <p>under development</p>;
       }
     },
-    smartList({ node }) {
-      return <SmartList {...node} />;
+    smartOrderedList({ node }) {
+      return <SmartOrderedList {...node} />;
+    },
+    smartUnorderedList({ node }) {
+      return <SmartUnorderedList {...node} />;
     },
   },
   marks: {
