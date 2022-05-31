@@ -1,14 +1,14 @@
 import { MdPlaylistAdd } from 'react-icons/md';
 
 export default {
-  name: 'smartListItem',
+  name: 'smartUnorderedListItem',
   type: 'object',
-  title: 'Smart List Item',
+  title: 'List Item',
   icon: MdPlaylistAdd,
   fields: [
     {
       name: 'content',
-      type: 'listPT',
+      type: 'unorderedListPT',
     },
   ],
   preview: {

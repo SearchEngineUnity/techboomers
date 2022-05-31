@@ -9,7 +9,7 @@ import JumpLinkRenderer from '../components/previews/JumpLinkRenderer';
 
 export default {
   title: 'Block Content',
-  name: 'listPT',
+  name: 'orderedListPT',
   type: 'array',
   of: [
     {
