@@ -3,7 +3,7 @@ import { Link } from '@material-ui/core';
 
 function JumpLink({ hash, children, className }) {
   return (
-    <Link href={`#${hash}`} className={className}>
+    <Link href={`#${hash}`} className={className} underline="always">
       {children}
     </Link>
   );
