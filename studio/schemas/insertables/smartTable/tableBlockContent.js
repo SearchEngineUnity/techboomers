@@ -135,7 +135,7 @@ export default {
       },
     },
     {
-      type: 'illustration',
+      type: 'tableImage',
     },
   ],
 };

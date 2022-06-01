@@ -1,4 +1,3 @@
-// This is a type "Illustration"
 export default {
   name: 'tileImage',
   title: 'Tile Image',

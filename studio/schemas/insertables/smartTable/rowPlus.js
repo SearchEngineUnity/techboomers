@@ -7,7 +7,7 @@ export default {
       type: 'array',
       of: [
         { type: 'tableBlock' },
-        { type: 'illustration' },
+        { type: 'tableImage' },
         { type: 'emptyCell' },
         { type: 'splitCell' },
       ],

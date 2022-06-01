@@ -1,28 +1,25 @@
 import React from 'react';
-import { Box, Typography } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import sanityConfig from '../../../../sanityConfig';
+import CaptionContent from '../serializer/CaptionSerializer';
 
 function FixedTableImage({ illustration }) {
   const imageFluid = illustration?.asset;
-  const fluidProps = getGatsbyImageData(imageFluid, { layout: 'fixed' }, sanityConfig);
+  const fixedProps = getGatsbyImageData(imageFluid, { layout: 'fixed' }, sanityConfig);
 
   return (
-    <Box component="figure" justifyContent={illustration.align} sx={{ m: 0 }} display="flex">
+    <Box component="figure" justifyContent={illustration.align} sx={{ m: 0 }} display="block">
       <GatsbyImage
-        image={fluidProps}
+        image={fixedProps}
         // eslint-disable-next-line no-unneeded-ternary
         alt={illustration.alt ? illustration.alt : ''}
         style={{
           display: 'block',
         }}
       />
-      {illustration.caption && (
-        <Typography component="figcaption" variant="caption">
-          <em>{illustration.caption}</em>
-        </Typography>
-      )}
+      {illustration.caption && <CaptionContent blocks={illustration.caption} />}
     </Box>
   );
 }

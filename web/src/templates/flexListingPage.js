@@ -192,7 +192,7 @@ export const query = graphql`
               _rawAsset(resolveReferences: { maxDepth: 10 })
               maxHeight
               maxWidth
-              caption
+              _rawCaption(resolveReferences: { maxDepth: 10 })
             }
             ... on SanityHeroBlock {
               _key
@@ -353,7 +353,7 @@ export const query = graphql`
               _rawAsset(resolveReferences: { maxDepth: 10 })
               maxHeight
               maxWidth
-              caption
+              _rawCaption(resolveReferences: { maxDepth: 10 })
             }
             ... on SanitySectionBlock {
               _key
@@ -700,7 +700,7 @@ export const query = graphql`
               _rawAsset(resolveReferences: { maxDepth: 10 })
               maxHeight
               maxWidth
-              caption
+              _rawCaption(resolveReferences: { maxDepth: 10 })
             }
             ... on SanitySectionBlock {
               _key
