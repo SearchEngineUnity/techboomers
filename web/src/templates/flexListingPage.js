@@ -87,10 +87,6 @@ export const query = graphql`
                 tileImage {
                   alt
                   _rawAsset(resolveReferences: { maxDepth: 10 })
-                  caption
-                  maxHeight
-                  maxWidth
-                  caption
                 }
               }
             }
@@ -347,10 +343,6 @@ export const query = graphql`
                 tileImage {
                   alt
                   _rawAsset(resolveReferences: { maxDepth: 10 })
-                  caption
-                  maxHeight
-                  maxWidth
-                  caption
                 }
               }
             }
@@ -604,10 +596,6 @@ export const query = graphql`
                 tileImage {
                   alt
                   _rawAsset(resolveReferences: { maxDepth: 10 })
-                  caption
-                  maxHeight
-                  maxWidth
-                  caption
                 }
               }
             }
