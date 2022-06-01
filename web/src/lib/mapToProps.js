@@ -62,11 +62,11 @@ export function mapGuideCardToProps({ h1, slug, excerpt, cardImage, displayDate 
   };
 }
 
-export function mapFluidImgBlockToProps({ _rawAsset, alt, caption, maxHeight, maxWidth }) {
+export function mapFluidImgBlockToProps({ _rawAsset, alt, _rawCaption, maxHeight, maxWidth }) {
   return {
     image: _rawAsset,
     alt,
-    caption,
+    caption: _rawCaption,
     maxHeight,
     maxWidth,
   };
@@ -274,13 +274,13 @@ export function mapGridFlexToProps({ layout, tiles, tileOption }) {
   };
 }
 
-export function mapFluidImgToProps({ _rawAsset, alt, maxHeight, maxWidth, caption }) {
+export function mapFluidImgToProps({ _rawAsset, alt, maxHeight, maxWidth, _rawCaption }) {
   return {
     image: _rawAsset,
     alt,
     maxHeight,
     maxWidth,
-    caption,
+    caption: _rawCaption,
   };
 }
 

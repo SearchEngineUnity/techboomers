@@ -15,7 +15,7 @@ export default {
   fields: [
     {
       name: 'tileImage',
-      title: 'Illustration',
+      title: 'Tile Image',
       type: 'tileImage',
     },
     {

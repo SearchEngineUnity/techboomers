@@ -3,6 +3,7 @@ import { Box, Typography } from '@material-ui/core';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import sanityConfig from '../../../sanityConfig';
+import CaptionContent from '../portableText/serializer/CaptionSerializer';
 
 function FluidImgBlock({ image, alt, loading, maxHeight, maxWidth, caption }) {
   const loadingSetting = loading || 'lazy';
@@ -47,11 +48,7 @@ function FluidImgBlock({ image, alt, loading, maxHeight, maxWidth, caption }) {
             maxWidth: customMaxWidth,
           }}
         />
-        {caption && (
-          <Typography variant="caption" component="figcaption">
-            <em>{caption}</em>
-          </Typography>
-        )}
+        {caption && <CaptionContent blocks={caption} />}
       </Box>
     </Box>
   );

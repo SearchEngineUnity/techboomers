@@ -111,7 +111,7 @@ function SmartTable({ smartTable }) {
                       </TableCell>
                     );
                   }
-                  if (cell._type === 'illustration') {
+                  if (cell._type === 'tableImage') {
                     return (
                       // eslint-disable-next-line
                   <TableCell key={`${thead._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }} scope="col" role="columnheader">
@@ -137,7 +137,7 @@ function SmartTable({ smartTable }) {
                         </TableCell>
                       );
                     }
-                    if (cell._type === 'illustration') {
+                    if (cell._type === 'tableImage') {
                       return (
                         // eslint-disable-next-line
                       <TableCell component="th" key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }} scope="row" role="rowheader">
@@ -155,7 +155,7 @@ function SmartTable({ smartTable }) {
                       </TableCell>
                     );
                   }
-                  if (cell._type === 'illustration') {
+                  if (cell._type === 'tableImage') {
                     return (
                       // eslint-disable-next-line
                     <TableCell key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }} role="cell">

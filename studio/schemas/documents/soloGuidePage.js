@@ -177,7 +177,7 @@ export default {
     {
       name: 'heroImage',
       title: 'Hero Image',
-      type: 'illustration',
+      type: 'imageBlock',
       fieldset: 'hero',
       validation: (Rule) => Rule.custom(({ asset }) => (asset ? true : 'An image is required')),
     },

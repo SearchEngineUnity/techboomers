@@ -15,6 +15,7 @@ export default {
       styles: [],
       lists: [],
       marks: {
+        decorators: [],
         annotations: [
           {
             name: 'internalLocal',
