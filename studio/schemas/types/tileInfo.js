@@ -16,7 +16,7 @@ export default {
     {
       name: 'tileImage',
       title: 'Illustration',
-      type: 'illustration',
+      type: 'tileImage',
     },
     {
       name: 'title',

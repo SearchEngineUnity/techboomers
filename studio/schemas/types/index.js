@@ -22,5 +22,6 @@ export { default as navPhone } from './navPhone';
 export { default as navSet } from './navSet';
 export { default as smartOrderedListItem } from './smartOrderedListItem';
 export { default as smartUnorderedListItem } from './smartUnorderedListItem';
+export { default as tileImage } from './tileImage';
 export { default as tileInfo } from './tileInfo';
 export { default as tocLink } from './tocLink';

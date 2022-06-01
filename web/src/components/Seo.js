@@ -20,6 +20,7 @@ const Seo = ({
   noindex,
   nofollow,
   canonical,
+  heroImage,
 }) => {
   let metaURL = data.sanityGeneralSettings.siteDomain;
   let ogType = '';

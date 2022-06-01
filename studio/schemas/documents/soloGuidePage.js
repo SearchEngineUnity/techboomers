@@ -150,7 +150,7 @@ export default {
     {
       name: 'tileImage',
       title: 'Tile Image',
-      type: 'illustration',
+      type: 'tileImage',
       fieldset: 'tile',
       validation: (Rule) => Rule.custom(({ asset }) => (asset ? true : 'An image is required')),
     },

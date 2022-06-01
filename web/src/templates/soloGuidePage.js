@@ -50,6 +50,9 @@ export const query = graphql`
       heroImage {
         alt
         _rawAsset(resolveReferences: { maxDepth: 10 })
+        asset {
+          url
+        }
         maxHeight
         maxWidth
         caption
@@ -64,7 +67,7 @@ const SoloGuidePage = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <Seo {...mapSeoToProps(data.guide, type)} />
+      <Seo {...mapSeoToProps(data.guide, type)} heroImage={data.guide.heroImage.asset.url} />
       <main>
         <GuideHero {...mapGuideHeroToProps(data.guide)} />
         <Box my={3}>
