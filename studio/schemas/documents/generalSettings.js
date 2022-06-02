@@ -22,6 +22,14 @@ export default {
       type: 'url',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
+    {
+      name: 'socialImage',
+      title: 'Social Sharing Card Image',
+      description:
+        'This is the default image to be used for social sharing cards. This can be overwritten by at the individual page level.',
+      type: 'image',
+      validation: (Rule) => [Rule.required().error('Field is required')],
+    },
   ],
   preview: {
     select: {},
