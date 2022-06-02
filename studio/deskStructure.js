@@ -26,6 +26,10 @@ export default () =>
               S.divider(),
               S.documentTypeListItem('page').title('Structured Pages'),
               S.documentTypeListItem('flexListingPage').title('Flex Listing Pages'),
+              S.documentTypeListItem('multiChapterGuideRootPage').title(
+                'Multi Chapter Guide Root Pages',
+              ),
+              S.documentTypeListItem('chapterGuidePage').title('Chapter Guide Pages'),
               S.documentTypeListItem('soloGuidePage').title('Solo Guide Pages'),
               S.divider(),
               S.documentTypeListItem('redirect').title('Redirects'),
