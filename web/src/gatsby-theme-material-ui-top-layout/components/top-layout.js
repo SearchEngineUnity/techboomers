@@ -64,9 +64,7 @@ const ThemeProvider = ({ children, data }) => {
             determineColor(palette?.definition?.textColor?.color) ||
             palette?.primaryText?.hex ||
             'rgba(0, 0, 0, 0.87)',
-          linkColor:
-            determineColor(palette?.definition?.linkColor?.color) ||
-            determineColor(palette?.primary?.dark?.color),
+          linkColor: determineColor(palette?.definition?.linkColor?.color) || '#0000FF',
         },
         dyk: {
           bgColor: determineColor(palette?.dyk?.bgColor?.color) || '#d4edda',
