@@ -23,6 +23,7 @@ const Seo = ({
   heroImage,
 }) => {
   let metaURL = data.sanityGeneralSettings.siteDomain;
+  const socialImage = data.sanityGeneralSettings.socialImage.asset.url;
   let ogType = '';
   const robots = `${nofollow ? 'nofollow' : ''} ${noindex ? 'noindex' : ''}`;
 
@@ -41,10 +42,11 @@ const Seo = ({
 
   const ogTitle = fbShareMetaPack?.fbShareTitle || pageTitle;
   const ogDescription = fbShareMetaPack?.fbShareDescription || metaDescription;
-  const ogImage = fbShareMetaPack?.fbShareImage?.asset.url;
+  const ogImage = fbShareMetaPack?.fbShareImage?.asset.url || heroImage || socialImage;
 
   const twitterTitle = twitterShareMetaPack?.twitterShareTitle || ogTitle || pageTitle;
-  const twitterImage = twitterShareMetaPack?.twitterShareImage?.asset?.url;
+  const twitterImage =
+    twitterShareMetaPack?.twitterShareImage?.asset?.url || heroImage || socialImage;
   const twitterDescription =
     twitterShareMetaPack?.twitterShareDescription || ogDescription || metaDescription;
 
@@ -79,6 +81,11 @@ export default function MySeo(props) {
         {
           sanityGeneralSettings {
             siteDomain
+            socialImage {
+              asset {
+                url
+              }
+            }
           }
         }
       `}
