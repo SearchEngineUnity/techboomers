@@ -1,4 +1,5 @@
 export { default as btnDesignMui } from './btnDesignMui';
+export { default as chapterGuidePage } from './chapterGuidePage';
 export { default as colorOption } from './colorOption';
 export { default as companyLogo } from './companyLogo';
 export { default as contactInfo } from './contactInfo';
@@ -7,6 +8,7 @@ export { default as formNetlify } from './formNetlify';
 export { default as formStyle } from './formStyle';
 export { default as generalSettings } from './generalSettings';
 export { default as layoutSpg } from './layoutSpg';
+export { default as multiChapterGuideRootPage } from './multiChapterGuideRootPage';
 export { default as navMenu } from './navMenu';
 export { default as page } from './page';
 export { default as palette } from './palette';
