@@ -183,6 +183,16 @@ export default function MainNavigation(props) {
                           current
                         }
                       }
+                      ... on SanityChapterGuidePage {
+                        slug {
+                          current
+                        }
+                      }
+                      ... on SanityMultiChapterGuideRootPage {
+                        slug {
+                          current
+                        }
+                      }
                     }
                     _key
                   }
@@ -204,6 +214,16 @@ export default function MainNavigation(props) {
                       }
                     }
                     ... on SanityFlexListingPage {
+                      slug {
+                        current
+                      }
+                    }
+                    ... on SanityChapterGuidePage {
+                      slug {
+                        current
+                      }
+                    }
+                    ... on SanityMultiChapterGuideRootPage {
                       slug {
                         current
                       }
