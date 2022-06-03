@@ -129,37 +129,143 @@ async function createSoloGuidePages(actions, graphql) {
   });
 }
 
-// create individual chapter guides
-async function createChapterGuidePages(actions, graphql) {
+// create Multi Chapter Guide Cluster
+async function createMultiChapterGuideRootPages(actions, graphql) {
   const { data } = await graphql(`
     {
-      allSanityChapterGuidePage {
+      allSanityMultiChapterGuideRootPage {
         edges {
           node {
+            h1
+            shortLabel
             slug {
               current
             }
-            id
+            chapters {
+              h1
+              shortLabel
+              slug {
+                current
+              }
+            }
           }
         }
       }
     }
   `);
 
-  const guides = data.allSanityChapterGuidePage.edges;
+  const guides = data.allSanityMultiChapterGuideRootPage.edges;
+
   guides.forEach((guide) => {
-    if (guide?.node?.slug?.current) {
+    const chaptersArray = [
+      {
+        title: guide.node.shortLabel,
+        slug: guide.node.slug.current,
+      },
+    ];
+    guide.node.chapters.forEach((chapter) => {
+      chaptersArray.push({
+        title: chapter.shortLabel,
+        slug: chapter.slug.current,
+      });
+    });
+
+    // creates the root pages
+    actions.createPage({
+      path: `/${guide.node.slug.current}`,
+      component: path.resolve(`./src/templates/multiChapterGuideRootPage.js`),
+      context: {
+        slug: guide.node.slug.current,
+        chaptersArray,
+      },
+    });
+
+    // creates the chapters
+    guide.node.chapters.forEach((chapter) => {
       actions.createPage({
-        path: `/${guide.node.slug.current}`,
-        ownerNodeId: guide.node.id,
+        path: `/${chapter.slug.current}`,
         component: path.resolve(`./src/templates/chapterGuidePage.js`),
         context: {
-          slug: guide.node.slug.current,
+          slug: chapter.slug.current,
+          chaptersArray,
+          mpTitle: guide.node.shortLabel,
         },
       });
-    }
+    });
   });
 }
+
+// // create individual chapter root
+// async function createMultiChapterGuideRootPages(actions, graphql) {
+//   const { data } = await graphql(`
+//     {
+//       allSanityMultiChapterGuideRootPage {
+//         edges {
+//           node {
+//             slug {
+//               current
+//             }
+//             id
+//           }
+//         }
+//       }
+//     }
+//   `);
+
+//   const guides = data.allSanityMultiChapterGuideRootPage.edges;
+//   guides.forEach((guide) => {
+//     if (guide?.node?.slug?.current) {
+//       actions.createPage({
+//         path: `/${guide.node.slug.current}`,
+//         ownerNodeId: guide.node.id,
+//         component: path.resolve(`./src/templates/multiChapterGuideRootPage.js`),
+//         context: {
+//           slug: guide.node.slug.current,
+//         },
+//       });
+//     }
+//   });
+// }
+
+// // create individual chapter guides
+// // for bread crumbs
+// //    need the root page url
+// //    need to know what chapter # we are on
+// //    need to know total # of chapters
+
+// // for prev / next button
+// //    need to know the H1 or the short label of the prev / next page
+// //    need to know the URL for them as well
+// async function createChapterGuidePages(actions, graphql) {
+//   const { data } = await graphql(`
+//     {
+//       allSanityChapterGuidePage {
+//         edges {
+//           node {
+//             slug {
+//               current
+//             }
+//             id
+//           }
+//         }
+//       }
+//     }
+//   `);
+
+//   const guides = data.allSanityChapterGuidePage.edges;
+//   guides.forEach((guide) => {
+//     if (guide?.node?.slug?.current) {
+//       actions.createPage({
+//         path: `/${guide.node.slug.current}`,
+//         ownerNodeId: guide.node.id,
+//         component: path.resolve(`./src/templates/chapterGuidePage.js`),
+//         context: {
+//           slug: guide.node.slug.current,
+//         },
+//       });
+//     }
+//   });
+// }
 
 // create redirect
 async function createPageRedirects(actions, graphql) {
@@ -196,6 +302,7 @@ exports.createPages = async ({ actions, graphql }) => {
   await createStructuredPages(actions, graphql);
   await createFlexListingPages(actions, graphql);
   await createSoloGuidePages(actions, graphql);
-  await createChapterGuidePages(actions, graphql);
+  await createMultiChapterGuideRootPages(actions, graphql);
+  // await createChapterGuidePages(actions, graphql);
   await createPageRedirects(actions, graphql);
 };

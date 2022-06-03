@@ -156,6 +156,16 @@ export default function Footer(props) {
                           current
                         }
                       }
+                      ... on SanityChapterGuidePage {
+                        slug {
+                          current
+                        }
+                      }
+                      ... on SanityMultiChapterGuideRootPage {
+                        slug {
+                          current
+                        }
+                      }
                     }
                     _key
                   }
@@ -177,6 +187,16 @@ export default function Footer(props) {
                       }
                     }
                     ... on SanityFlexListingPage {
+                      slug {
+                        current
+                      }
+                    }
+                    ... on SanityChapterGuidePage {
+                      slug {
+                        current
+                      }
+                    }
+                    ... on SanityMultiChapterGuideRootPage {
                       slug {
                         current
                       }

@@ -184,8 +184,8 @@ export default {
     {
       name: 'chapters',
       title: 'Chapters List',
-      type: 'reference',
-      to: [{ type: 'chapterGuidePage' }],
+      type: 'array',
+      of: [{ type: 'reference', to: [{ type: 'chapterGuidePage' }] }],
       fieldset: 'mainContent',
     },
     {
