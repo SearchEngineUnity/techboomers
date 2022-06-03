@@ -20,7 +20,7 @@ export default {
     },
     prepare({ type }) {
       return {
-        title: 'Smart Unordered list',
+        title: 'Smart Ordered list',
         subtitle: type,
       };
     },
