@@ -7,7 +7,13 @@ export default {
       name: 'reference',
       type: 'reference',
       title: 'Reference',
-      to: [{ type: 'page' }, { type: 'soloGuidePage' }, { type: 'flexListingPage' }],
+      to: [
+        { type: 'page' },
+        { type: 'soloGuidePage' },
+        { type: 'chapterGuidePage' },
+        { type: 'multiChapterGuideRootPage' },
+        { type: 'flexListingPage' },
+      ],
     },
     {
       name: 'hashId',

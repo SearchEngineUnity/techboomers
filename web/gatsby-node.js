@@ -129,6 +129,38 @@ async function createSoloGuidePages(actions, graphql) {
   });
 }
 
+// create individual chapter guides
+async function createChapterGuidePages(actions, graphql) {
+  const { data } = await graphql(`
+    {
+      allSanityChapterGuidePage {
+        edges {
+          node {
+            slug {
+              current
+            }
+            id
+          }
+        }
+      }
+    }
+  `);
+
+  const guides = data.allSanityChapterGuidePage.edges;
+  guides.forEach((guide) => {
+    if (guide?.node?.slug?.current) {
+      actions.createPage({
+        path: `/${guide.node.slug.current}`,
+        ownerNodeId: guide.node.id,
+        component: path.resolve(`./src/templates/chapterGuidePage.js`),
+        context: {
+          slug: guide.node.slug.current,
+        },
+      });
+    }
+  });
+}
+
 // create redirect
 async function createPageRedirects(actions, graphql) {
   const { data } = await graphql(`
@@ -164,5 +196,6 @@ exports.createPages = async ({ actions, graphql }) => {
   await createStructuredPages(actions, graphql);
   await createFlexListingPages(actions, graphql);
   await createSoloGuidePages(actions, graphql);
+  await createChapterGuidePages(actions, graphql);
   await createPageRedirects(actions, graphql);
 };
