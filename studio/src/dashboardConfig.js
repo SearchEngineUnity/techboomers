@@ -8,7 +8,7 @@ export default {
           {
             title: 'Site Builder V1',
             apiId: '4fe5d933-672d-47d0-828b-dd08600061ac',
-            buildHookId: '620e8cb23e949e1921ab9548',
+            buildHookId: '62b5dac769fb4e19a2875009',
             name: 'sitebuilderv1',
           },
         ],
