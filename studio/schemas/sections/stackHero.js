@@ -1,12 +1,12 @@
-import { BsViewStacked } from 'react-icons/bs';
+import { SiElasticstack } from 'react-icons/si';
 
 import * as blocks from '../blocks';
 
 export default {
-  name: 'stackFlex',
-  title: 'Stack - Flex',
+  name: 'stackHero',
+  title: 'Stack - Hero',
   type: 'object',
-  icon: BsViewStacked,
+  icon: SiElasticstack,
   fieldsets: [
     {
       name: 'presentation',
@@ -27,14 +27,14 @@ export default {
     },
     {
       name: 'header',
-      type: 'header',
+      type: 'heroHeader',
       title: 'Header',
     },
     {
       name: 'blocks',
       type: 'array',
       title: 'Blocks',
-      description: 'Please pick a minimum of one. The block(s) will appear in order.',
+      description: 'The block(s) will appear in order.',
       of: [
         ...Object.values(blocks)
           .filter((block) => block.name !== 'heroBlock')
@@ -43,12 +43,11 @@ export default {
             title,
           })),
       ],
-      validation: (Rule) => Rule.min(1).error('Minimum 1 block required'),
     },
     {
       name: 'footer',
       title: 'Footer',
-      type: 'sectionSubtitleFooterPT',
+      type: 'heroFooterPT',
     },
     {
       name: 'blockWidth',

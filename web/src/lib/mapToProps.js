@@ -81,6 +81,7 @@ export function mapGuideHeroToProps({ h1, _rawHeroSubtitle, displayDate, heroIma
   };
 }
 
+// combine w/ mapLrFlexToProps
 export function mapLrHeroToProps({
   _rawFooter,
   blockAlignment,
@@ -144,6 +145,7 @@ export function mapNavGroupToProps({ title, nav, group }) {
   };
 }
 
+// combine w/ mapLrHeroToProps
 export function mapLrFlexToProps({
   _rawFooter,
   blockAlignment,
@@ -188,7 +190,7 @@ export function mapSectionBlockToProps({
   };
 }
 
-export function mapStackFlexToProps({
+export function mapStackSectionToProps({
   _rawFooter,
   blockAlignment,
   headerAlignment,
