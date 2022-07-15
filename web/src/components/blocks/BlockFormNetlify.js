@@ -30,13 +30,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function FormNetlify({ align, title, form, style }) {
+function FormNetlify({ titleAlignment, title, form, style }) {
   const {
     backgroundColor: fieldBgColor,
     fieldBgHoverColor,
     focusedColor,
     borderRadius: fieldBorderRadius,
     btnStyle,
+    btnAlignment,
     fieldVariant: variant,
     labelColor,
     inputColor,
@@ -227,7 +228,7 @@ function FormNetlify({ align, title, form, style }) {
   return (
     <ThemeProvider theme={theme}>
       <Box boxShadow={5} p={6} bgcolor="background.paper">
-        <Box textAlign={align} color={labelColor.color.hex}>
+        <Box textAlign={titleAlignment} color={labelColor.color.hex}>
           <Typography component="p" variant="h3" paragraph>
             {title}
           </Typography>
@@ -409,7 +410,14 @@ function FormNetlify({ align, title, form, style }) {
                 return <div key="form-default">Form Field not Created</div>;
             }
           })}
-          <ButtonSubmit type="submit" text={submitBtn.text} {...mapMuiBtnSubmitToProps(btnStyle)} />
+          <Box textAlign={btnAlignment}>
+            <ButtonSubmit
+              type="submit"
+              text={submitBtn.text}
+              align={btnAlignment}
+              {...mapMuiBtnSubmitToProps(btnStyle)}
+            />
+          </Box>
         </form>
       </Box>
     </ThemeProvider>

@@ -18,6 +18,7 @@ function ButtonSubmit({
   fullWidth,
   borderRadius,
   padding,
+  btnAlignment,
   colors,
   typography,
 }) {
@@ -53,7 +54,7 @@ function ButtonSubmit({
 
   return (
     <ThemeProvider theme={theme}>
-      <Box p={3}>
+      <Box px={3}>
         <Button
           color="primary"
           variant={variant}

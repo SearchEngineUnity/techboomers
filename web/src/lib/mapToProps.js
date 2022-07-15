@@ -294,7 +294,7 @@ export function mapBlockFormNetlifyToProps({
 }) {
   return {
     title,
-    align: titleAlignment,
+    titleAlignment,
     form: _rawFormNetlify,
     style: _rawFormStyle,
   };
