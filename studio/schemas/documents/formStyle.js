@@ -20,7 +20,7 @@ export default {
         'This determines the field variant that is used for Input, Textarea, and Select.',
       options: {
         list: [
-          { title: 'Underline', value: 'standard' },
+          { title: 'Underlined', value: 'standard' },
           { title: 'Filled', value: 'filled' },
           { title: 'Outlined', value: 'outlined' },
         ],
@@ -89,8 +89,20 @@ export default {
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
-      name: 'btnStyle',
-      title: 'Button Style',
+      name: 'btnAlignment',
+      title: 'Button Alignment',
+      type: 'string',
+      options: {
+        list: ['left', 'center', 'right'],
+        layout: 'radio',
+        direction: 'horizontal',
+      },
+      initialValue: 'left',
+      validation: (Rule) => [Rule.required().error('Field is required')],
+    },
+    {
+      name: 'btnStyle', // fix to btnDesign for V2
+      title: 'Button Design Option',
       type: 'reference',
       to: [{ type: 'btnDesignMui' }],
       validation: (Rule) => [Rule.required().error('Field is required')],

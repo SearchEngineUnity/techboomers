@@ -58,7 +58,7 @@ export default {
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
-      name: 'design',
+      name: 'design', // fix to btnDesign for V2
       title: 'Button Design Option',
       type: 'reference',
       to: [{ type: 'btnDesignMui' }],
