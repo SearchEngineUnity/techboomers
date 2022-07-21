@@ -57,7 +57,7 @@ function ButtonExternal({
 
   return (
     <ThemeProvider theme={theme}>
-      <Box textAlign={alignment} p={3}>
+      <Box display="flex" justifyContent={alignment} p={3}>
         <Button
           id={idTag}
           color="primary"
