@@ -169,6 +169,7 @@ function StructuredLrFlex({
                     {...mapSectionBlockToProps(block)}
                   />
                 );
+              // if block.link has a length do XX  if not then return default case.
               case key === 'gridFlex':
                 return <GridFlex key={_key} {...mapGridFlexToProps(block)} />;
               case key === 'blockFormNetlify':
@@ -182,7 +183,7 @@ function StructuredLrFlex({
               case key === 'btnBlockMui' && block.link[0]._type === 'internalLocal':
                 return <ButtonInternalLocal key={_key} {...mapMuiBtnToProps(block)} />;
               default:
-                return <div key="default-inner-block"> Block still under development</div>;
+                return <div key="default-inner-block"> Block still under development</div>; // if _type is an empty string return default case.
             }
           };
           return (
