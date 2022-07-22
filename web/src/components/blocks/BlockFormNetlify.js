@@ -284,7 +284,7 @@ function FormNetlify({ titleAlignment, title, form, style }) {
                               <Checkbox
                                 name={option.value}
                                 checked={isChecked}
-                                onChange={(event) => handleCheckboxChange(event, input.id)} // review with Holly please
+                                onChange={(event) => handleCheckboxChange(event, input.id)}
                                 value={isChecked.toString()}
                                 inputProps={{ 'aria-label': option.label }}
                               />
