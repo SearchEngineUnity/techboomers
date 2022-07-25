@@ -120,9 +120,9 @@ function FormNetlify({ titleAlignment, title, form, style }) {
     setErrorMsgs({ ...errorMsgs, [e.target.name]: '' });
   };
 
-  const handleCheckboxChange = (e) => {
+  const handleCheckboxChange = (e, key) => {
     setState({ ...state, [e.target.name]: e.target.checked });
-    const key = e.target.closest('fieldset').id;
+    // const key = e.target.closest('fieldset').id;
     setErrorMsgs({ ...errorMsgs, [key]: '' });
   };
 
@@ -284,7 +284,7 @@ function FormNetlify({ titleAlignment, title, form, style }) {
                               <Checkbox
                                 name={option.value}
                                 checked={isChecked}
-                                onChange={handleCheckboxChange}
+                                onChange={(event) => handleCheckboxChange(event, input.id)}
                                 value={isChecked.toString()}
                                 inputProps={{ 'aria-label': option.label }}
                               />
