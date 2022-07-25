@@ -36,7 +36,7 @@ export default {
           { title: 'Image only rectangle or square', value: '1' },
           { title: 'Image only circle', value: '2' },
           { title: 'Image and title with border', value: '3' },
-          { title: 'Image and title with text base', value: '4' },
+          { title: 'Image and title with text (base design)', value: '4' },
         ],
       },
       validation: (Rule) => [Rule.required().error('Field is required')],
