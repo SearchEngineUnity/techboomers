@@ -26,10 +26,11 @@ export default {
       ],
     },
     {
-      name: 'hashID',
-      title: 'Hash ID',
+      name: 'idTag',
+      title: 'ID',
       type: 'string',
-      description: 'Please only use alphanumeric characters and hypen',
+      description:
+        'Add ID to the selected string. Please only use alphanumeric characters and hypen.',
     },
     {
       name: 'listItemType',

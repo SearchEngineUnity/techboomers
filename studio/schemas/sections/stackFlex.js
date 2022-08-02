@@ -22,8 +22,9 @@ export default {
       name: 'idTag',
       title: 'ID',
       type: 'string',
-      description: 'Please only use alphanumeric characters and hypen',
       validation: (Rule) => [Rule.required().error('Field is required')],
+      description:
+        'Add ID to the selected string. Please only use alphanumeric characters and hypen.',
     },
     {
       name: 'header',
