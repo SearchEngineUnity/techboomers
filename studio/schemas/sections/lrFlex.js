@@ -19,7 +19,7 @@ export default {
   fields: [
     {
       name: 'idTag',
-      title: 'ID',
+      title: 'ID', // update subtitle of ID field to match V2.
       type: 'string',
       description: 'Please only use alphanumeric characters and hypen',
       validation: (Rule) => [Rule.required().error('Field is required')],
