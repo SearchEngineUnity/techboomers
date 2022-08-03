@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { Container, Typography } from '@material-ui/core';
 import Layout from '../containers/layout';
 import Seo from '../components/Seo';
 import LrHero from '../components/sections/LrFlexHero';
@@ -1144,7 +1145,17 @@ const StructuredPage = ({ data, location, pageContext }) => {
           const { _type } = section;
           switch (_type) {
             case 'lrHero':
-              return <LrHero key={section._key} {...mapLrHeroToProps(section)} />;
+              return currentpage === 1 ? (
+                <LrHero key={section._key} {...mapLrHeroToProps(section)} />
+              ) : (
+                <>
+                  <br />
+                  <br />
+                  <Container maxWidth="lg">
+                    <Typography variant="h1">Check out the list of Guides</Typography>
+                  </Container>
+                </>
+              );
 
             case 'lrFlex':
               return <LrFlex key={section._key} {...mapLrFlexToProps(section)} />;
