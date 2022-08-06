@@ -1,4 +1,5 @@
 import React from 'react';
+import { Box } from '@material-ui/core';
 import SectionTextBlock from '../portableText/serializer/HeroSectionBlockSerializer';
 import HeroSectionHeader from '../sections/HeroSectionHeader';
 import HeroSectionFooter from '../sections/HeroSectionFooter';
@@ -12,6 +13,7 @@ function SectionBlock({
   sectionText,
   footer,
   headerAlignment,
+  textAlignment,
   footerAlignment,
   headingColor,
   subtitleColor,
@@ -28,7 +30,9 @@ function SectionBlock({
         headingColor={headingColor}
         subtitleColor={subtitleColor}
       />
-      <SectionTextBlock blocks={sectionText} />
+      <Box textAlign={textAlignment}>
+        <SectionTextBlock blocks={sectionText} />
+      </Box>
       <HeroSectionFooter
         footer={footer}
         footerColor={footerColor}

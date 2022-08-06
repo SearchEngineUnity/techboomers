@@ -178,6 +178,7 @@ export function mapSectionBlockToProps({
   _rawText,
   _rawFooter,
   headerAlignment,
+  textAlignment,
   footerAlignment,
 }) {
   return {
@@ -186,6 +187,7 @@ export function mapSectionBlockToProps({
     sectionText: _rawText,
     footer: _rawFooter,
     headerAlignment,
+    textAlignment,
     footerAlignment,
   };
 }
