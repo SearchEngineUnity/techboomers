@@ -1,4 +1,5 @@
 import React from 'react';
+import { Box } from '@material-ui/core';
 import SectionTextBlock from '../portableText/serializer/SectionBlockSerializer';
 import StructuredSectionHeader from '../sections/StructuredSectionHeader';
 import StructuredSectionFooter from '../sections/StructuredSectionFooter';
@@ -12,6 +13,7 @@ function SectionBlock({
   sectionText,
   footer,
   headerAlignment,
+  textAlignment,
   footerAlignment,
   headingColor,
   subtitleColor,
@@ -28,7 +30,9 @@ function SectionBlock({
         headingColor={headingColor}
         subtitleColor={subtitleColor}
       />
-      <SectionTextBlock blocks={sectionText} />
+      <Box textAlign={textAlignment}>
+        <SectionTextBlock blocks={sectionText} />
+      </Box>
       <StructuredSectionFooter
         footer={footer}
         footerColor={footerColor}

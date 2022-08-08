@@ -35,7 +35,21 @@ export default {
       name: 'headerAlignment',
       title: 'Header Text Alignment',
       type: 'string',
-      description: 'This only apply to the header above the text.',
+      description: 'This will only apply to the header above the text.',
+      options: {
+        list: ['left', 'center', 'right'],
+        layout: 'radio',
+        direction: 'horizontal',
+      },
+      fieldset: 'presentation',
+      initialValue: 'left',
+      validation: (Rule) => [Rule.required().error('Field is required')],
+    },
+    {
+      name: 'textAlignment',
+      title: 'Text Alignment',
+      type: 'string',
+      description: 'This will only apply to the text.',
       options: {
         list: ['left', 'center', 'right'],
         layout: 'radio',
@@ -49,7 +63,7 @@ export default {
       name: 'footerAlignment',
       title: 'Footer Text Alignment',
       type: 'string',
-      description: 'This only apply to the footer below the text.',
+      description: 'This will only apply to the footer below the text.',
       options: {
         list: ['left', 'center', 'right'],
         layout: 'radio',
