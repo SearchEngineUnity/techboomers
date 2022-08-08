@@ -1,7 +1,7 @@
 import { FaWpforms } from 'react-icons/fa';
 
 export default {
-  title: 'Block Form Netlify',
+  title: 'Form Block',
   name: 'blockFormNetlify',
   type: 'object',
   icon: FaWpforms,

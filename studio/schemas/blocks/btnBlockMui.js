@@ -2,7 +2,7 @@ import { BsBootstrap } from 'react-icons/bs';
 
 export default {
   name: 'btnBlockMui',
-  title: 'Button - MUI',
+  title: 'Button',
   type: 'object',
   icon: BsBootstrap,
   fieldsets: [
