@@ -57,7 +57,7 @@ function ButtonInternalGlobal({
 
   return (
     <ThemeProvider theme={theme}>
-      <Box display="flex" justifyContent={alignment} p={3}>
+      <Box display="flex" justifyContent={alignment} py={3}>
         <Button
           id={idTag}
           color="primary"
