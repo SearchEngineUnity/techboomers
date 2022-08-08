@@ -82,7 +82,7 @@ function SmartTable({ smartTable }) {
               <TableRow key={thead._key}>
                 {thead.cells.map((cell, index) => {
                   if (cell._type === 'emptyCell') {
-                    return <td key={`${thead._key}-${index}`} role="cell" />;
+                    return <TableCell key={`${thead._key}-${index}`} role="cell" />;
                   }
                   if (cell._type === 'splitCell') {
                     return (
@@ -129,6 +129,9 @@ function SmartTable({ smartTable }) {
               <TableRow key={row._key} className={classes.row}>
                 {row.cells.map((cell, index) => {
                   if (rowHeading && index === 0) {
+                    if (cell._type === 'emptyCell') {
+                      return <TableCell key={`${thead._key}-${index}`} role="cell" />;
+                    }
                     if (cell._type === 'tableBlock') {
                       return (
                         // eslint-disable-next-line
@@ -146,6 +149,9 @@ function SmartTable({ smartTable }) {
                       );
                     }
                     return <TableCell component="th">oh oh something is wrong</TableCell>;
+                  }
+                  if (cell._type === 'emptyCell') {
+                    return <TableCell key={`${thead._key}-${index}`} role="cell" />;
                   }
                   if (cell._type === 'tableBlock') {
                     return (
