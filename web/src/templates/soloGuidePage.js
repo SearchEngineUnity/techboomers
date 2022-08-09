@@ -15,6 +15,7 @@ export const query = graphql`
       slug {
         current
       }
+      includeDisclaimer
       displayDate
       pageTitle
       twitterShareMetaPack {

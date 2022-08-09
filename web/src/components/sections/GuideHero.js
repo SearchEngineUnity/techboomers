@@ -3,9 +3,11 @@ import { Container, Typography, Grid, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import ImgBlock from '../blocks/FluidImgBlock';
 import Subtitle from '../portableText/serializer/HeroSubtitleSerializer';
+import GuideText from '../portableText/serializer/GuideSerializer';
 import ProgressBar from '../ScrollProgressBar';
 import { mapFluidImgBlockToProps } from '../../lib/mapToProps';
 import { useSpGuideHero } from '../../hooks/useSpGuideHero';
+import { useDisclaimerText } from '../../hooks/useDisclaimerText';
 
 const useStyles = makeStyles((theme) => ({
   section: {
@@ -18,10 +20,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function GuideHero({ h1, subtitle, date, image }) {
+function GuideHero({ h1, subtitle, date, image, includeDisclaimer }) {
   const lastUpdatedDate = date ? new Date(date.replace(/-/g, '/')) : null;
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const heroAlignment = useSpGuideHero();
+  const disclaimerText = useDisclaimerText();
   const classes = useStyles();
 
   return (
@@ -41,18 +44,20 @@ function GuideHero({ h1, subtitle, date, image }) {
             justifyContent="center"
             alignItems={heroAlignment.heroLrAlignment}
             spacing={8}
+            component="header"
           >
             <Grid item md={6} xs={12}>
               <Typography variant="h1" gutterBottom>
                 {h1}
               </Typography>
               <Subtitle blocks={subtitle} />
-              <br />
               {lastUpdatedDate && (
-                <Box fontSize="0.775rem" fontWeight={600} component="p">
+                <Typography variant="body1" component="p" gutterBottom>
                   Last updated: {lastUpdatedDate.toLocaleDateString('en-US', options)}
-                </Box>
+                </Typography>
               )}
+              <br />
+              {includeDisclaimer && <Subtitle blocks={disclaimerText} />}
             </Grid>
             <Grid item md={6} xs={12}>
               <div justify={heroAlignment.heroImgAlignment}>

@@ -196,6 +196,12 @@ export default {
       fieldset: 'mainContent',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
+    {
+      name: 'includeDisclaimer',
+      title: 'Include Disclaimer',
+      type: 'boolean',
+      initialValue: true,
+    },
   ],
   preview: {
     select: {
