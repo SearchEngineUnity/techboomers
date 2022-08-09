@@ -30,6 +30,12 @@ export default {
       type: 'image',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
+    {
+      name: 'disclaimerText',
+      title: 'Affiliate Disclaimer Text',
+      type: 'disclaimerPT',
+      description: 'This is the affiliate disclaimer text to be used on guide page types.',
+    },
   ],
   preview: {
     select: {},

@@ -1,4 +1,5 @@
 export { default as captionPT } from './captionPT';
+export { default as disclaimerPT } from './disclaimerPT';
 export { default as guideBodyPT } from './guideBodyPT';
 export { default as heroBlockPT } from './heroBlockPT';
 export { default as heroFooterPT } from './heroFooterPT';

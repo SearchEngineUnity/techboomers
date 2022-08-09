@@ -72,12 +72,19 @@ export function mapFluidImgBlockToProps({ _rawAsset, alt, _rawCaption, maxHeight
   };
 }
 
-export function mapGuideHeroToProps({ h1, _rawHeroSubtitle, displayDate, heroImage }) {
+export function mapGuideHeroToProps({
+  h1,
+  _rawHeroSubtitle,
+  displayDate,
+  heroImage,
+  includeDisclaimer,
+}) {
   return {
     h1,
     subtitle: _rawHeroSubtitle,
     date: displayDate,
     image: heroImage,
+    includeDisclaimer,
   };
 }
 
