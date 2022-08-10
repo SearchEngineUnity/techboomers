@@ -232,6 +232,12 @@ export const query = graphql`
                 _rawRgb
               }
             }
+            bgImage {
+              asset {
+                url
+              }
+            }
+            bleed
             footer {
               color {
                 hex
@@ -492,6 +498,12 @@ export const query = graphql`
                 _rawRgb
               }
             }
+            bgImage {
+              asset {
+                url
+              }
+            }
+            bleed
             footer {
               color {
                 hex
@@ -738,6 +750,12 @@ export const query = graphql`
                 _rawRgb
               }
             }
+            bgImage {
+              asset {
+                url
+              }
+            }
+            bleed
             footer {
               color {
                 hex
@@ -988,6 +1006,12 @@ export const query = graphql`
                 _rawRgb
               }
             }
+            bgImage {
+              asset {
+                url
+              }
+            }
+            bleed
             footer {
               color {
                 hex
@@ -1050,6 +1074,12 @@ export const query = graphql`
                 _rawRgb
               }
             }
+            bgImage {
+              asset {
+                url
+              }
+            }
+            bleed
             footer {
               color {
                 hex

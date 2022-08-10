@@ -18,6 +18,20 @@ export default {
       to: [{ type: 'colorOption' }],
     },
     {
+      name: 'bgImage',
+      title: 'Background Image',
+      type: 'image',
+      description: 'Background Image will overlay on top of Background Color.',
+    },
+    {
+      name: 'bleed',
+      title: 'Set Background to Full Bleed',
+      description:
+        'This setting is only applicable to desktop. All smaller screen will be default small',
+      type: 'boolean',
+      initialValue: true,
+    },
+    {
       name: 'foreground',
       title: 'Foreground Color',
       type: 'reference',

@@ -18,11 +18,30 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   section: {
+    paddingTop: (props) => (props.bleed ? '64px' : '40px'),
+    paddingBottom: (props) => (props.bleed ? '64px' : '40px'),
+    backgroundColor: (props) => props.bleed && props.backgroundColor,
+    backgroundImage: (props) => props.bleed && props.bgImage && `url(${props.bgImage})`,
     [theme.breakpoints.down('sm')]: {
-      padding: 16,
+      paddingLeft: (props) => (props.bleed ? 16 : 0),
+      paddingRight: (props) => (props.bleed ? 16 : 0),
+      paddingTop: (props) => (props.bleed ? 16 : 0),
+      paddingBottom: (props) => (props.bleed ? 16 : 0),
     },
     '& .pt-link': {
       color: (props) => props.linkColor,
+    },
+  },
+  column: {
+    paddingTop: (props) => !props.bleed && '24px',
+    paddingBottom: (props) => !props.bleed && '24px',
+    backgroundColor: (props) => !props.bleed && props.backgroundColor,
+    backgroundImage: (props) => !props.bleed && props.bgImage && `url(${props.bgImage})`,
+    [theme.breakpoints.down('sm')]: {
+      paddingLeft: (props) => (!props.bleed ? 16 : 0),
+      paddingRight: (props) => (!props.bleed ? 16 : 0),
+      paddingTop: (props) => (!props.bleed ? 16 : 0),
+      paddingBottom: (props) => (!props.bleed ? 16 : 0),
     },
   },
 }));
@@ -50,6 +69,8 @@ function PaginatedListingSection({
   };
 
   const col = colCalculate(layout);
+  const bleed = colorSettings ? !!colorSettings?.bleed : true;
+  const bgImage = colorSettings?.bgImage?.asset?.url;
   const backgroundColor = determineColor(colorSettings?.background?.color) || 'transparent';
   const foregroundColor = determineColor(colorSettings?.foreground?.color) || 'text.primary';
   const linkColor = determineColor(colorSettings?.link?.color) || 'initial';
@@ -57,18 +78,12 @@ function PaginatedListingSection({
   const subtitleColor = determineColor(colorSettings?.subtitle?.color) || 'inherit';
   const footerColor = determineColor(colorSettings?.footer?.color) || 'inherit';
   const paginationColor = colorSettings?.foreground?.color;
-  const classes = useStyles({ linkColor, foregroundColor });
+
+  const classes = useStyles({ linkColor, bleed, bgImage, backgroundColor });
 
   return (
-    <Box
-      id={idTag}
-      component="section"
-      py={8}
-      bgcolor={backgroundColor}
-      color={foregroundColor}
-      className={classes.section}
-    >
-      <Container maxWidth="lg">
+    <Box id={idTag} component="section" color={foregroundColor} className={classes.section}>
+      <Container maxWidth="lg" className={classes.column}>
         <StructuredSectionHeader
           heading={heading}
           subtitle={subtitle}
@@ -76,7 +91,7 @@ function PaginatedListingSection({
           subtitleColor={subtitleColor}
           align={headerAlignment}
         />
-        <Grid container spacing={3}>
+        <Grid container spacing={6}>
           {listingItems.map((item) => (
             <Grid item key={item._key} {...col}>
               <TileImageLeft {...item} />
