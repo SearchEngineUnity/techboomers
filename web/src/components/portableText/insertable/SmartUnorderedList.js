@@ -5,13 +5,33 @@
 
 import React from 'react';
 import { Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import ListContent from '../serializer/ListSerializer';
 
-function SmartUnorderedList({ listItems }) {
+const useStyles = makeStyles({
+  removeStyle: { listStyle: 'none', padding: '16px' },
+  imageBullet: (props) => ({
+    padding: '0 0 0 1.5em',
+    background: `url('${props.image}') no-repeat`,
+    backgroundPosition: 'top 0.25em left',
+    backgroundSize: '1em',
+  }),
+});
+
+function SmartUnorderedList({ listItems, listStyleImage }) {
+  const image = listStyleImage?.asset?.url;
+
+  const classes = useStyles({ image });
+
   return (
-    <ul>
+    <ul className={image && classes.removeStyle}>
       {listItems.map((li) => (
-        <Typography variant="body1" component="li" key={li._key}>
+        <Typography
+          variant="body1"
+          component="li"
+          key={li._key}
+          className={image && classes.imageBullet}
+        >
           <ListContent blocks={li.content} />
         </Typography>
       ))}
