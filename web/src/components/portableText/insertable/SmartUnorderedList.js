@@ -9,7 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import ListContent from '../serializer/ListSerializer';
 
 const useStyles = makeStyles({
-  removeStyle: { listStyle: 'none', padding: '16px' },
+  removeStyle: { listStyle: 'none', paddingLeft: '16px' },
   imageBullet: (props) => ({
     padding: '0 0 0 1.5em',
     background: `url('${props.image}') no-repeat`,
@@ -27,7 +27,7 @@ function SmartUnorderedList({ listItems, listStyleImage }) {
     <ul className={image && classes.removeStyle}>
       {listItems.map((li) => (
         <Typography
-          variant="body1"
+          variant="body1" // needed to keep this as typography with variant so all the em units will work properly
           component="li"
           key={li._key}
           className={image && classes.imageBullet}
