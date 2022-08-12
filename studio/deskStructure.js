@@ -30,15 +30,15 @@ export default () =>
             .title('Design Options')
             .items([
               S.listItem()
-                .title('Section Color Options')
-                .schemaType('sectionColorSet')
+                .title('Section Design Options')
+                .schemaType('sectionDesignSet')
                 .child(
-                  S.documentTypeList('sectionColorSet')
+                  S.documentTypeList('sectionDesignSet')
                     .title('Section Color Sets')
                     .child((documentId) =>
                       S.document()
                         .documentId(documentId)
-                        .schemaType('sectionColorSet')
+                        .schemaType('sectionDesignSet')
                         .views([
                           S.view.form(),
                           S.view.component(SectionColorPreview).title('Preview'),

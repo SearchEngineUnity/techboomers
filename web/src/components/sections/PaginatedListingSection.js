@@ -22,6 +22,12 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: (props) => (props.bleed ? '64px' : '40px'),
     backgroundColor: (props) => props.bleed && props.backgroundColor,
     backgroundImage: (props) => props.bleed && props.bgImage && `url(${props.bgImage})`,
+    backgroundPosition: 'center center',
+    backgroundRepeat: (props) => (props.repeat ? 'repeat' : 'no-repeat'),
+    [theme.breakpoints.down('md')]: {
+      paddingTop: (props) => (props.bleed ? '64px' : '0px'),
+      paddingBottom: (props) => (props.bleed ? '64px' : '0px'),
+    },
     [theme.breakpoints.down('sm')]: {
       paddingLeft: (props) => (props.bleed ? 16 : 0),
       paddingRight: (props) => (props.bleed ? 16 : 0),
@@ -37,6 +43,12 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: (props) => !props.bleed && '24px',
     backgroundColor: (props) => !props.bleed && props.backgroundColor,
     backgroundImage: (props) => !props.bleed && props.bgImage && `url(${props.bgImage})`,
+    backgroundPosition: 'center center',
+    backgroundRepeat: (props) => (props.repeat ? 'repeat' : 'no-repeat'),
+    [theme.breakpoints.down('md')]: {
+      paddingTop: (props) => (!props.bleed ? '64px' : '0px'),
+      paddingBottom: (props) => (!props.bleed ? '64px' : '0px'),
+    },
     [theme.breakpoints.down('sm')]: {
       paddingLeft: (props) => (!props.bleed ? 16 : 0),
       paddingRight: (props) => (!props.bleed ? 16 : 0),
@@ -54,7 +66,7 @@ function PaginatedListingSection({
   layout,
   headerAlignment,
   footerAlignment,
-  colorSettings,
+  designSettings,
   currentpage,
   numPages,
   slug,
@@ -69,15 +81,15 @@ function PaginatedListingSection({
   };
 
   const col = colCalculate(layout);
-  const bleed = colorSettings ? !!colorSettings?.bleed : true;
-  const bgImage = colorSettings?.bgImage?.asset?.url;
-  const backgroundColor = determineColor(colorSettings?.background?.color) || 'transparent';
-  const foregroundColor = determineColor(colorSettings?.foreground?.color) || 'text.primary';
-  const linkColor = determineColor(colorSettings?.link?.color) || 'initial';
-  const headingColor = determineColor(colorSettings?.heading?.color) || 'inherit';
-  const subtitleColor = determineColor(colorSettings?.subtitle?.color) || 'inherit';
-  const footerColor = determineColor(colorSettings?.footer?.color) || 'inherit';
-  const paginationColor = colorSettings?.foreground?.color;
+  const bleed = designSettings ? !!designSettings?.bleed : true;
+  const bgImage = designSettings?.bgImage?.asset?.url;
+  const backgroundColor = determineColor(designSettings?.background?.color) || 'transparent';
+  const foregroundColor = determineColor(designSettings?.foreground?.color) || 'text.primary';
+  const linkColor = determineColor(designSettings?.link?.color) || 'initial';
+  const headingColor = determineColor(designSettings?.heading?.color) || 'inherit';
+  const subtitleColor = determineColor(designSettings?.subtitle?.color) || 'inherit';
+  const footerColor = determineColor(designSettings?.footer?.color) || 'inherit';
+  const paginationColor = designSettings?.foreground?.color;
 
   const classes = useStyles({ linkColor, bleed, bgImage, backgroundColor });
 
