@@ -9,7 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import ListContent from '../serializer/ListSerializer';
 
 const useStyles = makeStyles({
-  removeStyle: { listStyle: 'none', paddingLeft: '16px' },
+  removeStyle: { listStyle: 'none', paddingLeft: 'calc(40px - 1.5em)' },
   imageBullet: (props) => ({
     padding: '0 0 0 1.5em',
     background: `url('${props.image}') no-repeat`,
@@ -23,11 +23,12 @@ function SmartUnorderedList({ listItems, listStyleImage }) {
 
   const classes = useStyles({ image });
 
+  // using typography to set changable fontsize to ul and li so that we can use em to calculate things with variant so all the em units will work properly
   return (
-    <ul className={image && classes.removeStyle}>
+    <Typography variant="body1" component="ul" className={image && classes.removeStyle}>
       {listItems.map((li) => (
         <Typography
-          variant="body1" // needed to keep this as typography with variant so all the em units will work properly
+          variant="body1"
           component="li"
           key={li._key}
           className={image && classes.imageBullet}
@@ -35,7 +36,7 @@ function SmartUnorderedList({ listItems, listStyleImage }) {
           <ListContent blocks={li.content} />
         </Typography>
       ))}
-    </ul>
+    </Typography>
   );
 }
 
