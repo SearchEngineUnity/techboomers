@@ -127,10 +127,10 @@ export default {
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
-      name: 'colorSettings',
-      title: 'Color Settings',
+      name: 'designSettings',
+      title: 'Design Settings',
       type: 'reference',
-      to: [{ type: 'sectionColorSet' }],
+      to: [{ type: 'sectionDesignSet' }],
       fieldset: 'presentation',
     },
   ],

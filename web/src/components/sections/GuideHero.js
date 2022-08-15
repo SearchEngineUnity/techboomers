@@ -3,7 +3,6 @@ import { Container, Typography, Grid, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import ImgBlock from '../blocks/FluidImgBlock';
 import Subtitle from '../portableText/serializer/HeroSubtitleSerializer';
-import GuideText from '../portableText/serializer/GuideSerializer';
 import ProgressBar from '../ScrollProgressBar';
 import { mapFluidImgBlockToProps } from '../../lib/mapToProps';
 import { useSpGuideHero } from '../../hooks/useSpGuideHero';
@@ -16,6 +15,20 @@ const useStyles = makeStyles((theme) => ({
     },
     '& .pt-link': {
       color: theme.palette.secondary.main,
+    },
+  },
+  column: {
+    [theme.breakpoints.down('sm')]: {
+      padding: 0,
+    },
+  },
+  mobileGrid: {
+    [theme.breakpoints.down('sm')]: {
+      margin: -8,
+      width: `calc(100% + 16px)`,
+      '& > .MuiGrid-item': {
+        padding: 8,
+      },
     },
   },
 }));
@@ -37,14 +50,15 @@ function GuideHero({ h1, subtitle, date, image, includeDisclaimer }) {
         className={classes.section}
         py={8}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" className={classes.column}>
           <Grid
             container
             direction="row"
             justifyContent="center"
             alignItems={heroAlignment.heroLrAlignment}
-            spacing={8}
+            spacing={6}
             component="header"
+            className={classes.mobileGrid}
           >
             <Grid item md={6} xs={12}>
               <Typography variant="h1" gutterBottom>

@@ -35,7 +35,7 @@ function PaginatedListingSectionH1({
   layout,
   headerAlignment,
   footerAlignment,
-  colorSettings,
+  designSettings,
   currentpage,
   numPages,
   slug,
@@ -50,14 +50,14 @@ function PaginatedListingSectionH1({
   };
 
   const col = colCalculate(layout);
-  const backgroundColor = determineColor(colorSettings?.background?.color) || 'transparent';
-  const foregroundColor = determineColor(colorSettings?.foreground?.color) || 'text.primary';
-  const linkColor = determineColor(colorSettings?.link?.color) || 'initial';
-  const headingColor = determineColor(colorSettings?.heading?.color) || 'inherit';
-  const subtitleColor = determineColor(colorSettings?.subtitle?.color) || 'inherit';
-  const footerColor = determineColor(colorSettings?.footer?.color) || 'inherit';
+  const backgroundColor = determineColor(designSettings?.background?.color) || 'transparent';
+  const foregroundColor = determineColor(designSettings?.foreground?.color) || 'text.primary';
+  const linkColor = determineColor(designSettings?.link?.color) || 'initial';
+  const headingColor = determineColor(designSettings?.heading?.color) || 'inherit';
+  const subtitleColor = determineColor(designSettings?.subtitle?.color) || 'inherit';
+  const footerColor = determineColor(designSettings?.footer?.color) || 'inherit';
   const classes = useStyles({ linkColor, foregroundColor });
-  const paginationColor = colorSettings?.foreground?.color;
+  const paginationColor = designSettings?.foreground?.color;
 
   return (
     <Box

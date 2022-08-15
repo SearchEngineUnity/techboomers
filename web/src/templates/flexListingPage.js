@@ -224,7 +224,7 @@ export const query = graphql`
           idTag
           layout
           reverseOrder
-          colorSettings {
+          designSettings {
             background {
               color {
                 hex
@@ -232,6 +232,13 @@ export const query = graphql`
                 _rawRgb
               }
             }
+            bgImage {
+              asset {
+                url
+              }
+            }
+            bleed
+            repeat
             footer {
               color {
                 hex
@@ -484,7 +491,7 @@ export const query = graphql`
           idTag
           layout
           reverseOrder
-          colorSettings {
+          designSettings {
             background {
               color {
                 hex
@@ -492,6 +499,13 @@ export const query = graphql`
                 _rawRgb
               }
             }
+            bgImage {
+              asset {
+                url
+              }
+            }
+            bleed
+            repeat
             footer {
               color {
                 hex
@@ -730,7 +744,7 @@ export const query = graphql`
               _rawFormStyle(resolveReferences: { maxDepth: 10 })
             }
           }
-          colorSettings {
+          designSettings {
             background {
               color {
                 hex
@@ -738,6 +752,13 @@ export const query = graphql`
                 _rawRgb
               }
             }
+            bgImage {
+              asset {
+                url
+              }
+            }
+            bleed
+            repeat
             footer {
               color {
                 hex
@@ -980,7 +1001,7 @@ export const query = graphql`
               _rawFormStyle(resolveReferences: { maxDepth: 10 })
             }
           }
-          colorSettings {
+          designSettings {
             background {
               color {
                 hex
@@ -988,6 +1009,13 @@ export const query = graphql`
                 _rawRgb
               }
             }
+            bgImage {
+              asset {
+                url
+              }
+            }
+            bleed
+            repeat
             footer {
               color {
                 hex
@@ -1042,7 +1070,7 @@ export const query = graphql`
           }
           headerAlignment
           idTag
-          colorSettings {
+          designSettings {
             background {
               color {
                 hex
@@ -1050,6 +1078,13 @@ export const query = graphql`
                 _rawRgb
               }
             }
+            bgImage {
+              asset {
+                url
+              }
+            }
+            bleed
+            repeat
             footer {
               color {
                 hex
