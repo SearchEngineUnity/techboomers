@@ -95,7 +95,7 @@ export function mapLrHeroToProps({
   headerAlignment,
   footerAlignment,
   blocks,
-  colorSettings,
+  designSettings,
   header,
   idTag,
   layout,
@@ -112,7 +112,7 @@ export function mapLrHeroToProps({
     headerAlignment,
     footerAlignment,
     reverseOrder,
-    colorSettings,
+    designSettings,
   };
 }
 
@@ -159,7 +159,7 @@ export function mapLrFlexToProps({
   headerAlignment,
   footerAlignment,
   blocks,
-  colorSettings,
+  designSettings,
   header,
   idTag,
   layout,
@@ -176,7 +176,7 @@ export function mapLrFlexToProps({
     headerAlignment,
     footerAlignment,
     reverseOrder,
-    colorSettings,
+    designSettings,
   };
 }
 
@@ -205,7 +205,7 @@ export function mapStackSectionToProps({
   headerAlignment,
   footerAlignment,
   blocks,
-  colorSettings,
+  designSettings,
   header,
   idTag,
   blockWidth,
@@ -220,7 +220,7 @@ export function mapStackSectionToProps({
     blockAlignment,
     headerAlignment,
     footerAlignment,
-    colorSettings,
+    designSettings,
   };
 }
 
@@ -229,7 +229,7 @@ export function mapPaginatedListingSectionToProps({
   headerAlignment,
   footerAlignment,
   layout = '1/1/1',
-  colorSettings,
+  designSettings,
   header,
   idTag,
 }) {
@@ -241,7 +241,7 @@ export function mapPaginatedListingSectionToProps({
     layout,
     headerAlignment,
     footerAlignment,
-    colorSettings,
+    designSettings,
   };
 }
 

@@ -219,13 +219,20 @@ export const query = graphql`
           idTag
           layout
           reverseOrder
-          colorSettings {
+          designSettings {
             background {
               color {
                 hex
                 alpha
               }
             }
+            bgImage {
+              asset {
+                url
+              }
+            }
+            bleed
+            repeat
             footer {
               color {
                 hex
@@ -471,13 +478,20 @@ export const query = graphql`
           idTag
           layout
           reverseOrder
-          colorSettings {
+          designSettings {
             background {
               color {
                 hex
                 alpha
               }
             }
+            bgImage {
+              asset {
+                url
+              }
+            }
+            bleed
+            repeat
             footer {
               color {
                 hex
@@ -711,7 +725,7 @@ export const query = graphql`
               _rawFormStyle(resolveReferences: { maxDepth: 10 })
             }
           }
-          colorSettings {
+          designSettings {
             background {
               color {
                 hex
@@ -719,6 +733,13 @@ export const query = graphql`
                 _rawRgb
               }
             }
+            bgImage {
+              asset {
+                url
+              }
+            }
+            bleed
+            repeat
             footer {
               color {
                 hex
@@ -959,13 +980,20 @@ export const query = graphql`
               _rawFormStyle(resolveReferences: { maxDepth: 10 })
             }
           }
-          colorSettings {
+          designSettings {
             background {
               color {
                 hex
                 alpha
               }
             }
+            bgImage {
+              asset {
+                url
+              }
+            }
+            bleed
+            repeat
             footer {
               color {
                 hex
@@ -1035,6 +1063,8 @@ export const query = graphql`
 
 const StructuredPage = ({ data, location }) => {
   const type = 'page';
+
+  console.log(data.page.sections);
 
   return (
     <Layout location={location}>

@@ -4,7 +4,7 @@ import QueryContainer from 'part:@sanity/base/query-container';
 
 const SectionColorPreview = ({ document }) => {
   // The JSON preview
-  const documentQuery = `*[_type == 'sectionColorSet' && name == '${document.displayed.name}'] | order(_updatedAt desc) {
+  const documentQuery = `*[_type == 'sectionDesignSet' && name == '${document.displayed.name}'] | order(_updatedAt desc) {
     background->, foreground->, link->, heading->, subtitle->, footer->
   }`;
   return (
