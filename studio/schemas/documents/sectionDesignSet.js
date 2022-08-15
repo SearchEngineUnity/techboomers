@@ -1,9 +1,9 @@
 import { HiOutlineColorSwatch } from 'react-icons/hi';
 
 export default {
-  name: 'sectionColorSet',
+  name: 'sectionDesignSet',
   type: 'document',
-  title: 'Section Color Set',
+  title: 'Section Design Set',
   icon: HiOutlineColorSwatch,
   fields: [
     {
@@ -15,7 +15,29 @@ export default {
       name: 'background',
       title: 'Background Color',
       type: 'reference',
+      description:
+        'This will appear underneath the background image and will be shown when the image is not available.',
       to: [{ type: 'colorOption' }],
+    },
+    {
+      name: 'bgImage',
+      title: 'Background Image',
+      type: 'image',
+      description: 'Background Image will overlay on top of Background Color.',
+    },
+    {
+      name: 'bleed',
+      title: 'Set Background to Full Bleed',
+      description:
+        'This setting is only applicable to desktop. All smaller screen will be default small',
+      type: 'boolean',
+      initialValue: true,
+    },
+    {
+      name: 'repeat',
+      title: 'Repeat Background Image',
+      type: 'boolean',
+      initialValue: false,
     },
     {
       name: 'foreground',

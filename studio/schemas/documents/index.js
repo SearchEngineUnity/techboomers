@@ -11,7 +11,7 @@ export { default as navMenu } from './navMenu';
 export { default as page } from './page';
 export { default as palette } from './palette';
 export { default as redirect } from './redirect';
-export { default as sectionColorSet } from './sectionColorSet';
+export { default as sectionDesignSet } from './sectionDesignSet';
 export { default as socialInfo } from './socialInfo';
 export { default as soloGuidePage } from './soloGuidePage';
 export { default as typography } from './typography';

@@ -22,7 +22,7 @@ const MainNav = ({ data, location }) => {
   return (
     <>
       {data.sanityNavMenu && (
-        <AppBar position="static" classes={{ colorDefault: classes.appBar }} color="default">
+        <AppBar position="relative" classes={{ colorDefault: classes.appBar }} color="default">
           <Container maxWidth="lg" component="nav" aria-label="main navigation header">
             {data.sanityNavMenu.menuArray.map((menuRow, menuIndex) => {
               // menu group is not a navgroup. it is the top level menu item.

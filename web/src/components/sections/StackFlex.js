@@ -44,11 +44,42 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   section: {
+    paddingTop: (props) => (props.bleed ? '64px' : '40px'),
+    paddingBottom: (props) => (props.bleed ? '64px' : '40px'),
+    backgroundColor: (props) => props.bleed && props.backgroundColor,
+    backgroundImage: (props) => props.bleed && props.bgImage && `url(${props.bgImage})`,
+    backgroundPosition: 'center center',
+    backgroundRepeat: (props) => (props.repeat ? 'repeat' : 'no-repeat'),
+    [theme.breakpoints.down('md')]: {
+      paddingTop: (props) => (props.bleed ? '64px' : '0px'),
+      paddingBottom: (props) => (props.bleed ? '64px' : '0px'),
+    },
     [theme.breakpoints.down('sm')]: {
-      padding: 16,
+      paddingLeft: (props) => (props.bleed ? 16 : 0),
+      paddingRight: (props) => (props.bleed ? 16 : 0),
+      paddingTop: (props) => (props.bleed ? 16 : 0),
+      paddingBottom: (props) => (props.bleed ? 16 : 0),
     },
     '& .pt-link': {
       color: (props) => props.linkColor,
+    },
+  },
+  column: {
+    paddingTop: (props) => !props.bleed && '24px',
+    paddingBottom: (props) => !props.bleed && '24px',
+    backgroundColor: (props) => !props.bleed && props.backgroundColor,
+    backgroundImage: (props) => !props.bleed && props.bgImage && `url(${props.bgImage})`,
+    backgroundPosition: 'center center',
+    backgroundRepeat: (props) => (props.repeat ? 'repeat' : 'no-repeat'),
+    [theme.breakpoints.down('md')]: {
+      paddingTop: (props) => (!props.bleed ? '64px' : '0px'),
+      paddingBottom: (props) => (!props.bleed ? '64px' : '0px'),
+    },
+    [theme.breakpoints.down('sm')]: {
+      paddingLeft: (props) => (!props.bleed ? 16 : 0),
+      paddingRight: (props) => (!props.bleed ? 16 : 0),
+      paddingTop: (props) => (!props.bleed ? 16 : 0),
+      paddingBottom: (props) => (!props.bleed ? 16 : 0),
     },
   },
 }));
@@ -62,7 +93,7 @@ function StructuredLrFlex({
   blockWidth,
   headerAlignment,
   footerAlignment,
-  colorSettings,
+  designSettings,
 }) {
   const colCalculator = (value) => {
     switch (value) {
@@ -121,25 +152,20 @@ function StructuredLrFlex({
     }
   };
 
-  const backgroundColor = determineColor(colorSettings?.background?.color) || 'transparent';
-  const foregroundColor = determineColor(colorSettings?.foreground?.color) || 'text.primary';
-  const linkColor = determineColor(colorSettings?.link?.color) || 'initial';
-  const headingColor = determineColor(colorSettings?.heading?.color) || 'inherit';
-  const subtitleColor = determineColor(colorSettings?.subtitle?.color) || 'inherit';
-  const footerColor = determineColor(colorSettings?.footer?.color) || 'inherit';
+  const bleed = designSettings ? !!designSettings?.bleed : true;
+  const bgImage = designSettings?.bgImage?.asset?.url;
+  const backgroundColor = determineColor(designSettings?.background?.color) || 'transparent';
+  const foregroundColor = determineColor(designSettings?.foreground?.color) || 'text.primary';
+  const linkColor = determineColor(designSettings?.link?.color) || 'initial';
+  const headingColor = determineColor(designSettings?.heading?.color) || 'inherit';
+  const subtitleColor = determineColor(designSettings?.subtitle?.color) || 'inherit';
+  const footerColor = determineColor(designSettings?.footer?.color) || 'inherit';
 
-  const classes = useStyles({ linkColor });
+  const classes = useStyles({ linkColor, bleed, bgImage, backgroundColor });
 
   return (
-    <Box
-      id={idTag}
-      component="section"
-      py={8}
-      bgcolor={backgroundColor}
-      color={foregroundColor}
-      className={classes.section}
-    >
-      <Container maxWidth="lg">
+    <Box id={idTag} component="section" color={foregroundColor} className={classes.section}>
+      <Container maxWidth="lg" className={classes.column}>
         <StructuredSectionHeader
           heading={heading}
           subtitle={subtitle}
@@ -189,7 +215,7 @@ function StructuredLrFlex({
             <Grid
               container
               justifyContent="center"
-              spacing={8}
+              spacing={6}
               className={classes.mobileGrid}
               key={_key}
             >
