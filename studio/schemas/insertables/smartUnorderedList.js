@@ -13,6 +13,12 @@ export default {
       of: [{ type: 'smartUnorderedListItem' }],
       validation: (Rule) => Rule.min(1).error('Must contain at least one item'),
     },
+    {
+      name: 'listStyleImage',
+      title: 'List Style Image',
+      description: 'Image to be used instead of bullet.',
+      type: 'image',
+    },
   ],
   preview: {
     select: {

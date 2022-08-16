@@ -141,6 +141,11 @@ export const query = graphql`
               }
               text
               design {
+                bgImage {
+                  asset {
+                    url
+                  }
+                }
                 typography {
                   fontFamily
                   fontWeight
@@ -162,18 +167,21 @@ export const query = graphql`
                     color {
                       hex
                       alpha
+                      _rawRgb
                     }
                   }
                   dark {
                     color {
                       alpha
                       hex
+                      _rawRgb
                     }
                   }
                   main {
                     color {
                       alpha
                       hex
+                      _rawRgb
                     }
                   }
                 }
@@ -424,6 +432,11 @@ export const query = graphql`
               }
               text
               design {
+                bgImage {
+                  asset {
+                    url
+                  }
+                }
                 typography {
                   fontFamily
                   fontWeight
@@ -445,18 +458,21 @@ export const query = graphql`
                     color {
                       hex
                       alpha
+                      _rawRgb
                     }
                   }
                   dark {
                     color {
                       alpha
                       hex
+                      _rawRgb
                     }
                   }
                   main {
                     color {
                       alpha
                       hex
+                      _rawRgb
                     }
                   }
                 }
@@ -648,6 +664,11 @@ export const query = graphql`
               }
               text
               design {
+                bgImage {
+                  asset {
+                    url
+                  }
+                }
                 typography {
                   fontFamily
                   fontWeight
@@ -905,6 +926,11 @@ export const query = graphql`
               }
               text
               design {
+                bgImage {
+                  asset {
+                    url
+                  }
+                }
                 typography {
                   fontFamily
                   fontWeight
@@ -926,18 +952,21 @@ export const query = graphql`
                     color {
                       hex
                       alpha
+                      _rawRgb
                     }
                   }
                   dark {
                     color {
                       alpha
                       hex
+                      _rawRgb
                     }
                   }
                   main {
                     color {
                       alpha
                       hex
+                      _rawRgb
                     }
                   }
                 }
@@ -1063,8 +1092,6 @@ export const query = graphql`
 
 const StructuredPage = ({ data, location }) => {
   const type = 'page';
-
-  console.log(data.page.sections);
 
   return (
     <Layout location={location}>
