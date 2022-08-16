@@ -1200,17 +1200,7 @@ const StructuredPage = ({ data, location, pageContext }) => {
           const { _type } = section;
           switch (_type) {
             case 'lrHero':
-              return currentpage === 1 ? (
-                <LrHero key={section._key} {...mapLrHeroToProps(section)} />
-              ) : (
-                <>
-                  <br />
-                  <br />
-                  <Container maxWidth="lg">
-                    <Typography variant="h1">Check out the list of Guides</Typography>
-                  </Container>
-                </>
-              );
+              return <LrHero key={section._key} {...mapLrHeroToProps(section)} />;
 
             case 'lrFlex':
               return <LrFlex key={section._key} {...mapLrFlexToProps(section)} />;
