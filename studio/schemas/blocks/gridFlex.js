@@ -33,10 +33,11 @@ export default {
       type: 'string',
       options: {
         list: [
-          { title: 'Image only rectangle or square', value: '1' },
-          { title: 'Image only circle', value: '2' },
-          { title: 'Image and title with border', value: '3' },
-          { title: 'Image and title with text (base design)', value: '4' },
+          { title: 'Rectangle Image', value: '1' },
+          { title: 'Circle Image', value: '2' },
+          { title: 'Bordered Rectangle Image then Title', value: '3' },
+          { title: 'Bordered Full Image then Title then Text', value: '4' },
+          { title: 'Small Image and Title then Text', value: '5' },
         ],
       },
       validation: (Rule) => [Rule.required().error('Field is required')],
@@ -50,13 +51,24 @@ export default {
     prepare({ name, tileOption }) {
       switch (tileOption) {
         case '1':
-          return { title: name || 'Grid Flex', subtitle: 'display: image-only-rectangle/square' };
+          return { title: name || 'Grid Flex', subtitle: 'display: Rectangle Image' };
         case '2':
-          return { title: name || 'Grid Flex', subtitle: 'display: image-only-circle' };
+          return { title: name || 'Grid Flex', subtitle: 'display: Circle Image' };
         case '3':
-          return { title: name || 'Grid Flex', subtitle: 'display: image-title-border' };
+          return {
+            title: name || 'Grid Flex',
+            subtitle: 'display: Bordered Rectangle Image then Title',
+          };
         case '4':
-          return { title: name || 'Grid Flex', subtitle: 'display: image-title-text-base' };
+          return {
+            title: name || 'Grid Flex',
+            subtitle: 'display: Bordered Full Image then Title then Text',
+          };
+        case '5':
+          return {
+            title: name || 'Grid Flex',
+            subtitle: 'display: Small Image and Title then Text',
+          };
         default:
           return { title: 'Error' };
       }
