@@ -20,6 +20,7 @@ export default () =>
       S.documentTypeListItem('navMenu').title('Navigation Menus'),
       S.divider(),
       S.documentTypeListItem('redirect').title('Redirects'),
+      S.documentTypeListItem('testimonial').title('Testimonials'),
       S.documentTypeListItem('formNetlify').title('Forms'),
       S.documentTypeListItem('colorOption').title('Color Options'),
       S.listItem()
