@@ -55,16 +55,20 @@ function ButtonExternal({
     overrides: {
       MuiButton: {
         root: {
-          background: bgImage && `url(${bgImage})`,
+          backgroundImage: bgImage && `url(${bgImage})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center center',
           '&:hover': {
-            background:
+            backgroundImage:
               bgImage &&
               `linear-gradient(rgba(${hoverOverlay.r}, ${hoverOverlay.g}, ${hoverOverlay.b}, .50), rgba(${hoverOverlay.r}, ${hoverOverlay.g}, ${hoverOverlay.b}, .50)), url(${bgImage})`,
           },
           '@media (hover: none)': {
-            background: bgImage && `url(${bgImage})`,
+            backgroundImage: bgImage && `url(${bgImage})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center center',
             '&:hover': {
-              background:
+              backgroundImage:
                 bgImage &&
                 `linear-gradient(rgba(${hoverOverlay.r}, ${hoverOverlay.g}, ${hoverOverlay.b}, .50), rgba(${hoverOverlay.r}, ${hoverOverlay.g}, ${hoverOverlay.b}, .50)), url(${bgImage})`,
             },
@@ -74,7 +78,7 @@ function ButtonExternal({
     },
   });
 
-  const classes = useStyles({ padding, bgImage, hoverOverlay });
+  const classes = useStyles({ padding, bgImage, hoverOverlay, mainColor, darkColor });
   const { href, newTab, noreferrer } = link[0];
 
   return (
