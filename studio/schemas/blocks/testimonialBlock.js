@@ -85,14 +85,18 @@ export default {
   ],
   preview: {
     select: {
+      title: 'header.heading',
       tileOption: 'tileOption',
     },
-    prepare({ tileOption }) {
+    prepare({ title, tileOption }) {
       switch (tileOption) {
         case '1':
-          return { title: 'Testimonial Block', subtitle: 'display: Testimonial with Image' };
+          return {
+            title: title || 'Testimonial Block',
+            subtitle: 'display: Testimonial with Image',
+          };
         case '2':
-          return { title: 'Testimonial Block', subtitle: 'display: Plain Testimonial' };
+          return { title: title || 'Testimonial Block', subtitle: 'display: Plain Testimonial' };
         default:
           return { title: 'Error' };
       }
