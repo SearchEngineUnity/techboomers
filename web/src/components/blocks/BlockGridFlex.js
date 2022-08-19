@@ -4,6 +4,7 @@ import Tile1 from '../tiles/TileImageRecSqr';
 import Tile2 from '../tiles/TileImageCircle';
 import Tile3 from '../tiles/TileImageTitleBorder';
 import Tile4 from '../tiles/TileImageTitleTextBase';
+import Tile5 from '../tiles/TileSmImageTitleText';
 import { mapFluidImgToProps } from '../../lib/mapToProps';
 
 function GridFlex({ layout, tiles, tileOption }) {
@@ -37,6 +38,15 @@ function GridFlex({ layout, tiles, tileOption }) {
             case '4':
               return (
                 <Tile4
+                  {...mapFluidImgToProps(tile.tileImage)}
+                  link={tile.link[0]}
+                  title={tile.title}
+                  text={tile.text}
+                />
+              );
+            case '5':
+              return (
+                <Tile5
                   {...mapFluidImgToProps(tile.tileImage)}
                   link={tile.link[0]}
                   title={tile.title}
