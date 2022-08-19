@@ -1,8 +1,8 @@
 import { CgQuoteO } from 'react-icons/cg';
 
 export default {
-  name: 'testimonialSection',
-  title: 'Testimonial Section',
+  name: 'testimonialBlock',
+  title: 'Testimonial Block',
   type: 'object',
   icon: CgQuoteO,
   fieldsets: [
@@ -17,23 +17,15 @@ export default {
   ],
   fields: [
     {
-      name: 'idTag',
-      title: 'ID',
-      type: 'string',
-      validation: (Rule) => [Rule.required().error('Field is required')],
-      description:
-        'Add ID to the selected string. Please only use alphanumeric characters and hypen.',
-    },
-    {
       name: 'header',
       type: 'header',
       title: 'Header',
     },
     {
-      name: 'blocks',
+      name: 'testimonialList',
       type: 'array',
-      title: 'Testimonial Blocks',
-      of: [{ type: 'testimonial' }],
+      title: 'Testimonial List',
+      of: [{ type: 'reference', to: [{ type: 'testimonial' }] }],
     },
     {
       name: 'footer',
@@ -60,23 +52,6 @@ export default {
       type: 'string',
       initialValue: '3/2/1',
       fieldset: 'presentation',
-      validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
-      name: 'blockAlignment',
-      title: 'Block Alignment',
-      type: 'string',
-      description: 'This determines how the L and R blocks align to each other.',
-      options: {
-        list: [
-          { title: 'Top', value: 'flex-start' },
-          { title: 'Center', value: 'center' },
-        ],
-        layout: 'radio',
-        direction: 'horizontal',
-      },
-      fieldset: 'presentation',
-      initialValue: 'center',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
@@ -107,24 +82,20 @@ export default {
       initialValue: 'left',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
-    {
-      name: 'designSettings',
-      title: 'Design Settings',
-      type: 'reference',
-      to: [{ type: 'sectionDesignSet' }],
-      fieldset: 'presentation',
-    },
   ],
   preview: {
     select: {
-      subtitle: '_type',
-      id: 'idTag',
+      tileOption: 'tileOption',
     },
-    prepare({ id, subtitle }) {
-      return {
-        subtitle,
-        title: `ID: ${id}`,
-      };
+    prepare({ tileOption }) {
+      switch (tileOption) {
+        case '1':
+          return { title: 'Testimonial Block', subtitle: 'display: Testimonial with Image' };
+        case '2':
+          return { title: 'Testimonial Block', subtitle: 'display: Plain Testimonial' };
+        default:
+          return { title: 'Error' };
+      }
     },
   },
 };

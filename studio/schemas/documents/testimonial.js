@@ -9,7 +9,7 @@ export default {
     {
       name: 'text',
       title: 'Testimonial Text',
-      type: 'string',
+      type: 'text',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
