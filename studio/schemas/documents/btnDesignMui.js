@@ -25,6 +25,12 @@ export default {
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
+      name: 'bgImage',
+      title: 'Background Image',
+      type: 'image',
+      hidden: ({ document }) => document?.settings?.variant !== 'contained',
+    },
+    {
       name: 'typography',
       title: 'Typography Settings',
       type: 'muiTypeStyleSetBtn',

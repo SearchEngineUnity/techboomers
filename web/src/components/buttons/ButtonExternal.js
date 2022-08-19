@@ -23,11 +23,13 @@ function ButtonExternal({
   colors,
   alignment,
   typography,
+  bgImage,
 }) {
   const { main, dark, contrastText } = colors;
   const mainColor = determineColor(main?.color);
   const darkColor = determineColor(dark?.color);
   const contrastTextColor = determineColor(contrastText?.color);
+  const hoverOverlay = dark.color._rawRgb;
 
   const theme = createTheme({
     palette: {
@@ -50,9 +52,33 @@ function ButtonExternal({
         textTransform: 'none',
       },
     },
+    overrides: {
+      MuiButton: {
+        root: {
+          backgroundImage: bgImage && `url(${bgImage})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center center',
+          '&:hover': {
+            backgroundImage:
+              bgImage &&
+              `linear-gradient(rgba(${hoverOverlay.r}, ${hoverOverlay.g}, ${hoverOverlay.b}, .50), rgba(${hoverOverlay.r}, ${hoverOverlay.g}, ${hoverOverlay.b}, .50)), url(${bgImage})`,
+          },
+          '@media (hover: none)': {
+            backgroundImage: bgImage && `url(${bgImage})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center center',
+            '&:hover': {
+              backgroundImage:
+                bgImage &&
+                `linear-gradient(rgba(${hoverOverlay.r}, ${hoverOverlay.g}, ${hoverOverlay.b}, .50), rgba(${hoverOverlay.r}, ${hoverOverlay.g}, ${hoverOverlay.b}, .50)), url(${bgImage})`,
+            },
+          },
+        },
+      },
+    },
   });
 
-  const classes = useStyles({ padding });
+  const classes = useStyles({ padding, bgImage, hoverOverlay, mainColor, darkColor });
   const { href, newTab, noreferrer } = link[0];
 
   return (

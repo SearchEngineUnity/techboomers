@@ -260,10 +260,11 @@ export function mapMuiBtnToProps({ idTag, btnAlignment, link, text, design }) {
     colors: design?.colors,
     alignment: btnAlignment,
     typography: design?.typography,
+    bgImage: design?.settings?.variant === 'contained' ? design?.bgImage?.asset?.url : null,
   };
 }
 
-export function mapMuiBtnSubmitToProps({ settings, colors, typography }) {
+export function mapMuiBtnSubmitToProps({ settings, colors, typography, bgImage }) {
   return {
     variant: settings?.variant,
     disableElevation: settings?.disableElevation,
@@ -274,6 +275,7 @@ export function mapMuiBtnSubmitToProps({ settings, colors, typography }) {
     padding: settings?.padding,
     colors,
     typography,
+    bgImage: settings?.variant === 'contained' ? bgImage?.asset?.url : null,
   };
 }
 

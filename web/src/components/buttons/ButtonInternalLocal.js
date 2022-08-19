@@ -24,11 +24,13 @@ function ButtonInternalLocal({
   colors,
   alignment,
   typography,
+  bgImage,
 }) {
   const { main, dark, contrastText } = colors;
   const mainColor = determineColor(main?.color);
   const darkColor = determineColor(dark?.color);
   const contrastTextColor = determineColor(contrastText?.color);
+  const hoverOverlay = dark.color._rawRgb;
 
   const theme = createTheme({
     palette: {
@@ -51,9 +53,29 @@ function ButtonInternalLocal({
         textTransform: 'none',
       },
     },
+    overrides: {
+      MuiButton: {
+        root: {
+          background: bgImage && `url(${bgImage})`,
+          '&:hover': {
+            background:
+              bgImage &&
+              `linear-gradient(rgba(${hoverOverlay.r}, ${hoverOverlay.g}, ${hoverOverlay.b}, .50), rgba(${hoverOverlay.r}, ${hoverOverlay.g}, ${hoverOverlay.b}, .50)), url(${bgImage})`,
+          },
+          '@media (hover: none)': {
+            background: bgImage && `url(${bgImage})`,
+            '&:hover': {
+              background:
+                bgImage &&
+                `linear-gradient(rgba(${hoverOverlay.r}, ${hoverOverlay.g}, ${hoverOverlay.b}, .50), rgba(${hoverOverlay.r}, ${hoverOverlay.g}, ${hoverOverlay.b}, .50)), url(${bgImage})`,
+            },
+          },
+        },
+      },
+    },
   });
 
-  const classes = useStyles({ padding });
+  const classes = useStyles({ padding, bgImage, hoverOverlay });
   const { reference, hashId, parameter, newTab } = link[0];
 
   return (
