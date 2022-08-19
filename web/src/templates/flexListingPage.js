@@ -159,6 +159,11 @@ export const query = graphql`
               }
               text
               design {
+                bgImage {
+                  asset {
+                    url
+                  }
+                }
                 typography {
                   fontFamily
                   fontWeight
@@ -462,6 +467,11 @@ export const query = graphql`
               }
               text
               design {
+                bgImage {
+                  asset {
+                    url
+                  }
+                }
                 typography {
                   fontFamily
                   fontWeight
@@ -709,6 +719,11 @@ export const query = graphql`
               }
               text
               design {
+                bgImage {
+                  asset {
+                    url
+                  }
+                }
                 typography {
                   fontFamily
                   fontWeight
@@ -980,6 +995,11 @@ export const query = graphql`
               }
               text
               design {
+                bgImage {
+                  asset {
+                    url
+                  }
+                }
                 typography {
                   fontFamily
                   fontWeight
