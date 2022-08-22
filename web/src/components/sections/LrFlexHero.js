@@ -10,12 +10,14 @@ import ButtonInternalLocal from '../buttons/ButtonInternalLocal';
 import ButtonJumpLink from '../buttons/ButtonJumpLink';
 import GridFlex from '../blocks/BlockGridFlex';
 import BlockFormNetlify from '../blocks/BlockFormNetlify';
+import TestimonialBlock from '../blocks/TestimonialBlock';
 import {
   mapFluidImgBlockToProps,
   mapSectionBlockToProps,
   mapMuiBtnToProps,
   mapGridFlexToProps,
   mapBlockFormNetlifyToProps,
+  mapTestimonialBlockToProps,
 } from '../../lib/mapToProps';
 import HeroSectionFooter from './HeroSectionFooter';
 import HeroSectionHeader from './HeroSectionHeader';
@@ -216,7 +218,19 @@ function LrFlexHero({
                   return <ButtonInternalGlobal key={_key} {...mapMuiBtnToProps(block)} />;
                 case key === 'btnBlockMui' && block.link[0]._type === 'internalLocal':
                   return <ButtonInternalLocal key={_key} {...mapMuiBtnToProps(block)} />;
-
+                case key === 'testimonialBlock':
+                  return (
+                    <TestimonialBlock
+                      key={_key}
+                      hasSectionHeading={!!heading}
+                      hasSectionFooter={!!footer}
+                      hasSectionSubtitle={!!subtitle}
+                      headingColor={headingColor}
+                      subtitleColor={subtitleColor}
+                      footerColor={footerColor}
+                      {...mapTestimonialBlockToProps(block)}
+                    />
+                  );
                 default:
                   return <div key="default-inner-block"> Block still under development</div>;
               }

@@ -310,3 +310,39 @@ export function mapBlockFormNetlifyToProps({
     style: _rawFormStyle,
   };
 }
+
+export function mapTestimonialBlockToProps({
+  header,
+  _rawText,
+  _rawFooter,
+  headerAlignment,
+  textAlignment,
+  footerAlignment,
+  _rawTestimonialList,
+  tileOption,
+  layout,
+}) {
+  return {
+    heading: header?.heading,
+    subtitle: header?._rawSubtitle,
+    sectionText: _rawText,
+    footer: _rawFooter,
+    headerAlignment,
+    textAlignment,
+    footerAlignment,
+    testimonialList: _rawTestimonialList,
+    tileOption,
+    layout,
+  };
+}
+
+export function mapTestimonialToProps({ image, text, name, role, company }) {
+  return {
+    image: image?.asset,
+    alt: image?.alt,
+    text,
+    name,
+    role,
+    company,
+  };
+}
