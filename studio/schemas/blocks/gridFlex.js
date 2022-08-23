@@ -35,7 +35,7 @@ export default {
     },
     {
       name: 'tileOption',
-      title: 'Tile output option',
+      title: 'Tile Design Option',
       type: 'string',
       fieldset: 'presentation',
       options: {

@@ -1,8 +1,8 @@
 import { CgQuoteO } from 'react-icons/cg';
 
 export default {
-  name: 'testimonialBlock',
-  title: 'Testimonial Block',
+  name: 'testimonialGrid',
+  title: 'Testimonial Grid',
   type: 'object',
   icon: CgQuoteO,
   fieldsets: [
@@ -34,7 +34,7 @@ export default {
     },
     {
       name: 'tileOption',
-      title: 'Testimonial output option',
+      title: 'Testimonial Design Option',
       type: 'string',
       fieldset: 'presentation',
       options: {
@@ -93,12 +93,12 @@ export default {
       switch (tileOption) {
         case '1':
           return {
-            title: heading || subheading || 'Testimonial Block',
+            title: heading || subheading || 'Testimonial Grid',
             subtitle: 'display: Testimonial with Image',
           };
         case '2':
           return {
-            title: heading || subheading || 'Testimonial Block',
+            title: heading || subheading || 'Testimonial Grid',
             subtitle: 'display: Plain Testimonial',
           };
         default:

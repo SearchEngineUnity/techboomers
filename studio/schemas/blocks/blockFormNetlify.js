@@ -17,10 +17,9 @@ export default {
   ],
   fields: [
     {
-      name: 'title',
-      title: 'Form Title',
+      name: 'seuID',
+      title: 'SEU ID',
       type: 'string',
-      description: 'This is the title of the form that will appear on top of the form fields.',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
@@ -59,7 +58,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'title',
+      title: 'seuID',
       subtitle: 'formNetlify.name',
     },
   },

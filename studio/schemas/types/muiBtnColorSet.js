@@ -15,7 +15,8 @@ export default {
     {
       name: 'dark',
       title: 'Dark',
-      description: 'This is the on hover color for a filled button.',
+      description:
+        'This is the on hover color for all filled button including the ones using image background.',
       type: 'reference',
       to: [{ type: 'colorOption' }],
       validation: (Rule) => [Rule.required().error('Field is required')],

@@ -32,9 +32,9 @@ export default {
     },
     {
       name: 'borderRadius',
-      title: 'border Radius',
+      title: 'Border radius',
       type: 'string',
-      initialValues: '4px',
+      initialValue: '4px',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {

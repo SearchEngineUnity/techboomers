@@ -4,9 +4,9 @@ import StructuredSectionHeader from '../sections/StructuredSectionHeader';
 import StructuredSectionFooter from '../sections/StructuredSectionFooter';
 import Tile1 from '../testimonialTiles/TestimonialImage';
 import Tile2 from '../testimonialTiles/TestimonialPlain';
-import { mapTestimonialToProps } from '../../lib/mapToProps';
+import { mapTestimonialListToProps } from '../../lib/mapToProps';
 
-function TestimonialBlock({
+function TestimonialGrid({
   hasSectionHeading,
   hasSectionSubheading,
   hasSectionSubtitle,
@@ -54,9 +54,9 @@ function TestimonialBlock({
           const tileSelector = (key) => {
             switch (key) {
               case '1':
-                return <Tile1 {...mapTestimonialToProps(testimonial)} />;
+                return <Tile1 {...mapTestimonialListToProps(testimonial)} />;
               case '2':
-                return <Tile2 {...mapTestimonialToProps(testimonial)} />;
+                return <Tile2 {...mapTestimonialListToProps(testimonial)} />;
               default:
                 return <div> Tile still under development</div>;
             }
@@ -78,4 +78,4 @@ function TestimonialBlock({
   );
 }
 
-export default TestimonialBlock;
+export default TestimonialGrid;
