@@ -58,6 +58,12 @@ export default {
       to: [{ type: 'colorOption' }],
     },
     {
+      name: 'subheading',
+      title: 'Subheading Color',
+      type: 'reference',
+      to: [{ type: 'colorOption' }],
+    },
+    {
       name: 'subtitle',
       title: 'Subtitle Color',
       type: 'reference',

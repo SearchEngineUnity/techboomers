@@ -8,17 +8,20 @@ import { mapTestimonialToProps } from '../../lib/mapToProps';
 
 function TestimonialBlock({
   hasSectionHeading,
+  hasSectionSubheading,
   hasSectionSubtitle,
   hasSectionFooter,
   heading,
+  subheading,
   subtitle,
-  testimonialList,
   footer,
   headerAlignment,
   footerAlignment,
   headingColor,
+  subheadingColor,
   subtitleColor,
   footerColor,
+  testimonialList,
   layout,
   tileOption,
 }) {
@@ -36,11 +39,14 @@ function TestimonialBlock({
     <>
       <StructuredSectionHeader
         heading={heading}
+        subheading={subheading}
         subtitle={subtitle}
         align={headerAlignment}
         hasSectionHeading={hasSectionHeading}
+        hasSectionSubheading={hasSectionSubheading}
         hasSectionSubtitle={hasSectionSubtitle}
         headingColor={headingColor}
+        subheadingColor={subheadingColor}
         subtitleColor={subtitleColor}
       />
       <Grid container spacing={3}>

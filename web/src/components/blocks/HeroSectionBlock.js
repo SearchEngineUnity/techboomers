@@ -6,9 +6,11 @@ import HeroSectionFooter from '../sections/HeroSectionFooter';
 
 function SectionBlock({
   hasSectionHeading,
+  hasSectionSubheading,
   hasSectionSubtitle,
   hasSectionFooter,
   heading,
+  subheading,
   subtitle,
   sectionText,
   footer,
@@ -16,6 +18,7 @@ function SectionBlock({
   textAlignment,
   footerAlignment,
   headingColor,
+  subheadingColor,
   subtitleColor,
   footerColor,
 }) {
@@ -23,11 +26,14 @@ function SectionBlock({
     <>
       <HeroSectionHeader
         heading={heading}
+        subheading={subheading}
         subtitle={subtitle}
         align={headerAlignment}
         hasSectionHeading={hasSectionHeading}
+        hasSectionSubheading={hasSectionSubheading}
         hasSectionSubtitle={hasSectionSubtitle}
         headingColor={headingColor}
+        subheadingColor={subheadingColor}
         subtitleColor={subtitleColor}
       />
       <Box textAlign={textAlignment}>

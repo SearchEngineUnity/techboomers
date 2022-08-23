@@ -5,7 +5,12 @@ export default {
   fields: [
     {
       name: 'heading',
-      title: 'Heading',
+      title: 'H1 Heading (Heading)',
+      type: 'string',
+    },
+    {
+      name: 'subheading',
+      title: 'H2 Heading (Subheading)',
       type: 'string',
     },
     {

@@ -30,6 +30,7 @@ export const query = graphql`
               _type
               header {
                 heading
+                subheading
                 _rawSubtitle(resolveReferences: { maxDepth: 10 })
               }
               _rawTestimonialList(resolveReferences: { maxDepth: 10 })
@@ -42,6 +43,14 @@ export const query = graphql`
             ... on SanityGridFlex {
               _key
               _type
+              header {
+                heading
+                subheading
+                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+              }
+              _rawFooter(resolveReferences: { maxDepth: 10 })
+              headerAlignment
+              footerAlignment
               layout
               tileOption
               tiles {
@@ -217,6 +226,7 @@ export const query = graphql`
               _rawText(resolveReferences: { maxDepth: 10 })
               header {
                 heading
+                subheading
                 _rawSubtitle(resolveReferences: { maxDepth: 10 })
               }
               headerAlignment
@@ -273,6 +283,13 @@ export const query = graphql`
                 alpha
               }
             }
+            subheading {
+              color {
+                hex
+                alpha
+                _rawRgb
+              }
+            }
             link {
               color {
                 hex
@@ -289,6 +306,7 @@ export const query = graphql`
           _rawFooter(resolveReferences: { maxDepth: 10 })
           header {
             heading
+            subheading
             _rawSubtitle(resolveReferences: { maxDepth: 10 })
           }
           blockAlignment
@@ -308,6 +326,7 @@ export const query = graphql`
               _type
               header {
                 heading
+                subheading
                 _rawSubtitle(resolveReferences: { maxDepth: 10 })
               }
               _rawTestimonialList(resolveReferences: { maxDepth: 10 })
@@ -320,6 +339,14 @@ export const query = graphql`
             ... on SanityGridFlex {
               _key
               _type
+              header {
+                heading
+                subheading
+                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+              }
+              _rawFooter(resolveReferences: { maxDepth: 10 })
+              headerAlignment
+              footerAlignment
               layout
               tileOption
               tiles {
@@ -395,6 +422,7 @@ export const query = graphql`
               header {
                 _rawSubtitle(resolveReferences: { maxDepth: 10 })
                 heading
+                subheading
               }
               _rawFooter(resolveReferences: { maxDepth: 10 })
               headerAlignment
@@ -517,6 +545,7 @@ export const query = graphql`
           }
           header {
             heading
+            subheading
             _rawSubtitle(resolveReferences: { maxDepth: 10 })
           }
           idTag
@@ -552,6 +581,13 @@ export const query = graphql`
               color {
                 hex
                 alpha
+              }
+            }
+            subheading {
+              color {
+                hex
+                alpha
+                _rawRgb
               }
             }
             link {
@@ -582,6 +618,7 @@ export const query = graphql`
               _type
               header {
                 heading
+                subheading
                 _rawSubtitle(resolveReferences: { maxDepth: 10 })
               }
               _rawTestimonialList(resolveReferences: { maxDepth: 10 })
@@ -594,6 +631,14 @@ export const query = graphql`
             ... on SanityGridFlex {
               _key
               _type
+              header {
+                heading
+                subheading
+                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+              }
+              _rawFooter(resolveReferences: { maxDepth: 10 })
+              headerAlignment
+              footerAlignment
               layout
               tileOption
               tiles {
@@ -761,13 +806,14 @@ export const query = graphql`
               maxWidth
               _rawCaption(resolveReferences: { maxDepth: 10 })
             }
-            ... on SanitySectionBlock {
+            ... on SanityHeroBlock {
               _key
               _type
               _rawText(resolveReferences: { maxDepth: 10 })
               header {
                 _rawSubtitle(resolveReferences: { maxDepth: 10 })
                 heading
+                subheading
               }
               _rawFooter(resolveReferences: { maxDepth: 10 })
               headerAlignment
@@ -824,6 +870,13 @@ export const query = graphql`
                 _rawRgb
               }
             }
+            subheading {
+              color {
+                hex
+                alpha
+                _rawRgb
+              }
+            }
             link {
               color {
                 hex
@@ -841,6 +894,7 @@ export const query = graphql`
           }
           header {
             heading
+            subheading
             _rawSubtitle(resolveReferences: { maxDepth: 10 })
           }
         }
@@ -858,6 +912,7 @@ export const query = graphql`
               _type
               header {
                 heading
+                subheading
                 _rawSubtitle(resolveReferences: { maxDepth: 10 })
               }
               _rawTestimonialList(resolveReferences: { maxDepth: 10 })
@@ -870,6 +925,14 @@ export const query = graphql`
             ... on SanityGridFlex {
               _key
               _type
+              header {
+                heading
+                subheading
+                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+              }
+              _rawFooter(resolveReferences: { maxDepth: 10 })
+              headerAlignment
+              footerAlignment
               layout
               tileOption
               tiles {
@@ -1044,6 +1107,7 @@ export const query = graphql`
               header {
                 _rawSubtitle(resolveReferences: { maxDepth: 10 })
                 heading
+                subheading
               }
               _rawFooter(resolveReferences: { maxDepth: 10 })
               headerAlignment
@@ -1097,6 +1161,13 @@ export const query = graphql`
                 alpha
               }
             }
+            subheading {
+              color {
+                hex
+                alpha
+                _rawRgb
+              }
+            }
             link {
               color {
                 hex
@@ -1112,6 +1183,7 @@ export const query = graphql`
           }
           header {
             heading
+            subheading
             _rawSubtitle(resolveReferences: { maxDepth: 10 })
           }
         }
