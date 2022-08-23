@@ -61,6 +61,7 @@ const useStyles = makeStyles((theme) => ({
 function PaginatedListingSection({
   idTag,
   heading,
+  subheading,
   subtitle,
   footer,
   layout,
@@ -87,6 +88,7 @@ function PaginatedListingSection({
   const foregroundColor = determineColor(designSettings?.foreground?.color) || 'text.primary';
   const linkColor = determineColor(designSettings?.link?.color) || 'initial';
   const headingColor = determineColor(designSettings?.heading?.color) || 'inherit';
+  const subheadingColor = determineColor(designSettings?.subheading?.color) || 'inherit';
   const subtitleColor = determineColor(designSettings?.subtitle?.color) || 'inherit';
   const footerColor = determineColor(designSettings?.footer?.color) || 'inherit';
   const paginationColor = designSettings?.foreground?.color;
@@ -98,8 +100,10 @@ function PaginatedListingSection({
       <Container maxWidth="lg" className={classes.column}>
         <StructuredSectionHeader
           heading={heading}
+          subheading={subheading}
           subtitle={subtitle}
           headingColor={headingColor}
+          subheadingColor={subheadingColor}
           subtitleColor={subtitleColor}
           align={headerAlignment}
         />

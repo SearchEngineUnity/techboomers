@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Card, Grid, Container, CardContent, Typography, Avatar } from '@material-ui/core';
+import { Card, Grid, CardContent, Typography, Avatar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';

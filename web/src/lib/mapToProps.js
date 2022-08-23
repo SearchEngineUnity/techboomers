@@ -104,6 +104,7 @@ export function mapLrHeroToProps({
   return {
     idTag,
     heading: header?.heading,
+    subheading: header?.subheading,
     subtitle: header?._rawSubtitle,
     blocks,
     footer: _rawFooter,
@@ -168,6 +169,7 @@ export function mapLrFlexToProps({
   return {
     idTag,
     heading: header?.heading,
+    subheading: header?.subheading,
     subtitle: header?._rawSubtitle,
     blocks,
     footer: _rawFooter,
@@ -190,6 +192,7 @@ export function mapSectionBlockToProps({
 }) {
   return {
     heading: header?.heading,
+    subheading: header?.subheading,
     subtitle: header?._rawSubtitle,
     sectionText: _rawText,
     footer: _rawFooter,
@@ -213,6 +216,7 @@ export function mapStackSectionToProps({
   return {
     idTag,
     heading: header?.heading,
+    subheading: header?.subheading,
     subtitle: header?._rawSubtitle,
     blocks,
     footer: _rawFooter,
@@ -236,6 +240,7 @@ export function mapPaginatedListingSectionToProps({
   return {
     idTag,
     heading: header?.heading,
+    subheading: header?.subheading,
     subtitle: header?._rawSubtitle,
     footer: _rawFooter,
     layout,
@@ -279,8 +284,22 @@ export function mapMuiBtnSubmitToProps({ settings, colors, typography, bgImage }
   };
 }
 
-export function mapGridFlexToProps({ layout, tiles, tileOption }) {
+export function mapGridFlexToProps({
+  header,
+  _rawFooter,
+  headerAlignment,
+  footerAlignment,
+  layout,
+  tiles,
+  tileOption,
+}) {
   return {
+    heading: header?.heading,
+    subheading: header?.subheading,
+    subtitle: header?._rawSubtitle,
+    footer: _rawFooter,
+    headerAlignment,
+    footerAlignment,
     layout,
     tiles,
     tileOption,
@@ -313,10 +332,8 @@ export function mapBlockFormNetlifyToProps({
 
 export function mapTestimonialBlockToProps({
   header,
-  _rawText,
   _rawFooter,
   headerAlignment,
-  textAlignment,
   footerAlignment,
   _rawTestimonialList,
   tileOption,
@@ -324,11 +341,10 @@ export function mapTestimonialBlockToProps({
 }) {
   return {
     heading: header?.heading,
+    subheading: header?.subheading,
     subtitle: header?._rawSubtitle,
-    sectionText: _rawText,
     footer: _rawFooter,
     headerAlignment,
-    textAlignment,
     footerAlignment,
     testimonialList: _rawTestimonialList,
     tileOption,

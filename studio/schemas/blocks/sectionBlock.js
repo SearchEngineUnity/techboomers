@@ -76,11 +76,12 @@ export default {
   ],
   preview: {
     select: {
-      title: 'header.heading',
+      heading: 'header.heading',
+      subheading: 'header.subheading',
     },
-    prepare({ title }) {
+    prepare({ heading, subheading }) {
       return {
-        title: title || 'Section PT Block',
+        title: heading || subheading || 'Section PT Block',
       };
     },
   },

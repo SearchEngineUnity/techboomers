@@ -3,7 +3,7 @@ import { Container, Grid, Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import ImgBlock from '../blocks/FluidImgBlock';
 import VideoBlock from '../blocks/VideoBlock';
-import SectionBlock from '../blocks/SectionBlock';
+import SectionBlock from '../blocks/HeroSectionBlock';
 import ButtonExternal from '../buttons/ButtonExternal';
 import ButtonInternalGlobal from '../buttons/ButtonInternalGlobal';
 import ButtonInternalLocal from '../buttons/ButtonInternalLocal';
@@ -89,6 +89,7 @@ const useStyles = makeStyles((theme) => ({
 function StructuredLrFlex({
   idTag,
   heading,
+  subheading,
   subtitle,
   blocks,
   footer,
@@ -161,6 +162,7 @@ function StructuredLrFlex({
   const foregroundColor = determineColor(designSettings?.foreground?.color) || 'text.primary';
   const linkColor = determineColor(designSettings?.link?.color) || 'initial';
   const headingColor = determineColor(designSettings?.heading?.color) || 'inherit';
+  const subheadingColor = determineColor(designSettings?.subheading?.color) || 'inherit';
   const subtitleColor = determineColor(designSettings?.subtitle?.color) || 'inherit';
   const footerColor = determineColor(designSettings?.footer?.color) || 'inherit';
 
@@ -171,8 +173,10 @@ function StructuredLrFlex({
       <Container maxWidth="lg" className={classes.column}>
         <HeroSectionHeader
           heading={heading}
+          subheading={subheading}
           subtitle={subtitle}
           headingColor={headingColor}
+          subheadingColor={subheadingColor}
           subtitleColor={subtitleColor}
           align={headerAlignment}
         />
@@ -185,21 +189,36 @@ function StructuredLrFlex({
                 return <VideoBlock url={block.url} ratio={block.ratio} key={_key} />;
               case key === 'imageBlock':
                 return <ImgBlock {...mapFluidImgBlockToProps(block)} key={_key} />;
-              case key === 'sectionBlock':
+              case key === 'heroBlock':
                 return (
                   <SectionBlock
                     key={_key}
                     hasSectionHeading={!!heading}
+                    hasSectionSubheading={!!subheading}
                     hasSectionFooter={!!footer}
                     hasSectionSubtitle={!!subtitle}
                     headingColor={headingColor}
+                    subheadingColor={subheadingColor}
                     subtitleColor={subtitleColor}
                     footerColor={footerColor}
                     {...mapSectionBlockToProps(block)}
                   />
                 );
               case key === 'gridFlex':
-                return <GridFlex key={_key} {...mapGridFlexToProps(block)} />;
+                return (
+                  <GridFlex
+                    key={_key}
+                    hasSectionHeading={!!heading}
+                    hasSectionSubheading={!!subheading}
+                    hasSectionFooter={!!footer}
+                    hasSectionSubtitle={!!subtitle}
+                    headingColor={headingColor}
+                    subheadingColor={subheadingColor}
+                    subtitleColor={subtitleColor}
+                    footerColor={footerColor}
+                    {...mapGridFlexToProps(block)}
+                  />
+                );
               case key === 'blockFormNetlify':
                 return <BlockFormNetlify key={block._key} {...mapBlockFormNetlifyToProps(block)} />;
               case key === 'btnBlockMui' && block.link[0]._type === 'jumpLink':
@@ -215,9 +234,11 @@ function StructuredLrFlex({
                   <TestimonialBlock
                     key={_key}
                     hasSectionHeading={!!heading}
+                    hasSectionSubheading={!!subheading}
                     hasSectionFooter={!!footer}
                     hasSectionSubtitle={!!subtitle}
                     headingColor={headingColor}
+                    subheadingColor={subheadingColor}
                     subtitleColor={subtitleColor}
                     footerColor={footerColor}
                     {...mapTestimonialBlockToProps(block)}

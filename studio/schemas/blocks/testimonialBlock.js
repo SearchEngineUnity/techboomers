@@ -85,18 +85,22 @@ export default {
   ],
   preview: {
     select: {
-      title: 'header.heading',
+      heading: 'header.heading',
+      subheading: 'header.subheading',
       tileOption: 'tileOption',
     },
-    prepare({ title, tileOption }) {
+    prepare({ heading, subheading, tileOption }) {
       switch (tileOption) {
         case '1':
           return {
-            title: title || 'Testimonial Block',
+            title: heading || subheading || 'Testimonial Block',
             subtitle: 'display: Testimonial with Image',
           };
         case '2':
-          return { title: title || 'Testimonial Block', subtitle: 'display: Plain Testimonial' };
+          return {
+            title: heading || subheading || 'Testimonial Block',
+            subtitle: 'display: Plain Testimonial',
+          };
         default:
           return { title: 'Error' };
       }

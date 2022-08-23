@@ -10,20 +10,26 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
 function StructuredSectionHeader({
   heading,
+  subheading,
   subtitle,
   headingColor,
+  subheadingColor,
   subtitleColor,
   align,
   hasSectionHeading,
+  hasSectionSubheading,
   hasSectionSubtitle,
 }) {
   const classes = useStyles();
 
   return (
     <>
-      {(!hasSectionHeading && heading) || (!hasSectionSubtitle && subtitle) ? (
+      {(!hasSectionHeading && heading) ||
+      (!hasSectionSubheading && subheading) ||
+      (!hasSectionSubtitle && subtitle) ? (
         <Box
           component={heading ? 'header' : 'div'}
           mb={4}
@@ -33,6 +39,11 @@ function StructuredSectionHeader({
           {!hasSectionHeading && heading && (
             <Box component={Typography} variant="h1" gutterBottom color={headingColor}>
               {heading}
+            </Box>
+          )}
+          {!hasSectionSubheading && subheading && (
+            <Box component={Typography} variant="h2" gutterBottom color={subheadingColor}>
+              {subheading}
             </Box>
           )}
           {!hasSectionSubtitle && subtitle && (

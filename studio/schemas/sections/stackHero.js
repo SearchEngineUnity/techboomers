@@ -38,7 +38,7 @@ export default {
       description: 'The block(s) will appear in order.',
       of: [
         ...Object.values(blocks)
-          .filter((block) => block.name !== 'heroBlock')
+          .filter((block) => block.name !== 'sectionBlock')
           .map(({ name, title }) => ({
             type: name,
             title,
