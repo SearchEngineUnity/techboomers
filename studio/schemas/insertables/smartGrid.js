@@ -26,6 +26,8 @@ export default {
         { type: 'smartUnorderedList' },
         { type: 'videoEmbed' },
         { type: 'btnBlockMui' },
+        { type: 'affiliateButton' },
+        { type: 'clickableImage' },
       ],
       validation: (Rule) => Rule.min(1).error('Must contain at least 1 item'),
     },

@@ -67,6 +67,12 @@ export default {
       fieldset: 'essentials',
     },
     {
+      title: 'Top Button',
+      name: 'topBtn',
+      type: 'affiliateButton',
+      fieldset: 'essentials',
+    },
+    {
       title: 'Flex Builder',
       name: 'sections',
       type: 'array',

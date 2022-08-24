@@ -1,4 +1,5 @@
 export {
+  affiliateButton,
   infoItem,
   productCard,
   productCardDivider,

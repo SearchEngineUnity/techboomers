@@ -1,12 +1,8 @@
-import { FaExternalLinkAlt, FaLink, FaHashtag } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaLink } from 'react-icons/fa';
 import { GiLinkedRings } from 'react-icons/gi';
-import { MdLink } from 'react-icons/md';
-// import InlineImageRenderer from '../components/previews/InlineImageRenderer';
-import HashIdRenderer from '../components/previews/HashIdRenderer';
 import ExternalLinkRenderer from '../components/previews/ExternalLinkRenderer';
 import InternalLocalRenderer from '../components/previews/InternalLocalRenderer';
 import InternalGlobalRenderer from '../components/previews/InternalGlobalRenderer';
-import JumpLinkRenderer from '../components/previews/JumpLinkRenderer';
 
 export default {
   title: 'Block Content',
@@ -133,6 +129,7 @@ export default {
     { type: 'illustration' },
     { type: 'smartUnorderedList' },
     { type: 'videoEmbed' },
+    { type: 'affiliateButton' },
     { type: 'btnBlockMui' },
     { type: 'clickableImage' },
   ],

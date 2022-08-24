@@ -1,3 +1,4 @@
+export { default as affiliateButton } from './affiliateButton';
 export { default as infoItem } from './infoItem';
 export { default as productCard } from './productCard';
 export { default as productCardDivider } from './productCardDivider';
