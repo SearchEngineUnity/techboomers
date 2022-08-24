@@ -25,19 +25,12 @@ export const query = graphql`
           _key
           _type
           blocks {
-<<<<<<< Updated upstream
             ... on SanityTestimonialGrid {
-=======
-            ... on SanityTestimonialGrid {
->>>>>>> Stashed changes
               _key
               _type
               header {
                 heading
-<<<<<<< Updated upstream
                 subheading
-=======
->>>>>>> Stashed changes
                 _rawSubtitle(resolveReferences: { maxDepth: 10 })
               }
               _rawTestimonialList(resolveReferences: { maxDepth: 10 })
@@ -328,19 +321,12 @@ export const query = graphql`
           headerAlignment
           footerAlignment
           blocks {
-<<<<<<< Updated upstream
             ... on SanityTestimonialGrid {
-=======
-            ... on SanityTestimonialGrid {
->>>>>>> Stashed changes
               _key
               _type
               header {
                 heading
-<<<<<<< Updated upstream
                 subheading
-=======
->>>>>>> Stashed changes
                 _rawSubtitle(resolveReferences: { maxDepth: 10 })
               }
               _rawTestimonialList(resolveReferences: { maxDepth: 10 })
@@ -627,19 +613,12 @@ export const query = graphql`
           headerAlignment
           idTag
           blocks {
-<<<<<<< Updated upstream
             ... on SanityTestimonialGrid {
-=======
-            ... on SanityTestimonialGrid {
->>>>>>> Stashed changes
               _key
               _type
               header {
                 heading
-<<<<<<< Updated upstream
                 subheading
-=======
->>>>>>> Stashed changes
                 _rawSubtitle(resolveReferences: { maxDepth: 10 })
               }
               _rawTestimonialList(resolveReferences: { maxDepth: 10 })
@@ -928,19 +907,12 @@ export const query = graphql`
           headerAlignment
           idTag
           blocks {
-<<<<<<< Updated upstream
             ... on SanityTestimonialGrid {
-=======
-            ... on SanityTestimonialGrid {
->>>>>>> Stashed changes
               _key
               _type
               header {
                 heading
-<<<<<<< Updated upstream
                 subheading
-=======
->>>>>>> Stashed changes
                 _rawSubtitle(resolveReferences: { maxDepth: 10 })
               }
               _rawTestimonialList(resolveReferences: { maxDepth: 10 })

@@ -61,7 +61,7 @@ function TestimonialImage({ image, alt, name, text, role, company }) {
               {printedCompany}
             </Typography>
           </Grid>
-          <Grid item x={12}>
+          <Grid item>
             {image ? (
               <GatsbyImage
                 image={imageData}
