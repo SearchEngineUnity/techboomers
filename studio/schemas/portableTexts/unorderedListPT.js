@@ -166,5 +166,6 @@ export default {
     { type: 'highlightBox' },
     { type: 'videoEmbed' },
     { type: 'btnBlockMui' },
+    { type: 'clickableImage' },
   ],
 };

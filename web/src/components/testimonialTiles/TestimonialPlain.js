@@ -13,6 +13,15 @@ const useStyles = makeStyles((theme) => ({
   italic: {
     fontStyle: 'italic',
   },
+  space: {
+    marginBottom: '16px',
+  },
+  cardContent: {
+    padding: '8px 16px',
+    '&:last-child': {
+      paddingBottom: '8px',
+    },
+  },
 }));
 
 function TestimonialPlain({ name, text, role, company }) {
@@ -23,11 +32,10 @@ function TestimonialPlain({ name, text, role, company }) {
 
   return (
     <Card elevation={0} classes={{ root: classes.card }} square>
-      <CardContent>
-        <Typography variant="body1" className={classes.italic} gutterBottom>
+      <CardContent className={classes.cardContent}>
+        <Typography variant="body1" className={`${classes.italic} ${classes.space}`}>
           {text}
         </Typography>
-        <br />
         <Typography variant="body1" className={`${classes.bold} ${classes.italic}`}>
           {'- '}
           {name}

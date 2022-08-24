@@ -10,14 +10,14 @@ import ButtonInternalLocal from '../buttons/ButtonInternalLocal';
 import ButtonJumpLink from '../buttons/ButtonJumpLink';
 import GridFlex from '../blocks/BlockGridFlex';
 import BlockFormNetlify from '../blocks/BlockFormNetlify';
-import TestimonialBlock from '../blocks/TestimonialBlock';
+import TestimonialGrid from '../blocks/TestimonialGrid';
 import {
   mapFluidImgBlockToProps,
   mapSectionBlockToProps,
   mapMuiBtnToProps,
   mapGridFlexToProps,
   mapBlockFormNetlifyToProps,
-  mapTestimonialBlockToProps,
+  mapTestimonialGridToProps,
 } from '../../lib/mapToProps';
 import StructuredSectionFooter from './StructuredSectionFooter';
 import StructuredSectionHeader from './StructuredSectionHeader';
@@ -228,9 +228,9 @@ function StructuredLrFlex({
                 return <ButtonInternalGlobal key={_key} {...mapMuiBtnToProps(block)} />;
               case key === 'btnBlockMui' && block.link[0]._type === 'internalLocal':
                 return <ButtonInternalLocal key={_key} {...mapMuiBtnToProps(block)} />;
-              case key === 'testimonialBlock':
+              case key === 'testimonialGrid':
                 return (
-                  <TestimonialBlock
+                  <TestimonialGrid
                     key={_key}
                     hasSectionHeading={!!heading}
                     hasSectionSubheading={!!subheading}
@@ -240,7 +240,7 @@ function StructuredLrFlex({
                     subheadingColor={subheadingColor}
                     subtitleColor={subtitleColor}
                     footerColor={footerColor}
-                    {...mapTestimonialBlockToProps(block)}
+                    {...mapTestimonialGridToProps(block)}
                   />
                 );
               default:

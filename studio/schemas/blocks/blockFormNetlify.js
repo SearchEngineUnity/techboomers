@@ -17,6 +17,11 @@ export default {
   ],
   fields: [
     {
+      name: 'seuID',
+      title: 'SEU ID',
+      type: 'string',
+    },
+    {
       name: 'title',
       title: 'Form Title',
       type: 'string',

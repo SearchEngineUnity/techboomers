@@ -137,5 +137,6 @@ export default {
       },
     },
     { type: 'btnBlockMui' },
+    { type: 'clickableImage' },
   ],
 };

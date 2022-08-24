@@ -16,10 +16,19 @@ const useStyles = makeStyles((theme) => ({
   italic: {
     fontStyle: 'italic',
   },
+  space: {
+    marginBottom: '16px',
+  },
   avatar: {
     width: '100px',
     height: '100px',
     fontSize: theme.typography.h2.fontSize,
+  },
+  cardContent: {
+    padding: '8px 16px',
+    '&:last-child': {
+      paddingBottom: '8px',
+    },
   },
 }));
 
@@ -39,13 +48,12 @@ function TestimonialImage({ image, alt, name, text, role, company }) {
 
   return (
     <Card elevation={0} classes={{ root: classes.card }} square>
-      <CardContent>
+      <CardContent className={classes.cardContent}>
         <Grid container spacing={2}>
-          <Grid item xs={12} sm={9}>
-            <Typography variant="body1" className={classes.italic} gutterBottom>
+          <Grid item xs={12} sm>
+            <Typography variant="body1" className={`${classes.italic} ${classes.space}`}>
               {text}
             </Typography>
-            <br />
             <Typography variant="body1" className={`${classes.bold} ${classes.italic}`}>
               {'- '}
               {name}
@@ -53,7 +61,7 @@ function TestimonialImage({ image, alt, name, text, role, company }) {
               {printedCompany}
             </Typography>
           </Grid>
-          <Grid item xs={12} sm={3}>
+          <Grid item>
             {image ? (
               <GatsbyImage
                 image={imageData}
@@ -61,7 +69,7 @@ function TestimonialImage({ image, alt, name, text, role, company }) {
                 style={{ width: '100px', height: '100px', borderRadius: '50px' }}
               />
             ) : (
-              <Avatar className={classes.avatar}>{name[0]}</Avatar>
+              <Avatar className={classes.avatar}>{name[0].toUpperCase()}</Avatar>
             )}
           </Grid>
         </Grid>

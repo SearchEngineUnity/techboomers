@@ -5,12 +5,14 @@ export default {
   fields: [
     {
       name: 'heading',
-      title: 'H2 Heading (Heading)',
+      title: 'H2 Heading',
+      description: 'Heading Color from Section Design will apply to this text.',
       type: 'string',
     },
     {
       name: 'subheading',
-      title: 'H3 Heading (Subheading)',
+      title: 'H3 Heading',
+      description: 'Subheading Color from Section Design will apply to this text.',
       type: 'string',
     },
     {

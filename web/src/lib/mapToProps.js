@@ -330,7 +330,7 @@ export function mapBlockFormNetlifyToProps({
   };
 }
 
-export function mapTestimonialBlockToProps({
+export function mapTestimonialGridToProps({
   header,
   _rawFooter,
   headerAlignment,
@@ -352,7 +352,7 @@ export function mapTestimonialBlockToProps({
   };
 }
 
-export function mapTestimonialToProps({ image, text, name, role, company }) {
+export function mapTestimonialListToProps({ image, text, name, role, company }) {
   return {
     image: image?.asset,
     alt: image?.alt,
