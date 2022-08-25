@@ -86,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function StructuredLrFlex({
+function StackFlex({
   idTag,
   heading,
   subheading,
@@ -271,4 +271,4 @@ function StructuredLrFlex({
   );
 }
 
-export default StructuredLrFlex;
+export default StackFlex;

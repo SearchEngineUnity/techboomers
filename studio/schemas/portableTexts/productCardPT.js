@@ -1,16 +1,12 @@
-import { FaExternalLinkAlt, FaLink, FaHashtag } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaLink } from 'react-icons/fa';
 import { GiLinkedRings } from 'react-icons/gi';
-import { MdLink } from 'react-icons/md';
-// import InlineImageRenderer from '../components/previews/InlineImageRenderer';
-import HashIdRenderer from '../components/previews/HashIdRenderer';
 import ExternalLinkRenderer from '../components/previews/ExternalLinkRenderer';
 import InternalLocalRenderer from '../components/previews/InternalLocalRenderer';
 import InternalGlobalRenderer from '../components/previews/InternalGlobalRenderer';
-import JumpLinkRenderer from '../components/previews/JumpLinkRenderer';
 
 export default {
   title: 'Block Content',
-  name: 'guideBodyPT',
+  name: 'productCardPT',
   type: 'array',
   of: [
     {
@@ -24,42 +20,6 @@ export default {
       ],
       marks: {
         annotations: [
-          {
-            title: 'Hash ID',
-            name: 'hashId',
-            type: 'object',
-            blockEditor: {
-              icon: FaHashtag,
-              render: HashIdRenderer,
-            },
-            fields: [
-              {
-                title: 'ID',
-                name: 'idTag',
-                type: 'string',
-                description:
-                  'Add ID to the selected string. Please only use alphanumeric characters and hypen.',
-              },
-            ],
-          },
-          {
-            name: 'jumpLink',
-            type: 'object',
-            title: 'Page Jump Link',
-            blockEditor: {
-              icon: MdLink,
-              render: JumpLinkRenderer,
-            },
-            fields: [
-              {
-                name: 'hashId',
-                title: 'Hash ID',
-                type: 'string',
-                description:
-                  'Please enter the ID you would like to jump to. Do not include the # symbol.',
-              },
-            ],
-          },
           {
             name: 'internalLocal',
             type: 'object',
@@ -160,31 +120,6 @@ export default {
               },
             ],
           },
-          // {
-          //   title: 'Inline Image',
-          //   name: 'inlineImage',
-          //   type: 'image',
-          //   options: {
-          //     hotspot: true, // <-- Defaults to false
-          //     storeOriginalFilename: true,
-          //   },
-          //   fields: [
-          //     {
-          //       name: 'height',
-          //       type: 'string',
-          //       title: 'Image height',
-          //       description: `You can enter a height % of vh. If the image's native height is smaller it will be used instead.`,
-          //       options: {
-          //         isHighlighted: true, // <-- make this field easily accessible
-          //       },
-          //     },
-          //   ],
-          //   blockEditor: {
-          //     icon: MdImage,
-          //     render: InlineImageRenderer,
-          //   },
-          //   validation: (Rule) => [Rule.required().error('Missing Image')],
-          // },
         ],
       },
     },
@@ -192,14 +127,11 @@ export default {
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
     { type: 'illustration' },
-    { type: 'smartOrderedList' },
     { type: 'smartUnorderedList' },
-    { type: 'basicTable' },
-    { type: 'smartTable' },
-    { type: 'highlightBox' },
     { type: 'videoEmbed' },
+    { type: 'affiliateButton' },
     { type: 'btnBlockMui' },
     { type: 'clickableImage' },
-    { type: 'productCard' },
+    { type: 'smartGrid' },
   ],
 };

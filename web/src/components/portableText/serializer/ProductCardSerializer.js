@@ -18,7 +18,8 @@ import ButtonJumpLink from '../../buttons/ButtonJumpLink';
 import SmartOrderedList from '../insertable/SmartOrderedList';
 import SmartUnorderedList from '../insertable/SmartUnorderedList';
 import { mapMuiBtnToProps } from '../../../lib/mapToProps';
-import ProductCard from '../insertable/productCard/ProductCard';
+import AffiliateButton from '../insertable/productCard/AffiliateButton';
+import SmartGrid from '../insertable/SmartGrid';
 
 const StyledTypography = styled(Typography)`
   margin-top: 1.35em;
@@ -145,6 +146,9 @@ const serializers = {
     illustration({ node }) {
       return <Illustration illustration={node} />;
     },
+    clickableImage({ node }) {
+      return <div> replace with clickableImage </div>;
+    },
     basicTable({ node }) {
       return <BasicTable basicTable={node} />;
     },
@@ -174,14 +178,17 @@ const serializers = {
           return <p>under development</p>;
       }
     },
+    affiliateButton({ node }) {
+      return <AffiliateButton {...node} />;
+    },
     smartOrderedList({ node }) {
       return <SmartOrderedList {...node} />;
     },
     smartUnorderedList({ node }) {
       return <SmartUnorderedList {...node} />;
     },
-    productCard({ node }) {
-      return <ProductCard {...node} />;
+    smartGrid({ node }) {
+      return <SmartGrid {...node} />;
     },
   },
   marks: {
