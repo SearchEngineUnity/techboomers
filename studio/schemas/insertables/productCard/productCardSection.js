@@ -9,4 +9,11 @@ export default {
       type: 'productCardPT',
     },
   ],
+  preview: {
+    prepare() {
+      return {
+        title: 'Product Card Section',
+      };
+    },
+  },
 };

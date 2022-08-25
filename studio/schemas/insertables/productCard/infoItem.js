@@ -14,4 +14,10 @@ export default {
       type: 'string',
     },
   ],
+  preview: {
+    select: {
+      title: 'label',
+      subtitle: 'text',
+    },
+  },
 };

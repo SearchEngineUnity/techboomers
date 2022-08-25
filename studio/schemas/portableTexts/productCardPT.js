@@ -132,5 +132,6 @@ export default {
     { type: 'affiliateButton' },
     { type: 'btnBlockMui' },
     { type: 'clickableImage' },
+    { type: 'smartGrid' },
   ],
 };

@@ -56,7 +56,8 @@ export default {
     {
       title: 'Special Tag Color',
       name: 'tagColor',
-      type: 'string',
+      type: 'reference',
+      to: [{ type: 'colorOption' }],
       fieldset: 'essentials',
     },
     {
