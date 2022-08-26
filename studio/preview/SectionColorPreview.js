@@ -1,69 +1,53 @@
 /* eslint-disable import/no-unresolved */
 import React from 'react';
 import QueryContainer from 'part:@sanity/base/query-container';
+import { Box, CircularProgress, Typography } from '@material-ui/core';
+import { determineColor } from '../lib/helperFunctions';
 
 const SectionColorPreview = ({ document }) => {
   // The JSON preview
   const documentQuery = `*[_type == 'sectionDesignSet' && name == '${document.displayed.name}'] | order(_updatedAt desc) {
-    background->, foreground->, link->, heading->, subtitle->, footer->
+    background->, foreground->, link->, heading->, subheading->, subtitle->, footer->, "bgImage": bgImage.asset->url, bleed, repeat
   }`;
   return (
     <QueryContainer query={documentQuery}>
       {({ result, loading }) => {
+        console.log(result);
+        const bgImage = result?.documents[0]?.bgImage;
+        const repeat = result?.documents[0]?.repeat;
+
         const bgColor = result?.documents[0]?.background?.color?.hex
-          ? result?.documents[0]?.background?.color?.hex
+          ? determineColor(result?.documents[0]?.background?.color)
           : 'transparent';
-        const bgColorAlpha =
-          result?.documents[0]?.background?.color?.hex &&
-          result?.documents[0]?.background?.color?.alpha < 1
-            ? bgColor + result.documents[0].background.color.alpha * 100
-            : bgColor;
 
         const color = result?.documents[0]?.foreground?.color?.hex
-          ? result?.documents[0]?.foreground?.color?.hex
+          ? determineColor(result?.documents[0]?.foreground?.color)
           : 'initial';
-        const colorAlpha =
-          result?.documents[0]?.foreground?.color?.hex &&
-          result?.documents[0]?.foreground?.color?.alpha < 1
-            ? color + result.documents[0].foreground.color.alpha * 100
-            : color;
 
-        const link = result?.documents[0]?.link?.color?.hex
-          ? result?.documents[0]?.link?.color?.hex
+        const linkColor = result?.documents[0]?.link?.color?.hex
+          ? determineColor(result?.documents[0]?.link?.color)
           : 'initial';
-        const linkAlpha =
-          result?.documents[0]?.link?.color?.hex && result?.documents[0]?.link?.color?.alpha < 1
-            ? link + result.documents[0].link.color.alpha * 100
-            : link;
 
-        const heading = result?.documents[0]?.heading?.color?.hex
-          ? result?.documents[0]?.heading?.color?.hex
+        const headingColor = result?.documents[0]?.heading?.color?.hex
+          ? determineColor(result?.documents[0]?.heading?.color)
           : 'inherit';
-        const headingAlpha =
-          result?.documents[0]?.heading?.color?.hex &&
-          result?.documents[0]?.heading?.color?.alpha < 1
-            ? heading + result.documents[0].heading.color.alpha * 100
-            : heading;
 
-        const subtitle = result?.documents[0]?.subtitle?.color?.hex
-          ? result?.documents[0]?.subtitle?.color?.hex
+        const subheadingColor = result?.documents[0]?.subheading?.color?.hex
+          ? determineColor(result?.documents[0]?.subheading?.color)
           : 'inherit';
-        const subtitleAlpha =
-          result?.documents[0]?.subtitle?.color?.hex &&
-          result?.documents[0]?.subtitle?.color?.alpha < 1
-            ? subtitle + result.documents[0].subtitle.color.alpha * 100
-            : subtitle;
 
-        const footer = result?.documents[0]?.footer?.color?.hex
-          ? result?.documents[0]?.footer?.color?.hex
+        const subtitleColor = result?.documents[0]?.subtitle?.color?.hex
+          ? determineColor(result?.documents[0]?.subtitle?.color)
           : 'inherit';
-        const footerAlpha =
-          result?.documents[0]?.footer?.color?.hex && result?.documents[0]?.footer?.color?.alpha < 1
-            ? footer + result.documents[0].footer.color.alpha * 100
-            : footer;
+
+        const footerColor = result?.documents[0]?.footer?.color?.hex
+          ? determineColor(result?.documents[0]?.footer?.color)
+          : 'inherit';
 
         return loading ? (
-          <div> data loading </div>
+          <Box display="flex" height="100%" justifyContent="center" alignItems="center">
+            <CircularProgress />
+          </Box>
         ) : (
           result && (
             <div
@@ -75,23 +59,33 @@ const SectionColorPreview = ({ document }) => {
                 style={{
                   margin: '16px',
                   padding: '32px',
-                  backgroundColor: bgColorAlpha,
-                  color: colorAlpha,
+                  backgroundColor: bgColor,
+                  backgroundImage: `url(${bgImage})`,
+                  backgroundPosition: 'center center',
+                  backgroundRepeat: repeat ? 'repeat' : 'no-repeat',
+                  color,
                 }}
               >
-                <h2 style={{ color: headingAlpha }}>This is a section heading</h2>
-                <h3 style={{ color: subtitleAlpha }}>This is a section subtitle</h3>
+                <Typography variant="h3" style={{ color: headingColor }} gutterBottom>
+                  This is the section heading
+                </Typography>
+                <Typography variant="h4" style={{ color: subheadingColor }} gutterBottom>
+                  This is the subheading
+                </Typography>
+                <Typography variant="body1" style={{ color: subtitleColor }} gutterBottom>
+                  This is the section subtitle text.
+                </Typography>
                 <br />
-                <p>
-                  This is section content. This is a{' '}
+                <Typography variant="body1">
+                  This is the section content. This is a{' '}
                   {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                  <a style={{ color: linkAlpha }} href="#">
+                  <a style={{ color: linkColor }} href="#">
                     link
                   </a>{' '}
                   in section content.
-                </p>
+                </Typography>
                 <br />
-                <p style={{ color: footerAlpha }}>This is a section footer.</p>
+                <p style={{ color: footerColor }}>This is the section footer.</p>
               </div>
             </div>
           )
