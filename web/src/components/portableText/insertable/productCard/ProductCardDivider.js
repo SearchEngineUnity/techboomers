@@ -1,8 +1,8 @@
 import React from 'react';
-import { Box } from '@material-ui/core';
+import { Divider } from '@material-ui/core';
 
-function Divider() {
-  return <Box>This is a divider</Box>;
+function DividerLine() {
+  return <Divider />;
 }
 
-export default Divider;
+export default DividerLine;

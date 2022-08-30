@@ -362,3 +362,22 @@ export function mapTestimonialListToProps({ image, text, name, role, company }) 
     company,
   };
 }
+
+// export function mapAffiliateButtonToProps({ idTag, text, link, design }) {
+//   return {
+//     idTag,
+//     text,
+//     variant,
+//     disableElevation,
+//     disableFocusRipple,
+//     disableRipple,
+//     fullWidth,
+//     borderRadius,
+//     padding,
+//     link,
+//     colors,
+//     alignment,
+//     typography: design.typography,
+//     bgImage: design.bgImage?.asset?.url,
+//   };
+// }
