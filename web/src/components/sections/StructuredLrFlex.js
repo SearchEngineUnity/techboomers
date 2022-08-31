@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import ImgBlock from '../blocks/FluidImgBlock';
 import VideoBlock from '../blocks/VideoBlock';
 import SectionBlock from '../blocks/SectionBlock';
+import ButtonAffiliate from '../buttons/ButtonAffiliate';
 import ButtonExternal from '../buttons/ButtonExternal';
 import ButtonInternalGlobal from '../buttons/ButtonInternalGlobal';
 import ButtonInternalLocal from '../buttons/ButtonInternalLocal';
@@ -229,6 +230,8 @@ function StructuredLrFlex({
                   );
                 case key === 'btnBlockMui' && block.link[0]._type === 'jumpLink':
                   return <ButtonJumpLink key={_key} {...mapMuiBtnToProps(block)} />;
+                case key === 'btnBlockMui' && block.link[0]._type === 'affiliateLink':
+                  return <ButtonAffiliate key={_key} {...mapMuiBtnToProps(block)} />;
                 case key === 'btnBlockMui' && block.link[0]._type === 'externalLink':
                   return <ButtonExternal key={_key} {...mapMuiBtnToProps(block)} />;
                 case key === 'btnBlockMui' && block.link[0]._type === 'internalGlobal':

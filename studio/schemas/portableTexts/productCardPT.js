@@ -1,5 +1,7 @@
 import { FaExternalLinkAlt, FaLink } from 'react-icons/fa';
 import { GiLinkedRings } from 'react-icons/gi';
+import { TbFileDollar } from 'react-icons/tb';
+import AffiliateLinkRenderer from '../components/previews/AffiliateLinkRenderer';
 import ExternalLinkRenderer from '../components/previews/ExternalLinkRenderer';
 import InternalLocalRenderer from '../components/previews/InternalLocalRenderer';
 import InternalGlobalRenderer from '../components/previews/InternalGlobalRenderer';
@@ -120,6 +122,27 @@ export default {
               },
             ],
           },
+          {
+            title: 'Affiliate Link',
+            name: 'affiliateLink',
+            type: 'object',
+            blockEditor: {
+              icon: TbFileDollar,
+              render: AffiliateLinkRenderer,
+            },
+            fields: [
+              {
+                title: 'URL',
+                name: 'href',
+                type: 'url',
+                validation: (Rule) =>
+                  Rule.uri({
+                    allowRelative: false,
+                    scheme: ['https', 'http', 'mailto', 'tel'],
+                  }),
+              },
+            ],
+          },
         ],
       },
     },
@@ -129,7 +152,6 @@ export default {
     { type: 'illustration' },
     { type: 'smartUnorderedList' },
     { type: 'videoEmbed' },
-    { type: 'affiliateButton' },
     { type: 'btnBlockMui' },
     { type: 'clickableImage' },
     { type: 'smartGrid' },

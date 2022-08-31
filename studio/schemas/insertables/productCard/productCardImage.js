@@ -15,7 +15,7 @@ export default {
       },
     },
     {
-      name: 'credit',
+      name: 'caption',
       type: 'captionPT',
       title: 'Image Credit',
       options: {

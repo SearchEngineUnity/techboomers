@@ -36,6 +36,7 @@ export default {
         { type: 'internalLocal' },
         { type: 'internalGlobal' },
         { type: 'externalLink' },
+        { type: 'affiliateLink' },
         { type: 'jumpLink' },
       ],
     },

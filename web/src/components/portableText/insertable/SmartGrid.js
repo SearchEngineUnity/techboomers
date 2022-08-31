@@ -1,14 +1,14 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
-import ProductCardSection from './productCard/ProductCardSection';
+// import smartGridPT from './productCard/SmartGridPtTile';
 import Illustration from './Illustration';
 import SmartUnorderedList from './SmartUnorderedList';
 import VideoEmbed from './VideoEmbed';
 import ButtonJumpLink from '../../buttons/ButtonJumpLink';
+import ButtonAffiliate from '../../buttons/ButtonAffiliate';
 import ButtonExternal from '../../buttons/ButtonExternal';
 import ButtonInternalGlobal from '../../buttons/ButtonInternalGlobal';
 import ButtonInternalLocal from '../../buttons/ButtonInternalLocal';
-import AffiliateButton from './productCard/AffiliateButton';
 import { mapMuiBtnToProps } from '../../../lib/mapToProps';
 
 function SmartGrid({ layout, tiles, tileOption }) {
@@ -29,8 +29,8 @@ function SmartGrid({ layout, tiles, tileOption }) {
           const { _key } = tile;
           const tileSelector = (key) => {
             switch (key) {
-              case 'productCardSection':
-                return <ProductCardSection />;
+              // case 'productCardSection':
+              //   return <ProductCardFlexSegment />;
               case 'illustration':
                 return <Illustration />;
               case 'smartUnorderedList':
@@ -39,14 +39,14 @@ function SmartGrid({ layout, tiles, tileOption }) {
                 return <VideoEmbed />;
               case key === 'btnBlockMui' && tile.link[0]._type === 'jumpLink':
                 return <ButtonJumpLink key={_key} {...mapMuiBtnToProps(tile)} />;
+              case key === 'btnBlockMui' && tile.link[0]._type === 'affiliateLink':
+                return <ButtonAffiliate key={_key} {...mapMuiBtnToProps(tile)} />;
               case key === 'btnBlockMui' && tile.link[0]._type === 'externalLink':
                 return <ButtonExternal key={_key} {...mapMuiBtnToProps(tile)} />;
               case key === 'btnBlockMui' && tile.link[0]._type === 'internalGlobal':
                 return <ButtonInternalGlobal key={_key} {...mapMuiBtnToProps(tile)} />;
               case key === 'btnBlockMui' && tile.link[0]._type === 'internalLocal':
                 return <ButtonInternalLocal key={_key} {...mapMuiBtnToProps(tile)} />;
-              case 'affiliateButton':
-                return <AffiliateButton key={_key} {...mapMuiBtnToProps(tile)} />;
               case 'clickableImage':
                 return <div>This is a clickable image</div>;
               default:

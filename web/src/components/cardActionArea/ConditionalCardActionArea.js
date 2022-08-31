@@ -1,6 +1,7 @@
 const ConditionalCardActionArea = ({
   condition,
   jumpLink,
+  affiliate,
   external,
   internalLocal,
   internalGlobal,
@@ -9,6 +10,8 @@ const ConditionalCardActionArea = ({
   switch (condition) {
     case 'jumpLink':
       return jumpLink(children);
+    case 'affiliateLink':
+      return affiliate(children);
     case 'externalLink':
       return external(children);
     case 'internalGlobal':

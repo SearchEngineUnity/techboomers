@@ -9,7 +9,7 @@ const useStyles = makeStyles({
   },
 });
 
-function ButtonExternal({
+function ButtonAffiliate({
   idTag,
   text,
   variant,
@@ -79,7 +79,7 @@ function ButtonExternal({
   });
 
   const classes = useStyles({ padding, bgImage, hoverOverlay, mainColor, darkColor });
-  const { href, newTab, noreferrer } = link[0];
+  const { href } = link[0];
 
   return (
     <ThemeProvider theme={theme}>
@@ -93,12 +93,8 @@ function ButtonExternal({
           disableRipple={disableRipple}
           fullWidth={fullWidth}
           className={classes.size}
-          target={newTab ? '_blank' : undefined}
-          rel={
-            newTab || noreferrer
-              ? `${newTab ? 'noopener' : ''} ${noreferrer ? 'noreferrer' : ''}`
-              : undefined
-          }
+          target="_blank"
+          rel="nofollow"
           href={href}
         >
           {text}
@@ -107,4 +103,4 @@ function ButtonExternal({
     </ThemeProvider>
   );
 }
-export default ButtonExternal;
+export default ButtonAffiliate;

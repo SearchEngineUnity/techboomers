@@ -1,11 +1,11 @@
 export {
-  affiliateButton,
   infoItem,
   productCard,
-  productCardDivider,
+  productCardDividerSegment,
   productCardImage,
-  productCardSection,
+  productCardFlexSegment,
 } from './productCard';
+export { smartGrid, smartGridPtTile } from './smartGrid';
 export {
   rowPlus,
   smartTable,
@@ -19,7 +19,6 @@ export {
 export { default as basicTable } from './basicTable';
 export { default as highlightBox } from './highlightBox';
 export { default as illustration } from './illustration';
-export { default as smartGrid } from './smartGrid';
 export { default as smartOrderedList } from './smartOrderedList';
 export { default as smartUnorderedList } from './smartUnorderedList';
 export { default as videoEmbed } from './videoEmbed';

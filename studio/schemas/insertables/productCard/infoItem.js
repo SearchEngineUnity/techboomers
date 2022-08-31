@@ -1,7 +1,10 @@
+import { BsInfoSquare } from 'react-icons/bs';
+
 export default {
   title: 'Info Item',
   name: 'infoItem',
   type: 'object',
+  icon: BsInfoSquare,
   fields: [
     {
       name: 'label',

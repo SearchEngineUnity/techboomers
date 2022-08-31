@@ -35,10 +35,11 @@ export default {
       description: 'Only one link can be added.',
       type: 'array',
       of: [
-        { type: 'jumpLink' },
         { type: 'internalLocal' },
         { type: 'internalGlobal' },
         { type: 'externalLink' },
+        { type: 'affiliateLink' },
+        { type: 'jumpLink' },
       ],
       validation: (Rule) => [
         Rule.length(1).error('Must contain only one item'),

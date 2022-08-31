@@ -21,12 +21,11 @@ export default {
       title: 'Tile Set',
       type: 'array',
       of: [
-        { type: 'productCardSection' },
+        { type: 'smartGridPtTile' },
         { type: 'illustration' },
         { type: 'smartUnorderedList' },
         { type: 'videoEmbed' },
         { type: 'btnBlockMui' },
-        { type: 'affiliateButton' },
         { type: 'clickableImage' },
       ],
       validation: (Rule) => Rule.min(1).error('Must contain at least 1 item'),

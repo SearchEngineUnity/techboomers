@@ -56,6 +56,11 @@ export const query = graphql`
               tiles {
                 _key
                 link {
+                  ... on SanityAffiliateLink {
+                    _key
+                    _type
+                    href
+                  }
                   ... on SanityExternalLink {
                     _key
                     _type
@@ -121,6 +126,11 @@ export const query = graphql`
                   _type
                   hashId
                 }
+                ... on SanityAffiliateLink {
+                  _key
+                  _type
+                  href
+                }
                 ... on SanityExternalLink {
                   _key
                   _type
@@ -190,21 +200,36 @@ export const query = graphql`
                     color {
                       hex
                       alpha
-                      _rawRgb
+                      rgb {
+                        r
+                        g
+                        b
+                        a
+                      }
                     }
                   }
                   dark {
                     color {
                       alpha
                       hex
-                      _rawRgb
+                      rgb {
+                        r
+                        g
+                        b
+                        a
+                      }
                     }
                   }
                   main {
                     color {
                       alpha
                       hex
-                      _rawRgb
+                      rgb {
+                        r
+                        g
+                        b
+                        a
+                      }
                     }
                   }
                 }
@@ -287,7 +312,12 @@ export const query = graphql`
               color {
                 hex
                 alpha
-                _rawRgb
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
               }
             }
             link {
@@ -352,6 +382,11 @@ export const query = graphql`
               tiles {
                 _key
                 link {
+                  ... on SanityAffiliateLink {
+                    _key
+                    _type
+                    href
+                  }
                   ... on SanityExternalLink {
                     _key
                     _type
@@ -445,6 +480,11 @@ export const query = graphql`
                   _type
                   hashId
                 }
+                ... on SanityAffiliateLink {
+                  _key
+                  _type
+                  href
+                }
                 ... on SanityExternalLink {
                   _key
                   _type
@@ -514,21 +554,36 @@ export const query = graphql`
                     color {
                       hex
                       alpha
-                      _rawRgb
+                      rgb {
+                        r
+                        g
+                        b
+                        a
+                      }
                     }
                   }
                   dark {
                     color {
                       alpha
                       hex
-                      _rawRgb
+                      rgb {
+                        r
+                        g
+                        b
+                        a
+                      }
                     }
                   }
                   main {
                     color {
                       alpha
                       hex
-                      _rawRgb
+                      rgb {
+                        r
+                        g
+                        b
+                        a
+                      }
                     }
                   }
                 }
@@ -587,7 +642,12 @@ export const query = graphql`
               color {
                 hex
                 alpha
-                _rawRgb
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
               }
             }
             link {
@@ -644,6 +704,11 @@ export const query = graphql`
               tiles {
                 _key
                 link {
+                  ... on SanityAffiliateLink {
+                    _key
+                    _type
+                    href
+                  }
                   ... on SanityExternalLink {
                     _key
                     _type
@@ -707,6 +772,11 @@ export const query = graphql`
                   _key
                   _type
                   hashId
+                }
+                ... on SanityAffiliateLink {
+                  _key
+                  _type
+                  href
                 }
                 ... on SanityExternalLink {
                   _key
@@ -777,21 +847,36 @@ export const query = graphql`
                     color {
                       hex
                       alpha
-                      _rawRgb
+                      rgb {
+                        r
+                        g
+                        b
+                        a
+                      }
                     }
                   }
                   dark {
                     color {
                       alpha
                       hex
-                      _rawRgb
+                      rgb {
+                        r
+                        g
+                        b
+                        a
+                      }
                     }
                   }
                   main {
                     color {
                       alpha
                       hex
-                      _rawRgb
+                      rgb {
+                        r
+                        g
+                        b
+                        a
+                      }
                     }
                   }
                 }
@@ -839,7 +924,12 @@ export const query = graphql`
               color {
                 hex
                 alpha
-                _rawRgb
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
               }
             }
             bgImage {
@@ -853,42 +943,72 @@ export const query = graphql`
               color {
                 hex
                 alpha
-                _rawRgb
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
               }
             }
             foreground {
               color {
                 hex
                 alpha
-                _rawRgb
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
               }
             }
             heading {
               color {
                 hex
                 alpha
-                _rawRgb
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
               }
             }
             subheading {
               color {
                 hex
                 alpha
-                _rawRgb
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
               }
             }
             link {
               color {
                 hex
                 alpha
-                _rawRgb
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
               }
             }
             subtitle {
               color {
                 alpha
                 hex
-                _rawRgb
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
               }
             }
           }
@@ -938,6 +1058,11 @@ export const query = graphql`
               tiles {
                 _key
                 link {
+                  ... on SanityAffiliateLink {
+                    _key
+                    _type
+                    href
+                  }
                   ... on SanityExternalLink {
                     _key
                     _type
@@ -1001,6 +1126,11 @@ export const query = graphql`
                   _key
                   _type
                   hashId
+                }
+                ... on SanityAffiliateLink {
+                  _key
+                  _type
+                  href
                 }
                 ... on SanityExternalLink {
                   _key
@@ -1071,21 +1201,36 @@ export const query = graphql`
                     color {
                       hex
                       alpha
-                      _rawRgb
+                      rgb {
+                        r
+                        g
+                        b
+                        a
+                      }
                     }
                   }
                   dark {
                     color {
                       alpha
                       hex
-                      _rawRgb
+                      rgb {
+                        r
+                        g
+                        b
+                        a
+                      }
                     }
                   }
                   main {
                     color {
                       alpha
                       hex
-                      _rawRgb
+                      rgb {
+                        r
+                        g
+                        b
+                        a
+                      }
                     }
                   }
                 }
@@ -1165,7 +1310,12 @@ export const query = graphql`
               color {
                 hex
                 alpha
-                _rawRgb
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
               }
             }
             link {

@@ -7,15 +7,20 @@ import InternalLocalRenderer from '../components/previews/InternalLocalRenderer'
 import InternalGlobalRenderer from '../components/previews/InternalGlobalRenderer';
 
 export default {
-  name: 'captionPT',
+  title: 'Block Content',
+  name: 'smartGridPT',
   type: 'array',
   of: [
     {
       type: 'block',
-      styles: [],
-      lists: [],
+      styles: [
+        { title: 'Normal', value: 'normal' },
+        { title: 'H2', value: 'h2' },
+        { title: 'H3', value: 'h3' },
+        { title: 'H4', value: 'h4' },
+        { title: 'Quote', value: 'blockquote' },
+      ],
       marks: {
-        decorators: [],
         annotations: [
           {
             name: 'internalLocal',
@@ -141,5 +146,14 @@ export default {
         ],
       },
     },
+    // You can add additional types here. Note that you can't use
+    // primitive types such as 'string' and 'number' in the same array
+    // as a block type.
+    { type: 'illustration' },
+    { type: 'smartUnorderedList' },
+    { type: 'videoEmbed' },
+    { type: 'btnBlockMui' },
+    { type: 'clickableImage' },
+    { type: 'smartGrid' },
   ],
 };
