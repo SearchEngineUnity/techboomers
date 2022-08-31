@@ -1,4 +1,12 @@
 export {
+  infoItem,
+  productCard,
+  productCardDividerSegment,
+  productCardImage,
+  productCardFlexSegment,
+} from './productCard';
+export { smartGrid, smartGridPtTile } from './smartGrid';
+export {
   rowPlus,
   smartTable,
   tableBlock,

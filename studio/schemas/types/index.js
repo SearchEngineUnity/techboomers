@@ -5,6 +5,7 @@ export { default as header } from './header';
 export { default as heroHeader } from './heroHeader';
 export { default as hlbColorSet } from './hlbColorSet';
 export { default as jumpLink } from './jumpLink';
+export { default as linkAffiliate } from './linkAffiliate';
 export { default as linkExternal } from './linkExternal';
 export { default as linkInternalGlobal } from './linkInternalGlobal';
 export { default as linkInternalLocal } from './linkInternalLocal';

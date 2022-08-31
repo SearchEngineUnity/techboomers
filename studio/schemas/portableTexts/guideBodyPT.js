@@ -2,6 +2,8 @@ import { FaExternalLinkAlt, FaLink, FaHashtag } from 'react-icons/fa';
 import { GiLinkedRings } from 'react-icons/gi';
 import { MdLink } from 'react-icons/md';
 // import InlineImageRenderer from '../components/previews/InlineImageRenderer';
+import { TbFileDollar } from 'react-icons/tb';
+import AffiliateLinkRenderer from '../components/previews/AffiliateLinkRenderer';
 import HashIdRenderer from '../components/previews/HashIdRenderer';
 import ExternalLinkRenderer from '../components/previews/ExternalLinkRenderer';
 import InternalLocalRenderer from '../components/previews/InternalLocalRenderer';
@@ -160,6 +162,27 @@ export default {
               },
             ],
           },
+          {
+            title: 'Affiliate Link',
+            name: 'affiliateLink',
+            type: 'object',
+            blockEditor: {
+              icon: TbFileDollar,
+              render: AffiliateLinkRenderer,
+            },
+            fields: [
+              {
+                title: 'URL',
+                name: 'href',
+                type: 'url',
+                validation: (Rule) =>
+                  Rule.uri({
+                    allowRelative: false,
+                    scheme: ['https', 'http', 'mailto', 'tel'],
+                  }),
+              },
+            ],
+          },
           // {
           //   title: 'Inline Image',
           //   name: 'inlineImage',
@@ -200,5 +223,6 @@ export default {
     { type: 'videoEmbed' },
     { type: 'btnBlockMui' },
     { type: 'clickableImage' },
+    { type: 'productCard' },
   ],
 };

@@ -8,9 +8,11 @@ import Illustration from '../insertable/Illustration';
 import HighlightBox from '../insertable/highlightBox/HighlightBox';
 import SmartTable from '../insertable/SmartTable';
 import JumpLink from '../../link/JumpLink';
+import AffiliateLink from '../../link/LinkAffiliate';
 import ExternalLink from '../../link/LinkExternal';
 import InternalGlobal from '../../link/LinkInternalGlobal';
 import InternalLocal from '../../link/LinkInternalLocal';
+import ButtonAffiliate from '../../buttons/ButtonAffiliate';
 import ButtonExternal from '../../buttons/ButtonExternal';
 import ButtonInternalGlobal from '../../buttons/ButtonInternalGlobal';
 import ButtonInternalLocal from '../../buttons/ButtonInternalLocal';
@@ -18,6 +20,7 @@ import ButtonJumpLink from '../../buttons/ButtonJumpLink';
 import SmartOrderedList from '../insertable/SmartOrderedList';
 import SmartUnorderedList from '../insertable/SmartUnorderedList';
 import { mapMuiBtnToProps } from '../../../lib/mapToProps';
+import ProductCard from '../insertable/productCard/ProductCard';
 
 const StyledTypography = styled(Typography)`
   margin-top: 1.35em;
@@ -169,6 +172,8 @@ const serializers = {
           return <ButtonInternalGlobal {...mapMuiBtnToProps(node)} />;
         case 'externalLink':
           return <ButtonExternal {...mapMuiBtnToProps(node)} />;
+        case 'affiliateLink':
+          return <ButtonAffiliate {...mapMuiBtnToProps(node)} />;
         default:
           return <p>under development</p>;
       }
@@ -178,6 +183,9 @@ const serializers = {
     },
     smartUnorderedList({ node }) {
       return <SmartUnorderedList {...node} />;
+    },
+    productCard({ node }) {
+      return <ProductCard {...node} />;
     },
   },
   marks: {
@@ -207,6 +215,14 @@ const serializers = {
         <ExternalLink href={href} noreferrer={noreferrer} newTab={newTab} className="pt-link">
           {children}
         </ExternalLink>
+      );
+    },
+    affiliateLink: ({ mark, children }) => {
+      const { href } = mark;
+      return (
+        <AffiliateLink href={href} className="pt-link">
+          {children}
+        </AffiliateLink>
       );
     },
     jumpLink: ({ mark, children }) => {

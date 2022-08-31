@@ -29,7 +29,7 @@ function ButtonJumpLink({
   const mainColor = determineColor(main?.color);
   const darkColor = determineColor(dark?.color);
   const contrastTextColor = determineColor(contrastText?.color);
-  const hoverOverlay = dark.color._rawRgb;
+  const hoverOverlay = dark.color.rgb;
 
   const theme = createTheme({
     palette: {
