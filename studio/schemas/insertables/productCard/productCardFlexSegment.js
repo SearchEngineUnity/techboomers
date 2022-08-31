@@ -1,7 +1,10 @@
+import { TbNewSection } from 'react-icons/tb';
+
 export default {
-  title: 'Product Card Section',
-  name: 'productCardSection',
+  title: 'Product Card Flex Segment',
+  name: 'productCardFlexSegment',
   type: 'object',
+  icon: TbNewSection,
   fields: [
     {
       name: 'content',
@@ -12,7 +15,7 @@ export default {
   preview: {
     prepare() {
       return {
-        title: 'Product Card Section',
+        title: 'Product Card Flex Segment',
       };
     },
   },

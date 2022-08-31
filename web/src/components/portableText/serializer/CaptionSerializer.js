@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import ExternalLink from '../../link/LinkExternal';
 import InternalGlobal from '../../link/LinkInternalGlobal';
 import InternalLocal from '../../link/LinkInternalLocal';
+import AffiliateLink from '../../link/LinkAffiliate';
 
 const StyledTypography = styled(Typography)`
   font-style: italic;
@@ -50,6 +51,14 @@ const serializers = {
         <ExternalLink href={href} noreferrer={noreferrer} newTab={newTab} className="pt-link">
           {children}
         </ExternalLink>
+      );
+    },
+    affiliateLink: ({ mark, children }) => {
+      const { href } = mark;
+      return (
+        <AffiliateLink href={href} className="pt-link">
+          {children}
+        </AffiliateLink>
       );
     },
   },

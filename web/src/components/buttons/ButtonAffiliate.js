@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Box } from '@material-ui/core';
 import { createTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
-import { determineColor } from '../../../../lib/helperFunctions';
+import { determineColor } from '../../lib/helperFunctions';
 
 const useStyles = makeStyles({
   size: {
@@ -9,7 +9,7 @@ const useStyles = makeStyles({
   },
 });
 
-function AffiliateButton({
+function ButtonAffiliate({
   idTag,
   text,
   variant,
@@ -29,7 +29,7 @@ function AffiliateButton({
   const mainColor = determineColor(main?.color);
   const darkColor = determineColor(dark?.color);
   const contrastTextColor = determineColor(contrastText?.color);
-  const hoverOverlay = dark.color._rawRgb;
+  const hoverOverlay = dark.color.rgb;
 
   const theme = createTheme({
     palette: {
@@ -79,7 +79,7 @@ function AffiliateButton({
   });
 
   const classes = useStyles({ padding, bgImage, hoverOverlay, mainColor, darkColor });
-  const { href, newTab, noreferrer } = link[0];
+  const { href } = link[0];
 
   return (
     <ThemeProvider theme={theme}>
@@ -93,12 +93,8 @@ function AffiliateButton({
           disableRipple={disableRipple}
           fullWidth={fullWidth}
           className={classes.size}
-          target={newTab ? '_blank' : undefined}
-          rel={
-            newTab || noreferrer
-              ? `${newTab ? 'noopener' : ''} ${noreferrer ? 'noreferrer' : ''}`
-              : undefined
-          }
+          target="_blank"
+          rel="nofollow"
           href={href}
         >
           {text}
@@ -107,4 +103,4 @@ function AffiliateButton({
     </ThemeProvider>
   );
 }
-export default AffiliateButton;
+export default ButtonAffiliate;

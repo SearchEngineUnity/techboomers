@@ -1,10 +1,9 @@
 export {
-  affiliateButton,
   infoItem,
   productCard,
-  productCardDivider,
+  productCardDividerSegment,
   productCardImage,
-  productCardSection,
+  productCardFlexSegment,
 } from './productCard';
 export {
   rowPlus,

@@ -6,6 +6,7 @@ import JumpLink from '../../link/JumpLink';
 import ExternalLink from '../../link/LinkExternal';
 import InternalGlobal from '../../link/LinkInternalGlobal';
 import InternalLocal from '../../link/LinkInternalLocal';
+import AffiliateLink from '../../link/LinkAffiliate';
 import FixedTableImage from '../insertable/FixedTableImage';
 
 const NoIndentUl = styled.ul`
@@ -69,6 +70,14 @@ const serializers = {
         <ExternalLink href={href} noreferrer={noreferrer} newTab={newTab} className="pt-link">
           {children}
         </ExternalLink>
+      );
+    },
+    affiliateLink: ({ mark, children }) => {
+      const { href } = mark;
+      return (
+        <AffiliateLink href={href} className="pt-link">
+          {children}
+        </AffiliateLink>
       );
     },
     jumpLink: ({ mark, children }) => {

@@ -1,14 +1,15 @@
 import React from 'react';
-import { Card, Grid, Button, Box, Typography } from '@material-ui/core';
+import { Card, Grid, Box, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import styled from 'styled-components';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import ProductCardSection from './ProductCardSection';
-import ProductCardDivider from './ProductCardDivider';
+import ProductCardFlexSegment from './ProductCardFlexSegment';
+import ProductCardDividerSegment from './ProductCardDividerSegment';
+import ProductInfoList from './ProductInfoList';
+import ProductCardRating from './ProductCardRating';
+import ButtonAffiliate from '../../../buttons/ButtonAffiliate';
+import { mapMuiBtnToProps } from '../../../../lib/mapToProps';
 import sanityConfig from '../../../../../sanityConfig';
-// import { mapAffiliateButtonToProps } from '../../../../lib/mapToProps';
-import AffiliateButton from './AffiliateButton';
 
 const useStyles = makeStyles({
   card: {
@@ -18,11 +19,17 @@ const useStyles = makeStyles({
   },
 });
 
-const InfoItems = styled.ul`
-  list-style-type: none;
-`;
-
-function ProductCard({ sections, image, name, topBtn }) {
+function ProductCard({
+  name,
+  headingLevel,
+  rating,
+  image,
+  tagText,
+  tagColor,
+  infoList,
+  topBtn,
+  segments,
+}) {
   const classes = useStyles();
 
   const imageData = getGatsbyImageData(
@@ -33,66 +40,46 @@ function ProductCard({ sections, image, name, topBtn }) {
     sanityConfig,
   );
 
+  console.log(topBtn);
   return (
-    <div>
-      <Card classes={{ root: classes.card }}>
-        <Grid item xs={12} sm container>
-          <Grid item xs={6}>
-            <Box p={3}>
-              <GatsbyImage
-                image={imageData}
-                alt={image.alt}
-                style={{
-                  width: '50%',
-                  height: 'auto',
-                  marginLeft: 'auto',
-                  marginRight: 'auto',
-                }}
-              />
-            </Box>
+    <Box mx="40px" my={2}>
+      <Card>
+        <Box margin={3}>
+          <Grid container spacing={3} alignItems="center">
+            <Grid item xs={12} sm={3} md={4}>
+              <GatsbyImage image={imageData} alt={image?.alt} />
+            </Grid>
+            <Grid item xs={12} sm={9} md={8}>
+              <Grid container spacing={3} justifyContent="space-between" alignItems="center">
+                <Grid item xs>
+                  <Typography component={headingLevel} variant="h4">
+                    {name}
+                  </Typography>
+                  <ProductCardRating rating={rating} />
+                </Grid>
+                <Grid item>
+                  <ButtonAffiliate {...mapMuiBtnToProps(topBtn)} />
+                </Grid>
+              </Grid>
+              <Grid item xs={12}>
+                <ProductInfoList infoList={infoList} />
+              </Grid>
+            </Grid>
           </Grid>
-
-          <Grid item xs={6}>
-            <Box align="right" p={3}>
-              <Button variant="contained">External</Button>
-            </Box>
-            {/* <Typography variant="h2" gutterBottom>
-              This is the title text.
-            </Typography> */}
-            <h2>This is the title text.</h2>
-            <p>This is the rating</p>
-            <InfoItems>
-              <li>
-                <span>Label:</span> <span>Text</span>
-              </li>
-              <li>
-                <span>Label:</span> <span>Text</span>
-              </li>
-              <li>
-                <span>Label:</span> <span>Text</span>
-              </li>
-              <li>
-                <span>Label:</span> <span>Text</span>
-              </li>
-            </InfoItems>
-            <AffiliateButton />
-          </Grid>
-        </Grid>
-        <Box p={3}>
-          {sections.map((section) => {
-            const { _type, _key } = section;
-            switch (_type) {
-              case 'productCardSection':
-                return <ProductCardSection key={_key} />;
-              case 'productCardDivider':
-                return <ProductCardDivider key={_key} />;
-              default:
-                return <div key="default-inner-block"> Block still under development</div>;
-            }
-          })}
         </Box>
+        {segments.map((segment) => {
+          const { _type, _key } = segment;
+          switch (_type) {
+            case 'productCardFlexSegment':
+              return <ProductCardFlexSegment key={_key} />;
+            case 'productCardDividerSegment':
+              return <ProductCardDividerSegment key={_key} />;
+            default:
+              return <div key="default-inner-block"> Block still under development</div>;
+          }
+        })}
       </Card>
-    </div>
+    </Box>
   );
 }
 

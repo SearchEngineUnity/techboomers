@@ -2,6 +2,8 @@ import { FaExternalLinkAlt, FaLink } from 'react-icons/fa';
 import { GiLinkedRings } from 'react-icons/gi';
 import { MdLink } from 'react-icons/md';
 // import InlineImageRenderer from '../components/previews/InlineImageRenderer';
+import { TbFileDollar } from 'react-icons/tb';
+import AffiliateLinkRenderer from '../components/previews/AffiliateLinkRenderer';
 import ExternalLinkRenderer from '../components/previews/ExternalLinkRenderer';
 import InternalLocalRenderer from '../components/previews/InternalLocalRenderer';
 import InternalGlobalRenderer from '../components/previews/InternalGlobalRenderer';
@@ -137,6 +139,27 @@ export default {
                 type: 'boolean',
                 initialValue: false,
                 validation: (Rule) => [Rule.required().error('Field is required')],
+              },
+            ],
+          },
+          {
+            title: 'Affiliate Link',
+            name: 'affiliateLink',
+            type: 'object',
+            blockEditor: {
+              icon: TbFileDollar,
+              render: AffiliateLinkRenderer,
+            },
+            fields: [
+              {
+                title: 'URL',
+                name: 'href',
+                type: 'url',
+                validation: (Rule) =>
+                  Rule.uri({
+                    allowRelative: false,
+                    scheme: ['https', 'http', 'mailto', 'tel'],
+                  }),
               },
             ],
           },

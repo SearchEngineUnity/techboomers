@@ -13,18 +13,18 @@ function ListingPagination({ currentpage, numPages, slug, color }) {
     palette: {
       action: {
         selected: color
-          ? `rgba(${color._rawRgb.r}, ${color._rawRgb.g}, ${color._rawRgb.b}, 0.08)`
+          ? `rgba(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}, 0.08)`
           : 'rgba(0, 0, 0, 0.08)',
         focus: color
-          ? `rgba(${color._rawRgb.r}, ${color._rawRgb.g}, ${color._rawRgb.b}, 0.12)`
+          ? `rgba(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}, 0.12)`
           : 'rgba(0, 0, 0, 0.12)',
         hover: color
-          ? `rgba(${color._rawRgb.r}, ${color._rawRgb.g}, ${color._rawRgb.b}, 0.04)`
+          ? `rgba(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}, 0.04)`
           : 'rgba(0, 0, 0, 0.04)',
       },
       text: {
         primary: color
-          ? `rgba(${color._rawRgb.r}, ${color._rawRgb.g}, ${color._rawRgb.b}, ${color._rawRgb.a})`
+          ? `rgba(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}, ${color.rgb.a})`
           : 'rgba(0, 0, 0, 1)',
       },
     },
@@ -32,7 +32,7 @@ function ListingPagination({ currentpage, numPages, slug, color }) {
       MuiPaginationItem: {
         outlined: {
           border: color
-            ? `1px solid rgba(${color._rawRgb.r}, ${color._rawRgb.g}, ${color._rawRgb.b}, 0.23)`
+            ? `1px solid rgba(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}, 0.23)`
             : '1px solid rgba(0, 0, 0, 0.23)',
         },
       },

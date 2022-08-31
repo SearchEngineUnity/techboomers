@@ -1,6 +1,5 @@
-export { default as affiliateButton } from './affiliateButton';
 export { default as infoItem } from './infoItem';
 export { default as productCard } from './productCard';
-export { default as productCardDivider } from './productCardDivider';
+export { default as productCardDividerSegment } from './productCardDividerSegment';
 export { default as productCardImage } from './productCardImage';
-export { default as productCardSection } from './productCardSection';
+export { default as productCardFlexSegment } from './productCardFlexSegment';

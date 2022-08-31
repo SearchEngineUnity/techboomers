@@ -1,7 +1,10 @@
+import { BiNews } from 'react-icons/bi';
+
 export default {
   name: 'productCard',
   title: 'Product Card',
   type: 'object',
+  icon: BiNews,
   fieldsets: [
     {
       name: 'essentials',
@@ -70,19 +73,26 @@ export default {
     {
       title: 'Top Button',
       name: 'topBtn',
-      type: 'affiliateButton',
+      type: 'btnBlockMui',
       fieldset: 'essentials',
     },
     {
-      title: 'Flex Builder',
-      name: 'sections',
+      title: 'Product Card Flex Segment Stack',
+      name: 'segments',
       type: 'array',
-      of: [{ type: 'productCardSection' }, { type: 'productCardDivider' }],
+      of: [{ type: 'productCardFlexSegment' }, { type: 'productCardDividerSegment' }],
     },
   ],
   preview: {
     select: {
       title: 'name',
+      media: 'image.asset',
+    },
+    prepare({ title, media }) {
+      return {
+        title: `Product Card: ${title}`,
+        media,
+      };
     },
   },
 };
