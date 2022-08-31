@@ -1,21 +1,21 @@
 import { TbNewSection } from 'react-icons/tb';
 
 export default {
-  title: 'Product Card Flex Segment',
-  name: 'productCardFlexSegment',
+  title: 'Smart Grid PT Tile',
+  name: 'smartGridPtTile',
   type: 'object',
   icon: TbNewSection,
   fields: [
     {
       name: 'content',
-      title: 'Segment Content',
-      type: 'productCardPT',
+      title: 'Tile Content',
+      type: 'smartGridPT',
     },
   ],
   preview: {
     prepare() {
       return {
-        title: 'Product Card Flex Segment',
+        title: 'Smart Grid PT Tile',
       };
     },
   },

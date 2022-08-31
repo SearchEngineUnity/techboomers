@@ -1,8 +1,13 @@
 import React from 'react';
 import { Box } from '@material-ui/core';
+import ProductCardSegment from '../../serializer/ProductCardSerializer';
 
-function ProductCardFlexSegment() {
-  return <Box margin={3}>This is a product card flex segment</Box>;
+function ProductCardFlexSegment({ data }) {
+  return (
+    <Box margin={3}>
+      <ProductCardSegment blocks={data} />
+    </Box>
+  );
 }
 
 export default ProductCardFlexSegment;

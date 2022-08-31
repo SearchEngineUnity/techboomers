@@ -21,7 +21,7 @@ export default {
       title: 'Tile Set',
       type: 'array',
       of: [
-        { type: 'productCardFlexSegment' },
+        { type: 'smartGridPtTile' },
         { type: 'illustration' },
         { type: 'smartUnorderedList' },
         { type: 'videoEmbed' },

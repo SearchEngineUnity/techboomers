@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
-import ProductCardFlexSegment from './productCard/ProductCardFlexSegment';
+// import smartGridPT from './productCard/SmartGridPtTile';
 import Illustration from './Illustration';
 import SmartUnorderedList from './SmartUnorderedList';
 import VideoEmbed from './VideoEmbed';
@@ -29,8 +29,8 @@ function SmartGrid({ layout, tiles, tileOption }) {
           const { _key } = tile;
           const tileSelector = (key) => {
             switch (key) {
-              case 'productCardSection':
-                return <ProductCardFlexSegment />;
+              // case 'productCardSection':
+              //   return <ProductCardFlexSegment />;
               case 'illustration':
                 return <Illustration />;
               case 'smartUnorderedList':
