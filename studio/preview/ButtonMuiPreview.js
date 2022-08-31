@@ -1,13 +1,14 @@
 /* eslint-disable import/no-unresolved */
-import React from 'react';
+import React, { useState } from 'react';
 import QueryContainer from 'part:@sanity/base/query-container';
-import { Button, Box } from '@material-ui/core';
+import { Button, Box, TextField, Divider, CircularProgress } from '@material-ui/core';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import { determineColor } from '../lib/helperFunctions';
 
 const ButtonMuiPreview = ({ document }) => {
+  const [text, setText] = useState('Button Text');
   // The JSON preview
-  const documentQuery = `*[_type == 'btnDesignMui' && name == '${document.displayed.name}'] | order(_updatedAt desc) {name, settings, 'main': colors.main->color, 'dark': colors.dark->color, 'contrastText': colors.contrastText->color, typography}`;
+  const documentQuery = `*[_type == 'btnDesignMui' && name == '${document.displayed.name}'] | order(_updatedAt desc) {name, settings, 'main': colors.main->color, 'dark': colors.dark->color, 'contrastText': colors.contrastText->color, typography, "bgImage": bgImage.asset->url}`;
 
   return (
     <QueryContainer query={documentQuery}>
@@ -27,6 +28,8 @@ const ButtonMuiPreview = ({ document }) => {
         let mainColor;
         let darkColor;
         let contrastTextColor;
+        let backgroundImage;
+        let hoverOverlay = {};
 
         if (result) {
           main = result?.documents[0].main;
@@ -46,6 +49,9 @@ const ButtonMuiPreview = ({ document }) => {
           mainColor = main ? determineColor(main) : null;
           darkColor = dark ? determineColor(dark) : null;
           contrastTextColor = contrastText ? determineColor(contrastText) : null;
+          hoverOverlay = dark ? dark.rgb : null;
+
+          backgroundImage = result?.documents[0].bgImage;
         }
 
         const theme = createTheme({
@@ -69,27 +75,65 @@ const ButtonMuiPreview = ({ document }) => {
               textTransform: 'none',
             },
           },
+          overrides: {
+            MuiButton: {
+              root: {
+                backgroundImage: backgroundImage && `url(${backgroundImage})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center center',
+                '&:hover': {
+                  backgroundImage:
+                    backgroundImage &&
+                    `linear-gradient(rgba(${hoverOverlay.r}, ${hoverOverlay.g}, ${hoverOverlay.b}, .50), rgba(${hoverOverlay.r}, ${hoverOverlay.g}, ${hoverOverlay.b}, .50)), url(${backgroundImage})`,
+                },
+                '@media (hover: none)': {
+                  backgroundImage: backgroundImage && `url(${backgroundImage})`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'center center',
+                  '&:hover': {
+                    backgroundImage:
+                      backgroundImage &&
+                      `linear-gradient(rgba(${hoverOverlay.r}, ${hoverOverlay.g}, ${hoverOverlay.b}, .50), rgba(${hoverOverlay.r}, ${hoverOverlay.g}, ${hoverOverlay.b}, .50)), url(${backgroundImage})`,
+                  },
+                },
+              },
+            },
+          },
         });
 
         return loading ? (
-          <div> data loading </div>
+          <Box display="flex" height="100%" justifyContent="center" alignItems="center">
+            <CircularProgress />
+          </Box>
         ) : (
           result && (
-            <ThemeProvider theme={theme}>
+            <>
               <Box p={3}>
-                <Button
-                  color="primary"
-                  variant={variant}
-                  disableElevation={disableElevation}
-                  disableFocusRipple={disableFocusRipple}
-                  disableRipple={disableRipple}
-                  fullWidth={fullWidth}
-                  style={{ padding }}
-                >
-                  Button Text
-                </Button>
+                <TextField
+                  id="outlined-basic"
+                  label="Custom button text"
+                  variant="outlined"
+                  onChange={(e) => setText(e.target.value)}
+                  value={text}
+                />
               </Box>
-            </ThemeProvider>
+              <Divider />
+              <Box p={3}>
+                <ThemeProvider theme={theme}>
+                  <Button
+                    color="primary"
+                    variant={variant}
+                    disableElevation={disableElevation}
+                    disableFocusRipple={disableFocusRipple}
+                    disableRipple={disableRipple}
+                    fullWidth={fullWidth}
+                    style={{ padding }}
+                  >
+                    {text}
+                  </Button>
+                </ThemeProvider>
+              </Box>
+            </>
           )
         );
       }}

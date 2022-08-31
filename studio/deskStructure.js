@@ -5,7 +5,6 @@ import { FaPalette } from 'react-icons/fa';
 import { MdSettings, MdBusiness } from 'react-icons/md';
 import { BsType } from 'react-icons/bs';
 import { HiOutlineOfficeBuilding, HiOutlineColorSwatch } from 'react-icons/hi';
-import { AiOutlineGlobal } from 'react-icons/ai';
 import SectionColorPreview from './preview/SectionColorPreview';
 import ButtonMuiPreview from './preview/ButtonMuiPreview';
 import FormDesignPreview from './preview/FormDesignPreview';
