@@ -224,5 +224,6 @@ export default {
     { type: 'btnBlockMui' },
     { type: 'clickableImage' },
     { type: 'productCard' },
+    { type: 'smartGrid' },
   ],
 };

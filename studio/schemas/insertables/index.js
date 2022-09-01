@@ -5,7 +5,7 @@ export {
   productCardImage,
   productCardFlexSegment,
 } from './productCard';
-export { smartGrid, smartGridPtTile } from './smartGrid';
+export { productCardGridPtTile, smartGrid, smartGridPtTile } from './smartGrid';
 export {
   rowPlus,
   smartTable,
