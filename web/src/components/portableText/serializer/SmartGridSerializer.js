@@ -19,7 +19,6 @@ import ButtonJumpLink from '../../buttons/ButtonJumpLink';
 import SmartOrderedList from '../insertable/SmartOrderedList';
 import SmartUnorderedList from '../insertable/SmartUnorderedList';
 import { mapMuiBtnToProps } from '../../../lib/mapToProps';
-import SmartGrid from '../insertable/SmartGrid';
 
 const serializers = {
   // This is to render the whole block of content without the <div> tag as wrapping container (https://github.com/sanity-io/block-content-to-react)
@@ -31,8 +30,7 @@ const serializers = {
           return props.children[0] ? (
             <Typography
               gutterBottom
-              variant="h5"
-              component="h2"
+              variant="h2"
               id={
                 props.node.markDefs.length !== 0
                   ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
@@ -49,8 +47,7 @@ const serializers = {
           return props.children[0] ? (
             <Typography
               gutterBottom
-              variant="h5"
-              component="h3"
+              variant="h3"
               id={
                 props.node.markDefs.length !== 0
                   ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
@@ -67,8 +64,7 @@ const serializers = {
           return props.children[0] ? (
             <Typography
               gutterBottom
-              variant="h5"
-              component="h4"
+              variant="h4"
               id={
                 props.node.markDefs.length !== 0
                   ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
@@ -86,7 +82,6 @@ const serializers = {
             <Typography
               gutterBottom
               variant="h5"
-              component="h5"
               id={
                 props.node.markDefs.length !== 0
                   ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
@@ -103,8 +98,7 @@ const serializers = {
           return props.children[0] ? (
             <Typography
               gutterBottom
-              variant="h5"
-              component="h6"
+              variant="h6"
               id={
                 props.node.markDefs.length !== 0
                   ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
@@ -186,9 +180,6 @@ const serializers = {
     },
     smartUnorderedList({ node }) {
       return <SmartUnorderedList {...node} />;
-    },
-    smartGrid({ node }) {
-      return <SmartGrid {...node} />;
     },
   },
   marks: {
