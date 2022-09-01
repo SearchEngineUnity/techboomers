@@ -21,6 +21,7 @@ import SmartOrderedList from '../insertable/SmartOrderedList';
 import SmartUnorderedList from '../insertable/SmartUnorderedList';
 import { mapMuiBtnToProps } from '../../../lib/mapToProps';
 import ProductCard from '../insertable/productCard/ProductCard';
+import ClickableImage from '../insertable/ClickableImage';
 
 const StyledTypography = styled(Typography)`
   margin-top: 1.35em;
@@ -186,6 +187,9 @@ const serializers = {
     },
     productCard({ node }) {
       return <ProductCard {...node} />;
+    },
+    clickableImage({ node }) {
+      return <ClickableImage {...node} />;
     },
   },
   marks: {
