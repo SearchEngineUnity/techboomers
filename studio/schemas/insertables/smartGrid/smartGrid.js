@@ -21,6 +21,7 @@ export default {
       title: 'Tile Set',
       type: 'array',
       of: [
+        { type: 'productCardGridPtTile' },
         { type: 'smartGridPtTile' },
         { type: 'illustration' },
         { type: 'smartUnorderedList' },
@@ -41,8 +42,10 @@ export default {
     },
   ],
   preview: {
-    select: {
-      title: 'Smart Grid',
+    prepare() {
+      return {
+        title: 'Smart Grid',
+      };
     },
   },
 };

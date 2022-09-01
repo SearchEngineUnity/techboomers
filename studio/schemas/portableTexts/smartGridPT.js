@@ -154,6 +154,5 @@ export default {
     { type: 'videoEmbed' },
     { type: 'btnBlockMui' },
     { type: 'clickableImage' },
-    { type: 'smartGrid' },
   ],
 };

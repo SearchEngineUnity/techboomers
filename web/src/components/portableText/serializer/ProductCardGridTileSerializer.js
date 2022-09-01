@@ -19,7 +19,6 @@ import ButtonJumpLink from '../../buttons/ButtonJumpLink';
 import SmartOrderedList from '../insertable/SmartOrderedList';
 import SmartUnorderedList from '../insertable/SmartUnorderedList';
 import { mapMuiBtnToProps } from '../../../lib/mapToProps';
-import SmartGrid from '../insertable/SmartGrid';
 
 const serializers = {
   // This is to render the whole block of content without the <div> tag as wrapping container (https://github.com/sanity-io/block-content-to-react)
@@ -186,9 +185,6 @@ const serializers = {
     },
     smartUnorderedList({ node }) {
       return <SmartUnorderedList {...node} />;
-    },
-    smartGrid({ node }) {
-      return <SmartGrid {...node} />;
     },
   },
   marks: {
