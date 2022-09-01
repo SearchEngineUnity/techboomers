@@ -190,6 +190,7 @@ const serializers = {
       return <ProductCard {...node} />;
     },
     clickableImage({ node }) {
+      console.log(node);
       return <ClickableImage {...node} />;
     },
     smartGrid({ node }) {

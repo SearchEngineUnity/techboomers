@@ -362,3 +362,12 @@ export function mapTestimonialListToProps({ image, text, name, role, company }) 
     company,
   };
 }
+
+export function mapClickableImageToProps({ _rawImage, href, alignment, borderRadius }) {
+  return {
+    image: _rawImage,
+    href,
+    alignment,
+    borderRadius,
+  };
+}

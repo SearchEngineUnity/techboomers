@@ -12,6 +12,7 @@ import ButtonJumpLink from '../buttons/ButtonJumpLink';
 import GridFlex from '../blocks/BlockGridFlex';
 import BlockFormNetlify from '../blocks/BlockFormNetlify';
 import TestimonialGrid from '../blocks/TestimonialGrid';
+import ClickableImage from '../portableText/insertable/ClickableImage';
 import {
   mapFluidImgBlockToProps,
   mapSectionBlockToProps,
@@ -19,6 +20,7 @@ import {
   mapGridFlexToProps,
   mapBlockFormNetlifyToProps,
   mapTestimonialGridToProps,
+  mapClickableImageToProps,
 } from '../../lib/mapToProps';
 import StructuredSectionFooter from './StructuredSectionFooter';
 import StructuredSectionHeader from './StructuredSectionHeader';
@@ -195,6 +197,8 @@ function StructuredLrFlex({
                   return <VideoBlock key={_key} url={block.url} ratio={block.ratio} />;
                 case key === 'imageBlock':
                   return <ImgBlock {...mapFluidImgBlockToProps(block)} key={_key} />;
+                case key === 'clickableImage':
+                  return <ClickableImage {...mapClickableImageToProps(block)} />;
                 case key === 'sectionBlock':
                   return (
                     <SectionBlock
