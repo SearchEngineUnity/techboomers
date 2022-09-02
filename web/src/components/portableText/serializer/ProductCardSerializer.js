@@ -20,6 +20,7 @@ import SmartOrderedList from '../insertable/SmartOrderedList';
 import SmartUnorderedList from '../insertable/SmartUnorderedList';
 import { mapMuiBtnToProps } from '../../../lib/mapToProps';
 import SmartGrid from '../insertable/SmartGrid';
+import ClickableImage from '../insertable/ClickableImage';
 
 const serializers = {
   // This is to render the whole block of content without the <div> tag as wrapping container (https://github.com/sanity-io/block-content-to-react)
@@ -148,7 +149,7 @@ const serializers = {
       return <Illustration illustration={node} />;
     },
     clickableImage({ node }) {
-      return <div> replace with clickableImage </div>;
+      return <ClickableImage {...node} />;
     },
     basicTable({ node }) {
       return <BasicTable basicTable={node} />;

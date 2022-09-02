@@ -115,6 +115,14 @@ export const query = graphql`
                 }
               }
             }
+            ... on SanityClickableImage {
+              _key
+              _type
+              _rawImage(resolveReferences: { maxDepth: 10 })
+              href
+              alignment
+              borderRadius
+            }
             ... on SanityBtnBlockMui {
               _key
               _type
@@ -470,6 +478,14 @@ export const query = graphql`
               url
               ratio
             }
+            ... on SanityClickableImage {
+              _key
+              _type
+              _rawImage(resolveReferences: { maxDepth: 10 })
+              href
+              alignment
+              borderRadius
+            }
             ... on SanityBtnBlockMui {
               _key
               _type
@@ -762,6 +778,14 @@ export const query = graphql`
                   _rawAsset(resolveReferences: { maxDepth: 10 })
                 }
               }
+            }
+            ... on SanityClickableImage {
+              _key
+              _type
+              _rawImage(resolveReferences: { maxDepth: 10 })
+              href
+              alignment
+              borderRadius
             }
             ... on SanityBtnBlockMui {
               _key
@@ -1116,6 +1140,14 @@ export const query = graphql`
                   _rawAsset(resolveReferences: { maxDepth: 10 })
                 }
               }
+            }
+            ... on SanityClickableImage {
+              _key
+              _type
+              _rawImage(resolveReferences: { maxDepth: 10 })
+              href
+              alignment
+              borderRadius
             }
             ... on SanityBtnBlockMui {
               _key

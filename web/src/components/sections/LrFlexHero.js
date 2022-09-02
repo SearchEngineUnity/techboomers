@@ -12,6 +12,7 @@ import ButtonJumpLink from '../buttons/ButtonJumpLink';
 import GridFlex from '../blocks/BlockGridFlex';
 import BlockFormNetlify from '../blocks/BlockFormNetlify';
 import TestimonialGrid from '../blocks/TestimonialGrid';
+import ClickableImage from '../portableText/insertable/ClickableImage';
 import {
   mapFluidImgBlockToProps,
   mapSectionBlockToProps,
@@ -19,6 +20,7 @@ import {
   mapGridFlexToProps,
   mapBlockFormNetlifyToProps,
   mapTestimonialGridToProps,
+  mapClickableImageToProps,
 } from '../../lib/mapToProps';
 import HeroSectionFooter from './HeroSectionFooter';
 import HeroSectionHeader from './HeroSectionHeader';
@@ -230,6 +232,8 @@ function LrFlexHero({
                   return (
                     <BlockFormNetlify key={block._key} {...mapBlockFormNetlifyToProps(block)} />
                   );
+                case key === 'clickableImage':
+                  return <ClickableImage {...mapClickableImageToProps(block)} />;
                 case key === 'btnBlockMui' && block.link[0]._type === 'jumpLink':
                   return <ButtonJumpLink key={_key} {...mapMuiBtnToProps(block)} />;
                 case key === 'btnBlockMui' && block.link[0]._type === 'affiliateLink':

@@ -10,6 +10,7 @@ import ButtonAffiliate from '../../buttons/ButtonAffiliate';
 import ButtonExternal from '../../buttons/ButtonExternal';
 import ButtonInternalGlobal from '../../buttons/ButtonInternalGlobal';
 import ButtonInternalLocal from '../../buttons/ButtonInternalLocal';
+import ClickableImage from './ClickableImage';
 import { mapMuiBtnToProps } from '../../../lib/mapToProps';
 
 function SmartGrid({ layout, tiles }) {
@@ -40,8 +41,10 @@ function SmartGrid({ layout, tiles }) {
                   return <Illustration illustration={tile} />;
                 case key === 'smartUnorderedList':
                   return <SmartUnorderedList {...tile} />;
+                case key === 'clickableImage':
+                  return <ClickableImage {...tile} />;
                 case key === 'videoEmbed':
-                  return <VideoEmbed />;
+                  return <VideoEmbed {...tile} />;
                 case key === 'btnBlockMui' && tile.link[0]._type === 'jumpLink':
                   return <ButtonJumpLink key={_key} {...mapMuiBtnToProps(tile)} />;
                 case key === 'btnBlockMui' && tile.link[0]._type === 'affiliateLink':
@@ -52,8 +55,6 @@ function SmartGrid({ layout, tiles }) {
                   return <ButtonInternalGlobal key={_key} {...mapMuiBtnToProps(tile)} />;
                 case key === 'btnBlockMui' && tile.link[0]._type === 'internalLocal':
                   return <ButtonInternalLocal key={_key} {...mapMuiBtnToProps(tile)} />;
-                case key === 'clickableImage':
-                  return <div>This is a clickable image</div>;
                 default:
                   return <div> Tile still under development</div>;
               }

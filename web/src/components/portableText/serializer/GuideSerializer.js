@@ -21,6 +21,7 @@ import SmartOrderedList from '../insertable/SmartOrderedList';
 import SmartUnorderedList from '../insertable/SmartUnorderedList';
 import { mapMuiBtnToProps } from '../../../lib/mapToProps';
 import ProductCard from '../insertable/productCard/ProductCard';
+import ClickableImage from '../insertable/ClickableImage';
 import SmartGrid from '../insertable/SmartGrid';
 
 const StyledTypography = styled(Typography)`
@@ -187,6 +188,10 @@ const serializers = {
     },
     productCard({ node }) {
       return <ProductCard {...node} />;
+    },
+    clickableImage({ node }) {
+      console.log(node);
+      return <ClickableImage {...node} />;
     },
     smartGrid({ node }) {
       return <SmartGrid {...node} />;

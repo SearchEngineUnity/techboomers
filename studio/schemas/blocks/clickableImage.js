@@ -5,10 +5,16 @@ export default {
   title: 'Clickable Image',
   type: 'object',
   icon: BsCardImage,
-  options: {
-    hotspot: true, // <-- Defaults to false
-    storeOriginalFilename: true,
-  },
+  fieldsets: [
+    {
+      name: 'presentation',
+      title: 'Presentation Settings',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+    },
+  ],
   fields: [
     {
       name: 'image',
@@ -16,14 +22,33 @@ export default {
       title: 'Image',
     },
     {
-      name: 'link',
-      title: 'Link',
+      name: 'href',
+      title: 'URL',
       type: 'url',
+      validation: (Rule) => [Rule.required().error('Field is required')],
+    },
+    {
+      name: 'alignment',
+      title: 'Alignment',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Left', value: 'flex-start' },
+          { title: 'Center', value: 'center' },
+          { title: 'Right', value: 'flex-end' },
+        ],
+        layout: 'radio',
+        direction: 'horizontal',
+      },
+      fieldset: 'presentation',
+      initialValue: 'flex-start',
+      validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
       name: 'borderRadius',
       title: 'Border radius',
       type: 'string',
+      fieldset: 'presentation',
       initialValue: '0px',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },

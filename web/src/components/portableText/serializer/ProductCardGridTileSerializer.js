@@ -18,6 +18,7 @@ import ButtonInternalLocal from '../../buttons/ButtonInternalLocal';
 import ButtonJumpLink from '../../buttons/ButtonJumpLink';
 import SmartOrderedList from '../insertable/SmartOrderedList';
 import SmartUnorderedList from '../insertable/SmartUnorderedList';
+import ClickableImage from '../insertable/ClickableImage';
 import { mapMuiBtnToProps } from '../../../lib/mapToProps';
 
 const serializers = {
@@ -147,7 +148,7 @@ const serializers = {
       return <Illustration illustration={node} />;
     },
     clickableImage({ node }) {
-      return <div> replace with clickableImage </div>;
+      return <ClickableImage {...node} />;
     },
     basicTable({ node }) {
       return <BasicTable basicTable={node} />;

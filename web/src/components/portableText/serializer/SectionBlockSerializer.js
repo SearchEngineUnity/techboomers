@@ -17,6 +17,7 @@ import ButtonExternal from '../../buttons/ButtonExternal';
 import ButtonInternalGlobal from '../../buttons/ButtonInternalGlobal';
 import ButtonInternalLocal from '../../buttons/ButtonInternalLocal';
 import ButtonJumpLink from '../../buttons/ButtonJumpLink';
+import ClickableImage from '../insertable/ClickableImage';
 import { mapMuiBtnToProps } from '../../../lib/mapToProps';
 
 const NoIndentUl = styled.ul`
@@ -139,6 +140,9 @@ const serializers = {
         default:
           return <p>under development</p>;
       }
+    },
+    clickableImage({ node }) {
+      return <ClickableImage {...node} />;
     },
   },
   marks: {
