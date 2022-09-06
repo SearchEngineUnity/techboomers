@@ -1,16 +1,16 @@
 import React from 'react';
 import { Box, Typography } from '@material-ui/core';
-import ProductCardSegment from '../../serializer/ProductCardSerializer';
+import Content from '../../serializer/ProductCardGridTileSerializer';
 
-function ProductCardFlexSegment({ title, headingLevel, content }) {
+function ProductCardGridPtTile({ title, headingLevel, content }) {
   return (
     <Box margin={3}>
       <Typography component={headingLevel} variant="h5" gutterBottom>
         {title}
       </Typography>
-      <ProductCardSegment blocks={content} />
+      <Content blocks={content} />
     </Box>
   );
 }
 
-export default ProductCardFlexSegment;
+export default ProductCardGridPtTile;

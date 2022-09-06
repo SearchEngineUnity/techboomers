@@ -71,7 +71,7 @@ function ProductCard({
           const { _type, _key } = segment;
           switch (_type) {
             case 'productCardFlexSegment':
-              return <ProductCardFlexSegment key={_key} data={segment.content} />;
+              return <ProductCardFlexSegment key={_key} {...segment} />;
             case 'productCardDividerSegment':
               return <ProductCardDividerSegment key={_key} />;
             default:

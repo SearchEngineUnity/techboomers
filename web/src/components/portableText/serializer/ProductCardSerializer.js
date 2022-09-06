@@ -19,7 +19,7 @@ import ButtonJumpLink from '../../buttons/ButtonJumpLink';
 import SmartOrderedList from '../insertable/SmartOrderedList';
 import SmartUnorderedList from '../insertable/SmartUnorderedList';
 import { mapMuiBtnToProps } from '../../../lib/mapToProps';
-import SmartGrid from '../insertable/SmartGrid';
+import SmartGrid from '../insertable/SmartGrid/SmartGrid';
 import ClickableImage from '../insertable/ClickableImage';
 
 const serializers = {
@@ -28,96 +28,6 @@ const serializers = {
   types: {
     block(props) {
       switch (props.node.style) {
-        case 'h2':
-          return props.children[0] ? (
-            <Typography
-              gutterBottom
-              variant="h5"
-              component="h2"
-              id={
-                props.node.markDefs.length !== 0
-                  ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
-                  : undefined
-              }
-            >
-              {props.children}
-            </Typography>
-          ) : (
-            <br />
-          );
-
-        case 'h3':
-          return props.children[0] ? (
-            <Typography
-              gutterBottom
-              variant="h5"
-              component="h3"
-              id={
-                props.node.markDefs.length !== 0
-                  ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
-                  : undefined
-              }
-            >
-              {props.children}
-            </Typography>
-          ) : (
-            <br />
-          );
-
-        case 'h4':
-          return props.children[0] ? (
-            <Typography
-              gutterBottom
-              variant="h5"
-              component="h4"
-              id={
-                props.node.markDefs.length !== 0
-                  ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
-                  : undefined
-              }
-            >
-              {props.children}
-            </Typography>
-          ) : (
-            <br />
-          );
-
-        case 'h5':
-          return props.children[0] ? (
-            <Typography
-              gutterBottom
-              variant="h5"
-              component="h5"
-              id={
-                props.node.markDefs.length !== 0
-                  ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
-                  : undefined
-              }
-            >
-              {props.children}
-            </Typography>
-          ) : (
-            <br />
-          );
-
-        case 'h6':
-          return props.children[0] ? (
-            <Typography
-              gutterBottom
-              variant="h5"
-              component="h6"
-              id={
-                props.node.markDefs.length !== 0
-                  ? props.node.markDefs.filter((x) => x._type === 'hashId')[0]?.idTag
-                  : undefined
-              }
-            >
-              {props.children}
-            </Typography>
-          ) : (
-            <br />
-          );
-
         case 'blockquote':
           return props.children[0] ? (
             <Box

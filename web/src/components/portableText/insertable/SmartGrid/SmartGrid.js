@@ -1,17 +1,17 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
-import ProductCardPtTile from '../serializer/ProductCardGridTileSerializer';
-import PtTile from '../serializer/SmartGridSerializer';
-import Illustration from './Illustration';
-import SmartUnorderedList from './SmartUnorderedList';
-import VideoEmbed from './VideoEmbed';
-import ButtonJumpLink from '../../buttons/ButtonJumpLink';
-import ButtonAffiliate from '../../buttons/ButtonAffiliate';
-import ButtonExternal from '../../buttons/ButtonExternal';
-import ButtonInternalGlobal from '../../buttons/ButtonInternalGlobal';
-import ButtonInternalLocal from '../../buttons/ButtonInternalLocal';
-import ClickableImage from './ClickableImage';
-import { mapMuiBtnToProps } from '../../../lib/mapToProps';
+import ProductCardGridPtTile from './ProductCardGridPtTile';
+import PtTile from '../../serializer/SmartGridSerializer';
+import Illustration from '../Illustration';
+import SmartUnorderedList from '../SmartUnorderedList';
+import VideoEmbed from '../VideoEmbed';
+import ButtonJumpLink from '../../../buttons/ButtonJumpLink';
+import ButtonAffiliate from '../../../buttons/ButtonAffiliate';
+import ButtonExternal from '../../../buttons/ButtonExternal';
+import ButtonInternalGlobal from '../../../buttons/ButtonInternalGlobal';
+import ButtonInternalLocal from '../../../buttons/ButtonInternalLocal';
+import ClickableImage from '../ClickableImage';
+import { mapMuiBtnToProps } from '../../../../lib/mapToProps';
 
 function SmartGrid({ layout, tiles }) {
   // number of tiles desktop/table/mobile: '6/4/2' -> {lg: 2, md: 3, xs: 6}
@@ -34,7 +34,7 @@ function SmartGrid({ layout, tiles }) {
             const tileSelector = (key) => {
               switch (true) {
                 case key === 'productCardGridPtTile':
-                  return <ProductCardPtTile blocks={tile.content} />;
+                  return <ProductCardGridPtTile {...tile} />;
                 case key === 'smartGridPtTile':
                   return <PtTile blocks={tile.content} />;
                 case key === 'illustration':
