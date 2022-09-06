@@ -32,7 +32,7 @@ function Illustration({ illustration }) {
   }
 
   return (
-    <Box component="figure" display="flex" justifyContent={illustration.align}>
+    <Box component="figure" display="flex" justifyContent={illustration.align} m={0}>
       <Box width={minMaxWidth}>
         <GatsbyImage
           style={{

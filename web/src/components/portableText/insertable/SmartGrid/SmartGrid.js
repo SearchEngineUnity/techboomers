@@ -25,49 +25,47 @@ function SmartGrid({ layout, tiles }) {
   const col = colCalculate(layout);
 
   return (
-    <>
-      <Grid container spacing={3}>
-        {tiles &&
-          tiles.map((tile) => {
-            const { _key, _type } = tile;
+    <Grid container spacing={3}>
+      {tiles &&
+        tiles.map((tile) => {
+          const { _key, _type } = tile;
 
-            const tileSelector = (key) => {
-              switch (true) {
-                case key === 'productCardGridPtTile':
-                  return <ProductCardGridPtTile {...tile} />;
-                case key === 'smartGridPtTile':
-                  return <PtTile blocks={tile.content} />;
-                case key === 'illustration':
-                  return <Illustration illustration={tile} />;
-                case key === 'smartUnorderedList':
-                  return <SmartUnorderedList {...tile} />;
-                case key === 'clickableImage':
-                  return <ClickableImage {...tile} />;
-                case key === 'videoEmbed':
-                  return <VideoEmbed {...tile} />;
-                case key === 'btnBlockMui' && tile.link[0]._type === 'jumpLink':
-                  return <ButtonJumpLink key={_key} {...mapMuiBtnToProps(tile)} />;
-                case key === 'btnBlockMui' && tile.link[0]._type === 'affiliateLink':
-                  return <ButtonAffiliate key={_key} {...mapMuiBtnToProps(tile)} />;
-                case key === 'btnBlockMui' && tile.link[0]._type === 'externalLink':
-                  return <ButtonExternal key={_key} {...mapMuiBtnToProps(tile)} />;
-                case key === 'btnBlockMui' && tile.link[0]._type === 'internalGlobal':
-                  return <ButtonInternalGlobal key={_key} {...mapMuiBtnToProps(tile)} />;
-                case key === 'btnBlockMui' && tile.link[0]._type === 'internalLocal':
-                  return <ButtonInternalLocal key={_key} {...mapMuiBtnToProps(tile)} />;
-                default:
-                  return <div> Tile still under development</div>;
-              }
-            };
+          const tileSelector = (key) => {
+            switch (true) {
+              case key === 'productCardGridPtTile':
+                return <ProductCardGridPtTile {...tile} />;
+              case key === 'smartGridPtTile':
+                return <PtTile blocks={tile.content} />;
+              case key === 'illustration':
+                return <Illustration illustration={tile} />;
+              case key === 'smartUnorderedList':
+                return <SmartUnorderedList {...tile} />;
+              case key === 'clickableImage':
+                return <ClickableImage {...tile} />;
+              case key === 'videoEmbed':
+                return <VideoEmbed {...tile} />;
+              case key === 'btnBlockMui' && tile.link[0]._type === 'jumpLink':
+                return <ButtonJumpLink key={_key} {...mapMuiBtnToProps(tile)} />;
+              case key === 'btnBlockMui' && tile.link[0]._type === 'affiliateLink':
+                return <ButtonAffiliate key={_key} {...mapMuiBtnToProps(tile)} />;
+              case key === 'btnBlockMui' && tile.link[0]._type === 'externalLink':
+                return <ButtonExternal key={_key} {...mapMuiBtnToProps(tile)} />;
+              case key === 'btnBlockMui' && tile.link[0]._type === 'internalGlobal':
+                return <ButtonInternalGlobal key={_key} {...mapMuiBtnToProps(tile)} />;
+              case key === 'btnBlockMui' && tile.link[0]._type === 'internalLocal':
+                return <ButtonInternalLocal key={_key} {...mapMuiBtnToProps(tile)} />;
+              default:
+                return <div> Tile still under development</div>;
+            }
+          };
 
-            return (
-              <Grid item key={tile._key} {...col}>
-                {tileSelector(_type)}
-              </Grid>
-            );
-          })}
-      </Grid>
-    </>
+          return (
+            <Grid item key={tile._key} {...col}>
+              {tileSelector(_type)}
+            </Grid>
+          );
+        })}
+    </Grid>
   );
 }
 

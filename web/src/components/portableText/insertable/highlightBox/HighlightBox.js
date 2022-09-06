@@ -9,39 +9,19 @@ import HighlightDefinition from './HighlightDefinition';
 const HighlightBox = ({ box }) => {
   switch (box.type) {
     case 'Pro Tip':
-      return (
-        <Box mx="40px" my={2}>
-          <HighlightProTip blockContent={box.text} id={box._key} />
-        </Box>
-      );
+      return <HighlightProTip blockContent={box.text} id={box._key} />;
 
     case 'Important':
-      return (
-        <Box mx="40px" my={2}>
-          <HighlightImportant blockContent={box.text} id={box._key} />
-        </Box>
-      );
+      return <HighlightImportant blockContent={box.text} id={box._key} />;
 
     case 'Warning':
-      return (
-        <Box mx="40px" my={2}>
-          <HighlightWarning blockContent={box.text} id={box._key} />
-        </Box>
-      );
+      return <HighlightWarning blockContent={box.text} id={box._key} />;
 
     case 'Did You Know':
-      return (
-        <Box mx="40px" my={2}>
-          <HighlightDidYouKnow blockContent={box.text} id={box._key} />
-        </Box>
-      );
+      return <HighlightDidYouKnow blockContent={box.text} id={box._key} />;
 
     case 'Definition':
-      return (
-        <Box mx="40px" my={2}>
-          <HighlightDefinition blockContent={box.text} id={box._key} />
-        </Box>
-      );
+      return <HighlightDefinition blockContent={box.text} id={box._key} />;
 
     default:
       return <h3>Undefined Highlight Box</h3>;

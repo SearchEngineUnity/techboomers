@@ -10,7 +10,7 @@ function FixedTableImage({ illustration }) {
   const fixedProps = getGatsbyImageData(imageFluid, { layout: 'fixed' }, sanityConfig);
 
   return (
-    <Box component="figure" justifyContent={illustration.align} sx={{ m: 0 }} display="block">
+    <Box component="figure" justifyContent={illustration.align} m={0} display="block">
       <GatsbyImage
         image={fixedProps}
         // eslint-disable-next-line no-unneeded-ternary
