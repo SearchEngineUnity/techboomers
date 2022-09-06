@@ -5,10 +5,6 @@ import { Box, Card } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import CardActionAreaExternal from '../cardActionArea/CardActionAreaExternal';
-import CardActionAreaInternalGlobal from '../cardActionArea/CardActionAreaInternalGlobal';
-import CardActionAreaInternalLocal from '../cardActionArea/CardActionAreaInternalLocal';
-import CardActionAreaJumpLink from '../cardActionArea/CardActionAreaJumpLink';
 import ConditionalCardActionArea from '../cardActionArea/ConditionalCardActionArea';
 import sanityConfig from '../../../sanityConfig';
 
@@ -35,21 +31,7 @@ function TileImageRecSqr({ image, alt, link, title }) {
 
   return (
     <Card elevation={link ? 8 : 0} classes={{ root: classes.card }}>
-      <ConditionalCardActionArea
-        condition={linkType}
-        jumpLink={(children) => (
-          <CardActionAreaJumpLink {...link}>{children}</CardActionAreaJumpLink>
-        )}
-        external={(children) => (
-          <CardActionAreaExternal {...link}>{children}</CardActionAreaExternal>
-        )}
-        internalGlobal={(children) => (
-          <CardActionAreaInternalGlobal {...link}>{children}</CardActionAreaInternalGlobal>
-        )}
-        internalLocal={(children) => (
-          <CardActionAreaInternalLocal {...link}>{children}</CardActionAreaInternalLocal>
-        )}
-      >
+      <ConditionalCardActionArea condition={linkType} link={link}>
         <Box pt={2}>
           <GatsbyImage
             image={imageData}

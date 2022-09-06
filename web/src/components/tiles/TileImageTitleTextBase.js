@@ -5,10 +5,6 @@ import { Typography, Card, CardContent } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import CardActionAreaExternal from '../cardActionArea/CardActionAreaExternal';
-import CardActionAreaInternalGlobal from '../cardActionArea/CardActionAreaInternalGlobal';
-import CardActionAreaInternalLocal from '../cardActionArea/CardActionAreaInternalLocal';
-import CardActionAreaJumpLink from '../cardActionArea/CardActionAreaJumpLink';
 import ConditionalCardActionArea from '../cardActionArea/ConditionalCardActionArea';
 import sanityConfig from '../../../sanityConfig';
 
@@ -34,21 +30,7 @@ function TileImageRecSqr({ image, alt, link, title, text }) {
 
   return (
     <Card elevation={link ? 8 : 0} classes={{ root: classes.card }} square>
-      <ConditionalCardActionArea
-        condition={linkType}
-        jumpLink={(children) => (
-          <CardActionAreaJumpLink {...link}>{children}</CardActionAreaJumpLink>
-        )}
-        external={(children) => (
-          <CardActionAreaExternal {...link}>{children}</CardActionAreaExternal>
-        )}
-        internalGlobal={(children) => (
-          <CardActionAreaInternalGlobal {...link}>{children}</CardActionAreaInternalGlobal>
-        )}
-        internalLocal={(children) => (
-          <CardActionAreaInternalLocal {...link}>{children}</CardActionAreaInternalLocal>
-        )}
-      >
+      <ConditionalCardActionArea condition={linkType} link={link}>
         <GatsbyImage image={imageData} alt={alt} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">

@@ -119,9 +119,60 @@ export const query = graphql`
               _key
               _type
               _rawImage(resolveReferences: { maxDepth: 10 })
-              href
               alignment
               borderRadius
+              link {
+                ... on SanityJumpLink {
+                  _key
+                  _type
+                  hashId
+                }
+                ... on SanityAffiliateLink {
+                  _key
+                  _type
+                  href
+                }
+                ... on SanityExternalLink {
+                  _key
+                  _type
+                  href
+                  newTab
+                  noreferrer
+                }
+                ... on SanityInternalGlobal {
+                  _key
+                  _type
+                  href
+                  newTab
+                }
+                ... on SanityInternalLocal {
+                  _key
+                  _type
+                  newTab
+                  hashId
+                  parameter
+                  reference {
+                    ... on SanityFlexListingPage {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                    ... on SanityPage {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                    ... on SanitySoloGuidePage {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                  }
+                }
+              }
             }
             ... on SanityBtnBlockMui {
               _key
@@ -482,9 +533,60 @@ export const query = graphql`
               _key
               _type
               _rawImage(resolveReferences: { maxDepth: 10 })
-              href
               alignment
               borderRadius
+              link {
+                ... on SanityJumpLink {
+                  _key
+                  _type
+                  hashId
+                }
+                ... on SanityAffiliateLink {
+                  _key
+                  _type
+                  href
+                }
+                ... on SanityExternalLink {
+                  _key
+                  _type
+                  href
+                  newTab
+                  noreferrer
+                }
+                ... on SanityInternalGlobal {
+                  _key
+                  _type
+                  href
+                  newTab
+                }
+                ... on SanityInternalLocal {
+                  _key
+                  _type
+                  newTab
+                  hashId
+                  parameter
+                  reference {
+                    ... on SanityFlexListingPage {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                    ... on SanityPage {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                    ... on SanitySoloGuidePage {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                  }
+                }
+              }
             }
             ... on SanityBtnBlockMui {
               _key
@@ -783,9 +885,60 @@ export const query = graphql`
               _key
               _type
               _rawImage(resolveReferences: { maxDepth: 10 })
-              href
               alignment
               borderRadius
+              link {
+                ... on SanityJumpLink {
+                  _key
+                  _type
+                  hashId
+                }
+                ... on SanityAffiliateLink {
+                  _key
+                  _type
+                  href
+                }
+                ... on SanityExternalLink {
+                  _key
+                  _type
+                  href
+                  newTab
+                  noreferrer
+                }
+                ... on SanityInternalGlobal {
+                  _key
+                  _type
+                  href
+                  newTab
+                }
+                ... on SanityInternalLocal {
+                  _key
+                  _type
+                  newTab
+                  hashId
+                  parameter
+                  reference {
+                    ... on SanityFlexListingPage {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                    ... on SanityPage {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                    ... on SanitySoloGuidePage {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                  }
+                }
+              }
             }
             ... on SanityBtnBlockMui {
               _key
@@ -1145,9 +1298,60 @@ export const query = graphql`
               _key
               _type
               _rawImage(resolveReferences: { maxDepth: 10 })
-              href
               alignment
               borderRadius
+              link {
+                ... on SanityJumpLink {
+                  _key
+                  _type
+                  hashId
+                }
+                ... on SanityAffiliateLink {
+                  _key
+                  _type
+                  href
+                }
+                ... on SanityExternalLink {
+                  _key
+                  _type
+                  href
+                  newTab
+                  noreferrer
+                }
+                ... on SanityInternalGlobal {
+                  _key
+                  _type
+                  href
+                  newTab
+                }
+                ... on SanityInternalLocal {
+                  _key
+                  _type
+                  newTab
+                  hashId
+                  parameter
+                  reference {
+                    ... on SanityFlexListingPage {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                    ... on SanityPage {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                    ... on SanitySoloGuidePage {
+                      id
+                      slug {
+                        current
+                      }
+                    }
+                  }
+                }
+              }
             }
             ... on SanityBtnBlockMui {
               _key
