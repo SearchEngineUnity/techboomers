@@ -80,7 +80,7 @@ function ButtonInternalLocal({
 
   return (
     <ThemeProvider theme={theme}>
-      <Box display="flex" justifyContent={alignment} py={3}>
+      <Box display="flex" justifyContent={alignment}>
         <Button
           id={idTag}
           color="primary"

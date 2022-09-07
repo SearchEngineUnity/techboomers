@@ -19,6 +19,8 @@ import ButtonJumpLink from '../../buttons/ButtonJumpLink';
 import SmartOrderedList from '../insertable/SmartOrderedList';
 import SmartUnorderedList from '../insertable/SmartUnorderedList';
 import ClickableImage from '../insertable/ClickableImage';
+import InsertableWrapper from '../insertable/InsertableWrapper';
+import InsertableBtnWrapper from '../insertable/InsertableBtnWrapper';
 import { mapMuiBtnToProps } from '../../../lib/mapToProps';
 
 const serializers = {
@@ -140,38 +142,83 @@ const serializers = {
       }
     },
     illustration({ node }) {
-      return <Illustration illustration={node} />;
+      return (
+        <InsertableWrapper>
+          <Illustration illustration={node} />
+        </InsertableWrapper>
+      );
     },
     clickableImage({ node }) {
-      return <ClickableImage {...node} />;
+      console.log(node);
+      return (
+        <InsertableWrapper>
+          <ClickableImage {...node} />
+        </InsertableWrapper>
+      );
     },
     basicTable({ node }) {
-      return <BasicTable basicTable={node} />;
+      return (
+        <InsertableWrapper>
+          <BasicTable basicTable={node} />
+        </InsertableWrapper>
+      );
     },
     highlightBox({ node }) {
-      return <HighlightBox box={node} />;
+      return (
+        <InsertableWrapper>
+          <HighlightBox box={node} />
+        </InsertableWrapper>
+      );
     },
     smartTable({ node }) {
-      return <SmartTable smartTable={node} />;
+      return (
+        <InsertableWrapper>
+          <SmartTable smartTable={node} />
+        </InsertableWrapper>
+      );
     },
     instagram() {
       return <p>Work in progress</p>;
     },
     videoEmbed({ node }) {
-      return <VideoEmbed url={node.url} ratio={node.ratio} />;
+      return (
+        <InsertableWrapper>
+          <VideoEmbed url={node.url} ratio={node.ratio} />
+        </InsertableWrapper>
+      );
     },
     btnBlockMui({ node }) {
       switch (node.link[0]._type) {
         case 'jumpLink':
-          return <ButtonJumpLink {...mapMuiBtnToProps(node)} />;
+          return (
+            <InsertableBtnWrapper>
+              <ButtonJumpLink {...mapMuiBtnToProps(node)} />
+            </InsertableBtnWrapper>
+          );
         case 'internalLocal':
-          return <ButtonInternalLocal {...mapMuiBtnToProps(node)} />;
+          return (
+            <InsertableBtnWrapper>
+              <ButtonInternalLocal {...mapMuiBtnToProps(node)} />
+            </InsertableBtnWrapper>
+          );
         case 'internalGlobal':
-          return <ButtonInternalGlobal {...mapMuiBtnToProps(node)} />;
+          return (
+            <InsertableBtnWrapper>
+              <ButtonInternalGlobal {...mapMuiBtnToProps(node)} />
+            </InsertableBtnWrapper>
+          );
         case 'externalLink':
-          return <ButtonExternal {...mapMuiBtnToProps(node)} />;
+          return (
+            <InsertableBtnWrapper>
+              <ButtonExternal {...mapMuiBtnToProps(node)} />
+            </InsertableBtnWrapper>
+          );
         case 'affiliateLink':
-          return <ButtonAffiliate {...mapMuiBtnToProps(node)} />;
+          return (
+            <InsertableBtnWrapper>
+              <ButtonAffiliate {...mapMuiBtnToProps(node)} />
+            </InsertableBtnWrapper>
+          );
         default:
           return <p>under development</p>;
       }

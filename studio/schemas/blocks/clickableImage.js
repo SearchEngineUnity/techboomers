@@ -18,14 +18,25 @@ export default {
   fields: [
     {
       name: 'image',
-      type: 'tileImage',
+      type: 'clickableImageImage',
       title: 'Image',
     },
     {
-      name: 'href',
-      title: 'URL',
-      type: 'url',
-      validation: (Rule) => [Rule.required().error('Field is required')],
+      name: 'link',
+      title: 'Link',
+      description: 'Only one link can be added.',
+      type: 'array',
+      of: [
+        { type: 'internalLocal' },
+        { type: 'internalGlobal' },
+        { type: 'externalLink' },
+        { type: 'affiliateLink' },
+        { type: 'jumpLink' },
+      ],
+      validation: (Rule) => [
+        Rule.length(1).error('Must contain only one item'),
+        Rule.required().error('Field is required'),
+      ],
     },
     {
       name: 'alignment',

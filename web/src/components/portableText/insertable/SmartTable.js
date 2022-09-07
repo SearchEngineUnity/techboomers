@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
       'linear-gradient(to top right, rgba(0,0,0,0) 0%, rgba(0,0,0,0) calc(50% - 1px), rgba(224, 224, 224, 1) 50%, rgba(0,0,0,0) calc(50% + 1px), rgba(0,0,0,0) 100%);',
   },
   split: {
-    postion: 'relative',
+    position: 'relative',
     height: '100%',
     width: '100%',
     top: 0,
@@ -63,100 +63,78 @@ function SmartTable({ smartTable }) {
   }
 
   return (
-    <Box mx="40px" my={2}>
-      <TableContainer component={Paper} className={classes.root}>
-        <Table className={classes.table} size="small" aria-label={title} role="table">
-          {colgroup && (
-            <colgroup>
-              {colgroup.map((col, index) =>
-                col.width !== '0' ? (
-                  <col span="1" style={{ width: col.width }} key={`colWidth-${index}`} />
-                ) : (
-                  <col key={`colWidth-${index}`} span="1" style={{ width: 'auto' }} />
-                ),
-              )}
-            </colgroup>
-          )}
-          {colHeading && (
-            <TableHead>
-              <TableRow key={thead._key}>
-                {thead.cells.map((cell, index) => {
-                  if (cell._type === 'emptyCell') {
-                    return <TableCell key={`${thead._key}-${index}`} role="cell" />;
-                  }
-                  if (cell._type === 'splitCell') {
-                    return (
-                      <TableCell
-                        key={`${thead._key}-${index}`}
-                        style={{ overflow: 'hidden' }}
-                        scope="col"
-                        role="columnheader"
-                        className={classes.crossed}
-                      >
-                        <div className={classes.split}>
-                          <div className={`${classes.splitRight} ${classes.noWrap}`}>
-                            {cell.splitColHead}
-                          </div>
-                          <br />
-                          <div className={classes.noWrap}>{cell.splitRowHead}</div>
+    <TableContainer component={Paper} className={classes.root}>
+      <Table className={classes.table} size="small" aria-label={title} role="table">
+        {colgroup && (
+          <colgroup>
+            {colgroup.map((col, index) =>
+              col.width !== '0' ? (
+                <col span="1" style={{ width: col.width }} key={`colWidth-${index}`} />
+              ) : (
+                <col key={`colWidth-${index}`} span="1" style={{ width: 'auto' }} />
+              ),
+            )}
+          </colgroup>
+        )}
+        {colHeading && (
+          <TableHead>
+            <TableRow key={thead._key}>
+              {thead.cells.map((cell, index) => {
+                if (cell._type === 'emptyCell') {
+                  return <TableCell key={`${thead._key}-${index}`} role="cell" />;
+                }
+                if (cell._type === 'splitCell') {
+                  return (
+                    <TableCell
+                      key={`${thead._key}-${index}`}
+                      style={{ overflow: 'hidden' }}
+                      scope="col"
+                      role="columnheader"
+                      className={classes.crossed}
+                    >
+                      <div className={classes.split}>
+                        <div className={`${classes.splitRight} ${classes.noWrap}`}>
+                          {cell.splitColHead}
                         </div>
-                      </TableCell>
-                    );
-                  }
-                  if (cell._type === 'tableBlock') {
-                    return (
-                      // eslint-disable-next-line
+                        <br />
+                        <div className={classes.noWrap}>{cell.splitRowHead}</div>
+                      </div>
+                    </TableCell>
+                  );
+                }
+                if (cell._type === 'tableBlock') {
+                  return (
+                    // eslint-disable-next-line
                   <TableCell key={`${thead._key}-${index}`} style={{overflow: 'hidden'}} scope="col" role="columnheader">
-                        <TableContent blocks={cell.copy} />
-                      </TableCell>
-                    );
-                  }
-                  if (cell._type === 'tableImage') {
-                    return (
-                      // eslint-disable-next-line
+                      <TableContent blocks={cell.copy} />
+                    </TableCell>
+                  );
+                }
+                if (cell._type === 'tableImage') {
+                  return (
+                    // eslint-disable-next-line
                   <TableCell key={`${thead._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }} scope="col" role="columnheader">
-                        <FixedTableImage illustration={cell} />
-                      </TableCell>
-                    );
-                  }
-                  return <TableCell>Uh oh something went wrong.</TableCell>;
-                })}
-              </TableRow>
-            </TableHead>
-          )}
-          <TableBody>
-            {tbody.map((row) => (
-              <TableRow key={row._key} className={classes.row}>
-                {row.cells.map((cell, index) => {
-                  if (rowHeading && index === 0) {
-                    if (cell._type === 'emptyCell') {
-                      return <TableCell key={`${thead._key}-${index}`} role="cell" />;
-                    }
-                    if (cell._type === 'tableBlock') {
-                      return (
-                        // eslint-disable-next-line
-                      <TableCell className="MuiTableCell-head" component="th" key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }} scope="row" role="rowheader">
-                          <TableContent blocks={cell.copy} />
-                        </TableCell>
-                      );
-                    }
-                    if (cell._type === 'tableImage') {
-                      return (
-                        // eslint-disable-next-line
-                      <TableCell component="th" key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }} scope="row" role="rowheader">
-                          <FixedTableImage illustration={cell} />
-                        </TableCell>
-                      );
-                    }
-                    return <TableCell component="th">oh oh something is wrong</TableCell>;
-                  }
+                      <FixedTableImage illustration={cell} />
+                    </TableCell>
+                  );
+                }
+                return <TableCell>Uh oh something went wrong.</TableCell>;
+              })}
+            </TableRow>
+          </TableHead>
+        )}
+        <TableBody>
+          {tbody.map((row) => (
+            <TableRow key={row._key} className={classes.row}>
+              {row.cells.map((cell, index) => {
+                if (rowHeading && index === 0) {
                   if (cell._type === 'emptyCell') {
                     return <TableCell key={`${thead._key}-${index}`} role="cell" />;
                   }
                   if (cell._type === 'tableBlock') {
                     return (
                       // eslint-disable-next-line
-                    <TableCell key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }} role="cell">
+                      <TableCell className="MuiTableCell-head" component="th" key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }} scope="row" role="rowheader">
                         <TableContent blocks={cell.copy} />
                       </TableCell>
                     );
@@ -164,19 +142,39 @@ function SmartTable({ smartTable }) {
                   if (cell._type === 'tableImage') {
                     return (
                       // eslint-disable-next-line
-                    <TableCell key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }} role="cell">
+                      <TableCell component="th" key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }} scope="row" role="rowheader">
                         <FixedTableImage illustration={cell} />
                       </TableCell>
                     );
                   }
-                  return <TableCell>oh oh something is wrong</TableCell>;
-                })}
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </Box>
+                  return <TableCell component="th">oh oh something is wrong</TableCell>;
+                }
+                if (cell._type === 'emptyCell') {
+                  return <TableCell key={`${thead._key}-${index}`} role="cell" />;
+                }
+                if (cell._type === 'tableBlock') {
+                  return (
+                    // eslint-disable-next-line
+                    <TableCell key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }} role="cell">
+                      <TableContent blocks={cell.copy} />
+                    </TableCell>
+                  );
+                }
+                if (cell._type === 'tableImage') {
+                  return (
+                    // eslint-disable-next-line
+                    <TableCell key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }} role="cell">
+                      <FixedTableImage illustration={cell} />
+                    </TableCell>
+                  );
+                }
+                return <TableCell>oh oh something is wrong</TableCell>;
+              })}
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 }
 

@@ -90,7 +90,8 @@ export default {
     },
     prepare({ title, media }) {
       return {
-        title: `Product Card: ${title}`,
+        title,
+        subtitle: 'Product Card',
         media,
       };
     },

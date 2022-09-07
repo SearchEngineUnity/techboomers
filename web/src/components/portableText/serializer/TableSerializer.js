@@ -8,6 +8,7 @@ import InternalGlobal from '../../link/LinkInternalGlobal';
 import InternalLocal from '../../link/LinkInternalLocal';
 import AffiliateLink from '../../link/LinkAffiliate';
 import FixedTableImage from '../insertable/FixedTableImage';
+import InsertableBtnWrapper from '../insertable/InsertableBtnWrapper';
 
 const NoIndentUl = styled.ul`
   list-style-type: disc;
@@ -40,7 +41,11 @@ const serializers = {
       return children[0] ? <div>{children}</div> : <br />;
     },
     tableImage({ node }) {
-      return <FixedTableImage illustration={node} />;
+      return (
+        <InsertableBtnWrapper>
+          <FixedTableImage illustration={node} />
+        </InsertableBtnWrapper>
+      );
     },
   },
   marks: {

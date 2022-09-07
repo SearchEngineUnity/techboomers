@@ -11,7 +11,7 @@ const StyledReactPlayer = styled(ReactPlayer)`
 
 function VideoEmbed({ url, ratio }) {
   return (
-    <Box my={2} mx="40px" pt={ratio} position="relative">
+    <Box pt={ratio} position="relative">
       <StyledReactPlayer url={url} controls width="100%" height="100%" />
     </Box>
   );

@@ -1,23 +1,22 @@
-const ConditionalCardActionArea = ({
-  condition,
-  jumpLink,
-  affiliate,
-  external,
-  internalLocal,
-  internalGlobal,
-  children,
-}) => {
+import React from 'react';
+import CardActionAreaAffiliate from './CardActionAreaAffiliate';
+import CardActionAreaExternal from './CardActionAreaExternal';
+import CardActionAreaInternalGlobal from './CardActionAreaInternalGlobal';
+import CardActionAreaInternalLocal from './CardActionAreaInternalLocal';
+import CardActionAreaJumpLink from './CardActionAreaJumpLink';
+
+const ConditionalCardActionArea = ({ condition, link, children }) => {
   switch (condition) {
     case 'jumpLink':
-      return jumpLink(children);
+      return <CardActionAreaJumpLink {...link}>{children}</CardActionAreaJumpLink>;
     case 'affiliateLink':
-      return affiliate(children);
+      return <CardActionAreaAffiliate {...link}>{children}</CardActionAreaAffiliate>;
     case 'externalLink':
-      return external(children);
+      return <CardActionAreaExternal {...link}>{children}</CardActionAreaExternal>;
     case 'internalGlobal':
-      return internalGlobal(children);
+      return <CardActionAreaInternalGlobal {...link}>{children}</CardActionAreaInternalGlobal>;
     case 'internalLocal':
-      return internalLocal(children);
+      return <CardActionAreaInternalLocal {...link}>{children}</CardActionAreaInternalLocal>;
     default:
       return children;
   }

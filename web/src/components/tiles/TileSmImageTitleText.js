@@ -9,10 +9,6 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import CardActionAreaExternal from '../cardActionArea/CardActionAreaExternal';
-import CardActionAreaInternalGlobal from '../cardActionArea/CardActionAreaInternalGlobal';
-import CardActionAreaInternalLocal from '../cardActionArea/CardActionAreaInternalLocal';
-import CardActionAreaJumpLink from '../cardActionArea/CardActionAreaJumpLink';
 import ConditionalCardActionArea from '../cardActionArea/ConditionalCardActionArea';
 import sanityConfig from '../../../sanityConfig';
 
@@ -37,21 +33,7 @@ export default function TileSmImageTitleText({ image, alt, link, title, text }) 
 
   return (
     <Card square elevation={link ? 8 : 0}>
-      <ConditionalCardActionArea
-        condition={linkType}
-        jumpLink={(children) => (
-          <CardActionAreaJumpLink {...link}>{children}</CardActionAreaJumpLink>
-        )}
-        external={(children) => (
-          <CardActionAreaExternal {...link}>{children}</CardActionAreaExternal>
-        )}
-        internalGlobal={(children) => (
-          <CardActionAreaInternalGlobal {...link}>{children}</CardActionAreaInternalGlobal>
-        )}
-        internalLocal={(children) => (
-          <CardActionAreaInternalLocal {...link}>{children}</CardActionAreaInternalLocal>
-        )}
-      >
+      <ConditionalCardActionArea condition={linkType} link={link}>
         <CardHeader
           className={classes.header}
           avatar={
