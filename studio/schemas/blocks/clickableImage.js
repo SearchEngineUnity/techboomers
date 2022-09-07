@@ -22,12 +22,6 @@ export default {
       title: 'Image',
     },
     {
-      name: 'href',
-      title: 'URL',
-      type: 'url',
-      description: 'need to remove post merge.',
-    },
-    {
       name: 'link',
       title: 'Link',
       description: 'Only one link can be added.',
