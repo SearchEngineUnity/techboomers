@@ -1,5 +1,4 @@
 import React from 'react';
-import { Box } from '@material-ui/core';
 import HighlightProTip from './HighlightProTip';
 import HighlightImportant from './HighlightImportant';
 import HighlightWarning from './HighlightWarning';
