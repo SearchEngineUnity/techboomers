@@ -67,7 +67,6 @@ const serializers = {
       }
     },
     clickableImage({ node }) {
-      console.log(node);
       return (
         <InsertableWrapper>
           <ClickableImage {...node} />

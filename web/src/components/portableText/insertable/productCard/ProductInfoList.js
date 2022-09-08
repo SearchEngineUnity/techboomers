@@ -5,7 +5,7 @@ function ProductInfoList({ infoList }) {
   return (
     <>
       {infoList.map((item) => (
-        <Grid container spacing={3}>
+        <Grid container spacing={3} key={item._key}>
           <Grid item xs={6} sm={5}>
             <Typography variant="body1">{item.label}:</Typography>
           </Grid>
