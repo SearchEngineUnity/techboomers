@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
-import { Card, Grid, Box, Typography } from '@material-ui/core';
+import ZoomInIcon from '@material-ui/icons/ZoomIn';
+import { Card, Grid, Paper, Box, Typography } from '@material-ui/core';
+import ButtonBase from '@material-ui/core/ButtonBase';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
@@ -12,6 +14,7 @@ import ProductCardRating from './ProductCardRating';
 import ButtonAffiliate from '../../../buttons/ButtonAffiliate';
 import { mapMuiBtnToProps } from '../../../../lib/mapToProps';
 import sanityConfig from '../../../../../sanityConfig';
+import Caption from '../../serializer/CaptionSerializer';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -26,9 +29,60 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
+  imageBackdrop: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    backgroundColor: theme.palette.common.black,
+    opacity: 0,
+    transition: theme.transitions.create('opacity'),
+    color: 'white',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   enlarge: {
     border: 'none',
     background: 'none',
+    height: 'auto',
+    width: '100%',
+    cursor: 'pointer',
+    '&:hover, &$focusVisible': {
+      zIndex: 1,
+      '& $imageBackdrop': {
+        opacity: 0.4,
+      },
+    },
+  },
+  focusVisible: {},
+  tag: {
+    backgroundColor: (props) => props.tagColor.color.hex,
+    color: '#fff',
+    position: 'absolute',
+    top: '-20px',
+    left: '-10px',
+    display: 'inline-block',
+    padding: '8px 16px',
+    fontSize: '1rem',
+    lineHeight: '1rem',
+    fontWeight: theme.typography.fontWeightBold,
+    '&:after': {
+      content: '" "',
+      display: 'block',
+      position: 'absolute',
+      left: '-10px',
+      bottom: '-7px',
+      borderWidth: '0 10px 7px',
+      borderColor: (props) =>
+        `rgba(0, 0, 0, 0) ${props.tagColor.color.hex} rgba(0, 0, 0, 0) rgba(0, 0, 0, 0)`,
+      borderStyle: 'inset solid inset inset',
+      filter: ' brightness(50%)',
+    },
+  },
+  wrapper: {
+    position: 'relative',
   },
 }));
 
@@ -43,7 +97,7 @@ function ProductCard({
   topBtn,
   segments,
 }) {
-  const classes = useStyles();
+  const classes = useStyles({ tagColor });
 
   const [open, setOpen] = React.useState(false);
 
@@ -63,61 +117,77 @@ function ProductCard({
     sanityConfig,
   );
 
-  console.log(topBtn);
   return (
-    <Card>
-      <Box margin={3}>
-        <Grid container spacing={3} alignItems="center">
-          <Grid item xs={12} sm={3} md={4}>
-            <button type="button" onClick={handleOpen} className={classes.enlarge}>
-              <GatsbyImage image={imageData} alt={image?.alt} />
-              <br />
-              <div alignItems="center" style={{ color: '#a9a9a9' }}>
-                Click image to enlarge
-              </div>
-            </button>
-            <Modal
-              open={open}
-              onClose={handleClose}
-              aria-labelledby="simple-modal-title"
-              aria-describedby="simple-modal-description"
-              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-            >
-              <div className={classes.paper}>
-                <GatsbyImage image={imageData} alt={image?.alt} />
-              </div>
-            </Modal>
-          </Grid>
-          <Grid item xs={12} sm={9} md={8}>
-            <Grid container spacing={3} justifyContent="space-between" alignItems="center">
-              <Grid item xs>
-                <Typography component={headingLevel} variant="h4">
-                  {name}
-                </Typography>
-                <ProductCardRating rating={rating} />
+    <>
+      <br />
+      <div className={classes.wrapper}>
+        <Card>
+          <Paper elevation={3} className={classes.tag} square>
+            {tagText}
+          </Paper>
+          <Box margin={3}>
+            <Grid container spacing={3} alignItems="center">
+              <Grid item xs={12} sm={3} md={4}>
+                <ButtonBase
+                  type="button"
+                  onClick={handleOpen}
+                  className={classes.enlarge}
+                  focusVisibleClassName={classes.focusVisible}
+                >
+                  <GatsbyImage
+                    image={imageData}
+                    alt={image?.alt}
+                    style={{ width: '100%', height: 'auto' }}
+                  />
+                  <span className={classes.imageBackdrop}>
+                    <ZoomInIcon style={{ fontSize: '120px' }} />
+                  </span>
+                </ButtonBase>
+                {image.caption && <Caption blocks={image.caption} />}
+                <Modal
+                  open={open}
+                  onClose={handleClose}
+                  aria-labelledby="simple-modal-title"
+                  aria-describedby="simple-modal-description"
+                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                >
+                  <div className={classes.paper}>
+                    <GatsbyImage image={imageData} alt={image?.alt} />
+                  </div>
+                </Modal>
               </Grid>
-              <Grid item>
-                <ButtonAffiliate {...mapMuiBtnToProps(topBtn)} />
+              <Grid item xs={12} sm={9} md={8}>
+                <Grid container spacing={3} justifyContent="space-between" alignItems="center">
+                  <Grid item xs>
+                    <Typography component={headingLevel} variant="h4">
+                      {name}
+                    </Typography>
+                    <ProductCardRating rating={rating} />
+                  </Grid>
+                  <Grid item>
+                    <ButtonAffiliate {...mapMuiBtnToProps(topBtn)} />
+                  </Grid>
+                </Grid>
+                <Grid item xs={12}>
+                  <ProductInfoList infoList={infoList} />
+                </Grid>
               </Grid>
             </Grid>
-            <Grid item xs={12}>
-              <ProductInfoList infoList={infoList} />
-            </Grid>
-          </Grid>
-        </Grid>
-      </Box>
-      {segments.map((segment) => {
-        const { _type, _key } = segment;
-        switch (_type) {
-          case 'productCardFlexSegment':
-            return <ProductCardFlexSegment key={_key} {...segment} />;
-          case 'productCardDividerSegment':
-            return <ProductCardDividerSegment key={_key} />;
-          default:
-            return <div key="default-inner-block"> Block still under development</div>;
-        }
-      })}
-    </Card>
+          </Box>
+          {segments.map((segment) => {
+            const { _type, _key } = segment;
+            switch (_type) {
+              case 'productCardFlexSegment':
+                return <ProductCardFlexSegment key={_key} {...segment} />;
+              case 'productCardDividerSegment':
+                return <ProductCardDividerSegment key={_key} />;
+              default:
+                return <div key="default-inner-block"> Block still under development</div>;
+            }
+          })}
+        </Card>
+      </div>
+    </>
   );
 }
 
