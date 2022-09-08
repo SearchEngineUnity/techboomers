@@ -6,6 +6,7 @@ import { determineColor } from '../../lib/helperFunctions';
 const useStyles = makeStyles({
   size: {
     padding: (props) => props.padding,
+    textAlign: 'center',
   },
 });
 

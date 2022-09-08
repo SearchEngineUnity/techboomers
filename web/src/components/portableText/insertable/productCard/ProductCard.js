@@ -84,6 +84,65 @@ const useStyles = makeStyles((theme) => ({
   wrapper: {
     position: 'relative',
   },
+  container: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(12, 1fr)',
+    gridGap: theme.spacing(3),
+    alignItems: 'center',
+  },
+  imageItem: {
+    gridColumnEnd: 'span 4',
+    gridRowEnd: 'span 2',
+    order: 1,
+    [theme.breakpoints.down('sm')]: {
+      gridColumnEnd: 'span 3',
+    },
+    [theme.breakpoints.down('xs')]: {
+      gridColumnEnd: 'span 12',
+      order: 2,
+    },
+  },
+  titleItem: {
+    gridColumnEnd: 'span 8',
+    order: 2,
+    [theme.breakpoints.down('sm')]: {
+      gridColumnEnd: 'span 9',
+    },
+    [theme.breakpoints.down('xs')]: {
+      gridColumnEnd: 'span 12',
+      order: 1,
+    },
+  },
+  infoItem: {
+    gridColumnEnd: 'span 8',
+    order: 3,
+    [theme.breakpoints.down('sm')]: {
+      gridColumnEnd: 'span 9',
+    },
+    [theme.breakpoints.down('xs')]: {
+      gridColumnEnd: 'span 12',
+    },
+  },
+  titleContainer: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  nameItem: {
+    flexGrow: 1,
+    maxWidth: '100%',
+    flexBasis: 0,
+    marginRight: '24px',
+  },
+  topButton: {
+    maxWidth: '200px',
+    [theme.breakpoints.down('md')]: {
+      maxWidth: '150px',
+    },
+    [theme.breakpoints.down('xs')]: {
+      maxWidth: '100px',
+    },
+  },
 }));
 
 function ProductCard({
@@ -126,8 +185,8 @@ function ProductCard({
             {tagText}
           </Paper>
           <Box margin={3}>
-            <Grid container spacing={3} alignItems="center">
-              <Grid item xs={12} sm={3} md={4}>
+            <div className={classes.container}>
+              <div className={classes.imageItem}>
                 <ButtonBase
                   type="button"
                   onClick={handleOpen}
@@ -155,24 +214,24 @@ function ProductCard({
                     <GatsbyImage image={imageData} alt={image?.alt} />
                   </div>
                 </Modal>
-              </Grid>
-              <Grid item xs={12} sm={9} md={8}>
-                <Grid container spacing={3} justifyContent="space-between" alignItems="center">
-                  <Grid item xs>
+              </div>
+              <div className={classes.titleItem}>
+                <div className={classes.titleContainer}>
+                  <div className={classes.nameItem}>
                     <Typography component={headingLevel} variant="h4">
                       {name}
                     </Typography>
                     <ProductCardRating rating={rating} />
-                  </Grid>
-                  <Grid item>
+                  </div>
+                  <div className={classes.topButton}>
                     <ButtonAffiliate {...mapMuiBtnToProps(topBtn)} />
-                  </Grid>
-                </Grid>
-                <Grid item xs={12}>
-                  <ProductInfoList infoList={infoList} />
-                </Grid>
-              </Grid>
-            </Grid>
+                  </div>
+                </div>
+              </div>
+              <div className={classes.infoItem}>
+                <ProductInfoList infoList={infoList} />
+              </div>
+            </div>
           </Box>
           {segments.map((segment) => {
             const { _type, _key } = segment;
