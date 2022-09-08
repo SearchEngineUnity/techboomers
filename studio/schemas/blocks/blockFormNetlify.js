@@ -25,7 +25,26 @@ export default {
       name: 'title',
       title: 'Form Title',
       type: 'string',
+      description: 'This needs to be removed.',
+    },
+    {
+      name: 'heading',
+      title: 'Form Heading',
+      type: 'string',
       description: 'This is the title of the form that will appear on top of the form fields.',
+      validation: (Rule) => [Rule.required().error('Field is required')],
+    },
+    {
+      title: 'Form Heading Level',
+      name: 'headingLevel',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'H2', value: 'h2' },
+          { title: 'H3', value: 'h3' },
+          { title: 'H4', value: 'h4' },
+        ],
+      },
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
@@ -64,7 +83,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'title',
+      title: 'seuID',
       subtitle: 'formNetlify.name',
     },
   },

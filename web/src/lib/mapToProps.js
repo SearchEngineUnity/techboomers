@@ -318,12 +318,14 @@ export function mapFluidImgToProps({ _rawAsset, alt, maxHeight, maxWidth, _rawCa
 
 export function mapBlockFormNetlifyToProps({
   _rawFormNetlify,
-  title,
+  heading,
+  headingLevel,
   titleAlignment,
   _rawFormStyle,
 }) {
   return {
-    title,
+    heading,
+    headingLevel,
     titleAlignment,
     form: _rawFormNetlify,
     style: _rawFormStyle,

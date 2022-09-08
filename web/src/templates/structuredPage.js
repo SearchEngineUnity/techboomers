@@ -327,7 +327,8 @@ export const query = graphql`
               _key
               _type
               _rawFormNetlify(resolveReferences: { maxDepth: 10 })
-              title
+              heading
+              headingLevel
               titleAlignment
               _rawFormStyle(resolveReferences: { maxDepth: 10 })
             }
@@ -710,7 +711,8 @@ export const query = graphql`
             ... on SanityBlockFormNetlify {
               _key
               _type
-              title
+              heading
+              headingLevel
               titleAlignment
               _rawFormNetlify(resolveReferences: { maxDepth: 10 })
               _rawFormStyle(resolveReferences: { maxDepth: 10 })
@@ -1091,7 +1093,8 @@ export const query = graphql`
               _key
               _type
               _rawFormNetlify(resolveReferences: { maxDepth: 10 })
-              title
+              heading
+              headingLevel
               titleAlignment
               _rawFormStyle(resolveReferences: { maxDepth: 10 })
             }
@@ -1505,7 +1508,8 @@ export const query = graphql`
               _key
               _type
               _rawFormNetlify(resolveReferences: { maxDepth: 10 })
-              title
+              heading
+              headingLevel
               titleAlignment
               _rawFormStyle(resolveReferences: { maxDepth: 10 })
             }

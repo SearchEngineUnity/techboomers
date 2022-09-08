@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function FormNetlify({ titleAlignment, title, form, style }) {
+function FormNetlify({ titleAlignment, heading, headingLevel, form, style }) {
   const {
     backgroundColor: fieldBgColor,
     fieldBgHoverColor,
@@ -229,8 +229,8 @@ function FormNetlify({ titleAlignment, title, form, style }) {
     <ThemeProvider theme={theme}>
       <Box boxShadow={5} p={6} bgcolor="background.paper">
         <Box textAlign={titleAlignment} color={labelColor.color.hex}>
-          <Typography component="p" variant="h3" paragraph>
-            {title}
+          <Typography variant={headingLevel} gutterBottom>
+            {heading}
           </Typography>
         </Box>
 
