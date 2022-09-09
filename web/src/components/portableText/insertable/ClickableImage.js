@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Box, Card, CardActionArea } from '@material-ui/core';
+import { Box, Card } from '@material-ui/core';
 import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import ConditionalCardActionArea from '../../cardActionArea/ConditionalCardActionArea';
@@ -19,7 +19,6 @@ function ClickableImage({ image, alignment, link, borderRadius }) {
   const imageData = getGatsbyImageData(imageFluid, { layout: 'constrained' }, sanityConfig);
   const height = image?.asset?.height;
   const width = image?.asset?.width;
-  console.log(link);
 
   const classes = useStyles({ borderRadius, height, width });
   const linkType = link[0]?._type;

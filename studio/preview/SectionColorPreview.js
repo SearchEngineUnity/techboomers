@@ -12,7 +12,6 @@ const SectionColorPreview = ({ document }) => {
   return (
     <QueryContainer query={documentQuery}>
       {({ result, loading }) => {
-        console.log(result);
         const bgImage = result?.documents[0]?.bgImage;
         const repeat = result?.documents[0]?.repeat;
 

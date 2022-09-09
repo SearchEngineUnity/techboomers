@@ -87,7 +87,6 @@ const useStyles = makeStyles((theme) => ({
   container: {
     display: 'grid',
     gridTemplateColumns: 'repeat(12, 1fr)',
-    gridAutoRows: 'minmax(min-content, max-content)',
     gridGap: theme.spacing(3),
     alignItems: 'center',
     [theme.breakpoints.down('xs')]: {
@@ -233,17 +232,6 @@ function ProductCard({
                     <ButtonAffiliate {...mapMuiBtnToProps(topBtn)} />
                   </div>
                 </div>
-                {/* <Grid container spacing={3}>
-                  <Grid item xs>
-                    <Typography component={headingLevel} variant="h4">
-                      {name}
-                    </Typography>
-                    <ProductCardRating rating={rating} />
-                  </Grid>
-                  <Grid item xs={6} md={4} lg={3}>
-                    <ButtonAffiliate {...mapMuiBtnToProps(topBtn)} />
-                  </Grid>
-                </Grid> */}
               </div>
               <div className={classes.infoItem}>
                 <ProductInfoList infoList={infoList} />
