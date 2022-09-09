@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import ZoomInIcon from '@material-ui/icons/ZoomIn';
-import { Card, Grid, Paper, Box, Typography } from '@material-ui/core';
+import { Card, Paper, Box, Typography } from '@material-ui/core';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
@@ -87,7 +87,6 @@ const useStyles = makeStyles((theme) => ({
   container: {
     display: 'grid',
     gridTemplateColumns: 'repeat(12, 1fr)',
-    gridAutoRows: 'minmax(min-content, max-content)',
     gridGap: theme.spacing(3),
     alignItems: 'center',
     [theme.breakpoints.down('xs')]: {
@@ -233,17 +232,6 @@ function ProductCard({
                     <ButtonAffiliate {...mapMuiBtnToProps(topBtn)} />
                   </div>
                 </div>
-                {/* <Grid container spacing={3}>
-                  <Grid item xs>
-                    <Typography component={headingLevel} variant="h4">
-                      {name}
-                    </Typography>
-                    <ProductCardRating rating={rating} />
-                  </Grid>
-                  <Grid item xs={6} md={4} lg={3}>
-                    <ButtonAffiliate {...mapMuiBtnToProps(topBtn)} />
-                  </Grid>
-                </Grid> */}
               </div>
               <div className={classes.infoItem}>
                 <ProductInfoList infoList={infoList} />
