@@ -87,6 +87,7 @@ const useStyles = makeStyles((theme) => ({
   container: {
     display: 'grid',
     gridTemplateColumns: 'repeat(12, 1fr)',
+    gridAutoRows: 'minmax(min-content, max-content)',
     gridGap: theme.spacing(3),
     alignItems: 'center',
     [theme.breakpoints.down('xs')]: {
@@ -107,7 +108,7 @@ const useStyles = makeStyles((theme) => ({
   },
   titleItem: {
     gridColumnEnd: 'span 8',
-    alignSelf: 'stretch',
+    alignSelf: 'end',
     order: 2,
     [theme.breakpoints.down('sm')]: {
       gridColumnEnd: 'span 9',
@@ -119,7 +120,7 @@ const useStyles = makeStyles((theme) => ({
   },
   infoItem: {
     gridColumnEnd: 'span 8',
-    alignSelf: 'stretch',
+    alignSelf: 'start',
     order: 3,
     [theme.breakpoints.down('sm')]: {
       gridColumnEnd: 'span 9',
@@ -130,23 +131,23 @@ const useStyles = makeStyles((theme) => ({
   },
   titleContainer: {
     display: 'flex',
-    justifyContent: 'space-between',
     alignItems: 'center',
+    flexWrap: 'wrap',
+    margin: '-12px',
+    width: 'calc(100% + 24px)',
   },
   nameItem: {
-    flexGrow: 1,
-    maxWidth: '100%',
-    flexBasis: 0,
-    marginRight: '24px',
+    flexGrow: 9999,
+    flexBasis: '200px',
+    padding: '12px',
   },
   topButton: {
-    maxWidth: '25%',
-    [theme.breakpoints.down('md')]: {
-      maxWidth: '33%',
+    flexBasis: '30%',
+    [theme.breakpoints.down('sm')]: {
+      flexBasis: '50%',
     },
-    [theme.breakpoints.down('xs')]: {
-      maxWidth: '50%',
-    },
+    flexGrow: 1,
+    padding: '12px',
   },
 }));
 
@@ -232,6 +233,17 @@ function ProductCard({
                     <ButtonAffiliate {...mapMuiBtnToProps(topBtn)} />
                   </div>
                 </div>
+                {/* <Grid container spacing={3}>
+                  <Grid item xs>
+                    <Typography component={headingLevel} variant="h4">
+                      {name}
+                    </Typography>
+                    <ProductCardRating rating={rating} />
+                  </Grid>
+                  <Grid item xs={6} md={4} lg={3}>
+                    <ButtonAffiliate {...mapMuiBtnToProps(topBtn)} />
+                  </Grid>
+                </Grid> */}
               </div>
               <div className={classes.infoItem}>
                 <ProductInfoList infoList={infoList} />
