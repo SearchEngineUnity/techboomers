@@ -13,6 +13,7 @@ import GridFlex from '../blocks/BlockGridFlex';
 import BlockFormNetlify from '../blocks/BlockFormNetlify';
 import TestimonialGrid from '../blocks/TestimonialGrid';
 import ClickableImage from '../portableText/insertable/ClickableImage';
+import SmartGridBlock from '../blocks/SmartGridBlock';
 import {
   mapFluidImgBlockToProps,
   mapSectionBlockToProps,
@@ -21,6 +22,7 @@ import {
   mapBlockFormNetlifyToProps,
   mapTestimonialGridToProps,
   mapClickableImageToProps,
+  mapSmartGridBlockToProps,
 } from '../../lib/mapToProps';
 import HeroSectionFooter from './HeroSectionFooter';
 import HeroSectionHeader from './HeroSectionHeader';
@@ -188,6 +190,21 @@ function StructuredLrFlex({
           const col = colCalculator(parseInt(blockWidth, 10));
           const blockSelector = (key) => {
             switch (true) {
+              case key === 'smartGridBlock':
+                return (
+                  <SmartGridBlock
+                    key={block._key}
+                    hasSectionHeading={!!heading}
+                    hasSectionSubheading={!!subheading}
+                    hasSectionFooter={!!footer}
+                    hasSectionSubtitle={!!subtitle}
+                    headingColor={headingColor}
+                    subheadingColor={subheadingColor}
+                    subtitleColor={subtitleColor}
+                    footerColor={footerColor}
+                    {...mapSmartGridBlockToProps(block)}
+                  />
+                );
               case key === 'videoBlock':
                 return <VideoBlock url={block.url} ratio={block.ratio} key={_key} />;
               case key === 'imageBlock':

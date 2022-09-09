@@ -22,12 +22,6 @@ export default {
       type: 'string',
     },
     {
-      name: 'title',
-      title: 'Form Title',
-      type: 'string',
-      description: 'This needs to be removed.',
-    },
-    {
       name: 'heading',
       title: 'Form Heading',
       type: 'string',

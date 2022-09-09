@@ -48,7 +48,14 @@ export default {
       type: 'string',
       initialValue: '3/3/2/2/1',
       fieldset: 'presentation',
-      validation: (Rule) => [Rule.required().error('Field is required')],
+      validation: (Rule) => [
+        Rule.required().error('Field is required'),
+        Rule.regex(
+          /^(1|2|3|4|6|12)(\/(1|2|3|4|6|12))(\/(1|2|3|4|6|12))(\/(1|2|3|4|6|12))(\/(1|2|3|4|6|12))$/,
+        ).error(
+          'Accepted pattern is value/value/value/vale/value. Accepted values are 1, 2, 3, 4, 6, 12.',
+        ),
+      ],
     },
     {
       name: 'headerAlignment',
