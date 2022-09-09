@@ -25,6 +25,20 @@ export const query = graphql`
           _key
           _type
           blocks {
+            ... on SanitySmartGridBlock {
+              _key
+              _type
+              header {
+                heading
+                subheading
+                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+              }
+              _rawTiles(resolveReferences: { maxDepth: 10 })
+              _rawFooter(resolveReferences: { maxDepth: 10 })
+              layout
+              headerAlignment
+              footerAlignment
+            }
             ... on SanityTestimonialGrid {
               _key
               _type
@@ -411,6 +425,20 @@ export const query = graphql`
           headerAlignment
           footerAlignment
           blocks {
+            ... on SanitySmartGridBlock {
+              _key
+              _type
+              header {
+                heading
+                subheading
+                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+              }
+              _rawTiles(resolveReferences: { maxDepth: 10 })
+              _rawFooter(resolveReferences: { maxDepth: 10 })
+              layout
+              headerAlignment
+              footerAlignment
+            }
             ... on SanityTestimonialGrid {
               _key
               _type
@@ -793,6 +821,20 @@ export const query = graphql`
           headerAlignment
           idTag
           blocks {
+            ... on SanitySmartGridBlock {
+              _key
+              _type
+              header {
+                heading
+                subheading
+                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+              }
+              _rawTiles(resolveReferences: { maxDepth: 10 })
+              _rawFooter(resolveReferences: { maxDepth: 10 })
+              layout
+              headerAlignment
+              footerAlignment
+            }
             ... on SanityTestimonialGrid {
               _key
               _type
@@ -1207,6 +1249,20 @@ export const query = graphql`
           headerAlignment
           idTag
           blocks {
+            ... on SanitySmartGridBlock {
+              _key
+              _type
+              header {
+                heading
+                subheading
+                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+              }
+              _rawTiles(resolveReferences: { maxDepth: 10 })
+              _rawFooter(resolveReferences: { maxDepth: 10 })
+              layout
+              headerAlignment
+              footerAlignment
+            }
             ... on SanityTestimonialGrid {
               _key
               _type

@@ -373,3 +373,23 @@ export function mapClickableImageToProps({ _rawImage, link, alignment, borderRad
     borderRadius,
   };
 }
+
+export function mapSmartGridBlockToProps({
+  header,
+  _rawFooter,
+  headerAlignment,
+  footerAlignment,
+  layout,
+  _rawTiles,
+}) {
+  return {
+    heading: header?.heading,
+    subheading: header?.subheading,
+    subtitle: header?._rawSubtitle,
+    footer: _rawFooter,
+    headerAlignment,
+    footerAlignment,
+    layout,
+    tiles: _rawTiles,
+  };
+}

@@ -1,19 +1,38 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
-import ProductCardGridPtTile from './ProductCardGridPtTile';
-import PtTile from '../../serializer/SmartGridSerializer';
-import Illustration from '../Illustration';
-import SmartUnorderedList from '../SmartUnorderedList';
-import VideoEmbed from '../VideoEmbed';
-import ButtonJumpLink from '../../../buttons/ButtonJumpLink';
-import ButtonAffiliate from '../../../buttons/ButtonAffiliate';
-import ButtonExternal from '../../../buttons/ButtonExternal';
-import ButtonInternalGlobal from '../../../buttons/ButtonInternalGlobal';
-import ButtonInternalLocal from '../../../buttons/ButtonInternalLocal';
-import ClickableImage from '../ClickableImage';
-import { mapMuiBtnToProps } from '../../../../lib/mapToProps';
+import StructuredSectionHeader from '../sections/StructuredSectionHeader';
+import StructuredSectionFooter from '../sections/StructuredSectionFooter';
+import ProductCardGridPtTile from '../portableText/insertable/SmartGrid/ProductCardGridPtTile';
+import PtTile from '../portableText/serializer/SmartGridSerializer';
+import Illustration from '../portableText/insertable/Illustration';
+import SmartUnorderedList from '../portableText/insertable/SmartUnorderedList';
+import VideoEmbed from '../portableText/insertable/VideoEmbed';
+import ButtonJumpLink from '../buttons/ButtonJumpLink';
+import ButtonAffiliate from '../buttons/ButtonAffiliate';
+import ButtonExternal from '../buttons/ButtonExternal';
+import ButtonInternalGlobal from '../buttons/ButtonInternalGlobal';
+import ButtonInternalLocal from '../buttons/ButtonInternalLocal';
+import ClickableImage from '../portableText/insertable/ClickableImage';
+import { mapMuiBtnToProps } from '../../lib/mapToProps';
 
-function SmartGrid({ layout, tiles }) {
+function SmartGridBlock({
+  hasSectionHeading,
+  hasSectionSubheading,
+  hasSectionSubtitle,
+  hasSectionFooter,
+  heading,
+  subheading,
+  subtitle,
+  footer,
+  headerAlignment,
+  footerAlignment,
+  headingColor,
+  subheadingColor,
+  subtitleColor,
+  footerColor,
+  layout,
+  tiles,
+}) {
   // number of tiles desktop/desktop-tablet/tablet/tablet-mobile/mobile: '6/4/4/2/1' -> {xl: 2, lg: 3, md: 3, sm: 6, xs: 12}
   const colCalculate = (value) => {
     const valueArrStr = value.split('/');
@@ -31,9 +50,21 @@ function SmartGrid({ layout, tiles }) {
   const col = colCalculate(layout);
 
   return (
-    <Grid container spacing={3}>
-      {tiles &&
-        tiles.map((tile) => {
+    <>
+      <StructuredSectionHeader
+        heading={heading}
+        subheading={subheading}
+        subtitle={subtitle}
+        align={headerAlignment}
+        hasSectionHeading={hasSectionHeading}
+        hasSectionSubheading={hasSectionSubheading}
+        hasSectionSubtitle={hasSectionSubtitle}
+        headingColor={headingColor}
+        subheadingColor={subheadingColor}
+        subtitleColor={subtitleColor}
+      />
+      <Grid container spacing={3}>
+        {tiles.map((tile) => {
           const { _key, _type } = tile;
 
           const tileSelector = (key) => {
@@ -71,8 +102,15 @@ function SmartGrid({ layout, tiles }) {
             </Grid>
           );
         })}
-    </Grid>
+      </Grid>
+      <StructuredSectionFooter
+        footer={footer}
+        footerColor={footerColor}
+        align={footerAlignment}
+        hasSectionFooter={hasSectionFooter}
+      />
+    </>
   );
 }
 
-export default SmartGrid;
+export default SmartGridBlock;
