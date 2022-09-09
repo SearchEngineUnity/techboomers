@@ -89,6 +89,9 @@ const useStyles = makeStyles((theme) => ({
     gridTemplateColumns: 'repeat(12, 1fr)',
     gridGap: theme.spacing(3),
     alignItems: 'center',
+    [theme.breakpoints.down('xs')]: {
+      gridGap: `${theme.spacing(3)}px 0px`,
+    },
   },
   imageItem: {
     gridColumnEnd: 'span 4',
@@ -104,6 +107,7 @@ const useStyles = makeStyles((theme) => ({
   },
   titleItem: {
     gridColumnEnd: 'span 8',
+    alignSelf: 'stretch',
     order: 2,
     [theme.breakpoints.down('sm')]: {
       gridColumnEnd: 'span 9',
@@ -115,6 +119,7 @@ const useStyles = makeStyles((theme) => ({
   },
   infoItem: {
     gridColumnEnd: 'span 8',
+    alignSelf: 'stretch',
     order: 3,
     [theme.breakpoints.down('sm')]: {
       gridColumnEnd: 'span 9',
@@ -135,12 +140,12 @@ const useStyles = makeStyles((theme) => ({
     marginRight: '24px',
   },
   topButton: {
-    maxWidth: '200px',
+    maxWidth: '25%',
     [theme.breakpoints.down('md')]: {
-      maxWidth: '150px',
+      maxWidth: '33%',
     },
     [theme.breakpoints.down('xs')]: {
-      maxWidth: '100px',
+      maxWidth: '50%',
     },
   },
 }));
