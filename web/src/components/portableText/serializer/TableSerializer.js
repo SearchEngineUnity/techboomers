@@ -7,7 +7,7 @@ import ExternalLink from '../../link/LinkExternal';
 import InternalGlobal from '../../link/LinkInternalGlobal';
 import InternalLocal from '../../link/LinkInternalLocal';
 import AffiliateLink from '../../link/LinkAffiliate';
-import FixedTableImage from '../insertable/FixedTableImage';
+import Illustration from '../insertable/Illustration';
 import InsertableBtnWrapper from '../insertable/InsertableBtnWrapper';
 
 const NoIndentUl = styled.ul`
@@ -40,10 +40,10 @@ const serializers = {
       const { children } = props;
       return children[0] ? <div>{children}</div> : <br />;
     },
-    tableImage({ node }) {
+    illustration({ node }) {
       return (
         <InsertableBtnWrapper>
-          <FixedTableImage illustration={node} />
+          <Illustration illustration={node} />
         </InsertableBtnWrapper>
       );
     },

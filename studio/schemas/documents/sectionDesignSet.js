@@ -36,6 +36,8 @@ export default {
     {
       name: 'repeat',
       title: 'Repeat Background Image',
+      description:
+        'Background image will be repeated in all directions out from the initial centered background image',
       type: 'boolean',
       initialValue: false,
     },
