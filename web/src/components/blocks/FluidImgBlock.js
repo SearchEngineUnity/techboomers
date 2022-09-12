@@ -35,7 +35,7 @@ function FluidImgBlock({ image, alt, loading, maxHeight, maxWidth, caption }) {
 
   return (
     <Box component="figure" justifyContent="center" m={0} display="flex">
-      <Box width={minMaxWidth}>
+      <Box maxWidth={minMaxWidth}>
         <GatsbyImage
           image={imageData}
           // eslint-disable-next-line no-unneeded-ternary
