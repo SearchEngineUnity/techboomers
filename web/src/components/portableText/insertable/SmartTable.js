@@ -16,7 +16,7 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import TableContent from '../serializer/TableSerializer';
-import FixedTableImage from './FixedTableImage';
+import Illustration from './Illustration';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -109,11 +109,11 @@ function SmartTable({ smartTable }) {
                     </TableCell>
                   );
                 }
-                if (cell._type === 'tableImage') {
+                if (cell._type === 'illustration') {
                   return (
                     // eslint-disable-next-line
                   <TableCell key={`${thead._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }} scope="col" role="columnheader">
-                      <FixedTableImage illustration={cell} />
+                      <Illustration illustration={cell} />
                     </TableCell>
                   );
                 }
@@ -138,11 +138,11 @@ function SmartTable({ smartTable }) {
                       </TableCell>
                     );
                   }
-                  if (cell._type === 'tableImage') {
+                  if (cell._type === 'illustration') {
                     return (
                       // eslint-disable-next-line
                       <TableCell component="th" key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }} scope="row" role="rowheader">
-                        <FixedTableImage illustration={cell} />
+                        <Illustration illustration={cell} />
                       </TableCell>
                     );
                   }
@@ -159,11 +159,11 @@ function SmartTable({ smartTable }) {
                     </TableCell>
                   );
                 }
-                if (cell._type === 'tableImage') {
+                if (cell._type === 'illustration') {
                   return (
                     // eslint-disable-next-line
                     <TableCell key={`${row._key}-${index}`} style={{ verticalAlign: 'top', overflow: 'hidden' }} role="cell">
-                      <FixedTableImage illustration={cell} />
+                      <Illustration illustration={cell} />
                     </TableCell>
                   );
                 }

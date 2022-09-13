@@ -9,6 +9,10 @@ import AffiliateLink from '../../link/LinkAffiliate';
 
 const StyledTypography = styled(Typography)`
   font-style: italic;
+  color: #595959;
+  & .caption-link {
+    color: #595959;
+  }
 `;
 
 const serializers = {
@@ -17,7 +21,7 @@ const serializers = {
   types: {
     block(props) {
       return props.children[0] ? (
-        <StyledTypography gutterBottom variant="caption">
+        <StyledTypography gutterBottom variant="caption" component="p">
           {props.children}
         </StyledTypography>
       ) : (
@@ -32,7 +36,7 @@ const serializers = {
       const baseSlug = slug.current === '/' ? `/` : `/${slug.current}`;
       const href = `${baseSlug}${hashId ? `#${hashId}` : ''}${parameter ? `?${parameter}` : ''}`;
       return (
-        <InternalLocal href={href} newTab={newTab} className="pt-link">
+        <InternalLocal href={href} newTab={newTab} className="caption-link">
           {children}
         </InternalLocal>
       );
@@ -40,7 +44,7 @@ const serializers = {
     internalGlobal: ({ mark, children }) => {
       const { href, newTab } = mark;
       return (
-        <InternalGlobal href={href} newTab={newTab} className="pt-link">
+        <InternalGlobal href={href} newTab={newTab} className="caption-link">
           {children}
         </InternalGlobal>
       );
@@ -48,7 +52,7 @@ const serializers = {
     externalLink: ({ mark, children }) => {
       const { href, noreferrer, newTab } = mark;
       return (
-        <ExternalLink href={href} noreferrer={noreferrer} newTab={newTab} className="pt-link">
+        <ExternalLink href={href} noreferrer={noreferrer} newTab={newTab} className="caption-link">
           {children}
         </ExternalLink>
       );
@@ -56,7 +60,7 @@ const serializers = {
     affiliateLink: ({ mark, children }) => {
       const { href } = mark;
       return (
-        <AffiliateLink href={href} className="pt-link">
+        <AffiliateLink href={href} className="caption-link">
           {children}
         </AffiliateLink>
       );
@@ -64,6 +68,8 @@ const serializers = {
   },
 };
 
-const BlockContent = ({ blocks }) => <BaseBlockContent blocks={blocks} serializers={serializers} />;
+const BlockContent = ({ blocks }) => (
+  <BaseBlockContent blocks={blocks} serializers={serializers} renderContainerOnSingleChild />
+);
 
 export default BlockContent;

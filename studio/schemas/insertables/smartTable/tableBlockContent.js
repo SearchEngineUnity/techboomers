@@ -160,7 +160,7 @@ export default {
       },
     },
     {
-      type: 'tableImage',
+      type: 'illustration',
     },
   ],
 };

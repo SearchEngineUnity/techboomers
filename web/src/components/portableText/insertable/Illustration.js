@@ -25,15 +25,15 @@ function Illustration({ illustration }) {
     calculatedWidthBasedOnCustomMaxHeight,
   ];
 
-  let minMaxWidth = `${Math.min(...widthArray)}px`;
+  const minMaxWidth = `${Math.min(...widthArray)}px`;
 
-  if (minMaxWidth === `${imageWidth}px`) {
-    minMaxWidth = 'auto';
-  }
+  // if (minMaxWidth === `${imageWidth}px`) {
+  //   minMaxWidth = 'auto';
+  // }
 
   return (
     <Box component="figure" display="flex" justifyContent={illustration.align} m={0}>
-      <Box width={minMaxWidth}>
+      <Box maxWidth={minMaxWidth}>
         <GatsbyImage
           style={{
             maxHeight: customMaxHeight,

@@ -25,17 +25,17 @@ function FluidImgBlock({ image, alt, loading, maxHeight, maxWidth, caption }) {
     calculatedWidthBasedOnCustomMaxHeight,
   ];
 
-  let minMaxWidth = `${Math.min(...widthArray)}px`;
+  const minMaxWidth = `${Math.min(...widthArray)}px`;
 
-  if (minMaxWidth === `${imageWidth}px`) {
-    minMaxWidth = 'auto';
-  }
+  // if (minMaxWidth === `${imageWidth}px`) {
+  //   minMaxWidth = 'auto';
+  // }
 
   // if svg original file size is < custom size we should still return custom size
 
   return (
     <Box component="figure" justifyContent="center" m={0} display="flex">
-      <Box width={minMaxWidth}>
+      <Box maxWidth={minMaxWidth}>
         <GatsbyImage
           image={imageData}
           // eslint-disable-next-line no-unneeded-ternary
