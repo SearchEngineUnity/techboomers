@@ -6,7 +6,7 @@ export default {
       name: 'cells',
       type: 'array',
       of: [
-        { type: 'tableBlock' },
+        { type: 'tablePtCell' },
         { type: 'illustration' },
         { type: 'emptyCell' },
         { type: 'splitCell' },

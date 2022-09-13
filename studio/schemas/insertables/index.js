@@ -9,7 +9,7 @@ export { productCardGridPtTile, smartGrid, smartGridPtTile } from './smartGrid';
 export {
   rowPlus,
   smartTable,
-  tableBlock,
+  tablePtCell,
   tableBlockContent,
   tablePlus,
   emptyCell,

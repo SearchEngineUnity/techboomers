@@ -1,7 +1,10 @@
+import { BsCardImage } from 'react-icons/bs';
+
 export default {
   name: 'illustration',
-  title: 'Illustration',
+  title: 'Image',
   type: 'image',
+  icon: BsCardImage,
   options: {
     hotspot: true, // <-- Defaults to false
     storeOriginalFilename: true,

@@ -15,8 +15,8 @@ import {
   Paper,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import TableContent from '../serializer/TableSerializer';
-import Illustration from './Illustration';
+import TableContent from '../../serializer/TableSerializer';
+import Illustration from '../Illustration';
 
 const useStyles = makeStyles((theme) => ({
   root: {
