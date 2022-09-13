@@ -1,6 +1,6 @@
 export default {
-  title: 'Table Block',
-  name: 'tableBlock',
+  title: 'PT Cell',
+  name: 'tablePtCell',
   type: 'object',
   fields: [
     {

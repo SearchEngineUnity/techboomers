@@ -77,6 +77,12 @@ export default {
       type: 'reference',
       to: [{ type: 'colorOption' }],
     },
+    {
+      name: 'caption',
+      title: 'Image Caption Color',
+      type: 'reference',
+      to: [{ type: 'colorOption' }],
+    },
   ],
   preview: {
     select: {

@@ -9,9 +9,9 @@ import AffiliateLink from '../../link/LinkAffiliate';
 
 const StyledTypography = styled(Typography)`
   font-style: italic;
-  color: #595959;
+  color: #757575;
   & .caption-link {
-    color: #595959;
+    color: #757575;
   }
 `;
 
