@@ -16,6 +16,12 @@ const useStyles = makeStyles((theme) => ({
     '& .pt-link': {
       color: theme.palette.secondary.main,
     },
+    '& .caption-text': {
+      color: 'white',
+    },
+    '& .caption-link': {
+      color: 'white',
+    },
   },
   column: {
     [theme.breakpoints.down('sm')]: {
@@ -75,7 +81,12 @@ function GuideHero({ h1, subtitle, date, image, includeDisclaimer }) {
             </Grid>
             <Grid item md={6} xs={12}>
               <div justify={heroAlignment.heroImgAlignment}>
-                <ImgBlock {...mapFluidImgBlockToProps(image)} loading="eager" height={400} />
+                <ImgBlock
+                  {...mapFluidImgBlockToProps(image)}
+                  loading="eager"
+                  height={400}
+                  style={{ color: 'white' }}
+                />
               </div>
             </Grid>
           </Grid>

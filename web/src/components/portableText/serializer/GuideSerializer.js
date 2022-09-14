@@ -2,6 +2,7 @@ import BaseBlockContent from '@sanity/block-content-to-react';
 import React from 'react';
 import { Typography, Box } from '@material-ui/core';
 import styled from 'styled-components';
+import { makeStyles } from '@material-ui/core/styles';
 import VideoEmbed from '../insertable/VideoEmbed';
 import BasicTable from '../insertable/BasicTable';
 import Illustration from '../insertable/Illustration';
@@ -30,9 +31,18 @@ const StyledTypography = styled(Typography)`
   margin-top: 1.35em;
 `;
 
+const useStyles = makeStyles((theme) => ({
+  content: {
+    '& .caption-text': {
+      color: '#757575',
+    },
+    '& .caption-link': {
+      color: '#757575',
+    },
+  },
+}));
+
 const serializers = {
-  // This is to render the whole block of content without the <div> tag as wrapping container (https://github.com/sanity-io/block-content-to-react)
-  container: (props) => <>{props.children}</>,
   types: {
     block(props) {
       switch (props.node.style) {
@@ -307,6 +317,16 @@ const serializers = {
   ),
 };
 
-const BlockContent = ({ blocks }) => <BaseBlockContent blocks={blocks} serializers={serializers} />;
+const BlockContent = ({ blocks }) => {
+  const classes = useStyles();
+  return (
+    <BaseBlockContent
+      blocks={blocks}
+      serializers={serializers}
+      className={classes.content}
+      renderContainerOnSingleChild
+    />
+  );
+};
 
 export default BlockContent;

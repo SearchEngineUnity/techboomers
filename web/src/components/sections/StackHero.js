@@ -70,6 +70,12 @@ const useStyles = makeStyles((theme) => ({
     '& .pt-link': {
       color: (props) => props.linkColor,
     },
+    '& .caption-text': {
+      color: (props) => props.captionColor,
+    },
+    '& .caption-link': {
+      color: (props) => props.captionColor,
+    },
   },
   column: {
     paddingTop: (props) => !props.bleed && '24px',
@@ -170,8 +176,9 @@ function StructuredLrFlex({
   const subheadingColor = determineColor(designSettings?.subheading?.color) || 'inherit';
   const subtitleColor = determineColor(designSettings?.subtitle?.color) || 'inherit';
   const footerColor = determineColor(designSettings?.footer?.color) || 'inherit';
+  const captionColor = determineColor(designSettings?.caption?.color) || '#757575';
 
-  const classes = useStyles({ linkColor, bleed, bgImage, backgroundColor, repeat });
+  const classes = useStyles({ linkColor, bleed, bgImage, backgroundColor, captionColor, repeat });
 
   return (
     <Box id={idTag} component="section" color={foregroundColor} className={classes.section}>
