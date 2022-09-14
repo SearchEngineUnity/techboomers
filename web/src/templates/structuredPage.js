@@ -351,6 +351,18 @@ export const query = graphql`
           layout
           reverseOrder
           designSettings {
+            caption {
+              color {
+                hex
+                alpha
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
             background {
               color {
                 hex
@@ -755,6 +767,18 @@ export const query = graphql`
           layout
           reverseOrder
           designSettings {
+            caption {
+              color {
+                hex
+                alpha
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
             background {
               color {
                 hex
@@ -1142,6 +1166,18 @@ export const query = graphql`
             }
           }
           designSettings {
+            caption {
+              color {
+                hex
+                alpha
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
             background {
               color {
                 hex
@@ -1571,6 +1607,18 @@ export const query = graphql`
             }
           }
           designSettings {
+            caption {
+              color {
+                hex
+                alpha
+                rgb {
+                  r
+                  g
+                  b
+                  a
+                }
+              }
+            }
             background {
               color {
                 hex

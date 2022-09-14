@@ -9,10 +9,6 @@ import AffiliateLink from '../../link/LinkAffiliate';
 
 const StyledTypography = styled(Typography)`
   font-style: italic;
-  color: #757575;
-  & .caption-link {
-    color: #757575;
-  }
 `;
 
 const serializers = {
@@ -21,7 +17,7 @@ const serializers = {
   types: {
     block(props) {
       return props.children[0] ? (
-        <StyledTypography gutterBottom variant="caption" component="p">
+        <StyledTypography gutterBottom variant="caption" component="p" className="caption-text">
           {props.children}
         </StyledTypography>
       ) : (
