@@ -7,7 +7,7 @@ import { determineColor } from '../lib/helperFunctions';
 const SectionColorPreview = ({ document }) => {
   // The JSON preview
   const documentQuery = `*[_type == 'sectionDesignSet' && name == '${document.displayed.name}'] | order(_updatedAt desc) {
-    background->, foreground->, link->, heading->, subheading->, subtitle->, footer->, "bgImage": bgImage.asset->url, bleed, repeat
+    background->, foreground->, link->, heading->, subheading->, subtitle->, footer->, footer->, "bgImage": bgImage.asset->url, bleed, repeat
   }`;
   return (
     <QueryContainer query={documentQuery}>
@@ -42,6 +42,10 @@ const SectionColorPreview = ({ document }) => {
         const footerColor = result?.documents[0]?.footer?.color?.hex
           ? determineColor(result?.documents[0]?.footer?.color)
           : 'inherit';
+
+        const captionColor = result?.documents[0]?.caption?.color?.hex
+          ? determineColor(result?.documents[0]?.caption?.color)
+          : '#757575';
 
         return loading ? (
           <Box display="flex" height="100%" justifyContent="center" alignItems="center">
@@ -85,6 +89,22 @@ const SectionColorPreview = ({ document }) => {
                 </Typography>
                 <br />
                 <p style={{ color: footerColor }}>This is the section footer.</p>
+                <br />
+                <Typography
+                  variant="caption"
+                  component="p"
+                  style={{ color: captionColor }}
+                  gutterBottom
+                >
+                  <i>
+                    This is the caption text of an image with a{' '}
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                    <a href="#" style={{ color: captionColor }}>
+                      link
+                    </a>
+                    .
+                  </i>
+                </Typography>
               </div>
             </div>
           )

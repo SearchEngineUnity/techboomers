@@ -51,21 +51,16 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   section: {
-    paddingTop: (props) => (props.bleed ? '64px' : '40px'),
-    paddingBottom: (props) => (props.bleed ? '64px' : '40px'),
+    padding: 32,
     backgroundColor: (props) => props.bleed && props.backgroundColor,
     backgroundImage: (props) => props.bleed && props.bgImage && `url(${props.bgImage})`,
     backgroundPosition: 'center center',
     backgroundRepeat: (props) => (props.repeat ? 'repeat' : 'no-repeat'),
     [theme.breakpoints.down('md')]: {
-      paddingTop: (props) => (props.bleed ? '64px' : '0px'),
-      paddingBottom: (props) => (props.bleed ? '64px' : '0px'),
+      padding: 24,
     },
-    [theme.breakpoints.down('sm')]: {
-      paddingLeft: (props) => (props.bleed ? 16 : 0),
-      paddingRight: (props) => (props.bleed ? 16 : 0),
-      paddingTop: (props) => (props.bleed ? 16 : 0),
-      paddingBottom: (props) => (props.bleed ? 16 : 0),
+    [theme.breakpoints.down('xs')]: {
+      padding: 16,
     },
     '& .pt-link': {
       color: (props) => props.linkColor,
@@ -78,21 +73,16 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   column: {
-    paddingTop: (props) => !props.bleed && '24px',
-    paddingBottom: (props) => !props.bleed && '24px',
+    padding: (props) => props.desktopPadding,
     backgroundColor: (props) => !props.bleed && props.backgroundColor,
     backgroundImage: (props) => !props.bleed && props.bgImage && `url(${props.bgImage})`,
     backgroundPosition: 'center center',
     backgroundRepeat: (props) => (props.repeat ? 'repeat' : 'no-repeat'),
     [theme.breakpoints.down('md')]: {
-      paddingTop: (props) => (!props.bleed ? '64px' : '0px'),
-      paddingBottom: (props) => (!props.bleed ? '64px' : '0px'),
+      padding: (props) => props.tabletPadding,
     },
-    [theme.breakpoints.down('sm')]: {
-      paddingLeft: (props) => (!props.bleed ? 16 : 0),
-      paddingRight: (props) => (!props.bleed ? 16 : 0),
-      paddingTop: (props) => (!props.bleed ? 16 : 0),
-      paddingBottom: (props) => (!props.bleed ? 16 : 0),
+    [theme.breakpoints.down('xs')]: {
+      padding: (props) => props.mobilePadding,
     },
   },
 }));
@@ -118,47 +108,47 @@ function StackFlex({
       case 10:
         return {
           xs: 12,
-          md: 10,
+          sm: 10,
         };
       case 9:
         return {
           xs: 12,
-          md: 9,
+          sm: 9,
         };
       case 8:
         return {
           xs: 12,
-          md: 8,
+          sm: 8,
         };
       case 7:
         return {
           xs: 12,
-          md: 7,
+          sm: 7,
         };
       case 6:
         return {
           xs: 12,
-          md: 6,
+          sm: 6,
         };
       case 5:
         return {
           xs: 12,
-          md: 5,
+          sm: 5,
         };
       case 4:
         return {
           xs: 12,
-          md: 4,
+          sm: 4,
         };
       case 3:
         return {
           xs: 12,
-          md: 3,
+          sm: 3,
         };
       case 2:
         return {
           xs: 12,
-          md: 2,
+          sm: 2,
         };
       default:
         console.log('calculator missing');
@@ -177,8 +167,21 @@ function StackFlex({
   const subtitleColor = determineColor(designSettings?.subtitle?.color) || 'inherit';
   const footerColor = determineColor(designSettings?.footer?.color) || 'inherit';
   const captionColor = determineColor(designSettings?.caption?.color) || '#757575';
+  const desktopPadding = designSettings?.desktopPadding || '24px';
+  const tabletPadding = designSettings?.tabletPadding || '16px';
+  const mobilePadding = designSettings?.mobilePadding || '8px';
 
-  const classes = useStyles({ linkColor, bleed, bgImage, backgroundColor, captionColor, repeat });
+  const classes = useStyles({
+    linkColor,
+    bleed,
+    bgImage,
+    backgroundColor,
+    captionColor,
+    repeat,
+    desktopPadding,
+    tabletPadding,
+    mobilePadding,
+  });
 
   return (
     <Box id={idTag} component="section" color={foregroundColor} className={classes.section}>

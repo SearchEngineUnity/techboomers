@@ -18,42 +18,32 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   section: {
-    paddingTop: (props) => (props.bleed ? '64px' : '40px'),
-    paddingBottom: (props) => (props.bleed ? '64px' : '40px'),
+    padding: 32,
     backgroundColor: (props) => props.bleed && props.backgroundColor,
     backgroundImage: (props) => props.bleed && props.bgImage && `url(${props.bgImage})`,
     backgroundPosition: 'center center',
     backgroundRepeat: (props) => (props.repeat ? 'repeat' : 'no-repeat'),
     [theme.breakpoints.down('md')]: {
-      paddingTop: (props) => (props.bleed ? '64px' : '0px'),
-      paddingBottom: (props) => (props.bleed ? '64px' : '0px'),
+      padding: 24,
     },
-    [theme.breakpoints.down('sm')]: {
-      paddingLeft: (props) => (props.bleed ? 16 : 0),
-      paddingRight: (props) => (props.bleed ? 16 : 0),
-      paddingTop: (props) => (props.bleed ? 16 : 0),
-      paddingBottom: (props) => (props.bleed ? 16 : 0),
+    [theme.breakpoints.down('xs')]: {
+      padding: 16,
     },
     '& .pt-link': {
       color: (props) => props.linkColor,
     },
   },
   column: {
-    paddingTop: (props) => !props.bleed && '24px',
-    paddingBottom: (props) => !props.bleed && '24px',
+    padding: (props) => props.desktopPadding,
     backgroundColor: (props) => !props.bleed && props.backgroundColor,
     backgroundImage: (props) => !props.bleed && props.bgImage && `url(${props.bgImage})`,
     backgroundPosition: 'center center',
     backgroundRepeat: (props) => (props.repeat ? 'repeat' : 'no-repeat'),
     [theme.breakpoints.down('md')]: {
-      paddingTop: (props) => (!props.bleed ? '64px' : '0px'),
-      paddingBottom: (props) => (!props.bleed ? '64px' : '0px'),
+      padding: (props) => props.tabletPadding,
     },
-    [theme.breakpoints.down('sm')]: {
-      paddingLeft: (props) => (!props.bleed ? 16 : 0),
-      paddingRight: (props) => (!props.bleed ? 16 : 0),
-      paddingTop: (props) => (!props.bleed ? 16 : 0),
-      paddingBottom: (props) => (!props.bleed ? 16 : 0),
+    [theme.breakpoints.down('xs')]: {
+      padding: (props) => props.mobilePadding,
     },
   },
 }));
@@ -90,6 +80,7 @@ function PaginatedListingSection({
   const col = colCalculate(layout);
   const bleed = designSettings ? !!designSettings?.bleed : true;
   const bgImage = designSettings?.bgImage?.asset?.url;
+  const repeat = !!designSettings?.repeat;
   const backgroundColor = determineColor(designSettings?.background?.color) || 'transparent';
   const foregroundColor = determineColor(designSettings?.foreground?.color) || 'text.primary';
   const linkColor = determineColor(designSettings?.link?.color) || 'initial';
@@ -98,8 +89,20 @@ function PaginatedListingSection({
   const subtitleColor = determineColor(designSettings?.subtitle?.color) || 'inherit';
   const footerColor = determineColor(designSettings?.footer?.color) || 'inherit';
   const paginationColor = designSettings?.foreground?.color;
+  const desktopPadding = designSettings?.desktopPadding || '24px';
+  const tabletPadding = designSettings?.tabletPadding || '16px';
+  const mobilePadding = designSettings?.mobilePadding || '8px';
 
-  const classes = useStyles({ linkColor, bleed, bgImage, backgroundColor });
+  const classes = useStyles({
+    linkColor,
+    bleed,
+    bgImage,
+    backgroundColor,
+    repeat,
+    desktopPadding,
+    tabletPadding,
+    mobilePadding,
+  });
 
   return (
     <Box id={idTag} component="section" color={foregroundColor} className={classes.section}>
