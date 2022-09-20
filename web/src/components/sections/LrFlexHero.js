@@ -79,6 +79,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   column: {
+    borderRadius: (props) => props.borderRadius,
     backgroundColor: (props) => !props.bleed && props.backgroundColor,
     backgroundImage: (props) => !props.bleed && props.bgImage && `url(${props.bgImage})`,
     backgroundPosition: 'center center',
@@ -185,6 +186,7 @@ function LrFlexHero({
   const tabletPadding = designSettings?.padding?.tabletPadding;
   const tabletMobilePadding = designSettings?.padding?.tabletMobilePadding;
   const mobilePadding = designSettings?.padding?.mobilePadding;
+  const borderRadius = designSettings?.borderRadius || '0px';
 
   const classes = useStyles({
     linkColor,
@@ -198,6 +200,7 @@ function LrFlexHero({
     tabletPadding,
     tabletMobilePadding,
     mobilePadding,
+    borderRadius,
   });
 
   return (
