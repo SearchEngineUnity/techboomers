@@ -352,9 +352,8 @@ export const query = graphql`
           layout
           reverseOrder
           designSettings {
-            desktopPadding
-            tabletPadding
-            mobilePadding
+            padding: _rawPadding
+            borderRadius
             caption {
               color {
                 hex
@@ -805,9 +804,8 @@ export const query = graphql`
           layout
           reverseOrder
           designSettings {
-            desktopPadding
-            tabletPadding
-            mobilePadding
+            padding: _rawPadding
+            borderRadius
             caption {
               color {
                 hex
@@ -1242,9 +1240,8 @@ export const query = graphql`
             }
           }
           designSettings {
-            desktopPadding
-            tabletPadding
-            mobilePadding
+            padding: _rawPadding
+            borderRadius
             caption {
               color {
                 hex
@@ -1684,9 +1681,8 @@ export const query = graphql`
             }
           }
           designSettings {
-            desktopPadding
-            tabletPadding
-            mobilePadding
+            padding: _rawPadding
+            borderRadius
             caption {
               color {
                 hex
@@ -1812,9 +1808,8 @@ export const query = graphql`
           headerAlignment
           idTag
           designSettings {
-            desktopPadding
-            tabletPadding
-            mobilePadding
+            padding: _rawPadding
+            borderRadius
             caption {
               color {
                 hex

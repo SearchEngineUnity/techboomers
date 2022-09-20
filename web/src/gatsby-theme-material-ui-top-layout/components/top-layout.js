@@ -6,7 +6,13 @@ import { createTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import { determineColor } from '../../lib/helperFunctions';
 
 const ThemeProvider = ({ children, data }) => {
-  const { sanityPalette: palette, sanityTypography: typography } = data;
+  const {
+    sanityPalette: palette,
+    sanityTypography: typography,
+    sanityCustomSpacing: spacing,
+  } = data;
+
+  console.log(spacing);
 
   let theme = createTheme({
     overrides: {
@@ -201,6 +207,26 @@ const ThemeProvider = ({ children, data }) => {
         textTransform: 'none',
       },
     },
+    customSpacing: {
+      section: {
+        padding: {
+          desktop: spacing?.section?.desktopPadding || '32px 0px',
+          desktopTablet: spacing?.section?.desktopTabletPadding || '32px 0px',
+          tablet: spacing?.section?.tabletPadding || '24px 0px',
+          tabletMobile: spacing?.section?.tabletMobilePadding || '24px 0px',
+          mobile: spacing?.section?.mobilePadding || '16px 0px',
+        },
+      },
+      column: {
+        padding: {
+          desktop: spacing?.column?.desktopPadding || '24px',
+          desktopTablet: spacing?.column?.desktopTabletPadding || '24px',
+          tablet: spacing?.column?.tabletPadding || '16px',
+          tabletMobile: spacing?.column?.tabletMobilePadding || '16px',
+          mobile: spacing?.column?.mobilePadding || '8px',
+        },
+      },
+    },
   });
 
   theme = responsiveFontSizes(theme);
@@ -213,6 +239,10 @@ export default function TopLayout({ children }) {
     <StaticQuery
       query={graphql`
         {
+          sanityCustomSpacing {
+            column: _rawColumn
+            section: _rawSection
+          }
           sanityPalette {
             proTip {
               bgColor {

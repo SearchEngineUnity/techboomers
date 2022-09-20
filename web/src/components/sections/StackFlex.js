@@ -51,16 +51,22 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   section: {
-    padding: 32,
     backgroundColor: (props) => props.bleed && props.backgroundColor,
     backgroundImage: (props) => props.bleed && props.bgImage && `url(${props.bgImage})`,
     backgroundPosition: 'center center',
     backgroundRepeat: (props) => (props.repeat ? 'repeat' : 'no-repeat'),
+    padding: theme.customSpacing.section.padding.desktop,
+    [theme.breakpoints.down('lg')]: {
+      padding: theme.customSpacing.section.padding.desktopTablet,
+    },
     [theme.breakpoints.down('md')]: {
-      padding: 24,
+      padding: theme.customSpacing.section.padding.tablet,
+    },
+    [theme.breakpoints.down('sm')]: {
+      padding: theme.customSpacing.section.padding.tabletMobile,
     },
     [theme.breakpoints.down('xs')]: {
-      padding: 16,
+      padding: theme.customSpacing.section.padding.mobile,
     },
     '& .pt-link': {
       color: (props) => props.linkColor,
@@ -73,16 +79,24 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   column: {
-    padding: (props) => props.desktopPadding,
     backgroundColor: (props) => !props.bleed && props.backgroundColor,
     backgroundImage: (props) => !props.bleed && props.bgImage && `url(${props.bgImage})`,
     backgroundPosition: 'center center',
     backgroundRepeat: (props) => (props.repeat ? 'repeat' : 'no-repeat'),
+    padding: (props) => props.desktopPadding || theme.customSpacing.column.padding.desktop,
+    [theme.breakpoints.down('lg')]: {
+      padding: (props) =>
+        props.desktopTabletPadding || theme.customSpacing.column.padding.desktopTablet,
+    },
     [theme.breakpoints.down('md')]: {
-      padding: (props) => props.tabletPadding,
+      padding: (props) => props.tabletPadding || theme.customSpacing.column.padding.tablet,
+    },
+    [theme.breakpoints.down('sm')]: {
+      padding: (props) =>
+        props.tabletMobilePadding || theme.customSpacing.column.padding.tabletMobile,
     },
     [theme.breakpoints.down('xs')]: {
-      padding: (props) => props.mobilePadding,
+      padding: (props) => props.mobilePadding || theme.customSpacing.column.padding.mobile,
     },
   },
 }));
@@ -167,9 +181,11 @@ function StackFlex({
   const subtitleColor = determineColor(designSettings?.subtitle?.color) || 'inherit';
   const footerColor = determineColor(designSettings?.footer?.color) || 'inherit';
   const captionColor = determineColor(designSettings?.caption?.color) || '#757575';
-  const desktopPadding = designSettings?.desktopPadding || '24px';
-  const tabletPadding = designSettings?.tabletPadding || '16px';
-  const mobilePadding = designSettings?.mobilePadding || '8px';
+  const desktopPadding = designSettings?.padding?.desktopPadding;
+  const desktopTabletPadding = designSettings?.padding?.desktopTabletPadding;
+  const tabletPadding = designSettings?.padding?.tabletPadding;
+  const tabletMobilePadding = designSettings?.padding?.tabletMobilePadding;
+  const mobilePadding = designSettings?.padding?.mobilePadding;
 
   const classes = useStyles({
     linkColor,
@@ -179,7 +195,9 @@ function StackFlex({
     captionColor,
     repeat,
     desktopPadding,
+    desktopTabletPadding,
     tabletPadding,
+    tabletMobilePadding,
     mobilePadding,
   });
 

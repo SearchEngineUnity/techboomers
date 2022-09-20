@@ -24,20 +24,8 @@ export default {
       },
     },
     {
-      name: 'padding',
-      title: 'Padding Settings',
-      description: (
-        <>
-          Accept string as per padding CSS variable.{' '}
-          <a
-            href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Resource link
-          </a>
-        </>
-      ),
+      name: 'spacing',
+      title: 'Spacing',
       options: {
         collapsible: true,
         collapsed: false,
@@ -134,22 +122,40 @@ export default {
       to: [{ type: 'colorOption' }],
     },
     {
-      name: 'desktopPadding',
-      title: 'Section Desktop + Desktop-Tablet Padding',
-      type: 'string',
-      fieldset: 'padding',
+      name: 'padding',
+      title: 'Section Padding',
+      type: 'paddingSet',
+      fieldset: 'spacing',
+      description: (
+        <>
+          Accept string as per padding CSS variable.{' '}
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Resource link
+          </a>
+        </>
+      ),
     },
     {
-      name: 'tabletPadding',
-      title: 'Section Tablet + Tablet-Mobile Padding',
+      name: 'borderRadius',
+      title: 'Section Border Radius',
       type: 'string',
-      fieldset: 'padding',
-    },
-    {
-      name: 'mobilePadding',
-      title: 'Section Mobile Padding',
-      type: 'string',
-      fieldset: 'padding',
+      description: (
+        <>
+          Accept string as per border-radius CSS variable.{' '}
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Resource link
+          </a>
+        </>
+      ),
+      hidden: ({ document }) => !!document?.bleed,
     },
   ],
   preview: {
