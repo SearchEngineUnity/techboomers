@@ -55,18 +55,18 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: (props) => props.bleed && props.bgImage && `url(${props.bgImage})`,
     backgroundPosition: 'center center',
     backgroundRepeat: (props) => (props.repeat ? 'repeat' : 'no-repeat'),
-    padding: theme.customSpacing.section.padding.desktop,
+    padding: theme.customSpacing.sectionOuter.padding.desktop,
     [theme.breakpoints.down('lg')]: {
-      padding: theme.customSpacing.section.padding.desktopTablet,
+      padding: theme.customSpacing.sectionOuter.padding.desktopTablet,
     },
     [theme.breakpoints.down('md')]: {
-      padding: theme.customSpacing.section.padding.tablet,
+      padding: theme.customSpacing.sectionOuter.padding.tablet,
     },
     [theme.breakpoints.down('sm')]: {
-      padding: theme.customSpacing.section.padding.tabletMobile,
+      padding: theme.customSpacing.sectionOuter.padding.tabletMobile,
     },
     [theme.breakpoints.down('xs')]: {
-      padding: theme.customSpacing.section.padding.mobile,
+      padding: theme.customSpacing.sectionOuter.padding.mobile,
     },
     '& .pt-link': {
       color: (props) => props.linkColor,
@@ -84,20 +84,20 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: (props) => !props.bleed && props.bgImage && `url(${props.bgImage})`,
     backgroundPosition: 'center center',
     backgroundRepeat: (props) => (props.repeat ? 'repeat' : 'no-repeat'),
-    padding: (props) => props.desktopPadding || theme.customSpacing.column.padding.desktop,
+    padding: (props) => props.desktopPadding || theme.customSpacing.sectionInner.padding.desktop,
     [theme.breakpoints.down('lg')]: {
       padding: (props) =>
-        props.desktopTabletPadding || theme.customSpacing.column.padding.desktopTablet,
+        props.desktopTabletPadding || theme.customSpacing.sectionInner.padding.desktopTablet,
     },
     [theme.breakpoints.down('md')]: {
-      padding: (props) => props.tabletPadding || theme.customSpacing.column.padding.tablet,
+      padding: (props) => props.tabletPadding || theme.customSpacing.sectionInner.padding.tablet,
     },
     [theme.breakpoints.down('sm')]: {
       padding: (props) =>
-        props.tabletMobilePadding || theme.customSpacing.column.padding.tabletMobile,
+        props.tabletMobilePadding || theme.customSpacing.sectionInner.padding.tabletMobile,
     },
     [theme.breakpoints.down('xs')]: {
-      padding: (props) => props.mobilePadding || theme.customSpacing.column.padding.mobile,
+      padding: (props) => props.mobilePadding || theme.customSpacing.sectionInner.padding.mobile,
     },
   },
 }));
@@ -119,50 +119,47 @@ function LrFlexHero({
   const colArr = layout.split(':').map((el) => parseInt(el, 10));
   const colCalculator = (value) => {
     switch (value) {
-      case 10:
-        return {
-          xs: 12,
-          sm: 10,
-        };
       case 9:
         return {
           xs: 12,
-          sm: 9,
+          sm: 6,
+          md: 9,
         };
       case 8:
         return {
           xs: 12,
-          sm: 8,
+          sm: 6,
+          md: 8,
         };
       case 7:
         return {
           xs: 12,
-          sm: 7,
+          sm: 6,
+          md: 7,
         };
       case 6:
         return {
           xs: 12,
           sm: 6,
+          md: 6,
         };
       case 5:
         return {
           xs: 12,
-          sm: 5,
+          sm: 6,
+          md: 5,
         };
       case 4:
         return {
           xs: 12,
-          sm: 4,
+          sm: 6,
+          md: 4,
         };
       case 3:
         return {
           xs: 12,
-          sm: 3,
-        };
-      case 2:
-        return {
-          xs: 12,
-          sm: 2,
+          sm: 6,
+          md: 3,
         };
       default:
         console.log('calculator missing');
@@ -181,11 +178,11 @@ function LrFlexHero({
   const subtitleColor = determineColor(designSettings?.subtitle?.color) || 'inherit';
   const footerColor = determineColor(designSettings?.footer?.color) || 'inherit';
   const captionColor = determineColor(designSettings?.caption?.color) || '#757575';
-  const desktopPadding = designSettings?.padding?.desktopPadding;
-  const desktopTabletPadding = designSettings?.padding?.desktopTabletPadding;
-  const tabletPadding = designSettings?.padding?.tabletPadding;
-  const tabletMobilePadding = designSettings?.padding?.tabletMobilePadding;
-  const mobilePadding = designSettings?.padding?.mobilePadding;
+  const desktopPadding = designSettings?.innerPadding?.desktopPadding;
+  const desktopTabletPadding = designSettings?.innerPadding?.desktopTabletPadding;
+  const tabletPadding = designSettings?.innerPadding?.tabletPadding;
+  const tabletMobilePadding = designSettings?.innerPadding?.tabletMobilePadding;
+  const mobilePadding = designSettings?.innerPadding?.mobilePadding;
   const borderRadius = designSettings?.borderRadius || '0px';
 
   const classes = useStyles({

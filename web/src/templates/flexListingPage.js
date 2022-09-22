@@ -352,7 +352,7 @@ export const query = graphql`
           layout
           reverseOrder
           designSettings {
-            padding: _rawPadding
+            innerPadding: _rawInnerPadding
             borderRadius
             caption {
               color {
@@ -804,7 +804,7 @@ export const query = graphql`
           layout
           reverseOrder
           designSettings {
-            padding: _rawPadding
+            innerPadding: _rawInnerPadding
             borderRadius
             caption {
               color {
@@ -1240,7 +1240,7 @@ export const query = graphql`
             }
           }
           designSettings {
-            padding: _rawPadding
+            innerPadding: _rawInnerPadding
             borderRadius
             caption {
               color {
@@ -1681,7 +1681,7 @@ export const query = graphql`
             }
           }
           designSettings {
-            padding: _rawPadding
+            innerPadding: _rawInnerPadding
             borderRadius
             caption {
               color {
@@ -1808,7 +1808,7 @@ export const query = graphql`
           headerAlignment
           idTag
           designSettings {
-            padding: _rawPadding
+            innerPadding: _rawInnerPadding
             borderRadius
             caption {
               color {

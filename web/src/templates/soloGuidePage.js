@@ -75,7 +75,7 @@ const SoloGuidePage = ({ data, location }) => {
           <Container maxWidth="lg">
             <Grid
               container
-              spacing={3}
+              spacing={6}
               direction={data.guide.toc.length > 0 ? 'row-reverse' : 'row'}
             >
               {data.guide.toc.length > 0 && (

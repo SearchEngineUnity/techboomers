@@ -114,9 +114,13 @@ export default {
       variant: 'fieldVariant',
     },
     prepare({ name, variant }) {
+      let normalizedVariant = variant;
+      if (variant === 'standard') {
+        normalizedVariant = 'underlined';
+      }
       return {
         title: name,
-        subtitle: `Variant: ${variant}`,
+        subtitle: `Variant: ${normalizedVariant}`,
       };
     },
   },

@@ -41,7 +41,7 @@ export default {
               justifyContent: 'center',
               width: '100%',
               height: '100%',
-              backgroundColor: `${color.hex}${color.alpha < 1 ? color.alpha * 100 : ''}`,
+              backgroundColor: `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`,
               fontSize: '24px',
               alignItems: 'center',
             }}

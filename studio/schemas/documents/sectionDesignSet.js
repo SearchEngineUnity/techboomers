@@ -1,5 +1,6 @@
 import React from 'react';
 import { HiOutlineColorSwatch } from 'react-icons/hi';
+import sanity from '../../sanity.json';
 
 export default {
   name: 'sectionDesignSet',
@@ -122,8 +123,8 @@ export default {
       to: [{ type: 'colorOption' }],
     },
     {
-      name: 'padding',
-      title: 'Section Padding',
+      name: 'innerPadding',
+      title: 'Section Inner Padding',
       type: 'paddingSet',
       fieldset: 'spacing',
       description: (
