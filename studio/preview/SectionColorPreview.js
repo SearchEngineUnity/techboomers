@@ -7,7 +7,7 @@ import { determineColor } from '../lib/helperFunctions';
 const SectionColorPreview = ({ document }) => {
   // The JSON preview
   const documentQuery = `*[_type == 'sectionDesignSet' && name == '${document.displayed.name}'] | order(_updatedAt desc) {
-    background->, foreground->, link->, heading->, subheading->, subtitle->, footer->, footer->, "bgImage": bgImage.asset->url, bleed, repeat
+    background->, foreground->, link->, heading->, subheading->, subtitle->, footer->, "bgImage": bgImage.asset->url, bleed, repeat
   }`;
   return (
     <QueryContainer query={documentQuery}>
