@@ -2,7 +2,7 @@ export default {
   name: 'typography',
   type: 'document',
   title: 'Typography',
-  __experimental_actions: ['create', 'update', 'publish', 'delete'],
+  __experimental_actions: ['create', 'update', 'publish'],
   fieldsets: [
     {
       name: 'general',
