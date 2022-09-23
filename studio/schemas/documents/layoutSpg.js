@@ -20,6 +20,7 @@ export default {
         layout: 'radio',
         direction: 'horizontal',
       },
+      initialValue: 'center',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
     {
@@ -37,6 +38,7 @@ export default {
         layout: 'radio',
         direction: 'horizontal',
       },
+      initialValue: 'center',
       validation: (Rule) => [Rule.required().error('Field is required')],
     },
   ],
