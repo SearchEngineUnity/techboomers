@@ -14,5 +14,6 @@ export { default as redirect } from './redirect';
 export { default as sectionDesignSet } from './sectionDesignSet';
 export { default as socialInfo } from './socialInfo';
 export { default as soloGuidePage } from './soloGuidePage';
+export { default as customSpacing } from './customSpacing';
 export { default as testimonial } from './testimonial';
 export { default as typography } from './typography';
