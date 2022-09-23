@@ -8,7 +8,7 @@ export default {
   fields: [
     {
       name: 'sectionOuter',
-      title: 'Section Outer Padding Settings',
+      title: 'Sitewide Section Outer Padding Settings',
       type: 'paddingSet',
       initialValue: {
         desktopPadding: '32px 0px',
@@ -32,7 +32,7 @@ export default {
     },
     {
       name: 'sectionInner',
-      title: 'Section Inner Padding Settings',
+      title: 'Sitewide Section Inner Padding Settings',
       type: 'paddingSet',
       initialValue: {
         desktopPadding: '24px',
