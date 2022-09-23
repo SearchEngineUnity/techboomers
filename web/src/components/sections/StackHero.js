@@ -123,47 +123,47 @@ function StructuredLrFlex({
       case 10:
         return {
           xs: 12,
-          sm: 10,
+          md: 10,
         };
       case 9:
         return {
           xs: 12,
-          sm: 9,
+          md: 9,
         };
       case 8:
         return {
           xs: 12,
-          sm: 8,
+          md: 8,
         };
       case 7:
         return {
           xs: 12,
-          sm: 7,
+          md: 7,
         };
       case 6:
         return {
           xs: 12,
-          sm: 6,
+          md: 6,
         };
       case 5:
         return {
           xs: 12,
-          sm: 5,
+          md: 5,
         };
       case 4:
         return {
           xs: 12,
-          sm: 4,
+          md: 4,
         };
       case 3:
         return {
           xs: 12,
-          sm: 3,
+          md: 3,
         };
       case 2:
         return {
           xs: 12,
-          sm: 2,
+          md: 2,
         };
       default:
         console.log('calculator missing');
