@@ -7,7 +7,10 @@ import BasicTable from '../insertable/BasicTable';
 import Illustration from '../insertable/Illustration';
 import HighlightBox from '../insertable/highlightBox/HighlightBox';
 import SmartTable from '../insertable/SmartTable';
+import SmartGrid from '../insertable/SmartGrid/SmartGrid';
 import SmartUnorderedList from '../insertable/SmartUnorderedList';
+import SmartOrderedList from '../insertable/SmartOrderedList';
+import ProductCard from '../insertable/productCard/ProductCard';
 import AffiliateLink from '../../link/LinkAffiliate';
 import JumpLink from '../../link/JumpLink';
 import ExternalLink from '../../link/LinkExternal';
@@ -122,9 +125,6 @@ const serializers = {
         </InsertableWrapper>
       );
     },
-    smartUnorderedList({ node }) {
-      return <SmartUnorderedList {...node} />;
-    },
     videoEmbed({ node }) {
       return (
         <InsertableWrapper>
@@ -168,10 +168,30 @@ const serializers = {
           return <p>under development</p>;
       }
     },
+    smartOrderedList({ node }) {
+      return <SmartOrderedList {...node} />; // check this later may need wrapper
+    },
+    smartUnorderedList({ node }) {
+      return <SmartUnorderedList {...node} />; // check this later may need wrapper
+    },
+    productCard({ node }) {
+      return (
+        <InsertableWrapper>
+          <ProductCard {...node} />
+        </InsertableWrapper>
+      );
+    },
     clickableImage({ node }) {
       return (
         <InsertableWrapper>
           <ClickableImage {...node} />
+        </InsertableWrapper>
+      );
+    },
+    smartGrid({ node }) {
+      return (
+        <InsertableWrapper>
+          <SmartGrid {...node} />
         </InsertableWrapper>
       );
     },

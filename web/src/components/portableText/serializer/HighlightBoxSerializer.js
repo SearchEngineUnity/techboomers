@@ -11,6 +11,7 @@ import ButtonExternal from '../../buttons/ButtonExternal';
 import ButtonInternalGlobal from '../../buttons/ButtonInternalGlobal';
 import ButtonInternalLocal from '../../buttons/ButtonInternalLocal';
 import ButtonJumpLink from '../../buttons/ButtonJumpLink';
+import Illustration from '../insertable/Illustration';
 import ClickableImage from '../insertable/ClickableImage';
 import { mapMuiBtnToProps } from '../../../lib/mapToProps';
 import InsertableWrapper from '../insertable/InsertableWrapper';
@@ -28,6 +29,13 @@ const serializers = {
         </Typography>
       ) : (
         <br />
+      );
+    },
+    illustration({ node }) {
+      return (
+        <InsertableWrapper>
+          <Illustration illustration={node} />
+        </InsertableWrapper>
       );
     },
     btnBlockMui({ node }) {
