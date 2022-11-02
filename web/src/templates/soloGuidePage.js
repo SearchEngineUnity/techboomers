@@ -66,6 +66,7 @@ export const query = graphql`
 const SoloGuidePage = ({ data, location }) => {
   const type = 'guide';
 
+  console.log(data.guide._rawGuideBody);
   return (
     <Layout location={location}>
       <Seo {...mapSeoToProps(data.guide, type)} heroImage={data.guide.heroImage.asset.url} />
