@@ -351,6 +351,7 @@ export const query = graphql`
           layout
           reverseOrder
           designSettings {
+            outerPadding: _rawOuterPadding
             innerPadding: _rawInnerPadding
             borderRadius
             caption {
@@ -769,6 +770,7 @@ export const query = graphql`
           layout
           reverseOrder
           designSettings {
+            outerPadding: _rawOuterPadding
             innerPadding: _rawInnerPadding
             borderRadius
             caption {
@@ -1170,6 +1172,7 @@ export const query = graphql`
             }
           }
           designSettings {
+            outerPadding: _rawOuterPadding
             innerPadding: _rawInnerPadding
             borderRadius
             caption {
@@ -1613,6 +1616,7 @@ export const query = graphql`
             }
           }
           designSettings {
+            outerPadding: _rawOuterPadding
             innerPadding: _rawInnerPadding
             borderRadius
             caption {
