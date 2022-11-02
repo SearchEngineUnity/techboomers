@@ -58,17 +58,7 @@ export default {
   fields: [
     {
       name: 'seuID',
-      title: 'seuID',
-      type: 'string',
-      fieldset: 'general',
-      validation: (Rule) => [
-        Rule.required().error('Field is required'),
-        // add a custom rule for isUnique
-      ],
-    },
-    {
-      name: 'shortLabel',
-      title: 'Short Label',
+      title: 'ID',
       type: 'string',
       fieldset: 'general',
       validation: (Rule) => [
@@ -96,38 +86,6 @@ export default {
       type: 'text',
       rows: 3,
       fieldset: 'general',
-      validation: (Rule) => [Rule.required().error('Field is required.')],
-    },
-    {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      description: 'Please add the full path after domain.com/ as slug.',
-      fieldset: 'indexing',
-      validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
-      name: 'noindex',
-      title: 'Noindex',
-      type: 'boolean',
-      fieldset: 'indexing',
-      initialValue: false,
-      validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
-      name: 'nofollow',
-      title: 'Nofollow',
-      type: 'boolean',
-      fieldset: 'indexing',
-      initialValue: false,
-      validation: (Rule) => [Rule.required().error('Field is required')],
-    },
-    {
-      name: 'canonical',
-      title: 'Canonical Link Setting',
-      type: 'url',
-      fieldset: 'indexing',
-      description: 'Fill in to replace default self canonical URL.',
     },
     {
       name: 'fbShareMetaPack',
@@ -203,10 +161,41 @@ export default {
       type: 'boolean',
       initialValue: true,
     },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      description: 'Please add the full path after domain.com/ as slug.',
+      fieldset: 'indexing',
+      validation: (Rule) => [Rule.required().error('Field is required')],
+    },
+    {
+      name: 'noindex',
+      title: 'Noindex',
+      type: 'boolean',
+      fieldset: 'indexing',
+      initialValue: false,
+      validation: (Rule) => [Rule.required().error('Field is required')],
+    },
+    {
+      name: 'nofollow',
+      title: 'Nofollow',
+      type: 'boolean',
+      fieldset: 'indexing',
+      initialValue: false,
+      validation: (Rule) => [Rule.required().error('Field is required')],
+    },
+    {
+      name: 'canonical',
+      title: 'Canonical Link Setting',
+      type: 'url',
+      fieldset: 'indexing',
+      description: 'Fill in to replace default self canonical URL.',
+    },
   ],
   preview: {
     select: {
-      title: 'shortLabel',
+      title: 'seuID',
       slug: 'slug.current',
       media: 'tileImage',
       fbImg: 'facebookShareMetaPack.image',

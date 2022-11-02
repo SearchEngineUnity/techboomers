@@ -1153,6 +1153,7 @@ export const query = graphql`
               }
               _rawFooter(resolveReferences: { maxDepth: 10 })
               headerAlignment
+              textAlignment
               footerAlignment
             }
             ... on SanityVideoBlock {

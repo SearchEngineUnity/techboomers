@@ -43,17 +43,7 @@ export default {
   fields: [
     {
       name: 'seuID',
-      title: 'seuID',
-      type: 'string',
-      fieldset: 'general',
-      validation: (Rule) => [
-        Rule.required().error('Field is required'),
-        // add a custom rule for isUnique
-      ],
-    },
-    {
-      name: 'shortLabel',
-      title: 'Short Label',
+      title: 'ID',
       type: 'string',
       fieldset: 'general',
       validation: (Rule) => [
@@ -74,7 +64,30 @@ export default {
       type: 'text',
       rows: 3,
       fieldset: 'general',
-      validation: (Rule) => [Rule.required().error('Field is required.')],
+    },
+    {
+      name: 'fbShareMetaPack',
+      title: 'Facebook Open Graph Meta Pack',
+      type: 'fbShareMetaPack',
+      fieldset: 'social',
+    },
+    {
+      name: 'twitterShareMetaPack',
+      title: 'Twitter Open Graph Meta Pack',
+      type: 'twitterShareMetaPack',
+      fieldset: 'social',
+    },
+    {
+      name: 'sections',
+      type: 'array',
+      fieldset: 'sections',
+      title: 'Sections',
+      of: [
+        ...Object.values(sections).map(({ name, title }) => ({
+          type: name,
+          title,
+        })),
+      ],
     },
     {
       name: 'slug',
@@ -107,34 +120,10 @@ export default {
       fieldset: 'indexing',
       description: 'Fill in to replace default self canonical URL.',
     },
-    {
-      name: 'fbShareMetaPack',
-      title: 'Facebook Open Graph Meta Pack',
-      type: 'fbShareMetaPack',
-      fieldset: 'social',
-    },
-    {
-      name: 'twitterShareMetaPack',
-      title: 'Twitter Open Graph Meta Pack',
-      type: 'twitterShareMetaPack',
-      fieldset: 'social',
-    },
-    {
-      name: 'sections',
-      type: 'array',
-      fieldset: 'sections',
-      title: 'Sections',
-      of: [
-        ...Object.values(sections).map(({ name, title }) => ({
-          type: name,
-          title,
-        })),
-      ],
-    },
   ],
   preview: {
     select: {
-      title: 'shortLabel',
+      title: 'seuID',
       slug: 'slug.current',
       fbImg: 'facebookShareMetaPack.image',
       twitterImg: 'twitterShareMetaPack.image',
