@@ -26,8 +26,6 @@ function TableOfContent({ toc }) {
   const classes = useStyles();
   const { activeId } = useHeadsObserver();
 
-  console.log(activeId);
-
   return (
     <Box p={3} className={classes.root}>
       <Typography component="p" variant="h4" gutterBottom>
