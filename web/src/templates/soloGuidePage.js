@@ -82,7 +82,7 @@ const SoloGuidePage = ({ data, location }) => {
             >
               {data.guide.toc.length > 0 && (
                 <Hidden smDown>
-                  <Grid item md={3} component="nav">
+                  <Grid item md={3}>
                     <ToC toc={data.guide.toc} content={data.guide._rawGuideBody} />
                   </Grid>
                 </Hidden>
