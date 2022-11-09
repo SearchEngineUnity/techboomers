@@ -6,6 +6,7 @@ import GuideHero from '../components/sections/GuideHero';
 import GuideBody from '../components/portableText/serializer/GuideSerializer';
 import ToC from '../components/TableOfContent';
 import Seo from '../components/Seo';
+import { useUpdateUrl } from '../hooks/useUpdateUrl';
 
 import { mapGuideHeroToProps, mapSeoToProps } from '../lib/mapToProps';
 
@@ -65,6 +66,7 @@ export const query = graphql`
 
 const SoloGuidePage = ({ data, location }) => {
   const type = 'guide';
+  useUpdateUrl();
 
   return (
     <Layout location={location}>

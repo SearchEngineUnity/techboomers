@@ -1,16 +1,21 @@
 /* eslint-disable import/prefer-default-export */
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
-export function useHeadsObserver() {
+export function useUpdateUrl() {
   const observer = useRef();
-  const [activeId, setActiveId] = useState('');
 
   useEffect(() => {
+    const { pathname } = window.location;
+
     const handleObserver = (entries) => {
       entries.forEach((entry) => {
         if (entry?.isIntersecting) {
-          setActiveId(entry.target.id);
+          window.history.replaceState(
+            null,
+            null,
+            `${entry.target.id ? `#${entry.target.id}` : pathname}`,
+          );
         }
       });
     };
@@ -24,6 +29,4 @@ export function useHeadsObserver() {
 
     return () => observer.current?.disconnect();
   }, []);
-
-  return { activeId };
 }
