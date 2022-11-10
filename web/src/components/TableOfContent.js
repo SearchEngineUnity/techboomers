@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable no-param-reassign */
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Typography } from '@material-ui/core';
@@ -26,8 +24,6 @@ function TableOfContent({ toc }) {
   const classes = useStyles();
   const { activeId } = useHeadsObserver();
 
-  console.log(activeId);
-
   return (
     <Box p={3} className={classes.root}>
       <Typography component="p" variant="h4" gutterBottom>
@@ -39,6 +35,7 @@ function TableOfContent({ toc }) {
             <Box component="li" fontSize="body2.fontSize" key={item._key} mb={1}>
               <Link
                 className={`${item.hashID === activeId ? classes.activeLink : null}`}
+                href={`#${item.hashId}`}
                 underline="hover"
                 onClick={(e) => {
                   e.preventDefault();
