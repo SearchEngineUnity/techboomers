@@ -22,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
     '& .caption-link': {
       color: 'white',
     },
+    '& .subtitle-link': {
+      color: 'black',
+    },
   },
   column: {
     [theme.breakpoints.down('sm')]: {
@@ -71,12 +74,12 @@ function GuideHero({ h1, subtitle, date, image, includeDisclaimer }) {
                 {h1}
               </Typography>
               {subtitle && <Subtitle blocks={subtitle} />}
-              {lastUpdatedDate && (
-                <Typography variant="body1" component="p" gutterBottom>
-                  Last updated: {lastUpdatedDate.toLocaleDateString('en-US', options)}
-                </Typography>
-              )}
               <br />
+              {lastUpdatedDate && (
+                <Box fontSize="0.8rem" fontWeight={400} component="p" fontStyle="italic">
+                  Last updated: {lastUpdatedDate.toLocaleDateString('en-US', options)}
+                </Box>
+              )}
               {includeDisclaimer && disclaimerText && <Subtitle blocks={disclaimerText} />}
             </Grid>
             <Grid item md={6} xs={12}>

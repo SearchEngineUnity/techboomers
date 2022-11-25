@@ -14,7 +14,7 @@ const serializers = {
     block(props) {
       const { children } = props;
       return children[0] ? (
-        <Typography component="p" variant="subtitle1" gutterBottom>
+        <Typography component="p" variant="body1" gutterBottom>
           {children}
         </Typography>
       ) : (
@@ -29,7 +29,7 @@ const serializers = {
       const baseSlug = slug.current === '/' ? `/` : `/${slug.current}`;
       const href = `${baseSlug}${hashId ? `#${hashId}` : ''}${parameter ? `?${parameter}` : ''}`;
       return (
-        <InternalLocal href={href} newTab={newTab} className="pt-link">
+        <InternalLocal href={href} newTab={newTab} className="subtitle-link">
           {children}
         </InternalLocal>
       );
@@ -37,7 +37,7 @@ const serializers = {
     internalGlobal: ({ mark, children }) => {
       const { href, newTab } = mark;
       return (
-        <InternalGlobal href={href} newTab={newTab} className="pt-link">
+        <InternalGlobal href={href} newTab={newTab} className="subtitle-link">
           {children}
         </InternalGlobal>
       );
@@ -45,7 +45,7 @@ const serializers = {
     externalLink: ({ mark, children }) => {
       const { href, noreferrer, newTab } = mark;
       return (
-        <ExternalLink href={href} noreferrer={noreferrer} newTab={newTab} className="pt-link">
+        <ExternalLink href={href} noreferrer={noreferrer} newTab={newTab} className="subtitle-link">
           {children}
         </ExternalLink>
       );
@@ -53,7 +53,7 @@ const serializers = {
     affiliateLink: ({ mark, children }) => {
       const { href } = mark;
       return (
-        <AffiliateLink href={href} className="pt-link">
+        <AffiliateLink href={href} className="subtitle-link">
           {children}
         </AffiliateLink>
       );
@@ -61,7 +61,7 @@ const serializers = {
     jumpLink: ({ mark, children }) => {
       const { hashId } = mark;
       return (
-        <JumpLink hash={hashId} className="pt-link">
+        <JumpLink hash={hashId} className="subtitle-link">
           {children}
         </JumpLink>
       );
