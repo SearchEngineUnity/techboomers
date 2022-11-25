@@ -1,11 +1,11 @@
 {
   "root": true,
   "api": {
-    "projectId": "yb6s8gw4",
+    "projectId": "49huah91",
     "dataset": "production"
   },
   "project": {
-    "name": "Site Builder V1"
+    "name": "Techboomers"
   },
   "plugins": [
     "@sanity/base",

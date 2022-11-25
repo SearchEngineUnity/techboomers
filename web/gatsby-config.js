@@ -6,7 +6,7 @@ const isProd = process.env.NODE_ENV === 'production';
 
 const {
   NODE_ENV,
-  URL: NETLIFY_SITE_URL = 'https://sitebuilderv1.netlify.app', // update to new netlify URL
+  URL: NETLIFY_SITE_URL = 'https://techboomers.netlify.app', // update to new netlify URL
   DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
   CONTEXT: NETLIFY_ENV = NODE_ENV,
 } = process.env;
@@ -18,38 +18,38 @@ module.exports = {
     siteUrl,
   },
   plugins: [
-    {
-      resolve: 'gatsby-plugin-google-tagmanager',
-      options: {
-        id: 'GTM-5GLG7DW',
+    // {
+    //   resolve: 'gatsby-plugin-google-tagmanager',
+    //   options: {
+    //     id: '',
 
-        // Include GTM in development.
-        //
-        // Defaults to false meaning GTM will only be loaded in production.
-        // includeInDevelopment: true,
+    //     // Include GTM in development.
+    //     //
+    //     // Defaults to false meaning GTM will only be loaded in production.
+    //     // includeInDevelopment: true,
 
-        // datalayer to be set before GTM is loaded
-        // should be an object or a function that is executed in the browser
-        //
-        // Defaults to null
-        // defaultDataLayer: { platform: 'gatsby' },
+    //     // datalayer to be set before GTM is loaded
+    //     // should be an object or a function that is executed in the browser
+    //     //
+    //     // Defaults to null
+    //     // defaultDataLayer: { platform: 'gatsby' },
 
-        // Specify optional GTM environment details.
-        // gtmAuth: 'YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_AUTH_STRING',
-        // gtmPreview: 'YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_PREVIEW_NAME',
-        // dataLayerName: 'YOUR_DATA_LAYER_NAME',
+    //     // Specify optional GTM environment details.
+    //     // gtmAuth: 'YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_AUTH_STRING',
+    //     // gtmPreview: 'YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_PREVIEW_NAME',
+    //     // dataLayerName: 'YOUR_DATA_LAYER_NAME',
 
-        // Name of the event that is triggered
-        // on every Gatsby route change.
-        //
-        // Defaults to gatsby-route-change
-        // routeChangeEventName: 'YOUR_ROUTE_CHANGE_EVENT_NAME',
-        // Defaults to false
-        enableWebVitalsTracking: true,
-        // Defaults to https://www.googletagmanager.com
-        // selfHostedOrigin: 'YOUR_SELF_HOSTED_ORIGIN',
-      },
-    },
+    //     // Name of the event that is triggered
+    //     // on every Gatsby route change.
+    //     //
+    //     // Defaults to gatsby-route-change
+    //     // routeChangeEventName: 'YOUR_ROUTE_CHANGE_EVENT_NAME',
+    //     // Defaults to false
+    //     enableWebVitalsTracking: true,
+    //     // Defaults to https://www.googletagmanager.com
+    //     // selfHostedOrigin: 'YOUR_SELF_HOSTED_ORIGIN',
+    //   },
+    // },
     {
       resolve: 'gatsby-plugin-html-attributes',
       options: {
@@ -77,7 +77,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-sanity',
       options: {
-        projectId: 'yb6s8gw4',
+        projectId: '49huah91',
         dataset: 'production',
         token: process.env.SANITY_TOKEN,
         overlayDrafts: process.env.SANITY_OVERLAY_DRAFTS || !isProd,
