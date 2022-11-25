@@ -7,7 +7,6 @@ import LrFlex from '../components/sections/StructuredLrFlex';
 import StackFlex from '../components/sections/StackFlex';
 import StackHero from '../components/sections/StackHero';
 import PaginatedListingSection from '../components/sections/PaginatedListingSection';
-import { useSpGuides } from '../hooks/useSpGuides';
 import {
   mapLrHeroToProps,
   mapSeoToProps,
@@ -18,7 +17,7 @@ import {
 
 // eslint-disable-next-line import/prefer-default-export
 export const query = graphql`
-  query ListPageTemplate($slug: String) {
+  query ListPageTemplate($slug: String, $limit: Int, $skip: Int) {
     page: sanityFlexListingPage(slug: { current: { eq: $slug } }) {
       slug {
         current
@@ -1953,27 +1952,40 @@ export const query = graphql`
         }
       }
     }
+    guides: allSanitySoloGuidePage(
+      sort: { fields: [displayDate], order: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
+      nodes {
+        _id
+        slug {
+          current
+        }
+        displayDate
+        tileTitle
+        tileText
+        tileImage {
+          _rawAsset(resolveReferences: { maxDepth: 10 })
+        }
+      }
+    }
   }
 `;
 
 const FlexListingPage = ({ data, location, pageContext }) => {
-  let allListItems;
-  const spGuides = useSpGuides();
-
-  switch (pageContext.listItemType) {
-    case 'Solo Guide Page':
-      allListItems = spGuides;
-      break;
-
-    default:
-      break;
-  }
-
   const type = 'page';
 
-  const { currentpage, limit } = pageContext;
-
-  const listingItems = allListItems.slice((currentpage - 1) * limit, currentpage * limit);
+  const listingItems = data.guides.nodes.map(
+    ({ _id, tileTitle, tileImage, displayDate, slug, tileText }) => ({
+      _key: _id,
+      title: tileTitle,
+      image: tileImage._rawAsset,
+      text: tileText,
+      date: displayDate,
+      url: slug.current,
+    }),
+  );
 
   return (
     <Layout location={location}>
