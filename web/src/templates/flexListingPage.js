@@ -34,10 +34,10 @@ export const query = graphql`
               header {
                 heading
                 subheading
-                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+                _rawSubtitle(resolveReferences: { maxDepth: 4 })
               }
-              _rawTiles(resolveReferences: { maxDepth: 10 })
-              _rawFooter(resolveReferences: { maxDepth: 10 })
+              _rawTiles(resolveReferences: { maxDepth: 7 })
+              _rawFooter(resolveReferences: { maxDepth: 4 })
               layout
               headerAlignment
               footerAlignment
@@ -48,10 +48,10 @@ export const query = graphql`
               header {
                 heading
                 subheading
-                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+                _rawSubtitle(resolveReferences: { maxDepth: 4 })
               }
-              _rawTestimonialList(resolveReferences: { maxDepth: 10 })
-              _rawFooter(resolveReferences: { maxDepth: 10 })
+              _rawTestimonialList(resolveReferences: { maxDepth: 4 })
+              _rawFooter(resolveReferences: { maxDepth: 4 })
               tileOption
               layout
               headerAlignment
@@ -63,9 +63,9 @@ export const query = graphql`
               header {
                 heading
                 subheading
-                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+                _rawSubtitle(resolveReferences: { maxDepth: 4 })
               }
-              _rawFooter(resolveReferences: { maxDepth: 10 })
+              _rawFooter(resolveReferences: { maxDepth: 4 })
               headerAlignment
               footerAlignment
               layout
@@ -128,14 +128,14 @@ export const query = graphql`
                 title
                 tileImage {
                   alt
-                  _rawAsset(resolveReferences: { maxDepth: 10 })
+                  _rawAsset(resolveReferences: { maxDepth: 1 })
                 }
               }
             }
             ... on SanityClickableImage {
               _key
               _type
-              _rawImage(resolveReferences: { maxDepth: 10 })
+              _rawImage(resolveReferences: { maxDepth: 1 })
               alignment
               borderRadius
               link {
@@ -315,20 +315,20 @@ export const query = graphql`
               _key
               _type
               alt
-              _rawAsset(resolveReferences: { maxDepth: 10 })
+              _rawAsset(resolveReferences: { maxDepth: 1 })
               maxHeight
               maxWidth
-              _rawCaption(resolveReferences: { maxDepth: 10 })
+              _rawCaption(resolveReferences: { maxDepth: 4 })
             }
             ... on SanityHeroBlock {
               _key
               _type
-              _rawFooter(resolveReferences: { maxDepth: 10 })
-              _rawText(resolveReferences: { maxDepth: 10 })
+              _rawFooter(resolveReferences: { maxDepth: 4 })
+              _rawText(resolveReferences: { maxDepth: 5 })
               header {
                 heading
                 subheading
-                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+                _rawSubtitle(resolveReferences: { maxDepth: 4 })
               }
               headerAlignment
               textAlignment
@@ -343,11 +343,11 @@ export const query = graphql`
             ... on SanityBlockFormNetlify {
               _key
               _type
-              _rawFormNetlify(resolveReferences: { maxDepth: 10 })
+              _rawFormNetlify(resolveReferences: { maxDepth: 1 })
               heading
               headingLevel
               titleAlignment
-              _rawFormStyle(resolveReferences: { maxDepth: 10 })
+              _rawFormStyle(resolveReferences: { maxDepth: 5 })
             }
           }
           idTag
@@ -461,11 +461,11 @@ export const query = graphql`
               }
             }
           }
-          _rawFooter(resolveReferences: { maxDepth: 10 })
+          _rawFooter(resolveReferences: { maxDepth: 4 })
           header {
             heading
             subheading
-            _rawSubtitle(resolveReferences: { maxDepth: 10 })
+            _rawSubtitle(resolveReferences: { maxDepth: 4 })
           }
           blockAlignment
           footerAlignment
@@ -474,7 +474,7 @@ export const query = graphql`
         ... on SanityLrFlex {
           _key
           _type
-          _rawFooter(resolveReferences: { maxDepth: 10 })
+          _rawFooter(resolveReferences: { maxDepth: 4 })
           blockAlignment
           headerAlignment
           footerAlignment
@@ -485,12 +485,13 @@ export const query = graphql`
               header {
                 heading
                 subheading
-                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+                _rawSubtitle(resolveReferences: { maxDepth: 4 })
               }
-              _rawTiles(resolveReferences: { maxDepth: 10 })
-              _rawFooter(resolveReferences: { maxDepth: 10 })
+              _rawTiles(resolveReferences: { maxDepth: 7 })
+              _rawFooter(resolveReferences: { maxDepth: 4 })
               layout
               headerAlignment
+              footerAlignment
             }
             ... on SanityTestimonialGrid {
               _key
@@ -498,10 +499,10 @@ export const query = graphql`
               header {
                 heading
                 subheading
-                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+                _rawSubtitle(resolveReferences: { maxDepth: 4 })
               }
-              _rawTestimonialList(resolveReferences: { maxDepth: 10 })
-              _rawFooter(resolveReferences: { maxDepth: 10 })
+              _rawTestimonialList(resolveReferences: { maxDepth: 4 })
+              _rawFooter(resolveReferences: { maxDepth: 4 })
               tileOption
               layout
               headerAlignment
@@ -513,9 +514,9 @@ export const query = graphql`
               header {
                 heading
                 subheading
-                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+                _rawSubtitle(resolveReferences: { maxDepth: 4 })
               }
-              _rawFooter(resolveReferences: { maxDepth: 10 })
+              _rawFooter(resolveReferences: { maxDepth: 4 })
               headerAlignment
               footerAlignment
               layout
@@ -578,7 +579,7 @@ export const query = graphql`
                 title
                 tileImage {
                   alt
-                  _rawAsset(resolveReferences: { maxDepth: 10 })
+                  _rawAsset(resolveReferences: { maxDepth: 1 })
                 }
               }
             }
@@ -586,21 +587,21 @@ export const query = graphql`
               _key
               _type
               alt
-              _rawAsset(resolveReferences: { maxDepth: 10 })
+              _rawAsset(resolveReferences: { maxDepth: 1 })
               maxHeight
               maxWidth
-              _rawCaption(resolveReferences: { maxDepth: 10 })
+              _rawCaption(resolveReferences: { maxDepth: 4 })
             }
             ... on SanitySectionBlock {
               _key
               _type
-              _rawText(resolveReferences: { maxDepth: 10 })
+              _rawText(resolveReferences: { maxDepth: 12 })
               header {
-                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+                _rawSubtitle(resolveReferences: { maxDepth: 4 })
                 heading
                 subheading
               }
-              _rawFooter(resolveReferences: { maxDepth: 10 })
+              _rawFooter(resolveReferences: { maxDepth: 4 })
               headerAlignment
               textAlignment
               footerAlignment
@@ -614,7 +615,7 @@ export const query = graphql`
             ... on SanityClickableImage {
               _key
               _type
-              _rawImage(resolveReferences: { maxDepth: 10 })
+              _rawImage(resolveReferences: { maxDepth: 1 })
               alignment
               borderRadius
               link {
@@ -792,17 +793,17 @@ export const query = graphql`
             ... on SanityBlockFormNetlify {
               _key
               _type
-              _rawFormNetlify(resolveReferences: { maxDepth: 10 })
+              _rawFormNetlify(resolveReferences: { maxDepth: 1 })
               heading
               headingLevel
               titleAlignment
-              _rawFormStyle(resolveReferences: { maxDepth: 10 })
+              _rawFormStyle(resolveReferences: { maxDepth: 5 })
             }
           }
           header {
             heading
             subheading
-            _rawSubtitle(resolveReferences: { maxDepth: 10 })
+            _rawSubtitle(resolveReferences: { maxDepth: 4 })
           }
           idTag
           layout
@@ -919,7 +920,7 @@ export const query = graphql`
         ... on SanityStackHero {
           _key
           _type
-          _rawFooter(resolveReferences: { maxDepth: 10 })
+          _rawFooter(resolveReferences: { maxDepth: 4 })
           blockWidth
           footerAlignment
           headerAlignment
@@ -931,12 +932,13 @@ export const query = graphql`
               header {
                 heading
                 subheading
-                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+                _rawSubtitle(resolveReferences: { maxDepth: 4 })
               }
-              _rawTiles(resolveReferences: { maxDepth: 10 })
-              _rawFooter(resolveReferences: { maxDepth: 10 })
+              _rawTiles(resolveReferences: { maxDepth: 7 })
+              _rawFooter(resolveReferences: { maxDepth: 4 })
               layout
               headerAlignment
+              footerAlignment
             }
             ... on SanityTestimonialGrid {
               _key
@@ -944,10 +946,10 @@ export const query = graphql`
               header {
                 heading
                 subheading
-                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+                _rawSubtitle(resolveReferences: { maxDepth: 4 })
               }
-              _rawTestimonialList(resolveReferences: { maxDepth: 10 })
-              _rawFooter(resolveReferences: { maxDepth: 10 })
+              _rawTestimonialList(resolveReferences: { maxDepth: 4 })
+              _rawFooter(resolveReferences: { maxDepth: 4 })
               tileOption
               layout
               headerAlignment
@@ -959,9 +961,9 @@ export const query = graphql`
               header {
                 heading
                 subheading
-                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+                _rawSubtitle(resolveReferences: { maxDepth: 4 })
               }
-              _rawFooter(resolveReferences: { maxDepth: 10 })
+              _rawFooter(resolveReferences: { maxDepth: 4 })
               headerAlignment
               footerAlignment
               layout
@@ -1024,14 +1026,14 @@ export const query = graphql`
                 title
                 tileImage {
                   alt
-                  _rawAsset(resolveReferences: { maxDepth: 10 })
+                  _rawAsset(resolveReferences: { maxDepth: 1 })
                 }
               }
             }
             ... on SanityClickableImage {
               _key
               _type
-              _rawImage(resolveReferences: { maxDepth: 10 })
+              _rawImage(resolveReferences: { maxDepth: 1 })
               alignment
               borderRadius
               link {
@@ -1210,21 +1212,21 @@ export const query = graphql`
               _key
               _type
               alt
-              _rawAsset(resolveReferences: { maxDepth: 10 })
+              _rawAsset(resolveReferences: { maxDepth: 1 })
               maxHeight
               maxWidth
-              _rawCaption(resolveReferences: { maxDepth: 10 })
+              _rawCaption(resolveReferences: { maxDepth: 4 })
             }
             ... on SanityHeroBlock {
               _key
               _type
-              _rawText(resolveReferences: { maxDepth: 10 })
+              _rawText(resolveReferences: { maxDepth: 5 })
               header {
-                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+                _rawSubtitle(resolveReferences: { maxDepth: 4 })
                 heading
                 subheading
               }
-              _rawFooter(resolveReferences: { maxDepth: 10 })
+              _rawFooter(resolveReferences: { maxDepth: 4 })
               headerAlignment
               textAlignment
               footerAlignment
@@ -1238,11 +1240,11 @@ export const query = graphql`
             ... on SanityBlockFormNetlify {
               _key
               _type
-              _rawFormNetlify(resolveReferences: { maxDepth: 10 })
+              _rawFormNetlify(resolveReferences: { maxDepth: 1 })
               heading
               headingLevel
               titleAlignment
-              _rawFormStyle(resolveReferences: { maxDepth: 10 })
+              _rawFormStyle(resolveReferences: { maxDepth: 5 })
             }
           }
           designSettings {
@@ -1356,13 +1358,13 @@ export const query = graphql`
           header {
             heading
             subheading
-            _rawSubtitle(resolveReferences: { maxDepth: 10 })
+            _rawSubtitle(resolveReferences: { maxDepth: 4 })
           }
         }
         ... on SanityStackFlex {
           _key
           _type
-          _rawFooter(resolveReferences: { maxDepth: 10 })
+          _rawFooter(resolveReferences: { maxDepth: 4 })
           blockWidth
           footerAlignment
           headerAlignment
@@ -1374,12 +1376,13 @@ export const query = graphql`
               header {
                 heading
                 subheading
-                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+                _rawSubtitle(resolveReferences: { maxDepth: 4 })
               }
-              _rawTiles(resolveReferences: { maxDepth: 10 })
-              _rawFooter(resolveReferences: { maxDepth: 10 })
+              _rawTiles(resolveReferences: { maxDepth: 7 })
+              _rawFooter(resolveReferences: { maxDepth: 4 })
               layout
               headerAlignment
+              footerAlignment
             }
             ... on SanityTestimonialGrid {
               _key
@@ -1387,10 +1390,10 @@ export const query = graphql`
               header {
                 heading
                 subheading
-                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+                _rawSubtitle(resolveReferences: { maxDepth: 4 })
               }
-              _rawTestimonialList(resolveReferences: { maxDepth: 10 })
-              _rawFooter(resolveReferences: { maxDepth: 10 })
+              _rawTestimonialList(resolveReferences: { maxDepth: 4 })
+              _rawFooter(resolveReferences: { maxDepth: 4 })
               tileOption
               layout
               headerAlignment
@@ -1402,9 +1405,9 @@ export const query = graphql`
               header {
                 heading
                 subheading
-                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+                _rawSubtitle(resolveReferences: { maxDepth: 4 })
               }
-              _rawFooter(resolveReferences: { maxDepth: 10 })
+              _rawFooter(resolveReferences: { maxDepth: 4 })
               headerAlignment
               footerAlignment
               layout
@@ -1467,14 +1470,14 @@ export const query = graphql`
                 title
                 tileImage {
                   alt
-                  _rawAsset(resolveReferences: { maxDepth: 10 })
+                  _rawAsset(resolveReferences: { maxDepth: 1 })
                 }
               }
             }
             ... on SanityClickableImage {
               _key
               _type
-              _rawImage(resolveReferences: { maxDepth: 10 })
+              _rawImage(resolveReferences: { maxDepth: 1 })
               alignment
               borderRadius
               link {
@@ -1653,21 +1656,21 @@ export const query = graphql`
               _key
               _type
               alt
-              _rawAsset(resolveReferences: { maxDepth: 10 })
+              _rawAsset(resolveReferences: { maxDepth: 1 })
               maxHeight
               maxWidth
-              _rawCaption(resolveReferences: { maxDepth: 10 })
+              _rawCaption(resolveReferences: { maxDepth: 4 })
             }
             ... on SanitySectionBlock {
               _key
               _type
-              _rawText(resolveReferences: { maxDepth: 10 })
+              _rawText(resolveReferences: { maxDepth: 12 })
               header {
-                _rawSubtitle(resolveReferences: { maxDepth: 10 })
+                _rawSubtitle(resolveReferences: { maxDepth: 4 })
                 heading
                 subheading
               }
-              _rawFooter(resolveReferences: { maxDepth: 10 })
+              _rawFooter(resolveReferences: { maxDepth: 4 })
               headerAlignment
               textAlignment
               footerAlignment
@@ -1681,11 +1684,11 @@ export const query = graphql`
             ... on SanityBlockFormNetlify {
               _key
               _type
-              _rawFormNetlify(resolveReferences: { maxDepth: 10 })
+              _rawFormNetlify(resolveReferences: { maxDepth: 1 })
               heading
               headingLevel
               titleAlignment
-              _rawFormStyle(resolveReferences: { maxDepth: 10 })
+              _rawFormStyle(resolveReferences: { maxDepth: 5 })
             }
           }
           designSettings {
@@ -1799,18 +1802,18 @@ export const query = graphql`
           header {
             heading
             subheading
-            _rawSubtitle(resolveReferences: { maxDepth: 10 })
+            _rawSubtitle(resolveReferences: { maxDepth: 4 })
           }
         }
         ... on SanityPaginatedListingSection {
           _key
           _type
           listItemType
-          _rawFooter(resolveReferences: { maxDepth: 10 })
+          _rawFooter(resolveReferences: { maxDepth: 4 })
           count
           footerAlignment
           header {
-            _rawSubtitle(resolveReferences: { maxDepth: 10 })
+            _rawSubtitle(resolveReferences: { maxDepth: 4 })
             heading
             subheading
           }

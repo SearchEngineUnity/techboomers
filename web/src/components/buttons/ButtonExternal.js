@@ -75,6 +75,11 @@ function ButtonExternal({
             },
           },
         },
+        contained: {
+          '&:hover': {
+            color: contrastTextColor,
+          },
+        },
       },
     },
   });

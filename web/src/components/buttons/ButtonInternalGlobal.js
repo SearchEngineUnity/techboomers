@@ -71,6 +71,11 @@ function ButtonInternalGlobal({
             },
           },
         },
+        contained: {
+          '&:hover': {
+            color: contrastTextColor,
+          },
+        },
       },
     },
   });
