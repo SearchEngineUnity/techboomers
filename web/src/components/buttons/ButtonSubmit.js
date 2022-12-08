@@ -69,6 +69,11 @@ function ButtonSubmit({
             },
           },
         },
+        contained: {
+          '&:hover': {
+            color: contrastTextColor,
+          },
+        },
       },
     },
   });

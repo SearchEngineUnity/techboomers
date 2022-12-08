@@ -75,6 +75,11 @@ function ButtonAffiliate({
             },
           },
         },
+        contained: {
+          '&:hover': {
+            color: contrastTextColor,
+          },
+        },
       },
     },
   });
