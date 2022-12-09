@@ -84,6 +84,7 @@ module.exports = {
         watchMode: !isProd,
       },
     },
+    'gatsby-plugin-gatsby-cloud',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-remove-trailing-slashes',
