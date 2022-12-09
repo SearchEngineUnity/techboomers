@@ -17,7 +17,6 @@ module.exports = {
   siteMetadata: {
     siteUrl,
   },
-  pathPrefix: `/learn`,
   plugins: [
     // {
     //   resolve: 'gatsby-plugin-google-tagmanager',
