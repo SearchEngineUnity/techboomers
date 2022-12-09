@@ -34,7 +34,7 @@ function TableOfContent({ toc }) {
             <Box component="li" fontSize="body2.fontSize" key={item._key} mb={1}>
               <Link
                 className={`${item.hashID === activeId ? classes.activeLink : null}`}
-                href={`#${item.hashId}`}
+                href={`#${item.hashID}`}
                 underline="hover"
                 onClick={(e) => {
                   e.preventDefault();
