@@ -31,7 +31,13 @@ function TableOfContent({ toc }) {
       <nav>
         <ul className={classes.list}>
           {toc.map((item) => (
-            <Box component="li" fontSize="body2.fontSize" key={item._key} mb={1}>
+            <Box
+              component="li"
+              fontSize="body1.fontSize"
+              lineHeight="1.15"
+              key={item._key}
+              mb="16px"
+            >
               <Link
                 className={`${item.hashID === activeId ? classes.activeLink : null}`}
                 href={`#${item.hashID}`}
