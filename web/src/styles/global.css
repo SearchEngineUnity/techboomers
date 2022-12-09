@@ -10837,20 +10837,20 @@ a.header-social-logo {
     text-decoration: none
 }
 
-/* a.header-social-logo.facebook {
-    background: url(../images/icons/social-logo50x50.png) no-repeat -4px -4px;
+a.header-social-logo.facebook {
+    background: url(https://techboomers.com/wp-content/themes/TechBoomers2018/dist/assets/images/icons/social-logo50x50.png) no-repeat -4px -4px;
     margin: .5rem 1rem
-} */
+}
 
-/* a.header-social-logo.twitter {
-    background: url(../images/icons/social-logo50x50.png) no-repeat -4px -62px;
+a.header-social-logo.twitter {
+    background: url(https://techboomers.com/wp-content/themes/TechBoomers2018/dist/assets/images/icons/social-logo50x50.png) no-repeat -4px -62px;
     margin: .5rem 1rem .5rem 0
-} */
+}
 
-/* a.header-social-logo.youtube {
-    background: url(../images/icons/social-logo50x50.png) no-repeat -4px -120px;
+a.header-social-logo.youtube {
+    background: url(https://techboomers.com/wp-content/themes/TechBoomers2018/dist/assets/images/icons/social-logo50x50.png) no-repeat -4px -120px;
     margin: .5rem 1rem .5rem 0
-} */
+}
 
 .entry-content a {
     font-weight: 700;
