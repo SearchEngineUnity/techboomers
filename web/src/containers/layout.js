@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import './global.css';
 import { StaticQuery, graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import MainNav from '../components/navs/headerElements/MainNav';
