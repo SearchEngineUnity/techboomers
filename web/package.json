@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build": "gatsby build",
-    "build:app": "npm run clean && gatsby build --prefix-paths && npm run move",
+    "build:app": "npm run clean && gatsby build --prefix-paths && npm run directory",
     "directory": "cd public && mkdir && npm run move",
     "move": "cd public | mv * learn",
     "develop": "gatsby develop",
