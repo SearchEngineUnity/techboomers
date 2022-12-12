@@ -10,7 +10,7 @@
   "scripts": {
     "build": "gatsby build",
     "build:app": "npm run clean && gatsby build --prefix-paths && npm run directory",
-    "directory": "cd public && mkdir && npm run move",
+    "directory": "cd public && mkdir learn && npm run move",
     "move": "cd public | mv * learn",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
