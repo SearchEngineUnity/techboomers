@@ -688,19 +688,23 @@ export default function MyMainNav() {
                         <h3>Featured and Trending &quot;Shopping Online&quot; Articles</h3>
                         <div className="row">
                           <div className="column medium-6 large-4 xlarge-3">
-                            <a href="https://techboomers.com/vrbo-vs-airbnb" className="card-link">
+                            <a
+                              href="https://techboomers.com/amazon-alternative-belgium"
+                              className="card-link"
+                            >
                               <div className="card card-tall">
                                 <img
-                                  width="240"
-                                  height="150"
-                                  src="https://techboomers.com/wp-content/uploads/2021/05/vrbo-vs-airbnb-240x150.png"
+                                  width={240}
+                                  height={150}
+                                  src="https://techboomers.com/wp-content/uploads/2022/06/amazon-alternatives-belgium-240x150.png"
                                   className="category-blue wp-post-image"
-                                  alt="Vrbo vs. Airbnb on holiday home background"
+                                  alt="Amazon Alternatives in Belgium"
+                                  decoding="async"
                                   loading="lazy"
                                 />
                                 <div className="card-section">
                                   <h5>
-                                    Vrbo vs. Airbnb: Which is the Better Vacation Booking Service?
+                                    13 Amazon Alternatives in Belgium for Finding Quality Products
                                   </h5>
                                 </div>
                               </div>
@@ -708,22 +712,22 @@ export default function MyMainNav() {
                           </div>
                           <div className="column medium-6 large-4 xlarge-3">
                             <a
-                              href="https://techboomers.com/amazon-alternatives-for-sellers"
+                              href="https://techboomers.com/netherlands-amazon-alternative"
                               className="card-link"
                             >
                               <div className="card card-tall">
                                 <img
-                                  width="240"
-                                  height="150"
-                                  src="https://techboomers.com/wp-content/uploads/2021/05/amazon-alternatives-240x150.png"
+                                  width={240}
+                                  height={150}
+                                  src="https://techboomers.com/wp-content/uploads/2022/06/amazon-alternatives-netherlands-240x150.png"
                                   className="category-blue wp-post-image"
-                                  alt="Man working on a laptop with Amazon alternatives for sellers text and marketplace logos"
+                                  alt="Amazon Alternatives in the Netherlands"
+                                  decoding="async"
                                   loading="lazy"
                                 />
                                 <div className="card-section">
                                   <h5>
-                                    22 Best Amazon Alternatives for Sellers to Reach the Right
-                                    Audience
+                                    14 Amazon Alternatives in the Netherlands for Online Shopping
                                   </h5>
                                 </div>
                               </div>
@@ -731,22 +735,22 @@ export default function MyMainNav() {
                           </div>
                           <div className="column medium-6 large-4 xlarge-3 show-for-large">
                             <a
-                              href="https://techboomers.com/amazon-merch-alternatives"
+                              href="https://techboomers.com/amazon-alternative-pakistan"
                               className="card-link"
                             >
                               <div className="card card-tall">
                                 <img
-                                  width="240"
-                                  height="150"
-                                  src="https://techboomers.com/wp-content/uploads/2021/05/amazon-alternatives-merch-240x150.png"
+                                  width={240}
+                                  height={150}
+                                  src="https://techboomers.com/wp-content/uploads/2022/06/amazon-alternatives-pakistan-240x150.png"
                                   className="category-blue wp-post-image"
-                                  alt="Amazon Alternatives Merch"
+                                  alt="Amazon alternatives in Pakistan"
+                                  decoding="async"
                                   loading="lazy"
                                 />
                                 <div className="card-section">
                                   <h5>
-                                    26 Sites like Amazon Merch that Offer Printing-on-Demand
-                                    Services
+                                    22 Amazon Alternatives in Pakistan for Buying Popular Products
                                   </h5>
                                 </div>
                               </div>
@@ -754,20 +758,24 @@ export default function MyMainNav() {
                           </div>
                           <div className="column medium-6 large-4 xlarge-3 show-for-xlarge">
                             <a
-                              href="https://techboomers.com/alternative-amazon-marketplace"
+                              href="https://techboomers.com/amazon-alternative-germany"
                               className="card-link"
                             >
                               <div className="card card-tall">
                                 <img
-                                  width="240"
-                                  height="150"
-                                  src="https://techboomers.com/wp-content/uploads/2021/05/online-marketplace-240x150.png"
+                                  width={240}
+                                  height={150}
+                                  src="https://techboomers.com/wp-content/uploads/2022/06/amazon-alternatives-germany-240x150.png"
                                   className="category-blue wp-post-image"
-                                  alt="Amazon alternatives marketplace"
+                                  alt="Amazon alternatives in Germany"
+                                  decoding="async"
                                   loading="lazy"
                                 />
                                 <div className="card-section">
-                                  <h5>44 Marketplace Sites like Amazon to Find the Best Deals</h5>
+                                  <h5>
+                                    17 Amazon Alternatives in Germany for Great Products &amp;
+                                    Discounts
+                                  </h5>
                                 </div>
                               </div>
                             </a>
@@ -776,43 +784,20 @@ export default function MyMainNav() {
                         <div className="row">
                           <div className="column medium-12 large-8 xlarge-6">
                             <a
-                              href="https://techboomers.com/sites-like-amazon-cheaper"
+                              href="https://techboomers.com/amazon-alternative-thailand"
                               className="card-link"
                             >
                               <div className="row card horizontal collapse card-medium">
                                 <div className="column medium-4 hide-for-small-only">
                                   <img
-                                    width="200"
-                                    height="150"
-                                    src="https://techboomers.com/wp-content/uploads/2021/05/happy-woman-online-shopping-200x150.jpg"
+                                    width={200}
+                                    height={150}
+                                    src="https://techboomers.com/wp-content/uploads/2022/06/amazon-alternatives-thailand-200x150.png"
                                     className="attachment-best-card size-best-card wp-post-image"
-                                    alt="Happy woman with laptop surrounded by shopping bags"
+                                    alt="Amazon alternatives in Thailand"
+                                    decoding="async"
                                     loading="lazy"
-                                    srcSet="https://techboomers.com/wp-content/uploads/2021/05/happy-woman-online-shopping-200x150.jpg 200w, https://techboomers.com/wp-content/uploads/2021/05/happy-woman-online-shopping-420x315.jpg 420w"
-                                    sizes="(max-width: 639px) 98vw, (max-width: 1199px) 64vw, 200px"
-                                  />
-                                </div>
-                                <div className="column small-12 medium-8">
-                                  <div className="card-divider category-blue" />
-                                  <div className="card-section">
-                                    <h5>27 Sites like Amazon but Cheaper to Find Great Deals</h5>
-                                  </div>
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                          <div className="column medium-12 large-8 xlarge-6 show-for-xlarge">
-                            <a href="https://techboomers.com/vrbo-refund" className="card-link">
-                              <div className="row card horizontal collapse card-medium">
-                                <div className="column medium-4 hide-for-small-only">
-                                  <img
-                                    width="200"
-                                    height="150"
-                                    src="https://techboomers.com/wp-content/uploads/2021/04/vrbo-refunds-200x150.png"
-                                    className="attachment-best-card size-best-card wp-post-image"
-                                    alt="Vrbo refunds on a beach background with suitcases"
-                                    loading="lazy"
-                                    srcSet="https://techboomers.com/wp-content/uploads/2021/04/vrbo-refunds-200x150.png 200w, https://techboomers.com/wp-content/uploads/2021/04/vrbo-refunds-420x315.png 420w"
+                                    srcSet="https://techboomers.com/wp-content/uploads/2022/06/amazon-alternatives-thailand-200x150.png 200w, https://techboomers.com/wp-content/uploads/2022/06/amazon-alternatives-thailand-420x315.png 420w"
                                     sizes="(max-width: 639px) 98vw, (max-width: 1199px) 64vw, 200px"
                                   />
                                 </div>
@@ -820,7 +805,38 @@ export default function MyMainNav() {
                                   <div className="card-divider category-blue" />
                                   <div className="card-section">
                                     <h5>
-                                      Everything to Know About Vrbo Refunds as a Guest and As a Host
+                                      9 Amazon Alternatives in Thailand for Great Deals On
+                                      Everything
+                                    </h5>
+                                  </div>
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div className="column medium-12 large-8 xlarge-6 show-for-xlarge">
+                            <a
+                              href="https://techboomers.com/amazon-alternative-singapore"
+                              className="card-link"
+                            >
+                              <div className="row card horizontal collapse card-medium">
+                                <div className="column medium-4 hide-for-small-only">
+                                  <img
+                                    width={200}
+                                    height={150}
+                                    src="https://techboomers.com/wp-content/uploads/2022/05/amazon-alternatives-singapore-200x150.png"
+                                    className="attachment-best-card size-best-card wp-post-image"
+                                    alt="Amazon Alternatives in Singapore"
+                                    decoding="async"
+                                    loading="lazy"
+                                    srcSet="https://techboomers.com/wp-content/uploads/2022/05/amazon-alternatives-singapore-200x150.png 200w, https://techboomers.com/wp-content/uploads/2022/05/amazon-alternatives-singapore-420x315.png 420w"
+                                    sizes="(max-width: 639px) 98vw, (max-width: 1199px) 64vw, 200px"
+                                  />
+                                </div>
+                                <div className="column small-12 medium-8">
+                                  <div className="card-divider category-blue" />
+                                  <div className="card-section">
+                                    <h5>
+                                      21 Websites Like Amazon in Singapore for Shopping Online
                                     </h5>
                                   </div>
                                 </div>
@@ -1534,16 +1550,63 @@ export default function MyMainNav() {
                         <div className="row">
                           <div className="column medium-6 large-4 xlarge-3">
                             <a
+                              href="https://techboomers.com/best-baggage-x-ray-scanners"
+                              className="card-link"
+                            >
+                              <div className="card card-tall">
+                                <img
+                                  width={240}
+                                  height={150}
+                                  src="https://techboomers.com/wp-content/uploads/2021/12/best-xray-baggage-scanners-240x150.jpg"
+                                  className="category-orange wp-post-image"
+                                  alt="An X-ray scanner processing different types of baggage"
+                                  decoding="async"
+                                  loading="lazy"
+                                />
+                                <div className="card-section">
+                                  <h5>
+                                    Best X-Ray Baggage Scanners for Luggage &amp; Airport Security
+                                  </h5>
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div className="column medium-6 large-4 xlarge-3">
+                            <a
+                              href="https://techboomers.com/best-mailroom-x-ray-scanners"
+                              className="card-link"
+                            >
+                              <div className="card card-tall">
+                                <img
+                                  width={240}
+                                  height={150}
+                                  src="https://techboomers.com/wp-content/uploads/2021/10/best-mailroom-xray-scanners-240x150.png"
+                                  className="category-orange wp-post-image"
+                                  alt="A conveyor-type x-ray machine passing a parcel through and detecting a threat"
+                                  decoding="async"
+                                  loading="lazy"
+                                />
+                                <div className="card-section">
+                                  <h5>
+                                    Best Mailroom X-Ray Scanners for Mail, Packages, and Parcels
+                                  </h5>
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div className="column medium-6 large-4 xlarge-3 show-for-large">
+                            <a
                               href="https://techboomers.com/sittercity-vs-care-com"
                               className="card-link"
                             >
                               <div className="card card-tall">
                                 <img
-                                  width="240"
-                                  height="150"
+                                  width={240}
+                                  height={150}
                                   src="https://techboomers.com/wp-content/uploads/2021/05/nanny-playing-240x150.jpg"
                                   className="category-orange wp-post-image"
                                   alt="Nanny playing with two children"
+                                  decoding="async"
                                   loading="lazy"
                                 />
                                 <div className="card-section">
@@ -1554,18 +1617,19 @@ export default function MyMainNav() {
                               </div>
                             </a>
                           </div>
-                          <div className="column medium-6 large-4 xlarge-3">
+                          <div className="column medium-6 large-4 xlarge-3 show-for-xlarge">
                             <a
                               href="https://techboomers.com/mailroom-screening"
                               className="card-link"
                             >
                               <div className="card card-tall">
                                 <img
-                                  width="240"
-                                  height="150"
+                                  width={240}
+                                  height={150}
                                   src="https://techboomers.com/wp-content/uploads/2021/05/mail-inspection-240x150.jpg"
                                   className="category-orange wp-post-image"
                                   alt="A customs agent and an agriculture specialist inspecting a package"
+                                  decoding="async"
                                   loading="lazy"
                                   srcSet="https://techboomers.com/wp-content/uploads/2021/05/mail-inspection-240x150.jpg 240w, https://techboomers.com/wp-content/uploads/2021/05/mail-inspection-300x189.jpg 300w, https://techboomers.com/wp-content/uploads/2021/05/mail-inspection-150x94.jpg 150w, https://techboomers.com/wp-content/uploads/2021/05/mail-inspection-768x483.jpg 768w, https://techboomers.com/wp-content/uploads/2021/05/mail-inspection-640x402.jpg 640w, https://techboomers.com/wp-content/uploads/2021/05/mail-inspection.jpg 800w"
                                   sizes="(max-width: 639px) 98vw, (max-width: 1199px) 64vw, 240px"
@@ -1576,95 +1640,24 @@ export default function MyMainNav() {
                               </div>
                             </a>
                           </div>
-                          <div className="column medium-6 large-4 xlarge-3 show-for-large">
-                            <a
-                              href="https://techboomers.com/mailroom-security-best-practices"
-                              className="card-link"
-                            >
-                              <div className="card card-tall">
-                                <img
-                                  width="240"
-                                  height="150"
-                                  src="https://techboomers.com/wp-content/uploads/2021/04/mail-inspection-240x150.jpg"
-                                  className="category-orange wp-post-image"
-                                  alt="A person screening mail"
-                                  loading="lazy"
-                                />
-                                <div className="card-section">
-                                  <h5>
-                                    Mailroom Security: Best Practices and Screening Procedures
-                                  </h5>
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                          <div className="column medium-6 large-4 xlarge-3 show-for-xlarge">
-                            <a
-                              href="https://techboomers.com/udacity-vs-coursera"
-                              className="card-link"
-                            >
-                              <div className="card card-tall">
-                                <img
-                                  width="240"
-                                  height="150"
-                                  src="https://techboomers.com/wp-content/uploads/2021/04/udacity-vs-coursera-240x150.png"
-                                  className="category-orange wp-post-image"
-                                  alt="Laptop displaying ‘Udacity vs. Coursera’"
-                                  loading="lazy"
-                                />
-                                <div className="card-section">
-                                  <h5>
-                                    Udacity vs. Coursera: Business vs. Academic E-Learning
-                                    Approaches
-                                  </h5>
-                                </div>
-                              </div>
-                            </a>
-                          </div>
                         </div>
                         <div className="row">
                           <div className="column medium-12 large-8 xlarge-6">
                             <a
-                              href="https://techboomers.com/how-does-thumbtack-work"
+                              href="https://techboomers.com/mailroom-security-best-practices"
                               className="card-link"
                             >
                               <div className="row card horizontal collapse card-medium">
                                 <div className="column medium-4 hide-for-small-only">
                                   <img
-                                    width="200"
-                                    height="150"
-                                    src="https://techboomers.com/wp-content/uploads/2021/04/painter-working-200x150.jpg"
+                                    width={200}
+                                    height={150}
+                                    src="https://techboomers.com/wp-content/uploads/2021/04/mail-inspection-200x150.jpg"
                                     className="attachment-best-card size-best-card wp-post-image"
-                                    alt="Painter standing on a ladder facing the wall"
+                                    alt="A person screening mail"
+                                    decoding="async"
                                     loading="lazy"
-                                    srcSet="https://techboomers.com/wp-content/uploads/2021/04/painter-working-200x150.jpg 200w, https://techboomers.com/wp-content/uploads/2021/04/painter-working-420x315.jpg 420w"
-                                    sizes="(max-width: 639px) 98vw, (max-width: 1199px) 64vw, 200px"
-                                  />
-                                </div>
-                                <div className="column small-12 medium-8">
-                                  <div className="card-divider category-orange" />
-                                  <div className="card-section">
-                                    <h5>How Does Thumbtack Work for Professionals and Users?</h5>
-                                  </div>
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                          <div className="column medium-12 large-8 xlarge-6 show-for-xlarge">
-                            <a
-                              href="https://techboomers.com/mail-threat-types"
-                              className="card-link"
-                            >
-                              <div className="row card horizontal collapse card-medium">
-                                <div className="column medium-4 hide-for-small-only">
-                                  <img
-                                    width="200"
-                                    height="150"
-                                    src="https://techboomers.com/wp-content/uploads/2021/04/potential-mail-threat-200x150.jpg"
-                                    className="attachment-best-card size-best-card wp-post-image"
-                                    alt="Stacked boxes with one labeled ‘fragile’"
-                                    loading="lazy"
-                                    srcSet="https://techboomers.com/wp-content/uploads/2021/04/potential-mail-threat-200x150.jpg 200w, https://techboomers.com/wp-content/uploads/2021/04/potential-mail-threat-420x315.jpg 420w"
+                                    srcSet="https://techboomers.com/wp-content/uploads/2021/04/mail-inspection-200x150.jpg 200w, https://techboomers.com/wp-content/uploads/2021/04/mail-inspection-420x315.jpg 420w"
                                     sizes="(max-width: 639px) 98vw, (max-width: 1199px) 64vw, 200px"
                                   />
                                 </div>
@@ -1672,7 +1665,38 @@ export default function MyMainNav() {
                                   <div className="card-divider category-orange" />
                                   <div className="card-section">
                                     <h5>
-                                      Identifying and Dealing with Different Types of Mail Threats
+                                      Mailroom Security: Best Practices and Screening Procedures
+                                    </h5>
+                                  </div>
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <div className="column medium-12 large-8 xlarge-6 show-for-xlarge">
+                            <a
+                              href="https://techboomers.com/udacity-vs-coursera"
+                              className="card-link"
+                            >
+                              <div className="row card horizontal collapse card-medium">
+                                <div className="column medium-4 hide-for-small-only">
+                                  <img
+                                    width={200}
+                                    height={150}
+                                    src="https://techboomers.com/wp-content/uploads/2021/04/udacity-vs-coursera-200x150.png"
+                                    className="attachment-best-card size-best-card wp-post-image"
+                                    alt="Laptop displaying ‘Udacity vs. Coursera’"
+                                    decoding="async"
+                                    loading="lazy"
+                                    srcSet="https://techboomers.com/wp-content/uploads/2021/04/udacity-vs-coursera-200x150.png 200w, https://techboomers.com/wp-content/uploads/2021/04/udacity-vs-coursera-420x315.png 420w"
+                                    sizes="(max-width: 639px) 98vw, (max-width: 1199px) 64vw, 200px"
+                                  />
+                                </div>
+                                <div className="column small-12 medium-8">
+                                  <div className="card-divider category-orange" />
+                                  <div className="card-section">
+                                    <h5>
+                                      Udacity vs. Coursera: Business vs. Academic E-Learning
+                                      Approaches
                                     </h5>
                                   </div>
                                 </div>
