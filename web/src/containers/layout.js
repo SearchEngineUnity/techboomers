@@ -6,12 +6,12 @@
  */
 
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
+import './layout.css';
 import MainNav from '../components/navs/headerElements/MainNav';
 import MainFooter from '../components/navs/footerElements/MainFooter';
 
-const MyLayout = ({ data, children, location }) => (
+const MyLayout = ({ children }) => (
   <>
     <Helmet>
       <script
@@ -38,20 +38,4 @@ const MyLayout = ({ data, children, location }) => (
   </>
 );
 
-export default function Layout(props) {
-  return (
-    <StaticQuery
-      query={graphql`
-        {
-          footer: sanityNavMenu(type: { eq: "mainFooter" }) {
-            type
-          }
-          mainNav: sanityNavMenu(type: { eq: "mainNav" }) {
-            type
-          }
-        }
-      `}
-      render={(data) => <MyLayout data={data} {...props} />}
-    />
-  );
-}
+export default MyLayout;
