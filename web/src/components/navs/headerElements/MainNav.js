@@ -52,7 +52,11 @@ export default function MyMainNav() {
   };
 
   return (
-    <header className="site-header" role="banner">
+    <header
+      className="site-header"
+      role="banner"
+      style={{ maxWidth: '1400px', marginLeft: 'auto', marginRight: 'auto' }}
+    >
       <Box display={{ xs: 'block', sm: 'none' }}>
         <div
           className="mobile-nav-bar title-bar"
