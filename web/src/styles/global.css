@@ -9397,9 +9397,9 @@ screen and (min-width:40em) {
 }
 
 body {
-    max-width: 87.5rem;
+    /* max-width: 87.5rem;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto; */
     background-color: #fafafa
 }
 
