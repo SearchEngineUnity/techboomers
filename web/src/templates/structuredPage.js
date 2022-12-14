@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../containers/layout';
 import Seo from '../components/Seo';
 import LrHero from '../components/sections/LrFlexHero';
 import LrFlex from '../components/sections/StructuredLrFlex';
@@ -1834,11 +1833,11 @@ export const query = graphql`
   }
 `;
 
-const StructuredPage = ({ data, location }) => {
+const StructuredPage = ({ data }) => {
   const type = 'page';
 
   return (
-    <Layout location={location}>
+    <>
       <Seo {...mapSeoToProps(data.page, type)} />
       <main>
         {data.page.sections.map((section) => {
@@ -1861,7 +1860,7 @@ const StructuredPage = ({ data, location }) => {
           }
         })}
       </main>
-    </Layout>
+    </>
   );
 };
 

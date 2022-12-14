@@ -52,11 +52,18 @@ module.exports = {
     //   },
     // },
     {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        icon: 'src/images/icon.png',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-html-attributes',
       options: {
         lang: 'en',
       },
     },
+    'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-theme-material-ui`,
       options: {
@@ -75,6 +82,16 @@ module.exports = {
         },
       },
     },
+    'gatsby-plugin-styled-components',
+    'gatsby-plugin-gatsby-cloud',
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/containers/layout.js`),
+      },
+    },
+    'gatsby-plugin-remove-trailing-slashes',
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-source-sanity',
       options: {
@@ -83,17 +100,6 @@ module.exports = {
         token: process.env.SANITY_TOKEN,
         overlayDrafts: process.env.SANITY_OVERLAY_DRAFTS || !isProd,
         watchMode: !isProd,
-      },
-    },
-    'gatsby-plugin-gatsby-cloud',
-    'gatsby-plugin-styled-components',
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-remove-trailing-slashes',
-    'gatsby-plugin-sitemap',
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        icon: 'src/images/icon.png',
       },
     },
     {
