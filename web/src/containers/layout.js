@@ -31,9 +31,9 @@ const MyLayout = ({ children }) => (
       </script>
       <link rel="dns-prefetch" href="//use.fontawesome.com" />
     </Helmet>
-    <MainNav />
+    {/* <MainNav /> */}
     <>{children}</>
-    <MainFooter />
+    {/* <MainFooter /> */}
   </>
 );
 
