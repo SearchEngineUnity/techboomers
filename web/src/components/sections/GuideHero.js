@@ -50,7 +50,7 @@ function GuideHero({ h1, subtitle, date, image, includeDisclaimer }) {
   const classes = useStyles();
 
   return (
-    <>
+    <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
       <Box
         bgcolor="primary.main"
         color="primary.contrastText"
@@ -96,7 +96,7 @@ function GuideHero({ h1, subtitle, date, image, includeDisclaimer }) {
         </Container>
       </Box>
       <ProgressBar />
-    </>
+    </div>
   );
 }
 

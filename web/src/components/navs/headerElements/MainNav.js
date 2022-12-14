@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState } from 'react';
-import { Hidden, Collapse } from '@material-ui/core';
+import { Box, Collapse } from '@material-ui/core';
 
 export default function MyMainNav() {
   const [open, setOpen] = useState(false);
@@ -52,8 +52,12 @@ export default function MyMainNav() {
   };
 
   return (
-    <header className="site-header" role="banner">
-      <Hidden smUp>
+    <header
+      className="site-header"
+      role="banner"
+      style={{ maxWidth: '1400px', marginLeft: 'auto', marginRight: 'auto' }}
+    >
+      <Box display={{ xs: 'block', sm: 'none' }}>
         <div
           className="mobile-nav-bar title-bar"
           data-responsive-toggle="mobile-menu"
@@ -474,8 +478,9 @@ export default function MyMainNav() {
             </div>
           </nav>
         </Collapse>
-      </Hidden>
-      <Hidden only="xs">
+      </Box>
+
+      <Box display={{ xs: 'none', sm: 'block' }}>
         <div className="row expanded collapse hide-for-small-only">
           <div className="column medium-3 large-2">
             <a href="https://techboomers.com/" rel="home" className="header-home-link">
@@ -2006,7 +2011,7 @@ export default function MyMainNav() {
             </li>
           </ul>
         </nav>
-      </Hidden>
+      </Box>
     </header>
   );
 }

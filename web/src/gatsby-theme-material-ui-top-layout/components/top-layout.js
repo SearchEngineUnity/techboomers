@@ -27,15 +27,6 @@ const ThemeProvider = ({ children, data }) => {
           fontWeight: 600,
         },
       },
-      breakpoints: {
-        values: {
-          xs: 0,
-          sm: 640,
-          md: 960,
-          lg: 1280,
-          xl: 1920,
-        },
-      },
       MuiTypography: {
         gutterBottom: {
           marginBottom: '0.8125em',
@@ -43,6 +34,15 @@ const ThemeProvider = ({ children, data }) => {
             marginBottom: '0px',
           },
         },
+      },
+    },
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 640,
+        md: 960,
+        lg: 1280,
+        xl: 1920,
       },
     },
     palette: {
