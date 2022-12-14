@@ -97,7 +97,7 @@ function GuideHero({ h1, subtitle, date, image, includeDisclaimer }) {
           </Grid>
         </Container>
       </Box>
-      <ProgressBar />
+      <ProgressBar style={{ maxWidth: '1400px', margin: '0 auto' }} />
     </>
   );
 }
