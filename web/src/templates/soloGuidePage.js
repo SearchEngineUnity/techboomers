@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Container, Grid, Box, Hidden } from '@material-ui/core';
+import Layout from '../containers/layout';
 import GuideHero from '../components/sections/GuideHero';
 import GuideBody from '../components/portableText/serializer/GuideSerializer';
 import ToC from '../components/TableOfContent';
@@ -63,12 +64,12 @@ export const query = graphql`
   }
 `;
 
-const SoloGuidePage = ({ data }) => {
+const SoloGuidePage = ({ data, location }) => {
   const type = 'guide';
   useUpdateUrl();
 
   return (
-    <>
+    <Layout location={location}>
       <Seo {...mapSeoToProps(data.guide, type)} heroImage={data.guide.heroImage.asset.url} />
       <main>
         <GuideHero {...mapGuideHeroToProps(data.guide)} />
@@ -89,7 +90,7 @@ const SoloGuidePage = ({ data }) => {
           </Container>
         </Box>
       </main>
-    </>
+    </Layout>
   );
 };
 
