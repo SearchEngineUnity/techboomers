@@ -30,12 +30,6 @@ const MyLayout = ({ children }) => (
     })(document);`}
       </script>
       <link rel="dns-prefetch" href="//use.fontawesome.com" />
-      <link
-        rel="stylesheet"
-        href="https://techboomers.com/wp-content/themes/TechBoomers2018/dist/assets/css/app.css?ver=2.10.63"
-        type="text/css"
-        async
-      />
     </Helmet>
     <MainNav />
     <>{children}</>
