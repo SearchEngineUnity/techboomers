@@ -50,7 +50,7 @@ function GuideHero({ h1, subtitle, date, image, includeDisclaimer }) {
   const classes = useStyles();
 
   return (
-    <>
+    <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
       <Box
         bgcolor="primary.main"
         color="primary.contrastText"
@@ -58,8 +58,6 @@ function GuideHero({ h1, subtitle, date, image, includeDisclaimer }) {
         component="section"
         className={classes.section}
         py={8}
-        maxWidth="1400px"
-        margin="0 auto"
       >
         <Container maxWidth="lg" className={classes.column}>
           <Grid
@@ -97,8 +95,8 @@ function GuideHero({ h1, subtitle, date, image, includeDisclaimer }) {
           </Grid>
         </Container>
       </Box>
-      <ProgressBar style={{ maxWidth: '1400px', margin: '0 auto' }} />
-    </>
+      <ProgressBar />
+    </div>
   );
 }
 
