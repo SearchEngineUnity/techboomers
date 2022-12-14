@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import Layout from '../containers/layout';
 import Seo from '../components/Seo';
 import LrHero from '../components/sections/LrFlexHero';
 import LrFlex from '../components/sections/StructuredLrFlex';
@@ -1958,7 +1959,7 @@ export const query = graphql`
   }
 `;
 
-const FlexListingPage = ({ data, pageContext }) => {
+const FlexListingPage = ({ data, location, pageContext }) => {
   let allListItems;
   const spGuides = useSpGuides();
 
@@ -1978,7 +1979,7 @@ const FlexListingPage = ({ data, pageContext }) => {
   const listingItems = allListItems.slice((currentpage - 1) * limit, currentpage * limit);
 
   return (
-    <>
+    <Layout location={location}>
       <Seo {...mapSeoToProps(data.page, type)} />
       <main>
         {data.page.sections.map((section) => {
@@ -2011,7 +2012,7 @@ const FlexListingPage = ({ data, pageContext }) => {
           }
         })}
       </main>
-    </>
+    </Layout>
   );
 };
 

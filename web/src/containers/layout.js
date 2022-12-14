@@ -7,7 +7,6 @@
 
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import './layout.css';
 import MainNav from '../components/navs/headerElements/MainNav';
 import MainFooter from '../components/navs/footerElements/MainFooter';
 

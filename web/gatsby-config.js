@@ -84,12 +84,6 @@ module.exports = {
     },
     'gatsby-plugin-styled-components',
     'gatsby-plugin-gatsby-cloud',
-    {
-      resolve: `gatsby-plugin-layout`,
-      options: {
-        component: require.resolve(`./src/containers/layout.js`),
-      },
-    },
     'gatsby-plugin-remove-trailing-slashes',
     'gatsby-plugin-sitemap',
     {
