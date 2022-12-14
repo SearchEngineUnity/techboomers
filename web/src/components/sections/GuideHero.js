@@ -59,6 +59,7 @@ function GuideHero({ h1, subtitle, date, image, includeDisclaimer }) {
         className={classes.section}
         py={8}
         maxWidth="1400px"
+        margin="0 auto"
       >
         <Container maxWidth="lg" className={classes.column}>
           <Grid
