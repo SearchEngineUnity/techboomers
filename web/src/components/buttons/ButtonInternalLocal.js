@@ -76,6 +76,10 @@ function ButtonInternalLocal({
           '&:hover': {
             color: contrastTextColor,
           },
+          '&:focus': {
+            color: contrastTextColor,
+            textDecoration: 'none',
+          },
         },
       },
     },

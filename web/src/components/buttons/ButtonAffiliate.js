@@ -79,6 +79,10 @@ function ButtonAffiliate({
           '&:hover': {
             color: contrastTextColor,
           },
+          '&:focus': {
+            color: contrastTextColor,
+            textDecoration: 'none',
+          },
         },
       },
     },
