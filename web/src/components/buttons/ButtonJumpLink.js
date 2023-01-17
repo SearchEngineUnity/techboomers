@@ -75,6 +75,10 @@ function ButtonJumpLink({
           '&:hover': {
             color: contrastTextColor,
           },
+          '&:focus': {
+            color: contrastTextColor,
+            textDecoration: 'none',
+          },
         },
       },
     },

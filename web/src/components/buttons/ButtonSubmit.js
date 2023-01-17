@@ -73,6 +73,10 @@ function ButtonSubmit({
           '&:hover': {
             color: contrastTextColor,
           },
+          '&:focus': {
+            color: contrastTextColor,
+            textDecoration: 'none',
+          },
         },
       },
     },
