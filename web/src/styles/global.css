@@ -6657,6 +6657,10 @@ table tbody th {
     padding: .5rem .625rem .625rem
 }
 
+table tbody tr:nth-child(odd) {
+    background-color: #ffffff
+}
+
 table tbody tr:nth-child(even) {
     border-bottom: 0;
     background-color: #f1f1f1
