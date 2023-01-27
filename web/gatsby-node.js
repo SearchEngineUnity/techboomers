@@ -161,19 +161,9 @@ async function createPageRedirects(actions, graphql) {
   });
 }
 
-// create redirect for netlify 404 to regular TB 404
-async function create404Redirects(actions) {
-  actions.createRedirect({
-    fromPath: '/learn/404',
-    toPath: 'https://techboomers.com/404',
-    statusCode: 404,
-  });
-}
-
 exports.createPages = async ({ actions, graphql }) => {
   await createStructuredPages(actions, graphql);
   await createFlexListingPages(actions, graphql);
   await createSoloGuidePages(actions, graphql);
   await createPageRedirects(actions, graphql);
-  await create404Redirects(actions);
 };
